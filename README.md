@@ -96,11 +96,11 @@ You can download the talktorials to your computer using the package `git`:
 git clone https://github.com/volkamerlab/TeachOpenCADD.git
 ```
 
-Within your conda environment `cadd-py36` start Jupyter notebook
+Within your conda environment `cadd-py36` start Jupyter notebook...
 ```bash
 jupyter notebook
 ```
-
+... and get started with the first talktorial. Enjoy!
 
 ### Windows
 
