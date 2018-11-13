@@ -48,8 +48,6 @@ Topics on TeachOpenCADD are demonstrated in form of so called **talktorials** (a
 
 Please contact andrea.volkamer@charite.de if you have question or suggestions on existing or potential new talktorials.
 
-[![TeachOpenCADD overview](TeachOpenCADD_overview.jpg)](https://github.com/volkamerlab/TeachOpenCADD/blob/master/TeachOpenCADD_overview.pdf)
-
 
 ## Installation
 
