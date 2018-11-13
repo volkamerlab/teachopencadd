@@ -141,14 +141,12 @@ The package manager pip under version 10.0.X works differently than before, so t
 You can solve this problem with calling pip via python like this:
 
 ```bash
-python -m pip install chembl_webresource_client
 python3 -m pip install chembl_webresource_client
 python3 -m pip install pypdb
 ```
 
 Installing the ```chembl_webresource_client```, you might run into the warning that ```urllib3``` is incompartible. You can solve this via updating:
 ```bash
-python -m pip install urllib3 --upgrade
 python3 -m pip install urllib3 --upgrade
 ```
 
