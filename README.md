@@ -6,6 +6,8 @@ Dominique Sydow, Maximilian Driller, Andrea Morger and Andrea Volkamer
 
 *In silico* Toxicology, Institute for Physiology, Universitätsmedizin Berlin, Virchowweg 6, 10117 Berlin  
 
+_____________________________________________________________________________________________________________________
+
 This work is licensed under the Attribution 4.0 International (CC BY 4.0).
 To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.
 
@@ -45,6 +47,9 @@ Topics on TeachOpenCADD are demonstrated in form of so called **talktorials** (a
 10. Binding site similarity and off-target prediction
 
 Please contact andrea.volkamer@charite.de if you have question or suggestions on existing or potential new talktorials.
+
+[![TeachOpenCADD overview](TeachOpenCADD_overview.jpg)](https://github.com/volkamerlab/TeachOpenCADD/blob/master/TeachOpenCADD_overview.pdf)
+
 
 ## Installation
 
