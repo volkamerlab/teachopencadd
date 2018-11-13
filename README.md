@@ -89,7 +89,7 @@ conda install -c conda-forge pmw  # Necessary for PyMol terminal window to pop u
 conda install -c conda-forge pandas
 conda install scikit-learn
 conda install -c anaconda seaborn
-conda install biopandas
+conda install biopandas  # or pip install biopandas
 
 # pip is probably installed by default in your environment
 pip install chembl_webresource_client
