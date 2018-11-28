@@ -8,10 +8,14 @@ Dominique Sydow, Maximilian Driller, Andrea Morger and Andrea Volkamer
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1486227.svg)](https://doi.org/10.5281/zenodo.1486227)
 
-_____________________________________________________________________________________________________________________
-
 This work is licensed under the Attribution 4.0 International (CC BY 4.0).
 To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.
+
+## Table of contents  
+
+* [Aims of this teaching platform](#aims-of-this-teaching-platform)
+* [Topics](#topics)
+* [Installation](#installation)
 
 ## Aims of this teaching platform
 
