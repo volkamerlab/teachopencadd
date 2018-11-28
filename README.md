@@ -19,6 +19,8 @@ To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0
 
 ## Aims of this teaching platform
 
+(Back to [Table of contents](#table-of-contents).)
+
 Open source programming packages for cheminformatics and structural bioinformatics are powerful tools to build modular, reproducible, and easy-to-share pipelines for computer-aided drug design (CADD). While documentation for tools is available, only few freely accessible examples teach underlying concepts focused on CADD usage such as the TDT initiative [1], addressing especially users new to the field.
 
 Here, we present a CADD teaching platform developed from students for students, using open source packages such as the python tools RDKit [2], PyPDB [3], and PyMol [4]. For each topic, an interactive Jupyter Notebook [5] was developed, holding detailed theoretical background of the underlying topic and well-commented python code, freely available on GitHub. Illustrated at the example of EGFR kinase, we discuss how to acquire data from the public compound database ChEMBL [6], how to filter compounds for drug-likeness, and how to identify and remove unwanted substructures. Furthermore, we introduce measures for compound similarity, which are subsequently used to cluster compounds, i.e., for the selection of a divers compound set. We also employ machine learning approaches in order to build models for predicting novel active compounds. Lastly, structures are fetched from the public protein database PDB [7], used to generate ligand-based ensemble 3D pharmacophores and to conduct binding site comparison for off-target prediction. 
@@ -39,6 +41,8 @@ Literature:
 
 ## Topics
 
+(Back to [Table of contents](#table-of-contents).)
+
 Topics on TeachOpenCADD are demonstrated in form of so called **talktorials** (a mixure of theory and coding, ready to be presented also in form of a presentation) and currently include:
 
 1. Compound data acquisition: ChEMBL
@@ -56,6 +60,8 @@ Please contact andrea.volkamer@charite.de if you have question or suggestions on
 
 
 ## Installation
+
+(Back to [Table of contents](#table-of-contents).)
 
 ### Linux
 
