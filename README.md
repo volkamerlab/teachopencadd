@@ -8,6 +8,8 @@ Dominique Sydow, Maximilian Driller, Andrea Morger and Andrea Volkamer
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1486227.svg)](https://doi.org/10.5281/zenodo.1486227)
 
+Please contact teachopencadd@charite.de if you have question or suggestions on existing or potential new talktorials.
+
 This work is licensed under the Attribution 4.0 International (CC BY 4.0).
 To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.
 
@@ -55,9 +57,6 @@ Topics on TeachOpenCADD are demonstrated in form of so called **talktorials** (a
 8. Protein data acquisition: Protein Data Bank (PDB)
 9. Ligand-based pharmacophores
 10. Binding site similarity and off-target prediction
-
-Please contact andrea.volkamer@charite.de if you have question or suggestions on existing or potential new talktorials.
-
 
 ## Installation
 
