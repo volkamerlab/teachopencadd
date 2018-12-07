@@ -4,7 +4,7 @@
 
 Dominique Sydow, Maximilian Driller, Andrea Morger and Andrea Volkamer
 
-*In silico* Toxicology, Institute for Physiology, Universitätsmedizin Berlin, Virchowweg 6, 10117 Berlin
+*In Silico* Toxicology, Institute for Physiology, Universitätsmedizin Berlin, Virchowweg 6, 10117 Berlin
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1486227.svg)](https://doi.org/10.5281/zenodo.1486227)
 
