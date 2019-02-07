@@ -66,7 +66,7 @@ Topics on TeachOpenCADD are demonstrated in form of so called **talktorials** (a
 
 Use the Anaconda software for a clean package version management. 
 
-Install Anaconda2 or Anaconda3. In theory, it should not matter which Anaconda version you install. However, we only tested it for Anaconda2, so we cannot garantee the same behaviour for Anaconda3.
+Install Anaconda2 or Anaconda3. In theory, it should not matter which Anaconda version you install. However, we only tested it for Anaconda2, so we cannot guarantee the same behaviour for Anaconda3.
 
 https://docs.anaconda.com/anaconda/install/
 
