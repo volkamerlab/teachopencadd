@@ -2,7 +2,7 @@
 
 #### TeachOpenCADD: a teaching platform for computer-aided drug design (CADD) using open source packages and data
 
-Dominique Sydow, Maximilian Driller, Andrea Morger and Andrea Volkamer
+Dominique Sydow, Andrea Morger, Maximilian Driller and Andrea Volkamer
 
 *In Silico* Toxicology, Institute for Physiology, Universitätsmedizin Berlin, Virchowweg 6, 10117 Berlin
 
