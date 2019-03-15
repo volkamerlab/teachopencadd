@@ -70,18 +70,47 @@ Install Anaconda2 or Anaconda3. In theory, it should not matter which Anaconda v
 
 https://docs.anaconda.com/anaconda/install/
 
-Then, use the package management system conda to create an environment for our talktorials.
-
-Create an environment, e.g. called `cadd-py36`, and activate this environment.
+Then, use the package management system conda to create an environment (e.g. called `teachopencadd`) for our talktorials. 
+We provide you with an environment file (yml file) containing all required packages:
 
 ```bash
-conda create -n cadd-py36 python=3.6 anaconda
-conda activate cadd-py36
+conda teachopencadd create -f teachopencadd-conda-environment.yml
+```
+
+(You can also create this environment manually. 
+Check ["Create conda environment manually"](#Create-conda-environment-manually) for this.)
+
+Now activate your environment:
+
+```bash
+conda activate teachopencadd
+```
+
+You can download the talktorials to your computer using the package `git`:
+
+```bash
+git clone https://github.com/volkamerlab/TeachOpenCADD.git
+```
+
+Within your conda environment `teachopencadd` start Jupyter notebook...
+```bash
+jupyter notebook
+```
+... and get started with the first talktorial. Enjoy!
+
+##### Create conda environment manually
+
+
+Create an environment, e.g. called `teachopencadd`, and activate this environment.
+
+```bash
+conda create -n teachopencadd python=3.6 anaconda
+conda activate teachopencadd
 ```
 
 Install required packages within this environment.
 
-**Note**: In order to link your environment to your jupyter notebook, install `nb_conda` (see below). After starting your jupyter notebook from the terminal within your environment, select your environment via `Kernel > Change kernel > Python [conda env:cadd-py36]`.
+**Note**: In order to link your environment to your jupyter notebook, install `nb_conda` (see below). After starting your jupyter notebook from the terminal within your environment, select your environment via `Kernel > Change kernel > Python [conda env:teachopencadd]`.
 
 https://stackoverflow.com/questions/39604271/conda-environments-not-showing-up-in-jupyter-notebook
 https://stackoverflow.com/questions/37433363/link-conda-environment-with-jupyter-notebook
@@ -92,7 +121,7 @@ conda install nb_conda # Link conda environment with jupyter notebook
 
 # If nb_conda does not work, try out ipykernel:
 #conda install ipykernel  # Is probably already installed
-#python -m ipykernel install --user --name cadd-py36  # Enable the environment in jupyter notebook
+#python -m ipykernel install --user --name teachopencadd  # Enable the environment in jupyter notebook
 
 conda install -c rdkit rdkit
 conda install -c samoturk pymol
@@ -106,18 +135,6 @@ pip install biopandas  # or conda install biopandas
 pip install chembl_webresource_client
 pip install pypdb
 ```
-
-You can download the talktorials to your computer using the package `git`:
-
-```bash
-git clone https://github.com/volkamerlab/TeachOpenCADD.git
-```
-
-Within your conda environment `cadd-py36` start Jupyter notebook...
-```bash
-jupyter notebook
-```
-... and get started with the first talktorial. Enjoy!
 
 ### Windows
 
