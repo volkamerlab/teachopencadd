@@ -98,9 +98,9 @@ jupyter notebook
 ```
 ... and get started with the first talktorial. Enjoy!
 
-##### Alternative: create conda environment manually
+#### Alternative: create conda environment manually
 
-Note: This is the alternative to creating the conda environment using the yml file as described above. 
+**Note**: This is the alternative to creating the conda environment using the yml file as described above. 
 
 Create an environment, e.g. called `teachopencadd`, and activate this environment.
 
