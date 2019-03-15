@@ -78,7 +78,7 @@ conda teachopencadd create -f teachopencadd-conda-environment.yml
 ```
 
 (You can also create this environment manually. 
-Check ["Alternative: create conda environment manually"](#Alternative:-create-conda-environment-manually) for this.)
+Check ["Alternatively create conda environment manually"](#Alternatively-create-conda-environment-manually) for this.)
 
 Now activate your environment:
 
@@ -92,13 +92,19 @@ You can download the talktorials to your computer using the package `git`:
 git clone https://github.com/volkamerlab/TeachOpenCADD.git
 ```
 
-Within your conda environment `teachopencadd` start Jupyter notebook...
+Within your conda environment `teachopencadd` start Jupyter notebook:
 ```bash
 jupyter notebook
 ```
-... and get started with the first talktorial. Enjoy!
 
-#### Alternative: create conda environment manually
+**Note**: In order to link your environment to your jupyter notebook, install `nb_conda` (see below). After starting your jupyter notebook from the terminal within your environment, select your environment via `Kernel > Change kernel > Python [conda env:teachopencadd]`.
+
+https://stackoverflow.com/questions/39604271/conda-environments-not-showing-up-in-jupyter-notebook
+https://stackoverflow.com/questions/37433363/link-conda-environment-with-jupyter-notebook
+
+Now you can get started with the first talktorial. Enjoy!
+
+#### Alternatively create conda environment manually
 
 **Note**: This is the alternative to creating the conda environment using the yml file as described above. 
 
@@ -110,11 +116,6 @@ conda activate teachopencadd
 ```
 
 Install required packages within this environment.
-
-**Note**: In order to link your environment to your jupyter notebook, install `nb_conda` (see below). After starting your jupyter notebook from the terminal within your environment, select your environment via `Kernel > Change kernel > Python [conda env:teachopencadd]`.
-
-https://stackoverflow.com/questions/39604271/conda-environments-not-showing-up-in-jupyter-notebook
-https://stackoverflow.com/questions/37433363/link-conda-environment-with-jupyter-notebook
 
 ```bash
 conda install jupyter # Is probably already installed
