@@ -100,6 +100,7 @@ jupyter notebook
 
 ##### Create conda environment manually
 
+Note: This is the alternative to creating the conda environment using the yml file as described above. 
 
 Create an environment, e.g. called `teachopencadd`, and activate this environment.
 
