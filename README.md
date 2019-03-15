@@ -78,7 +78,7 @@ conda teachopencadd create -f teachopencadd-conda-environment.yml
 ```
 
 (You can also create this environment manually. 
-Check ["Create conda environment manually"](#Create-conda-environment-manually) for this.)
+Check ["Alternative: create conda environment manually"](#Alternative:-create-conda-environment-manually) for this.)
 
 Now activate your environment:
 
@@ -98,7 +98,7 @@ jupyter notebook
 ```
 ... and get started with the first talktorial. Enjoy!
 
-##### Create conda environment manually
+##### Alternative: create conda environment manually
 
 Note: This is the alternative to creating the conda environment using the yml file as described above. 
 
