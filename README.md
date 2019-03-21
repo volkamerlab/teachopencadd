@@ -6,7 +6,7 @@ Dominique Sydow, Andrea Morger, Maximilian Driller and Andrea Volkamer
 
 *In Silico* Toxicology, Institute for Physiology, Universitätsmedizin Berlin, Virchowweg 6, 10117 Berlin
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1486227.svg)](https://doi.org/10.5281/zenodo.1486227)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2600909.svg)](https://doi.org/10.5281/zenodo.2600909)
 
 Please contact teachopencadd@charite.de if you have question or suggestions on existing or potential new talktorials.
 
