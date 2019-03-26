@@ -126,6 +126,7 @@ conda install nb_conda # Link conda environment with jupyter notebook
 #python -m ipykernel install --user --name teachopencadd  # Enable the environment in jupyter notebook
 
 conda install -c rdkit rdkit
+#conda install -c rdkit rdkit=2018.09.1  # Tested for this version
 conda install -c samoturk pymol
 conda install -c conda-forge pmw  # Necessary for PyMol terminal window to pop up
 conda install -c conda-forge pandas
