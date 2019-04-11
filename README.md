@@ -67,7 +67,7 @@ You can use our talktorials locally (download repository and install dependencie
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/volkamerlab/TeachOpenCADD/master)
 
-### Local installation
+### Install locally
 
 (Back to [Table of contents](#table-of-contents).)
 
