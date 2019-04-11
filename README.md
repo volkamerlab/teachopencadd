@@ -74,7 +74,7 @@ Then, use the package management system conda to create an environment (e.g. cal
 We provide you with an environment file (yml file) containing all required packages:
 
 ```bash
-conda env -f teachopencadd-conda-environment.yml
+conda env create -f teachopencadd-conda-environment.yml
 ```
 
 (You can also create this environment manually. 
@@ -97,7 +97,7 @@ Within your conda environment `teachopencadd` start Jupyter notebook:
 jupyter notebook
 ```
 
-**Note**: In order to link your environment to your jupyter notebook, install `nb_conda` (see below). After starting your jupyter notebook from the terminal within your environment, select your environment via `Kernel > Change kernel > Python [conda env:teachopencadd]`.
+**Note**: In order to link your environment to your jupyter notebook, install `nb_conda` (is included in .yml file above). After starting your jupyter notebook from the terminal within your environment, select your environment via `Kernel > Change kernel > Python [conda env:teachopencadd]`.
 
 https://stackoverflow.com/questions/39604271/conda-environments-not-showing-up-in-jupyter-notebook
 https://stackoverflow.com/questions/37433363/link-conda-environment-with-jupyter-notebook
