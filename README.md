@@ -7,6 +7,7 @@ Dominique Sydow, Andrea Morger, Maximilian Driller and Andrea Volkamer
 *In Silico* Toxicology, Institute for Physiology, Universitätsmedizin Berlin, Virchowweg 6, 10117 Berlin
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2600909.svg)](https://doi.org/10.5281/zenodo.2600909)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/volkamerlab/TeachOpenCADD/master)
 
 Please contact teachopencadd@charite.de if you have question or suggestions on existing or potential new talktorials.
 
@@ -17,7 +18,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0
 
 * [Aims of this teaching platform](#aims-of-this-teaching-platform)
 * [Topics](#topics)
-* [Installation](#installation)
+* [Usage instructions](#usage-instructions)
 
 ## Aims of this teaching platform
 
@@ -58,11 +59,19 @@ Topics on TeachOpenCADD are demonstrated in form of so called **talktorials** (a
 9. Ligand-based pharmacophores
 10. Binding site similarity and off-target prediction
 
-## Installation
+## Usage instructions
+
+### Use Binder
+
+You can use our talktorials locally (download repository and install dependencies as described below), or you can use Binder to host the repository and all needed dependencies for with in a JupyterHub:
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/volkamerlab/TeachOpenCADD/master)
+
+### Local installation
 
 (Back to [Table of contents](#table-of-contents).)
 
-### Linux
+#### Linux
 
 Use the Anaconda software for a clean package version management. 
 
@@ -104,7 +113,7 @@ https://stackoverflow.com/questions/37433363/link-conda-environment-with-jupyter
 
 Now you can get started with the first talktorial. Enjoy!
 
-#### Alternatively create conda environment manually
+##### Alternatively create conda environment manually
 
 **Note**: This is the alternative to creating the conda environment using the yml file as described above. 
 
@@ -139,7 +148,7 @@ pip install chembl_webresource_client
 pip install pypdb
 ```
 
-### Windows
+#### Windows
 
 Generally, the installation works the same under Linux and Windows without problems.
 
@@ -158,14 +167,14 @@ pip install pymol_launcher‑2.1‑cp36‑cp36m‑win_amd64.whl
 # or whatever pymol_XXXX.whl you have downloaded
 ```
 
-### Problems we ran into
+#### Problems we ran into
 
-#### RDKit
+##### RDKit
 
 * ```from rdkit.Chem.Draw import IPythonConsole``` throws ```ImportError: No module named 'PIL'```: try to install pip install pillow in your respective environment (check out https://github.com/rdkit/rdkit/issues/1179)
 * ```Draw.MolsToGridImage``` throws some Serial error: list your input data type as in ```Draw.MolsToGridImage(list(df.ROMol), useSVG=True)```
 
-#### pip
+##### pip
 
 The package manager pip under version 10.0.X works differently than before, so that the command ```pip install chembl_webresource_client``` suggested above throws the import error ```cannot import name main```:
 
