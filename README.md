@@ -74,7 +74,7 @@ Then, use the package management system conda to create an environment (e.g. cal
 We provide you with an environment file (yml file) containing all required packages:
 
 ```bash
-conda env -f teachopencadd-conda-environment.yml
+conda env create -f teachopencadd-conda-environment.yml
 ```
 
 (You can also create this environment manually. 
