@@ -46,7 +46,7 @@ Literature:
 
 (Back to [Table of contents](#table-of-contents).)
 
-Topics on TeachOpenCADD are demonstrated in form of so called **talktorials** (a mixure of theory and coding, ready to be presented also in form of a presentation) and currently include:
+Topics on TeachOpenCADD are demonstrated in form of so called **talktorials** (a mixture of theory and coding, ready to be presented also in form of a presentation) and currently include:
 
 1. Compound data acquisition: ChEMBL
 2. Molecular filtering: ADME and lead-likeness criteria
@@ -65,7 +65,7 @@ Topics on TeachOpenCADD are demonstrated in form of so called **talktorials** (a
 
 ### Use Binder
 
-You can use our talktorials locally (download repository and install dependencies as described below), or you can use Binder to host the repository and all needed dependencies for with in a JupyterHub:
+You can use our talktorials locally (download repository and install dependencies as described below), or you can use Binder to host the repository and all needed dependencies:
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/volkamerlab/TeachOpenCADD/master)
 
@@ -81,11 +81,17 @@ Install Anaconda2 or Anaconda3. In theory, it should not matter which Anaconda v
 
 https://docs.anaconda.com/anaconda/install/
 
+Download the talktorials to your computer as zip archive or by using the package `git`:
+
+```bash
+git clone https://github.com/volkamerlab/TeachOpenCADD.git
+```
+
 Then, use the package management system conda to create an environment (e.g. called `teachopencadd`) for our talktorials. 
 We provide you with an environment file (yml file) containing all required packages:
 
 ```bash
-conda env create -f teachopencadd-conda-environment.yml
+conda env create -f environment.yml
 ```
 
 (You can also create this environment manually. 
@@ -95,12 +101,6 @@ Now activate your environment:
 
 ```bash
 conda activate teachopencadd
-```
-
-You can download the talktorials to your computer using the package `git`:
-
-```bash
-git clone https://github.com/volkamerlab/TeachOpenCADD.git
 ```
 
 Within your conda environment `teachopencadd` start Jupyter notebook:
