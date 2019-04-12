@@ -64,7 +64,7 @@ Topics on TeachOpenCADD are demonstrated in form of so called **talktorials** (a
 
 (Back to [Table of contents](#table-of-contents).)
 
-### Use Binder
+### Use Binder (for talktorials T1-T7)
 
 You can use our talktorials locally (download repository and install dependencies as described below), or you can use Binder to host the repository and all needed dependencies:
 
@@ -72,7 +72,7 @@ You can use our talktorials locally (download repository and install dependencie
 
 The setup might take a few minutes.
 
-### Install locally
+### Install locally (for all talktorials)
 
 #### Linux
 
