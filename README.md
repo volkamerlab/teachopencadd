@@ -181,7 +181,8 @@ pip install pymol_launcher‑2.1‑cp36‑cp36m‑win_amd64.whl
 
 ##### RDKit
 
-* ```from rdkit.Chem.Draw import IPythonConsole``` throws ```ImportError: No module named 'PIL'```: try to install pip install pillow in your respective environment (check out https://github.com/rdkit/rdkit/issues/1179)
+* ```from rdkit.Chem.Draw import IPythonConsole``` throws ```ImportError: No module named 'PIL'```: 
+try to install `pip install pillow` in your environment (check out https://github.com/rdkit/rdkit/issues/1179)
 * ```Draw.MolsToGridImage``` throws some Serial error: list your input data type as in ```Draw.MolsToGridImage(list(df.ROMol), useSVG=True)```
 
 ##### pip
