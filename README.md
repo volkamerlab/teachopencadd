@@ -121,6 +121,9 @@ The setup will take a few minutes.
     
     ```bash
     python -m ipykernel install --user --name teachopencadd
+    
+    # FYI, uninstall this link again with this command:
+    #jupyter kernelspec uninstall teachopencadd
     ``` 
 
 6.  Start the Jupyter notebook.
