@@ -64,91 +64,98 @@ Topics on TeachOpenCADD are demonstrated in form of so called **talktorials** (a
 
 (Back to [Table of contents](#table-of-contents).)
 
+You can use Binder to host the repository and all needed dependencies, or 
+you can use our talktorials locally (download repository and install dependencies).
+
+
 ### Use Binder (for talktorials T1-T7)
 
-You can use our talktorials locally (download repository and install dependencies as described below), or you can use Binder to host the repository and all needed dependencies:
+Use binder to host the repository and all needed dependencies by following this link:
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/volkamerlab/TeachOpenCADD/master)
 
-The setup might take a few minutes.
+The setup will take a few minutes.
 
 ### Install locally (for all talktorials)
 
 #### Linux
 
-Use the Anaconda software for a clean package version management. 
+1.  Get your local copy of the TeachOpenCADD repository (including the talktorials) by
 
-Install Anaconda2 or Anaconda3. In theory, it should not matter which Anaconda version you install. However, we only tested it for Anaconda2, so we cannot guarantee the same behaviour for Anaconda3.
+    a. ... either downloading it as zip archive and unzipping it: 
+    
+    ![Download repository](https://github.com/volkamerlab/TeachOpenCADD/blob/master/README_figures/download_repo.png)
+   
+    b. ... or cloning it to your computer using the package `git`:
 
-https://docs.anaconda.com/anaconda/install/
+        ```bash
+        git clone https://github.com/volkamerlab/TeachOpenCADD.git
+        ```
+        
+2.  Use the Anaconda software for a clean package version management. 
+   
+    Install Anaconda2 or Anaconda3. In theory, it should not matter which Anaconda version you install. However, we only tested it for Anaconda2, so we cannot guarantee the same behaviour for Anaconda3.
 
-Download the talktorials to your computer as zip archive or by using the package `git`:
+    https://docs.anaconda.com/anaconda/install/
 
-```bash
-git clone https://github.com/volkamerlab/TeachOpenCADD.git
-```
+3.  Use the package management system conda to create an environment (called `teachopencadd`) for the talktorials. 
+   
+    We provide an environment file (yml file) containing all required packages.
 
-Then, use the package management system conda to create an environment (e.g. called `teachopencadd`) for our talktorials. 
-We provide you with an environment file (yml file) containing all required packages:
+    ```bash
+    conda env create -f environment.yml
+    ```
 
-```bash
-conda env create -f environment.yml
-```
+    Note: You can also create this environment manually. 
+    Check ["Alternatively create conda environment manually"](#Alternatively-create-conda-environment-manually) for this.
 
-(You can also create this environment manually. 
-Check ["Alternatively create conda environment manually"](#Alternatively-create-conda-environment-manually) for this.)
+4.  Activate the conda environment.
+    
+    ```bash
+    conda activate teachopencadd
+    ```
+    
+    Now you can work within the conda environment. 
+    
+5.  Link the conda environment to the Jupyter notebook.
+    
+    ```bash
+    python -m ipykernel install --user --name teachopencadd
+    ``` 
 
-Now activate your environment:
+6.  Start the Jupyter notebook.
 
-```bash
-conda activate teachopencadd
-```
+    ```bash
+    jupyter notebook
+    ```
+    
+7.  Change the Jupyter kernel to the conda environment via the menu:
 
-Within your conda environment `teachopencadd` start Jupyter notebook:
-```bash
-jupyter notebook
-```
+    `Kernel > Change kernel > Python [conda env:teachopencadd]`
+    
+    ![Change Jupyter kernel](https://github.com/volkamerlab/TeachOpenCADD/blob/master/README_figures/jupyter_kernel_teachopencadd.png)
+    
+8.  Now you can get started with your first talktorial. Enjoy!
 
-**Note**: In order to link your environment to your jupyter notebook, install `nb_conda` (is included in .yml file above). After starting your jupyter notebook from the terminal within your environment, select your environment via `Kernel > Change kernel > Python [conda env:teachopencadd]`.
 
-https://stackoverflow.com/questions/39604271/conda-environments-not-showing-up-in-jupyter-notebook
-https://stackoverflow.com/questions/37433363/link-conda-environment-with-jupyter-notebook
-
-Now you can get started with the first talktorial. Enjoy!
 
 ##### Alternatively create conda environment manually
 
-**Note**: This is the alternative to creating the conda environment using the yml file as described above. 
-
-Create an environment, e.g. called `teachopencadd`, and activate this environment.
+**Note**: This is the alternative to creating the conda environment using the yml file as described in step 3 above. 
 
 ```bash
+# Create and activate an environment called `teachopencadd`
 conda create -n teachopencadd python=3.6 anaconda
 conda activate teachopencadd
-```
 
-Install required packages within this environment.
-
-```bash
-conda install jupyter # Is probably already installed
-conda install nb_conda # Link conda environment with jupyter notebook
-
-# If nb_conda does not work, try out ipykernel:
-#conda install ipykernel  # Is probably already installed
-#python -m ipykernel install --user --name teachopencadd  # Enable the environment in jupyter notebook
-
+# Install packages via conda
 conda install -c rdkit rdkit
-#conda install -c rdkit rdkit=2018.09.1  # Tested for this version
 conda install -c samoturk pymol
 conda install -c conda-forge pmw  # Necessary for PyMol terminal window to pop up
-conda install -c conda-forge pandas
-conda install scikit-learn
-conda install -c anaconda seaborn
-pip install biopandas  # or conda install biopandas 
+#conda install jupyter ipykernel pandas scikit-learn seaborn  # Probably already installed
 
-# pip is probably installed by default in your environment
-pip install chembl_webresource_client
-pip install pypdb
+# Install packages via pip (which is probably installed by default in your environment)
+pip install chembl_webresource_client biopandas pypdb
 ```
 
 #### Windows
