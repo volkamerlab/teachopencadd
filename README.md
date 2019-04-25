@@ -68,7 +68,7 @@ You can use Binder to host the repository and all needed dependencies, or
 you can use our talktorials locally (download repository and install dependencies).
 
 
-### Use Binder (for talktorials T1-T7)
+### Use Binder (for talktorials T1-T8)
 
 Use binder to host the repository and all needed dependencies by following this link:
 
