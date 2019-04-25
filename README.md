@@ -58,7 +58,7 @@ Topics on TeachOpenCADD are demonstrated in form of so called **talktorials** (a
 7. Ligand-based screening: machine learning
 8. Protein data acquisition: Protein Data Bank (PDB)
 9. Ligand-based pharmacophores
-10. Binding site similarity and off-target prediction
+10. Binding site similarity
 
 ## Usage instructions
 
@@ -148,14 +148,16 @@ The setup will take a few minutes.
 
 ```bash
 # Create and activate an environment called `teachopencadd`
-conda create -n teachopencadd python=3.6 anaconda
+conda create -n teachopencadd python=3.6
 conda activate teachopencadd
 
 # Install packages via conda
-conda install -c rdkit rdkit
-conda install -c samoturk pymol
+conda install jupyter  # Installs also ipykernel
+conda install -c rdkit rdkit  # Installs also numpy and pandas
+conda install -c samoturk pymol  # Installs also freeglut and glew
 conda install -c conda-forge pmw  # Necessary for PyMol terminal window to pop up
-#conda install jupyter ipykernel pandas scikit-learn seaborn  # Probably already installed
+conda install -c conda-forge scikit-learn  # Installs also scipy
+conda install -c conda-forge seaborn  # Installs also matplotlib
 
 # Install packages via pip (which is probably installed by default in your environment)
 pip install chembl_webresource_client biopandas pypdb
@@ -180,30 +182,3 @@ pip install pymol_launcher‑2.1‑cp36‑cp36m‑win_amd64.whl
 # or whatever pymol_XXXX.whl you have downloaded
 ```
 
-#### Problems we ran into
-
-##### RDKit
-
-* ```from rdkit.Chem.Draw import IPythonConsole``` throws ```ImportError: No module named 'PIL'```: 
-try to install `pip install pillow` in your environment (check out https://github.com/rdkit/rdkit/issues/1179)
-* ```Draw.MolsToGridImage``` throws some Serial error: list your input data type as in ```Draw.MolsToGridImage(list(df.ROMol), useSVG=True)```
-
-##### pip
-
-The package manager pip under version 10.0.X works differently than before, so that the command ```pip install chembl_webresource_client``` suggested above throws the import error ```cannot import name main```:
-
-You can solve this problem with calling pip via python like this:
-
-```bash
-python3 -m pip install chembl_webresource_client
-python3 -m pip install pypdb
-```
-
-Installing the ```chembl_webresource_client```, you might run into the warning that ```urllib3``` is incompartible. You can solve this via updating:
-```bash
-python3 -m pip install urllib3 --upgrade
-```
-
-Solution is taken from:
-
-https://stackoverflow.com/questions/28210269/importerror-cannot-import-name-main-when-running-pip-version-command-in-window
