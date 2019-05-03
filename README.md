@@ -134,7 +134,7 @@ The setup will take a few minutes.
     
 7.  Change the Jupyter kernel to the conda environment via the menu:
 
-    `Kernel > Change kernel > Python [conda env:teachopencadd]`
+    `Kernel > Change kernel > teachopencadd`
     
     ![Change Jupyter kernel](https://github.com/volkamerlab/TeachOpenCADD/blob/master/README_figures/jupyter_kernel_teachopencadd.png)
     
