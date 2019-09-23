@@ -1,0 +1,25 @@
+name: teachopencadd-11
+channels:
+- conda-forge
+- defaults
+- openbabel
+dependencies:
+- python >=3.6
+- pip
+- requests
+- rdkit
+- openbabel
+- pandas
+- jupyter
+- notebook
+- numpy
+- scipy
+- bravado
+- beautifulsoup4
+- ipywidgets>=7.5
+- nglview
+- pip:
+  - suds-community
+  - https://github.com/jaimergp/autodocktools-prepare-py3k/archive/master.zip
+  # Plip must be installed with --no-deps manually:
+  # pip install -no-deps https://github.com/ssalentin/plip/archive/stable.zip
