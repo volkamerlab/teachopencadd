@@ -61,6 +61,8 @@ users’ project-directed modifications and extensions.
 
 <p align="center">
   <img src="README_figures/TeachOpenCADD_topics.svg" alt="TeachOpenCADD topics" width="600"/>
+  Adapted from Figure 1 in TeachOpenCADD publication 
+  ([D. Sydow et al., J Chem, 2019, 11, 29](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x)).
 </p>
 
 
