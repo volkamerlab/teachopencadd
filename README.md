@@ -11,7 +11,7 @@ Volkamer Lab
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2600909.svg)](https://doi.org/10.5281/zenodo.2600909)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/volkamerlab/TeachOpenCADD/master)
 
-Please contact teachopencadd@charite.de if you have question or suggestions on existing or potential new talktorials.
+![Download repository](https://github.com/volkamerlab/TeachOpenCADD/blob/master/README_figures/TeachOpenCADD_logo.svg)
 
 This work is licensed under the Attribution 4.0 International (CC BY 4.0).
 To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.
