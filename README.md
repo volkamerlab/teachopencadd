@@ -1,11 +1,15 @@
 # TeachOpenCADD
 
-#### TeachOpenCADD: a teaching platform for computer-aided drug design (CADD) using open source packages and data
+#### A teaching platform for computer-aided drug design (CADD) using open source packages and data
 
 Volkamer Lab 
+
+*In Silico* Toxicology and Structural Bioinformatics <br>
+Institute for Physiology <br>
+Charitè - Universitätsmedizin Berlin <br>
 [volkamerlab.org](https://physiologie-ccm.charite.de/en/research_at_the_institute/volkamer_lab/)
 
-*In Silico* Toxicology and Structural Bioinformatics, Institute for Physiology, Charitè - Universitätsmedizin Berlin, Charitéplatz 1, 10117 Berlin
+<img src="https://github.com/volkamerlab/TeachOpenCADD/blob/update-readme/README_figures/TeachOpenCADD_logo.svg" alt="TeachOpenCADD logo" width="200"/>
 
 [![DOI](https://img.shields.io/badge/DOI-10.1186%2Fs13321--019--0351--x-blue.svg)](https://doi.org/10.1186/s13321-019-0351-x)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2600909.svg)](https://doi.org/10.5281/zenodo.2600909)
