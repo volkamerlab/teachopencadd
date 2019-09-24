@@ -15,8 +15,6 @@ Charitè - Universitätsmedizin Berlin <br>
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2600909.svg)](https://doi.org/10.5281/zenodo.2600909)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/volkamerlab/TeachOpenCADD/master)
 
-<img src="https://github.com/volkamerlab/TeachOpenCADD/blob/update-readme/README_figures/TeachOpenCADD_logo.svg" alt="TeachOpenCADD logo" width="200"/>
-
 ## Table of contents  
 
 * [Objective](#objective)
