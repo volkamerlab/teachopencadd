@@ -21,7 +21,7 @@ Charitè - Universitätsmedizin Berlin <br>
 * [Topics](#topics)
 * [Usage](#usage)
 * [Contact](#contact)
-* [Licence](#licence)
+* [License](#license)
 * [Citation](#citation)
 
 ## Objective
