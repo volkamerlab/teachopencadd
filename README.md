@@ -45,18 +45,35 @@ Literature:
 
 (Back to [Table of contents](#table-of-contents).)
 
-Topics on TeachOpenCADD are demonstrated in form of so called **talktorials** (a mixture of theory and coding, ready to be presented also in form of a presentation) and currently include:
+![Download repository](https://github.com/volkamerlab/TeachOpenCADD/blob/master/README_figures/TeachOpenCADD_topics.svg)
 
-1. Compound data acquisition: ChEMBL
-2. Molecular filtering: ADME and lead-likeness criteria
-3. Molecular filtering: unwanted substructures
-4. Ligand-based screening: compound similarity
-5. Compound clustering
-6. Maximum common substructures
-7. Ligand-based screening: machine learning
-8. Protein data acquisition: Protein Data Bank (PDB)
-9. Ligand-based pharmacophores
-10. Binding site similarity
+TeachOpenCADD offers teaching material on common tasks in computer-aided drug design. 
+Currently, the following topics are available:
+
+**Cheminformatics**
+
+* Topic 1. Compound data acquisition: ChEMBL
+* Topic 2. Molecular filtering: ADME and lead-likeness criteria
+* Topic 3. Molecular filtering: unwanted substructures
+* Topic 4. Ligand-based screening: compound similarity
+* Topic 5. Compound clustering
+* Topic 6. Maximum common substructures
+* Topic 7. Ligand-based screening: machine learning
+   
+**Structural bioinformatics**
+
+* Topic 8. Protein data acquisition: Protein Data Bank (PDB)
+* Topic 9. Ligand-based pharmacophores
+* Topic 10. Binding site similarity
+* Topic 11. Structure-based CADD using online APIs/servers
+  * 11a. Querying KLIFS & PubChem for potential kinase inhibitors
+  * 11b. Docking the candidates against the target 
+  * 11c. Visualizing the results and comparing against known data
+
+
+The teaching material is offered in the form of 
+* coding-based *Jupyter Notebooks* (topics 1-11) here on GitHub, so called *talktorials* (talk + tutorial), i.e. tutorials that can also be used in presentations, and
+* GUI-based *KNIME workflows* (topics 1-8) on the [KNIME Hub](https://hub.knime.com/volkamerlab/space/TeachOpenCADD/TeachOpenCADD).
 
 ## Usage instructions
 
