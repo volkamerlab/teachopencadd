@@ -237,7 +237,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0
 ## Citation
 (Back to [Table of contents](#table-of-contents).)
 
-The authors of the TeachOpenCADD platform received public funding:
+The authors of the TeachOpenCADD platform received public funding from the following funders:
 * Bundesministerium für Bildung und Forschung (Grant Number 031A262C) 
 * Deutsche Forschungsgemeinschaft (Grant number VO 2353/1-1)
 * HaVo-Stiftung, Ludwigshafen, Germany
