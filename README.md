@@ -13,9 +13,6 @@ Volkamer Lab
 
 ![Download repository](https://github.com/volkamerlab/TeachOpenCADD/blob/master/README_figures/TeachOpenCADD_logo.svg)
 
-This work is licensed under the Attribution 4.0 International (CC BY 4.0).
-To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.
-
 ## Table of contents  
 
 * [Aims of this teaching platform](#aims-of-this-teaching-platform)
@@ -182,4 +179,10 @@ pip install pymol‑2.3.0a0‑cp36‑cp36m‑win_amd64.whl
 pip install pymol_launcher‑2.1‑cp36‑cp36m‑win_amd64.whl
 # or whatever pymol_XXXX.whl you have downloaded
 ```
+
+## License
+(Back to [Table of contents](#table-of-contents).)
+
+This work is licensed under the Attribution 4.0 International (CC BY 4.0).
+To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.
 
