@@ -216,3 +216,35 @@ We are looking forward to hearing from you!
 This work is licensed under the Attribution 4.0 International (CC BY 4.0).
 To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.
 
+
+## Citation
+(Back to [Table of contents](#table-of-contents).)
+
+The authors of the TeachOpenCADD platform received public funding:
+* Bundesministerium für Bildung und Forschung (Grant Number 031A262C) 
+* Deutsche Forschungsgemeinschaft (Grant number VO 2353/1-1)
+* HaVo-Stiftung, Ludwigshafen, Germany
+* Stiftung Charité (Einstein BIH Visiting Fellow project)
+* "SUPPORT für die Lehre" program (Förderung innovativer Lehrvorhaben) of the Freie Universität Berlin
+* Open Access Publication Fund of Charité – Universitätsmedizin Berlin
+
+If you make use of the TeachOpenCADD material in scientific publications, please cite our respective articles:
+* [TeachOpenCADD Jupyter Notebooks: Talktorials 1-10](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x>`). 
+* [TeachOpenCADD KNIME workflows](TBA)
+
+It will help measure the impact of our research and future funding!
+
+```
+@article{TeachOpenCADD2019,
+    author = {Sydow, Dominique and Morger, Andrea and Driller, Maximilian and Volkamer, Andrea},
+    doi = {10.1186/s13321-019-0351-x},
+    issn = {1758-2946},
+    journal = {J. Cheminform.},
+    number = {1},
+    pages = {29},
+    title = {{TeachOpenCADD: a teaching platform for computer-aided drug design using open source packages and data}},
+    url = {https://doi.org/10.1186/s13321-019-0351-x},
+    volume = {11},
+    year = {2019}
+}
+```
