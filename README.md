@@ -2,9 +2,10 @@
 
 #### TeachOpenCADD: a teaching platform for computer-aided drug design (CADD) using open source packages and data
 
-Dominique Sydow, Andrea Morger, Maximilian Driller and Andrea Volkamer
+Volkamer Lab 
+[volkamerlab.org](https://physiologie-ccm.charite.de/en/research_at_the_institute/volkamer_lab/)
 
-*In Silico* Toxicology, Institute for Physiology, Universitätsmedizin Berlin, Virchowweg 6, 10117 Berlin
+*In Silico* Toxicology and Structural Bioinformatics, Institute for Physiology, Charitè - Universitätsmedizin Berlin, Charitéplatz 1, 10117 Berlin
 
 [![DOI](https://img.shields.io/badge/DOI-10.1186%2Fs13321--019--0351--x-blue.svg)](https://doi.org/10.1186/s13321-019-0351-x)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2600909.svg)](https://doi.org/10.5281/zenodo.2600909)
