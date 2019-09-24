@@ -92,7 +92,7 @@ The teaching material is offered in the form of
 * coding-based *Jupyter Notebooks* (topics 1-11) here on GitHub, so called *talktorials* (talk + tutorial), i.e. tutorials that can also be used in presentations, and
 * GUI-based *KNIME workflows* (topics 1-8) on the [KNIME Hub](https://hub.knime.com/volkamerlab/space/TeachOpenCADD/TeachOpenCADD).
 
-## Usage instructions
+## Usage
 
 (Back to [Table of contents](#table-of-contents).)
 
