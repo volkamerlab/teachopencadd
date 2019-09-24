@@ -9,8 +9,6 @@ Institute for Physiology <br>
 Charitè - Universitätsmedizin Berlin <br>
 [volkamerlab.org](https://physiologie-ccm.charite.de/en/research_at_the_institute/volkamer_lab/)
 
-<img src="README_figures/TeachOpenCADD_logo.svg" alt="TeachOpenCADD logo" width="200"/>
-
 [![DOI](https://img.shields.io/badge/DOI-10.1186%2Fs13321--019--0351--x-blue.svg)](https://doi.org/10.1186/s13321-019-0351-x)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2600909.svg)](https://doi.org/10.5281/zenodo.2600909)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/volkamerlab/TeachOpenCADD/master)
@@ -60,7 +58,7 @@ users’ project-directed modifications and extensions.
 (Back to [Table of contents](#table-of-contents).)
 
 <p align="center">
-  <img src="README_figures/TeachOpenCADD_topics.svg" alt="TeachOpenCADD topics" width="600"/>
+  <img src="README_figures/TeachOpenCADD_topics.svg" alt="TeachOpenCADD topics" width="800"/>
   <br>
   <font size="1">
   Figure adapted from Figure 1 in the TeachOpenCADD publication,
