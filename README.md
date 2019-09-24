@@ -50,6 +50,9 @@ Literature:
 
 (Back to [Table of contents](#table-of-contents).)
 
+<p align="center">
+  <img src="README_figures/TeachOpenCADD_topics.svg" alt="TeachOpenCADD topics" width="600"/>
+</p>
 <img src="README_figures/TeachOpenCADD_topics.svg" alt="TeachOpenCADD topics" width="600"/>
 
 
