@@ -11,7 +11,7 @@ Volkamer Lab
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2600909.svg)](https://doi.org/10.5281/zenodo.2600909)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/volkamerlab/TeachOpenCADD/master)
 
-![TeachOpenCADD logo](https://github.com/volkamerlab/TeachOpenCADD/blob/master/README_figures/TeachOpenCADD_logo.svg)
+![TeachOpenCADD logo](https://github.com/volkamerlab/TeachOpenCADD/blob/update-readme/README_figures/TeachOpenCADD_logo.svg)
 
 ## Table of contents  
 
