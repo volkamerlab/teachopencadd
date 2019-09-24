@@ -50,7 +50,8 @@ Literature:
 
 (Back to [Table of contents](#table-of-contents).)
 
-![Download repository](https://github.com/volkamerlab/TeachOpenCADD/blob/master/README_figures/TeachOpenCADD_topics.svg)
+<img src="README_figures/TeachOpenCADD_logo.svg" alt="TeachOpenCADD topics" width="600"/>
+
 
 TeachOpenCADD offers teaching material on common tasks in computer-aided drug design. 
 Currently, the following topics are available:
