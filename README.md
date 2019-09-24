@@ -24,27 +24,36 @@ Charitè - Universitätsmedizin Berlin <br>
 * [Licence](#licence)
 * [Citation](#citation)
 
-## Aims of this teaching platform
+## Objective
 
 (Back to [Table of contents](#table-of-contents).)
 
-Open source programming packages for cheminformatics and structural bioinformatics are powerful tools to build modular, reproducible, and easy-to-share pipelines for computer-aided drug design (CADD). While documentation for tools is available, only few freely accessible examples teach underlying concepts focused on CADD usage such as the TDT initiative [1], addressing especially users new to the field.
+Open source programming packages for cheminformatics and structural bioinformatics are powerful tools to build modular, 
+reproducible, and reusable pipelines for computer-aided drug design (CADD). 
+While documentation for such tools is available, only few freely accessible examples teach underlying concepts focused on 
+CADD applications such as the TDT initiative [1], addressing especially users new to the field.
 
-Here, we present a CADD teaching platform developed from students for students, using open source packages such as the python tools RDKit [2], PyPDB [3], and PyMol [4]. For each topic, an interactive Jupyter Notebook [5] was developed, holding detailed theoretical background of the underlying topic and well-commented python code, freely available on GitHub. Illustrated at the example of EGFR kinase, we discuss how to acquire data from the public compound database ChEMBL [6], how to filter compounds for drug-likeness, and how to identify and remove unwanted substructures. Furthermore, we introduce measures for compound similarity, which are subsequently used to cluster compounds, i.e., for the selection of a divers compound set. We also employ machine learning approaches in order to build models for predicting novel active compounds. Lastly, structures are fetched from the public protein database PDB [7], used to generate ligand-based ensemble 3D pharmacophores and to conduct binding site comparison for off-target prediction. 
+TeachOpenCADD [2] is a teaching platform developed from students for students, which provides teaching material for 
+central CADD topics. Since we cover both the theoretical as well as practical aspect of these 
+topics, the platform addresses students and researchers with a biological/chemical as well as a computational background.
 
-With this platform, we aim to introduce interested users to the ease and benefit of using open source cheminformatics tools. Topics will be continuously expanded and are open for contributions from the community. Beyond their teaching purpose, the notebooks can serve as starting point for users’ project-directed modifications and extensions. 
+For each topic, an interactive Jupyter Notebook [3] was developed, using open source packages such as the 
+Python packages RDKit [4], PyPDB [5], and PyMol [6]. Additionally, we offer topics 1-8 in the form of KNIME workflows 
+[7], which allow to perform the same tasks using a graphical user interface instead of coding.
 
+With this platform, we aim to introduce interested users to the ease and benefit of using open source tools for 
+cheminformatics and structural bioinformatics.
+Topics will be continuously expanded and are open for contributions from the community. 
+Beyond their teaching purpose, the TeachOpenCADD material can serve as starting point for 
+users’ project-directed modifications and extensions. 
 
-Literature:
-
-[1] [S. Riniker et al., F1000Research, 2017, 6, 1136](https://f1000research.com/articles/6-1136/v1) 
-[2] [G. Landrum, RDKit](http://www.rdkit.org)
-[3] [W. Gilpin, Bioinformatics, 2016, 32, 156-60](https://academic.oup.com/bioinformatics/article/32/1/159/1743800) 
-[4] [The PyMOL Molecular Graphics System, Version 1.8, Schrödinger, LLC](https://pymol.org)
-[5] [T. Kluyver et al., IOS Press, 2016, 87-90.](http://ebooks.iospress.com/publication/42900)
-[6] [A. Gaulton et al., Nucleic Acid Res., 2017, 40, D1100-7](https://academic.oup.com/nar/article/42/D1/D1083/1043509)
-[7] [H. Berman et al., Nucleic Acid Res., 2000, 28, 235-42](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC102472/)
-
+[1] [S. Riniker et al., F1000Research, 2017, 6, 1136](https://f1000research.com/articles/6-1136/v1) <br>
+[2] [D. Sydow et al., J Chem, 2019, 11, 29](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x) <br>
+[3] [T. Kluyver et al., IOS Press, 2016, 87-90.](http://ebooks.iospress.com/publication/42900) <br>
+[4] [G. Landrum, RDKit](http://www.rdkit.org) <br>
+[5] [W. Gilpin, Bioinform, 2016, 32, 156-60](https://academic.oup.com/bioinformatics/article/32/1/159/1743800) <br>
+[6] [The PyMOL Molecular Graphics System, Version 1.8, Schrödinger, LLC](https://pymol.org) <br>
+[7] [A. Fillbrunn et al., J Biotechnol, 2017, 261, 149–156](https://www.sciencedirect.com/science/article/pii/S0168165617315651)
 
 ## Topics
 
