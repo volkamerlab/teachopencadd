@@ -15,9 +15,12 @@ Volkamer Lab
 
 ## Table of contents  
 
-* [Aims of this teaching platform](#aims-of-this-teaching-platform)
+* [Objective](#objective)
 * [Topics](#topics)
-* [Usage instructions](#usage-instructions)
+* [Usage](#usage)
+* [Contact](#contact)
+* [Licence](#licence)
+* [Citation](#citation)
 
 ## Aims of this teaching platform
 
