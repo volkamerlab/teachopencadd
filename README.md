@@ -53,7 +53,6 @@ Literature:
 <p align="center">
   <img src="README_figures/TeachOpenCADD_topics.svg" alt="TeachOpenCADD topics" width="600"/>
 </p>
-<img src="README_figures/TeachOpenCADD_topics.svg" alt="TeachOpenCADD topics" width="600"/>
 
 
 TeachOpenCADD offers teaching material on common tasks in computer-aided drug design. 
