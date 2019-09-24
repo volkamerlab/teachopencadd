@@ -9,7 +9,7 @@ Institute for Physiology <br>
 Charitè - Universitätsmedizin Berlin <br>
 [volkamerlab.org](https://physiologie-ccm.charite.de/en/research_at_the_institute/volkamer_lab/)
 
-<img src="https://github.com/volkamerlab/TeachOpenCADD/blob/update-readme/README_figures/TeachOpenCADD_logo.svg" alt="TeachOpenCADD logo" width="200"/>
+<img src="README_figures/TeachOpenCADD_logo.svg" alt="TeachOpenCADD logo" width="200"/>
 
 [![DOI](https://img.shields.io/badge/DOI-10.1186%2Fs13321--019--0351--x-blue.svg)](https://doi.org/10.1186/s13321-019-0351-x)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2600909.svg)](https://doi.org/10.5281/zenodo.2600909)
@@ -50,7 +50,7 @@ Literature:
 
 (Back to [Table of contents](#table-of-contents).)
 
-<img src="README_figures/TeachOpenCADD_logo.svg" alt="TeachOpenCADD topics" width="600"/>
+<img src="README_figures/TeachOpenCADD_topics.svg" alt="TeachOpenCADD topics" width="600"/>
 
 
 TeachOpenCADD offers teaching material on common tasks in computer-aided drug design. 
