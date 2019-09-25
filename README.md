@@ -75,11 +75,11 @@ Currently, the following topics are available:
 
 * Topic 1. Compound data acquisition: ChEMBL
 * Topic 2. Molecular filtering: ADME and lead-likeness criteria
-* Topic 3. Molecular filtering: unwanted substructures
-* Topic 4. Ligand-based screening: compound similarity
+* Topic 3. Molecular filtering: Unwanted substructures
+* Topic 4. Ligand-based screening: Compound similarity
 * Topic 5. Compound clustering
 * Topic 6. Maximum common substructures
-* Topic 7. Ligand-based screening: machine learning
+* Topic 7. Ligand-based screening: Machine learning
    
 **Structural bioinformatics**
 
@@ -92,9 +92,9 @@ Currently, the following topics are available:
   * 11c. Visualizing the results and comparing against known data
 
 
-The teaching material is offered in the form of 
-* coding-based *Jupyter Notebooks* (topics 1-11) here on GitHub, so called *talktorials* (talk + tutorial), i.e. tutorials that can also be used in presentations, and
-* GUI-based *KNIME workflows* (topics 1-8) on the [KNIME Hub](https://hub.knime.com/volkamerlab/space/TeachOpenCADD/TeachOpenCADD).
+The teaching material is offered in the following formats: 
+* Coding-based *Jupyter Notebooks* (topics 1-11) here on GitHub, so called *talktorials* (talk + tutorial), i.e. tutorials that can also be used in presentations
+* GUI-based *KNIME workflows* (topics 1-8) on the [KNIME Hub](https://hub.knime.com/volkamerlab/space/TeachOpenCADD/TeachOpenCADD)
 
 ## Usage
 
