@@ -5,8 +5,8 @@
 Volkamer Lab 
 
 *In Silico* Toxicology and Structural Bioinformatics <br>
-Institute for Physiology <br>
-Charitè - Universitätsmedizin Berlin <br>
+Institute of Physiology <br>
+Charité - Universitätsmedizin Berlin <br>
 [volkamerlab.org](https://physiologie-ccm.charite.de/en/research_at_the_institute/volkamer_lab/)
 
 [![DOI](https://img.shields.io/badge/DOI-10.1186%2Fs13321--019--0351--x-blue.svg)](https://doi.org/10.1186/s13321-019-0351-x)
@@ -31,7 +31,7 @@ reproducible, and reusable pipelines for computer-aided drug design (CADD).
 While documentation for such tools is available, only few freely accessible examples teach underlying concepts focused on 
 CADD applications such as the TDT initiative [1], addressing especially users new to the field.
 
-TeachOpenCADD [2] is a teaching platform developed from students for students, which provides teaching material for 
+TeachOpenCADD [2] is a teaching platform developed by students for students, which provides teaching material for 
 central CADD topics. Since we cover both the theoretical as well as practical aspect of these 
 topics, the platform addresses students and researchers with a biological/chemical as well as a computational background.
 
