@@ -1,66 +1,102 @@
 # TeachOpenCADD
 
-#### TeachOpenCADD: a teaching platform for computer-aided drug design (CADD) using open source packages and data
+#### A teaching platform for computer-aided drug design (CADD) using open source packages and data
 
-Dominique Sydow, Andrea Morger, Maximilian Driller and Andrea Volkamer
+Volkamer Lab 
 
-*In Silico* Toxicology, Institute for Physiology, Universitätsmedizin Berlin, Virchowweg 6, 10117 Berlin
+*In Silico* Toxicology and Structural Bioinformatics <br>
+Institute for Physiology <br>
+Charitè - Universitätsmedizin Berlin <br>
+[volkamerlab.org](https://physiologie-ccm.charite.de/en/research_at_the_institute/volkamer_lab/)
 
 [![DOI](https://img.shields.io/badge/DOI-10.1186%2Fs13321--019--0351--x-blue.svg)](https://doi.org/10.1186/s13321-019-0351-x)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2600909.svg)](https://doi.org/10.5281/zenodo.2600909)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/volkamerlab/TeachOpenCADD/master)
 
-Please contact teachopencadd@charite.de if you have question or suggestions on existing or potential new talktorials.
-
-This work is licensed under the Attribution 4.0 International (CC BY 4.0).
-To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.
-
 ## Table of contents  
 
-* [Aims of this teaching platform](#aims-of-this-teaching-platform)
+* [Objective](#objective)
 * [Topics](#topics)
-* [Usage instructions](#usage-instructions)
+* [Usage](#usage)
+* [Contact](#contact)
+* [License](#license)
+* [Citation](#citation)
 
-## Aims of this teaching platform
+## Objective
 
 (Back to [Table of contents](#table-of-contents).)
 
-Open source programming packages for cheminformatics and structural bioinformatics are powerful tools to build modular, reproducible, and easy-to-share pipelines for computer-aided drug design (CADD). While documentation for tools is available, only few freely accessible examples teach underlying concepts focused on CADD usage such as the TDT initiative [1], addressing especially users new to the field.
+Open source programming packages for cheminformatics and structural bioinformatics are powerful tools to build modular, 
+reproducible, and reusable pipelines for computer-aided drug design (CADD). 
+While documentation for such tools is available, only few freely accessible examples teach underlying concepts focused on 
+CADD applications such as the TDT initiative [1], addressing especially users new to the field.
 
-Here, we present a CADD teaching platform developed from students for students, using open source packages such as the python tools RDKit [2], PyPDB [3], and PyMol [4]. For each topic, an interactive Jupyter Notebook [5] was developed, holding detailed theoretical background of the underlying topic and well-commented python code, freely available on GitHub. Illustrated at the example of EGFR kinase, we discuss how to acquire data from the public compound database ChEMBL [6], how to filter compounds for drug-likeness, and how to identify and remove unwanted substructures. Furthermore, we introduce measures for compound similarity, which are subsequently used to cluster compounds, i.e., for the selection of a divers compound set. We also employ machine learning approaches in order to build models for predicting novel active compounds. Lastly, structures are fetched from the public protein database PDB [7], used to generate ligand-based ensemble 3D pharmacophores and to conduct binding site comparison for off-target prediction. 
+TeachOpenCADD [2] is a teaching platform developed from students for students, which provides teaching material for 
+central CADD topics. Since we cover both the theoretical as well as practical aspect of these 
+topics, the platform addresses students and researchers with a biological/chemical as well as a computational background.
 
-With this platform, we aim to introduce interested users to the ease and benefit of using open source cheminformatics tools. Topics will be continuously expanded and are open for contributions from the community. Beyond their teaching purpose, the notebooks can serve as starting point for users’ project-directed modifications and extensions. 
+For each topic, an interactive Jupyter Notebook [3] was developed, using open source packages such as the 
+Python packages RDKit [4], PyPDB [5], and PyMol [6]. Additionally, we offer topics 1-8 in the form of KNIME workflows 
+[7], which allow to perform the same tasks using a graphical user interface instead of coding.
 
+With this platform, we aim to introduce interested users to the ease and benefit of using open source tools for 
+cheminformatics and structural bioinformatics.
+Topics will be continuously expanded and are open for contributions from the community. 
+Beyond their teaching purpose, the TeachOpenCADD material can serve as starting point for 
+users’ project-directed modifications and extensions. 
 
-Literature:
-
-[1] [S. Riniker et al., F1000Research, 2017, 6, 1136](https://f1000research.com/articles/6-1136/v1) 
-[2] [G. Landrum, RDKit](http://www.rdkit.org)
-[3] [W. Gilpin, Bioinformatics, 2016, 32, 156-60](https://academic.oup.com/bioinformatics/article/32/1/159/1743800) 
-[4] [The PyMOL Molecular Graphics System, Version 1.8, Schrödinger, LLC](https://pymol.org)
-[5] [T. Kluyver et al., IOS Press, 2016, 87-90.](http://ebooks.iospress.com/publication/42900)
-[6] [A. Gaulton et al., Nucleic Acid Res., 2017, 40, D1100-7](https://academic.oup.com/nar/article/42/D1/D1083/1043509)
-[7] [H. Berman et al., Nucleic Acid Res., 2000, 28, 235-42](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC102472/)
-
+[1] [S. Riniker et al., F1000Research, 2017, 6, 1136](https://f1000research.com/articles/6-1136/v1) <br>
+[2] [D. Sydow et al., J Chem, 2019, 11, 29](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x) <br>
+[3] [T. Kluyver et al., IOS Press, 2016, 87-90.](http://ebooks.iospress.com/publication/42900) <br>
+[4] [G. Landrum, RDKit](http://www.rdkit.org) <br>
+[5] [W. Gilpin, Bioinform, 2016, 32, 156-60](https://academic.oup.com/bioinformatics/article/32/1/159/1743800) <br>
+[6] [The PyMOL Molecular Graphics System, Version 1.8, Schrödinger, LLC](https://pymol.org) <br>
+[7] [A. Fillbrunn et al., J Biotechnol, 2017, 261, 149–156](https://www.sciencedirect.com/science/article/pii/S0168165617315651)
 
 ## Topics
 
 (Back to [Table of contents](#table-of-contents).)
 
-Topics on TeachOpenCADD are demonstrated in form of so called **talktorials** (a mixture of theory and coding, ready to be presented also in form of a presentation) and currently include:
+<p align="center">
+  <img src="README_figures/TeachOpenCADD_topics.svg" alt="TeachOpenCADD topics" width="800"/>
+  <br>
+  <font size="1">
+  Figure adapted from Figure 1 in the TeachOpenCADD publication,
+  <a href="https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x">
+  D. Sydow et al., J Chem, 2019, 11, 29</a>.
+  </font>
+</p>
 
-1. Compound data acquisition: ChEMBL
-2. Molecular filtering: ADME and lead-likeness criteria
-3. Molecular filtering: unwanted substructures
-4. Ligand-based screening: compound similarity
-5. Compound clustering
-6. Maximum common substructures
-7. Ligand-based screening: machine learning
-8. Protein data acquisition: Protein Data Bank (PDB)
-9. Ligand-based pharmacophores
-10. Binding site similarity
 
-## Usage instructions
+TeachOpenCADD offers teaching material on common tasks in computer-aided drug design. 
+Currently, the following topics are available:
+
+**Cheminformatics**
+
+* Topic 1. Compound data acquisition: ChEMBL
+* Topic 2. Molecular filtering: ADME and lead-likeness criteria
+* Topic 3. Molecular filtering: unwanted substructures
+* Topic 4. Ligand-based screening: compound similarity
+* Topic 5. Compound clustering
+* Topic 6. Maximum common substructures
+* Topic 7. Ligand-based screening: machine learning
+   
+**Structural bioinformatics**
+
+* Topic 8. Protein data acquisition: Protein Data Bank (PDB)
+* Topic 9. Ligand-based pharmacophores
+* Topic 10. Binding site similarity
+* Topic 11. Structure-based CADD using online APIs/servers
+  * 11a. Querying KLIFS & PubChem for potential kinase inhibitors
+  * 11b. Docking the candidates against the target 
+  * 11c. Visualizing the results and comparing against known data
+
+
+The teaching material is offered in the form of 
+* coding-based *Jupyter Notebooks* (topics 1-11) here on GitHub, so called *talktorials* (talk + tutorial), i.e. tutorials that can also be used in presentations, and
+* GUI-based *KNIME workflows* (topics 1-8) on the [KNIME Hub](https://hub.knime.com/volkamerlab/space/TeachOpenCADD/TeachOpenCADD).
+
+## Usage
 
 (Back to [Table of contents](#table-of-contents).)
 
@@ -182,3 +218,54 @@ pip install pymol_launcher‑2.1‑cp36‑cp36m‑win_amd64.whl
 # or whatever pymol_XXXX.whl you have downloaded
 ```
 
+## Contact
+(Back to [Table of contents](#table-of-contents).)
+
+Please contact us if you have questions or suggestions!
+
+* If you have questions regarding our Jupyter Notebooks, please open an issue on our GitHub repository: https://github.com/volkamerlab/teachopencadd/issues
+* If you have questions regarding our KNIME workflows, please make a post on our KNIME Hub page in the "Discussion" section: https://hub.knime.com/volkamerlab/space/TeachOpenCADD/TeachOpenCADD
+* If you have ideas for new topics, please fill out our questionnaire: [contribute.volkamerlab.org](contribute.volkamerlab.org)
+* For all other requests, please send us an email: teachopencadd@charite.de
+
+We are looking forward to hearing from you!
+
+
+## License
+(Back to [Table of contents](#table-of-contents).)
+
+This work is licensed under the Attribution 4.0 International (CC BY 4.0).
+To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.
+
+
+## Citation
+(Back to [Table of contents](#table-of-contents).)
+
+The authors of the TeachOpenCADD platform received public funding from the following funders:
+* Bundesministerium für Bildung und Forschung (Grant Number 031A262C) 
+* Deutsche Forschungsgemeinschaft (Grant number VO 2353/1-1)
+* HaVo-Stiftung, Ludwigshafen, Germany
+* Stiftung Charité (Einstein BIH Visiting Fellow project)
+* "SUPPORT für die Lehre" program (Förderung innovativer Lehrvorhaben) of the Freie Universität Berlin
+* Open Access Publication Fund of Charité – Universitätsmedizin Berlin
+
+If you make use of the TeachOpenCADD material in scientific publications, please cite our respective articles:
+* [TeachOpenCADD Jupyter Notebooks: Talktorials 1-10](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x>`). 
+* TeachOpenCADD KNIME workflows (accepted)
+
+It will help measure the impact of the TeachOpenCADD platform and future funding!
+
+```
+@article{TeachOpenCADD2019,
+    author = {Sydow, Dominique and Morger, Andrea and Driller, Maximilian and Volkamer, Andrea},
+    doi = {10.1186/s13321-019-0351-x},
+    issn = {1758-2946},
+    journal = {J. Cheminform.},
+    number = {1},
+    pages = {29},
+    title = {{TeachOpenCADD: a teaching platform for computer-aided drug design using open source packages and data}},
+    url = {https://doi.org/10.1186/s13321-019-0351-x},
+    volume = {11},
+    year = {2019}
+}
+```
