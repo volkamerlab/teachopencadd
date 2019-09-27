@@ -217,6 +217,21 @@ pip install pymol‑2.3.0a0‑cp36‑cp36m‑win_amd64.whl
 pip install pymol_launcher‑2.1‑cp36‑cp36m‑win_amd64.whl
 # or whatever pymol_XXXX.whl you have downloaded
 ```
+#### MacOS
+
+The installation works the same as under Linux, however we could not install `pymol` from the open source `samoturk` conda channel. You can use the `schrodinger` channel. Unfortunately a Schrödinger license is needed to run PyMOL (the license is free for academic use).
+
+For the installation done manually, replace the command:
+
+```
+conda install -c samoturk pymol  # Installs also freeglut and glew
+```
+
+with the following
+
+```
+conda install -c schrodinger pymol  # Installs also freeglut and glew
+```
 
 ## Contact
 (Back to [Table of contents](#table-of-contents).)

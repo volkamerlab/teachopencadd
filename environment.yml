@@ -1,19 +1,18 @@
 name: teachopencadd
 channels:
-  - rdkit
-  - samoturk
   - conda-forge
   - defaults
+  - samoturk
 dependencies:
-  - python=3.6
+  - python>=3.6
   - jupyter
-  - rdkit
+  - rdkit>=2018.09.2.0
   - pymol
   - pmw
   - scikit-learn
+  - biopandas
   - seaborn
-  - pip
-  - pip:
-      - chembl_webresource_client
-      - biopandas
-      - pypdb
+  - pypdb
+  - chembl_webresource_client
+  - nglview
+  - pytest-notebook
