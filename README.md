@@ -191,7 +191,6 @@ conda activate teachopencadd
 conda install jupyter  # Installs also ipykernel
 conda install -c conda-forge rdkit  # Installs also numpy and pandas
 conda install -c samoturk pymol  # Linux: Installs also freeglut and glew
-#conda install -c schrodinger pymol  # MacOS: Installs also freeglut and glew
 conda install -c conda-forge pmw  # Necessary for PyMol terminal window to pop up
 conda install -c conda-forge scikit-learn  # Installs also scipy
 conda install -c conda-forge seaborn  # Installs also matplotlib
@@ -218,10 +217,6 @@ pip install pymol‑2.3.0a0‑cp36‑cp36m‑win_amd64.whl
 pip install pymol_launcher‑2.1‑cp36‑cp36m‑win_amd64.whl
 # or whatever pymol_XXXX.whl you have downloaded
 ```
-
-#### MacOS
-
-The installation on MacOS works the same as for Linux, except the PyMOL installation: here you need to use the `schrodinger` instead of the `samuturk` channel.
 
 ## Contact
 (Back to [Table of contents](#table-of-contents).)
