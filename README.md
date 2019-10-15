@@ -274,13 +274,22 @@ It will help measure the impact of the TeachOpenCADD platform and future funding
 @article{TeachOpenCADD2019,
     author = {Sydow, Dominique and Morger, Andrea and Driller, Maximilian and Volkamer, Andrea},
     doi = {10.1186/s13321-019-0351-x},
-    issn = {1758-2946},
     journal = {J. Cheminform.},
     number = {1},
     pages = {29},
     title = {{TeachOpenCADD: a teaching platform for computer-aided drug design using open source packages and data}},
     url = {https://doi.org/10.1186/s13321-019-0351-x},
     volume = {11},
+    year = {2019}
+}
+
+@article{TeachOpenCADDKNIME2019,
+    author = {Sydow, Dominique and Wichmann, Michele and Rodr{\'{i}}guez-Guerra, Jaime and Goldmann, Daria and Landrum, Gregory and Volkamer, Andrea},
+    doi = {10.1021/ACS.JCIM.9B00662},
+    journal = {J. Chem. Inf. Model.},
+    publisher = {American Chemical Society},
+    title = {{TeachOpenCADD-KNIME: A Teaching Platform for Computer-Aided Drug Design Using KNIME Workflows}},
+    url = {https://pubs.acs.org/doi/full/10.1021/acs.jcim.9b00662},
     year = {2019}
 }
 ```
