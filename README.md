@@ -9,9 +9,14 @@ Institute of Physiology <br>
 Charité - Universitätsmedizin Berlin <br>
 [volkamerlab.org](https://physiologie-ccm.charite.de/en/research_at_the_institute/volkamer_lab/)
 
+#### TeachOpenCADD Jupyter Notebooks
 [![DOI](https://img.shields.io/badge/DOI-10.1186%2Fs13321--019--0351--x-blue.svg)](https://doi.org/10.1186/s13321-019-0351-x)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2600909.svg)](https://doi.org/10.5281/zenodo.2600909)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/volkamerlab/TeachOpenCADD/master)
+
+#### TeachOpenCADD KNIME Workflows
+[![DOI](https://img.shields.io/badge/DOI-10.1021%2Facs.jcim.9b00662-blue.svg)](https://pubs.acs.org/doi/10.1021/acs.jcim.9b00662)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3475086.svg)](https://doi.org/10.5281/zenodo.3475086)
 
 ## Table of contents  
 
