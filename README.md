@@ -265,7 +265,7 @@ The authors of the TeachOpenCADD platform received public funding from the follo
 * Open Access Publication Fund of Charité – Universitätsmedizin Berlin
 
 If you make use of the TeachOpenCADD material in scientific publications, please cite our respective articles:
-* [TeachOpenCADD Jupyter Notebooks: Talktorials 1-10](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x>`). 
+* [TeachOpenCADD Jupyter Notebooks: Talktorials 1-10](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x). 
 * TeachOpenCADD KNIME workflows (accepted)
 
 It will help measure the impact of the TeachOpenCADD platform and future funding!
