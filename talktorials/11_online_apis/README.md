@@ -6,6 +6,8 @@ __Developed at AG Volkamer, Charité__
 
 Dr. Jaime Rodríguez-Guerra, Dominique Sydow
 
+__!!! Work in progress - this is only a preview version !!!__
+
 ## Aim of this talktorial
 
 Web services are a convenient way of using software because it frees the user from any installation hassles. A web UI is usually available for easy usage, at the cost of losing the possibility to automate a workflow. Fortunately, the number of web services that provide an API for automated access has been increasing. Some examples in the field of Computer Aided Drug Design include:
