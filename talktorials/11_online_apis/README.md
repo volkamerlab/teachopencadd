@@ -12,11 +12,12 @@ __!!! Work in progress - this is only a preview version !!!__
 
 Web services are a convenient way of using software because it frees the user from any installation hassles. A web UI is usually available for easy usage, at the cost of losing the possibility to automate a workflow. Fortunately, the number of web services that provide an API for automated access has been increasing. Some examples in the field of Computer Aided Drug Design include:
 
-- ChEMBL
+- PubChem 
 - RCSB PDB
 - KLIFS
 - Proteins.plus
 - SwissDock
+- AutoDock Vina (OPAL webservices)
 
 In the underlying notebooks, you will learn how to programmatically use online web-services from Python, always in the context of drug design.
 The final goal will be to build a full pipeline that exclusively relies on web-services, without (almost) any local execution!
@@ -33,4 +34,4 @@ __Note__: For simplicity, the full lesson will be divided in four notebooks:
 1. Kinase-Ligand Interaction Fingerprints and Structures database (KLIFS), developed at the Division of Medicinal Chemistry - VU University Amsterdam, is a database that provides information about the protein structure (collected from the PDB) of catalytic kinase domains and the interaction with their ligands. We can obtain the curated protein structure from this database and use the ligand information to retrieve similar ligands from other databases, like PubChem or ChEMBL.
 2. Using the ligand information provided by KLIFS, we can query PubChem for similar compounds.
 3. After having obtained the protein structure(s) and several candidate ligands, we can dock them online with the Vina installation provided in the OPAL web services. We will also query _proteins.plus'_ DoGSiteScorer for probable binding sites where we will dock the compounds. (part B)
-4. The results will be visualized with `nglview` and their interactions fingerprints compared with those provided originally in KLIFS. (part C)
+4. The results will be visualized with `nglview` and their interactions fingerprints (computed using `PLIP`) compared with those provided originally in KLIFS. (part C)
