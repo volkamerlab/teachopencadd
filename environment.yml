@@ -3,8 +3,10 @@ channels:
   - conda-forge
   - defaults
   - samoturk
+  - openbabel
 dependencies:
   - python>=3.6
+  - pip
   - jupyter
   - rdkit>=2018.09.2.0
   - pymol
@@ -16,3 +18,19 @@ dependencies:
   - chembl_webresource_client
   - nglview
   - pytest-notebook
+  - requests
+  - openbabel
+  - lxml
+  - bravado
+  - beautifulsoup4
+  - ipywidgets>=7.5
+  - pip:
+    - suds-community
+    - https://github.com/jaimergp/autodocktools-prepare-py3k/archive/master.zip
+    # Plip must be installed with --no-deps manually:
+    # pip install --no-deps https://github.com/ssalentin/plip/archive/stable.zip
+
+
+
+
+
