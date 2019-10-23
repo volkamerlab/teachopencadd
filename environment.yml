@@ -2,14 +2,12 @@ name: teachopencadd
 channels:
   - conda-forge
   - defaults
-  - samoturk
   - openbabel
 dependencies:
   - python>=3.6
   - pip
   - jupyter
   - rdkit>=2018.09.2.0
-  - pymol
   - pmw
   - scikit-learn
   - biopandas
@@ -24,6 +22,8 @@ dependencies:
   - bravado
   - beautifulsoup4
   - ipywidgets>=7.5
+  - biotite
+  - mdanalysis
   - pip:
     - suds-community
     - https://github.com/jaimergp/autodocktools-prepare-py3k/archive/master.zip
