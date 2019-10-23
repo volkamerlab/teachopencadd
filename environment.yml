@@ -8,6 +8,7 @@ dependencies:
   - python>=3.6
   - pip
   - jupyter
+  - jupyterlab
   - rdkit>=2018.09.2.0
   - pymol
   - pmw
@@ -30,7 +31,6 @@ dependencies:
     # Plip must be installed with --no-deps manually:
     # pip install --no-deps https://github.com/ssalentin/plip/archive/stable.zip
 
-
-
-
-
+## For Jupyter lab extensions, run:
+# jupyter labextension install @jupyter-widgets/jupyterlab-manager
+# jupyter labextension install nglview-js-widgets
