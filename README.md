@@ -130,9 +130,9 @@ The setup will take a few minutes.
    
     b. ... or cloning it to your computer using the package `git`:
 
-        ```bash
-        git clone https://github.com/volkamerlab/TeachOpenCADD.git
-        ```
+    ```bash
+    git clone https://github.com/volkamerlab/TeachOpenCADD.git
+    ```
         
 2.  Use the Anaconda software for a clean package version management. 
    
@@ -165,7 +165,7 @@ The setup will take a few minutes.
     python -m ipykernel install --user --name teachopencadd
     
     # FYI, uninstall this link again with this command:
-    #jupyter kernelspec uninstall teachopencadd
+    # jupyter kernelspec uninstall teachopencadd
     ``` 
 
 6.  Start the Jupyter notebook.
@@ -221,11 +221,11 @@ cd C:/Anaconda2
 set path=%path%;C:\Anaconda2
 pip install pymol‑2.3.0a0‑cp36‑cp36m‑win_amd64.whl
 pip install pymol_launcher‑2.1‑cp36‑cp36m‑win_amd64.whl
-# or whatever pymol_XXXX.whl you have downloaded
+# Or whatever pymol_XXXX.whl you have downloaded
 ```
 #### MacOS
 
-The installation works the same as under Linux, however we could not install `pymol` from the open source `samoturk` conda channel. You can use the `schrodinger` channel. Unfortunately a Schrödinger license is needed to run PyMOL (the license is free for [educational](https://pymol.org/edu) use).
+The installation works the same as under Linux, however, we could not install `pymol` from the open source `samoturk` conda channel. You can use the `schrodinger` channel. Unfortunately a Schrödinger license is needed to run PyMOL (the license is free for [educational](https://pymol.org/edu) use).
 
 For the installation done manually, replace the command:
 
