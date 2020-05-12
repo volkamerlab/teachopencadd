@@ -17,7 +17,7 @@ dependencies:
   - nglview
   - pytest-notebook
   - requests
-  - openbabel
+  - openbabel 2.4
   - lxml
   - bravado
   - beautifulsoup4
@@ -25,12 +25,9 @@ dependencies:
   - biotite
   - mdanalysis
   - pip:
-    - suds-community
-    - https://github.com/jaimergp/autodocktools-prepare-py3k/archive/master.zip
+      - suds-community
+      - https://github.com/jaimergp/autodocktools-prepare-py3k/archive/master.zip
+      - https://github.com/volkamerlab/superposer/archive/master.zip
     # Plip must be installed with --no-deps manually:
     # pip install --no-deps https://github.com/ssalentin/plip/archive/stable.zip
-
-
-
-
 
