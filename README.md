@@ -19,6 +19,13 @@ Charité - Universitätsmedizin Berlin <br>
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3626897.svg)](https://doi.org/10.5281/zenodo.3626897)
 [![KNIME Hub](https://img.shields.io/badge/KNIME%20Hub-TeachOpenCADD--KNIME-yellow.svg)](https://hub.knime.com/volkamerlab/spaces/Public/latest/TeachOpenCADD/TeachOpenCADD)
 
+If you use TeachOpenCADD in a publication, 
+please  [cite](https://github.com/volkamerlab/TeachOpenCADD/blob/master/README.md#citation) us! 
+If you use TeachOpenCADD in class, please include a link back to our repository. 
+In any case, please [star](https://help.github.com/en/github/getting-started-with-github/saving-repositories-with-stars) 
+(and tell your students to star) those repositories you consider useful for your learning/teaching activities.
+
+
 ## Table of contents  
 
 * [Objective](#objective)
@@ -28,6 +35,7 @@ Charité - Universitätsmedizin Berlin <br>
 * [License](#license)
 * [Citation](#citation)
 * [Funding](#funding)
+
 
 ## Objective
 
