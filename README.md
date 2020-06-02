@@ -27,6 +27,7 @@ Charité - Universitätsmedizin Berlin <br>
 * [Contact](#contact)
 * [License](#license)
 * [Citation](#citation)
+* [Funding](#funding)
 
 ## Objective
 
@@ -259,43 +260,69 @@ This work is licensed under the Attribution 4.0 International (CC BY 4.0).
 To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.
 
 
+## Contact
+(Back to [Table of contents](#table-of-contents).)
+
+Please contact us if you have questions or suggestions!
+
+* If you have questions regarding our Jupyter Notebooks, please open an issue on our GitHub repository: https://github.com/volkamerlab/teachopencadd/issues
+* If you have questions regarding our KNIME workflows, please make a post on our KNIME Hub page in the "Discussion" section: https://hub.knime.com/volkamerlab/space/TeachOpenCADD/TeachOpenCADD
+* If you have ideas for new topics, please fill out our questionnaire: [contribute.volkamerlab.org](contribute.volkamerlab.org)
+* For all other requests, please send us an email: teachopencadd@charite.de
+
+We are looking forward to hearing from you!
+
+
+## License
+(Back to [Table of contents](#table-of-contents).)
+
+This work is licensed under the Attribution 4.0 International (CC BY 4.0).
+To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.
+
+
 ## Citation
 (Back to [Table of contents](#table-of-contents).)
 
-The authors of the TeachOpenCADD platform received public funding from the following funders:
-* Bundesministerium für Bildung und Forschung (Grant Number 031A262C) 
-* Deutsche Forschungsgemeinschaft (Grant number VO 2353/1-1)
-* HaVo-Stiftung, Ludwigshafen, Germany
-* Stiftung Charité (Einstein BIH Visiting Fellow project)
-* "SUPPORT für die Lehre" program (Förderung innovativer Lehrvorhaben) of the Freie Universität Berlin
-* Open Access Publication Fund of Charité – Universitätsmedizin Berlin
-
 If you make use of the TeachOpenCADD material in scientific publications, please cite our respective articles:
 * [TeachOpenCADD Jupyter Notebooks: Talktorials 1-10](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x). 
-* [TeachOpenCADD KNIME workflows](https://pubs.acs.org/doi/full/10.1021/acs.jcim.9b00662)
+* [TeachOpenCADD KNIME workflows](https://pubs.acs.org/doi/10.1021/acs.jcim.9b00662)
 
 It will help measure the impact of the TeachOpenCADD platform and future funding!
 
 ```
 @article{TeachOpenCADD2019,
     author = {Sydow, Dominique and Morger, Andrea and Driller, Maximilian and Volkamer, Andrea},
+    title = {{TeachOpenCADD: a teaching platform for computer-aided drug design using open source packages and data}},
     doi = {10.1186/s13321-019-0351-x},
+    url = {https://doi.org/10.1186/s13321-019-0351-x},
     journal = {J. Cheminform.},
+    volume = {11},
     number = {1},
     pages = {29},
-    title = {{TeachOpenCADD: a teaching platform for computer-aided drug design using open source packages and data}},
-    url = {https://doi.org/10.1186/s13321-019-0351-x},
-    volume = {11},
     year = {2019}
 }
 
 @article{TeachOpenCADDKNIME2019,
-    author = {Sydow, Dominique and Wichmann, Michele and Rodr{\'{i}}guez-Guerra, Jaime and Goldmann, Daria and Landrum, Gregory and Volkamer, Andrea},
-    doi = {10.1021/ACS.JCIM.9B00662},
-    journal = {J. Chem. Inf. Model.},
-    publisher = {American Chemical Society},
+    author = {Sydow, Dominique and Wichmann, Michele and Rodríguez-Guerra, Jaime and Goldmann, Daria and Landrum, Gregory and Volkamer, Andrea},
     title = {{TeachOpenCADD-KNIME: A Teaching Platform for Computer-Aided Drug Design Using KNIME Workflows}},
-    url = {https://pubs.acs.org/doi/full/10.1021/acs.jcim.9b00662},
+    doi = {10.1021/acs.jcim.9b00662},
+    url = {https://doi.org/10.1021/acs.jcim.9b00662},
+    journal = {Journal of Chemical Information and Modeling},
+    volume = {59},
+    number = {10},
+    pages = {4083-4086},
     year = {2019}
 }
 ```
+
+
+## Funding
+(Back to [Table of contents](#table-of-contents).)
+
+The authors of the TeachOpenCADD platform receive(d) public funding from the following funding agencies:
+* Bundesministerium für Bildung und Forschung (Grant Number 031A262C) 
+* Deutsche Forschungsgemeinschaft (Grant number VO 2353/1-1)
+* HaVo-Stiftung, Ludwigshafen, Germany
+* Stiftung Charité (Einstein BIH Visiting Fellow project)
+* "SUPPORT für die Lehre" program (Förderung innovativer Lehrvorhaben) of the Freie Universität Berlin
+* Open Access Publication Fund of Charité – Universitätsmedizin Berlin
