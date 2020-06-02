@@ -268,19 +268,6 @@ This work is licensed under the Attribution 4.0 International (CC BY 4.0).
 To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.
 
 
-## Contact
-(Back to [Table of contents](#table-of-contents).)
-
-Please contact us if you have questions or suggestions!
-
-* If you have questions regarding our Jupyter Notebooks, please open an issue on our GitHub repository: https://github.com/volkamerlab/teachopencadd/issues
-* If you have questions regarding our KNIME workflows, please make a post on our KNIME Hub page in the "Discussion" section: https://hub.knime.com/volkamerlab/space/TeachOpenCADD/TeachOpenCADD
-* If you have ideas for new topics, please fill out our questionnaire: [contribute.volkamerlab.org](contribute.volkamerlab.org)
-* For all other requests, please send us an email: teachopencadd@charite.de
-
-We are looking forward to hearing from you!
-
-
 ## License
 (Back to [Table of contents](#table-of-contents).)
 
