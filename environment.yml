@@ -2,7 +2,6 @@ name: teachopencadd
 channels:
   - conda-forge
   - defaults
-  - samoturk
   - openbabel
 dependencies:
   - python>=3.6
@@ -10,7 +9,6 @@ dependencies:
   - jupyter
   - jupyterlab
   - rdkit>=2018.09.2.0
-  - pymol
   - pmw
   - scikit-learn
   - biopandas
@@ -20,14 +18,17 @@ dependencies:
   - nglview
   - pytest-notebook
   - requests
-  - openbabel
+  - openbabel 2.4.1
   - lxml
   - bravado
   - beautifulsoup4
   - ipywidgets>=7.5
+  - biotite
+  - mdanalysis
   - pip:
-    - suds-community
-    - https://github.com/jaimergp/autodocktools-prepare-py3k/archive/master.zip
+      - suds-community
+      - https://github.com/jaimergp/autodocktools-prepare-py3k/archive/master.zip
+      - https://github.com/volkamerlab/superposer/archive/master.zip
     # Plip must be installed with --no-deps manually:
     # pip install --no-deps https://github.com/ssalentin/plip/archive/stable.zip
 
