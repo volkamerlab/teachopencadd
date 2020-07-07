@@ -16,8 +16,8 @@ Talktorial names follow the pattern `index_biologicalentity_topic`, whereby poss
 - `009_compound_pharmacophores`
 - `010_bindingsite_similarity`
 - `011_general_webservices`
-- `012_protein_klifs`
-- `013_compound_pubchem`
-- `013_interaction_docking`
-- `014_interaction_visualization`
-- `015_bindingsite_prediction`
+- `012_compound_pubchem`
+- `013_protein_klifs`
+- `014_bindingsite_prediction`
+- `015_interaction_docking`
+- `016_interaction_visualization`
