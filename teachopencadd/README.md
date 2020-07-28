@@ -3,19 +3,19 @@
 This index gives an overview on the available TeachOpenCADD talktorials. 
 
 - `000_template`  # new
-- `001_chembl_query`  # T1
+- `001_query_chembl`  # T1
 - `002_compound_adme`  # T2
 - `003_compound_unwanted_substructures`  # T3
 - `004_compound_similarity`  # T4
 - `005_compound_clustering`  # T5
 - `006_compound_maximum_common_substructures`  # T6
-- `007_ligand_based_machine_learning`  # T7
-- `008_pdb_query`  # T8
-- `009_ligand_based_pharmacophores`  # T9
+- `007_compound_activity_machine_learning`  # T7
+- `008_query_pdb`  # T8
+- `009_compound_ensemble_pharmacophores`  # T9
 - `010_binding_site_comparison`  # T10
-- `011_online_api_introduction`  # T11
-- `012_pubchem_query`  # T11a (second part)
-- `013_klifs_query`  # T11a (first part); could mention at the end `opencadd.databases.klifs`/`klifs_utils`
+- `011_query_online_api_webservices`  # T11
+- `012_query_pubchem`  # T11a (second part)
+- `013_query_klifs`  # T11a (first part); could mention at the end `opencadd.databases.klifs`/`klifs_utils`
 - `014_binding_site_detection`  # T12 (not on TeachOpenCADD yet, but [here](https://github.com/volkamerlab/TeachOpenCADD-BindingSiteDetection)), we could extract binding site stuff from T11b and merge it with T12 as stand-alone notebook prior to docking
 - `015_protein_ligand_docking`  # T11b
 - `016_protein_ligand_interactions`  # T11c
