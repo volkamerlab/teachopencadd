@@ -2,22 +2,21 @@
 
 This index gives an overview on the available TeachOpenCADD talktorials. 
 
-Talktorial names follow the pattern `index_biologicalentity_topic`, whereby possible biological entities are compounds `compound`, proteins `protein`, binding sites `bindingsite`, protein-ligand interactions `interaction`, or `general` in case the talktorial does not focus on a biological topic.
-
-- `000_general_template`
-- `001_compound_chembl`
-- `002_compound_adme`
-- `003_compound_substructures`
-- `004_compound_similarity`
+- `000_template`
+- `001_chembl_compound_query`
+- `002_compound_filtering_adme`
+- `003_compound_filtering_unwanted_substructures`
+- `004_ligand_based_screening_compound_similarity`
 - `005_compound_clustering`
-- `006_compound_msc`
-- `007_compound_machinelearning`
-- `008_protein_pdb`
-- `009_compound_pharmacophores`
-- `010_bindingsite_similarity`
-- `011_general_webservices`
-- `012_compound_pubchem`
-- `013_protein_klifs`
-- `014_bindingsite_prediction`
-- `015_interaction_docking`
-- `016_interaction_visualization`
+- `006_compound_maximum_common_substructures`
+- `007_ligand_based_screening_machine_learning`
+- `008_pdb_protein_query`
+- `009_ligand_based_pharmacophores`
+- `010_binding_site_comparison`
+- `011_online_api_introduction`
+- `012_pubchem_compound_query`
+- `013_klifs_kinase_query`
+- `014_binding_site_detection`
+- `015_protein_ligand_docking`
+- `016_protein_ligand_interactions`
+- `017_python_jupyter_introduction`
