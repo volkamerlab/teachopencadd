@@ -12,7 +12,7 @@ This index gives an overview on the available TeachOpenCADD talktorials.
 - `007_compound_activity_machine_learning`  # T7
 - `008_query_pdb`  # T8
 - `009_compound_ensemble_pharmacophores`  # T9
-- `010_binding_site_comparison`  # T10
+- `010_binding_site_comparison`  # T10, fix [issue](https://github.com/volkamerlab/TeachOpenCADD/issues/20)
 - `011_query_online_api_webservices`  # T11
 - `012_query_pubchem`  # T11a (second part)
 - `013_query_klifs`  # T11a (first part); could mention at the end `opencadd.databases.klifs`/`klifs_utils`
