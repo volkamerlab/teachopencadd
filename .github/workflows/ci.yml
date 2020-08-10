@@ -9,6 +9,8 @@ on:
     branches:
       - "master"
       - "maintenance/.+"
+      # temporary; remove before merging #29
+      - "packaging"
   schedule:
     # Run a cron job once daily
     - cron: "0 0 * * *"
