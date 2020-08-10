@@ -33,7 +33,7 @@ jobs:
     - uses: goanpeca/setup-miniconda@v1
       with:
         python-version: ${{ matrix.python-version }}
-        activate-environment: test
+        activate-environment: teachopencadd
         channel-priority: true
         environment-file: environment.yml
         auto-activate-base: false
