@@ -1,4 +1,4 @@
-name: ci
+name: CI
 
 on:
   push:
@@ -22,7 +22,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest]
-        python-version: [3.6, 3.7]
+        python-version: [3.6]
     env:
       PYVER: ${{ matrix.python-version }}
       PACKAGE: teachopencadd  # Replace with the name of your package
@@ -57,8 +57,19 @@ jobs:
         PYTEST_ARGS=" --nbval"
         pytest $PYTEST_ARGS $PACKAGE
 
-    - name: Codecov
-      uses: codecov/codecov-action@v1
-      with:
-        file: ./coverage.xml
-        fail_ci_if_error: true
+  treebeard:
+    runs-on: ubuntu-latest
+    name: Run treebeard
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - uses: treebeardtech/treebeard@master
+        with:
+          api-key: ${{ secrets.TREEBEARD_API_KEY }}
+          docker-username: "jaimergp"
+          docker-password: "${{ secrets.DOCKER_PASSWORD }}"
+          docker-image-name: "volkamerlab/teachopencadd"
+          notebooks:
+           - teachopencadd/000_*/talktorial.ipynb
+           - teachopencadd/001_*/talktorial.ipynb
+           - teachopencadd/002_*/talktorial.ipynb
