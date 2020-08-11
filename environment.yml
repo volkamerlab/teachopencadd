@@ -25,7 +25,8 @@ dependencies:
   - biotite
   - mdanalysis
   - plip
-  - pytest
+  # Workaround for https://github.com/computationalmodelling/nbval/issues/153
+  - pytest 5.*
   - nbval
   - pip:
       - suds-community
