@@ -54,7 +54,7 @@ jobs:
       - name: Run tests
         shell: bash -l {0}
         run: |
-          PYTEST_ARGS=" --nbval"
+          PYTEST_ARGS=" --nbval --current-env"
           pytest $PYTEST_ARGS $PACKAGE
 
   treebeard:
