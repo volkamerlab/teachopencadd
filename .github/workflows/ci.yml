@@ -45,11 +45,21 @@ jobs:
           df -h
           ulimit -a
 
+      - name: Install package
+        shell: bash -l {0}
+        run: |
+          pip install . --no-deps -vv
+
       - name: Environment Information
         shell: bash -l {0}
         run: |
           conda info --all
           conda list
+
+      - name: Test CLI
+        shell: bash -l {0}
+        run: |
+          teachopencadd
 
       - name: Run tests
         shell: bash -l {0}
