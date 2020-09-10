@@ -55,7 +55,7 @@ jobs:
         shell: bash -l {0}
         run: |
           PYTEST_ARGS=" --nbval --current-env"
-          pytest $PYTEST_ARGS $PACKAGE
+          pytest $PYTEST_ARGS $PACKAGE/talktorials
 
   treebeard:
     runs-on: ubuntu-latest
