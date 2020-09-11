@@ -65,7 +65,9 @@ jobs:
         shell: bash -l {0}
         run: |
           PYTEST_ARGS=" --nbval-lax --current-env"
-          pytest $PYTEST_ARGS $PACKAGE/talktorials
+          # Test the same notebooks as treebeard does
+          NOTEBOOKS=$(cat treebeard.yaml | shyaml get-values notebooks | xargs)
+          pytest $PYTEST_ARGS $NOTEBOOKS
 
   treebeard:
     runs-on: ubuntu-latest
