@@ -8,7 +8,6 @@ dependencies:
   - jupyter
   - jupyterlab
   - rdkit>=2018.09.2.0
-  - pmw
   - scikit-learn
   - biopandas
   - seaborn
@@ -24,7 +23,7 @@ dependencies:
   - biotite
   - mdanalysis
   - plip
-  - biopython 1.77
+  - biopython<=1.77
   # Workaround for https://github.com/computationalmodelling/nbval/issues/153
   - pytest 5.*
   - nbval
