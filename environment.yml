@@ -16,22 +16,26 @@ dependencies:
   - pypdb
   - chembl_webresource_client
   - nglview
-  - pytest-notebook
   - requests
-  - openbabel 2.4.1
+  - openbabel
   - lxml
   - bravado
   - beautifulsoup4
   - ipywidgets>=7.5
   - biotite
   - mdanalysis
+  - plip
+  - biopython 1.77
+  # Workaround for https://github.com/computationalmodelling/nbval/issues/153
+  - pytest 5.*
+  - nbval
+  - shyaml
   - pip:
+      - "."
+      - redo
       - suds-community
       - https://github.com/jaimergp/autodocktools-prepare-py3k/archive/master.zip
-      - https://github.com/volkamerlab/superposer/archive/master.zip
-    # Plip must be installed with --no-deps manually:
-    # pip install --no-deps https://github.com/ssalentin/plip/archive/stable.zip
-
+      - https://github.com/volkamerlab/opencadd/archive/b6d9c511f89ff200c45532e614f1abffa35e2ab7.zip
 ## For Jupyter lab extensions, run:
 # jupyter labextension install @jupyter-widgets/jupyterlab-manager
 # jupyter labextension install nglview-js-widgets

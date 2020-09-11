@@ -1,0 +1,83 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - "master"
+      - "maintenance/.+"
+  pull_request:
+    branches:
+      - "master"
+      - "maintenance/.+"
+      # temporary; remove before merging #29
+      - "packaging"
+  schedule:
+    # Run a cron job once daily
+    - cron: "0 0 * * *"
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        python-version: [3.6]
+    env:
+      PYVER: ${{ matrix.python-version }}
+      PACKAGE: teachopencadd # Replace with the name of your package
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: goanpeca/setup-miniconda@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+          activate-environment: teachopencadd
+          channel-priority: true
+          environment-file: environment.yml
+          auto-activate-base: false
+
+      - name: Additional info about the build
+        shell: bash
+        run: |
+          uname -a
+          df -h
+          ulimit -a
+
+      - name: Install package
+        shell: bash -l {0}
+        run: |
+          pip install . --no-deps -vv
+
+      - name: Environment Information
+        shell: bash -l {0}
+        run: |
+          conda info --all
+          conda list
+
+      - name: Test CLI
+        shell: bash -l {0}
+        run: |
+          teachopencadd
+
+      - name: Run tests
+        shell: bash -l {0}
+        run: |
+          PYTEST_ARGS=" --nbval-lax --current-env"
+          # Test the same notebooks as treebeard does
+          NOTEBOOKS=$(cat treebeard.yaml | shyaml get-values notebooks | xargs)
+          pytest $PYTEST_ARGS $NOTEBOOKS
+
+  treebeard:
+    runs-on: ubuntu-latest
+    name: Run treebeard
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - uses: treebeardtech/treebeard@master
+        with:
+          api-key: ${{ secrets.TREEBEARD_API_KEY }}
+          docker-username: "jaimergp"
+          docker-password: "${{ secrets.DOCKER_PASSWORD }}"
+          docker-image-name: "volkamerlab/teachopencadd"
