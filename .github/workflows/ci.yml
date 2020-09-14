@@ -89,6 +89,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Fetch all tags
+        shell: bash
+        run: |
+          git fetch --tags --force
 
       - uses: goanpeca/setup-miniconda@v1
         with:
