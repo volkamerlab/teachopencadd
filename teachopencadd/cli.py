@@ -14,3 +14,5 @@ def main():
         for d in sorted(talktorials_dir.glob("*/")):
             if (d / "talktorial.ipynb").exists():
                 print("  -", d.name)
+    else:
+        raise RuntimeError(f"Could not find talktorials at expected location `{talktorials_dir}`")

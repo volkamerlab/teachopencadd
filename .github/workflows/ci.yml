@@ -17,6 +17,7 @@ on:
 
 jobs:
   test:
+    name: Pytest
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -71,7 +72,7 @@ jobs:
 
   treebeard:
     runs-on: ubuntu-latest
-    name: Run treebeard
+    name: Treebeard
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
@@ -81,3 +82,42 @@ jobs:
           docker-username: "jaimergp"
           docker-password: "${{ secrets.DOCKER_PASSWORD }}"
           docker-image-name: "volkamerlab/teachopencadd"
+
+  condabuild:
+    name: Conda package
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Fetch all tags
+        shell: bash
+        run: |
+          git fetch --tags --force
+
+      - uses: goanpeca/setup-miniconda@v1
+        with:
+          python-version: 3.6
+          channel-priority: true
+          auto-activate-base: true
+          channels: conda-forge,defaults
+
+      - name: Additional info about the build
+        shell: bash
+        run: |
+          uname -a
+          df -h
+          ulimit -a
+
+      - name: Environment Information
+        shell: bash -l {0}
+        run: |
+          conda info --all
+          conda list
+
+      - name: Build package
+        shell: bash -l {0}
+        run: |
+          conda install conda-build anaconda
+          conda build devtools/conda-recipe
