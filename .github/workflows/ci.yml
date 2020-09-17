@@ -36,7 +36,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
           activate-environment: teachopencadd
           channel-priority: true
-          environment-file: environment.yml
+          environment-file: devtools/conda-envs/test_env.yml
           auto-activate-base: false
 
       - name: Additional info about the build
