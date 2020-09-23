@@ -38,6 +38,8 @@
 Please add the following lines to the top of the notebook and use those paths
 
 ```python
-HERE = Path(_dh[0])
+HERE = Path(_dh[-1])
 DATA = HERE / "data"
 ```
+
+* List here unfamiliar libraries you find in the imports and their intended use:

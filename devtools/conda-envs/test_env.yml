@@ -24,6 +24,9 @@ dependencies:
   - mdanalysis
   - plip
   - biopython<=1.77
+  - redo
+  - requests-cache
+  - suds-community
   ## CI tests
   # Workaround for https://github.com/computationalmodelling/nbval/issues/153
   - pytest 5.*
@@ -36,13 +39,10 @@ dependencies:
   - recommonmark
   - sphinx-autodoc-typehints
   - autodocsumm
-  - redo
-  - suds-community
   - pip:
-      - "."
       - nbsphinx-link
       - https://github.com/jaimergp/autodocktools-prepare-py3k/archive/master.zip
       - https://github.com/volkamerlab/opencadd/archive/b6d9c511f89ff200c45532e614f1abffa35e2ab7.zip
 ## For Jupyter lab extensions, run:
-# jupyter labextension install @jupyter-widgets/jupyterlab-manager
-# jupyter labextension install nglview-js-widgets
+# conda install nodejs
+# jupyter labextension install @jupyter-widgets/jupyterlab-manager nglview-js-widgets @jupyterlab/toc
