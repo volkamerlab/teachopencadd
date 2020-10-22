@@ -1,3 +1,6 @@
+###
+# If you change this file, make sure devtools/conda-envs/test_env.yml is in sync
+###
 name: teachopencadd
 channels:
   - conda-forge
@@ -12,10 +15,12 @@ dependencies:
   - biopandas
   - seaborn
   - pypdb
+  - requests-cache
   - chembl_webresource_client
   - nglview
   - requests
   - openbabel
+  - tqdm
   - lxml
   - bravado
   - beautifulsoup4
@@ -24,16 +29,29 @@ dependencies:
   - mdanalysis
   - plip
   - biopython<=1.77
+  - redo
+  - requests-cache
+  - suds-community
+  ## CI tests
   # Workaround for https://github.com/computationalmodelling/nbval/issues/153
   - pytest 5.*
+  - pytest-xdist
   - nbval
   - shyaml
+  ## Docs
+  - sphinx
+  - sphinx-material
+  - nbsphinx
+  - recommonmark
+  - sphinx-autodoc-typehints
+  - autodocsumm
   - pip:
-      - "."
-      - redo
-      - suds-community
+      - black-nb
+      - nbsphinx-link
       - https://github.com/jaimergp/autodocktools-prepare-py3k/archive/master.zip
       - https://github.com/volkamerlab/opencadd/archive/b6d9c511f89ff200c45532e614f1abffa35e2ab7.zip
+      # the package itself (teachopencadd)
+      - ./
 ## For Jupyter lab extensions, run:
-# jupyter labextension install @jupyter-widgets/jupyterlab-manager
-# jupyter labextension install nglview-js-widgets
+# conda install nodejs
+# jupyter labextension install @jupyter-widgets/jupyterlab-manager nglview-js-widgets @jupyterlab/toc

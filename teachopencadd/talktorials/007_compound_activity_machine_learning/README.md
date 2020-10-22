@@ -1,4 +1,4 @@
-# Talktorial title
+# Ligand-based screening: machine learning
 
 ## Aims of this talktorial
 

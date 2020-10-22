@@ -22,7 +22,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest]
+        os: [ubuntu-latest]  # TODO test on MacOS and Windows
         python-version: [3.6]
     env:
       PYVER: ${{ matrix.python-version }}
@@ -36,7 +36,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
           activate-environment: teachopencadd
           channel-priority: true
-          environment-file: environment.yml
+          environment-file: devtools/conda-envs/test_env.yml
           auto-activate-base: false
 
       - name: Additional info about the build
@@ -65,14 +65,27 @@ jobs:
       - name: Run tests
         shell: bash -l {0}
         run: |
-          PYTEST_ARGS=" --nbval-lax --current-env"
+          PYTEST_ARGS="--nbval-lax --current-env --dist loadscope --numprocesses 2"
           # Test the same notebooks as treebeard does
           NOTEBOOKS=$(cat treebeard.yaml | shyaml get-values notebooks | xargs)
           pytest $PYTEST_ARGS $NOTEBOOKS
 
-  treebeard:
+  format:
+    name: Black
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - name: Install format dependencies
+        run: python -m pip install black-nb shyaml
+      - name: Run black-nb
+        run: |
+          NOTEBOOKS=$(cat treebeard.yaml | shyaml get-values notebooks | xargs)
+          black-nb -l 99 --check $NOTEBOOKS
+
+  treebeard:
     name: Treebeard
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
