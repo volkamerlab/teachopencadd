@@ -134,3 +134,42 @@ jobs:
         run: |
           conda install conda-build anaconda
           conda build devtools/conda-recipe
+
+  docs:
+    name: Docs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: goanpeca/setup-miniconda@v1
+        with:
+          python-version: "3.7"
+          activate-environment: teachopencadd
+          channel-priority: true
+          environment-file: devtools/conda-envs/test_env.yml
+          auto-activate-base: false
+
+      - name: Additional info about the build
+        shell: bash
+        run: |
+          uname -a
+          df -h
+          ulimit -a
+
+      - name: Install package
+        shell: bash -l {0}
+        run: |
+          pip install . --no-deps -vv
+
+      - name: Environment Information
+        shell: bash -l {0}
+        run: |
+          conda info --all
+          conda list
+
+      - name: Run Sphinx
+        shell: bash -l {0}
+        run: |
+          cd docs
+          make clean
+          SPHINXOPTS="-W -T --keep-going" make html
