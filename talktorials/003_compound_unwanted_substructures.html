@@ -140,7 +140,7 @@
       
         <div class="md-flex__cell md-flex__cell--shrink">
           <div class="md-header-nav__source">
-            <a href="https://github.com/volkamerlab/TeachOpenCADD/" title="Go to repository" class="md-source" data-md-source="github">
+            <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -195,7 +195,7 @@
        title="TeachOpenCADD 0 documentation">TeachOpenCADD (WIP 🚧)</a>
   </label>
     <div class="md-nav__source">
-      <a href="https://github.com/volkamerlab/TeachOpenCADD/" title="Go to repository" class="md-source" data-md-source="github">
+      <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -222,35 +222,165 @@
     
     
       <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html#jcim-2019" class="md-nav__link">JCIM 2019</a>
       
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html#online-apis" class="md-nav__link">Online APIs</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html#structural-modeling" class="md-nav__link">Structural modeling</a>
-      
-    
-    </li></ul>
     
     </li>
     <li class="md-nav__item">
     
     
       <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="001_query_chembl.html" class="md-nav__link">T001 · Compound data acquisition (ChEMBL)</a>
       
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="002_compound_adme.html" class="md-nav__link">T002 · Molecular filtering: ADME and lead-likeness criteria</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <label class="md-nav__link md-nav__link--active" for="__toc"> T003 · Molecular filtering: unwanted substructures </label>
+    
+      <a href="#" class="md-nav__link md-nav__link--active">T003 · Molecular filtering: unwanted substructures</a>
+      
+        
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#talktorials-003-compound-unwanted-substructures--page-root" class="md-nav__link">T003 · Molecular filtering: unwanted substructures</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in Theory</a>
+        </li>
+        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in Practical</a>
+        </li>
+        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Unwanted-substructures" class="md-nav__link">Unwanted substructures</a>
+        </li>
+        <li class="md-nav__item"><a href="#Pan-Assay-Interference-Compounds-(PAINS)" class="md-nav__link">Pan Assay Interference Compounds (PAINS)</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Load-and-visualize-data" class="md-nav__link">Load and visualize data</a>
+        </li>
+        <li class="md-nav__item"><a href="#Filter-for-PAINS" class="md-nav__link">Filter for PAINS</a>
+        </li>
+        <li class="md-nav__item"><a href="#Filter-and-highlight-unwanted-substructures" class="md-nav__link">Filter and highlight unwanted substructures</a>
+        </li>
+        <li class="md-nav__item"><a href="#Highlight-substructures" class="md-nav__link">Highlight substructures</a>
+        </li>
+        <li class="md-nav__item"><a href="#Substructure-statistics" class="md-nav__link">Substructure statistics</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
+        </li>
+        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/003_compound_unwanted_substructures.nblink.txt">Show Source</a> </li>
+
+  </ul>
+</nav>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="004_compound_similarity.html" class="md-nav__link">T004 · Ligand-based screening: compound similarity</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="005_compound_clustering.html" class="md-nav__link">T005 · Compound clustering</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="006_compound_maximum_common_substructures.html" class="md-nav__link">T006 · Maximum common substructure</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="007_compound_activity_machine_learning.html" class="md-nav__link">T007 · Ligand-based screening: machine learning</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="008_query_pdb.html" class="md-nav__link">T008 · Protein data acquisition: Protein Data Bank (PDB)</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="009_compound_ensemble_pharmacophores.html" class="md-nav__link">T009 · Ligand-based pharmacophores</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="010_binding_site_comparison.html" class="md-nav__link">T010 · Binding site similarity and off-target prediction</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="011_query_online_api_webservices.html" class="md-nav__link">Structure-based CADD using online APIs/servers</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="012_query_pubchem.html" class="md-nav__link">Structure-based CADD using online APIs/servers</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="015_protein_ligand_docking.html" class="md-nav__link">Structure-based CADD using online APIs/servers</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="016_protein_ligand_interactions.html" class="md-nav__link">Structure-based CADD using online APIs/servers</a>
+      
+    
+    </li></ul>
     
     </li>
     <li class="md-nav__item">
