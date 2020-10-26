@@ -172,4 +172,10 @@ jobs:
         run: |
           cd docs
           make clean
-          SPHINXOPTS="-W -T --keep-going" make html
+          SPHINXOPTS="-j2 -W -T --keep-going" make html
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/_build/html

@@ -41,11 +41,12 @@ dependencies:
   - nbsphinx
   - recommonmark
   - sphinx-autodoc-typehints
+  - sphinx-copybutton
+  - sphinx-gallery
   - autodocsumm
   - pip:
       - black-nb
       - nbsphinx-link
-      - sphinx-gallery
       - https://github.com/jaimergp/autodocktools-prepare-py3k/archive/master.zip
       - https://github.com/volkamerlab/opencadd/archive/b6d9c511f89ff200c45532e614f1abffa35e2ab7.zip
       # the package itself (teachopencadd)

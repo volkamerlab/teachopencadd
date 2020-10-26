@@ -85,5 +85,4 @@ The authors of the TeachOpenCADD platform receive(d) public funding from the fol
 License
 -------
 
-This work is licensed under the Attribution 4.0 International (CC BY 4.0).
-To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.
+This work is licensed under the `Attribution 4.0 International (CC BY 4.0) <http://creativecommons.org/licenses/by/4.0/>`_.

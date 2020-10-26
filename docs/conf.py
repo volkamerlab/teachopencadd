@@ -21,12 +21,13 @@ sys.path.insert(0, os.path.abspath(".."))
 import teachopencadd
 import sphinx_material
 
+from datetime import datetime
 
 # -- Project information -----------------------------------------------------
 
 project = "TeachOpenCADD"
 copyright = (
-    "2018-2020, Volkamer Lab. Project structure based on the "
+    f"2018-{datetime.now().year}, Volkamer Lab. Project structure based on the "
     "Computational Molecular Science Python Cookiecutter version 1.1"
 )
 author = "Volkamer Lab"
@@ -59,6 +60,7 @@ extensions = [
     "nbsphinx",
     "nbsphinx_link",
     "IPython.sphinxext.ipython_console_highlighting",
+    "sphinx_copybutton",
 ]
 
 autosummary_generate = True
@@ -97,7 +99,7 @@ highlight_language = "none"
 
 # -- Options for HTML output -------------------------------------------------
 # -- HTML theme settings ------------------------------------------------
-html_short_title = "TeachOpenCADD"
+html_short_title = "TeachOpenCADD (WIP 🚧)"
 html_show_sourcelink = True
 html_sidebars = {"**": ["logo-text.html", "globaltoc.html", "localtoc.html", "searchbox.html"]}
 
