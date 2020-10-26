@@ -139,14 +139,14 @@ html_theme_options = {
         "index": "A teaching platform for computer-aided drug design",
         "customization": "Configuration options to personalize your site.",
     },
-    # "version_dropdown": True,
+    "version_dropdown": False,
     # "version_json": "_static/versions.json",
     # "version_info": {
     #     "Release": "https://bashtage.github.io/sphinx-material/",
     #     "Development": "https://bashtage.github.io/sphinx-material/devel/",
     #     "Release (rel)": "/sphinx-material/",
     #     "Development (rel)": "/sphinx-material/devel/",
-    #  },
+    # },
     "table_classes": ["plain"],
 }
 
