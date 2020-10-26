@@ -1,4 +1,4 @@
-name: teachopencadd
+﻿name: teachopencadd
 channels:
   - conda-forge
   - defaults
@@ -24,6 +24,10 @@ dependencies:
   - mdanalysis
   - plip
   - biopython<=1.77
+  - mdtraj
+  - openmm
+  - openmmforcefields
+  - pdbfixer
   ## CI tests
   # Workaround for https://github.com/computationalmodelling/nbval/issues/153
   - pytest 5.*
