@@ -1,0 +1,2041 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
+
+    <style>
+      body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+    </style>
+  
+
+  <link rel="stylesheet" href="../_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="../_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#2196f3">
+  <script src="../_static/javascripts/modernizr.js"></script>
+  
+  
+    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
+  
+  
+    <title>T007 · Ligand-based screening: machine learning &#8212; TeachOpenCADD 0 documentation</title>
+    <link rel="stylesheet" href="../_static/material.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="T008 · Protein data acquisition: Protein Data Bank (PDB)" href="008_query_pdb.html" />
+    <link rel="prev" title="T006 · Maximum common substructure" href="006_compound_maximum_common_substructures.html" />
+  
+    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
+  
+   
+
+  </head>
+  <body dir=ltr
+        data-md-color-primary=teal data-md-color-accent=cyan>
+  
+  <svg class="md-svg">
+    <defs data-children-count="0">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
+    </defs>
+  </svg>
+  
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#talktorials/007_compound_activity_machine_learning" tabindex="1" class="md-skip"> Skip to content </a>
+  <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../index.html" title="TeachOpenCADD 0 documentation"
+           class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic">TeachOpenCADD (WIP 🚧)</span>
+          <span class="md-header-nav__topic"> T007 · Ligand-based screening: machine learning </span>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="../search.html" method="GET" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder="Search"
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            <a href="https://github.com/volkamerlab/TeachOpenCADD/" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    TeachOpenCADD
+  </div>
+</a>
+          </div>
+        </div>
+      
+      
+  
+  <script src="../_static/javascripts/version_dropdown.js"></script>
+  <script>
+    var json_loc = "../"versions.json"",
+        target_loc = "../../",
+        text = "Versions";
+    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
+  </script>
+  
+
+    </div>
+  </nav>
+</header>
+
+  
+  <div class="md-container">
+    
+    
+    
+  <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+      <ul class="md-tabs__list">
+            
+            <li class="md-tabs__item"><a href="../talktorials.html" class="md-tabs__link">Our talktorials</a></li>
+            
+            <li class="md-tabs__item"><a href="../installing.html" class="md-tabs__link">Run locally</a></li>
+            
+            <li class="md-tabs__item"><a href="../contribute.html" class="md-tabs__link">Contribute</a></li>
+          <li class="md-tabs__item"><a href="../talktorials.html" class="md-tabs__link">Talktorials by collection</a></li>
+      </ul>
+    </div>
+  </nav>
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../index.html" title="TeachOpenCADD 0 documentation" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    <a href="../index.html"
+       title="TeachOpenCADD 0 documentation">TeachOpenCADD (WIP 🚧)</a>
+  </label>
+    <div class="md-nav__source">
+      <a href="https://github.com/volkamerlab/TeachOpenCADD/" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    TeachOpenCADD
+  </div>
+</a>
+    </div>
+  
+  
+
+  
+  <ul class="md-nav__list">
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Our talktorials</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#jcim-2019" class="md-nav__link">JCIM 2019</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#online-apis" class="md-nav__link">Online APIs</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#structural-modeling" class="md-nav__link">Structural modeling</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Run locally</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../installing.html" class="md-nav__link">Installing</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Contributors</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../contribute.html" class="md-nav__link">For contributors</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../api.html" class="md-nav__link">API Documentation</a>
+      
+    
+    </li>
+  </ul>
+  
+
+</nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#talktorials-007-compound-activity-machine-learning--page-root" class="md-nav__link">T007 · Ligand-based screening: machine learning</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
+        </li>
+        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
+        </li>
+        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Data-preparation:-Molecule-encoding" class="md-nav__link">Data preparation: Molecule encoding</a>
+        </li>
+        <li class="md-nav__item"><a href="#Machine-learning-(ML)" class="md-nav__link">Machine learning (ML)</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Supervised-learning" class="md-nav__link">Supervised learning</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Model-validation-and-evaluation" class="md-nav__link">Model validation and evaluation</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Validation-strategy:-K-fold-cross-validation" class="md-nav__link">Validation strategy: K-fold cross validation</a>
+        </li>
+        <li class="md-nav__item"><a href="#Performance-measures" class="md-nav__link">Performance measures</a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Load-compound-and-activity-data" class="md-nav__link">Load compound and activity data</a>
+        </li>
+        <li class="md-nav__item"><a href="#Data-preparation" class="md-nav__link">Data preparation</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Data-labeling" class="md-nav__link">Data labeling</a>
+        </li>
+        <li class="md-nav__item"><a href="#Molecule-encoding" class="md-nav__link">Molecule encoding</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Machine-Learning-(ML)" class="md-nav__link">Machine Learning (ML)</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Helper-functions" class="md-nav__link">Helper functions</a>
+        </li>
+        <li class="md-nav__item"><a href="#Random-forest-classifier" class="md-nav__link">Random forest classifier</a>
+        </li>
+        <li class="md-nav__item"><a href="#Support-vector-classifier" class="md-nav__link">Support vector classifier</a>
+        </li>
+        <li class="md-nav__item"><a href="#Neural-network-classifier" class="md-nav__link">Neural network classifier</a>
+        </li>
+        <li class="md-nav__item"><a href="#Cross-validation" class="md-nav__link">Cross-validation</a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Where-can-we-go-from-here?" class="md-nav__link">Where can we go from here?</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/007_compound_activity_machine_learning.nblink.txt">Show Source</a> </li>
+
+<li id="searchbox" class="md-nav__item"></li>
+
+  </ul>
+</nav>
+              </div>
+            </div>
+          </div>
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+
+<h1 id="talktorials-007-compound-activity-machine-learning--page-root">T007 · Ligand-based screening: machine learning<a class="headerlink" href="#talktorials-007-compound-activity-machine-learning--page-root" title="Permalink to this headline">¶</a></h1>
+<p>Authors:</p>
+<ul class="simple">
+<li><p>Jan Philipp Albrecht, CADD seminar 2018, Charité/FU Berlin</p></li>
+<li><p>Jacob Gora, CADD seminar 2018, Charité/FU Berlin</p></li>
+<li><p>Talia Kimber, 2019-2020, <a class="reference external" href="https://volkamerlab.org">Volkamer lab</a></p></li>
+<li><p>Andrea Volkamer, 2019-2020, <a class="reference external" href="https://volkamerlab.org">Volkamer lab</a></p></li>
+</ul>
+<p><strong>Talktorial T007</strong>: This talktorial is part of the TeachOpenCADD pipeline described in the <a class="reference external" href="https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x">first TeachOpenCADD paper</a>, comprising of talktorials T001-T010.</p>
+
+<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this headline">¶</a></h2>
+<p>Due to larger available data sources, machine learning (ML) gained momentum in drug discovery and especially in ligand-based virtual screening. In this talktorial, we learn how to use different supervised ML algorithms to predict the activity of novel compounds against our target of interest (EGFR).</p>
+
+<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Data preparation: Molecule encoding</p></li>
+<li><p>Machine learning (ML)</p>
+<ul>
+<li><p>Supervised learning</p></li>
+</ul>
+</li>
+<li><p>Model validation and evaluation</p>
+<ul>
+<li><p>Validation strategy: K-fold cross-validation</p></li>
+<li><p>Performance measures</p></li>
+</ul>
+</li>
+</ul>
+
+
+<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Load compound and activity data</p></li>
+<li><p>Data preparation</p>
+<ul>
+<li><p>Data labeling</p></li>
+<li><p>Molecule encoding</p></li>
+</ul>
+</li>
+<li><p>Machine learning</p>
+<ul>
+<li><p>Helper functions</p></li>
+<li><p>Random forest classifier</p></li>
+<li><p>Support vector classifier</p></li>
+<li><p>Neural network classifier</p></li>
+<li><p>Cross-validation</p></li>
+</ul>
+</li>
+</ul>
+
+
+<h3 id="References">References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>“Fingerprints in the RDKit” <a class="reference external" href="https://www.rdkit.org/UGM/2012/Landrum_RDKit_UGM.Fingerprints.Final.pptx.pdf">slides</a>, G. Landrum, RDKit UGM 2012</p></li>
+<li><p>Extended-connectivity fingerprints (ECFPs): Rogers, David, and Mathew Hahn. “Extended-connectivity fingerprints.” <a class="reference external" href="https://doi.org/10.1021/ci100050t">Journal of chemical information and modeling 50.5 (2010): 742-754.</a></p></li>
+<li><p>Machine learning (ML):</p>
+<ul>
+<li><p>Random forest (RF): Breiman, L. “Random Forests”. <a class="reference external" href="https://doi.org/10.1023/A:1010933404324">Machine Learning 45, 5–32 (2001).</a></p></li>
+<li><p>Support vector machines (SVM): Cortes, C., Vapnik, V. “Support-vector networks”. <a class="reference external" href="https://doi.org/10.1007/BF00994018">Machine Learning 20, 273–297 (1995).</a></p></li>
+<li><p>Artificial neural networks (ANN): Van Gerven, Marcel, and Sander Bohte. “Artificial neural networks as models of neural information processing.” <a class="reference external" href="https://doi.org/10.3389/fncom.2017.00114">Frontiers in Computational Neuroscience 11 (2017): 114.</a></p></li>
+</ul>
+</li>
+<li><p>Performance:</p>
+<ul>
+<li><p>Sensitivity and specificity (<a class="reference external" href="https://en.wikipedia.org/wiki/Sensitivity_and_specificity">Wikipedia</a>)</p></li>
+<li><p>ROC curve and AUC (<a class="reference external" href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic#Area_under_the_curve">Wikipedia</a>)</p></li>
+</ul>
+</li>
+<li><p>See also <a class="reference external" href="https://github.com/Team-SKI/Publications/tree/master/Profiling_prediction_of_kinase_inhibitors">github notebook by B. Merget</a> from <a class="reference external" href="https://pubs.acs.org/doi/10.1021/acs.jmedchem.6b01611">J. Med. Chem., 2017, 60, 474−485</a></p></li>
+</ul>
+
+
+
+<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this headline">¶</a></h2>
+<p>To successfully apply ML, we need a large data set of molecules, a molecular encoding, a label per molecule in the data set, and a ML algorithm to train a model. Then, we can make predictions for new molecules.</p>
+<p><img alt="ML overview" src="../_images/ML_overview.png"/></p>
+<p><em>Figure 1</em>: Machine learning overview: Molecular encoding, label, ML algorithm, prediction. Figure by Andrea Volkamer.</p>
+
+<h3 id="Data-preparation:-Molecule-encoding">Data preparation: Molecule encoding<a class="headerlink" href="#Data-preparation:-Molecule-encoding" title="Permalink to this headline">¶</a></h3>
+<p>For ML, molecules need to be converted into a list of features. Often molecular fingerprints are used as representation.</p>
+<p>The fingerprints used in this talktorial as implemented in RDKit (more info can be found in a <a class="reference external" href="https://www.rdkit.org/UGM/2012/Landrum_RDKit_UGM.Fingerprints.Final.pptx.pdf">presentation by G. Landrum</a>) are:</p>
+<ul class="simple">
+<li><p><strong>maccs</strong>: ‘MACCS keys are 166 bit structural key descriptors in which each bit is associated with a SMARTS pattern.’ (see OpenEye’s <code class="docutils literal notranslate"><span class="pre">MACCS</span></code> <a class="reference external" href="https://docs.eyesopen.com/toolkits/python/graphsimtk/fingerprint.html#maccs">docs</a>)</p></li>
+<li><p><strong>Morgan fingerprints</strong> (and <strong>ECFP</strong>): ‘Extended-Connectivity Fingerprints (ECFPs) are circular topological fingerprints designed for molecular characterization, similarity searching, and structure-activity modeling.’ (see ChemAxon’s <code class="docutils literal notranslate"><span class="pre">ECFP</span></code> <a class="reference external" href="https://docs.chemaxon.com/display/docs/Extended+Connectivity+Fingerprint+ECFP">docs</a>) The original implementation of the ECFPs was done in Pipeline Pilot which is not open-source. Instead we use the implementation from RDKit which is called Morgan
+fingerprint. The two most important parameters of these fingerprints are the radius and fingerprint length. The first specifies the radius of circular neighborhoods considered for each atom. Here two radii are considered: 2 and 3. The length parameter specifies the length to which the bit string representation is hashed. The default length is 2048.</p></li>
+</ul>
+
+
+<h3 id="Machine-learning-(ML)">Machine learning (ML)<a class="headerlink" href="#Machine-learning-(ML)" title="Permalink to this headline">¶</a></h3>
+<p>ML can be applied for (text adapted from <a class="reference external" href="http://scikit-learn.org/stable/">scikit-learn page</a>):</p>
+<ul class="simple">
+<li><p><strong>Classification (supervised)</strong>: Identify which category an object belongs to (e.g. : Nearest neighbors, Naive Bayes, RF, SVM, …)</p></li>
+<li><p>Regression: Prediction of a continuous-values attribute associated with an object</p></li>
+<li><p>Clustering (unsupervised): Automated grouping of similar objects into sets (see also <strong>talktorial T005</strong>)</p></li>
+</ul>
+
+<h4 id="Supervised-learning">Supervised learning<a class="headerlink" href="#Supervised-learning" title="Permalink to this headline">¶</a></h4>
+<p>A learning algorithm creates rules by finding patterns in the training data.</p>
+<ul class="simple">
+<li><p><strong>Random Forest (RF)</strong>: Ensemble of decision trees. A single decision tree splits the features of the input vector in a way that maximizes an objective function. In the random forest algorithm, the trees that are grown are de-correlated because the choice of features for the splits are chosen randomly.</p></li>
+<li><p><strong>Support Vector Machines (SVMs)</strong>: SVMs can efficiently perform a non-linear classification using what is called the kernel trick, implicitly mapping their inputs into high-dimensional feature spaces. The classifier is based on the idea of maximizing the margin as the objective function.</p></li>
+<li><p><strong>Artificial neural networks (ANNs)</strong>: An ANN is based on a collection of connected units or nodes called artificial neurons which loosely model the neurons in a biological brain. Each connection, like the synapses in a biological brain, can transmit a signal from one artificial neuron to another. An artificial neuron that receives a signal can process it and then signal additional artificial neurons connected to it.</p></li>
+</ul>
+<p><img alt="ANN_example" src="../_images/ANN_wiki.png"/></p>
+<p><em>Figure 2</em>: Example of a neural network with one hidden layer. Figure taken from <a class="reference external" href="https://en.wikipedia.org/wiki/Artificial_neural_network">Wikipedia</a>.</p>
+
+
+
+<h3 id="Model-validation-and-evaluation">Model validation and evaluation<a class="headerlink" href="#Model-validation-and-evaluation" title="Permalink to this headline">¶</a></h3>
+
+<h4 id="Validation-strategy:-K-fold-cross-validation">Validation strategy: K-fold cross validation<a class="headerlink" href="#Validation-strategy:-K-fold-cross-validation" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>This model validation technique splits the dataset in two groups in an iterative manner:</p>
+<ul>
+<li><p>Training data set: Considered as the known dataset on which the model is trained</p></li>
+<li><p>Test dataset: Unknown dataset on which the model is then tested</p></li>
+<li><p>Process is repeated k-times</p></li>
+</ul>
+</li>
+<li><p>The goal is to test the ability of the model to predict data which it has never seen before in order to flag problems known as over-fitting and to assess the generalization ability of the model.</p></li>
+</ul>
+
+
+<h4 id="Performance-measures">Performance measures<a class="headerlink" href="#Performance-measures" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><strong>Sensitivity</strong>, also true positive rate</p>
+<ul>
+<li><p>TPR = TP/(FN + TP)</p></li>
+<li><p><em>Intuitively</em>: Out of all actual positives, how many were predicted as positive?</p></li>
+</ul>
+</li>
+<li><p><strong>Specificity</strong>, also true negative rate</p>
+<ul>
+<li><p>TNR = TN/(FP + TN)</p></li>
+<li><p><em>Intuitively</em>: Out of all actual negatives, how many were predicted as negative?</p></li>
+</ul>
+</li>
+<li><p><strong>Accuracy</strong>, also the trueness</p>
+<ul>
+<li><p>ACC = (TP + TN)/(TP + TN + FP + FN)</p></li>
+<li><p><em>Intuitively</em>: Proportion of correct predictions.</p></li>
+</ul>
+</li>
+<li><p><strong>ROC-curve</strong>, receiver operating characteristic curve</p>
+<ul>
+<li><p>A graphical plot that illustrates the diagnostic ability of our classifier</p></li>
+<li><p>Plots the sensitivity against the specificity</p></li>
+</ul>
+</li>
+<li><p><strong>AUC</strong>, the area under the ROC curve (AUC):</p>
+<ul>
+<li><p>Describes the probability that a classifier will rank a randomly chosen positive instance higher than a negative one</p></li>
+<li><p>Values between 0 and 1, the higher the better</p></li>
+</ul>
+</li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 38%"/>
+<col style="width: 31%"/>
+<col style="width: 31%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>What the model predicts</p></th>
+<th class="head"><p>True active</p></th>
+<th class="head"><p>True inactive</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>active</p></td>
+<td><p>True Positive (TP)</p></td>
+<td><p>False Positive (FP)</p></td>
+</tr>
+<tr class="row-odd"><td><p>inactive</p></td>
+<td><p>False Negative (FN)</p></td>
+<td><p>True Negative (TN)</p></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">warnings</span> <span class="kn">import</span> <span class="n">filterwarnings</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">svm</span><span class="p">,</span> <span class="n">metrics</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.neural_network</span> <span class="kn">import</span> <span class="n">MLPClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span><span class="p">,</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">auc</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">recall_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">roc_curve</span><span class="p">,</span> <span class="n">roc_auc_score</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">rdkit</span> <span class="kn">import</span> <span class="n">Chem</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">MACCSkeys</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem.AllChem</span> <span class="kn">import</span> <span class="n">GetMorganFingerprintAsBitVect</span>
+
+<span class="kn">from</span> <span class="nn">teachopencadd.utils</span> <span class="kn">import</span> <span class="n">seed_everything</span>
+
+<span class="c1"># Silence some expected warnings</span>
+<span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
+<span class="c1"># Fix seed for reproducible results</span>
+<span class="n">SEED</span> <span class="o">=</span> <span class="mi">22</span>
+<span class="n">seed_everything</span><span class="p">(</span><span class="n">SEED</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Set path to this notebook</span>
+<span class="n">HERE</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">_dh</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">DATA</span> <span class="o">=</span> <span class="n">HERE</span> <span class="o">/</span> <span class="s2">"data"</span>
+</pre></div>
+</div>
+</div>
+
+<h3 id="Load-compound-and-activity-data">Load compound and activity data<a class="headerlink" href="#Load-compound-and-activity-data" title="Permalink to this headline">¶</a></h3>
+<p>Let’s start by loading our data, which focuses on the Epidermal growth factor receptor (EGFR) kinase. The <em>csv</em> file from <strong>talktorial T002</strong> is loaded into a dataframe with the important columns:</p>
+<ul class="simple">
+<li><p>CHEMBL-ID</p></li>
+<li><p>SMILES string of the corresponding compound</p></li>
+<li><p>Measured affinity: pIC50</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Read data from previous talktorials</span>
+<span class="n">chembl_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="n">HERE</span> <span class="o">/</span> <span class="s2">"../002_compound_adme/data/EGFR_compounds_lipinski.csv"</span><span class="p">,</span>
+    <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Look at head</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Shape of dataframe : "</span><span class="p">,</span> <span class="n">chembl_df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">chembl_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Shape of dataframe :  (4525, 10)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>molecule_chembl_id</th>
+<th>IC50</th>
+<th>units</th>
+<th>smiles</th>
+<th>pIC50</th>
+<th>molecular_weight</th>
+<th>n_hba</th>
+<th>n_hbd</th>
+<th>logp</th>
+<th>ro5_fulfilled</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>CHEMBL63786</td>
+<td>0.003</td>
+<td>nM</td>
+<td>Brc1cccc(Nc2ncnc3cc4ccccc4cc23)c1</td>
+<td>11.522879</td>
+<td>349.021459</td>
+<td>3</td>
+<td>1</td>
+<td>5.2891</td>
+<td>True</td>
+</tr>
+<tr>
+<th>1</th>
+<td>CHEMBL35820</td>
+<td>0.006</td>
+<td>nM</td>
+<td>CCOc1cc2ncnc(Nc3cccc(Br)c3)c2cc1OCC</td>
+<td>11.221849</td>
+<td>387.058239</td>
+<td>5</td>
+<td>1</td>
+<td>4.9333</td>
+<td>True</td>
+</tr>
+<tr>
+<th>2</th>
+<td>CHEMBL53711</td>
+<td>0.006</td>
+<td>nM</td>
+<td>CN(C)c1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
+<td>11.221849</td>
+<td>343.043258</td>
+<td>5</td>
+<td>1</td>
+<td>3.5969</td>
+<td>True</td>
+</tr>
+<tr>
+<th>3</th>
+<td>CHEMBL53753</td>
+<td>0.008</td>
+<td>nM</td>
+<td>CNc1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
+<td>11.096910</td>
+<td>329.027607</td>
+<td>5</td>
+<td>2</td>
+<td>3.5726</td>
+<td>True</td>
+</tr>
+<tr>
+<th>4</th>
+<td>CHEMBL66031</td>
+<td>0.008</td>
+<td>nM</td>
+<td>Brc1cccc(Nc2ncnc3cc4[nH]cnc4cc23)c1</td>
+<td>11.096910</td>
+<td>339.011957</td>
+<td>4</td>
+<td>2</td>
+<td>4.0122</td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Keep only the columns we want</span>
+<span class="n">chembl_df</span> <span class="o">=</span> <span class="n">chembl_df</span><span class="p">[[</span><span class="s2">"molecule_chembl_id"</span><span class="p">,</span> <span class="s2">"smiles"</span><span class="p">,</span> <span class="s2">"pIC50"</span><span class="p">]]</span>
+<span class="n">chembl_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>molecule_chembl_id</th>
+<th>smiles</th>
+<th>pIC50</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>CHEMBL63786</td>
+<td>Brc1cccc(Nc2ncnc3cc4ccccc4cc23)c1</td>
+<td>11.522879</td>
+</tr>
+<tr>
+<th>1</th>
+<td>CHEMBL35820</td>
+<td>CCOc1cc2ncnc(Nc3cccc(Br)c3)c2cc1OCC</td>
+<td>11.221849</td>
+</tr>
+<tr>
+<th>2</th>
+<td>CHEMBL53711</td>
+<td>CN(C)c1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
+<td>11.221849</td>
+</tr>
+<tr>
+<th>3</th>
+<td>CHEMBL53753</td>
+<td>CNc1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
+<td>11.096910</td>
+</tr>
+<tr>
+<th>4</th>
+<td>CHEMBL66031</td>
+<td>Brc1cccc(Nc2ncnc3cc4[nH]cnc4cc23)c1</td>
+<td>11.096910</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+
+
+<h3 id="Data-preparation">Data preparation<a class="headerlink" href="#Data-preparation" title="Permalink to this headline">¶</a></h3>
+
+<h4 id="Data-labeling">Data labeling<a class="headerlink" href="#Data-labeling" title="Permalink to this headline">¶</a></h4>
+<p>We need to classify each compound as active or inactive. Therefore, we use the pIC50 value.</p>
+<ul class="simple">
+<li><p>pIC50 = -log10(IC50)</p></li>
+<li><p>IC50 describes the amount of substance needed to inhibit, <em>in vitro</em>, a process by 50% .</p></li>
+<li><p>A common cut-off value to discretize pIC50 data is 6,3, which we will use for our experiment.</p></li>
+<li><p>Note that there are several other suggestions for an activity cut-off ranging from an pIC50 value of 5 to 7 in the literature or even to define an exclusion range when not to take data points.</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Add column for activity</span>
+<span class="n">chembl_df</span><span class="p">[</span><span class="s2">"active"</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">chembl_df</span><span class="p">))</span>
+
+<span class="c1"># Mark every molecule as active with an pIC50 of &gt;= 6.3, 0 otherwise</span>
+<span class="n">chembl_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">chembl_df</span><span class="p">[</span><span class="n">chembl_df</span><span class="o">.</span><span class="n">pIC50</span> <span class="o">&gt;=</span> <span class="mf">6.3</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="s2">"active"</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Number of active compounds:"</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">chembl_df</span><span class="o">.</span><span class="n">active</span><span class="o">.</span><span class="n">sum</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Number of inactive compounds:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">chembl_df</span><span class="p">)</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="n">chembl_df</span><span class="o">.</span><span class="n">active</span><span class="o">.</span><span class="n">sum</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Number of active compounds: 2555
+Number of inactive compounds: 1970
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">chembl_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>molecule_chembl_id</th>
+<th>smiles</th>
+<th>pIC50</th>
+<th>active</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>CHEMBL63786</td>
+<td>Brc1cccc(Nc2ncnc3cc4ccccc4cc23)c1</td>
+<td>11.522879</td>
+<td>1.0</td>
+</tr>
+<tr>
+<th>1</th>
+<td>CHEMBL35820</td>
+<td>CCOc1cc2ncnc(Nc3cccc(Br)c3)c2cc1OCC</td>
+<td>11.221849</td>
+<td>1.0</td>
+</tr>
+<tr>
+<th>2</th>
+<td>CHEMBL53711</td>
+<td>CN(C)c1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
+<td>11.221849</td>
+<td>1.0</td>
+</tr>
+<tr>
+<th>3</th>
+<td>CHEMBL53753</td>
+<td>CNc1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
+<td>11.096910</td>
+<td>1.0</td>
+</tr>
+<tr>
+<th>4</th>
+<td>CHEMBL66031</td>
+<td>Brc1cccc(Nc2ncnc3cc4[nH]cnc4cc23)c1</td>
+<td>11.096910</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+
+
+<h4 id="Molecule-encoding">Molecule encoding<a class="headerlink" href="#Molecule-encoding" title="Permalink to this headline">¶</a></h4>
+<p>Now we define a function <code class="docutils literal notranslate"><span class="pre">smiles_to_fp</span></code> to generate fingerprints from SMILES. For now, we incorporated the choice between the following fingerprints:</p>
+<ul class="simple">
+<li><p>maccs</p></li>
+<li><p>morgan2 and morgan3</p></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">smiles_to_fp</span><span class="p">(</span><span class="n">smiles</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"maccs"</span><span class="p">,</span> <span class="n">n_bits</span><span class="o">=</span><span class="mi">2048</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Encode a molecule from a SMILES string into a fingerprint.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    smiles : str</span>
+<span class="sd">        The SMILES string defining the molecule.</span>
+
+<span class="sd">    method : str</span>
+<span class="sd">        The type of fingerprint to use. Default is MACCS keys.</span>
+
+<span class="sd">    n_bits : int</span>
+<span class="sd">        The length of the fingerprint.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    array</span>
+<span class="sd">        The fingerprint array.</span>
+
+<span class="sd">    """</span>
+
+    <span class="c1"># convert smiles to RDKit mol object</span>
+    <span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="n">smiles</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">"maccs"</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">MACCSkeys</span><span class="o">.</span><span class="n">GenMACCSKeys</span><span class="p">(</span><span class="n">mol</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">"morgan2"</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">GetMorganFingerprintAsBitVect</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">nBits</span><span class="o">=</span><span class="n">n_bits</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">"morgan3"</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">GetMorganFingerprintAsBitVect</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">nBits</span><span class="o">=</span><span class="n">n_bits</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># NBVAL_CHECK_OUTPUT</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Warning: Wrong method specified: </span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">. Default will be used instead."</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">MACCSkeys</span><span class="o">.</span><span class="n">GenMACCSKeys</span><span class="p">(</span><span class="n">mol</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">compound_df</span> <span class="o">=</span> <span class="n">chembl_df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Add column for fingerprint</span>
+<span class="n">compound_df</span><span class="p">[</span><span class="s2">"fp"</span><span class="p">]</span> <span class="o">=</span> <span class="n">compound_df</span><span class="p">[</span><span class="s2">"smiles"</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">smiles_to_fp</span><span class="p">)</span>
+<span class="n">compound_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>molecule_chembl_id</th>
+<th>smiles</th>
+<th>pIC50</th>
+<th>active</th>
+<th>fp</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>CHEMBL63786</td>
+<td>Brc1cccc(Nc2ncnc3cc4ccccc4cc23)c1</td>
+<td>11.522879</td>
+<td>1.0</td>
+<td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
+</tr>
+<tr>
+<th>1</th>
+<td>CHEMBL35820</td>
+<td>CCOc1cc2ncnc(Nc3cccc(Br)c3)c2cc1OCC</td>
+<td>11.221849</td>
+<td>1.0</td>
+<td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
+</tr>
+<tr>
+<th>2</th>
+<td>CHEMBL53711</td>
+<td>CN(C)c1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
+<td>11.221849</td>
+<td>1.0</td>
+<td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+
+
+
+<h3 id="Machine-Learning-(ML)">Machine Learning (ML)<a class="headerlink" href="#Machine-Learning-(ML)" title="Permalink to this headline">¶</a></h3>
+<p>In the following, we will try several ML approaches to classify our molecules. We will use:</p>
+<ul class="simple">
+<li><p>Random Forest (RF)</p></li>
+<li><p>Support Vector Machine (SVM)</p></li>
+<li><p>Artificial Neural Network (ANN)</p></li>
+</ul>
+<p>Additionally, we will comment on the results.</p>
+<p>The goal is to test the ability of the model to predict data which it has never seen before in order to flag problems known as over fitting and to assess the generalization ability of the model.</p>
+<p>We start by defining a function <code class="docutils literal notranslate"><span class="pre">model_training_and_validation</span></code> which fits a model on a random train-test split of the data and returns measures such as accuracy, sensitivity, specificity and AUC evaluated on the test set. We also plot the ROC curves using <code class="docutils literal notranslate"><span class="pre">plot_roc_curves_for_models</span></code>.</p>
+<p>We then define a function named <code class="docutils literal notranslate"><span class="pre">crossvalidation</span></code> which executes a cross validation procedure and prints the statistics of the results over the folds.</p>
+
+<h4 id="Helper-functions">Helper functions<a class="headerlink" href="#Helper-functions" title="Permalink to this headline">¶</a></h4>
+<p>Helper function to plot customized ROC curves. Code inspired by <a class="reference external" href="https://stackoverflow.com/questions/42894871/how-to-plot-multiple-roc-curves-in-one-plot-with-legend-and-auc-scores-in-python">stackoverflow</a>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">plot_roc_curves_for_models</span><span class="p">(</span><span class="n">models</span><span class="p">,</span> <span class="n">test_x</span><span class="p">,</span> <span class="n">test_y</span><span class="p">,</span> <span class="n">save_png</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Helper function to plot customized roc curve.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    models: dict</span>
+<span class="sd">        Dictionary of pretrained machine learning models.</span>
+<span class="sd">    test_x: list</span>
+<span class="sd">        Molecular fingerprints for test set.</span>
+<span class="sd">    test_y: list</span>
+<span class="sd">        Associated activity labels for test set.</span>
+<span class="sd">    save_png: bool</span>
+<span class="sd">        Save image to disk (default = False)</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    fig:</span>
+<span class="sd">        Figure.</span>
+<span class="sd">    """</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+    <span class="c1"># Below for loop iterates through your models list</span>
+    <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">models</span><span class="p">:</span>
+        <span class="c1"># Select the model</span>
+        <span class="n">ml_model</span> <span class="o">=</span> <span class="n">model</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span>
+        <span class="c1"># Prediction probability on test set</span>
+        <span class="n">test_prob</span> <span class="o">=</span> <span class="n">ml_model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">test_x</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="c1"># Prediction class on test set</span>
+        <span class="n">test_pred</span> <span class="o">=</span> <span class="n">ml_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_x</span><span class="p">)</span>
+        <span class="c1"># Compute False postive rate and True positive rate</span>
+        <span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">thresholds</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">roc_curve</span><span class="p">(</span><span class="n">test_y</span><span class="p">,</span> <span class="n">test_prob</span><span class="p">)</span>
+        <span class="c1"># Calculate Area under the curve to display on the plot</span>
+        <span class="n">auc</span> <span class="o">=</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">test_y</span><span class="p">,</span> <span class="n">test_prob</span><span class="p">)</span>
+        <span class="c1"># Plot the computed values</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">model</span><span class="p">[</span><span class="s1">'label'</span><span class="p">]</span><span class="si">}</span><span class="s2"> AUC area = </span><span class="si">{</span><span class="n">auc</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">))</span>
+
+    <span class="c1"># Custom settings for the plot</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s2">"r--"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"False Positive Rate"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"True Positive Rate"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Receiver Operating Characteristic"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"lower right"</span><span class="p">)</span>
+    <span class="c1"># Save plot</span>
+    <span class="k">if</span> <span class="n">save_png</span><span class="p">:</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">DATA</span><span class="si">}</span><span class="s2">/roc_auc"</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">"tight"</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<p>Helper function to calculate model performance.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">model_performance</span><span class="p">(</span><span class="n">ml_model</span><span class="p">,</span> <span class="n">test_x</span><span class="p">,</span> <span class="n">test_y</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Helper function to calculate model performance</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ml_model: sklearn model object</span>
+<span class="sd">        The machine learning model to train.</span>
+<span class="sd">    test_x: list</span>
+<span class="sd">        Molecular fingerprints for test set.</span>
+<span class="sd">    test_y: list</span>
+<span class="sd">        Associated activity labels for test set.</span>
+<span class="sd">    verbose: bool</span>
+<span class="sd">        Print performance measure (default = True)</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tuple:</span>
+<span class="sd">        Accuracy, sensitivity, specificity, auc on test set.</span>
+<span class="sd">    """</span>
+
+    <span class="c1"># Prediction probability on test set</span>
+    <span class="n">test_prob</span> <span class="o">=</span> <span class="n">ml_model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">test_x</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># Prediction class on test set</span>
+    <span class="n">test_pred</span> <span class="o">=</span> <span class="n">ml_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_x</span><span class="p">)</span>
+
+    <span class="c1"># Performance of model on test set</span>
+    <span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">test_y</span><span class="p">,</span> <span class="n">test_pred</span><span class="p">)</span>
+    <span class="n">sens</span> <span class="o">=</span> <span class="n">recall_score</span><span class="p">(</span><span class="n">test_y</span><span class="p">,</span> <span class="n">test_pred</span><span class="p">)</span>
+    <span class="n">spec</span> <span class="o">=</span> <span class="n">recall_score</span><span class="p">(</span><span class="n">test_y</span><span class="p">,</span> <span class="n">test_pred</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">auc</span> <span class="o">=</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">test_y</span><span class="p">,</span> <span class="n">test_prob</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="c1"># Print performance results</span>
+        <span class="c1"># NBVAL_CHECK_OUTPUT        print(f"Accuracy: {accuracy:.2}")</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Sensitivity: </span><span class="si">{</span><span class="n">sens</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Specificity: </span><span class="si">{</span><span class="n">spec</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"AUC: </span><span class="si">{</span><span class="n">auc</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">accuracy</span><span class="p">,</span> <span class="n">sens</span><span class="p">,</span> <span class="n">spec</span><span class="p">,</span> <span class="n">auc</span>
+</pre></div>
+</div>
+</div>
+<p>Helper function to fit a machine learning model on a random train-test split of the data and return the performance measures.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">model_training_and_validation</span><span class="p">(</span><span class="n">ml_model</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">splits</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Fit a machine learning model on a random train-test split of the data</span>
+<span class="sd">    and return the performance measures.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ml_model: sklearn model object</span>
+<span class="sd">        The machine learning model to train.</span>
+<span class="sd">    name: str</span>
+<span class="sd">        Name of machine learning algorithm: RF, SVM, ANN</span>
+<span class="sd">    splits: list</span>
+<span class="sd">        List of desciptor and label data: train_x, test_x, train_y, test_y.</span>
+<span class="sd">    verbose: bool</span>
+<span class="sd">        Print performance info (default = True)</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tuple:</span>
+<span class="sd">        Accuracy, sensitivity, specificity, auc on test set.</span>
+
+<span class="sd">    """</span>
+    <span class="n">train_x</span><span class="p">,</span> <span class="n">test_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">,</span> <span class="n">test_y</span> <span class="o">=</span> <span class="n">splits</span>
+
+    <span class="c1"># Fit the model</span>
+    <span class="n">ml_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">)</span>
+
+    <span class="c1"># Calculate model performance results</span>
+    <span class="n">accuracy</span><span class="p">,</span> <span class="n">sens</span><span class="p">,</span> <span class="n">spec</span><span class="p">,</span> <span class="n">auc</span> <span class="o">=</span> <span class="n">model_performance</span><span class="p">(</span><span class="n">ml_model</span><span class="p">,</span> <span class="n">test_x</span><span class="p">,</span> <span class="n">test_y</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">accuracy</span><span class="p">,</span> <span class="n">sens</span><span class="p">,</span> <span class="n">spec</span><span class="p">,</span> <span class="n">auc</span>
+</pre></div>
+</div>
+</div>
+<p><strong>Preprocessing</strong>: Split the data (will be reused for the other models)</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">fingerprint_to_model</span> <span class="o">=</span> <span class="n">compound_df</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">label_to_model</span> <span class="o">=</span> <span class="n">compound_df</span><span class="o">.</span><span class="n">active</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+<span class="c1"># Split data randomly in train and test set</span>
+<span class="c1"># note that we use test/train_x for the respective fingerprint splits</span>
+<span class="c1"># and test/train_y for the respective label splits</span>
+<span class="p">(</span>
+    <span class="n">static_train_x</span><span class="p">,</span>
+    <span class="n">static_test_x</span><span class="p">,</span>
+    <span class="n">static_train_y</span><span class="p">,</span>
+    <span class="n">static_test_y</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">fingerprint_to_model</span><span class="p">,</span> <span class="n">label_to_model</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">SEED</span><span class="p">)</span>
+<span class="n">splits</span> <span class="o">=</span> <span class="p">[</span><span class="n">static_train_x</span><span class="p">,</span> <span class="n">static_test_x</span><span class="p">,</span> <span class="n">static_train_y</span><span class="p">,</span> <span class="n">static_test_y</span><span class="p">]</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Training data size:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">static_train_x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Test data size:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">static_test_x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Training data size: 3620
+Test data size: 905
+</pre></div></div>
+</div>
+
+
+<h4 id="Random-forest-classifier">Random forest classifier<a class="headerlink" href="#Random-forest-classifier" title="Permalink to this headline">¶</a></h4>
+<p>We start with a random forest classifier, where we first set the parameters.</p>
+<p>We train the model on a random train-test split and plot the results.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Set model parameter for random forest</span>
+<span class="n">param</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"n_estimators"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>  <span class="c1"># number of trees to grows</span>
+    <span class="s2">"criterion"</span><span class="p">:</span> <span class="s2">"entropy"</span><span class="p">,</span>  <span class="c1"># cost function to be optimized for a split</span>
+<span class="p">}</span>
+<span class="n">model_RF</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="o">**</span><span class="n">param</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Fit model on single split</span>
+<span class="n">performance_measures</span> <span class="o">=</span> <span class="n">model_training_and_validation</span><span class="p">(</span><span class="n">model_RF</span><span class="p">,</span> <span class="s2">"RF"</span><span class="p">,</span> <span class="n">splits</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sensitivity: 0.86
+Specificity: 0.78
+AUC: 0.89
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Initialize the list that stores all models. First one is RF.</span>
+<span class="n">models</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">"label"</span><span class="p">:</span> <span class="s2">"Model_RF"</span><span class="p">,</span> <span class="s2">"model"</span><span class="p">:</span> <span class="n">model_RF</span><span class="p">}]</span>
+<span class="c1"># Plot roc curve</span>
+<span class="n">plot_roc_curves_for_models</span><span class="p">(</span><span class="n">models</span><span class="p">,</span> <span class="n">static_test_x</span><span class="p">,</span> <span class="n">static_test_y</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_007_compound_activity_machine_learning_42_0.png" src="../_images/talktorials_007_compound_activity_machine_learning_42_0.png"/>
+</div>
+</div>
+
+
+<h4 id="Support-vector-classifier">Support vector classifier<a class="headerlink" href="#Support-vector-classifier" title="Permalink to this headline">¶</a></h4>
+<p>Here we train a SVM with a radial-basis function kernel (also: squared-exponential kernel). For more information, see <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.RBF.html">sklearn RBF kernel</a>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Specify model</span>
+<span class="n">model_SVM</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s2">"rbf"</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Fit model on single split</span>
+<span class="n">performance_measures</span> <span class="o">=</span> <span class="n">model_training_and_validation</span><span class="p">(</span><span class="n">model_SVM</span><span class="p">,</span> <span class="s2">"SVM"</span><span class="p">,</span> <span class="n">splits</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sensitivity: 0.88
+Specificity: 0.77
+AUC: 0.89
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Append SVM model</span>
+<span class="n">models</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"label"</span><span class="p">:</span> <span class="s2">"Model_SVM"</span><span class="p">,</span> <span class="s2">"model"</span><span class="p">:</span> <span class="n">model_SVM</span><span class="p">})</span>
+<span class="c1"># Plot roc curve</span>
+<span class="n">plot_roc_curves_for_models</span><span class="p">(</span><span class="n">models</span><span class="p">,</span> <span class="n">static_test_x</span><span class="p">,</span> <span class="n">static_test_y</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_007_compound_activity_machine_learning_45_0.png" src="../_images/talktorials_007_compound_activity_machine_learning_45_0.png"/>
+</div>
+</div>
+
+
+<h4 id="Neural-network-classifier">Neural network classifier<a class="headerlink" href="#Neural-network-classifier" title="Permalink to this headline">¶</a></h4>
+<p>The last approach we try here is a neural network model. We train an MLPClassifier (Multi-layer Perceptron classifier) with 3 layers, each with 5 neurons. As before, we do the crossvalidation procedure and plot the results. For more information on MLP, see <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html">sklearn MLPClassifier</a>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Specify model</span>
+<span class="n">model_ANN</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">random_state</span><span class="o">=</span><span class="n">SEED</span><span class="p">)</span>
+
+<span class="c1"># Fit model on single split</span>
+<span class="n">performance_measures</span> <span class="o">=</span> <span class="n">model_training_and_validation</span><span class="p">(</span><span class="n">model_ANN</span><span class="p">,</span> <span class="s2">"ANN"</span><span class="p">,</span> <span class="n">splits</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sensitivity: 0.84
+Specificity: 0.71
+AUC: 0.87
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Append ANN model</span>
+<span class="n">models</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"label"</span><span class="p">:</span> <span class="s2">"Model_ANN"</span><span class="p">,</span> <span class="s2">"model"</span><span class="p">:</span> <span class="n">model_ANN</span><span class="p">})</span>
+<span class="c1"># Plot roc curve</span>
+<span class="n">plot_roc_curves_for_models</span><span class="p">(</span><span class="n">models</span><span class="p">,</span> <span class="n">static_test_x</span><span class="p">,</span> <span class="n">static_test_y</span><span class="p">,</span> <span class="kc">True</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_007_compound_activity_machine_learning_48_0.png" src="../_images/talktorials_007_compound_activity_machine_learning_48_0.png"/>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_007_compound_activity_machine_learning_48_1.png" src="../_images/talktorials_007_compound_activity_machine_learning_48_1.png"/>
+</div>
+</div>
+<p>Our models show very good values for all measured values, e.g. AUCs of 0.88 or 0.92, and thus seem to be predictive.</p>
+
+
+<h4 id="Cross-validation">Cross-validation<a class="headerlink" href="#Cross-validation" title="Permalink to this headline">¶</a></h4>
+<p>Next, we will perform cross-validation experiments with the three different models. Therefore, we define a helper function for machine learning model training and validation in a cross-validation loop.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">crossvalidation</span><span class="p">(</span><span class="n">ml_model</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">n_folds</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Machine learning model training and validation in a cross-validation loop.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ml_model: sklearn model object</span>
+<span class="sd">        The machine learning model to train.</span>
+<span class="sd">    df: pd.DataFrame</span>
+<span class="sd">        Data set with SMILES and their associated activity labels.</span>
+<span class="sd">    n_folds: int, optional</span>
+<span class="sd">        Number of fold for cross-validation.</span>
+<span class="sd">    verbose: bool, optional</span>
+<span class="sd">        Performance measures are printed.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+
+<span class="sd">    """</span>
+    <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="c1"># Shuffle the indices for the k-fold cross-validation</span>
+    <span class="n">kf</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="n">n_folds</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">SEED</span><span class="p">)</span>
+
+    <span class="c1"># Results for each of the cross-validation folds</span>
+    <span class="n">acc_per_fold</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">sens_per_fold</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">spec_per_fold</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">auc_per_fold</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Loop over the folds</span>
+    <span class="k">for</span> <span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span> <span class="ow">in</span> <span class="n">kf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+
+        <span class="c1"># Training</span>
+
+        <span class="c1"># Convert the fingerprint and the label to a list</span>
+        <span class="n">train_x</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_index</span><span class="p">]</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">train_y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_index</span><span class="p">]</span><span class="o">.</span><span class="n">active</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+        <span class="c1"># Fit the model</span>
+        <span class="n">ml_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">)</span>
+
+        <span class="c1"># Testing</span>
+
+        <span class="c1"># Convert the fingerprint and the label to a list</span>
+        <span class="n">test_x</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">test_y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span><span class="o">.</span><span class="n">active</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+        <span class="c1"># Performance for each fold</span>
+        <span class="n">accuracy</span><span class="p">,</span> <span class="n">sens</span><span class="p">,</span> <span class="n">spec</span><span class="p">,</span> <span class="n">auc</span> <span class="o">=</span> <span class="n">model_performance</span><span class="p">(</span><span class="n">ml_model</span><span class="p">,</span> <span class="n">test_x</span><span class="p">,</span> <span class="n">test_y</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
+
+        <span class="c1"># Save results</span>
+        <span class="n">acc_per_fold</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">accuracy</span><span class="p">)</span>
+        <span class="n">sens_per_fold</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sens</span><span class="p">)</span>
+        <span class="n">spec_per_fold</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+        <span class="n">auc_per_fold</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">auc</span><span class="p">)</span>
+
+    <span class="c1"># Print statistics of results</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">"Mean accuracy: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">acc_per_fold</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> </span><span class="se">\t</span><span class="s2">"</span>
+        <span class="sa">f</span><span class="s2">"and std : </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">acc_per_fold</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">"</span>
+        <span class="sa">f</span><span class="s2">"Mean sensitivity: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sens_per_fold</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> </span><span class="se">\t</span><span class="s2">"</span>
+        <span class="sa">f</span><span class="s2">"and std : </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">sens_per_fold</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">"</span>
+        <span class="sa">f</span><span class="s2">"Mean specificity: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">spec_per_fold</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> </span><span class="se">\t</span><span class="s2">"</span>
+        <span class="sa">f</span><span class="s2">"and std : </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">spec_per_fold</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">"</span>
+        <span class="sa">f</span><span class="s2">"Mean AUC: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">auc_per_fold</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> </span><span class="se">\t</span><span class="s2">"</span>
+        <span class="sa">f</span><span class="s2">"and std : </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">auc_per_fold</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">"</span>
+        <span class="sa">f</span><span class="s2">"Time taken : </span><span class="si">{</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t0</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">s</span><span class="se">\n</span><span class="s2">"</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">acc_per_fold</span><span class="p">,</span> <span class="n">sens_per_fold</span><span class="p">,</span> <span class="n">spec_per_fold</span><span class="p">,</span> <span class="n">auc_per_fold</span>
+</pre></div>
+</div>
+</div>
+<p><strong>Cross-validation</strong></p>
+<p>We now apply cross-validation and show the statistics for all three ML models. In real world conditions, cross-validation usually applies 10 or more folds, but for the sake of performance we will reduce it to 3. You can change the value of <code class="docutils literal notranslate"><span class="pre">N_FOLDS</span></code> in this cell below.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">N_FOLDS</span> <span class="o">=</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<p><em>Note</em>: Next cell takes long to execute</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">models</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">======= "</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">model</span><span class="p">[</span><span class="s1">'label'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">crossvalidation</span><span class="p">(</span><span class="n">model</span><span class="p">[</span><span class="s2">"model"</span><span class="p">],</span> <span class="n">compound_df</span><span class="p">,</span> <span class="n">n_folds</span><span class="o">=</span><span class="n">N_FOLDS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+=======
+Model_RF
+Mean accuracy: 0.86     and std : 0.01
+Mean sensitivity: 0.90  and std : 0.01
+Mean specificity: 0.80  and std : 0.02
+Mean AUC: 0.92  and std : 0.00
+Time taken : 4.75s
+
+
+=======
+Model_SVM
+Mean accuracy: 0.78     and std : 0.02
+Mean sensitivity: 0.95  and std : 0.01
+Mean specificity: 0.56  and std : 0.04
+Mean AUC: 0.90  and std : 0.00
+Time taken : 486.30s
+
+
+=======
+Model_ANN
+Mean accuracy: 0.82     and std : 0.01
+Mean sensitivity: 0.85  and std : 0.00
+Mean specificity: 0.78  and std : 0.02
+Mean AUC: 0.88  and std : 0.00
+Time taken : 101.79s
+
+</pre></div></div>
+</div>
+<p>We look at the cross-validation performance for molecules encoded using Morgan fingerprint and not MACCS keys.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Reset data frame</span>
+<span class="n">compound_df</span> <span class="o">=</span> <span class="n">chembl_df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Use Morgan fingerprint with radius 3</span>
+<span class="n">compound_df</span><span class="p">[</span><span class="s2">"fp"</span><span class="p">]</span> <span class="o">=</span> <span class="n">compound_df</span><span class="p">[</span><span class="s2">"smiles"</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">smiles_to_fp</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"morgan3"</span><span class="p">,))</span>
+<span class="n">compound_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>molecule_chembl_id</th>
+<th>smiles</th>
+<th>pIC50</th>
+<th>active</th>
+<th>fp</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>CHEMBL63786</td>
+<td>Brc1cccc(Nc2ncnc3cc4ccccc4cc23)c1</td>
+<td>11.522879</td>
+<td>1.0</td>
+<td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
+</tr>
+<tr>
+<th>1</th>
+<td>CHEMBL35820</td>
+<td>CCOc1cc2ncnc(Nc3cccc(Br)c3)c2cc1OCC</td>
+<td>11.221849</td>
+<td>1.0</td>
+<td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
+</tr>
+<tr>
+<th>2</th>
+<td>CHEMBL53711</td>
+<td>CN(C)c1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
+<td>11.221849</td>
+<td>1.0</td>
+<td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p><em>Note</em>: Next cell takes long to execute</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">models</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">model</span><span class="p">[</span><span class="s2">"label"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"Model_SVM"</span><span class="p">:</span>
+        <span class="c1"># SVM is super slow with long fingerprints</span>
+        <span class="c1"># and will have a performance similar to RF</span>
+        <span class="c1"># We can skip it in this test, but if you want</span>
+        <span class="c1"># to run it, feel free to replace `continue` with `pass`</span>
+        <span class="k">continue</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">======="</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="p">[</span><span class="s2">"label"</span><span class="p">])</span>
+    <span class="n">crossvalidation</span><span class="p">(</span><span class="n">model</span><span class="p">[</span><span class="s2">"model"</span><span class="p">],</span> <span class="n">compound_df</span><span class="p">,</span> <span class="n">n_folds</span><span class="o">=</span><span class="n">N_FOLDS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+=======
+Model_RF
+Mean accuracy: 0.86     and std : 0.00
+Mean sensitivity: 0.90  and std : 0.01
+Mean specificity: 0.80  and std : 0.02
+Mean AUC: 0.92  and std : 0.00
+Time taken : 4.91s
+
+
+=======
+Model_ANN
+Mean accuracy: 0.82     and std : 0.01
+Mean sensitivity: 0.85  and std : 0.00
+Mean specificity: 0.78  and std : 0.02
+Mean AUC: 0.88  and std : 0.00
+Time taken : 72.65s
+
+</pre></div></div>
+</div>
+
+
+
+
+<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Which model performed best on our data set and why?</p>
+<ul>
+<li><p>All three models perform (very) well on our dataset. The best models are the random forest and support vector machine models which showed a mean AUC of at least 90%. Our neural network showed slightly lower results with a mean AUC of 87%.</p></li>
+<li><p>There might be several reasons that random forest and support vector machine models performed best. Our dataset might be easily separable in active/inactive with some simple tree-like decisions or with the radial basis function, respectively. Thus, there is not such a complex pattern in the fingerprints to do this classification.</p></li>
+<li><p>A cause for the slightly poorer performance of the ANN could be that there was simply too few data to train the model on.</p></li>
+<li><p>Additionally, it is always advisable to have another external validation set for model evaluation.</p></li>
+</ul>
+</li>
+<li><p>Was MACCS the right choice?</p>
+<ul>
+<li><p>Obviously, MACCS was good to start training and validating models to see if a classification is possible.</p></li>
+<li><p>However, MACCS keys are rather short (166 bit) compared to others (2048 bit), as for example Morgan fingerprint. As shown in the last simulation, having longer fingerprint helps the learning process. All tested models performed slightly better using Morgan fingerprints. For example, with random forest, the mean AUC increases from approximately 0.89 to 0.92.</p></li>
+</ul>
+</li>
+</ul>
+
+<h3 id="Where-can-we-go-from-here?">Where can we go from here?<a class="headerlink" href="#Where-can-we-go-from-here?" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>We successfully trained several models.</p></li>
+<li><p>The next step could be to use these models to do a classification with an unknown screening dataset to predict novel potential EGFR inhibitors.</p></li>
+<li><p>An example for a large screening data set is e.g. <a class="reference external" href="https://www.molport.com/shop/database-download">MolPort</a> with over 7 million compounds.</p></li>
+<li><p>Our models could be used to rank the MolPort compounds and then further study those with the highest predicted probability of being active.</p></li>
+<li><p>For such an application, see also the <a class="reference external" href="https://github.com/sriniker/TDT-tutorial-2014">TDT Tutorial</a> developed by S. Riniker and G. Landrum, where they trained a fusion model to screen <a class="reference external" href="https://www.emolecules.com/">eMolecules</a> for new anti-malaria drugs.</p></li>
+</ul>
+
+
+
+<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>How can you apply ML for virtual screening?</p></li>
+<li><p>Which machine learning algorithms do you know?</p></li>
+<li><p>What are necessary prerequisites to successfully apply ML?</p></li>
+</ul>
+
+
+
+
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="md-footer">
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="006_compound_maximum_common_substructures.html" title="T006 · Maximum common substructure"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> Previous </span> T006 · Maximum common substructure </span>
+              </div>
+            </a>
+          
+          
+            <a href="008_query_pdb.html" title="T008 · Protein data acquisition: Protein Data Bank (PDB)"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> Next </span> T008 · Protein data acquisition: Protein Data Bank (PDB) </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          
+        </a>
+        
+      </nav>
+    </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169; Copyright 2018-2020, Volkamer Lab. Project structure based on the Computational Molecular Science Python Cookiecutter version 1.1.
+              
+          </div>
+            Created using
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../_static/javascripts/application.js"></script>
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  </body>
+</html>

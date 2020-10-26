@@ -1,0 +1,1810 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
+
+    <style>
+      body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+    </style>
+  
+
+  <link rel="stylesheet" href="../_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="../_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#2196f3">
+  <script src="../_static/javascripts/modernizr.js"></script>
+  
+  
+    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
+  
+  
+    <title>T005 · Compound clustering &#8212; TeachOpenCADD 0 documentation</title>
+    <link rel="stylesheet" href="../_static/material.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="T006 · Maximum common substructure" href="006_compound_maximum_common_substructures.html" />
+    <link rel="prev" title="T004 · Ligand-based screening: compound similarity" href="004_compound_similarity.html" />
+  
+    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
+  
+   
+
+  </head>
+  <body dir=ltr
+        data-md-color-primary=teal data-md-color-accent=cyan>
+  
+  <svg class="md-svg">
+    <defs data-children-count="0">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
+    </defs>
+  </svg>
+  
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#talktorials/005_compound_clustering" tabindex="1" class="md-skip"> Skip to content </a>
+  <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../index.html" title="TeachOpenCADD 0 documentation"
+           class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic">TeachOpenCADD (WIP 🚧)</span>
+          <span class="md-header-nav__topic"> T005 · Compound clustering </span>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="../search.html" method="GET" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder="Search"
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            <a href="https://github.com/volkamerlab/TeachOpenCADD/" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    TeachOpenCADD
+  </div>
+</a>
+          </div>
+        </div>
+      
+      
+  
+  <script src="../_static/javascripts/version_dropdown.js"></script>
+  <script>
+    var json_loc = "../"versions.json"",
+        target_loc = "../../",
+        text = "Versions";
+    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
+  </script>
+  
+
+    </div>
+  </nav>
+</header>
+
+  
+  <div class="md-container">
+    
+    
+    
+  <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+      <ul class="md-tabs__list">
+            
+            <li class="md-tabs__item"><a href="../talktorials.html" class="md-tabs__link">Our talktorials</a></li>
+            
+            <li class="md-tabs__item"><a href="../installing.html" class="md-tabs__link">Run locally</a></li>
+            
+            <li class="md-tabs__item"><a href="../contribute.html" class="md-tabs__link">Contribute</a></li>
+          <li class="md-tabs__item"><a href="../talktorials.html" class="md-tabs__link">Talktorials by collection</a></li>
+      </ul>
+    </div>
+  </nav>
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../index.html" title="TeachOpenCADD 0 documentation" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    <a href="../index.html"
+       title="TeachOpenCADD 0 documentation">TeachOpenCADD (WIP 🚧)</a>
+  </label>
+    <div class="md-nav__source">
+      <a href="https://github.com/volkamerlab/TeachOpenCADD/" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    TeachOpenCADD
+  </div>
+</a>
+    </div>
+  
+  
+
+  
+  <ul class="md-nav__list">
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Our talktorials</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#jcim-2019" class="md-nav__link">JCIM 2019</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#online-apis" class="md-nav__link">Online APIs</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#structural-modeling" class="md-nav__link">Structural modeling</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Run locally</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../installing.html" class="md-nav__link">Installing</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Contributors</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../contribute.html" class="md-nav__link">For contributors</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../api.html" class="md-nav__link">API Documentation</a>
+      
+    
+    </li>
+  </ul>
+  
+
+</nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#talktorials-005-compound-clustering--page-root" class="md-nav__link">T005 · Compound clustering</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
+        </li>
+        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
+        </li>
+        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Introduction-to-clustering-and-Jarvis-Patrick-algorithm" class="md-nav__link">Introduction to clustering and Jarvis-Patrick algorithm</a>
+        </li>
+        <li class="md-nav__item"><a href="#Detailed-explanation-of-Butina-clustering" class="md-nav__link">Detailed explanation of Butina clustering</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#1.-Data-preparation-and-compound-encoding" class="md-nav__link">1. Data preparation and compound encoding</a>
+        </li>
+        <li class="md-nav__item"><a href="#2.-Tanimoto-similarity-(or-distance)-matrix" class="md-nav__link">2. Tanimoto similarity (or distance) matrix</a>
+        </li>
+        <li class="md-nav__item"><a href="#3.-Clustering-molecules:-Centroids-and-exclusion-spheres" class="md-nav__link">3. Clustering molecules: Centroids and exclusion spheres</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Picking-diverse-compounds" class="md-nav__link">Picking diverse compounds</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Clustering-with-the-Butina-algorithm" class="md-nav__link">Clustering with the Butina algorithm</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Load-data-and-calculate-fingerprints" class="md-nav__link">Load data and calculate fingerprints</a>
+        </li>
+        <li class="md-nav__item"><a href="#Tanimoto-similarity-and-distance-matrix" class="md-nav__link">Tanimoto similarity and distance matrix</a>
+        </li>
+        <li class="md-nav__item"><a href="#Clustering-molecules:-Centroids-and-exclusion-spheres" class="md-nav__link">Clustering molecules: Centroids and exclusion spheres</a>
+        </li>
+        <li class="md-nav__item"><a href="#How-to-pick-a-reasonable-cutoff?" class="md-nav__link">How to pick a reasonable cutoff?</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Visualizing-the-clusters" class="md-nav__link">Visualizing the clusters</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#10-examples-from-largest-cluster" class="md-nav__link">10 examples from largest cluster</a>
+        </li>
+        <li class="md-nav__item"><a href="#10-examples-from-second-largest-cluster" class="md-nav__link">10 examples from second largest cluster</a>
+        </li>
+        <li class="md-nav__item"><a href="#Examples-from-first-10-clusters" class="md-nav__link">Examples from first 10 clusters</a>
+        </li>
+        <li class="md-nav__item"><a href="#Intra-cluster-Tanimoto-similarities" class="md-nav__link">Intra-cluster Tanimoto similarities</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Picking-the-final-list-of-compounds" class="md-nav__link">Picking the final list of compounds</a>
+        </li>
+        <li class="md-nav__item"><a href="#Bonus:-analysis-of-run-times" class="md-nav__link">Bonus: analysis of run times</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/005_compound_clustering.nblink.txt">Show Source</a> </li>
+
+<li id="searchbox" class="md-nav__item"></li>
+
+  </ul>
+</nav>
+              </div>
+            </div>
+          </div>
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+
+<h1 id="talktorials-005-compound-clustering--page-root">T005 · Compound clustering<a class="headerlink" href="#talktorials-005-compound-clustering--page-root" title="Permalink to this headline">¶</a></h1>
+<p>Authors:</p>
+<ul class="simple">
+<li><p>Gizem Spriewald, CADD Seminar, 2017, Charité/FU Berlin</p></li>
+<li><p>Calvinna Caswara, CADD Seminar, 2018, Charité/FU Berlin</p></li>
+<li><p>Jaime Rodríguez-Guerra, 2019-2020, <a class="reference external" href="https://volkamerlab.org">Volkamer lab</a>, Charité</p></li>
+</ul>
+<p><strong>Talktorial T005</strong>: This talktorial is part of the TeachOpenCADD pipeline described in the <a class="reference external" href="https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x">first TeachOpenCADD paper</a>, comprising of talktorials T001-T010.</p>
+
+<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this headline">¶</a></h2>
+<!-- TODO: The wording of this paragraph is confusing --><p>Similar compounds might bind to the same targets and show similar effects. Based on this similar property principle, compound similarity can be used to build chemical groups via clustering. From such a clustering, a diverse set of compounds can also be selected from a larger set of screening compounds for further experimental testing.</p>
+
+<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Introduction to clustering and Jarvis-Patrick algorithm</p></li>
+<li><p>Detailed explanation of Butina clustering</p></li>
+<li><p>Picking diverse compounds</p></li>
+</ul>
+
+
+<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Clustering with the Butina algorithm</p></li>
+<li><p>Visualizing the clusters</p></li>
+<li><p>Picking the final list of compounds</p></li>
+<li><p>Bonus: analysis of run times</p></li>
+</ul>
+
+
+<h3 id="References">References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Butina, D. Unsupervised Data Base Clustering Based on Daylight’s Fingerprint and Tanimoto Similarity: A Fast and Automated Way To Cluster Small and Large Data Set. <em>J. Chem. Inf. Comput. Sci.</em> (1999)</p></li>
+<li><p>Leach, Andrew R., Gillet, Valerie J. An Introduction to Chemoinformatics (2003)</p></li>
+<li><p><a class="reference external" href="http://www.improvedoutcomes.com/docs/WebSiteDocs/Clustering/Jarvis-Patrick_Clustering_Overview.htm">Jarvis-Patrick Clustering</a></p></li>
+<li><p><a class="reference external" href="https://github.com/sriniker/TDT-tutorial-2014/blob/master/TDT_challenge_tutorial.ipynb">TDT Tutorial</a></p></li>
+<li><p><a class="reference external" href="http://rdkit.org/docs/Cookbook.html#clustering-molecules">RDKit clustering documentation</a></p></li>
+</ul>
+
+
+
+<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this headline">¶</a></h2>
+
+<h3 id="Introduction-to-clustering-and-Jarvis-Patrick-algorithm">Introduction to clustering and Jarvis-Patrick algorithm<a class="headerlink" href="#Introduction-to-clustering-and-Jarvis-Patrick-algorithm" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Cluster_analysis">Clustering</a> can be defined as <em>the task of grouping a set of objects in such a way that objects in the same group (called a cluster) are more similar (in some sense) to each other than to those in other groups (clusters)</em>.</p>
+<p>Compound clustering in pharmaceutical research is often based on chemical or structural similarity between compounds to find groups that share properties as well as to design a diverse and representative set for further analysis.</p>
+<p>General procedure:</p>
+<ul class="simple">
+<li><p>Methods are based on clustering data by similarity between neighboring points.</p></li>
+<li><p>In cheminformatics, compounds are often encoded as molecular fingerprints and similarity can be described by the Tanimoto similarity (see <strong>Talktorial 004</strong>).</p></li>
+</ul>
+<blockquote>
+<div><p>Quick reminder:</p>
+<ul class="simple">
+<li><p>Fingerprints are binary vectors where each bit indicates the presence or absence of a particular substructural fragment within a molecule.</p></li>
+<li><p>Similarity (or distance) matrix: The similarity between each pair of molecules represented by binary fingerprints is most frequently quantified using the Tanimoto coefficient, which measures the number of common features (bits).</p></li>
+<li><p>The value of the Tanimoto coefficient ranges from zero (no similarity) to one (high similarity).</p></li>
+</ul>
+</div></blockquote>
+<p>There are a number of clustering algorithms available, with the <a class="reference external" href="http://www.improvedoutcomes.com/docs/WebSiteDocs/Clustering/Jarvis-Patrick_Clustering_Overview.htm">Jarvis-Patrick clustering</a> being one of the most widely used algorithms in the pharmaceutical context.</p>
+<p>Jarvis-Patrick clustering algorithm is defined by two parameters <span class="math notranslate nohighlight">\(K\)</span> and <span class="math notranslate nohighlight">\(K_{min}\)</span>:</p>
+<ul class="simple">
+<li><p>Calculate the set of <span class="math notranslate nohighlight">\(K\)</span> nearest neighbors for each molecule.</p></li>
+<li><p>Two molecules cluster together if</p>
+<ul>
+<li><p>they are in each others list of nearest neighbors</p></li>
+<li><p>they have at least <span class="math notranslate nohighlight">\(K_{min}\)</span> of their <span class="math notranslate nohighlight">\(K\)</span> nearest neighbors in common.</p></li>
+</ul>
+</li>
+</ul>
+<p>The Jarvis-Patrick clustering algorithm is deterministic and able to deal with large sets of molecules in a matter of a few hours. However, a downside lies in the fact that this method tends to produce large heterogeneous clusters (see <em>Butina clustering</em>, referenced above).</p>
+<p>More clustering algorithms can also be found in the <a class="reference external" href="http://scikit-learn.org/stable/modules/clustering.html">scikit-learn clustering module</a>.</p>
+
+
+<h3 id="Detailed-explanation-of-Butina-clustering">Detailed explanation of Butina clustering<a class="headerlink" href="#Detailed-explanation-of-Butina-clustering" title="Permalink to this headline">¶</a></h3>
+<p>Butina clustering (<a class="reference external" href="https://pubs.acs.org/doi/abs/10.1021/ci9803381">J. Chem. Inf. Model. (1999), 39 (4), 747</a>) was developed to identify smaller but homogeneous clusters, with the prerequisite that (at least) the cluster centroid will be more similar than a given threshold to every other molecule in the cluster.</p>
+<p>These are the key steps in this clustering approach (see flowchart below):</p>
+
+<h4 id="1.-Data-preparation-and-compound-encoding">1. Data preparation and compound encoding<a class="headerlink" href="#1.-Data-preparation-and-compound-encoding" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>To identify chemical similarities, the compounds in the input data (e.g. given as SMILES) will be encoded as molecular fingerprints, e.g., RDK5 fingerprint which is a subgraph-based fingerprint similar to the well known <a class="reference external" href="http://www.daylight.com/dayhtml/doc/theory/theory.finger.html">Daylight Fingerprint</a> (which was used in the original publication).</p></li>
+</ul>
+
+
+<h4 id="2.-Tanimoto-similarity-(or-distance)-matrix">2. Tanimoto similarity (or distance) matrix<a class="headerlink" href="#2.-Tanimoto-similarity-(or-distance)-matrix" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>The similarity between two fingerprints is calculated using the Tanimoto coefficient.</p></li>
+<li><p>Matrix with Tanimoto similarities between all possible molecule/fingerprint pairs (<span class="math notranslate nohighlight">\(n*n\)</span> similarity matrix with <span class="math notranslate nohighlight">\(n\)</span>=number of molecules, upper triangle matrix used only).</p></li>
+<li><p>Equally, the distances matrix can be calculated (<span class="math notranslate nohighlight">\(1 - similarity\)</span>).</p></li>
+</ul>
+
+
+<h4 id="3.-Clustering-molecules:-Centroids-and-exclusion-spheres">3. Clustering molecules: Centroids and exclusion spheres<a class="headerlink" href="#3.-Clustering-molecules:-Centroids-and-exclusion-spheres" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>Note: Molecules will be clustered together, if they have a maximum distance below a specified cut-off from the cluster centroid (if distance matrix is used) or if they have a minimum similarity above the specified cut-off (if similarity matrix is used).</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>Identification of potential cluster centroids</strong></p>
+<ul>
+<li><p>The cluster centroid is the molecule within a given cluster which has the largest number of neighbors.</p></li>
+<li><p>Annotate neighbors: For each molecule count all molecules with a Tanimoto distance below a given threshold.</p></li>
+<li><p>Sort the molecules by their number of neighbors in descending order, so that potential cluster centroids (i.e. the compounds with the largest number of neighbors) are placed at the top of the file.</p></li>
+</ul>
+</li>
+<li><p><strong>Clustering based on the exclusion spheres</strong></p>
+<ul>
+<li><p>Starting with the first molecule (centroid) in the sorted list.</p>
+<ul>
+<li><p>All molecules with a Tanimoto index above or equal to the cut-off value used for clustering then become members of that cluster (in case of similarity).</p>
+<ul>
+<li><p>Each molecule that has been identified as a member of the given cluster is flagged and removed from further comparisons. Thus, flagged molecules cannot become either another cluster centroid or a member of another cluster. This process is like putting an exclusion sphere around the newly formed cluster.</p></li>
+<li><p>Once the first compound in the list has found all its neighbors, the first available (i.e. not flagged) compound at the top of the list becomes the new cluster centroid.</p></li>
+</ul>
+</li>
+<li><p>The same process is repeated for all other unflagged molecules down the list.</p></li>
+</ul>
+</li>
+<li><p>Molecules that have not been flagged by the end of the clustering process become singletons.</p>
+<ul>
+<li><p>Note that some molecules assigned as singletons can have neighbors at the given Tanimoto similarity index, but those neighbors have been excluded by a stronger cluster centroid.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
+
+<span class="n">IFrame</span><span class="p">(</span><span class="s2">"images/butina_full.pdf"</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<iframe allowfullscreen="" frameborder="0" height="500" src="images/butina_full.pdf" width="800"></iframe></div>
+</div>
+<p><em>Figure 1:</em> Theoretical example of the Butina clustering algorithm, drawn by Calvinna Caswara.</p>
+
+
+
+<h3 id="Picking-diverse-compounds">Picking diverse compounds<a class="headerlink" href="#Picking-diverse-compounds" title="Permalink to this headline">¶</a></h3>
+<p>Finding representative sets of compounds is a concept often used in pharmaceutical industry.</p>
+<ul class="simple">
+<li><p>Let’s say, we applied a virtual screening campaign but only have a limited amount of resources to experimentally test a few compounds in a confirmatory assay.</p></li>
+<li><p>In order to obtain as much information as possible from this screen, we want to select a diverse set. Thus, we pick one representative of each chemical series in our list of potentially active compounds.</p></li>
+</ul>
+<p>Another scenario would be to select one series to gain information about the structure-activity relationship; i.e., how small structural changes in the molecule affect the <em>in vitro</em> activity.</p>
+
+
+
+<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this headline">¶</a></h2>
+
+<h3 id="Clustering-with-the-Butina-algorithm">Clustering with the Butina algorithm<a class="headerlink" href="#Clustering-with-the-Butina-algorithm" title="Permalink to this headline">¶</a></h3>
+<p>Application is following the example of the <a class="reference external" href="https://github.com/sriniker/TDT-tutorial-2014/blob/master/TDT_challenge_tutorial.ipynb">TDT tutorial notebook by S. Riniker and G. Landrum</a>.</p>
+
+<h4 id="Load-data-and-calculate-fingerprints">Load data and calculate fingerprints<a class="headerlink" href="#Load-data-and-calculate-fingerprints" title="Permalink to this headline">¶</a></h4>
+<p>In this part the data is prepared and fingerprints are calculated.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">rdkit</span> <span class="kn">import</span> <span class="n">Chem</span>
+<span class="kn">from</span> <span class="nn">rdkit</span> <span class="kn">import</span> <span class="n">DataStructs</span>
+<span class="kn">from</span> <span class="nn">rdkit.ML.Cluster</span> <span class="kn">import</span> <span class="n">Butina</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">Draw</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">rdFingerprintGenerator</span>
+
+<span class="kn">from</span> <span class="nn">teachopencadd.utils</span> <span class="kn">import</span> <span class="n">seed_everything</span>
+
+<span class="n">seed_everything</span><span class="p">()</span>  <span class="c1"># fix seed to get deterministic outputs</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">HERE</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">_dh</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">DATA</span> <span class="o">=</span> <span class="n">HERE</span> <span class="o">/</span> <span class="s2">"data"</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Load and have a look into data</span>
+<span class="c1"># Filtered data taken from Talktorial 002</span>
+<span class="n">compound_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="n">HERE</span> <span class="o">/</span> <span class="s2">"../002_compound_adme/data/EGFR_compounds_lipinski.csv"</span><span class="p">,</span>
+    <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Dataframe shape:"</span><span class="p">,</span> <span class="n">compound_df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">compound_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Dataframe shape: (4525, 10)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>molecule_chembl_id</th>
+<th>IC50</th>
+<th>units</th>
+<th>smiles</th>
+<th>pIC50</th>
+<th>molecular_weight</th>
+<th>n_hba</th>
+<th>n_hbd</th>
+<th>logp</th>
+<th>ro5_fulfilled</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>CHEMBL63786</td>
+<td>0.003</td>
+<td>nM</td>
+<td>Brc1cccc(Nc2ncnc3cc4ccccc4cc23)c1</td>
+<td>11.522879</td>
+<td>349.021459</td>
+<td>3</td>
+<td>1</td>
+<td>5.2891</td>
+<td>True</td>
+</tr>
+<tr>
+<th>1</th>
+<td>CHEMBL35820</td>
+<td>0.006</td>
+<td>nM</td>
+<td>CCOc1cc2ncnc(Nc3cccc(Br)c3)c2cc1OCC</td>
+<td>11.221849</td>
+<td>387.058239</td>
+<td>5</td>
+<td>1</td>
+<td>4.9333</td>
+<td>True</td>
+</tr>
+<tr>
+<th>2</th>
+<td>CHEMBL53711</td>
+<td>0.006</td>
+<td>nM</td>
+<td>CN(C)c1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
+<td>11.221849</td>
+<td>343.043258</td>
+<td>5</td>
+<td>1</td>
+<td>3.5969</td>
+<td>True</td>
+</tr>
+<tr>
+<th>3</th>
+<td>CHEMBL53753</td>
+<td>0.008</td>
+<td>nM</td>
+<td>CNc1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
+<td>11.096910</td>
+<td>329.027607</td>
+<td>5</td>
+<td>2</td>
+<td>3.5726</td>
+<td>True</td>
+</tr>
+<tr>
+<th>4</th>
+<td>CHEMBL66031</td>
+<td>0.008</td>
+<td>nM</td>
+<td>Brc1cccc(Nc2ncnc3cc4[nH]cnc4cc23)c1</td>
+<td>11.096910</td>
+<td>339.011957</td>
+<td>4</td>
+<td>2</td>
+<td>4.0122</td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Create molecules from SMILES and store in array</span>
+<span class="n">compounds</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1"># .itertuples() returns a (index, column1, column2, ...) tuple per row</span>
+<span class="c1"># we don't need index so we use _ instead</span>
+<span class="c1"># note how we are slicing the dataframe to only the two columns we need now</span>
+<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">chembl_id</span><span class="p">,</span> <span class="n">smiles</span> <span class="ow">in</span> <span class="n">compound_df</span><span class="p">[[</span><span class="s2">"molecule_chembl_id"</span><span class="p">,</span> <span class="s2">"smiles"</span><span class="p">]]</span><span class="o">.</span><span class="n">itertuples</span><span class="p">():</span>
+    <span class="n">compounds</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="n">smiles</span><span class="p">),</span> <span class="n">chembl_id</span><span class="p">))</span>
+<span class="n">compounds</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[(&lt;rdkit.Chem.rdchem.Mol at 0x7fdc24cf7850&gt;, 'CHEMBL63786'),
+ (&lt;rdkit.Chem.rdchem.Mol at 0x7fdc24c6af80&gt;, 'CHEMBL35820'),
+ (&lt;rdkit.Chem.rdchem.Mol at 0x7fdc24c6a7b0&gt;, 'CHEMBL53711'),
+ (&lt;rdkit.Chem.rdchem.Mol at 0x7fdc24c6aa30&gt;, 'CHEMBL53753'),
+ (&lt;rdkit.Chem.rdchem.Mol at 0x7fdc24c6aad0&gt;, 'CHEMBL66031')]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Create fingerprints for all molecules</span>
+<span class="n">rdkit_gen</span> <span class="o">=</span> <span class="n">rdFingerprintGenerator</span><span class="o">.</span><span class="n">GetRDKitFPGenerator</span><span class="p">(</span><span class="n">maxPath</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">fingerprints</span> <span class="o">=</span> <span class="p">[</span><span class="n">rdkit_gen</span><span class="o">.</span><span class="n">GetFingerprint</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span> <span class="k">for</span> <span class="n">mol</span><span class="p">,</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">compounds</span><span class="p">]</span>
+
+<span class="c1"># How many compounds/fingerprints do we have?</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Number of compounds converted:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">fingerprints</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Fingerprint length per compound:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">fingerprints</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Number of compounds converted: 4525
+Fingerprint length per compound: 2048
+</pre></div></div>
+</div>
+
+
+<h4 id="Tanimoto-similarity-and-distance-matrix">Tanimoto similarity and distance matrix<a class="headerlink" href="#Tanimoto-similarity-and-distance-matrix" title="Permalink to this headline">¶</a></h4>
+<p>Now that we generated fingerprints, we move on to the next step: The identification of potential cluster centroids. For this, we define functions to calculate the Tanimoto similarity and distance matrix.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">tanimoto_distance_matrix</span><span class="p">(</span><span class="n">fp_list</span><span class="p">):</span>
+    <span class="sd">"""Calculate distance matrix for fingerprint list"""</span>
+    <span class="n">dissimilarity_matrix</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># Notice how we are deliberately skipping the first and last items in the list</span>
+    <span class="c1"># because we don't need to compare them against themselves</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">fp_list</span><span class="p">)):</span>
+        <span class="c1"># Compare the current fingerprint against all the previous ones in the list</span>
+        <span class="n">similarities</span> <span class="o">=</span> <span class="n">DataStructs</span><span class="o">.</span><span class="n">BulkTanimotoSimilarity</span><span class="p">(</span><span class="n">fp_list</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">fp_list</span><span class="p">[:</span><span class="n">i</span><span class="p">])</span>
+        <span class="c1"># Since we need a distance matrix, calculate 1-x for every element in similarity matrix</span>
+        <span class="n">dissimilarity_matrix</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">similarities</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">dissimilarity_matrix</span>
+</pre></div>
+</div>
+</div>
+<p>See also <a class="reference external" href="https://sourceforge.net/p/rdkit/mailman/rdkit-discuss/thread/663770d4-b809-c599-e379-31f57380a1d0%40gmail.com/#msg36335970">[Rdkit-discuss] BulkTanimotoSimilarity</a>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Example: Calculate single similarity of two fingerprints</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+<span class="n">sim</span> <span class="o">=</span> <span class="n">DataStructs</span><span class="o">.</span><span class="n">TanimotoSimilarity</span><span class="p">(</span><span class="n">fingerprints</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">fingerprints</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Tanimoto similarity: </span><span class="si">{</span><span class="n">sim</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, distance: </span><span class="si">{</span><span class="mi">1</span><span class="o">-</span><span class="n">sim</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Tanimoto similarity: 0.73, distance: 0.27
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Example: Calculate distance matrix (distance = 1-similarity)</span>
+<span class="n">tanimoto_distance_matrix</span><span class="p">(</span><span class="n">fingerprints</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[0.26996197718631176,
+ 0.26538461538461533,
+ 0.40866873065015474,
+ 0.22672064777327938,
+ 0.3838709677419355]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Side note: That looked like a list and not a matrix.</span>
+<span class="c1"># But it is a triangular similarity matrix in the form of a list</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">fingerprints</span><span class="p">)</span>
+
+<span class="c1"># Calculate number of elements in triangular matrix via n*(n-1)/2</span>
+<span class="n">elem_triangular_matr</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">"Elements in the triangular matrix (</span><span class="si">{</span><span class="n">elem_triangular_matr</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">) =="</span><span class="p">,</span>
+    <span class="sa">f</span><span class="s2">"tanimoto_distance_matrix(fingerprints) (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">tanimoto_distance_matrix</span><span class="p">(</span><span class="n">fingerprints</span><span class="p">))</span><span class="si">}</span><span class="s2">)"</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Elements in the triangular matrix (10235550) == tanimoto_distance_matrix(fingerprints) (10235550)
+</pre></div></div>
+</div>
+
+
+<h4 id="Clustering-molecules:-Centroids-and-exclusion-spheres">Clustering molecules: Centroids and exclusion spheres<a class="headerlink" href="#Clustering-molecules:-Centroids-and-exclusion-spheres" title="Permalink to this headline">¶</a></h4>
+<p>In this part, we cluster the molecules and look at the results.</p>
+<p>Define a clustering function.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">cluster_fingerprints</span><span class="p">(</span><span class="n">fingerprints</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="mf">0.2</span><span class="p">):</span>
+    <span class="sd">"""Cluster fingerprints</span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        fingerprints</span>
+<span class="sd">        cutoff: threshold for the clustering</span>
+<span class="sd">    """</span>
+    <span class="c1"># Calculate Tanimoto distance matrix</span>
+    <span class="n">distance_matrix</span> <span class="o">=</span> <span class="n">tanimoto_distance_matrix</span><span class="p">(</span><span class="n">fingerprints</span><span class="p">)</span>
+    <span class="c1"># Now cluster the data with the implemented Butina algorithm:</span>
+    <span class="n">clusters</span> <span class="o">=</span> <span class="n">Butina</span><span class="o">.</span><span class="n">ClusterData</span><span class="p">(</span><span class="n">distance_matrix</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">fingerprints</span><span class="p">),</span> <span class="n">cutoff</span><span class="p">,</span> <span class="n">isDistData</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">clusters</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">clusters</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">clusters</span>
+</pre></div>
+</div>
+</div>
+<p>Cluster the molecules based on their fingerprint similarity.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Run the clustering procedure for the dataset</span>
+<span class="n">clusters</span> <span class="o">=</span> <span class="n">cluster_fingerprints</span><span class="p">(</span><span class="n">fingerprints</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="c1"># Give a short report about the numbers of clusters and their sizes</span>
+<span class="n">num_clust_g1</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">clusters</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">num_clust_g5</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">clusters</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">num_clust_g25</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">clusters</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">num_clust_g100</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">clusters</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"total # clusters: "</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">clusters</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"# clusters with only 1 compound: "</span><span class="p">,</span> <span class="n">num_clust_g1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"# clusters with &gt;5 compounds: "</span><span class="p">,</span> <span class="n">num_clust_g5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"# clusters with &gt;25 compounds: "</span><span class="p">,</span> <span class="n">num_clust_g25</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"# clusters with &gt;100 compounds: "</span><span class="p">,</span> <span class="n">num_clust_g100</span><span class="p">)</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+total # clusters:  718
+# clusters with only 1 compound:  338
+# clusters with &gt;5 compounds:  162
+# clusters with &gt;25 compounds:  30
+# clusters with &gt;100 compounds:  4
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Plot the size of the clusters</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Cluster index"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Number of molecules"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">clusters</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">clusters</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">5</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_005_compound_clustering_31_0.png" src="../_images/talktorials_005_compound_clustering_31_0.png"/>
+</div>
+</div>
+
+
+<h4 id="How-to-pick-a-reasonable-cutoff?">How to pick a reasonable cutoff?<a class="headerlink" href="#How-to-pick-a-reasonable-cutoff?" title="Permalink to this headline">¶</a></h4>
+<p>Since the clustering result depends on the threshold chosen by the user, we will have a closer look on the choice of a cutoff.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">for</span> <span class="n">cutoff</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">):</span>
+    <span class="n">clusters</span> <span class="o">=</span> <span class="n">cluster_fingerprints</span><span class="p">(</span><span class="n">fingerprints</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="n">cutoff</span><span class="p">)</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Threshold: </span><span class="si">{</span><span class="n">cutoff</span><span class="si">:</span><span class="s2">3.1f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Cluster index"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Number of molecules"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">clusters</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">clusters</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_005_compound_clustering_33_0.png" src="../_images/talktorials_005_compound_clustering_33_0.png"/>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_005_compound_clustering_33_1.png" src="../_images/talktorials_005_compound_clustering_33_1.png"/>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_005_compound_clustering_33_2.png" src="../_images/talktorials_005_compound_clustering_33_2.png"/>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_005_compound_clustering_33_3.png" src="../_images/talktorials_005_compound_clustering_33_3.png"/>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_005_compound_clustering_33_4.png" src="../_images/talktorials_005_compound_clustering_33_4.png"/>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_005_compound_clustering_33_5.png" src="../_images/talktorials_005_compound_clustering_33_5.png"/>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_005_compound_clustering_33_6.png" src="../_images/talktorials_005_compound_clustering_33_6.png"/>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_005_compound_clustering_33_7.png" src="../_images/talktorials_005_compound_clustering_33_7.png"/>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_005_compound_clustering_33_8.png" src="../_images/talktorials_005_compound_clustering_33_8.png"/>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_005_compound_clustering_33_9.png" src="../_images/talktorials_005_compound_clustering_33_9.png"/>
+</div>
+</div>
+<p>As you can see, the higher the threshold (distance cutoff), the more molecules are considered as similar and, therefore, clustered into less clusters. The lower the threshold, the more small clusters and “singletons” appear.</p>
+<blockquote>
+<div><p>The smaller the distance value cut-off, the more similar the compounds are required to be to belong to one cluster.</p>
+</div></blockquote>
+<p>Looking at the plots above, we decided to choose a distance threshold of <code class="docutils literal notranslate"><span class="pre">0.2</span></code>. There are not many singletons and the cluster sizes don’t have an extreme but smooth distribution.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">cutoff</span> <span class="o">=</span> <span class="mf">0.2</span>
+<span class="n">clusters</span> <span class="o">=</span> <span class="n">cluster_fingerprints</span><span class="p">(</span><span class="n">fingerprints</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="n">cutoff</span><span class="p">)</span>
+
+<span class="c1"># Plot the size of the clusters - save plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Cluster index"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"# molecules"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">clusters</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">clusters</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Threshold: </span><span class="si">{</span><span class="n">cutoff</span><span class="si">:</span><span class="s2">3.1f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span>
+    <span class="n">DATA</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"cluster_dist_cutoff_</span><span class="si">{</span><span class="n">cutoff</span><span class="si">:</span><span class="s2">4.2f</span><span class="si">}</span><span class="s2">.png"</span><span class="p">,</span>
+    <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+    <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">"tight"</span><span class="p">,</span>
+    <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">"Number of clusters: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">clusters</span><span class="p">)</span><span class="si">}</span><span class="s2"> from </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">compounds</span><span class="p">)</span><span class="si">}</span><span class="s2"> molecules at distance cut-off </span><span class="si">{</span><span class="n">cutoff</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Number of molecules in largest cluster:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">clusters</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">"Similarity between two random points in same cluster: </span><span class="si">{</span><span class="n">DataStructs</span><span class="o">.</span><span class="n">TanimotoSimilarity</span><span class="p">(</span><span class="n">fingerprints</span><span class="p">[</span><span class="n">clusters</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]],</span> <span class="n">fingerprints</span><span class="p">[</span><span class="n">clusters</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]])</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">"Similarity between two random points in different cluster: </span><span class="si">{</span><span class="n">DataStructs</span><span class="o">.</span><span class="n">TanimotoSimilarity</span><span class="p">(</span><span class="n">fingerprints</span><span class="p">[</span><span class="n">clusters</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]],</span> <span class="n">fingerprints</span><span class="p">[</span><span class="n">clusters</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]])</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Number of clusters: 1106 from 4525 molecules at distance cut-off 0.20
+Number of molecules in largest cluster: 145
+Similarity between two random points in same cluster: 0.82
+Similarity between two random points in different cluster: 0.22
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_005_compound_clustering_35_1.png" src="../_images/talktorials_005_compound_clustering_35_1.png"/>
+</div>
+</div>
+
+
+
+<h3 id="Visualizing-the-clusters">Visualizing the clusters<a class="headerlink" href="#Visualizing-the-clusters" title="Permalink to this headline">¶</a></h3>
+
+<h4 id="10-examples-from-largest-cluster">10 examples from largest cluster<a class="headerlink" href="#10-examples-from-largest-cluster" title="Permalink to this headline">¶</a></h4>
+<p>Now, let’s have a closer look at the first 10 molecular structures of the first/largest clusters.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Ten molecules from largest cluster:"</span><span class="p">)</span>
+<span class="c1"># Draw molecules</span>
+<span class="n">Draw</span><span class="o">.</span><span class="n">MolsToGridImage</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">compounds</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">clusters</span><span class="p">[</span><span class="mi">0</span><span class="p">][:</span><span class="mi">10</span><span class="p">]],</span>
+    <span class="n">legends</span><span class="o">=</span><span class="p">[</span><span class="n">compounds</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">clusters</span><span class="p">[</span><span class="mi">0</span><span class="p">][:</span><span class="mi">10</span><span class="p">]],</span>
+    <span class="n">molsPerRow</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Ten molecules from largest cluster:
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_005_compound_clustering_38_1.png" src="../_images/talktorials_005_compound_clustering_38_1.png"/>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Save molecules from largest cluster so other talktorials can use it</span>
+<span class="n">sdf_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"molecule_set_largest_cluster.sdf"</span><span class="p">)</span>
+<span class="n">sdf</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">SDWriter</span><span class="p">(</span><span class="n">sdf_path</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">clusters</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+    <span class="n">mol</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="n">compounds</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+    <span class="c1"># Add label to metadata</span>
+    <span class="n">mol</span><span class="o">.</span><span class="n">SetProp</span><span class="p">(</span><span class="s2">"_Name"</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+    <span class="n">sdf</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+<span class="n">sdf</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+
+
+<h4 id="10-examples-from-second-largest-cluster">10 examples from second largest cluster<a class="headerlink" href="#10-examples-from-second-largest-cluster" title="Permalink to this headline">¶</a></h4>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Ten molecules from second largest cluster:"</span><span class="p">)</span>
+<span class="c1"># Draw molecules</span>
+<span class="n">Draw</span><span class="o">.</span><span class="n">MolsToGridImage</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">compounds</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">clusters</span><span class="p">[</span><span class="mi">1</span><span class="p">][:</span><span class="mi">10</span><span class="p">]],</span>
+    <span class="n">legends</span><span class="o">=</span><span class="p">[</span><span class="n">compounds</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">clusters</span><span class="p">[</span><span class="mi">1</span><span class="p">][:</span><span class="mi">10</span><span class="p">]],</span>
+    <span class="n">molsPerRow</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Ten molecules from second largest cluster:
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_005_compound_clustering_41_1.png" src="../_images/talktorials_005_compound_clustering_41_1.png"/>
+</div>
+</div>
+<p>The first ten molecules in the respective clusters look indeed similar to each other and many share a common scaffold (visually detected).</p>
+<p>See <strong>Talktorial 006</strong> for more information on how to calculate the maximum common substructure (MCS) of a set of molecules.</p>
+
+
+<h4 id="Examples-from-first-10-clusters">Examples from first 10 clusters<a class="headerlink" href="#Examples-from-first-10-clusters" title="Permalink to this headline">¶</a></h4>
+<p>For comparison, we have a look at the cluster centers of the first 10 clusters.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Ten molecules from first 10 clusters:"</span><span class="p">)</span>
+<span class="c1"># Draw molecules</span>
+<span class="n">Draw</span><span class="o">.</span><span class="n">MolsToGridImage</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">compounds</span><span class="p">[</span><span class="n">clusters</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)],</span>
+    <span class="n">legends</span><span class="o">=</span><span class="p">[</span><span class="n">compounds</span><span class="p">[</span><span class="n">clusters</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]][</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)],</span>
+    <span class="n">molsPerRow</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Ten molecules from first 10 clusters:
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_005_compound_clustering_44_1.png" src="../_images/talktorials_005_compound_clustering_44_1.png"/>
+</div>
+</div>
+<p>Save cluster centers from first 3 clusters as SVG file.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Generate image</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">Draw</span><span class="o">.</span><span class="n">MolsToGridImage</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">compounds</span><span class="p">[</span><span class="n">clusters</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)],</span>
+    <span class="n">legends</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s2">"Cluster </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)],</span>
+    <span class="n">subImgSize</span><span class="o">=</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span>
+    <span class="n">useSVG</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Patch RAW svg data: convert non-transparent to transparent background and set font size</span>
+<span class="n">molsvg</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"opacity:1.0"</span><span class="p">,</span> <span class="s2">"opacity:0.0"</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"12px"</span><span class="p">,</span> <span class="s2">"20px"</span><span class="p">)</span>
+
+<span class="c1"># Save altered SVG data to file</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"cluster_representatives.svg"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">molsvg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>While still some similarity is visible, clearly, the centroids from the different clusters look more dissimilar then the compounds within one cluster.</p>
+
+
+<h4 id="Intra-cluster-Tanimoto-similarities">Intra-cluster Tanimoto similarities<a class="headerlink" href="#Intra-cluster-Tanimoto-similarities" title="Permalink to this headline">¶</a></h4>
+<p>We can also have a look at the intra-cluster Tanimoto similarities.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">intra_tanimoto</span><span class="p">(</span><span class="n">fps_clusters</span><span class="p">):</span>
+    <span class="sd">"""Function to compute Tanimoto similarity for all pairs of fingerprints in each cluster"""</span>
+    <span class="n">intra_similarity</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># Calculate intra similarity per cluster</span>
+    <span class="k">for</span> <span class="n">cluster</span> <span class="ow">in</span> <span class="n">fps_clusters</span><span class="p">:</span>
+        <span class="c1"># Tanimoto distance matrix function converted to similarity matrix (1-distance)</span>
+        <span class="n">intra_similarity</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">tanimoto_distance_matrix</span><span class="p">(</span><span class="n">cluster</span><span class="p">)])</span>
+    <span class="k">return</span> <span class="n">intra_similarity</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Recompute fingerprints for 10 first clusters</span>
+<span class="n">mol_fps_per_cluster</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">cluster</span> <span class="ow">in</span> <span class="n">clusters</span><span class="p">[:</span><span class="mi">10</span><span class="p">]:</span>
+    <span class="n">mol_fps_per_cluster</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">rdkit_gen</span><span class="o">.</span><span class="n">GetFingerprint</span><span class="p">(</span><span class="n">compounds</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">cluster</span><span class="p">])</span>
+
+<span class="c1"># Compute intra-cluster similarity</span>
+<span class="n">intra_sim</span> <span class="o">=</span> <span class="n">intra_tanimoto</span><span class="p">(</span><span class="n">mol_fps_per_cluster</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Violin plot with intra-cluster similarity</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">indices</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Cluster index"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Similarity"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Intra-cluster Tanimoto similarity"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">intra_sim</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">showmeans</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">showmedians</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">showextrema</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">r</span><span class="p">[</span><span class="s2">"cmeans"</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s2">"red"</span><span class="p">)</span>
+<span class="c1"># mean=red, median=blue</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_005_compound_clustering_51_0.png" src="../_images/talktorials_005_compound_clustering_51_0.png"/>
+</div>
+</div>
+
+
+
+<h3 id="Picking-the-final-list-of-compounds">Picking the final list of compounds<a class="headerlink" href="#Picking-the-final-list-of-compounds" title="Permalink to this headline">¶</a></h3>
+<p>In the following, we are going to pick a final list of <strong>max. 1000 compounds</strong> as a <strong>diverse</strong> subset.</p>
+<p>For this, we take the cluster centroid from each cluster (i.e. the first molecule of each cluster) and then for each cluster (starting with the largest one) we take the 10 molecules (or 50% if less than 10 molecules are left in the cluster) that are most similar to the centroid, until we have selected max. 1000 compounds. Thus, we have representatives of each cluster.</p>
+<p>Aim of this compound picking is to ensure the diversity for a smaller set of compounds which are proposed for testing in a confirmatory assay.</p>
+<blockquote>
+<div><p>Picking procedure was adapted from <a class="reference external" href="https://github.com/sriniker/TDT-tutorial-2014/blob/master/TDT_challenge_tutorial.ipynb">TDT tutorial notebook by S. Riniker and G. Landrum</a>.</p>
+</div></blockquote>
+<p>As described there: the idea behind this approach is to ensure diversity (representatives of each cluster) while getting some SAR (structure-activity relationship) from the results of the confirmatory assay (groups of quite similar molecules from larger clusters retained).</p>
+<p>Get cluster centers.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Get the cluster center of each cluster (first molecule in each cluster)</span>
+<span class="n">cluster_centers</span> <span class="o">=</span> <span class="p">[</span><span class="n">compounds</span><span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">clusters</span><span class="p">]</span>
+<span class="c1"># How many cluster centers/clusters do we have?</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Number of cluster centers:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">cluster_centers</span><span class="p">))</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Number of cluster centers: 1106
+</pre></div></div>
+</div>
+<p>Sort clusters by size and molecules in each cluster by similarity.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Sort the molecules within a cluster based on their similarity</span>
+<span class="c1"># to the cluster center and sort the clusters based on their size</span>
+<span class="n">sorted_clusters</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">cluster</span> <span class="ow">in</span> <span class="n">clusters</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cluster</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">continue</span>  <span class="c1"># Singletons</span>
+    <span class="c1"># else:</span>
+    <span class="c1"># Compute fingerprints for each cluster element</span>
+    <span class="n">sorted_fingerprints</span> <span class="o">=</span> <span class="p">[</span><span class="n">rdkit_gen</span><span class="o">.</span><span class="n">GetFingerprint</span><span class="p">(</span><span class="n">compounds</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">cluster</span><span class="p">]</span>
+    <span class="c1"># Similarity of all cluster members to the cluster center</span>
+    <span class="n">similarities</span> <span class="o">=</span> <span class="n">DataStructs</span><span class="o">.</span><span class="n">BulkTanimotoSimilarity</span><span class="p">(</span>
+        <span class="n">sorted_fingerprints</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sorted_fingerprints</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="p">)</span>
+    <span class="c1"># Add index of the molecule to its similarity (centroid excluded!)</span>
+    <span class="n">similarities</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">similarities</span><span class="p">,</span> <span class="n">cluster</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span>
+    <span class="c1"># Sort in descending order by similarity</span>
+    <span class="n">similarities</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1"># Save cluster size and index of molecules in clusters_sort</span>
+    <span class="n">sorted_clusters</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">similarities</span><span class="p">),</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">similarities</span><span class="p">]))</span>
+    <span class="c1"># Sort in descending order by cluster size</span>
+    <span class="n">sorted_clusters</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Pick a maximum of 1000 compounds.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Count selected molecules, pick cluster centers first</span>
+<span class="n">selected_molecules</span> <span class="o">=</span> <span class="n">cluster_centers</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="c1"># Take 10 molecules (or a maximum of 50%) of each cluster starting with the largest one</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">pending</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">selected_molecules</span><span class="p">)</span>
+<span class="k">while</span> <span class="n">pending</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">sorted_clusters</span><span class="p">):</span>
+    <span class="c1"># Take indices of sorted clusters</span>
+    <span class="n">tmp_cluster</span> <span class="o">=</span> <span class="n">sorted_clusters</span><span class="p">[</span><span class="n">index</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+    <span class="c1"># If the first cluster is &gt; 10 big then take exactly 10 compounds</span>
+    <span class="k">if</span> <span class="n">sorted_clusters</span><span class="p">[</span><span class="n">index</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="n">num_compounds</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="c1"># If smaller, take half of the molecules</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">num_compounds</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">tmp_cluster</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">num_compounds</span> <span class="o">&gt;</span> <span class="n">pending</span><span class="p">:</span>
+        <span class="n">num_compounds</span> <span class="o">=</span> <span class="n">pending</span>
+    <span class="c1"># Write picked molecules and their structures into list of lists called picked_fps</span>
+    <span class="n">selected_molecules</span> <span class="o">+=</span> <span class="p">[</span><span class="n">compounds</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tmp_cluster</span><span class="p">[:</span><span class="n">num_compounds</span><span class="p">]]</span>
+    <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">pending</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">selected_molecules</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"# Selected molecules:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">selected_molecules</span><span class="p">))</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+# Selected molecules: 1106
+</pre></div></div>
+</div>
+<p>This set of diverse molecules could now be used for experimental testing.</p>
+
+
+<h3 id="Bonus:-analysis-of-run-times">Bonus: analysis of run times<a class="headerlink" href="#Bonus:-analysis-of-run-times" title="Permalink to this headline">¶</a></h3>
+<p>At the end of the talktorial, we can play with the size of the dataset and see how the Butina clustering run time changes.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Reuse old dataset</span>
+<span class="n">sampled_mols</span> <span class="o">=</span> <span class="n">compounds</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Note that you can try out larger datasets, but data sizes larger than 10000 data points already start to consume quite some memory and time (that’s why we stopped there).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Helper function for time computation</span>
+<span class="k">def</span> <span class="nf">measure_runtime</span><span class="p">(</span><span class="n">sampled_mols</span><span class="p">):</span>
+    <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">sampled_fingerprints</span> <span class="o">=</span> <span class="p">[</span><span class="n">rdkit_gen</span><span class="o">.</span><span class="n">GetFingerprint</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="k">for</span> <span class="n">m</span><span class="p">,</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">sampled_mols</span><span class="p">]</span>
+    <span class="c1"># Run the clustering with the dataset</span>
+    <span class="n">sampled_clusters</span> <span class="o">=</span> <span class="n">cluster_fingerprints</span><span class="p">(</span><span class="n">sampled_fingerprints</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">len</span><span class="p">(</span><span class="n">sampled_mols</span><span class="p">)</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+4525
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">sample_sizes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">4000</span><span class="p">]</span>
+<span class="n">runtimes</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1"># Take random samples with replacement</span>
+<span class="k">for</span> <span class="n">size</span> <span class="ow">in</span> <span class="n">sample_sizes</span><span class="p">:</span>
+    <span class="n">time_taken</span> <span class="o">=</span> <span class="n">measure_runtime</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">sampled_mols</span><span class="p">,</span> <span class="n">size</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Dataset size </span><span class="si">{</span><span class="n">size</span><span class="si">}</span><span class="s2">, time </span><span class="si">{</span><span class="n">time_taken</span><span class="si">:</span><span class="s2">4.2f</span><span class="si">}</span><span class="s2"> seconds"</span><span class="p">)</span>
+    <span class="n">runtimes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">time_taken</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Dataset size 100, time 0.06 seconds
+Dataset size 500, time 0.29 seconds
+Dataset size 1000, time 0.56 seconds
+Dataset size 2000, time 1.39 seconds
+Dataset size 4000, time 4.59 seconds
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Runtime measurement of Butina Clustering with different dataset sizes"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"# Molecules in data set"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Runtime in seconds"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sample_sizes</span><span class="p">,</span> <span class="n">runtimes</span><span class="p">,</span> <span class="s2">"g^"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_005_compound_clustering_66_0.png" src="../_images/talktorials_005_compound_clustering_66_0.png"/>
+</div>
+</div>
+<p>Notice how the runtime is not exactly proportional to the sample size! It grows faster!</p>
+
+
+
+<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Why is clustering of molecules important?</p></li>
+<li><p>Which algorithms can you use to cluster a set of molecules and what is the general idea behind the algorithm?</p></li>
+<li><p>Do you know other clustering algorithms?</p></li>
+</ul>
+
+
+
+
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="md-footer">
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="004_compound_similarity.html" title="T004 · Ligand-based screening: compound similarity"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> Previous </span> T004 · Ligand-based screening: compound similarity </span>
+              </div>
+            </a>
+          
+          
+            <a href="006_compound_maximum_common_substructures.html" title="T006 · Maximum common substructure"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> Next </span> T006 · Maximum common substructure </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          
+        </a>
+        
+      </nav>
+    </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169; Copyright 2018-2020, Volkamer Lab. Project structure based on the Computational Molecular Science Python Cookiecutter version 1.1.
+              
+          </div>
+            Created using
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../_static/javascripts/application.js"></script>
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  </body>
+</html>
