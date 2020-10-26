@@ -124,9 +124,9 @@ html_theme_options = {
     "master_doc": False,
     # "nav_title": "TeachOpenCADD",
     "nav_links": [
-        {"href": "index", "internal": True, "title": "Get started"},
-        {"href": "talktorials", "internal": True, "title": "Talktorials"},
-        {"href": "api", "internal": True, "title": "API"},
+        {"href": "talktorials", "internal": True, "title": "Our talktorials"},
+        {"href": "installing", "internal": True, "title": "Run locally"},
+        {"href": "contribute", "internal": True, "title": "Contribute"},
         # {
         #     "href": "https://squidfunk.github.io/mkdocs-material/",
         #     "internal": False,
@@ -206,3 +206,9 @@ texinfo_documents = [
 
 
 # -- Extension configuration -------------------------------------------------
+
+html_static_path = ["_static"]
+html_css_files = [
+    "gallery.css",
+]
+html_js_files = []
