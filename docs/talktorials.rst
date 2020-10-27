@@ -19,3 +19,4 @@ All talktorials
    talktorials/012_query_pubchem.nblink
    talktorials/015_protein_ligand_docking.nblink
    talktorials/016_protein_ligand_interactions.nblink
+   talktorials/019_One_Hot_Encoding.nblink
