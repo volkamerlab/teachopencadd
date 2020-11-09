@@ -93,7 +93,7 @@ jobs:
         with:
           api-key: ${{ secrets.TREEBEARD_API_KEY }}
           docker-username: "jaimergp"
-          docker-password: "${{ secrets.DOCKER_PASSWORD }}"
+          docker-password: "${{ secrets.DOCKERHUB_PASSWORD }}"
           docker-image-name: "volkamerlab/teachopencadd"
 
   condabuild:
