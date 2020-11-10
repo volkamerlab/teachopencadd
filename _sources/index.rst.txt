@@ -6,7 +6,7 @@
 TeachOpenCADD
 =============
 
-Open source programming packages for cheminformatics and structural bioinformatics are powerful tools to build modular, reproducible, and reusable pipelines for computer-aided drug design (CADD). While documentation for such tools is available, only few freely accessible examples teach underlying concepts focused on CADD applications such as the TDT initiative, addressing especially users new to the field.
+Open source programming packages for cheminformatics and structural bioinformatics are powerful tools to build modular, reproducible, and reusable pipelines for computer-aided drug design (CADD). While documentation for such tools is available, only few freely accessible examples teach underlying concepts focused on CADD applications, addressing especially users new to the field.
 
 TeachOpenCADD is a teaching platform developed by students for students, which provides teaching material for central CADD topics. Since we cover both the theoretical as well as practical aspect of these topics, the platform addresses students and researchers with a biological/chemical as well as a computational background.
 
@@ -18,9 +18,9 @@ For each topic, an interactive Jupyter Notebook is offered, using open source pa
    <img src="_static/images/TeachOpenCADD_topics.svg" alt="TeachOpenCADD topics" width="800"/>
    <br>
    <font size="1">
-   Figure adapted from Figure 1 in the TeachOpenCADD publication,
+   Figure adapted from Figure 1 in the TeachOpenCADD publication 
    <a href="https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x">
-   D. Sydow et al., J Chem, 2019, 11, 29</a>.
+   (D. Sydow <i>et al.</i>, J. Cheminformatics, 2019)</a>.
    </font>
    </p>
 
@@ -54,8 +54,8 @@ Citation
 
 If you make use of the TeachOpenCADD material in scientific publications, please cite our respective articles:
 
-- `TeachOpenCADD Jupyter Notebooks: Talktorials 1-10 <https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x>`_.
-- `TeachOpenCADD KNIME workflows <https://pubs.acs.org/doi/10.1021/acs.jcim.9b00662>`_.
+- `TeachOpenCADD Jupyter Notebooks: Talktorials T001-T010 <https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x>`_
+- `TeachOpenCADD KNIME workflows <https://pubs.acs.org/doi/10.1021/acs.jcim.9b00662>`_
 
 It will help measure the impact of the TeachOpenCADD platform and future funding!
 
