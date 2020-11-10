@@ -19,8 +19,8 @@ Eventually, we will have a ``conda`` package, but for now you need to create a n
 
     conda activate teachopencadd
 
-3. Run ``teachopencadd -h`` to test it works.
-4. [WIP 🚧] Run ``teachopencadd start .`` to set up a new workspace. This step is not fully functional yet. Please refer to XXXX for manual steps.
+3. Run ``teachopencadd -h`` to test that it works.
+4. [WIP 🚧] Run ``teachopencadd start .`` to set up a new workspace. This step is not fully functional yet. Please refer to `Install from the latest development snapshot <https://projects.volkamerlab.org/teachopencadd/installing.html#install-from-the-latest-development-snapshot>`_ for manual steps.
 
 
 Install from the latest development snapshot

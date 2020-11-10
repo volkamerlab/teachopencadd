@@ -20,8 +20,9 @@ For each topic, an interactive Jupyter Notebook is offered, using open source pa
   <img src="docs/_static/images/TeachOpenCADD_topics.svg" alt="TeachOpenCADD topics" width="800"/>
   <br>
   <font size="1">
-  Figure adapted from Figure 1 in the TeachOpenCADD publication (<a href="https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x">
-  D. Sydow <i>et al.</i>, J. Cheminformatics, 2019</a>).
+  Figure adapted from Figure 1 in the TeachOpenCADD publication 
+  <a href="https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x">
+  (D. Sydow <i>et al.</i>, J. Cheminformatics, 2019)</a>.
   </font>
 </p>
 
