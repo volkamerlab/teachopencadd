@@ -63,6 +63,7 @@
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="For contributors" href="contribute.html" />
@@ -246,13 +247,36 @@
       
         
 <nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#installing--page-root" class="md-nav__link">Installing</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#install-from-the-conda-package" class="md-nav__link">Install from the conda package</a>
+        </li>
+        <li class="md-nav__item"><a href="#install-from-the-latest-development-snapshot" class="md-nav__link">Install from the latest development snapshot</a>
+        </li></ul>
+            </nav>
+        </li>
     
 <li class="md-nav__item"><a class="md-nav__extra_link" href="_sources/installing.rst.txt">Show Source</a> </li>
 
   </ul>
 </nav>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#install-from-the-conda-package" class="md-nav__link">Install from the conda package</a>
       
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#install-from-the-latest-development-snapshot" class="md-nav__link">Install from the latest development snapshot</a>
+      
+    
+    </li></ul>
     
     </li>
     <li class="md-nav__item">
@@ -286,7 +310,16 @@
               <div class="md-sidebar__inner">
                 
 <nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#installing--page-root" class="md-nav__link">Installing</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#install-from-the-conda-package" class="md-nav__link">Install from the conda package</a>
+        </li>
+        <li class="md-nav__item"><a href="#install-from-the-latest-development-snapshot" class="md-nav__link">Install from the latest development snapshot</a>
+        </li></ul>
+            </nav>
+        </li>
     
 <li class="md-nav__item"><a class="md-nav__extra_link" href="_sources/installing.rst.txt">Show Source</a> </li>
 
@@ -303,11 +336,16 @@
             
   
 <h1 id="installing--page-root">Installing<a class="headerlink" href="#installing--page-root" title="Permalink to this headline">¶</a></h1>
+
+<h2 id="install-from-the-conda-package">Install from the conda package<a class="headerlink" href="#install-from-the-conda-package" title="Permalink to this headline">¶</a></h2>
 <p>Eventually, we will have a <code class="docutils literal notranslate"><span class="pre">conda</span></code> package, but for now you need to create a new environment manually.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We are assuming you have a working <code class="docutils literal notranslate"><span class="pre">conda</span></code> installation in your computer. If this is not the case, please refer to the official documentation <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/#regular-installation">here</a>. We recommend using Miniconda.</p>
+</div>
 <ol class="arabic">
-<li><p>Install Miniconda for your OS if you don’t have it already.</p></li>
-<li><p>Create new conda environment:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda env create -n teachopencadd -f https://raw.githubusercontent.com/volkamerlab/TeachOpenCADD/master/environment.yml
+<li><p>Create a new conda environment for TeachOpenCADD:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda env create -f https://raw.githubusercontent.com/volkamerlab/TeachOpenCADD/master/environment.yml
 </pre></div>
 </div>
 </li>
@@ -316,13 +354,39 @@
 </pre></div>
 </div>
 </li>
-<li><p>Install the package with <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python -m pip install https://github.com/volkamerlab/teachopencadd/archive/master.tar.gz
-</pre></div>
-</div>
-</li>
 <li><p>Run <code class="docutils literal notranslate"><span class="pre">teachopencadd</span> <span class="pre">-h</span></code> to test it works.</p></li>
+<li><p>[WIP 🚧] Run <code class="docutils literal notranslate"><span class="pre">teachopencadd</span> <span class="pre">start</span> <span class="pre">.</span></code> to set up a new workspace. This step is not fully functional yet. Please refer to XXXX for manual steps.</p></li>
 </ol>
+
+
+<h2 id="install-from-the-latest-development-snapshot">Install from the latest development snapshot<a class="headerlink" href="#install-from-the-latest-development-snapshot" title="Permalink to this headline">¶</a></h2>
+<p>If you have already created a <em>conda environment</em> and it has been activated  (see above) , the next step is downloading a copy of the current state of the <a class="reference external" href="https://github.com/volkamerlab/teachopencadd">GitHub repository</a>.</p>
+<ol class="arabic simple">
+<li><p>Download a zipfile of the repository using <a class="reference external" href="https://github.com/volkamerlab/teachopencadd/archive/master.zip">this link</a>.</p></li>
+<li><p>Unzip to your location of choice.</p></li>
+<li><p>Navigate to <code class="docutils literal notranslate"><span class="pre">path/to/your/location/teachopencadd-master/talktorials</span></code>.</p></li>
+<li><p>Start Jupyter Lab.</p></li>
+<li><p>Double click on the lesson you want to start.</p></li>
+</ol>
+<details>
+<summary>Instructions for Linux / MacOS</summary>
+<pre>
+        wget https://github.com/volkamerlab/teachopencadd/archive/master.zip -O teachopencadd.zip
+        mkdir -p ~/Documents
+        unzip teachopencadd.zip -d ~/Documents
+        cd ~/Documents/teachopencadd-master/talktorials
+        jupyter lab
+    </pre>
+</details><details>
+<summary>Instructions for Windows (PowerShell)</summary>
+<pre>
+        wget https://github.com/volkamerlab/teachopencadd/archive/master.zip -O teachopencadd.zip
+        mkdir ~/Documents/
+        Expand-Archive teachopencadd.zip -d ~/Documents
+        cd ~/Documents/teachopencadd-master/talktorials
+        jupyter lab
+    </pre>
+</details>
 
 
 

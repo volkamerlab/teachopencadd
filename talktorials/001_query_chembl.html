@@ -63,6 +63,7 @@
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="T002 · Molecular filtering: ADME and lead-likeness criteria" href="002_compound_adme.html" />
@@ -1617,7 +1618,8 @@ Number of bioactivity values in full ChEMBL 27 release: 16066124
 <span class="n">bioactivities_df</span> <span class="o">=</span> <span class="n">bioactivities_df</span><span class="p">[</span>
     <span class="n">bioactivities_df</span><span class="p">[</span><span class="s2">"activity_id"</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">bioactivity_ids_chembl_27</span><span class="p">)</span>
 <span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="c1"># NBVAL_CHECK_OUTPUTprint(f"Number of bioactivities after ChEMBL 27 intersection: {bioactivities_df.shape[0]}")</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Number of bioactivities after ChEMBL 27 intersection: </span><span class="si">{</span><span class="n">bioactivities_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2813,7 +2815,9 @@ DataFrame shape: (5444, 6)
 <li><p>What is the difference between IC50 and EC50?</p></li>
 <li><p>What can we use the data extracted from ChEMBL for?</p></li>
 </ul>
-
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {}, "version_major": 2, "version_minor": 0}
+</script>
 
 
 
