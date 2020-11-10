@@ -10,7 +10,7 @@
 > In any case, please [star](https://help.github.com/en/github/getting-started-with-github/saving-repositories-with-stars)
 > (and tell your students to star) those repositories you consider useful for your learning/teaching activities.
 
-Open source programming packages for cheminformatics and structural bioinformatics are powerful tools to build modular, reproducible, and reusable pipelines for computer-aided drug design (CADD). While documentation for such tools is available, only few freely accessible examples teach underlying concepts focused on CADD applications such as the TDT initiative, addressing especially users new to the field.
+Open source programming packages for cheminformatics and structural bioinformatics are powerful tools to build modular, reproducible, and reusable pipelines for computer-aided drug design (CADD). While documentation for such tools is available, only few freely accessible examples teach underlying concepts focused on CADD applications, addressing especially users new to the field.
 
 TeachOpenCADD is a teaching platform developed by students for students, which provides teaching material for central CADD topics. Since we cover both the theoretical as well as practical aspect of these topics, the platform addresses students and researchers with a biological/chemical as well as a computational background.
 
@@ -20,9 +20,8 @@ For each topic, an interactive Jupyter Notebook is offered, using open source pa
   <img src="docs/_static/images/TeachOpenCADD_topics.svg" alt="TeachOpenCADD topics" width="800"/>
   <br>
   <font size="1">
-  Figure adapted from Figure 1 in the TeachOpenCADD publication,
-  <a href="https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x">
-  D. Sydow et al., J Chem, 2019, 11, 29</a>.
+  Figure adapted from Figure 1 in the TeachOpenCADD publication (<a href="https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x">
+  D. Sydow <i>et al.</i>, J. Cheminformatics, 2019</a>).
   </font>
 </p>
 
@@ -32,7 +31,7 @@ If you can't wait and just want to read through the materials, please go to the 
 
 If you'd like to execute the provided notebooks, we offer two possibilities:
 
-- 🚧 Online thanks to Binder.org. This takes some minutes, but does not require any kind of setup on your end. Click here to get started: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/volkamerlab/TeachOpenCADD/master)
+- 🚧 Online thanks to [Binder](https://mybinder.org/). This takes some minutes, but does not require any kind of setup on your end. Click here to get started: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/volkamerlab/TeachOpenCADD/master)
 - Locally using our `conda` package. More details in this [section of the documentation](https://projects.volkamerlab.org/teachopencadd/installing.html).
 
 ## TeachOpenCADD KNIME workflows
@@ -62,7 +61,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0
 
 If you make use of the TeachOpenCADD material in scientific publications, please cite our respective articles:
 
-- [TeachOpenCADD Jupyter Notebooks: Talktorials 1-10](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x).
+- [TeachOpenCADD Jupyter Notebooks: Talktorials T001-T010](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x)
 - [TeachOpenCADD KNIME workflows](https://pubs.acs.org/doi/10.1021/acs.jcim.9b00662)
 
 It will help measure the impact of the TeachOpenCADD platform and future funding!
