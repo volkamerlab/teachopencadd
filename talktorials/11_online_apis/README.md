@@ -6,7 +6,7 @@ __Developed at AG Volkamer, Charité__
 
 Dr. Jaime Rodríguez-Guerra, Dominique Sydow
 
-__!!! Work in progress - this is only a preview version !!!__
+> ⚠ This talktorial series was added back in late 2019. By the time of the v1.3 release, some of the used web services are not available any more. Updates/fixes will be available upon our next major release, scheduled for late 2020.
 
 ## Aim of this talktorial
 
