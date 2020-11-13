@@ -2,12 +2,14 @@
 
 #### A teaching platform for computer-aided drug design (CADD) using open source packages and data
 
+> ⚠ We are introducing [major changes](https://github.com/volkamerlab/teachopencadd/pull/29) to the TeachOpenCADD repository _very soon_. Before making them available, we are cutting a [`1.3.0`](https://github.com/volkamerlab/teachopencadd/releases/tag/v1.3.0) version with the current changes on `master`. This will be last release in the `v1.x` series. Subscribe to the repository releases (top-right menu: `Watch`> `Releases`) to stay tuned!
+
 Volkamer Lab 
 
 *In Silico* Toxicology and Structural Bioinformatics <br>
 Institute of Physiology <br>
 Charité - Universitätsmedizin Berlin <br>
-[volkamerlab.org](https://physiologie-ccm.charite.de/en/research_at_the_institute/volkamer_lab/)
+[volkamerlab.org](https://volkamerlab.org)
 
 #### TeachOpenCADD Jupyter Notebooks
 [![DOI](https://img.shields.io/badge/DOI-10.1186%2Fs13321--019--0351--x-blue.svg)](https://doi.org/10.1186/s13321-019-0351-x)
