@@ -143,6 +143,7 @@ Many thanks to everyone who has contributed in any way to TeachOpenCADD (listed 
 - Jaime Rodríguez-Guerra
 - Jan Philipp Albrecht
 - Jeff Wagner
+- John Chodera
 - Majid Vafadar
 - Mareike Leja
 - Marvis Sydow
