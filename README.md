@@ -93,7 +93,24 @@ It will help measure the impact of the TeachOpenCADD platform and future funding
 }
 ```
 
-## Funding
+## Acknowledgments
+
+### External resources
+
+#### Python packages
+
+TODO: Select from `test_env.yml`...
+
+#### Databases
+
+- ChEMBL 
+  - Bioactivity database: [Gaulton *et al.*, <i>Nucleic Acids Res.</i> (2017), 45(Database issue), D945–D954](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5210557/)
+  - Web services: [Davies *et al.*, <i>Nucleic Acids Res.</i> (2015), <b>43</b>, 612-620](https://academic.oup.com/nar/article/43/W1/W612/2467881) 
+- PDB
+- KLIFS
+- PubMed
+
+### Funding
 
 The authors of the TeachOpenCADD platform receive(d) public funding from the following funding agencies:
 
@@ -103,3 +120,43 @@ The authors of the TeachOpenCADD platform receive(d) public funding from the fol
 - Stiftung Charité (Einstein BIH Visiting Fellow project)
 - "SUPPORT für die Lehre" program (Förderung innovativer Lehrvorhaben) of the Freie Universität Berlin
 - Open Access Publication Fund of Charité – Universitätsmedizin Berlin
+
+### Contributors
+
+Many thanks to everyone who has contributed in any way to TeachOpenCADD (listed alphabetically).
+
+- Andrea Morger
+- Andrea Volkamer
+- Andrew Wilkinson
+- Angelika Szengel
+- Anja Georgi
+- Calvinna Caswara
+- Daria Goldmann
+- David Schaller
+- Dominique Sydow
+- Florian Gusewski
+- Floriane Montanari
+- Franziska Fritz
+- Gizem Spriewald
+- Gregory Landrum
+- Jacob Gora
+- Jaime Rodríguez-Guerra
+- Jan Philipp Albrecht
+- Jeff Wagner
+- Majid Vafadar
+- Mareike Leja
+- Marvis Sydow
+- Mathias Wajnberg
+- Maximilian Driller
+- Michele Wichmann
+- Oliver Nagel
+- Paula Schmiel
+- Pratik Dhakal
+- Richard Gowers
+- Ross Johnstone
+- Sakshi Misra
+- Sandra Krüger
+- Svetlana Leng
+- Talia Kimber
+- Thomas Holder
+- Yonghui Chen
