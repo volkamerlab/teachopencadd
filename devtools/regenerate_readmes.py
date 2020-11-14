@@ -38,7 +38,7 @@ def main():
 
     args = parse_cli()
 
-    nbcontent = "\n".join(list(first_markdown_cells(args.notebook)))
+    nbcontent = "\n\n\n".join(list(first_markdown_cells(args.notebook)))
     if not nbcontent.strip():  # empty results
         nbcontent = "> This talktorial is still under development"
 
