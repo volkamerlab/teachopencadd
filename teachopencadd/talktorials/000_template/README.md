@@ -4,21 +4,29 @@ Authors:
 
 - First and last name, year(s) of contribution, lab, institution
 - First and last name, year(s) of contribution, lab, institution
+
+
 ## Aim of this talktorial
 
 Short summary of this talktorial's content.
+
+
 ### Contents in *Theory*
 
 *These points should refer to the headlines of your theory section below.*
 
 * ChEMBL database
 * Compound activity measures
+
+
 ### Contents in *Practical*
 
 *These points should refer to the headlines of your practical section below.*
 
 * Connect to ChEMBL database
 * Load and draw molecules
+
+
 ### References
 
 * Paper 

@@ -7,12 +7,18 @@ Authors:
 - Dominique Sydow, 2019-2020, [Volkamer lab, Charité](https://volkamerlab.org/)
 - Andrea Volkamer, 2020, [Volkamer lab, Charité](https://volkamerlab.org/)
 - Yonghui Chen, 2020, [Volkamer lab, Charité](https://volkamerlab.org/)
+
+
 __Talktorial T001__: This talktorial is part of the TeachOpenCADD pipeline described in the [first TeachOpenCADD paper](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x), comprising of talktorials T001-T010.
+
+
 ## Aim of this talktorial
 
 In this notebook, we will learn more about the ChEMBL database and how to extract data from ChEMBL, i.e. (compound, activity data) pairs for a target of interest. These data sets can be used for many cheminformatics tasks, such as similarity search, clustering or machine learning.
 
 Our work here will include finding compounds which were tested against a certain target and filtering available bioactivity data.
+
+
 ### Contents in *Theory*
 
 * ChEMBL database
@@ -21,6 +27,8 @@ Our work here will include finding compounds which were tested against a certain
 * Compound activity measures
     * IC50 measure
     * pIC50 value
+
+
 ### Contents in *Practical*
     
 **Goal: Get a list of compounds with bioactivity data for a given target**
@@ -39,6 +47,8 @@ Our work here will include finding compounds which were tested against a certain
     * Merge bioactivity and compound data, and add pIC50 values
     * Draw molecules with highest pIC50
     * Write output file
+
+
 ### References
 
 * ChEMBL bioactivity database: [Gaulton *et al.*, <i>Nucleic Acids Res.</i> (2017), 45(Database issue), D945–D954](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5210557/)

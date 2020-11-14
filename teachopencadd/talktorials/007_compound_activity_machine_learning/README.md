@@ -6,10 +6,16 @@ Authors:
 * Jacob Gora, CADD seminar 2018, Charité/FU Berlin
 * Talia Kimber, 2019-2020, [Volkamer lab](https://volkamerlab.org)
 * Andrea Volkamer, 2019-2020, [Volkamer lab](https://volkamerlab.org)
+
+
 __Talktorial T007__: This talktorial is part of the TeachOpenCADD pipeline described in the [first TeachOpenCADD paper](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x), comprising of talktorials T001-T010.
+
+
 ## Aim of this talktorial
 
 Due to larger available data sources, machine learning (ML) gained momentum in drug discovery and especially in ligand-based virtual screening. In this talktorial, we learn how to use different supervised ML algorithms to predict the activity of novel compounds against our target of interest (EGFR).
+
+
 ### Contents in _Theory_
 
 * Data preparation: Molecule encoding
@@ -18,6 +24,8 @@ Due to larger available data sources, machine learning (ML) gained momentum in d
 * Model validation and evaluation
     * Validation strategy: K-fold cross-validation
     *  Performance measures
+
+
 ### Contents in _Practical_
 
 * Load compound and activity data
@@ -30,6 +38,8 @@ Due to larger available data sources, machine learning (ML) gained momentum in d
     * Support vector classifier
     * Neural network classifier
     * Cross-validation
+
+
 ### References
 
 * "Fingerprints in the RDKit" [slides](https://www.rdkit.org/UGM/2012/Landrum_RDKit_UGM.Fingerprints.Final.pptx.pdf), G. Landrum, RDKit UGM 2012

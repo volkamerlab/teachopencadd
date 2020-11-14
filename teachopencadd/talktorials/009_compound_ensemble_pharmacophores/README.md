@@ -6,18 +6,30 @@ Authors:
 - Florian Gusewski, CADD seminar, 2018, Charité/FU Berlin
 - Jaime Rodríguez-Guerra, [Volkamer lab](https://volkamerlab.org/), Charité
 - Dominique Sydow, [Volkamer lab](https://volkamerlab.org/), Charité
+
+
 __Talktorial T009__: This talktorial is part of the TeachOpenCADD pipeline described in the [first TeachOpenCADD paper](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x), comprising of talktorials T001-T010.
+
+
 **Note**: Please run this notebook cell by cell. Running all cells in one is possible also, however, part of the nglview 3D representations might be missing.
+
+
 ## Aim of this talktorial
 
 In this talktorial, we use known EGFR ligands, which were selected and aligned in the previous talktorial, to identify donor, acceptor, and hydrophobic pharmacophoric features for each ligand. Those features are then clustered to define an ensemble pharmacophore, which represents the properties of the set of known EGFR ligands and can be used to search for novel EGFR ligands via virtual screening.
+
+
 ## Learning goals
+
+
 ### Contents in *Theory*
 
 * Pharmacophore modeling
   * Structure- and ligand-based pharmacophore modeling
 * Virtual screening with pharmacophores
 * Clustering: k-means
+
+
 ### Contents in *Practical*
 
 * Get pre-aligned ligands from previous talktorial
@@ -40,6 +52,8 @@ In this talktorial, we use known EGFR ligands, which were selected and aligned i
   * Hydrogen bond acceptors
   * Hydrophobic contacts
 * Show ensemble pharmacophore
+
+
 ### References
 
 * IUPAC pharmacophore definition 

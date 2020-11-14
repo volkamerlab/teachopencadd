@@ -6,10 +6,16 @@ Authors:
 - Franziska Fritz, CADD seminar, 2018, Charité/FU Berlin
 - Yonghui Chen, 2019-2020, [Volkamer lab](https://volkamerlab.org/), Charité
 - Dominique Sydow, 2018-2020, [Volkamer lab](https://volkamerlab.org/), Charité
+
+
 __Talktorial T004__: This talktorial is part of the TeachOpenCADD pipeline described in the [first TeachOpenCADD paper](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x), comprising of **talktorials T001-T010**.
+
+
 ## Aim of this talktorial
 
 In this talktorial, we get familiar with different approaches to encode (descriptors, fingerprints) and compare (similarity measures) molecules. Furthermore, we perform a virtual screening in the form of a similarity search for the EGFR inhibitor Gefitinib against our dataset of EGFR-tested molecules from the ChEMBL database filtered by Lipinski's rule of five (see **talktorial 002**). 
+
+
 ### Contents in _Theory_
 
 * Molecular similarity
@@ -24,6 +30,8 @@ In this talktorial, we get familiar with different approaches to encode (descrip
 * Virtual screening
   * Virtual screening using similarity search
   * Enrichment plots
+
+
 ### Contents in _Practical_
 
 * Import and draw molecules
@@ -40,6 +48,8 @@ In this talktorial, we get familiar with different approaches to encode (descrip
   * Visualize most similar molecules
   * Generate enrichment plots
   * Calculate enrichment factors
+
+
 ### References
 
 * Review on "Molecular similarity in medicinal chemistry" ([<i>J. Med. Chem.</i> (2014), <b>57</b>, 3186-3204](http://pubs.acs.org/doi/abs/10.1021/jm401411z))
