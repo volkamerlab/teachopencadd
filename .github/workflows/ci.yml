@@ -90,7 +90,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
       - name: Install nbformat
-        run: python -m pip install nbformat
+        run: python -m pip install nbformat shyaml
       - name: Check READMEs are up-to-date
         run: |
           NOTEBOOKS=$(cat treebeard.yaml | shyaml get-values notebooks | xargs)
