@@ -95,7 +95,7 @@ jobs:
         run: |
           NOTEBOOKS=$(cat treebeard.yaml | shyaml get-values notebooks | xargs)
           for path in $NOTEBOOKS; do
-            python devtools/regenerate_readmes.py $path > (dirname $path)/README.md
+            python devtools/regenerate_readmes.py $path > $(dirname $path)/README.md
           done
           # If the script above introduced changes (it shouldn't!), git diff will have output and an error code
           git diff --exit-code
