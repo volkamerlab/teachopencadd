@@ -31,7 +31,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: goanpeca/setup-miniconda@v1
+      - uses: conda-incubator/setup-miniconda@v2
         with:
           python-version: ${{ matrix.python-version }}
           activate-environment: teachopencadd
@@ -109,7 +109,7 @@ jobs:
         run: |
           git fetch --tags --force
 
-      - uses: goanpeca/setup-miniconda@v1
+      - uses: conda-incubator/setup-miniconda@v2
         with:
           python-version: 3.6
           channel-priority: true
@@ -141,7 +141,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: goanpeca/setup-miniconda@v1
+      - uses: conda-incubator/setup-miniconda@v2
         with:
           python-version: "3.7"
           activate-environment: teachopencadd
