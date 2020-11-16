@@ -196,8 +196,11 @@ jobs:
         shell: bash -l {0}
         run: |
           cd docs/_build/html
-          python -m http.server > /dev/null &2>1 &
-          npx broken-link-checker http://localhost:8000/ --ordered --recursive --exclude "*.txt"
+          python -m http.server > /dev/null &2>1&
+          npx broken-link-checker http://localhost:8000/ --ordered --recursive \
+            --exclude "*.txt" \
+            --exclude "https://onlinelibrary.wiley.com/doi/full/10.1002/cmdc.200700139" \
+            --exclude "https://onlinelibrary.wiley.com/doi/10.1002/9783527806539.ch6h"
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
