@@ -99,16 +99,41 @@ It will help measure the impact of the TeachOpenCADD platform and future funding
 
 #### Python packages
 
-TODO: Select from `test_env.yml`...
+- Cheminformatics and structural bioinformatics: 
+  [`rdkit`](http://rdkit.org/), 
+  [`openbabel`](http://openbabel.org/wiki/), 
+  [`mdanalysis`](https://www.mdanalysis.org/), 
+  [`biopython`](https://biopython.org/), 
+  [`biopandas`](http://rasbt.github.io/biopandas/), 
+  [`opencadd`](https://opencadd.readthedocs.io/en/latest/)
+- Data science (PyData stack): 
+  [`numpy`](https://numpy.org/), 
+  [`pandas`](https://pandas.pydata.org/), 
+  [`scikit-learn`](https://scikit-learn.org/), 
+  [`juypter`](https://jupyter.org/), 
+  [`ipywidgets`](https://ipywidgets.readthedocs.io)
+- Data visualization: 
+  [`matplotlib`](https://matplotlib.org/), 
+  [`seaborn`](https://seaborn.pydata.org/), 
+  [`nglview`](http://nglviewer.org/nglview/latest/)
+- Web services clients: 
+  [`pypdb`](https://github.com/williamgilpin/pypdb), 
+  [`chembl_webresource_client`](https://github.com/chembl/chembl_webresource_client)
+- Continuous integration: 
+  [`pytest`](https://docs.pytest.org), 
+  [`nbval`](https://nbval.readthedocs.io)
+- Documentation: 
+  [`sphinx`](https://www.sphinx-doc.org), 
+  [`nbshinx`](https://nbsphinx.readthedocs.io)
+- Code style: 
+  [`black-nb`](https://github.com/tomcatling/black-nb)
 
 #### Databases
 
-- ChEMBL 
-  - Bioactivity database: [Gaulton *et al.*, <i>Nucleic Acids Res.</i> (2017), 45(Database issue), D945–D954](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5210557/)
-  - Web services: [Davies *et al.*, <i>Nucleic Acids Res.</i> (2015), <b>43</b>, 612-620](https://academic.oup.com/nar/article/43/W1/W612/2467881) 
-- PDB
-- KLIFS
-- PubMed
+- [ChEMBL](https://www.ebi.ac.uk/chembl/)
+- [PDB](https://www.rcsb.org/)
+- [KLIFS](https://klifs.net/)
+- [PubMed](https://pubchem.ncbi.nlm.nih.gov/)
 
 ### Funding
 
