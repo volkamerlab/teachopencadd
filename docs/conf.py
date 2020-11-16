@@ -112,7 +112,7 @@ html_theme_options = {
     # "base_url": "http://bashtage.github.io/sphinx-material/",
     "repo_url": "https://github.com/volkamerlab/teachopencadd/",
     "repo_name": "TeachOpenCADD",
-    # "google_analytics_account": "UA-XXXXX",
+    "google_analytics_account": "G-Q6ZE82CNZB",
     "html_minify": False,
     "html_prettify": False,
     "css_minify": False,
@@ -211,6 +211,6 @@ texinfo_documents = [
 
 html_static_path = ["_static"]
 html_css_files = [
-    "gallery.css",
+    "custom.css",
 ]
 html_js_files = []
