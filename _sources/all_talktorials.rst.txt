@@ -16,7 +16,3 @@ This is the complete list of talktorials available for online reading. Take into
    talktorials/008_query_pdb.nblink
    talktorials/009_compound_ensemble_pharmacophores.nblink
    talktorials/010_binding_site_comparison.nblink
-   talktorials/011_query_online_api_webservices.nblink
-   talktorials/012_query_pubchem.nblink
-   talktorials/015_protein_ligand_docking.nblink
-   talktorials/016_protein_ligand_interactions.nblink

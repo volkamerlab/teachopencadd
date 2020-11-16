@@ -44,6 +44,32 @@
   <meta name="theme-color" content="#2196f3">
   <script src="_static/javascripts/modernizr.js"></script>
   
+    <script async src="_static/cookieconsent.min.js"></script>
+    <script>
+        window.addEventListener("load", function(){
+        window.cookieconsent.initialise({
+            "palette": {
+            "popup": {
+                "background": "#f0f0f0",
+                "text": "#999"
+            },
+            "button": {
+                "text": "#fff",
+                "background": "#009688"
+            }
+            },
+            "theme": "classic"
+        })});
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6ZE82CNZB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-Q6ZE82CNZB');
+    </script>
   
     <link rel="apple-touch-icon" href="_static/images/apple-icon-152x152.png"/>
   
@@ -52,7 +78,7 @@
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/material.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
@@ -360,7 +386,7 @@
 
 
 <h2 id="id1">Install from the latest development snapshot<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>If you have already created a <em>conda environment</em> and it has been activated  (see above) , the next step is downloading a copy of the current state of the <a class="reference external" href="https://github.com/volkamerlab/teachopencadd">GitHub repository</a>.</p>
+<p>If you have already created a <em>conda environment</em> and it has been activated  (see above), the next step is downloading a copy of the current state of the <a class="reference external" href="https://github.com/volkamerlab/teachopencadd">GitHub repository</a>.</p>
 <ol class="arabic simple">
 <li><p>Download a zipfile of the repository using <a class="reference external" href="https://github.com/volkamerlab/teachopencadd/archive/master.zip">this link</a>.</p></li>
 <li><p>Unzip to your location of choice.</p></li>
@@ -369,23 +395,21 @@
 <li><p>Double click on the lesson you want to start.</p></li>
 </ol>
 <details>
-<summary>Instructions for Linux / MacOS</summary>
-<pre>
-        wget https://github.com/volkamerlab/teachopencadd/archive/master.zip -O teachopencadd.zip
-        mkdir -p ~/Documents
-        unzip teachopencadd.zip -d ~/Documents
-        cd ~/Documents/teachopencadd-master/talktorials
-        jupyter lab
-    </pre>
+<summary>Instructions for Linux / MacOS</summary><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget https://github.com/volkamerlab/teachopencadd/archive/master.zip -O teachopencadd.zip
+mkdir -p ~/Documents
+unzip teachopencadd.zip -d ~/Documents
+<span class="nb">cd</span> ~/Documents/teachopencadd-master/talktorials
+jupyter lab
+</pre></div>
+</div>
 </details><details>
-<summary>Instructions for Windows (PowerShell)</summary>
-<pre>
-        wget https://github.com/volkamerlab/teachopencadd/archive/master.zip -O teachopencadd.zip
-        mkdir ~/Documents/
-        Expand-Archive teachopencadd.zip -d ~/Documents
-        cd ~/Documents/teachopencadd-master/talktorials
-        jupyter lab
-    </pre>
+<summary>Instructions for Windows (PowerShell)</summary><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>wget https://github.com/volkamerlab/teachopencadd/archive/master.zip -O teachopencadd.zip
+mkdir ~/Documents/
+Expand-Archive teachopencadd.zip -d ~/Documents
+cd ~/Documents/teachopencadd-master/talktorials
+jupyter lab
+</pre></div>
+</div>
 </details>
 
 

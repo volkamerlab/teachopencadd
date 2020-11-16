@@ -44,6 +44,32 @@
   <meta name="theme-color" content="#2196f3">
   <script src="_static/javascripts/modernizr.js"></script>
   
+    <script async src="_static/cookieconsent.min.js"></script>
+    <script>
+        window.addEventListener("load", function(){
+        window.cookieconsent.initialise({
+            "palette": {
+            "popup": {
+                "background": "#f0f0f0",
+                "text": "#999"
+            },
+            "button": {
+                "text": "#fff",
+                "background": "#009688"
+            }
+            },
+            "theme": "classic"
+        })});
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6ZE82CNZB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-Q6ZE82CNZB');
+    </script>
   
     <link rel="apple-touch-icon" href="_static/images/apple-icon-152x152.png"/>
   
@@ -52,7 +78,7 @@
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/material.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
@@ -67,7 +93,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Installing" href="installing.html" />
-    <link rel="prev" title="[WIP] Structure-based CADD using online APIs/servers" href="talktorials/016_protein_ligand_interactions.html" />
+    <link rel="prev" title="T010 · Binding site similarity and off-target prediction" href="talktorials/010_binding_site_comparison.html" />
   
     <link rel="apple-touch-icon" href="_static/images/apple-icon-152x152.png"/>
   
@@ -311,34 +337,6 @@
       <a href="talktorials/010_binding_site_comparison.html" class="md-nav__link">T010 · Binding site similarity and off-target prediction</a>
       
     
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="talktorials/011_query_online_api_webservices.html" class="md-nav__link">[WIP] Structure-based CADD using online APIs/servers</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="talktorials/012_query_pubchem.html" class="md-nav__link">[WIP] Structure-based CADD using online APIs/servers</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="talktorials/015_protein_ligand_docking.html" class="md-nav__link">[WIP] Structure-based CADD using online APIs/servers</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="talktorials/016_protein_ligand_interactions.html" class="md-nav__link">[WIP] Structure-based CADD using online APIs/servers</a>
-      
-    
     </li></ul>
     
     </li>
@@ -415,10 +413,6 @@
 <li class="toctree-l1"><a class="reference internal" href="talktorials/008_query_pdb.html">T008 · Protein data acquisition: Protein Data Bank (PDB)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="talktorials/009_compound_ensemble_pharmacophores.html">T009 · Ligand-based pharmacophores</a></li>
 <li class="toctree-l1"><a class="reference internal" href="talktorials/010_binding_site_comparison.html">T010 · Binding site similarity and off-target prediction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="talktorials/011_query_online_api_webservices.html">[WIP] Structure-based CADD using online APIs/servers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="talktorials/012_query_pubchem.html">[WIP] Structure-based CADD using online APIs/servers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="talktorials/015_protein_ligand_docking.html">[WIP] Structure-based CADD using online APIs/servers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="talktorials/016_protein_ligand_interactions.html">[WIP] Structure-based CADD using online APIs/servers</a></li>
 </ul>
 </div>
 
@@ -433,7 +427,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="talktorials/016_protein_ligand_interactions.html" title="[WIP] Structure-based CADD using online APIs/servers"
+            <a href="talktorials/010_binding_site_comparison.html" title="T010 · Binding site similarity and off-target prediction"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -442,7 +436,7 @@
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> Previous </span> [WIP] Structure-based CADD using online APIs/servers </span>
+                      class="md-footer-nav__direction"> Previous </span> T010 · Binding site similarity and off-target prediction </span>
               </div>
             </a>
           

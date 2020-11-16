@@ -26,7 +26,7 @@ Eventually, we will have a ``conda`` package, but for now you need to create a n
 Install from the latest development snapshot
 --------------------------------------------
 
-If you have already created a *conda environment* and it has been activated  (see above) , the next step is downloading a copy of the current state of the `GitHub repository <https://github.com/volkamerlab/teachopencadd>`_.
+If you have already created a *conda environment* and it has been activated  (see above), the next step is downloading a copy of the current state of the `GitHub repository <https://github.com/volkamerlab/teachopencadd>`_.
 
 1. Download a zipfile of the repository using `this link <https://github.com/volkamerlab/teachopencadd/archive/master.zip>`_.
 2. Unzip to your location of choice.
@@ -35,29 +35,40 @@ If you have already created a *conda environment* and it has been activated  (se
 5. Double click on the lesson you want to start.
 
 
+.. Unix instructions
+
 .. raw:: html
 
     <details>
-        <summary>Instructions for Linux / MacOS</summary>
-        <pre>
-            wget https://github.com/volkamerlab/teachopencadd/archive/master.zip -O teachopencadd.zip
-            mkdir -p ~/Documents
-            unzip teachopencadd.zip -d ~/Documents
-            cd ~/Documents/teachopencadd-master/talktorials
-            jupyter lab
-        </pre>
+    <summary>Instructions for Linux / MacOS</summary>
+
+.. code-block:: bash
+
+    wget https://github.com/volkamerlab/teachopencadd/archive/master.zip -O teachopencadd.zip
+    mkdir -p ~/Documents
+    unzip teachopencadd.zip -d ~/Documents
+    cd ~/Documents/teachopencadd-master/talktorials
+    jupyter lab
+
+.. raw:: html
+
     </details>
 
+.. Windows instructions
 
 .. raw:: html
 
     <details>
-        <summary>Instructions for Windows (PowerShell)</summary>
-        <pre>
-            wget https://github.com/volkamerlab/teachopencadd/archive/master.zip -O teachopencadd.zip
-            mkdir ~/Documents/
-            Expand-Archive teachopencadd.zip -d ~/Documents
-            cd ~/Documents/teachopencadd-master/talktorials
-            jupyter lab
-        </pre>
+    <summary>Instructions for Windows (PowerShell)</summary>
+
+.. code-block::
+
+    wget https://github.com/volkamerlab/teachopencadd/archive/master.zip -O teachopencadd.zip
+    mkdir ~/Documents/
+    Expand-Archive teachopencadd.zip -d ~/Documents
+    cd ~/Documents/teachopencadd-master/talktorials
+    jupyter lab
+
+.. raw:: html
+
     </details>

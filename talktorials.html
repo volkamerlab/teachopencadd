@@ -44,6 +44,32 @@
   <meta name="theme-color" content="#2196f3">
   <script src="_static/javascripts/modernizr.js"></script>
   
+    <script async src="_static/cookieconsent.min.js"></script>
+    <script>
+        window.addEventListener("load", function(){
+        window.cookieconsent.initialise({
+            "palette": {
+            "popup": {
+                "background": "#f0f0f0",
+                "text": "#999"
+            },
+            "button": {
+                "text": "#fff",
+                "background": "#009688"
+            }
+            },
+            "theme": "classic"
+        })});
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6ZE82CNZB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-Q6ZE82CNZB');
+    </script>
   
     <link rel="apple-touch-icon" href="_static/images/apple-icon-152x152.png"/>
   
@@ -52,7 +78,7 @@
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/material.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
@@ -234,9 +260,9 @@
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#jcim-2019" class="md-nav__link">JCIM 2019</a>
         </li>
-        <li class="md-nav__item"><a href="#online-apis" class="md-nav__link">Online APIs</a>
+        <li class="md-nav__item"><a href="#ligand-based-cheminformatics" class="md-nav__link">Ligand-based cheminformatics</a>
         </li>
-        <li class="md-nav__item"><a href="#structural-modeling" class="md-nav__link">Structural modeling</a>
+        <li class="md-nav__item"><a href="#structural-biology" class="md-nav__link">Structural biology</a>
         </li></ul>
             </nav>
         </li>
@@ -256,14 +282,14 @@
     <li class="md-nav__item">
     
     
-      <a href="#online-apis" class="md-nav__link">Online APIs</a>
+      <a href="#ligand-based-cheminformatics" class="md-nav__link">Ligand-based cheminformatics</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="#structural-modeling" class="md-nav__link">Structural modeling</a>
+      <a href="#structural-biology" class="md-nav__link">Structural biology</a>
       
     
     </li></ul>
@@ -325,9 +351,9 @@
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#jcim-2019" class="md-nav__link">JCIM 2019</a>
         </li>
-        <li class="md-nav__item"><a href="#online-apis" class="md-nav__link">Online APIs</a>
+        <li class="md-nav__item"><a href="#ligand-based-cheminformatics" class="md-nav__link">Ligand-based cheminformatics</a>
         </li>
-        <li class="md-nav__item"><a href="#structural-modeling" class="md-nav__link">Structural modeling</a>
+        <li class="md-nav__item"><a href="#structural-biology" class="md-nav__link">Structural biology</a>
         </li></ul>
             </nav>
         </li>
@@ -475,17 +501,17 @@
 </div>
 <div class="sphx-glr-clear"></div>
 
-<h2 id="online-apis">Online APIs<a class="headerlink" href="#online-apis" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound" id="onlineapis">
-<p class="caption"><span class="caption-text">Learn how to query online webservices</span><a class="headerlink" href="#onlineapis" title="Permalink to this toctree">¶</a></p>
+<h2 id="ligand-based-cheminformatics">Ligand-based cheminformatics<a class="headerlink" href="#ligand-based-cheminformatics" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound" id="ligandbased">
+<p class="caption"><span class="caption-text">The basis for computer-aided drug discovery</span><a class="headerlink" href="#ligandbased" title="Permalink to this toctree">¶</a></p>
 </div>
 <div class="sphx-glr-thumbcontainer">
 <div class="figure align-center">
-<img alt="thumbnail" src="./_static/no_image.png"/>
+<img alt="thumbnail" src="./_images/talktorials_001_query_chembl_98_2.png"/>
 <p class="caption">
 <span class="caption-text">
-<a class="reference internal" href="talktorials/011_query_online_api_webservices.html">
-<span class="std std-ref">[WIP] Structure-based CADD using online APIs/servers</span>
+<a class="reference internal" href="talktorials/001_query_chembl.html">
+<span class="std std-ref">T001 · Compound data acquisition (ChEMBL)</span>
 </a>
 </span>
 </p>
@@ -493,11 +519,71 @@
 </div>
 <div class="sphx-glr-thumbcontainer">
 <div class="figure align-center">
-<img alt="thumbnail" src="./_static/no_image.png"/>
+<img alt="thumbnail" src="./_images/talktorials_002_compound_adme_65_0.png"/>
 <p class="caption">
 <span class="caption-text">
-<a class="reference internal" href="talktorials/012_query_pubchem.html">
-<span class="std std-ref">[WIP] Structure-based CADD using online APIs/servers</span>
+<a class="reference internal" href="talktorials/002_compound_adme.html">
+<span class="std std-ref">T002 · Molecular filtering: ADME and lead-likeness criteria</span>
+</a>
+</span>
+</p>
+</div>
+</div>
+<div class="sphx-glr-thumbcontainer">
+<div class="figure align-center">
+<img alt="thumbnail" src="./_images/talktorials_003_compound_unwanted_substructures_31_0.png"/>
+<p class="caption">
+<span class="caption-text">
+<a class="reference internal" href="talktorials/003_compound_unwanted_substructures.html">
+<span class="std std-ref">T003 · Molecular filtering: unwanted substructures</span>
+</a>
+</span>
+</p>
+</div>
+</div>
+<div class="sphx-glr-thumbcontainer">
+<div class="figure align-center">
+<img alt="thumbnail" src="./_images/talktorials_004_compound_similarity_121_0.png"/>
+<p class="caption">
+<span class="caption-text">
+<a class="reference internal" href="talktorials/004_compound_similarity.html">
+<span class="std std-ref">T004 · Ligand-based screening: compound similarity</span>
+</a>
+</span>
+</p>
+</div>
+</div>
+<div class="sphx-glr-thumbcontainer">
+<div class="figure align-center">
+<img alt="thumbnail" src="./_images/talktorials_005_compound_clustering_51_0.png"/>
+<p class="caption">
+<span class="caption-text">
+<a class="reference internal" href="talktorials/005_compound_clustering.html">
+<span class="std std-ref">T005 · Compound clustering</span>
+</a>
+</span>
+</p>
+</div>
+</div>
+<div class="sphx-glr-thumbcontainer">
+<div class="figure align-center">
+<img alt="thumbnail" src="./_images/talktorials_006_compound_maximum_common_substructures_28_0.png"/>
+<p class="caption">
+<span class="caption-text">
+<a class="reference internal" href="talktorials/006_compound_maximum_common_substructures.html">
+<span class="std std-ref">T006 · Maximum common substructure</span>
+</a>
+</span>
+</p>
+</div>
+</div>
+<div class="sphx-glr-thumbcontainer">
+<div class="figure align-center">
+<img alt="thumbnail" src="./_images/talktorials_007_compound_activity_machine_learning_45_0.png"/>
+<p class="caption">
+<span class="caption-text">
+<a class="reference internal" href="talktorials/007_compound_activity_machine_learning.html">
+<span class="std std-ref">T007 · Ligand-based screening: machine learning</span>
 </a>
 </span>
 </p>
@@ -505,17 +591,17 @@
 </div>
 <div class="sphx-glr-clear"></div>
 
-<h2 id="structural-modeling">Structural modeling<a class="headerlink" href="#structural-modeling" title="Permalink to this headline">¶</a></h2>
+<h2 id="structural-biology">Structural biology<a class="headerlink" href="#structural-biology" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound" id="structuralmodeling">
-<p class="caption"><span class="caption-text">Molecular dynamics and docking</span><a class="headerlink" href="#structuralmodeling" title="Permalink to this toctree">¶</a></p>
+<p class="caption"><span class="caption-text">3D models, structural similarity, protein-ligand interaction analysis and other methods</span><a class="headerlink" href="#structuralmodeling" title="Permalink to this toctree">¶</a></p>
 </div>
 <div class="sphx-glr-thumbcontainer">
 <div class="figure align-center">
-<img alt="thumbnail" src="./_static/no_image.png"/>
+<img alt="thumbnail" src="./_images/talktorials_008_query_pdb_62_0.png"/>
 <p class="caption">
 <span class="caption-text">
-<a class="reference internal" href="talktorials/015_protein_ligand_docking.html">
-<span class="std std-ref">[WIP] Structure-based CADD using online APIs/servers</span>
+<a class="reference internal" href="talktorials/008_query_pdb.html">
+<span class="std std-ref">T008 · Protein data acquisition: Protein Data Bank (PDB)</span>
 </a>
 </span>
 </p>
@@ -523,11 +609,23 @@
 </div>
 <div class="sphx-glr-thumbcontainer">
 <div class="figure align-center">
-<img alt="thumbnail" src="./_static/no_image.png"/>
+<img alt="thumbnail" src="./_images/talktorials_009_compound_ensemble_pharmacophores_106_0.png"/>
 <p class="caption">
 <span class="caption-text">
-<a class="reference internal" href="talktorials/016_protein_ligand_interactions.html">
-<span class="std std-ref">[WIP] Structure-based CADD using online APIs/servers</span>
+<a class="reference internal" href="talktorials/009_compound_ensemble_pharmacophores.html">
+<span class="std std-ref">T009 · Ligand-based pharmacophores</span>
+</a>
+</span>
+</p>
+</div>
+</div>
+<div class="sphx-glr-thumbcontainer">
+<div class="figure align-center">
+<img alt="thumbnail" src="./_images/talktorials_010_binding_site_comparison_102_0.png"/>
+<p class="caption">
+<span class="caption-text">
+<a class="reference internal" href="talktorials/010_binding_site_comparison.html">
+<span class="std std-ref">T010 · Binding site similarity and off-target prediction</span>
 </a>
 </span>
 </p>
