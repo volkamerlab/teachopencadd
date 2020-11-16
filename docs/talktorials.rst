@@ -22,22 +22,28 @@ Talktorials as presented in the original `JCIM 2019 article <https://jcheminf.bi
    talktorials/009_compound_ensemble_pharmacophores.nblink
    talktorials/010_binding_site_comparison.nblink
 
-Online APIs
------------
+Ligand-based cheminformatics
+----------------------------
 
 .. nbgallery::
-   :name: onlineapis
-   :caption: Learn how to query online webservices
+   :name: ligandbased
+   :caption: The basis for computer-aided drug discovery
 
-   talktorials/011_query_online_api_webservices.nblink
-   talktorials/012_query_pubchem.nblink
+   talktorials/001_query_chembl.nblink
+   talktorials/002_compound_adme.nblink
+   talktorials/003_compound_unwanted_substructures.nblink
+   talktorials/004_compound_similarity.nblink
+   talktorials/005_compound_clustering.nblink
+   talktorials/006_compound_maximum_common_substructures.nblink
+   talktorials/007_compound_activity_machine_learning.nblink
 
-Structural modeling
--------------------
+Structural biology
+------------------
 
 .. nbgallery::
    :name: structuralmodeling
-   :caption: Molecular dynamics and docking
+   :caption: 3D models, structural similarity, protein-ligand interaction analysis and other methods
 
-   talktorials/015_protein_ligand_docking.nblink
-   talktorials/016_protein_ligand_interactions.nblink
+   talktorials/008_query_pdb.nblink
+   talktorials/009_compound_ensemble_pharmacophores.nblink
+   talktorials/010_binding_site_comparison.nblink
