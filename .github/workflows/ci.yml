@@ -192,6 +192,13 @@ jobs:
           make clean
           SPHINXOPTS="-j2 -W -T --keep-going" make html
 
+      - name: Check 404s
+        shell: bash -l {0}
+        run: |
+          cd docs/_build/html
+          python -m http.server &
+          npx broken-link-checker http://localhost:8000/ --ordered --recursive
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
