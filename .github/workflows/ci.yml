@@ -191,6 +191,9 @@ jobs:
           cd docs
           make clean
           SPHINXOPTS="-j2 -W -T --keep-going" make html
+          # Extra UGLY patch to fix PDF IFrame on T005
+          sed -i 's|src="images/butina_full.pdf"|src="../_images/butina_full.pdf"|g' \
+            docs/_build/html/talktorials/005_compound_clustering.html
 
       - name: Check 404s
         shell: bash -l {0}
@@ -200,7 +203,7 @@ jobs:
           npx broken-link-checker http://localhost:8000/ --ordered --recursive \
             --exclude "*.txt" \
             --exclude "https://onlinelibrary.wiley.com/doi/full/10.1002/cmdc.200700139" \
-            --exclude "https://onlinelibrary.wiley.com/doi/10.1002/9783527806539.ch6h"
+            --exclude "https://onlinelibrary.wiley.com/doi/10.1002/9783527806539.*"
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
