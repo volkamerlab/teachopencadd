@@ -148,41 +148,4 @@ The authors of the TeachOpenCADD platform receive(d) public funding from the fol
 
 ### Contributors
 
-Many thanks to everyone who has contributed in any way to TeachOpenCADD (listed alphabetically).
-
-- Andrea Morger
-- Andrea Volkamer
-- Andrew Wilkinson
-- Angelika Szengel
-- Anja Georgi
-- Calvinna Caswara
-- Daria Goldmann
-- David Schaller
-- Dominique Sydow
-- Florian Gusewski
-- Floriane Montanari
-- Franziska Fritz
-- Gizem Spriewald
-- Gregory Landrum
-- Jacob Gora
-- Jaime Rodríguez-Guerra
-- Jan Philipp Albrecht
-- Jeff Wagner
-- John Chodera
-- Majid Vafadar
-- Mareike Leja
-- Marvis Sydow
-- Mathias Wajnberg
-- Maximilian Driller
-- Michele Wichmann
-- Oliver Nagel
-- Paula Schmiel
-- Pratik Dhakal
-- Richard Gowers
-- Ross Johnstone
-- Sakshi Misra
-- Sandra Krüger
-- Svetlana Leng
-- Talia Kimber
-- Thomas Holder
-- Yonghui Chen
+Many thanks to everyone who has contributed to TeachOpenCADD by working on talktorials (check out the talktorial READMEs - [example](https://github.com/volkamerlab/teachopencadd/tree/packaging/teachopencadd/talktorials/001_query_chembl)) and/or by helping in any other way (see [GitHub contributors](https://github.com/volkamerlab/teachopencadd/graphs/contributors)).
