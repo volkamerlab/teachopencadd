@@ -131,7 +131,7 @@ It will help measure the impact of the TeachOpenCADD platform and future funding
 #### Databases
 
 - [ChEMBL](https://www.ebi.ac.uk/chembl/)
-- [PDB](https://www.rcsb.org/)
+- [RCSB PDB](https://www.rcsb.org/)
 - [KLIFS](https://klifs.net/)
 - [PubMed](https://pubchem.ncbi.nlm.nih.gov/)
 
