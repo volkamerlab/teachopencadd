@@ -110,7 +110,7 @@ It will help measure the impact of the TeachOpenCADD platform and future funding
   [`numpy`](https://numpy.org/), 
   [`pandas`](https://pandas.pydata.org/), 
   [`scikit-learn`](https://scikit-learn.org/), 
-  [`juypter`](https://jupyter.org/), 
+  [`jupyter`](https://jupyter.org/), 
   [`ipywidgets`](https://ipywidgets.readthedocs.io)
 - Data visualization: 
   [`matplotlib`](https://matplotlib.org/), 
@@ -124,7 +124,7 @@ It will help measure the impact of the TeachOpenCADD platform and future funding
   [`nbval`](https://nbval.readthedocs.io)
 - Documentation: 
   [`sphinx`](https://www.sphinx-doc.org), 
-  [`nbshinx`](https://nbsphinx.readthedocs.io)
+  [`nbsphinx`](https://nbsphinx.readthedocs.io)
 - Code style: 
   [`black-nb`](https://github.com/tomcatling/black-nb)
 
