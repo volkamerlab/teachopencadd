@@ -149,3 +149,7 @@ The authors of the TeachOpenCADD platform receive(d) public funding from the fol
 ### Contributors
 
 Many thanks to everyone who has contributed to TeachOpenCADD by working on talktorials (check out the talktorial READMEs - [example](https://github.com/volkamerlab/teachopencadd/tree/packaging/teachopencadd/talktorials/001_query_chembl)) and/or by helping in any other way (see [GitHub contributors](https://github.com/volkamerlab/teachopencadd/graphs/contributors)).
+
+You are welcome to contribute to the project either by requesting new topics, proposing ideas or getting involved in the development! Please, use [this form](http://contribute.volkamerlab.org/) to let us know!
+
+
