@@ -4,6 +4,16 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2600909.svg)](https://doi.org/10.5281/zenodo.2600909)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/volkamerlab/TeachOpenCADD/master)
 
+> ⚠ You are looking at a new release of the TeachOpenCADD repository with [major changes](https://github.com/volkamerlab/teachopencadd/pull/29).  
+>  - We applied a new folder structure to the repository allowing us to offer for the first time a `teachopencadd` conda package!
+>  - We refactored of all published notebooks (T001-T010) to apply best practices to our code!
+>  - We proudly present our brand new [TeachOpenCADD website](https://projects.volkamerlab.org/teachopencadd/)!
+>  
+> We are adding new notebooks to the repository soon - 
+> subscribe to the repository releases (top-right menu: `Watch` > `Releases`) to stay tuned!
+>
+> If you would like to continue to work with the old repository structure, please refer to release [`1.3.0`](https://github.com/volkamerlab/teachopencadd/releases/tag/v1.3.0).
+
 > If you use TeachOpenCADD in a publication,
 > please [cite](https://github.com/volkamerlab/TeachOpenCADD/blob/master/README.md#citation) us!
 > If you use TeachOpenCADD in class, please include a link back to our repository.
