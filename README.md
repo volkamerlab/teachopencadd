@@ -148,8 +148,20 @@ The authors of the TeachOpenCADD platform receive(d) public funding from the fol
 
 ### Contributors
 
-Many thanks to everyone who has contributed to TeachOpenCADD by working on talktorials (check out the talktorial READMEs - [example](https://github.com/volkamerlab/teachopencadd/tree/packaging/teachopencadd/talktorials/001_query_chembl)) and/or by helping in any other way (see [GitHub contributors](https://github.com/volkamerlab/teachopencadd/graphs/contributors)).
+TeachOpenCADD has been initiated by the members of [Volkamer Lab](https://volkamerlab.org/), 
+Charité - Universitätsmedizin Berlin, with special thanks to 
+[dominiquesydow](https://github.com/dominiquesydow/), 
+[jaimergp](https://github.com/jaimergp/) and 
+[AndreaVolkamer](https://github.com/andreavolkamer). 
+The platform has been filled with life by our students from the CADD courses taught in the 
+bioinformatics program at Freie Universität Berlin. 
 
-You are welcome to contribute to the project either by requesting new topics, proposing ideas or getting involved in the development! Please, use [this form](http://contribute.volkamerlab.org/) to let us know!
+Many thanks to everyone who has contributed to TeachOpenCADD by working on talktorials 
+(check out the talktorial READMEs for author information - [example](https://github.com/volkamerlab/teachopencadd/tree/packaging/teachopencadd/talktorials/001_query_chembl)) 
+and/or by helping in any other way (see [GitHub contributors](https://github.com/volkamerlab/teachopencadd/graphs/contributors)).
+
+You are welcome to contribute to the project either by requesting new topics, 
+proposing ideas or getting involved in the development! 
+Please, use [this form](http://contribute.volkamerlab.org/) to let us know!
 
 
