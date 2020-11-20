@@ -137,14 +137,8 @@ It will help measure the impact of the TeachOpenCADD platform and future funding
 
 ### Funding
 
-The authors of the TeachOpenCADD platform receive(d) public funding from the following funding agencies:
-
-- Bundesministerium für Bildung und Forschung (Grant Number 031A262C)
-- Deutsche Forschungsgemeinschaft (Grant number VO 2353/1-1)
-- HaVo-Stiftung, Ludwigshafen, Germany
-- Stiftung Charité (Einstein BIH Visiting Fellow project)
-- "SUPPORT für die Lehre" program (Förderung innovativer Lehrvorhaben) of the Freie Universität Berlin
-- Open Access Publication Fund of Charité – Universitätsmedizin Berlin
+Volkamer Lab's projects are supported by several public funding sources 
+(for more info see our [webpage](https://volkamerlab.org/)).
 
 ### Contributors
 
