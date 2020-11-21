@@ -93,13 +93,69 @@ It will help measure the impact of the TeachOpenCADD platform and future funding
 }
 ```
 
-## Funding
+## Acknowledgments
 
-The authors of the TeachOpenCADD platform receive(d) public funding from the following funding agencies:
+### External resources
 
-- Bundesministerium für Bildung und Forschung (Grant Number 031A262C)
-- Deutsche Forschungsgemeinschaft (Grant number VO 2353/1-1)
-- HaVo-Stiftung, Ludwigshafen, Germany
-- Stiftung Charité (Einstein BIH Visiting Fellow project)
-- "SUPPORT für die Lehre" program (Förderung innovativer Lehrvorhaben) of the Freie Universität Berlin
-- Open Access Publication Fund of Charité – Universitätsmedizin Berlin
+#### Python packages
+
+- Cheminformatics and structural bioinformatics: 
+  [`rdkit`](http://rdkit.org/), 
+  [`openbabel`](http://openbabel.org/wiki/), 
+  [`mdanalysis`](https://www.mdanalysis.org/), 
+  [`biopython`](https://biopython.org/), 
+  [`biopandas`](http://rasbt.github.io/biopandas/), 
+  [`opencadd`](https://opencadd.readthedocs.io/en/latest/)
+- Data science (PyData stack): 
+  [`numpy`](https://numpy.org/), 
+  [`pandas`](https://pandas.pydata.org/), 
+  [`scikit-learn`](https://scikit-learn.org/), 
+  [`jupyter`](https://jupyter.org/), 
+  [`ipywidgets`](https://ipywidgets.readthedocs.io)
+- Data visualization: 
+  [`matplotlib`](https://matplotlib.org/), 
+  [`seaborn`](https://seaborn.pydata.org/), 
+  [`nglview`](http://nglviewer.org/nglview/latest/)
+- Web services clients: 
+  [`pypdb`](https://github.com/williamgilpin/pypdb), 
+  [`chembl_webresource_client`](https://github.com/chembl/chembl_webresource_client)
+- Continuous integration: 
+  [`pytest`](https://docs.pytest.org), 
+  [`nbval`](https://nbval.readthedocs.io)
+- Documentation: 
+  [`sphinx`](https://www.sphinx-doc.org), 
+  [`nbsphinx`](https://nbsphinx.readthedocs.io)
+- Code style: 
+  [`black-nb`](https://github.com/tomcatling/black-nb)
+
+#### Databases
+
+- [ChEMBL](https://www.ebi.ac.uk/chembl/)
+- [RCSB PDB](https://www.rcsb.org/)
+- [KLIFS](https://klifs.net/)
+- [PubMed](https://pubchem.ncbi.nlm.nih.gov/)
+
+### Funding
+
+Volkamer Lab's projects are supported by several public funding sources 
+(for more info see our [webpage](https://volkamerlab.org/)).
+
+### Contributors
+
+TeachOpenCADD has been initiated by the members of [Volkamer Lab](https://volkamerlab.org/), 
+Charité - Universitätsmedizin Berlin, with special thanks to 
+[dominiquesydow](https://github.com/dominiquesydow/), 
+[jaimergp](https://github.com/jaimergp/) and 
+[AndreaVolkamer](https://github.com/andreavolkamer). 
+The platform has been filled with life by our students from the CADD courses taught in the 
+bioinformatics program at Freie Universität Berlin. 
+
+Many thanks to everyone who has contributed to TeachOpenCADD by working on talktorials 
+(check out the talktorial READMEs for author information - [example](https://github.com/volkamerlab/teachopencadd/tree/packaging/teachopencadd/talktorials/001_query_chembl)) 
+and/or by helping in any other way (see [GitHub contributors](https://github.com/volkamerlab/teachopencadd/graphs/contributors)).
+
+You are welcome to contribute to the project either by requesting new topics, 
+proposing ideas or getting involved in the development! 
+Please, use [this form](http://contribute.volkamerlab.org/) to let us know!
+
+
