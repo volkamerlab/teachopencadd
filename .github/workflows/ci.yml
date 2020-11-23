@@ -207,7 +207,7 @@ jobs:
       - name: Check 404s (README)
         uses: gaurav-nelson/github-action-markdown-link-check@v1
         with:
-          max-depth: 0
+          max-depth: 1
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
