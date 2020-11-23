@@ -21,7 +21,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: [3.6]
+        python-version: ["3.6", "3.7", "3.8", "3.9"]
     env:
       PYVER: ${{ matrix.python-version }}
       PACKAGE: teachopencadd # Replace with the name of your package
