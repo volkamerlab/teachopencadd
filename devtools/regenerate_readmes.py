@@ -8,7 +8,7 @@ Usage
 .. code-block::
 
     % python devtools/regenerate_readmes.py --output README.md \
-        teachopencadd/talktorials/001_query_chembl/talktorial.ipynb
+        teachopencadd/talktorials/T001_query_chembl/talktorial.ipynb
 
 """
 
