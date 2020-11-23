@@ -1,0 +1,213 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - "master"
+      - "maintenance/.+"
+  pull_request:
+    branches:
+      - "master"
+      - "maintenance/.+"
+      # temporary; remove before merging #29
+      - "packaging"
+  schedule:
+    # Run a cron job once daily
+    - cron: "0 0 * * *"
+
+jobs:
+  test:
+    name: Pytest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]  # TODO test on MacOS and Windows
+        python-version: [3.6]
+    env:
+      PYVER: ${{ matrix.python-version }}
+      PACKAGE: teachopencadd # Replace with the name of your package
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+          activate-environment: teachopencadd
+          channel-priority: true
+          environment-file: devtools/conda-envs/test_env.yml
+          auto-activate-base: false
+
+      - name: Additional info about the build
+        shell: bash
+        run: |
+          uname -a
+          df -h
+          ulimit -a
+
+      - name: Install package
+        shell: bash -l {0}
+        run: |
+          pip install . --no-deps -vv
+
+      - name: Environment Information
+        shell: bash -l {0}
+        run: |
+          conda info --all
+          conda list
+
+      - name: Test CLI
+        shell: bash -l {0}
+        run: |
+          teachopencadd
+
+      - name: Run tests
+        shell: bash -l {0}
+        run: |
+          PYTEST_ARGS="--nbval-lax --current-env --dist loadscope --numprocesses 2"
+          # Test the same notebooks as treebeard does
+          NOTEBOOKS=$(cat treebeard.yaml | shyaml get-values notebooks | xargs)
+          pytest $PYTEST_ARGS $NOTEBOOKS
+
+  format:
+    name: Black
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - name: Install format dependencies
+        run: python -m pip install black-nb shyaml
+      - name: Run black-nb
+        run: |
+          NOTEBOOKS=$(cat treebeard.yaml | shyaml get-values notebooks | xargs)
+          black-nb -l 99 --check $NOTEBOOKS
+
+  readmes:
+    name: READMEs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - name: Install nbformat
+        run: python -m pip install nbformat shyaml
+      - name: Check READMEs are up-to-date
+        run: |
+          NOTEBOOKS=$(cat treebeard.yaml | shyaml get-values notebooks | xargs)
+          for path in $NOTEBOOKS; do
+            python devtools/regenerate_readmes.py --output README.md $path
+          done
+          # If the script above introduced changes (it shouldn't!), git diff will have output and an error code
+          git diff --exit-code
+
+
+  treebeard:
+    name: Treebeard
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - uses: treebeardtech/treebeard@master
+        with:
+          api-key: ${{ secrets.TREEBEARD_API_KEY }}
+          docker-username: "jaimergp"
+          docker-password: "${{ secrets.DOCKERHUB_PASSWORD }}"
+          docker-image-name: "volkamerlab/teachopencadd"
+
+  condabuild:
+    name: Conda package
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Fetch all tags
+        shell: bash
+        run: |
+          git fetch --tags --force
+
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          python-version: 3.6
+          channel-priority: true
+          auto-activate-base: true
+          channels: conda-forge,defaults
+
+      - name: Additional info about the build
+        shell: bash
+        run: |
+          uname -a
+          df -h
+          ulimit -a
+
+      - name: Environment Information
+        shell: bash -l {0}
+        run: |
+          conda info --all
+          conda list
+
+      - name: Build package
+        shell: bash -l {0}
+        run: |
+          conda install conda-build anaconda
+          conda build devtools/conda-recipe
+
+  docs:
+    name: Docs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          python-version: "3.7"
+          activate-environment: teachopencadd
+          channel-priority: true
+          environment-file: devtools/conda-envs/test_env.yml
+          auto-activate-base: false
+
+      - name: Additional info about the build
+        shell: bash
+        run: |
+          uname -a
+          df -h
+          ulimit -a
+
+      - name: Install package
+        shell: bash -l {0}
+        run: |
+          pip install . --no-deps -vv
+
+      - name: Environment Information
+        shell: bash -l {0}
+        run: |
+          conda info --all
+          conda list
+
+      - name: Run Sphinx
+        shell: bash -l {0}
+        run: |
+          cd docs
+          make clean
+          SPHINXOPTS="-j2 -W -T --keep-going" make html
+          # Extra UGLY patch to fix PDF IFrame on T005
+          cp talktorials/images/*.pdf _build/html/_images/
+          sed -i 's|src="images/butina_full.pdf"|src="../_images/butina_full.pdf"|g' \
+            _build/html/talktorials/005_compound_clustering.html
+
+      - name: Check 404s
+        shell: bash -l {0}
+        run: |
+          cd docs/_build/html
+          python -m http.server > /dev/null &2>1&
+          npx broken-link-checker http://localhost:8000/ --ordered --recursive \
+            --exclude "*.txt" \
+            --exclude "https://onlinelibrary.wiley.com/doi/full/10.1002/cmdc.200700139" \
+            --exclude "https://onlinelibrary.wiley.com/doi/10.1002/9783527806539.*"
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/_build/html
