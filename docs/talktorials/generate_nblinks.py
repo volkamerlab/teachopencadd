@@ -2,7 +2,7 @@ from pathlib import Path
 import json
 
 IGNORE = [
-    "000_template",
+    "T000_template",
 ]
 
 

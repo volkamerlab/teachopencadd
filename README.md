@@ -14,7 +14,7 @@
 > We are adding new notebooks to the repository soon -
 > subscribe to the repository releases (top-right menu: `Watch` > `Releases`) to stay tuned!
 >
-> If you would like to continue working with the old repository structure, please refer to release [`1.3.0`](https://github.com/volkamerlab/teachopencadd/tree/v1.3.0). Downloadable [here](https://github.com/volkamerlab/teachopencadd/release/tag/v1.3.0).
+> If you would like to continue working with the old repository structure, please refer to release [`1.3.0`](https://github.com/volkamerlab/teachopencadd/tree/v1.3.0). Downloadable [here](https://github.com/volkamerlab/teachopencadd/releases/tag/v1.3.0).
 
 Open source programming packages for cheminformatics and structural bioinformatics are powerful tools to build modular, reproducible, and reusable pipelines for computer-aided drug design (CADD). While documentation for such tools is available, only few freely accessible examples teach underlying concepts focused on CADD applications, addressing especially users new to the field.
 
@@ -163,7 +163,8 @@ The platform has been filled with life by our students from the CADD courses tau
 bioinformatics program at Freie Universität Berlin.
 
 Many thanks to everyone who has contributed to TeachOpenCADD by working on talktorials
-(check out the talktorial READMEs for author information - [example](https://github.com/volkamerlab/teachopencadd/tree/packaging/teachopencadd/talktorials/001_query_chembl))
+(check out the talktorial READMEs for author information -
+[example](https://github.com/volkamerlab/teachopencadd/tree/master/teachopencadd/talktorials/T001_query_chembl))
 and/or by helping in any other way (see [GitHub contributors](https://github.com/volkamerlab/teachopencadd/graphs/contributors)).
 
 You are welcome to contribute to the project either by requesting new topics,

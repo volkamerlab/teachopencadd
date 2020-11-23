@@ -6,13 +6,13 @@ This is the complete list of talktorials available for online reading. Take into
 .. toctree::
    :maxdepth: 1
 
-   talktorials/001_query_chembl.nblink
-   talktorials/002_compound_adme.nblink
-   talktorials/003_compound_unwanted_substructures.nblink
-   talktorials/004_compound_similarity.nblink
-   talktorials/005_compound_clustering.nblink
-   talktorials/006_compound_maximum_common_substructures.nblink
-   talktorials/007_compound_activity_machine_learning.nblink
-   talktorials/008_query_pdb.nblink
-   talktorials/009_compound_ensemble_pharmacophores.nblink
-   talktorials/010_binding_site_comparison.nblink
+   talktorials/T001_query_chembl.nblink
+   talktorials/T002_compound_adme.nblink
+   talktorials/T003_compound_unwanted_substructures.nblink
+   talktorials/T004_compound_similarity.nblink
+   talktorials/T005_compound_clustering.nblink
+   talktorials/T006_compound_maximum_common_substructures.nblink
+   talktorials/T007_compound_activity_machine_learning.nblink
+   talktorials/T008_query_pdb.nblink
+   talktorials/T009_compound_ensemble_pharmacophores.nblink
+   talktorials/T010_binding_site_comparison.nblink

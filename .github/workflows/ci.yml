@@ -9,31 +9,41 @@ on:
     branches:
       - "master"
       - "maintenance/.+"
-      # temporary; remove before merging #29
-      - "packaging"
   schedule:
-    # Run a cron job once daily
-    - cron: "0 0 * * *"
+    # Run a cron job once daily, weekdays only
+    - cron: "0 3 * * 1-5"
 
 jobs:
   test:
     name: Pytest
-    runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix.cfg.os }}
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest]  # TODO test on MacOS and Windows
-        python-version: [3.6]
+        cfg:
+          - os: ubuntu-latest
+            python-version: "3.6"
+          - os: ubuntu-latest
+            python-version: "3.7"
+          - os: ubuntu-latest
+            python-version: "3.8"
+          - os: ubuntu-latest
+            python-version: "3.9"
+          - os: macos-latest
+            python-version: "3.6"
+          - os: windows-latest
+            python-version: "3.6"
+
     env:
-      PYVER: ${{ matrix.python-version }}
-      PACKAGE: teachopencadd # Replace with the name of your package
+      PYVER: ${{ matrix.cfg.python-version }}
+      PACKAGE: teachopencadd
 
     steps:
       - uses: actions/checkout@v2
 
       - uses: conda-incubator/setup-miniconda@v2
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: ${{ matrix.cfg.python-version }}
           activate-environment: teachopencadd
           channel-priority: true
           environment-file: devtools/conda-envs/test_env.yml
@@ -67,7 +77,7 @@ jobs:
         run: |
           PYTEST_ARGS="--nbval-lax --current-env --dist loadscope --numprocesses 2"
           # Test the same notebooks as treebeard does
-          NOTEBOOKS=$(cat treebeard.yaml | shyaml get-values notebooks | xargs)
+          NOTEBOOKS=$(cat treebeard.yaml | shyaml get-values notebooks | tr -d '\r' | xargs)
           pytest $PYTEST_ARGS $NOTEBOOKS
 
   format:
@@ -194,9 +204,9 @@ jobs:
           # Extra UGLY patch to fix PDF IFrame on T005
           cp talktorials/images/*.pdf _build/html/_images/
           sed -i 's|src="images/butina_full.pdf"|src="../_images/butina_full.pdf"|g' \
-            _build/html/talktorials/005_compound_clustering.html
+            _build/html/talktorials/T005_compound_clustering.html
 
-      - name: Check 404s
+      - name: Check 404s (Sphinx)
         shell: bash -l {0}
         run: |
           cd docs/_build/html
@@ -206,8 +216,14 @@ jobs:
             --exclude "https://onlinelibrary.wiley.com/doi/full/10.1002/cmdc.200700139" \
             --exclude "https://onlinelibrary.wiley.com/doi/10.1002/9783527806539.*"
 
+      - name: Check 404s (README)
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          max-depth: 1
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/master'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs/_build/html

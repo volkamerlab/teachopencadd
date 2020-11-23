@@ -4,7 +4,7 @@ Authors:
 
 * Jan Philipp Albrecht, CADD seminar 2018, Charité/FU Berlin
 * Jacob Gora, CADD seminar 2018, Charité/FU Berlin
-* Talia Kimber, 2019-2020, [Volkamer lab](https://volkamerlab.org)
+* Talia B. Kimber, 2019-2020, [Volkamer lab](https://volkamerlab.org)
 * Andrea Volkamer, 2019-2020, [Volkamer lab](https://volkamerlab.org)
 
 
