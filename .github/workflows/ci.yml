@@ -65,7 +65,7 @@ jobs:
         run: |
           PYTEST_ARGS="--nbval-lax --current-env --dist loadscope --numprocesses 2"
           # Test the same notebooks as treebeard does
-          NOTEBOOKS=$(cat treebeard.yaml | shyaml get-values notebooks | xargs)
+          NOTEBOOKS=$(cat treebeard.yaml | shyaml get-values notebooks | tr -d '\r' | xargs)
           pytest $PYTEST_ARGS $NOTEBOOKS
 
   format:
