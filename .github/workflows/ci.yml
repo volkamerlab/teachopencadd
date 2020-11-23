@@ -20,7 +20,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest]  # TODO test on MacOS and Windows
+        os: [ubuntu-latest, macos-latest, windows-latest]
         python-version: [3.6]
     env:
       PYVER: ${{ matrix.python-version }}
