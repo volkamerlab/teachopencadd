@@ -92,8 +92,8 @@
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="T003 · Molecular filtering: unwanted substructures" href="003_compound_unwanted_substructures.html" />
-    <link rel="prev" title="T001 · Compound data acquisition (ChEMBL)" href="001_query_chembl.html" />
+    <link rel="next" title="T003 · Molecular filtering: unwanted substructures" href="T003_compound_unwanted_substructures.html" />
+    <link rel="prev" title="T001 · Compound data acquisition (ChEMBL)" href="T001_query_chembl.html" />
   
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
@@ -114,7 +114,7 @@
   <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
   <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
   <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-  <a href="#talktorials/002_compound_adme" tabindex="1" class="md-skip"> Skip to content </a>
+  <a href="#talktorials/T002_compound_adme" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
@@ -325,7 +325,7 @@
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#talktorials-002-compound-adme--page-root" class="md-nav__link">T002 · Molecular filtering: ADME and lead-likeness criteria</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#talktorials-t002-compound-adme--page-root" class="md-nav__link">T002 · Molecular filtering: ADME and lead-likeness criteria</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
               <ul class="md-nav__list">
@@ -376,7 +376,7 @@
             </nav>
         </li>
     
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/002_compound_adme.nblink.txt">Show Source</a> </li>
+<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T002_compound_adme.nblink.txt">Show Source</a> </li>
 
 <li id="searchbox" class="md-nav__item"></li>
 
@@ -623,7 +623,7 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 
-<h1 id="talktorials-002-compound-adme--page-root">T002 · Molecular filtering: ADME and lead-likeness criteria<a class="headerlink" href="#talktorials-002-compound-adme--page-root" title="Permalink to this headline">¶</a></h1>
+<h1 id="talktorials-t002-compound-adme--page-root">T002 · Molecular filtering: ADME and lead-likeness criteria<a class="headerlink" href="#talktorials-t002-compound-adme--page-root" title="Permalink to this headline">¶</a></h1>
 <p>Authors:</p>
 <ul class="simple">
 <li><p>Michele Wichmann, CADD seminars 2017, Charité/FU Berlin</p></li>
@@ -1050,7 +1050,7 @@ skin.</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_002_compound_adme_27_0.png" src="../_images/talktorials_002_compound_adme_27_0.png"/>
+<img alt="../_images/talktorials_T002_compound_adme_27_0.png" src="../_images/talktorials_T002_compound_adme_27_0.png"/>
 </div>
 </div>
 <p>In the bar chart, we compared the Ro5 properties for four example molecules with different properties. In the next steps, we will investigate for each compound whether it violates the Ro5.</p>
@@ -1127,7 +1127,7 @@ Ro5 fulfilled for cannabidiol: True
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">molecules</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">HERE</span> <span class="o">/</span> <span class="s2">"../001_query_chembl/data/EGFR_compounds.csv"</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span></span><span class="n">molecules</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">HERE</span> <span class="o">/</span> <span class="s2">"../T001_query_chembl/data/EGFR_compounds.csv"</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">molecules</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="n">molecules</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -1939,7 +1939,7 @@ Ro5 fulfilled for cannabidiol: True
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_002_compound_adme_62_0.png" src="../_images/talktorials_002_compound_adme_62_0.png"/>
+<img alt="../_images/talktorials_T002_compound_adme_62_0.png" src="../_images/talktorials_T002_compound_adme_62_0.png"/>
 </div>
 </div>
 <p>The blue square shows the area where a molecule’s physicochemical properties are compliant with the Ro5. The blue line highlights the mean values, while the orange dashed lines show the standard deviations. We can see that the mean values never violate any of Lipinski’s rules. However, according to the standard deviation, some properties have larger values then the Ro5 thresholds. This is acceptable because, according to the Ro5, one of the four rules can be violated.</p>
@@ -1965,7 +1965,7 @@ Ro5 fulfilled for cannabidiol: True
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_002_compound_adme_65_0.png" src="../_images/talktorials_002_compound_adme_65_0.png"/>
+<img alt="../_images/talktorials_T002_compound_adme_65_0.png" src="../_images/talktorials_T002_compound_adme_65_0.png"/>
 </div>
 </div>
 <p>We see that compounds mostly violate the Ro5 because of their logP values and their molecular weight.</p>
@@ -1997,7 +1997,7 @@ Ro5 fulfilled for cannabidiol: True
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="001_query_chembl.html" title="T001 · Compound data acquisition (ChEMBL)"
+            <a href="T001_query_chembl.html" title="T001 · Compound data acquisition (ChEMBL)"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -2011,7 +2011,7 @@ Ro5 fulfilled for cannabidiol: True
             </a>
           
           
-            <a href="003_compound_unwanted_substructures.html" title="T003 · Molecular filtering: unwanted substructures"
+            <a href="T003_compound_unwanted_substructures.html" title="T003 · Molecular filtering: unwanted substructures"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span

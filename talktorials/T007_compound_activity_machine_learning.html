@@ -92,8 +92,8 @@
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="T008 · Protein data acquisition: Protein Data Bank (PDB)" href="008_query_pdb.html" />
-    <link rel="prev" title="T006 · Maximum common substructure" href="006_compound_maximum_common_substructures.html" />
+    <link rel="next" title="T008 · Protein data acquisition: Protein Data Bank (PDB)" href="T008_query_pdb.html" />
+    <link rel="prev" title="T006 · Maximum common substructure" href="T006_compound_maximum_common_substructures.html" />
   
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
@@ -114,7 +114,7 @@
   <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
   <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
   <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-  <a href="#talktorials/007_compound_activity_machine_learning" tabindex="1" class="md-skip"> Skip to content </a>
+  <a href="#talktorials/T007_compound_activity_machine_learning" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
@@ -325,7 +325,7 @@
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#talktorials-007-compound-activity-machine-learning--page-root" class="md-nav__link">T007 · Ligand-based screening: machine learning</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#talktorials-t007-compound-activity-machine-learning--page-root" class="md-nav__link">T007 · Ligand-based screening: machine learning</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
               <ul class="md-nav__list">
@@ -396,7 +396,7 @@
             </nav>
         </li>
     
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/007_compound_activity_machine_learning.nblink.txt">Show Source</a> </li>
+<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T007_compound_activity_machine_learning.nblink.txt">Show Source</a> </li>
 
 <li id="searchbox" class="md-nav__item"></li>
 
@@ -643,12 +643,12 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 
-<h1 id="talktorials-007-compound-activity-machine-learning--page-root">T007 · Ligand-based screening: machine learning<a class="headerlink" href="#talktorials-007-compound-activity-machine-learning--page-root" title="Permalink to this headline">¶</a></h1>
+<h1 id="talktorials-t007-compound-activity-machine-learning--page-root">T007 · Ligand-based screening: machine learning<a class="headerlink" href="#talktorials-t007-compound-activity-machine-learning--page-root" title="Permalink to this headline">¶</a></h1>
 <p>Authors:</p>
 <ul class="simple">
 <li><p>Jan Philipp Albrecht, CADD seminar 2018, Charité/FU Berlin</p></li>
 <li><p>Jacob Gora, CADD seminar 2018, Charité/FU Berlin</p></li>
-<li><p>Talia Kimber, 2019-2020, <a class="reference external" href="https://volkamerlab.org">Volkamer lab</a></p></li>
+<li><p>Talia B. Kimber, 2019-2020, <a class="reference external" href="https://volkamerlab.org">Volkamer lab</a></p></li>
 <li><p>Andrea Volkamer, 2019-2020, <a class="reference external" href="https://volkamerlab.org">Volkamer lab</a></p></li>
 </ul>
 <p><strong>Talktorial T007</strong>: This talktorial is part of the TeachOpenCADD pipeline described in the <a class="reference external" href="https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x">first TeachOpenCADD paper</a>, comprising of talktorials T001-T010.</p>
@@ -828,7 +828,7 @@ fingerprint. The two most important parameters of these fingerprints are the rad
 
 <h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -838,7 +838,7 @@ fingerprint. The two most important parameters of these fingerprints are the rad
 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">svm</span><span class="p">,</span> <span class="n">metrics</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">svm</span><span class="p">,</span> <span class="n">metrics</span><span class="p">,</span> <span class="n">clone</span>
 <span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
 <span class="kn">from</span> <span class="nn">sklearn.neural_network</span> <span class="kn">import</span> <span class="n">MLPClassifier</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span><span class="p">,</span> <span class="n">train_test_split</span>
@@ -885,7 +885,7 @@ fingerprint. The two most important parameters of these fingerprints are the rad
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Read data from previous talktorials</span>
 <span class="n">chembl_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
-    <span class="n">HERE</span> <span class="o">/</span> <span class="s2">"../002_compound_adme/data/EGFR_compounds_lipinski.csv"</span><span class="p">,</span>
+    <span class="n">HERE</span> <span class="o">/</span> <span class="s2">"../T002_compound_adme/data/EGFR_compounds_lipinski.csv"</span><span class="p">,</span>
     <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
 <span class="p">)</span>
 
@@ -1584,7 +1584,7 @@ AUC: 0.89
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_007_compound_activity_machine_learning_42_0.png" src="../_images/talktorials_007_compound_activity_machine_learning_42_0.png"/>
+<img alt="../_images/talktorials_T007_compound_activity_machine_learning_42_0.png" src="../_images/talktorials_T007_compound_activity_machine_learning_42_0.png"/>
 </div>
 </div>
 
@@ -1630,7 +1630,7 @@ AUC: 0.89
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_007_compound_activity_machine_learning_45_0.png" src="../_images/talktorials_007_compound_activity_machine_learning_45_0.png"/>
+<img alt="../_images/talktorials_T007_compound_activity_machine_learning_45_0.png" src="../_images/talktorials_T007_compound_activity_machine_learning_45_0.png"/>
 </div>
 </div>
 
@@ -1672,19 +1672,11 @@ AUC: 0.87
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/talktorials_007_compound_activity_machine_learning_48_0.png" src="../_images/talktorials_007_compound_activity_machine_learning_48_0.png"/>
-</div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_007_compound_activity_machine_learning_48_1.png" src="../_images/talktorials_007_compound_activity_machine_learning_48_1.png"/>
+<img alt="../_images/talktorials_T007_compound_activity_machine_learning_48_0.png" src="../_images/talktorials_T007_compound_activity_machine_learning_48_0.png"/>
 </div>
 </div>
 <p>Our models show very good values for all measured values, e.g. AUCs of 0.88 or 0.92, and thus seem to be predictive.</p>
@@ -1693,11 +1685,11 @@ AUC: 0.87
 <h4 id="Cross-validation">Cross-validation<a class="headerlink" href="#Cross-validation" title="Permalink to this headline">¶</a></h4>
 <p>Next, we will perform cross-validation experiments with the three different models. Therefore, we define a helper function for machine learning model training and validation in a cross-validation loop.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">crossvalidation</span><span class="p">(</span><span class="n">ml_model</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">n_folds</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span></span><span class="k">def</span> <span class="nf">crossvalidation</span><span class="p">(</span><span class="n">ml_model</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">n_folds</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Machine learning model training and validation in a cross-validation loop.</span>
 
@@ -1708,7 +1700,7 @@ AUC: 0.87
 <span class="sd">    df: pd.DataFrame</span>
 <span class="sd">        Data set with SMILES and their associated activity labels.</span>
 <span class="sd">    n_folds: int, optional</span>
-<span class="sd">        Number of fold for cross-validation.</span>
+<span class="sd">        Number of folds for cross-validation.</span>
 <span class="sd">    verbose: bool, optional</span>
 <span class="sd">        Performance measures are printed.</span>
 
@@ -1729,7 +1721,8 @@ AUC: 0.87
 
     <span class="c1"># Loop over the folds</span>
     <span class="k">for</span> <span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span> <span class="ow">in</span> <span class="n">kf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
-
+        <span class="c1"># clone model -- we want a fresh copy per fold!</span>
+        <span class="n">fold_model</span> <span class="o">=</span> <span class="n">clone</span><span class="p">(</span><span class="n">ml_model</span><span class="p">)</span>
         <span class="c1"># Training</span>
 
         <span class="c1"># Convert the fingerprint and the label to a list</span>
@@ -1737,7 +1730,7 @@ AUC: 0.87
         <span class="n">train_y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_index</span><span class="p">]</span><span class="o">.</span><span class="n">active</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 
         <span class="c1"># Fit the model</span>
-        <span class="n">ml_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">)</span>
+        <span class="n">fold_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">)</span>
 
         <span class="c1"># Testing</span>
 
@@ -1746,7 +1739,7 @@ AUC: 0.87
         <span class="n">test_y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span><span class="o">.</span><span class="n">active</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 
         <span class="c1"># Performance for each fold</span>
-        <span class="n">accuracy</span><span class="p">,</span> <span class="n">sens</span><span class="p">,</span> <span class="n">spec</span><span class="p">,</span> <span class="n">auc</span> <span class="o">=</span> <span class="n">model_performance</span><span class="p">(</span><span class="n">ml_model</span><span class="p">,</span> <span class="n">test_x</span><span class="p">,</span> <span class="n">test_y</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
+        <span class="n">accuracy</span><span class="p">,</span> <span class="n">sens</span><span class="p">,</span> <span class="n">spec</span><span class="p">,</span> <span class="n">auc</span> <span class="o">=</span> <span class="n">model_performance</span><span class="p">(</span><span class="n">fold_model</span><span class="p">,</span> <span class="n">test_x</span><span class="p">,</span> <span class="n">test_y</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
 
         <span class="c1"># Save results</span>
         <span class="n">acc_per_fold</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">accuracy</span><span class="p">)</span>
@@ -1772,7 +1765,7 @@ AUC: 0.87
 </div>
 </div>
 <p><strong>Cross-validation</strong></p>
-<p>We now apply cross-validation and show the statistics for all three ML models. In real world conditions, cross-validation usually applies 10 or more folds, but for the sake of performance we will reduce it to 3. You can change the value of <code class="docutils literal notranslate"><span class="pre">N_FOLDS</span></code> in this cell below.</p>
+<p>We now apply cross-validation and show the statistics for all three ML models. In real world conditions, cross-validation usually applies 5 or more folds, but for the sake of performance we will reduce it to 3. You can change the value of <code class="docutils literal notranslate"><span class="pre">N_FOLDS</span></code> in this cell below.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
@@ -1784,7 +1777,7 @@ AUC: 0.87
 </div>
 <p><em>Note</em>: Next cell takes long to execute</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1803,29 +1796,29 @@ AUC: 0.87
 
 =======
 Model_RF
-Mean accuracy: 0.86     and std : 0.01
-Mean sensitivity: 0.90  and std : 0.01
-Mean specificity: 0.80  and std : 0.02
-Mean AUC: 0.92  and std : 0.00
-Time taken : 4.75s
+Mean accuracy: 0.83     and std : 0.00
+Mean sensitivity: 0.88  and std : 0.01
+Mean specificity: 0.76  and std : 0.02
+Mean AUC: 0.89  and std : 0.00
+Time taken : 1.78s
 
 
 =======
 Model_SVM
-Mean accuracy: 0.78     and std : 0.02
-Mean sensitivity: 0.95  and std : 0.01
-Mean specificity: 0.56  and std : 0.04
-Mean AUC: 0.90  and std : 0.00
-Time taken : 486.30s
+Mean accuracy: 0.84     and std : 0.01
+Mean sensitivity: 0.90  and std : 0.01
+Mean specificity: 0.75  and std : 0.01
+Mean AUC: 0.89  and std : 0.00
+Time taken : 31.40s
 
 
 =======
 Model_ANN
-Mean accuracy: 0.82     and std : 0.01
-Mean sensitivity: 0.85  and std : 0.00
-Mean specificity: 0.78  and std : 0.02
-Mean AUC: 0.88  and std : 0.00
-Time taken : 101.79s
+Mean accuracy: 0.80     and std : 0.01
+Mean sensitivity: 0.88  and std : 0.01
+Mean specificity: 0.71  and std : 0.02
+Mean AUC: 0.86  and std : 0.01
+Time taken : 7.40s
 
 </pre></div></div>
 </div>
@@ -1913,7 +1906,7 @@ Time taken : 101.79s
 </div>
 <p><em>Note</em>: Next cell takes long to execute</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1938,11 +1931,11 @@ Time taken : 101.79s
 
 =======
 Model_RF
-Mean accuracy: 0.86     and std : 0.00
+Mean accuracy: 0.86     and std : 0.01
 Mean sensitivity: 0.90  and std : 0.01
 Mean specificity: 0.80  and std : 0.02
 Mean AUC: 0.92  and std : 0.00
-Time taken : 4.91s
+Time taken : 5.78s
 
 
 =======
@@ -1951,7 +1944,7 @@ Mean accuracy: 0.82     and std : 0.01
 Mean sensitivity: 0.85  and std : 0.00
 Mean specificity: 0.78  and std : 0.02
 Mean AUC: 0.88  and std : 0.00
-Time taken : 72.65s
+Time taken : 99.76s
 
 </pre></div></div>
 </div>
@@ -1994,7 +1987,9 @@ Time taken : 72.65s
 <li><p>Which machine learning algorithms do you know?</p></li>
 <li><p>What are necessary prerequisites to successfully apply ML?</p></li>
 </ul>
-
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {}, "version_major": 2, "version_minor": 0}
+</script>
 
 
 
@@ -2007,7 +2002,7 @@ Time taken : 72.65s
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="006_compound_maximum_common_substructures.html" title="T006 · Maximum common substructure"
+            <a href="T006_compound_maximum_common_substructures.html" title="T006 · Maximum common substructure"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -2021,7 +2016,7 @@ Time taken : 72.65s
             </a>
           
           
-            <a href="008_query_pdb.html" title="T008 · Protein data acquisition: Protein Data Bank (PDB)"
+            <a href="T008_query_pdb.html" title="T008 · Protein data acquisition: Protein Data Bank (PDB)"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span

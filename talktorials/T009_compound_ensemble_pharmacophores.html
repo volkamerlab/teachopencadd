@@ -92,8 +92,8 @@
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="T010 · Binding site similarity and off-target prediction" href="010_binding_site_comparison.html" />
-    <link rel="prev" title="T008 · Protein data acquisition: Protein Data Bank (PDB)" href="008_query_pdb.html" />
+    <link rel="next" title="T010 · Binding site similarity and off-target prediction" href="T010_binding_site_comparison.html" />
+    <link rel="prev" title="T008 · Protein data acquisition: Protein Data Bank (PDB)" href="T008_query_pdb.html" />
   
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
@@ -114,7 +114,7 @@
   <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
   <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
   <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-  <a href="#talktorials/009_compound_ensemble_pharmacophores" tabindex="1" class="md-skip"> Skip to content </a>
+  <a href="#talktorials/T009_compound_ensemble_pharmacophores" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
@@ -325,7 +325,7 @@
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#talktorials-009-compound-ensemble-pharmacophores--page-root" class="md-nav__link">T009 · Ligand-based pharmacophores</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#talktorials-t009-compound-ensemble-pharmacophores--page-root" class="md-nav__link">T009 · Ligand-based pharmacophores</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a>
         </li>
@@ -408,7 +408,7 @@
             </nav>
         </li>
     
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/009_compound_ensemble_pharmacophores.nblink.txt">Show Source</a> </li>
+<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T009_compound_ensemble_pharmacophores.nblink.txt">Show Source</a> </li>
 
 <li id="searchbox" class="md-nav__item"></li>
 
@@ -655,7 +655,7 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 
-<h1 id="talktorials-009-compound-ensemble-pharmacophores--page-root">T009 · Ligand-based pharmacophores<a class="headerlink" href="#talktorials-009-compound-ensemble-pharmacophores--page-root" title="Permalink to this headline">¶</a></h1>
+<h1 id="talktorials-t009-compound-ensemble-pharmacophores--page-root">T009 · Ligand-based pharmacophores<a class="headerlink" href="#talktorials-t009-compound-ensemble-pharmacophores--page-root" title="Permalink to this headline">¶</a></h1>
 <p>Authors:</p>
 <ul class="simple">
 <li><p>Pratik Dhakal, CADD seminar, 2017, Charité/FU Berlin</p></li>
@@ -823,7 +823,7 @@ results (<a class="reference external" href="https://onlinelibrary.wiley.com/doi
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">mol_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">HERE</span> <span class="o">/</span> <span class="s2">"../008_query_pdb/data/"</span><span class="p">)</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"*_lig.pdb"</span><span class="p">))</span>
+<span></span><span class="n">mol_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">HERE</span> <span class="o">/</span> <span class="s2">"../T008_query_pdb/data/"</span><span class="p">)</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"*_lig.pdb"</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">([</span><span class="n">f</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">mol_files</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -906,7 +906,7 @@ Number of molecules: 4
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_009_compound_ensemble_pharmacophores_22_0.png" src="../_images/talktorials_009_compound_ensemble_pharmacophores_22_0.png"/>
+<img alt="../_images/talktorials_T009_compound_ensemble_pharmacophores_22_0.png" src="../_images/talktorials_T009_compound_ensemble_pharmacophores_22_0.png"/>
 </div>
 </div>
 <p>Upon inspection of the structures we notice, that we encountered a problem here: When loading ligands from a PDB file, RDKit does not assign bonds in structures like aromatic rings correctly. We use the RDKit function <code class="docutils literal notranslate"><span class="pre">AssignBondOrdersFromTemplate</span></code>, which assigns bonds to a molecule based on a reference molecule, e.g. in our case based on the SMILES pattern of the molecule.</p>
@@ -917,7 +917,7 @@ Number of molecules: 4
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Load SMILES for PDB ligand structures</span>
-<span class="n">ligands</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">HERE</span> <span class="o">/</span> <span class="s2">"../008_query_pdb/data/PDB_top_ligands.csv"</span><span class="p">)</span>
+<span class="n">ligands</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">HERE</span> <span class="o">/</span> <span class="s2">"../T008_query_pdb/data/PDB_top_ligands.csv"</span><span class="p">)</span>
 
 <span class="c1"># Get SMILES in the same order as in pdb_ids</span>
 <span class="n">ligand_smiles</span> <span class="o">=</span> <span class="p">[</span>
@@ -953,7 +953,7 @@ Number of molecules: 4
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_009_compound_ensemble_pharmacophores_25_0.png" src="../_images/talktorials_009_compound_ensemble_pharmacophores_25_0.png"/>
+<img alt="../_images/talktorials_T009_compound_ensemble_pharmacophores_25_0.png" src="../_images/talktorials_T009_compound_ensemble_pharmacophores_25_0.png"/>
 </div>
 </div>
 <p>Now the correct bonds are included. We can also have a look at the molecules in 2D. In order to keep the original coordinates, we make a copy for the 2D representation.</p>
@@ -980,7 +980,7 @@ Number of molecules: 4
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_009_compound_ensemble_pharmacophores_27_0.png" src="../_images/talktorials_009_compound_ensemble_pharmacophores_27_0.png"/>
+<img alt="../_images/talktorials_T009_compound_ensemble_pharmacophores_27_0.png" src="../_images/talktorials_T009_compound_ensemble_pharmacophores_27_0.png"/>
 </div>
 </div>
 
@@ -1052,7 +1052,7 @@ Number of molecules: 4
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_009_compound_ensemble_pharmacophores_33_0.png" src="../_images/talktorials_009_compound_ensemble_pharmacophores_33_0.png"/>
+<img alt="../_images/talktorials_T009_compound_ensemble_pharmacophores_33_0.png" src="../_images/talktorials_T009_compound_ensemble_pharmacophores_33_0.png"/>
 </div>
 </div>
 
@@ -1130,7 +1130,7 @@ Number of molecules: 4
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_009_compound_ensemble_pharmacophores_39_0.png" src="../_images/talktorials_009_compound_ensemble_pharmacophores_39_0.png"/>
+<img alt="../_images/talktorials_T009_compound_ensemble_pharmacophores_39_0.png" src="../_images/talktorials_T009_compound_ensemble_pharmacophores_39_0.png"/>
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -1436,7 +1436,7 @@ Number of donors in all ligands: 11
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_009_compound_ensemble_pharmacophores_56_0.png" src="../_images/talktorials_009_compound_ensemble_pharmacophores_56_0.png"/>
+<img alt="../_images/talktorials_T009_compound_ensemble_pharmacophores_56_0.png" src="../_images/talktorials_T009_compound_ensemble_pharmacophores_56_0.png"/>
 </div>
 </div>
 
@@ -1495,7 +1495,7 @@ Number of acceptors in all ligands: 23
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_009_compound_ensemble_pharmacophores_60_0.png" src="../_images/talktorials_009_compound_ensemble_pharmacophores_60_0.png"/>
+<img alt="../_images/talktorials_T009_compound_ensemble_pharmacophores_60_0.png" src="../_images/talktorials_T009_compound_ensemble_pharmacophores_60_0.png"/>
 </div>
 </div>
 
@@ -1554,7 +1554,7 @@ Number of hydrophobics in all ligands: 7
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_009_compound_ensemble_pharmacophores_64_0.png" src="../_images/talktorials_009_compound_ensemble_pharmacophores_64_0.png"/>
+<img alt="../_images/talktorials_T009_compound_ensemble_pharmacophores_64_0.png" src="../_images/talktorials_T009_compound_ensemble_pharmacophores_64_0.png"/>
 </div>
 </div>
 
@@ -2054,7 +2054,7 @@ Number of donors in all ligands: 11
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_009_compound_ensemble_pharmacophores_94_0.png" src="../_images/talktorials_009_compound_ensemble_pharmacophores_94_0.png"/>
+<img alt="../_images/talktorials_T009_compound_ensemble_pharmacophores_94_0.png" src="../_images/talktorials_T009_compound_ensemble_pharmacophores_94_0.png"/>
 </div>
 </div>
 
@@ -2114,7 +2114,7 @@ Number of acceptors in all ligands: 23
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_009_compound_ensemble_pharmacophores_98_0.png" src="../_images/talktorials_009_compound_ensemble_pharmacophores_98_0.png"/>
+<img alt="../_images/talktorials_T009_compound_ensemble_pharmacophores_98_0.png" src="../_images/talktorials_T009_compound_ensemble_pharmacophores_98_0.png"/>
 </div>
 </div>
 
@@ -2174,7 +2174,7 @@ Number of hydrophobics in all ligands: 7
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_009_compound_ensemble_pharmacophores_102_0.png" src="../_images/talktorials_009_compound_ensemble_pharmacophores_102_0.png"/>
+<img alt="../_images/talktorials_T009_compound_ensemble_pharmacophores_102_0.png" src="../_images/talktorials_T009_compound_ensemble_pharmacophores_102_0.png"/>
 </div>
 </div>
 
@@ -2229,7 +2229,7 @@ Number of hydrophobics in all ligands: 7
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_009_compound_ensemble_pharmacophores_106_0.png" src="../_images/talktorials_009_compound_ensemble_pharmacophores_106_0.png"/>
+<img alt="../_images/talktorials_T009_compound_ensemble_pharmacophores_106_0.png" src="../_images/talktorials_T009_compound_ensemble_pharmacophores_106_0.png"/>
 </div>
 </div>
 
@@ -2262,7 +2262,7 @@ recommend the <a class="reference external" href="https://blog.dominodatalab.com
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="008_query_pdb.html" title="T008 · Protein data acquisition: Protein Data Bank (PDB)"
+            <a href="T008_query_pdb.html" title="T008 · Protein data acquisition: Protein Data Bank (PDB)"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -2276,7 +2276,7 @@ recommend the <a class="reference external" href="https://blog.dominodatalab.com
             </a>
           
           
-            <a href="010_binding_site_comparison.html" title="T010 · Binding site similarity and off-target prediction"
+            <a href="T010_binding_site_comparison.html" title="T010 · Binding site similarity and off-target prediction"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span

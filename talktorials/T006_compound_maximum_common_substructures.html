@@ -92,8 +92,8 @@
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="T007 · Ligand-based screening: machine learning" href="007_compound_activity_machine_learning.html" />
-    <link rel="prev" title="T005 · Compound clustering" href="005_compound_clustering.html" />
+    <link rel="next" title="T007 · Ligand-based screening: machine learning" href="T007_compound_activity_machine_learning.html" />
+    <link rel="prev" title="T005 · Compound clustering" href="T005_compound_clustering.html" />
   
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
@@ -114,7 +114,7 @@
   <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
   <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
   <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-  <a href="#talktorials/006_compound_maximum_common_substructures" tabindex="1" class="md-skip"> Skip to content </a>
+  <a href="#talktorials/T006_compound_maximum_common_substructures" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
@@ -325,7 +325,7 @@
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#talktorials-006-compound-maximum-common-substructures--page-root" class="md-nav__link">T006 · Maximum common substructure</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#talktorials-t006-compound-maximum-common-substructures--page-root" class="md-nav__link">T006 · Maximum common substructure</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
               <ul class="md-nav__list">
@@ -386,7 +386,7 @@
             </nav>
         </li>
     
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/006_compound_maximum_common_substructures.nblink.txt">Show Source</a> </li>
+<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T006_compound_maximum_common_substructures.nblink.txt">Show Source</a> </li>
 
 <li id="searchbox" class="md-nav__item"></li>
 
@@ -633,7 +633,7 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 
-<h1 id="talktorials-006-compound-maximum-common-substructures--page-root">T006 · Maximum common substructure<a class="headerlink" href="#talktorials-006-compound-maximum-common-substructures--page-root" title="Permalink to this headline">¶</a></h1>
+<h1 id="talktorials-t006-compound-maximum-common-substructures--page-root">T006 · Maximum common substructure<a class="headerlink" href="#talktorials-t006-compound-maximum-common-substructures--page-root" title="Permalink to this headline">¶</a></h1>
 <p>Authors:</p>
 <ul class="simple">
 <li><p>Oliver Nagel, CADD Seminars, 2017, Charité/FU Berlin</p></li>
@@ -720,7 +720,7 @@ for each substructure in the query:
 
 
 <h4 id="Tricks-to-speed-up-the-run-time">Tricks to speed up the run time<a class="headerlink" href="#Tricks-to-speed-up-the-run-time" title="Permalink to this headline">¶</a></h4>
-<p><img alt="d2ba757608794b519ad5378ddf131eb2" class="no-scaled-link" src="../_images/speed_tricks.jpg" style="width: 800px;"/></p>
+<p><img alt="80c3cc19a7a04ebfb6574016727f33b9" class="no-scaled-link" src="../_images/speed_tricks.jpg" style="width: 800px;"/></p>
 
 
 <h4 id="A)-Bond-elimination">A) Bond elimination<a class="headerlink" href="#A)-Bond-elimination" title="Permalink to this headline">¶</a></h4>
@@ -813,7 +813,7 @@ for each substructure in the query:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">sdf</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">HERE</span> <span class="o">/</span> <span class="s2">"../005_compound_clustering/data/molecule_set_largest_cluster.sdf"</span><span class="p">)</span>
+<span></span><span class="n">sdf</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">HERE</span> <span class="o">/</span> <span class="s2">"../T005_compound_clustering/data/molecule_set_largest_cluster.sdf"</span><span class="p">)</span>
 <span class="n">supplier</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">ForwardSDMolSupplier</span><span class="p">(</span><span class="n">sdf</span><span class="p">)</span>
 <span class="n">mols</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">supplier</span><span class="p">)</span>
 
@@ -847,7 +847,7 @@ Set with 145 molecules loaded.
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_006_compound_maximum_common_substructures_16_0.png" src="../_images/talktorials_006_compound_maximum_common_substructures_16_0.png"/>
+<img alt="../_images/talktorials_T006_compound_maximum_common_substructures_16_0.png" src="../_images/talktorials_T006_compound_maximum_common_substructures_16_0.png"/>
 </div>
 </div>
 
@@ -894,7 +894,7 @@ MCS SMARTS string: [#6]-[#6](=[#8])-[#7]-[#6]1:[#6]:[#6]2:[#6](-[#7]-[#6]3:[#6]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_006_compound_maximum_common_substructures_20_0.png" src="../_images/talktorials_006_compound_maximum_common_substructures_20_0.png"/>
+<img alt="../_images/talktorials_T006_compound_maximum_common_substructures_20_0.png" src="../_images/talktorials_T006_compound_maximum_common_substructures_20_0.png"/>
 </div>
 </div>
 <p>Define a helper function to draw the molecules with the highlighted MCS.</p>
@@ -953,7 +953,7 @@ MCS SMARTS string: [#6]-[#6](=[#8])-[#7]-[#6]1:[#6]:[#6]2:[#6](-[#7]-[#6]3:[#6]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_006_compound_maximum_common_substructures_23_0.png" src="../_images/talktorials_006_compound_maximum_common_substructures_23_0.png"/>
+<img alt="../_images/talktorials_T006_compound_maximum_common_substructures_23_0.png" src="../_images/talktorials_T006_compound_maximum_common_substructures_23_0.png"/>
 </div>
 </div>
 <p>Save image to disk</p>
@@ -1017,7 +1017,7 @@ SMARTS string: [#6]=[#6]-[#6](=[#8])-[#7]-[#6]1:[#6]:[#6]2:[#6](-[#7]-[#6]3:[#6]
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_006_compound_maximum_common_substructures_28_0.png" src="../_images/talktorials_006_compound_maximum_common_substructures_28_0.png"/>
+<img alt="../_images/talktorials_T006_compound_maximum_common_substructures_28_0.png" src="../_images/talktorials_T006_compound_maximum_common_substructures_28_0.png"/>
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -1034,7 +1034,7 @@ SMARTS string: [#6]=[#6]-[#6](=[#8])-[#7]-[#6]1:[#6]:[#6]2:[#6](-[#7]-[#6]3:[#6]
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_006_compound_maximum_common_substructures_29_0.png" src="../_images/talktorials_006_compound_maximum_common_substructures_29_0.png"/>
+<img alt="../_images/talktorials_T006_compound_maximum_common_substructures_29_0.png" src="../_images/talktorials_T006_compound_maximum_common_substructures_29_0.png"/>
 </div>
 </div>
 <!-- FIXME: CI - CHEMBL27685 id is not in this subset, check that T005 produces deterministic outputs --><p>As we can see in this example, some molecules were now left out due to the set threshold (<code class="docutils literal notranslate"><span class="pre">0.8</span></code>). This threshold allows to find a larger common substructure that contains, e.g., a benzene with a meta-substitution fluor pattern and a longer alkane chain.</p>
@@ -1079,7 +1079,7 @@ SMARTS string: [#6&amp;!R]=&amp;!@[#6&amp;!R]-&amp;!@[#6&amp;!R](=&amp;!@[#8&amp
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_006_compound_maximum_common_substructures_33_0.png" src="../_images/talktorials_006_compound_maximum_common_substructures_33_0.png"/>
+<img alt="../_images/talktorials_T006_compound_maximum_common_substructures_33_0.png" src="../_images/talktorials_T006_compound_maximum_common_substructures_33_0.png"/>
 </div>
 </div>
 <p>We can see here that depending on the chosen thresholds and parameters, we get slightly different MCS. Note that there are more parameter options available in the <a class="reference external" href="https://www.rdkit.org/docs/GettingStartedInPython.html#maximum-common-substructure">RDKit FMCS module</a>, e.g. considering atom, bond or valence matching.</p>
@@ -1097,7 +1097,7 @@ SMARTS string: [#6&amp;!R]=&amp;!@[#6&amp;!R]-&amp;!@[#6&amp;!R](=&amp;!@[#8&amp
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_006_compound_maximum_common_substructures_35_0.png" src="../_images/talktorials_006_compound_maximum_common_substructures_35_0.png"/>
+<img alt="../_images/talktorials_T006_compound_maximum_common_substructures_35_0.png" src="../_images/talktorials_T006_compound_maximum_common_substructures_35_0.png"/>
 </div>
 </div>
 
@@ -1111,7 +1111,7 @@ SMARTS string: [#6&amp;!R]=&amp;!@[#6&amp;!R]-&amp;!@[#6&amp;!R](=&amp;!@[#8&amp
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Read full EGFR data</span>
-<span class="n">mol_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">HERE</span> <span class="o">/</span> <span class="s2">"../001_query_chembl/data/EGFR_compounds.csv"</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">mol_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">HERE</span> <span class="o">/</span> <span class="s2">"../T001_query_chembl/data/EGFR_compounds.csv"</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Total number of compounds:"</span><span class="p">,</span> <span class="n">mol_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
 <span class="c1"># Only keep molecules with pIC50 &gt; 9 (IC50 &gt; 1nM)</span>
@@ -1283,7 +1283,7 @@ SMARTS string3: [#6&amp;R]:&amp;@[#6&amp;R]:&amp;@[#6&amp;R]1:&amp;@[#6&amp;R](-
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_006_compound_maximum_common_substructures_45_0.png" src="../_images/talktorials_006_compound_maximum_common_substructures_45_0.png"/>
+<img alt="../_images/talktorials_T006_compound_maximum_common_substructures_45_0.png" src="../_images/talktorials_T006_compound_maximum_common_substructures_45_0.png"/>
 </div>
 </div>
 <p>This time it become more clear that setting <code class="docutils literal notranslate"><span class="pre">ringMatchesRingOnly=True</span></code> provides a more intuitive representation of the scaffold they share.</p>
@@ -1301,7 +1301,7 @@ SMARTS string3: [#6&amp;R]:&amp;@[#6&amp;R]:&amp;@[#6&amp;R]1:&amp;@[#6&amp;R](-
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_006_compound_maximum_common_substructures_47_0.png" src="../_images/talktorials_006_compound_maximum_common_substructures_47_0.png"/>
+<img alt="../_images/talktorials_T006_compound_maximum_common_substructures_47_0.png" src="../_images/talktorials_T006_compound_maximum_common_substructures_47_0.png"/>
 </div>
 </div>
 
@@ -1369,7 +1369,7 @@ SMARTS string3: [#6&amp;R]:&amp;@[#6&amp;R]:&amp;@[#6&amp;R]1:&amp;@[#6&amp;R](-
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="005_compound_clustering.html" title="T005 · Compound clustering"
+            <a href="T005_compound_clustering.html" title="T005 · Compound clustering"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -1383,7 +1383,7 @@ SMARTS string3: [#6&amp;R]:&amp;@[#6&amp;R]:&amp;@[#6&amp;R]1:&amp;@[#6&amp;R](-
             </a>
           
           
-            <a href="007_compound_activity_machine_learning.html" title="T007 · Ligand-based screening: machine learning"
+            <a href="T007_compound_activity_machine_learning.html" title="T007 · Ligand-based screening: machine learning"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span

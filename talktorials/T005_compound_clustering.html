@@ -92,8 +92,8 @@
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="T006 · Maximum common substructure" href="006_compound_maximum_common_substructures.html" />
-    <link rel="prev" title="T004 · Ligand-based screening: compound similarity" href="004_compound_similarity.html" />
+    <link rel="next" title="T006 · Maximum common substructure" href="T006_compound_maximum_common_substructures.html" />
+    <link rel="prev" title="T004 · Ligand-based screening: compound similarity" href="T004_compound_similarity.html" />
   
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
@@ -114,7 +114,7 @@
   <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
   <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
   <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-  <a href="#talktorials/005_compound_clustering" tabindex="1" class="md-skip"> Skip to content </a>
+  <a href="#talktorials/T005_compound_clustering" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
@@ -325,7 +325,7 @@
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#talktorials-005-compound-clustering--page-root" class="md-nav__link">T005 · Compound clustering</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#talktorials-t005-compound-clustering--page-root" class="md-nav__link">T005 · Compound clustering</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
               <ul class="md-nav__list">
@@ -392,7 +392,7 @@
             </nav>
         </li>
     
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/005_compound_clustering.nblink.txt">Show Source</a> </li>
+<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T005_compound_clustering.nblink.txt">Show Source</a> </li>
 
 <li id="searchbox" class="md-nav__item"></li>
 
@@ -639,7 +639,7 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 
-<h1 id="talktorials-005-compound-clustering--page-root">T005 · Compound clustering<a class="headerlink" href="#talktorials-005-compound-clustering--page-root" title="Permalink to this headline">¶</a></h1>
+<h1 id="talktorials-t005-compound-clustering--page-root">T005 · Compound clustering<a class="headerlink" href="#talktorials-t005-compound-clustering--page-root" title="Permalink to this headline">¶</a></h1>
 <p>Authors:</p>
 <ul class="simple">
 <li><p>Gizem Spriewald, CADD Seminar, 2017, Charité/FU Berlin</p></li>
@@ -844,7 +844,7 @@ div.rendered_html tbody tr:hover {
 <span></span><span class="c1"># Load and have a look into data</span>
 <span class="c1"># Filtered data taken from Talktorial 002</span>
 <span class="n">compound_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
-    <span class="n">HERE</span> <span class="o">/</span> <span class="s2">"../002_compound_adme/data/EGFR_compounds_lipinski.csv"</span><span class="p">,</span>
+    <span class="n">HERE</span> <span class="o">/</span> <span class="s2">"../T002_compound_adme/data/EGFR_compounds_lipinski.csv"</span><span class="p">,</span>
     <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Dataframe shape:"</span><span class="p">,</span> <span class="n">compound_df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -1191,7 +1191,7 @@ total # clusters:  718
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_005_compound_clustering_31_0.png" src="../_images/talktorials_005_compound_clustering_31_0.png"/>
+<img alt="../_images/talktorials_T005_compound_clustering_31_0.png" src="../_images/talktorials_T005_compound_clustering_31_0.png"/>
 </div>
 </div>
 
@@ -1218,70 +1218,70 @@ total # clusters:  718
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_005_compound_clustering_33_0.png" src="../_images/talktorials_005_compound_clustering_33_0.png"/>
+<img alt="../_images/talktorials_T005_compound_clustering_33_0.png" src="../_images/talktorials_T005_compound_clustering_33_0.png"/>
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_005_compound_clustering_33_1.png" src="../_images/talktorials_005_compound_clustering_33_1.png"/>
+<img alt="../_images/talktorials_T005_compound_clustering_33_1.png" src="../_images/talktorials_T005_compound_clustering_33_1.png"/>
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_005_compound_clustering_33_2.png" src="../_images/talktorials_005_compound_clustering_33_2.png"/>
+<img alt="../_images/talktorials_T005_compound_clustering_33_2.png" src="../_images/talktorials_T005_compound_clustering_33_2.png"/>
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_005_compound_clustering_33_3.png" src="../_images/talktorials_005_compound_clustering_33_3.png"/>
+<img alt="../_images/talktorials_T005_compound_clustering_33_3.png" src="../_images/talktorials_T005_compound_clustering_33_3.png"/>
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_005_compound_clustering_33_4.png" src="../_images/talktorials_005_compound_clustering_33_4.png"/>
+<img alt="../_images/talktorials_T005_compound_clustering_33_4.png" src="../_images/talktorials_T005_compound_clustering_33_4.png"/>
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_005_compound_clustering_33_5.png" src="../_images/talktorials_005_compound_clustering_33_5.png"/>
+<img alt="../_images/talktorials_T005_compound_clustering_33_5.png" src="../_images/talktorials_T005_compound_clustering_33_5.png"/>
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_005_compound_clustering_33_6.png" src="../_images/talktorials_005_compound_clustering_33_6.png"/>
+<img alt="../_images/talktorials_T005_compound_clustering_33_6.png" src="../_images/talktorials_T005_compound_clustering_33_6.png"/>
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_005_compound_clustering_33_7.png" src="../_images/talktorials_005_compound_clustering_33_7.png"/>
+<img alt="../_images/talktorials_T005_compound_clustering_33_7.png" src="../_images/talktorials_T005_compound_clustering_33_7.png"/>
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_005_compound_clustering_33_8.png" src="../_images/talktorials_005_compound_clustering_33_8.png"/>
+<img alt="../_images/talktorials_T005_compound_clustering_33_8.png" src="../_images/talktorials_T005_compound_clustering_33_8.png"/>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_005_compound_clustering_33_9.png" src="../_images/talktorials_005_compound_clustering_33_9.png"/>
+<img alt="../_images/talktorials_T005_compound_clustering_33_9.png" src="../_images/talktorials_T005_compound_clustering_33_9.png"/>
 </div>
 </div>
 <p>As you can see, the higher the threshold (distance cutoff), the more molecules are considered as similar and, therefore, clustered into less clusters. The lower the threshold, the more small clusters and “singletons” appear.</p>
@@ -1338,7 +1338,7 @@ Similarity between two random points in different cluster: 0.22
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_005_compound_clustering_35_1.png" src="../_images/talktorials_005_compound_clustering_35_1.png"/>
+<img alt="../_images/talktorials_T005_compound_clustering_35_1.png" src="../_images/talktorials_T005_compound_clustering_35_1.png"/>
 </div>
 </div>
 
@@ -1376,7 +1376,7 @@ Ten molecules from largest cluster:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_005_compound_clustering_38_1.png" src="../_images/talktorials_005_compound_clustering_38_1.png"/>
+<img alt="../_images/talktorials_T005_compound_clustering_38_1.png" src="../_images/talktorials_T005_compound_clustering_38_1.png"/>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -1427,7 +1427,7 @@ Ten molecules from second largest cluster:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_005_compound_clustering_41_1.png" src="../_images/talktorials_005_compound_clustering_41_1.png"/>
+<img alt="../_images/talktorials_T005_compound_clustering_41_1.png" src="../_images/talktorials_T005_compound_clustering_41_1.png"/>
 </div>
 </div>
 <p>The first ten molecules in the respective clusters look indeed similar to each other and many share a common scaffold (visually detected).</p>
@@ -1464,7 +1464,7 @@ Ten molecules from first 10 clusters:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_005_compound_clustering_44_1.png" src="../_images/talktorials_005_compound_clustering_44_1.png"/>
+<img alt="../_images/talktorials_T005_compound_clustering_44_1.png" src="../_images/talktorials_T005_compound_clustering_44_1.png"/>
 </div>
 </div>
 <p>Save cluster centers from first 3 clusters as SVG file.</p>
@@ -1551,7 +1551,7 @@ Ten molecules from first 10 clusters:
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_005_compound_clustering_51_0.png" src="../_images/talktorials_005_compound_clustering_51_0.png"/>
+<img alt="../_images/talktorials_T005_compound_clustering_51_0.png" src="../_images/talktorials_T005_compound_clustering_51_0.png"/>
 </div>
 </div>
 
@@ -1750,7 +1750,7 @@ Dataset size 4000, time 4.59 seconds
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_005_compound_clustering_66_0.png" src="../_images/talktorials_005_compound_clustering_66_0.png"/>
+<img alt="../_images/talktorials_T005_compound_clustering_66_0.png" src="../_images/talktorials_T005_compound_clustering_66_0.png"/>
 </div>
 </div>
 <p>Notice how the runtime is not exactly proportional to the sample size! It grows faster!</p>
@@ -1776,7 +1776,7 @@ Dataset size 4000, time 4.59 seconds
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="004_compound_similarity.html" title="T004 · Ligand-based screening: compound similarity"
+            <a href="T004_compound_similarity.html" title="T004 · Ligand-based screening: compound similarity"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -1790,7 +1790,7 @@ Dataset size 4000, time 4.59 seconds
             </a>
           
           
-            <a href="006_compound_maximum_common_substructures.html" title="T006 · Maximum common substructure"
+            <a href="T006_compound_maximum_common_substructures.html" title="T006 · Maximum common substructure"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
