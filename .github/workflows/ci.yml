@@ -16,22 +16,34 @@ on:
 jobs:
   test:
     name: Pytest
-    runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix.cfg.os }}
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: ["3.6", "3.7", "3.8", "3.9"]
+        cfg:
+          - os: ubuntu-latest
+            python-version: "3.6"
+          - os: ubuntu-latest
+            python-version: "3.7"
+          - os: ubuntu-latest
+            python-version: "3.8"
+          - os: ubuntu-latest
+            python-version: "3.9"
+          - os: macos-latest
+            python-version: "3.6"
+          - os: windows-latest
+            python-version: "3.6"
+
     env:
-      PYVER: ${{ matrix.python-version }}
-      PACKAGE: teachopencadd # Replace with the name of your package
+      PYVER: ${{ matrix.cfg.python-version }}
+      PACKAGE: teachopencadd
 
     steps:
       - uses: actions/checkout@v2
 
       - uses: conda-incubator/setup-miniconda@v2
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: ${{ matrix.cfg.python-version }}
           activate-environment: teachopencadd
           channel-priority: true
           environment-file: devtools/conda-envs/test_env.yml
