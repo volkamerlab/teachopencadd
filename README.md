@@ -3,13 +3,15 @@
 [![DOI](https://img.shields.io/badge/DOI-10.1186%2Fs13321--019--0351--x-blue.svg)](https://doi.org/10.1186/s13321-019-0351-x)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2600909.svg)](https://doi.org/10.5281/zenodo.2600909)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/volkamerlab/TeachOpenCADD/master)
+[![GH Actions Status](https://github.com/volkamerlab/teachopencadd/workflows/CI/badge.svg)](https://github.com/volkamerlab/teachopencadd/actions?query=branch%3Amaster+workflow%3ACI)
 
-> 🌟 You are looking at a new release of the TeachOpenCADD repository with [major changes](https://github.com/volkamerlab/teachopencadd/pull/29).   
->  - We applied a new folder structure to the repository allowing us to offer for the first time a `teachopencadd` conda package!
->  - We refactored all published notebooks (T001-T010) to apply best practices to our code!
->  - We proudly present our brand new [TeachOpenCADD website](https://projects.volkamerlab.org/teachopencadd/)!
->  
-> We are adding new notebooks to the repository soon - 
+> 🌟 You are looking at a new release of the TeachOpenCADD repository with [major changes](https://github.com/volkamerlab/teachopencadd/pull/29).
+>
+> - We applied a new folder structure to the repository allowing us to offer for the first time a `teachopencadd` conda package!
+> - We refactored all published notebooks (T001-T010) to apply best practices to our code!
+> - We proudly present our brand new [TeachOpenCADD website](https://projects.volkamerlab.org/teachopencadd/)!
+>
+> We are adding new notebooks to the repository soon -
 > subscribe to the repository releases (top-right menu: `Watch` > `Releases`) to stay tuned!
 >
 > If you would like to continue working with the old repository structure, please refer to release [`1.3.0`](https://github.com/volkamerlab/teachopencadd/tree/v1.3.0). Downloadable [here](https://github.com/volkamerlab/teachopencadd/release/tag/v1.3.0).
@@ -30,7 +32,7 @@ For each topic, an interactive Jupyter Notebook is offered, using open source pa
   <img src="docs/_static/images/TeachOpenCADD_topics.svg" alt="TeachOpenCADD topics" width="800"/>
   <br>
   <font size="1">
-  Figure adapted from Figure 1 in the TeachOpenCADD publication 
+  Figure adapted from Figure 1 in the TeachOpenCADD publication
   <a href="https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x">
   (D. Sydow <i>et al.</i>, J. Cheminformatics, 2019)</a>.
   </font>
@@ -109,33 +111,33 @@ It will help measure the impact of the TeachOpenCADD platform and future funding
 
 #### Python packages
 
-- Cheminformatics and structural bioinformatics: 
-  [`rdkit`](http://rdkit.org/), 
-  [`openbabel`](http://openbabel.org/wiki/), 
-  [`mdanalysis`](https://www.mdanalysis.org/), 
-  [`biopython`](https://biopython.org/), 
-  [`biopandas`](http://rasbt.github.io/biopandas/), 
+- Cheminformatics and structural bioinformatics:
+  [`rdkit`](http://rdkit.org/),
+  [`openbabel`](http://openbabel.org/wiki/),
+  [`mdanalysis`](https://www.mdanalysis.org/),
+  [`biopython`](https://biopython.org/),
+  [`biopandas`](http://rasbt.github.io/biopandas/),
   [`opencadd`](https://opencadd.readthedocs.io/en/latest/)
-- Data science (PyData stack): 
-  [`numpy`](https://numpy.org/), 
-  [`pandas`](https://pandas.pydata.org/), 
-  [`scikit-learn`](https://scikit-learn.org/), 
-  [`jupyter`](https://jupyter.org/), 
+- Data science (PyData stack):
+  [`numpy`](https://numpy.org/),
+  [`pandas`](https://pandas.pydata.org/),
+  [`scikit-learn`](https://scikit-learn.org/),
+  [`jupyter`](https://jupyter.org/),
   [`ipywidgets`](https://ipywidgets.readthedocs.io)
-- Data visualization: 
+- Data visualization:
   [`matplotlib`](https://matplotlib.org/), 
-  [`seaborn`](https://seaborn.pydata.org/), 
+  [`seaborn`](https://seaborn.pydata.org/),
   [`nglview`](http://nglviewer.org/nglview/latest/)
-- Web services clients: 
-  [`pypdb`](https://github.com/williamgilpin/pypdb), 
+- Web services clients:
+  [`pypdb`](https://github.com/williamgilpin/pypdb),
   [`chembl_webresource_client`](https://github.com/chembl/chembl_webresource_client)
-- Continuous integration: 
-  [`pytest`](https://docs.pytest.org), 
+- Continuous integration:
+  [`pytest`](https://docs.pytest.org),
   [`nbval`](https://nbval.readthedocs.io)
-- Documentation: 
-  [`sphinx`](https://www.sphinx-doc.org), 
+- Documentation:
+  [`sphinx`](https://www.sphinx-doc.org),
   [`nbsphinx`](https://nbsphinx.readthedocs.io)
-- Code style: 
+- Code style:
   [`black-nb`](https://github.com/tomcatling/black-nb)
 
 #### Databases
@@ -147,25 +149,23 @@ It will help measure the impact of the TeachOpenCADD platform and future funding
 
 ### Funding
 
-Volkamer Lab's projects are supported by several public funding sources 
+Volkamer Lab's projects are supported by several public funding sources
 (for more info see our [webpage](https://volkamerlab.org/)).
 
 ### Contributors
 
-TeachOpenCADD has been initiated by the members of [Volkamer Lab](https://volkamerlab.org/), 
-Charité - Universitätsmedizin Berlin, with special thanks to 
-[dominiquesydow](https://github.com/dominiquesydow/), 
-[jaimergp](https://github.com/jaimergp/) and 
-[AndreaVolkamer](https://github.com/andreavolkamer). 
-The platform has been filled with life by our students from the CADD courses taught in the 
-bioinformatics program at Freie Universität Berlin. 
+TeachOpenCADD has been initiated by the members of [Volkamer Lab](https://volkamerlab.org/),
+Charité - Universitätsmedizin Berlin, with special thanks to
+[dominiquesydow](https://github.com/dominiquesydow/),
+[jaimergp](https://github.com/jaimergp/) and
+[AndreaVolkamer](https://github.com/andreavolkamer).
+The platform has been filled with life by our students from the CADD courses taught in the
+bioinformatics program at Freie Universität Berlin.
 
-Many thanks to everyone who has contributed to TeachOpenCADD by working on talktorials 
-(check out the talktorial READMEs for author information - [example](https://github.com/volkamerlab/teachopencadd/tree/packaging/teachopencadd/talktorials/001_query_chembl)) 
+Many thanks to everyone who has contributed to TeachOpenCADD by working on talktorials
+(check out the talktorial READMEs for author information - [example](https://github.com/volkamerlab/teachopencadd/tree/packaging/teachopencadd/talktorials/001_query_chembl))
 and/or by helping in any other way (see [GitHub contributors](https://github.com/volkamerlab/teachopencadd/graphs/contributors)).
 
-You are welcome to contribute to the project either by requesting new topics, 
-proposing ideas or getting involved in the development! 
+You are welcome to contribute to the project either by requesting new topics,
+proposing ideas or getting involved in the development!
 Please, use [this form](http://contribute.volkamerlab.org/) to let us know!
-
-
