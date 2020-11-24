@@ -7,7 +7,7 @@
 
 > 🌟 You are looking at a new release of the TeachOpenCADD repository with [major changes](https://github.com/volkamerlab/teachopencadd/pull/29).
 >
-> - We applied a new folder structure to the repository allowing us to offer for the first time a `teachopencadd` conda package!
+> - We applied a new folder structure to the repository allowing us to offer for the first time a `teachopencadd` conda package! You can find all talktorials under `teachopencadd/talktorials`. Each directory contains a `talktorial.ipynb` notebook ready to be run!
 > - We refactored all published notebooks (T001-T010) to apply best practices to our code!
 > - We proudly present our brand new [TeachOpenCADD website](https://projects.volkamerlab.org/teachopencadd/)!
 >
@@ -44,7 +44,7 @@ If you can't wait and just want to read through the materials, please go to the 
 
 If you'd like to execute the provided notebooks, we offer two possibilities:
 
-- 🚧 Online thanks to [Binder](https://mybinder.org/). This takes some minutes, but does not require any kind of setup on your end. Click here to get started: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/volkamerlab/TeachOpenCADD/master)
+- 🚧 Online thanks to [Binder](https://mybinder.org/). This takes around 10 minutes to get ready, but does not require any kind of setup on your end. Click here to get started: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/volkamerlab/TeachOpenCADD/master). Once it has loaded, you can navigate to `teachopencadd/talktorials/` to find the executable notebooks.
 - Locally using our `conda` package. More details in this [section of the documentation](https://projects.volkamerlab.org/teachopencadd/installing.html).
 
 ## TeachOpenCADD KNIME workflows
