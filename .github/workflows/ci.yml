@@ -49,6 +49,13 @@ jobs:
           environment-file: devtools/conda-envs/test_env.yml
           auto-activate-base: false
 
+      - name: Ensure we have the right python
+        shell: bash -l {0}
+        run: |
+          echo "Installed Python: $(python --version)"
+          echo "Expected: ${{ matrix.cfg.python-version }}"
+          python --version | grep "Python ${{ matrix.cfg.python-version }}"
+
       - name: Additional info about the build
         shell: bash
         run: |
