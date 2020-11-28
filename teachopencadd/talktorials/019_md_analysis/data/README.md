@@ -1,6 +1,1 @@
-# Data
-
-This folder stores input and output data for the Jupyter notebook.
-
-- `xxx.csv`: Describe data.
-- `xxx.sdf`: Describe data.
+The needed files 'MD_system.pdb' and 'trajectory_.dcd' can be downloaded from https://zenodo.org/record/3910753 and should be placed inside this folder. 
