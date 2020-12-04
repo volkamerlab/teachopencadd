@@ -29,6 +29,7 @@ dependencies:
   - redo
   - requests-cache
   - suds-community
+  - tabulate  # for pandas Markdown display
   ## CI tests
   # Workaround for https://github.com/computationalmodelling/nbval/issues/153
   - pytest 5.*
