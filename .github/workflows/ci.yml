@@ -27,8 +27,9 @@ jobs:
             python-version: "3.7"
           - os: ubuntu-latest
             python-version: "3.8"
-          - os: ubuntu-latest
-            python-version: "3.9"
+          # # Disable for py39 -- unsolvable as of 2020.12.11
+          # - os: ubuntu-latest
+          #   python-version: "3.9"
           - os: macos-latest
             python-version: "3.6"
           - os: windows-latest
@@ -49,7 +50,7 @@ jobs:
           environment-file: devtools/conda-envs/test_env.yml
           auto-activate-base: false
 
-      - name: Ensure we have the right python
+      - name: Ensure we have the right Python
         shell: bash -l {0}
         run: |
           echo "Installed Python: $(python --version)"
