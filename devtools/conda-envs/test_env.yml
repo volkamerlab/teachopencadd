@@ -7,11 +7,11 @@ dependencies:
   - pip
   - jupyter
   - jupyterlab
-  - rdkit>=2018.09.2.0
+  - rdkit>=2018.09.2.0,<2020.09.2
   - scikit-learn
   - biopandas
   - seaborn
-  - pypdb
+  - pypdb 1.*
   - requests-cache
   - chembl_webresource_client
   - nglview
