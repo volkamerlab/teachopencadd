@@ -2,5 +2,4 @@
 
 This folder stores input and output data for the Jupyter notebook.
 
-- `xxx.csv`: Describe data.
-- `xxx.sdf`: Describe data.
+- `3poz.pdb`: The PDB file of the EGFR kinase in complex used as an example in the notebook.
