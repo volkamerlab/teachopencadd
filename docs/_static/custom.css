@@ -471,3 +471,10 @@ a.sphx-glr-backref-instance {
 .cc-floating.cc-type-info.cc-theme-classic .cc-btn {
   display: inline-block;
 }
+
+/* Fix unwanted scrollbars in Edge Legacy */
+div.nbinput.container div.input_area > div[class^="highlight"],
+div.nboutput.container div.output_area > div[class^="highlight"] {
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
