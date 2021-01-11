@@ -6,7 +6,8 @@ dependencies:
   - python>=3.6
   - pip
   - jupyter
-  - jupyterlab
+  # Pin to JLab 2 until JLab 3 is compatible with nglview (https://github.com/nglviewer/nglview/issues/932)
+  - jupyterlab=2
   - rdkit>=2018.09.2.0
   - scikit-learn
   - biopandas
