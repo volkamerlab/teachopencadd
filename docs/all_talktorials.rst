@@ -18,4 +18,5 @@ This is the complete list of talktorials available for online reading. Take into
    talktorials/T010_binding_site_comparison.nblink
    talktorials/T011_query_online_api_webservices.nblink
    talktorials/T012_query_klifs.nblink
+   talktorials/T015_protein_ligand_docking.nblink
    talktorials/T016_protein_ligand_interactions.nblink
