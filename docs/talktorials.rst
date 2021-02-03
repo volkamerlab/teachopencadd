@@ -49,6 +49,8 @@ Structural biology
    talktorials/T009_compound_ensemble_pharmacophores.nblink
    talktorials/T010_binding_site_comparison.nblink
    talktorials/T012_query_klifs.nblink
+   talktorials/T015_protein_ligand_docking.nblink
+   talktorials/T016_protein_ligand_interactions.nblink
 
 
 Online APIs/servers
@@ -60,5 +62,6 @@ Online APIs/servers
 
    talktorials/T001_query_chembl.nblink
    talktorials/T008_query_pdb.nblink
+   talktorials/T011_query_online_api_webservices.nblink
    talktorials/T012_query_klifs.nblink
 
