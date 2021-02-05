@@ -248,163 +248,35 @@
     
     
       <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#jcim-2019" class="md-nav__link">JCIM 2019</a>
       
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#ligand-based-cheminformatics" class="md-nav__link">Ligand-based cheminformatics</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#structural-biology" class="md-nav__link">Structural biology</a>
+      
+    
+    </li></ul>
     
     </li>
     <li class="md-nav__item">
     
     
       <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="T001_query_chembl.html" class="md-nav__link">T001 · Compound data acquisition (ChEMBL)</a>
       
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T002_compound_adme.html" class="md-nav__link">T002 · Molecular filtering: ADME and lead-likeness criteria</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T003_compound_unwanted_substructures.html" class="md-nav__link">T003 · Molecular filtering: unwanted substructures</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T004_compound_similarity.html" class="md-nav__link">T004 · Ligand-based screening: compound similarity</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> T005 · Compound clustering </label>
-    
-      <a href="#" class="md-nav__link md-nav__link--active">T005 · Compound clustering</a>
-      
-        
-<nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#talktorials-t005-compound-clustering--page-root" class="md-nav__link">T005 · Compound clustering</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
-        </li>
-        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
-        </li>
-        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Introduction-to-clustering-and-Jarvis-Patrick-algorithm" class="md-nav__link">Introduction to clustering and Jarvis-Patrick algorithm</a>
-        </li>
-        <li class="md-nav__item"><a href="#Detailed-explanation-of-Butina-clustering" class="md-nav__link">Detailed explanation of Butina clustering</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#1.-Data-preparation-and-compound-encoding" class="md-nav__link">1. Data preparation and compound encoding</a>
-        </li>
-        <li class="md-nav__item"><a href="#2.-Tanimoto-similarity-(or-distance)-matrix" class="md-nav__link">2. Tanimoto similarity (or distance) matrix</a>
-        </li>
-        <li class="md-nav__item"><a href="#3.-Clustering-molecules:-Centroids-and-exclusion-spheres" class="md-nav__link">3. Clustering molecules: Centroids and exclusion spheres</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Picking-diverse-compounds" class="md-nav__link">Picking diverse compounds</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Clustering-with-the-Butina-algorithm" class="md-nav__link">Clustering with the Butina algorithm</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Load-data-and-calculate-fingerprints" class="md-nav__link">Load data and calculate fingerprints</a>
-        </li>
-        <li class="md-nav__item"><a href="#Tanimoto-similarity-and-distance-matrix" class="md-nav__link">Tanimoto similarity and distance matrix</a>
-        </li>
-        <li class="md-nav__item"><a href="#Clustering-molecules:-Centroids-and-exclusion-spheres" class="md-nav__link">Clustering molecules: Centroids and exclusion spheres</a>
-        </li>
-        <li class="md-nav__item"><a href="#How-to-pick-a-reasonable-cutoff?" class="md-nav__link">How to pick a reasonable cutoff?</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Visualizing-the-clusters" class="md-nav__link">Visualizing the clusters</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#10-examples-from-largest-cluster" class="md-nav__link">10 examples from largest cluster</a>
-        </li>
-        <li class="md-nav__item"><a href="#10-examples-from-second-largest-cluster" class="md-nav__link">10 examples from second largest cluster</a>
-        </li>
-        <li class="md-nav__item"><a href="#Examples-from-first-10-clusters" class="md-nav__link">Examples from first 10 clusters</a>
-        </li>
-        <li class="md-nav__item"><a href="#Intra-cluster-Tanimoto-similarities" class="md-nav__link">Intra-cluster Tanimoto similarities</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Picking-the-final-list-of-compounds" class="md-nav__link">Picking the final list of compounds</a>
-        </li>
-        <li class="md-nav__item"><a href="#Bonus:-analysis-of-run-times" class="md-nav__link">Bonus: analysis of run times</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
-        </li></ul>
-            </nav>
-        </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T005_compound_clustering.nblink.txt">Show Source</a> </li>
-
-  </ul>
-</nav>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T006_compound_maximum_common_substructures.html" class="md-nav__link">T006 · Maximum common substructure</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T007_compound_activity_machine_learning.html" class="md-nav__link">T007 · Ligand-based screening: machine learning</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T008_query_pdb.html" class="md-nav__link">T008 · Protein data acquisition: Protein Data Bank (PDB)</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T009_compound_ensemble_pharmacophores.html" class="md-nav__link">T009 · Ligand-based pharmacophores</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T010_binding_site_comparison.html" class="md-nav__link">T010 · Binding site similarity and off-target prediction</a>
-      
-    
-    </li></ul>
     
     </li>
     <li class="md-nav__item">
