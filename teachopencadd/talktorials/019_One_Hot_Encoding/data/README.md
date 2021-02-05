@@ -2,5 +2,4 @@
 
 This folder stores input and output data for the Jupyter notebook.
 
-- `xxx.csv`: Describe data.
-- `xxx.sdf`: Describe data.
+- `CHEMBL25_activities_EGFR.csv.csv`: It is the input data contains SMILES which are encoded using one-hot encdoing technique.
