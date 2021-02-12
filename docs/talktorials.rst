@@ -19,4 +19,4 @@ All talktorials
    talktorials/012_query_pubchem.nblink
    talktorials/015_protein_ligand_docking.nblink
    talktorials/016_protein_ligand_interactions.nblink
-   talktorials/018_molecular_dynamics_simulation.nblink
+   talktorials/019_md_simulation.nblink

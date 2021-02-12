@@ -1,12 +1,52 @@
-# Molecular dynamics simulation
+# T019 · Molecular dynamics simulation
+
+Authors:
+- Pietro Gerletti, CADD seminar 2020, Charité/FU Berlin
+- Mareike Leja, 2020/21, Internship at [Volkamer Lab, Charité](https://volkamerlab.org/)
+- Jeffrey R Wagner, 2020, [Open Force Field Consortium](https://openforcefield.org/)
+- David Schaller, 2020/21, [Volkamer Lab, Charité](https://volkamerlab.org/)
+- Andrea Volkamer, 2020/21, [Volkamer Lab, Charité](https://volkamerlab.org/)
 
 ## Aims of this talktorial
 
 In this talktorial, we will learn why molecular dynamics (MD) simulations are important for drug design and which steps are necessary to perform an MD simulation of a protein in complex with a ligand. The kinase EGFR will serve as sample system for simulation.
 
-## Learning goals
+### Contents in *Theory*
 
-Copy here "Learning goals" from notebook.
+- Molecular dynamics
+- Force fields
+- Boundary conditions
+- MD simulations and drug design
+- EGFR kinase
+
+### Contents in *Practical*
+
+- Installation on Google Colab
+- Download PDB file
+- Prepare the protein ligand complex
+  - Prepare protein
+  - Prepare ligand
+  - Merge protein and ligand
+- MD simulation set up
+  - Force field
+  - System
+- Perform the MD simulation
+- Download results
+- Discussion
+- Quiz
+- Further Reading
+  - Enhanced sampling methods
+  
+### References
+
+- Review on the impact of MD simulations in drug discovery ([_J Med Chem_ (2016), **59**(9), 4035‐4061](https://doi.org/10.1021/acs.jmedchem.5b01684))
+- Review on the physics behind MD simulations and best practices ([_Living J Comp Mol Sci_ (2019), **1**(1), 5957](https://doi.org/10.33011/livecoms.1.1.5957))
+- Review on force fields ([_J Chem Inf Model_ (2018), **58**(3), 565-578](https://doi.org/10.1021/acs.jcim.8b00042))
+- Review on EGFR in cancer ([_Cancers (Basel)_ (2017), **9**(5), 52](https://dx.doi.org/10.3390%2Fcancers9050052))
+- Summarized statistical knowledge from Pierre-Simon Laplace ([Théorie Analytique des Probabilités _Gauthier-Villars_ (1820), **3**)](https://archive.org/details/uvrescompltesde31fragoog/page/n15/mode/2up)
+- Inspired by a notebook form Jaime Rodríguez-Guerra ([github](https://github.com/jaimergp/uab-msc-bioinf/blob/master/MD%20Simulation%20and%20Analysis%20in%20a%20Notebook.ipynb))
+- Repositories of [OpenMM](https://github.com/openmm/openmm) and [OpenMM Forcefields](https://github.com/openmm/openmmforcefields), [RDKit](https://github.com/rdkit/rdkit), [PyPDB](https://github.com/williamgilpin/pypdb), [MDTraj](https://github.com/mdtraj/mdtraj), [PDBFixer](https://github.com/openmm/pdbfixer)
+- Wikipedia articles about [MD simulations](https://en.wikipedia.org/wiki/Molecular_dynamics), [AMBER](https://en.wikipedia.org/wiki/AMBER) and [Force Fields](https://en.wikipedia.org/wiki/Force_field_(chemistry)) in general
 
 ## Categories
 
