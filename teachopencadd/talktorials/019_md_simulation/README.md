@@ -7,6 +7,10 @@ Authors:
 - David Schaller, 2020/21, [Volkamer Lab, Charité](https://volkamerlab.org/)
 - Andrea Volkamer, 2020/21, [Volkamer Lab, Charité](https://volkamerlab.org/)
 
+**Note**
+
+This talktorial was designed to be used with [Google Colab](https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/1bd7cb0c9f6379aebc0c1a0b1c7413685910cffa/teachopencadd/talktorials/019_md_simulation/talktorial.ipynb). It is also possible to use it on a local computer. However, performing the molecular dynamics simulation may take a considerably long time if no GPU is available.
+
 ## Aims of this talktorial
 
 In this talktorial, we will learn why molecular dynamics (MD) simulations are important for drug design and which steps are necessary to perform an MD simulation of a protein in complex with a ligand. The kinase EGFR will serve as sample system for simulation.
