@@ -9,5 +9,5 @@ As input files, we have:
 
 As output files, we have:
 - `best_weights.hdf5`: which stores the best weights after the neural network is trained.
-- `ANN_model.hdf5`: the neural network saved for reproducibility of results.
+- `ANN_model.hdf5`: the artificial neural network (ANN) saved for reproducibility of results.
 - `predicted_pIC50_df.csv`: the csv file containing the predicted pIC50 values for the compounds in the `test.csv` dataset using the trained neural network.
