@@ -59,15 +59,25 @@ If you'd like to execute the provided notebooks, we offer two possibilities:
 
 If you prefer to work in the context of a graphical interface, talktorials T001-T008 are also available as [KNIME workflows](https://hub.knime.com/volkamerlab/space/TeachOpenCADD/TeachOpenCADD). Questions regarding this version should be addressed using the "Discussion section" available at [this post](https://forum.knime.com/t/teachopencadd-knime/17174). You might need to create a KNIME account.
 
-## Python programming introduction
+## External resources
+
+### Python programming introduction
 
 The TeachOpenCADD platform is not a Python programming course from scratch but teaches how to solve tasks in cheminformatics and structural bioinformatics programmatically. 
-If you wish to get started with a low level Python programming introduction before diving into the TeachOpenCADD material, here are a few great resources to do so:
+If you wish to get started first with a Python programming introduction before diving into the TeachOpenCADD material, here are a few great resources to do so:
 
-- [Ai in Medicine course](https://github.com/volkamerlab/ai_in_medicine) by the [Volkamer Lab](https://volkamerlab.org/) and [Ritter Lab](https://psychiatrie-psychotherapie.charite.de/en/research/neuroimaging_and_neurotechnology/machine_learning/) at the Charité: A low-level introduction on Python basics, Jupyter Notebook, and important data science packages such as Pandas, Matplotlib and Scikit-learn.
-- [Python for Chemists course](https://github.com/GDChCICTeam/python-for-chemists) by the GDCh/CIC team: A crash-course introduction to Python for natural scientists.
-- [MolSSI Education Resources](http://education.molssi.org/resources.html) by [The Molecular Sciences Software Institute](https://molssi.org/): A collection of tutorials on basic Python programming and data analysis but also more advanced material on software development and computational molecular science.
+- [Ai in Medicine course](https://github.com/volkamerlab/ai_in_medicine) by the [Volkamer Lab](https://volkamerlab.org/) and [Ritter Lab](https://psychiatrie-psychotherapie.charite.de/en/research/neuroimaging_and_neurotechnology/machine_learning/) at the Charité: Introduction to Python basics, Jupyter Notebook, and important data science packages such as Pandas, Matplotlib and Scikit-learn.
+- [Python for Chemists course](https://github.com/GDChCICTeam/python-for-chemists) by the [GDCh/CIC](https://en.gdch.de/main-navi/network-structures/divisions/computers-in-chemistry.html) team: Crash-course introduction to Python for natural scientists.
+- [MolSSI Education Resources](http://education.molssi.org/resources.html) by [The Molecular Sciences Software Institute](https://molssi.org/): Collection of tutorials on Python programming basics and data analysis but also more advanced material on software development and computational molecular science.
+- [Core lessons](https://software-carpentry.org/lessons/) by the [Software Carpentry](https://software-carpentry.org/): Introduction to Python, Git, command line interfaces and more.
 
+### Cheminformatics resources collections
+
+The following resources are collections of interesting cheminformatics-related training material, blogs, and books.
+
+- [Curated list of resources from the RDKit UGM 2020](https://github.com/rdkit/UGM_2020/blob/master/info/curated_list_of_resources.md)
+- [A Highly Opinionated List of Open Source Cheminformatics Resources](https://github.com/PatWalters/resources/blob/main/cheminformatics_resources.md) by Pat Walters
+- [Awesome Cheminformatics](https://github.com/hsiaoyi0504/awesome-cheminformatics#resources) by Yi Hsiao
 
 ## Contact
 
