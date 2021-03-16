@@ -59,6 +59,16 @@ If you'd like to execute the provided notebooks, we offer two possibilities:
 
 If you prefer to work in the context of a graphical interface, talktorials T001-T008 are also available as [KNIME workflows](https://hub.knime.com/volkamerlab/space/TeachOpenCADD/TeachOpenCADD). Questions regarding this version should be addressed using the "Discussion section" available at [this post](https://forum.knime.com/t/teachopencadd-knime/17174). You might need to create a KNIME account.
 
+## Python programming introduction
+
+The TeachOpenCADD platform is not a Python programming course from scratch but teaches how to solve tasks in cheminformatics and structural bioinformatics programmatically. 
+If you wish to get started with a low level Python programming introduction before diving into the TeachOpenCADD material, here are a few great resources to do so:
+
+- [Ai in Medicine course](https://github.com/volkamerlab/ai_in_medicine) by the [Volkamer Lab](https://volkamerlab.org/) and [Ritter Lab](https://psychiatrie-psychotherapie.charite.de/en/research/neuroimaging_and_neurotechnology/machine_learning/) at the Charité: A low-level introduction on Python basics, Jupyter Notebook, and important data science packages such as Pandas, Matplotlib and Scikit-learn.
+- [Python for Chemists course](https://github.com/GDChCICTeam/python-for-chemists) by the GDCh/CIC team: A crash-course introduction to Python for natural scientists.
+- [MolSSI Education Resources](http://education.molssi.org/resources.html) by [The Molecular Sciences Software Institute](https://molssi.org/): A collection of tutorials on basic Python programming and data analysis but also more advanced material on software development and computational molecular science.
+
+
 ## Contact
 
 Please contact us if you have questions or suggestions!
