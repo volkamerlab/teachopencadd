@@ -90,7 +90,9 @@ jobs:
         run: python -m pip install black-nb shyaml
       - name: Run black-nb
         run: |
-          NOTEBOOKS=$(cat treebeard.yaml | shyaml get-values notebooks | xargs)
+          # Workaround https://github.com/volkamerlab/teachopencadd/pull/89#issuecomment-758054969
+          # TODO: remove T002 exception whenever https://github.com/psf/black/issues/1629 is fixed
+          NOTEBOOKS=$(cat treebeard.yaml | shyaml get-values notebooks | awk '!/T002_/' | xargs)
           black-nb -l 99 --check $NOTEBOOKS
 
   readmes:
