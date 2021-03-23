@@ -1,14 +1,14 @@
 Python programming introduction
 -------------------------------
 
-The TeachOpenCADD platform is not a Python programming course from scratch but teaches how to solve tasks in cheminformatics and structural bioinformatics programmatically. 
+The TeachOpenCADD platform is not a Python programming course from scratch but teaches how to solve tasks in cheminformatics and structural bioinformatics programmatically.
 If you wish to get started first with a Python programming introduction before diving into the TeachOpenCADD material, here are a few great resources to do so:
 
 - `AI in Medicine course <https://github.com/volkamerlab/ai_in_medicine>`_ by the `Volkamer Lab <https://volkamerlab.org/>`_ and `Ritter Lab <https://psychiatrie-psychotherapie.charite.de/en/research/neuroimaging_and_neurotechnology/machine_learning/>`_ at the Charité: Introduction to Python basics, Jupyter Notebook, and important data science packages such as Pandas, Matplotlib and Scikit-learn
 - `Python for Chemists course <https://github.com/GDChCICTeam/python-for-chemists>`_ by the `GDCh/CIC <https://en.gdch.de/main-navi/network-structures/divisions/computers-in-chemistry.html>`_ team: Crash-course introduction to Python for natural scientists
 - `MolSSI Education Resources <http://education.molssi.org/resources.html>`_ by `The Molecular Sciences Software Institute <https://molssi.org/>`_: Collection of tutorials on Python programming basics and data analysis but also more advanced material on software development and computational molecular science
 - `Core lessons <https://software-carpentry.org/lessons/>`_ by the `Software Carpentry <https://software-carpentry.org/>`_: Introduction to Python, Git, command line interfaces and more
-
+- `Best practices for Python, Git and Jupyter <https://zenodo.org/record/4630714>`_, a small part of our CADD Block course for the FU.
 
 Cheminformatics resources collections
 -------------------------------------
