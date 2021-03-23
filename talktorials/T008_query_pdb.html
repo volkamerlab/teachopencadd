@@ -246,163 +246,35 @@
     
     
       <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#jcim-2019" class="md-nav__link">JCIM 2019</a>
       
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#ligand-based-cheminformatics" class="md-nav__link">Ligand-based cheminformatics</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#structural-biology" class="md-nav__link">Structural biology</a>
+      
+    
+    </li></ul>
     
     </li>
     <li class="md-nav__item">
     
     
       <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="T001_query_chembl.html" class="md-nav__link">T001 · Compound data acquisition (ChEMBL)</a>
       
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T002_compound_adme.html" class="md-nav__link">T002 · Molecular filtering: ADME and lead-likeness criteria</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T003_compound_unwanted_substructures.html" class="md-nav__link">T003 · Molecular filtering: unwanted substructures</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T004_compound_similarity.html" class="md-nav__link">T004 · Ligand-based screening: compound similarity</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T005_compound_clustering.html" class="md-nav__link">T005 · Compound clustering</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T006_compound_maximum_common_substructures.html" class="md-nav__link">T006 · Maximum common substructure</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T007_compound_activity_machine_learning.html" class="md-nav__link">T007 · Ligand-based screening: machine learning</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> T008 · Protein data acquisition: Protein Data Bank (PDB) </label>
-    
-      <a href="#" class="md-nav__link md-nav__link--active">T008 · Protein data acquisition: Protein Data Bank (PDB)</a>
-      
-        
-<nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#talktorials-t008-query-pdb--page-root" class="md-nav__link">T008 · Protein data acquisition: Protein Data Bank (PDB)</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in Theory</a>
-        </li>
-        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in Practical</a>
-        </li>
-        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Protein-Data-Bank-(PDB)" class="md-nav__link">Protein Data Bank (PDB)</a>
-        </li>
-        <li class="md-nav__item"><a href="#Python-package-pypdb" class="md-nav__link">Python package <code class="docutils literal notranslate"><span class="pre">pypdb</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Select-query-protein" class="md-nav__link">Select query protein</a>
-        </li>
-        <li class="md-nav__item"><a href="#Get-all-PDB-IDs-for-query-protein" class="md-nav__link">Get all PDB IDs for query protein</a>
-        </li>
-        <li class="md-nav__item"><a href="#Get-statistics-on-PDB-entries-for-query-protein" class="md-nav__link">Get statistics on PDB entries for query protein</a>
-        </li>
-        <li class="md-nav__item"><a href="#Get-meta-information-for-PDB-entries" class="md-nav__link">Get meta information for PDB entries</a>
-        </li>
-        <li class="md-nav__item"><a href="#Filter-and-sort-meta-information-on-PDB-entries" class="md-nav__link">Filter and sort meta information on PDB entries</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#1.-Experimental-method:-X-ray-diffraction" class="md-nav__link">1. Experimental method: X-ray diffraction</a>
-        </li>
-        <li class="md-nav__item"><a href="#2.-Structural-resolution" class="md-nav__link">2. Structural resolution</a>
-        </li>
-        <li class="md-nav__item"><a href="#3.-Ligand-bound-structures" class="md-nav__link">3. Ligand-bound structures</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Get-meta-information-of-ligands-from-top-structures" class="md-nav__link">Get meta information of ligands from top structures</a>
-        </li>
-        <li class="md-nav__item"><a href="#Draw-top-ligand-molecules" class="md-nav__link">Draw top ligand molecules</a>
-        </li>
-        <li class="md-nav__item"><a href="#Create-protein-ligand-ID-pairs" class="md-nav__link">Create protein-ligand ID pairs</a>
-        </li>
-        <li class="md-nav__item"><a href="#Align-PDB-structures" class="md-nav__link">Align PDB structures</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Get-the-PDB-structure-files" class="md-nav__link">Get the PDB structure files</a>
-        </li>
-        <li class="md-nav__item"><a href="#Extract-protein-and-ligand" class="md-nav__link">Extract protein and ligand</a>
-        </li>
-        <li class="md-nav__item"><a href="#Align-proteins" class="md-nav__link">Align proteins</a>
-        </li>
-        <li class="md-nav__item"><a href="#Extract-ligands" class="md-nav__link">Extract ligands</a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
-        </li>
-        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
-        </li></ul>
-            </nav>
-        </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T008_query_pdb.nblink.txt">Show Source</a> </li>
-
-  </ul>
-</nav>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T009_compound_ensemble_pharmacophores.html" class="md-nav__link">T009 · Ligand-based pharmacophores</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T010_binding_site_comparison.html" class="md-nav__link">T010 · Binding site similarity and off-target prediction</a>
-      
-    
-    </li></ul>
     
     </li>
     <li class="md-nav__item">
