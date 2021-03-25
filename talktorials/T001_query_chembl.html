@@ -246,185 +246,35 @@
     
     
       <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#jcim-2019" class="md-nav__link">JCIM 2019</a>
       
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#ligand-based-cheminformatics" class="md-nav__link">Ligand-based cheminformatics</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#structural-biology" class="md-nav__link">Structural biology</a>
+      
+    
+    </li></ul>
     
     </li>
     <li class="md-nav__item">
     
     
       <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> T001 · Compound data acquisition (ChEMBL) </label>
-    
-      <a href="#" class="md-nav__link md-nav__link--active">T001 · Compound data acquisition (ChEMBL)</a>
       
-        
-<nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#talktorials-t001-query-chembl--page-root" class="md-nav__link">T001 · Compound data acquisition (ChEMBL)</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
-        </li>
-        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
-        </li>
-        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#ChEMBL-database" class="md-nav__link">ChEMBL database</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#ChEMBL-web-services" class="md-nav__link">ChEMBL web services</a>
-        </li>
-        <li class="md-nav__item"><a href="#ChEMBL-webresource-client" class="md-nav__link">ChEMBL webresource client</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Compound-activity-measures" class="md-nav__link">Compound activity measures</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#IC50-measure" class="md-nav__link">IC50 measure</a>
-        </li>
-        <li class="md-nav__item"><a href="#pIC50-value" class="md-nav__link">pIC50 value</a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Connect-to-ChEMBL-database" class="md-nav__link">Connect to ChEMBL database</a>
-        </li>
-        <li class="md-nav__item"><a href="#Get-target-data-(EGFR-kinase)" class="md-nav__link">Get target data (EGFR kinase)</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Fetch-target-data-from-ChEMBL" class="md-nav__link">Fetch target data from ChEMBL</a>
-        </li>
-        <li class="md-nav__item"><a href="#Download-target-data-from-ChEMBL" class="md-nav__link">Download target data from ChEMBL</a>
-        </li>
-        <li class="md-nav__item"><a href="#Select-target-(target-ChEMBL-ID)" class="md-nav__link">Select target (target ChEMBL ID)</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Get-bioactivity-data" class="md-nav__link">Get bioactivity data</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Fetch-bioactivity-data-for-the-target-from-ChEMBL" class="md-nav__link">Fetch bioactivity data for the target from ChEMBL</a>
-        </li>
-        <li class="md-nav__item"><a href="#Download-bioactivity-data-from-ChEMBL" class="md-nav__link">Download bioactivity data from ChEMBL</a>
-        </li>
-        <li class="md-nav__item"><a href="#Freeze-bioactivity-data-to-ChEMBL-27" class="md-nav__link">Freeze bioactivity data to ChEMBL 27</a>
-        </li>
-        <li class="md-nav__item"><a href="#Preprocess-and-filter-bioactivity-data" class="md-nav__link">Preprocess and filter bioactivity data</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Get-compound-data" class="md-nav__link">Get compound data</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Fetch-compound-data-from-ChEMBL" class="md-nav__link">Fetch compound data from ChEMBL</a>
-        </li>
-        <li class="md-nav__item"><a href="#Download-compound-data-from-ChEMBL" class="md-nav__link">Download compound data from ChEMBL</a>
-        </li>
-        <li class="md-nav__item"><a href="#Preprocess-and-filter-compound-data" class="md-nav__link">Preprocess and filter compound data</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Output-(bioactivity-compound)-data" class="md-nav__link">Output (bioactivity-compound) data</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Merge-both-datasets" class="md-nav__link">Merge both datasets</a>
-        </li>
-        <li class="md-nav__item"><a href="#Add-pIC50-values" class="md-nav__link">Add pIC50 values</a>
-        </li>
-        <li class="md-nav__item"><a href="#Draw-compound-data" class="md-nav__link">Draw compound data</a>
-        </li>
-        <li class="md-nav__item"><a href="#Write-output-data-to-file" class="md-nav__link">Write output data to file</a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
-        </li>
-        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
-        </li></ul>
-            </nav>
-        </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T001_query_chembl.nblink.txt">Show Source</a> </li>
-
-  </ul>
-</nav>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T002_compound_adme.html" class="md-nav__link">T002 · Molecular filtering: ADME and lead-likeness criteria</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T003_compound_unwanted_substructures.html" class="md-nav__link">T003 · Molecular filtering: unwanted substructures</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T004_compound_similarity.html" class="md-nav__link">T004 · Ligand-based screening: compound similarity</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T005_compound_clustering.html" class="md-nav__link">T005 · Compound clustering</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T006_compound_maximum_common_substructures.html" class="md-nav__link">T006 · Maximum common substructure</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T007_compound_activity_machine_learning.html" class="md-nav__link">T007 · Ligand-based screening: machine learning</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T008_query_pdb.html" class="md-nav__link">T008 · Protein data acquisition: Protein Data Bank (PDB)</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T009_compound_ensemble_pharmacophores.html" class="md-nav__link">T009 · Ligand-based pharmacophores</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T010_binding_site_comparison.html" class="md-nav__link">T010 · Binding site similarity and off-target prediction</a>
-      
-    
-    </li></ul>
     
     </li>
     <li class="md-nav__item">

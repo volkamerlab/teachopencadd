@@ -246,179 +246,35 @@
     
     
       <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#jcim-2019" class="md-nav__link">JCIM 2019</a>
       
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#ligand-based-cheminformatics" class="md-nav__link">Ligand-based cheminformatics</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#structural-biology" class="md-nav__link">Structural biology</a>
+      
+    
+    </li></ul>
     
     </li>
     <li class="md-nav__item">
     
     
       <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="T001_query_chembl.html" class="md-nav__link">T001 · Compound data acquisition (ChEMBL)</a>
       
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T002_compound_adme.html" class="md-nav__link">T002 · Molecular filtering: ADME and lead-likeness criteria</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T003_compound_unwanted_substructures.html" class="md-nav__link">T003 · Molecular filtering: unwanted substructures</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T004_compound_similarity.html" class="md-nav__link">T004 · Ligand-based screening: compound similarity</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T005_compound_clustering.html" class="md-nav__link">T005 · Compound clustering</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T006_compound_maximum_common_substructures.html" class="md-nav__link">T006 · Maximum common substructure</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T007_compound_activity_machine_learning.html" class="md-nav__link">T007 · Ligand-based screening: machine learning</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T008_query_pdb.html" class="md-nav__link">T008 · Protein data acquisition: Protein Data Bank (PDB)</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> T009 · Ligand-based pharmacophores </label>
-    
-      <a href="#" class="md-nav__link md-nav__link--active">T009 · Ligand-based pharmacophores</a>
-      
-        
-<nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#talktorials-t009-compound-ensemble-pharmacophores--page-root" class="md-nav__link">T009 · Ligand-based pharmacophores</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a>
-        </li>
-        <li class="md-nav__item"><a href="#Learning-goals" class="md-nav__link">Learning goals</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
-        </li>
-        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
-        </li>
-        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Pharmacophores" class="md-nav__link">Pharmacophores</a>
-        </li>
-        <li class="md-nav__item"><a href="#Structure--and-ligand-based-pharmacophore-modeling" class="md-nav__link">Structure- and ligand-based pharmacophore modeling</a>
-        </li>
-        <li class="md-nav__item"><a href="#Virtual-screening-with-pharmacophores" class="md-nav__link">Virtual screening with pharmacophores</a>
-        </li>
-        <li class="md-nav__item"><a href="#Clustering:-k-means" class="md-nav__link">Clustering: k-means</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Get-pre-aligned-ligands-from-previous-talktorial" class="md-nav__link">Get pre-aligned ligands from previous talktorial</a>
-        </li>
-        <li class="md-nav__item"><a href="#Visualize-with-nglview" class="md-nav__link">Visualize with <code class="docutils literal notranslate"><span class="pre">nglview</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#Extract-pharmacophore-features" class="md-nav__link">Extract pharmacophore features</a>
-        </li>
-        <li class="md-nav__item"><a href="#Show-the-pharmacophore-features-of-all-ligands" class="md-nav__link">Show the pharmacophore features of all ligands</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Hydrogen-bond-donors" class="md-nav__link">Hydrogen bond donors</a>
-        </li>
-        <li class="md-nav__item"><a href="#Hydrogen-bond-acceptors" class="md-nav__link">Hydrogen bond acceptors</a>
-        </li>
-        <li class="md-nav__item"><a href="#Hydrophobic-contacts" class="md-nav__link">Hydrophobic contacts</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Collect-coordinates-of-features-per-feature-type" class="md-nav__link">Collect coordinates of features per feature type</a>
-        </li>
-        <li class="md-nav__item"><a href="#Generate-ensemble-pharmacophores" class="md-nav__link">Generate ensemble pharmacophores</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Set-static-parameters-for-k-means-clustering" class="md-nav__link">Set static parameters for k-means clustering</a>
-        </li>
-        <li class="md-nav__item"><a href="#Set-static-parameters-for-cluster-selection" class="md-nav__link">Set static parameters for cluster selection</a>
-        </li>
-        <li class="md-nav__item"><a href="#Define-k-means-clustering-and-cluster-selection-functions" class="md-nav__link">Define k-means clustering and cluster selection functions</a>
-        </li>
-        <li class="md-nav__item"><a href="#Cluster-features" class="md-nav__link">Cluster features</a>
-        </li>
-        <li class="md-nav__item"><a href="#Select-relevant-clusters" class="md-nav__link">Select relevant clusters</a>
-        </li>
-        <li class="md-nav__item"><a href="#Get-selected-cluster-coordinates" class="md-nav__link">Get selected cluster coordinates</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Show-clusters" class="md-nav__link">Show clusters</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#id1" class="md-nav__link">Hydrogen bond donors</a>
-        </li>
-        <li class="md-nav__item"><a href="#Hydrogen-bond-acceptor" class="md-nav__link">Hydrogen bond acceptor</a>
-        </li>
-        <li class="md-nav__item"><a href="#id2" class="md-nav__link">Hydrophobic contacts</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Show-ensemble-pharmacophore" class="md-nav__link">Show ensemble pharmacophore</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
-        </li>
-        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
-        </li></ul>
-            </nav>
-        </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T009_compound_ensemble_pharmacophores.nblink.txt">Show Source</a> </li>
-
-  </ul>
-</nav>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T010_binding_site_comparison.html" class="md-nav__link">T010 · Binding site similarity and off-target prediction</a>
-      
-    
-    </li></ul>
     
     </li>
     <li class="md-nav__item">
