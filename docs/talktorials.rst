@@ -39,6 +39,7 @@ Ligand-based cheminformatics
    talktorials/T012_query_klifs.nblink
    talktorials/T013_query_pubchem.nblink
    talktorials/T021_one_hot_encoding.nblink
+   talktorials/T022_ligand_based_screening_neural_network.nblink
 
 Structural biology
 ------------------

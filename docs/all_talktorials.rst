@@ -25,3 +25,4 @@ This is the complete list of talktorials available for online reading. Take into
    talktorials/T017_advanced_nglview_usage.nblink
    talktorials/T020_md_analysis.nblink
    talktorials/T021_one_hot_encoding.nblink
+   talktorials/T022_ligand_based_screening_neural_network.nblink
