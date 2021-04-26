@@ -21,12 +21,13 @@ sys.path.insert(0, os.path.abspath(".."))
 import teachopencadd
 import sphinx_material
 
+from datetime import datetime
 
 # -- Project information -----------------------------------------------------
 
 project = "TeachOpenCADD"
 copyright = (
-    "2018-2020, Volkamer Lab. Project structure based on the "
+    f"2018-{datetime.now().year}, Volkamer Lab. Project structure based on the "
     "Computational Molecular Science Python Cookiecutter version 1.1"
 )
 author = "Volkamer Lab"
@@ -59,6 +60,7 @@ extensions = [
     "nbsphinx",
     "nbsphinx_link",
     "IPython.sphinxext.ipython_console_highlighting",
+    "sphinx_copybutton",
 ]
 
 autosummary_generate = True
@@ -97,7 +99,7 @@ highlight_language = "none"
 
 # -- Options for HTML output -------------------------------------------------
 # -- HTML theme settings ------------------------------------------------
-html_short_title = "TeachOpenCADD"
+html_short_title = "TeachOpenCADD (WIP 🚧)"
 html_show_sourcelink = True
 html_sidebars = {"**": ["logo-text.html", "globaltoc.html", "localtoc.html", "searchbox.html"]}
 
@@ -108,9 +110,9 @@ html_theme = "sphinx_material"
 # material theme options (see theme.conf for more information)
 html_theme_options = {
     # "base_url": "http://bashtage.github.io/sphinx-material/",
-    "repo_url": "https://github.com/volkamerlab/TeachOpenCADD/",
+    "repo_url": "https://github.com/volkamerlab/teachopencadd/",
     "repo_name": "TeachOpenCADD",
-    # "google_analytics_account": "UA-XXXXX",
+    "google_analytics_account": "G-Q6ZE82CNZB",
     "html_minify": False,
     "html_prettify": False,
     "css_minify": False,
@@ -124,9 +126,9 @@ html_theme_options = {
     "master_doc": False,
     # "nav_title": "TeachOpenCADD",
     "nav_links": [
-        {"href": "index", "internal": True, "title": "Get started"},
-        {"href": "talktorials", "internal": True, "title": "Talktorials"},
-        {"href": "api", "internal": True, "title": "API"},
+        {"href": "talktorials", "internal": True, "title": "Our talktorials"},
+        {"href": "installing", "internal": True, "title": "Run locally"},
+        {"href": "contribute", "internal": True, "title": "Contribute"},
         # {
         #     "href": "https://squidfunk.github.io/mkdocs-material/",
         #     "internal": False,
@@ -137,14 +139,14 @@ html_theme_options = {
         "index": "A teaching platform for computer-aided drug design",
         "customization": "Configuration options to personalize your site.",
     },
-    # "version_dropdown": True,
+    "version_dropdown": False,
     # "version_json": "_static/versions.json",
     # "version_info": {
     #     "Release": "https://bashtage.github.io/sphinx-material/",
     #     "Development": "https://bashtage.github.io/sphinx-material/devel/",
     #     "Release (rel)": "/sphinx-material/",
     #     "Development (rel)": "/sphinx-material/devel/",
-    #  },
+    # },
     "table_classes": ["plain"],
 }
 
@@ -206,3 +208,9 @@ texinfo_documents = [
 
 
 # -- Extension configuration -------------------------------------------------
+
+html_static_path = ["_static"]
+html_css_files = [
+    "custom.css",
+]
+html_js_files = []

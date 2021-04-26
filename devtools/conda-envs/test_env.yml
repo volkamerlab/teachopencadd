@@ -12,10 +12,12 @@ dependencies:
   - biopandas
   - seaborn
   - pypdb
+  - requests-cache
   - chembl_webresource_client
   - nglview
   - requests
   - openbabel
+  - tqdm
   - lxml
   - bravado
   - beautifulsoup4
@@ -24,9 +26,15 @@ dependencies:
   - mdanalysis>=1.0.0
   - plip
   - biopython<=1.77
+  - redo
+  - requests-cache
+  - suds-community
+  - smina
+  - matplotlib-venn
   ## CI tests
   # Workaround for https://github.com/computationalmodelling/nbval/issues/153
   - pytest 5.*
+  - pytest-xdist
   - nbval
   - shyaml
   ## Docs
@@ -35,14 +43,16 @@ dependencies:
   - nbsphinx
   - recommonmark
   - sphinx-autodoc-typehints
+  - sphinx-copybutton
+  - sphinx-gallery
   - autodocsumm
-  - redo
-  - suds-community
   - pip:
-      - "."
+      - black-nb
       - nbsphinx-link
       - https://github.com/jaimergp/autodocktools-prepare-py3k/archive/master.zip
-      - https://github.com/volkamerlab/opencadd/archive/b6d9c511f89ff200c45532e614f1abffa35e2ab7.zip
+      - https://github.com/volkamerlab/opencadd/archive/c860671ae88eb84afdd6ef599a4ecea9587c123c.zip
+      # the package itself (teachopencadd)
+      - ../../
 ## For Jupyter lab extensions, run:
-# jupyter labextension install @jupyter-widgets/jupyterlab-manager
-# jupyter labextension install nglview-js-widgets
+# conda install nodejs
+# jupyter labextension install @jupyter-widgets/jupyterlab-manager nglview-js-widgets @jupyterlab/toc
