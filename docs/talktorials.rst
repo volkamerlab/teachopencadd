@@ -51,6 +51,8 @@ Structural biology
    talktorials/T012_query_klifs.nblink
    talktorials/T015_protein_ligand_docking.nblink
    talktorials/T016_protein_ligand_interactions.nblink
+   talktorials/T017_advanced_nglview_usage.nblink
+   talktorials/T020_md_analysis.nblink
 
 
 Online APIs/servers

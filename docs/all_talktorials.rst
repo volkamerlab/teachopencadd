@@ -21,3 +21,5 @@ This is the complete list of talktorials available for online reading. Take into
    talktorials/T014_binding_site_detection.nblink
    talktorials/T015_protein_ligand_docking.nblink
    talktorials/T016_protein_ligand_interactions.nblink
+   talktorials/T017_advanced_nglview_usage.nblink
+   talktorials/T020_md_analysis.nblink
