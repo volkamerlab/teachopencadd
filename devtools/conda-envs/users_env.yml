@@ -1,0 +1,61 @@
+###
+# If you change this file, make sure devtools/conda-envs/test_env.yml is in sync
+###
+name: teachopencadd
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python>=3.6
+  - pip
+  - jupyter
+  - jupyterlab
+  - rdkit>=2018.09.2.0
+  - scikit-learn
+  - biopandas
+  - seaborn
+  - pypdb
+  - requests-cache
+  - chembl_webresource_client
+  - nglview
+  - requests
+  - openbabel
+  - tqdm
+  - lxml
+  - bravado
+  - beautifulsoup4
+  - ipywidgets>=7.5
+  - biotite
+  - mdanalysis
+  - plip
+  - biopython<=1.77
+  - redo
+  - requests-cache
+  - suds-community
+  - smina
+  - matplotlib-venn
+  ## CI tests
+  # Workaround for https://github.com/computationalmodelling/nbval/issues/153
+  - pytest 5.*
+  - pytest-xdist
+  - nbval
+  - shyaml
+  ## Docs
+  - sphinx
+  - sphinx-material
+  - nbsphinx
+  - recommonmark
+  - sphinx-autodoc-typehints
+  - sphinx-copybutton
+  - sphinx-gallery
+  - autodocsumm
+  - pip:
+      - black-nb
+      - nbsphinx-link
+      - https://github.com/jaimergp/autodocktools-prepare-py3k/archive/master.zip
+      - https://github.com/volkamerlab/opencadd/archive/c860671ae88eb84afdd6ef599a4ecea9587c123c.zip
+      # the package itself (teachopencadd)
+      - https://github.com/volkamerlab/teachopencadd/archive/master.tar.gz
+## For Jupyter lab extensions, run:
+# conda install nodejs
+# jupyter labextension install @jupyter-widgets/jupyterlab-manager nglview-js-widgets @jupyterlab/toc

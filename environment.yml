@@ -32,6 +32,8 @@ dependencies:
   - redo
   - requests-cache
   - suds-community
+  - smina
+  - matplotlib-venn
   ## CI tests
   # Workaround for https://github.com/computationalmodelling/nbval/issues/153
   - pytest 5.*
@@ -44,12 +46,14 @@ dependencies:
   - nbsphinx
   - recommonmark
   - sphinx-autodoc-typehints
+  - sphinx-copybutton
+  - sphinx-gallery
   - autodocsumm
   - pip:
       - black-nb
       - nbsphinx-link
       - https://github.com/jaimergp/autodocktools-prepare-py3k/archive/master.zip
-      - https://github.com/volkamerlab/opencadd/archive/b6d9c511f89ff200c45532e614f1abffa35e2ab7.zip
+      - https://github.com/volkamerlab/opencadd/archive/c860671ae88eb84afdd6ef599a4ecea9587c123c.zip
       # the package itself (teachopencadd)
       - ./
 ## For Jupyter lab extensions, run:

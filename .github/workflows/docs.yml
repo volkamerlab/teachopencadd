@@ -1,0 +1,80 @@
+name: Docs
+
+on:
+  push:
+    branches:
+      - "master"
+      - "maintenance/.+"
+  pull_request:
+    branches:
+      - "master"
+      - "maintenance/.+"
+  schedule:
+    # Run a cron job once daily, weekdays only
+    - cron: "0 3 * * 1-5"
+
+jobs:
+  docs:
+    name: Docs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          python-version: "3.7"
+          activate-environment: teachopencadd
+          channel-priority: true
+          environment-file: devtools/conda-envs/test_env.yml
+          auto-activate-base: false
+
+      - name: Additional info about the build
+        shell: bash
+        run: |
+          uname -a
+          df -h
+          ulimit -a
+
+      - name: Install package
+        shell: bash -l {0}
+        run: |
+          pip install . --no-deps -vv
+
+      - name: Environment Information
+        shell: bash -l {0}
+        run: |
+          conda info --all
+          conda list
+
+      - name: Run Sphinx
+        shell: bash -l {0}
+        run: |
+          cd docs
+          make clean
+          SPHINXOPTS="-j2 -W -T --keep-going" make html
+          # Extra UGLY patch to fix PDF IFrame on T005
+          cp talktorials/images/*.pdf _build/html/_images/
+          sed -i 's|src="images/butina_full.pdf"|src="../_images/butina_full.pdf"|g' \
+            _build/html/talktorials/T005_compound_clustering.html
+
+      - name: Check 404s (Sphinx)
+        shell: bash -l {0}
+        run: |
+          cd docs/_build/html
+          python -m http.server > /dev/null &2>1&
+          npx broken-link-checker http://localhost:8000/ --ordered --recursive \
+            --exclude "*.txt" \
+            --exclude "https://onlinelibrary.wiley.com/doi/full/10.1002/cmdc.200700139" \
+            --exclude "https://onlinelibrary.wiley.com/doi/10.1002/9783527806539.*"
+
+      - name: Check 404s (README)
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          max-depth: 1
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/master'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/_build/html
