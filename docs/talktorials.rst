@@ -37,6 +37,8 @@ Ligand-based cheminformatics
    talktorials/T006_compound_maximum_common_substructures.nblink
    talktorials/T007_compound_activity_machine_learning.nblink
    talktorials/T012_query_klifs.nblink
+   talktorials/T013_query_pubchem.nblink
+   talktorials/T021_one_hot_encoding.nblink
 
 Structural biology
 ------------------
@@ -66,4 +68,5 @@ Online APIs/servers
    talktorials/T008_query_pdb.nblink
    talktorials/T011_query_online_api_webservices.nblink
    talktorials/T012_query_klifs.nblink
+   talktorials/T013_query_pubchem.nblink
 
