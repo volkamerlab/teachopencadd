@@ -1,4 +1,4 @@
-name: teachopencadd
+﻿name: teachopencadd
 channels:
   - conda-forge
   - defaults
@@ -26,6 +26,10 @@ dependencies:
   - mdanalysis>=1.0.0
   - plip
   - biopython<=1.77
+  - mdtraj
+  - openmm
+  - openmmforcefields
+  - pdbfixer
   - redo
   - requests-cache
   - suds-community
