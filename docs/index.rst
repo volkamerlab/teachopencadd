@@ -47,6 +47,11 @@ Table of contents
    contribute
    api
 
+.. toctree::
+   :maxdepth: 1
+   :caption: External resources
+
+   external_resources
 
 
 Citation
