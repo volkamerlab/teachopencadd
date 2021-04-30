@@ -17,14 +17,15 @@ In this talktorial, we will use molecular docking to predict the binding mode of
 - Molecular docking
 - Sampling algorithms
 - Scoring functions
-- Known limitations
-- Docking softwares
+- Limitations
+- Visual inspection
+- Docking software
   - Commercial
   - Free (for academics)
 
 ### Contents in *Practical*
 
-- Protein and ligand preparation
+- Preparation of protein and ligand
 - Binding site definition
 - Docking calculation
 - Docking results visualization
@@ -36,6 +37,7 @@ In this talktorial, we will use molecular docking to predict the binding mode of
 - Warren et al. 2006 _A critical assessment of docking programs and scoring functions_ ([_J Med Chem_ (2006), __49__, 20, 5912-31](https://doi.org/10.1021/jm050362n))
 - Wang et al. 2016 _Comprehensive evaluation of ten docking programs on a diverse set of protein-ligand complexes: the prediction accuracy of sampling power and scoring power_ ([_Phys Chem Chem Phys_ (2016), __18__, 18, 12964-75](https://doi.org/10.1039/c6cp01555g))
 - Koes et al. 2013 _Lessons Learned in Empirical Scoring with smina from the CSAR 2011 Benchmarking Exercise_ ([_J Chem Inf Model_ (2013), __53__, 8, 1893-1904](https://doi.org/10.1021/ci300604z))
+- Fischer et al. 2021 _Decision Making in Structure-Based Drug Discovery: Visual Inspection of Docking Results_ ([_J Med Chem_ (2021)](https://doi.org/10.1021/acs.jmedchem.0c02227))
 - [OpenBabel](http://openbabel.org/wiki/Main_Page)
 - [Smina](https://sourceforge.net/projects/smina/)
 - [NGLView](http://nglviewer.org/nglview/latest/)
