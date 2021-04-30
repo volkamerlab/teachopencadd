@@ -1,13 +1,11 @@
 name: teachopencadd
 channels:
   - conda-forge
-  - defaults
 dependencies:
   - python>=3.6
   - pip
   - jupyter
-  # Pin to JLab 2 until JLab 3 is compatible with nglview (https://github.com/nglviewer/nglview/issues/932)
-  - jupyterlab=2
+  - jupyterlab>=3
   - rdkit>=2018.09.2.0
   - scikit-learn
   - biopandas
@@ -23,6 +21,7 @@ dependencies:
   - bravado
   - beautifulsoup4
   - ipywidgets>=7.5
+  - nglview>=3
   - biotite
   - mdanalysis
   - plip
@@ -52,6 +51,3 @@ dependencies:
       - https://github.com/volkamerlab/opencadd/archive/b6d9c511f89ff200c45532e614f1abffa35e2ab7.zip
       # the package itself (teachopencadd)
       - ../../
-## For Jupyter lab extensions, run:
-# conda install nodejs
-# jupyter labextension install @jupyter-widgets/jupyterlab-manager nglview-js-widgets @jupyterlab/toc
