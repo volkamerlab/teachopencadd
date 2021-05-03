@@ -24,10 +24,6 @@ jobs:
           - os: ubuntu-latest
             python-version: "3.6"
           - os: ubuntu-latest
-            python-version: "3.7"
-          - os: ubuntu-latest
-            python-version: "3.8"
-          - os: ubuntu-latest
             python-version: "3.9"
           - os: macos-latest
             python-version: "3.6"
@@ -76,9 +72,7 @@ jobs:
         shell: bash -l {0}
         run: |
           PYTEST_ARGS="--nbval-lax --current-env --dist loadscope --numprocesses 2"
-          # Test the same notebooks as treebeard does
-          NOTEBOOKS=$(cat treebeard.yaml | shyaml get-values notebooks | tr -d '\r' | xargs)
-          pytest $PYTEST_ARGS $NOTEBOOKS
+          pytest $PYTEST_ARGS teachopencadd/talktorials/T*/talktorial.ipynb
 
   format:
     name: Black
@@ -90,10 +84,7 @@ jobs:
         run: python -m pip install black-nb shyaml
       - name: Run black-nb
         run: |
-          # Workaround https://github.com/volkamerlab/teachopencadd/pull/89#issuecomment-758054969
-          # TODO: remove T002 exception whenever https://github.com/psf/black/issues/1629 is fixed
-          NOTEBOOKS=$(cat treebeard.yaml | shyaml get-values notebooks | awk '!/T002_/' | xargs)
-          black-nb -l 99 --check $NOTEBOOKS
+          black-nb -l 99 --check teachopencadd/talktorials/T*/talktorial.ipynb
 
   readmes:
     name: READMEs
@@ -105,25 +96,11 @@ jobs:
         run: python -m pip install nbformat shyaml
       - name: Check READMEs are up-to-date
         run: |
-          NOTEBOOKS=$(cat treebeard.yaml | shyaml get-values notebooks | xargs)
-          for path in $NOTEBOOKS; do
+          for path in teachopencadd/talktorials/T*/talktorial.ipynb; do
             python devtools/regenerate_readmes.py --output README.md $path
           done
           # If the script above introduced changes (it shouldn't!), git diff will have output and an error code
           git diff --exit-code
-
-
-  treebeard:
-    name: Treebeard
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-      - uses: treebeardtech/treebeard@master
-        with:
-          docker-username: "jaimergp"
-          docker-password: "${{ secrets.DOCKERHUB_PASSWORD }}"
-          docker-image-name: "volkamerlab/teachopencadd"
 
   condabuild:
     name: Conda package
