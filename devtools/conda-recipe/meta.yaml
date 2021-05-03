@@ -17,24 +17,25 @@ requirements:
     - python
     - pip
   run:
-    # General dependencies
     - python>=3.6
     - jupyter
-    - jupyterlab
-    - ipywidgets>=7.5
-    # Cheminformatics
-    - rdkit>=2018.09.2.0
+    - jupyterlab>=3
+    - rdkit>=2021.03
     - scikit-learn
     - biopandas
     - seaborn
     - pypdb
+    - requests-cache
     - chembl_webresource_client
     - nglview
     - requests
     - openbabel
+    - tqdm
     - lxml
     - bravado
     - beautifulsoup4
+    - ipywidgets>=7.5
+    - nglview>=3
     - biotite
     - mdanalysis
     - plip
@@ -44,7 +45,7 @@ requirements:
     - suds-community
     - smina
     # note there are some pip dependencies not available in conda yet!
-    # check /environment.yml for details
+    # check devtools/conda_envs/test_env.yml for details
 
 test:
   requires:
