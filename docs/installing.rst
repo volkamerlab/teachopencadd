@@ -13,7 +13,7 @@ Eventually, we will have a ``conda`` package, but for now you need to create a n
 
 1. Create a new conda environment for TeachOpenCADD::
 
-    conda env create -f https://raw.githubusercontent.com/volkamerlab/TeachOpenCADD/master/environment.yml
+    conda env create -f https://raw.githubusercontent.com/volkamerlab/TeachOpenCADD/master/devtools/other-conda-envs/users_env.yml
 
 2. Activate the new environment::
 
