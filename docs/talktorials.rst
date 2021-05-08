@@ -52,6 +52,7 @@ Structural biology
    talktorials/T009_compound_ensemble_pharmacophores.nblink
    talktorials/T010_binding_site_comparison.nblink
    talktorials/T012_query_klifs.nblink
+   talktorials/T014_binding_site_detection.nblink
    talktorials/T015_protein_ligand_docking.nblink
    talktorials/T016_protein_ligand_interactions.nblink
    talktorials/T017_advanced_nglview_usage.nblink
