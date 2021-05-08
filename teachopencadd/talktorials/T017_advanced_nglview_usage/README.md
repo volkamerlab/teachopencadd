@@ -1,40 +1,50 @@
-# T000 · Talktorial topic title
+# T017 · Advanced NGLview usage
 
 Authors:
 
-- First and last name, year(s) of contribution, lab, institution
-- First and last name, year(s) of contribution, lab, institution
+- Jaime Rodríguez-Guerra, 2021, [Volkamer lab, Charité](https://volkamerlab.org/)
+- Dominique Sydow, 2021, [Volkamer lab, Charité](https://volkamerlab.org/)
 
 
 ## Aim of this talktorial
 
-Short summary of this talktorial's content.
+[NGLView](http://nglviewer.org/nglview/latest/) is a powerful Jupyter widget that allows you to show molecular structures in your notebooks in a 3D interactive view! It supports both single conformations and trajectories, as well as a plethora of representations. In this talktorial we will cover how to use it in different scenarios, from simpler cases to more intricate ones.
 
 
 ### Contents in *Theory*
 
-*These points should refer to the headlines of your theory section below.*
-
-* ChEMBL database
-* Compound activity measures
+* NGL and NGLView
+* NGL object model and terminology
 
 
 ### Contents in *Practical*
 
-*These points should refer to the headlines of your practical section below.*
-
-* Connect to ChEMBL database
-* Load and draw molecules
+* First steps: make sure everything works!
+    * Experiment with the interactive controls
+* Basic API usage:
+    * Show a structure using its PDB identifier
+    * Show a structure using a local file
+    * Saving the widget state as a screenshot for offline viewing
+    * Customize the representations
+    * NMR and multimodel structures
+    * Load more than one structure
+    * Show and hide components
+* Advanced usage:
+    * Custom coloring schemes and representations
+    * Add geometric objects at selected atoms
+    * Create interactive interfaces
+    * Access the JavaScript layer
+* Troubleshooting tips:
+    * Check which Jupyter platform you are working from
+    * How to install `nglview`, the right way
 
 
 ### References
 
-* Paper 
-* Tutorial links
-* Other useful resources
-
-*We suggest the following citation style:*
-* Keyword describing resource: <i>Journal</i> (year), <b>volume</b>, pages (link to resource) 
-
-*Example:*
-* ChEMBL web services: <i>Nucleic Acids Res.</i> (2015), <b>43</b>, 612-620 (https://academic.oup.com/nar/article/43/W1/W612/2467881) 
+* **NGL manuscript**: Rose *et al.*, <i>Nucl Acids Res.</i> (2015), <b>43</b> (W1), W576-W579 (https://academic.oup.com/nar/article/43/W1/W576/2467902)
+* [NGL documentation](http://nglviewer.org/ngl/api/) and [repository](https://github.com/nglviewer/ngl)
+* **NGLView manuscript**: Nguyen *et al.*, <i>Bioinformatics</i> (2018), <b>34</b> (7), 1241-1242 (https://academic.oup.com/bioinformatics/article/34/7/1241/4721781)
+* [NGLView documentation](http://nglviewer.org/nglview/latest/) and [repository](https://github.com/nglviewer/nglview)
+* [NGLView Q&A issues](https://github.com/nglviewer/nglview/issues?q=is%3Aissue+label%3AQ%26A). A lot of hidden knowledge in these conversations!
+* [NGLView examples](https://github.com/nglviewer/nglview/tree/master/examples)
+* [Jupyter Widgets (IPyWidgets)](https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20Basics.html)

@@ -2,15 +2,17 @@
 
 Authors:
 
-- Jaime Rodríguez-Guerra, Volkamer lab, Charité
-- Dominique Sydow, Volkamer lab, Charité
-- Michele Wichmann, Volkamer lab, Charité
-- Maria Trofimova, CADD seminar, 2020, Charité/FU Berlin
-- David Schaller, Volkamer lab, Charité
+- Jaime Rodríguez-Guerra, Volkamer lab, Charité  
+- Dominique Sydow, Volkamer lab, Charité  
+- Michele Wichmann, Volkamer lab, Charité  
+- Maria Trofimova, CADD seminar, 2020, Charité/FU Berlin  
+- David Schaller, Volkamer lab, Charité  
+
 
 ## Aim of this talktorial
 
 In this talktorial, we will use molecular docking to predict the binding mode of a small molecule in a protein binding site. The epidermal growth factor receptor (EGFR) will serve as a model system to explain important steps of a molecular docking workflow with the docking software Smina.
+
 
 ### Contents in *Theory*
 
@@ -23,12 +25,14 @@ In this talktorial, we will use molecular docking to predict the binding mode of
   - Commercial
   - Free (for academics)
 
+
 ### Contents in *Practical*
 
-- Preparation of protein and ligand
+- Preparation of protein and ligand 
 - Binding site definition
 - Docking calculation
 - Docking results visualization
+
 
 ### References
 - Pagadala et al. 2017 _Software for molecular docking: a review_ ([_Biophy Rev_ (2017), __9__, 91-102](https://doi.org/10.1007/s12551-016-0247-1))
