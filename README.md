@@ -130,11 +130,16 @@ It will help measure the impact of the TeachOpenCADD platform and future funding
   [`ipywidgets`](https://ipywidgets.readthedocs.io)
 - Data visualization:
   [`matplotlib`](https://matplotlib.org/), 
+  [`mpl_toolkits`](https://matplotlib.org/stable/api/toolkits/index.html),
   [`seaborn`](https://seaborn.pydata.org/),
   [`nglview`](http://nglviewer.org/nglview/latest/)
 - Web services clients:
   [`pypdb`](https://github.com/williamgilpin/pypdb),
   [`chembl_webresource_client`](https://github.com/chembl/chembl_webresource_client)
+- Utilities:
+  [`tqdm`](https://tqdm.github.io/),
+  [`requests_cache`](https://requests-cache.readthedocs.io/en/latest/user_guide.html),
+  [`redo`](https://github.com/mozilla-releng/redo)
 - Continuous integration:
   [`pytest`](https://docs.pytest.org),
   [`nbval`](https://nbval.readthedocs.io)
