@@ -1,15 +1,16 @@
-# Analyzing molecular dynamics simulations
+# T020 · Analyzing molecular dynamics simulations
 
 Authors:
-- Mareike Leja, 2020/21, Internship at [Volkamer Lab, Charité](https://volkamerlab.org/)
-- David Schaller, 2020/21, [Volkamer Lab, Charité](https://volkamerlab.org/)
-- Andrea Volkamer, 2021, [Volkamer Lab, Charité](https://volkamerlab.org/)
+
+- Mareike Leja, 2020/21, Internship at [Volkamer Lab, Charité](https://volkamerlab.org/) 
+- David Schaller, 2020/21, [Volkamer Lab, Charité](https://volkamerlab.org/) 
+- Andrea Volkamer, 2021, [Volkamer Lab, Charité](https://volkamerlab.org/) 
 
 
 ## Aim of this talktorial
 
 In this talktorial, we will introduce methods for the analysis of molecular dynamics (MD) simulations. The introduced methods include animated visualization, structural alignment, RMSD calculation as well as selected atom distances and hydrogen bond analysis. 
-Note, we will work with the simulation results (1ns, 100 frames) generated with talktorial T019 **(!note, add proper reference!)** on the EGFR kinase ([PDB: 3POZ](https://www.rcsb.org/structure/3poz)) bound to inhibitor [`03P`](https://www.rcsb.org/ligand/03P). 
+Note, we will work with the simulation results (1ns, 100 frames) generated with **Talktorial T019** on the EGFR kinase ([PDB: 3POZ](https://www.rcsb.org/structure/3poz)) bound to inhibitor [03P](https://www.rcsb.org/ligand/03P). 
 
 
 ### Contents in *Theory*

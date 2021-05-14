@@ -1,4 +1,4 @@
-# One-Hot Encoding
+# T021 · One-Hot Encoding
 
 Developed in the CADD seminar 2020, Volkamer Lab, Charité/FU Berlin 
 

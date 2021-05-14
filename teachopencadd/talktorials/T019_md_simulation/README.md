@@ -1,6 +1,7 @@
 # T019 · Molecular dynamics simulation
 
 Authors:
+
 - Pietro Gerletti, CADD seminar 2020, Charité/FU Berlin
 - Mareike Leja, 2020/21, Internship at [Volkamer Lab, Charité](https://volkamerlab.org/)
 - Jeffrey R Wagner, 2020, [Open Force Field Consortium](https://openforcefield.org/)

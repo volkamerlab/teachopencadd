@@ -1,4 +1,4 @@
-# Ligand-based screening: neural networks
+# T022 · Ligand-based screening: neural networks
 
 Authors : 
 
@@ -20,7 +20,7 @@ In recent years, the use of machine learning, and deep learning, in pharmaceutic
     - Compound activity measures
     - Molecule encoding
 - Neural networks
-    - What is a neural network ?
+    - What is a neural network?
     - Activation function
     - Loss function
 - Training a neural network

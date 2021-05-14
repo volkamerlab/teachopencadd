@@ -2,11 +2,11 @@
 
 Authors:
 
-- Jaime Rodríguez-Guerra, Volkamer lab, Charité  
-- Dominique Sydow, Volkamer lab, Charité  
-- Michele Wichmann, Volkamer lab, Charité  
+- Jaime Rodríguez-Guerra, [Volkamer lab, Charité](https://volkamerlab.org/)  
+- Dominique Sydow, [Volkamer lab, Charité](https://volkamerlab.org/)  
+- Michele Wichmann, [Volkamer lab, Charité](https://volkamerlab.org/)  
 - Maria Trofimova, CADD seminar, 2020, Charité/FU Berlin  
-- David Schaller, Volkamer lab, Charité  
+- David Schaller, [Volkamer lab, Charité](https://volkamerlab.org/)  
 
 
 ## Aim of this talktorial
