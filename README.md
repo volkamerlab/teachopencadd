@@ -121,21 +121,31 @@ It will help measure the impact of the TeachOpenCADD platform and future funding
   [`mdanalysis`](https://www.mdanalysis.org/),
   [`biopython`](https://biopython.org/),
   [`biopandas`](http://rasbt.github.io/biopandas/),
-  [`opencadd`](https://opencadd.readthedocs.io/en/latest/)
+  [`opencadd`](https://opencadd.readthedocs.io/en/latest/),
+  [`plip`](https://github.com/pharmai/plip),
+  [`openff`](https://github.com/openforcefield/openff-toolkit),
+  [`pdbfixer`](https://github.com/openmm/pdbfixer),
+  [`mdanalysis`](https://www.mdanalysis.org/),
+  [`biotite`](https://www.biotite-python.org/)
 - Data science (PyData stack):
   [`numpy`](https://numpy.org/),
   [`pandas`](https://pandas.pydata.org/),
   [`scikit-learn`](https://scikit-learn.org/),
+  [`tensorflow`](https://www.tensorflow.org/),
   [`jupyter`](https://jupyter.org/),
   [`ipywidgets`](https://ipywidgets.readthedocs.io)
 - Data visualization:
   [`matplotlib`](https://matplotlib.org/), 
   [`mpl_toolkits`](https://matplotlib.org/stable/api/toolkits/index.html),
+  [`matplotlib_venn`](https://github.com/konstantint/matplotlib-venn),
   [`seaborn`](https://seaborn.pydata.org/),
   [`nglview`](http://nglviewer.org/nglview/latest/)
 - Web services clients:
   [`pypdb`](https://github.com/williamgilpin/pypdb),
-  [`chembl_webresource_client`](https://github.com/chembl/chembl_webresource_client)
+  [`chembl_webresource_client`](https://github.com/chembl/chembl_webresource_client),
+  [`requests`](https://docs.python-requests.org/en/master/),
+  [`bravado`](https://bravado.readthedocs.io/en/stable/),
+  [`beautifulsoup4`](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
 - Utilities:
   [`tqdm`](https://tqdm.github.io/),
   [`requests_cache`](https://requests-cache.readthedocs.io/en/latest/user_guide.html),
