@@ -39,7 +39,8 @@ Our work here will include finding compounds which were tested against a certain
     * Select target ChEMBL ID
 * Get bioactivity data
     * Fetch and download bioactivity data for target
-    * Preprocess and filter bioactivities
+    * Freeze bioactivity data to ChEMBL 27
+    * Preprocess and filter bioactivity data
 * Get compound data
     * Fetch and download compound data
     * Preprocess and filter compound data
@@ -55,7 +56,6 @@ Our work here will include finding compounds which were tested against a certain
 * ChEMBL web services: [Davies *et al.*, <i>Nucleic Acids Res.</i> (2015), <b>43</b>, 612-620](https://academic.oup.com/nar/article/43/W1/W612/2467881) 
 * [ChEMBL web-interface](https://www.ebi.ac.uk/chembl/)
 *  GitHub [ChEMBL webrescource client](https://github.com/chembl/chembl_webresource_client)
-* [myChEMBL web services version 2.x](https://github.com/chembl/mychembl/blob/master/ipython_notebooks/09_myChEMBL_web_services.ipynb)
 * The EBI RDF platform: [Jupp *et al.*, <i>Bioinformatics </i> (2014), 30(9), 1338-9](https://www.ncbi.nlm.nih.gov/pubmed/24413672)
 * Info on half maximal inhibitory concentration: [(p)IC50](https://en.wikipedia.org/wiki/IC50)
 * [UniProt website](https://www.uniprot.org/)

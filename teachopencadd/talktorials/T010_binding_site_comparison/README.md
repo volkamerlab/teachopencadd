@@ -34,8 +34,6 @@ We discuss the main steps for binding site comparison and implement a basic meth
 
 * Load and visualize the ligand of interest (Imatinib/STI)
 * Get all protein-STI complexes from the PDB
-  * Query the PDB
-  * Filter the PDB data set
 * Visualize the PDB structures
 * Align the PDB structures (full protein)
 * Get pairwise RMSD (full protein)
