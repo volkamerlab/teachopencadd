@@ -66,7 +66,14 @@ jobs:
             --exclude "*.txt" \
             --exclude "https://onlinelibrary.wiley.com/doi/full/10.1002/cmdc.200700139" \
             --exclude "https://onlinelibrary.wiley.com/doi/10.1002/9783527806539.*" \
-            --exclude "http://doi.org/10.6019/CHEMBL.database.27"
+            --exclude "https://towardsdatascience.com" \
+            --exclude "https://medium.com" \
+            --exclude "https://*.medium.com" \
+            --exclude "http[s]://quora.com" \
+            --exclude "http[s]://doi.org" \
+            --exclude "ftp://*" \
+            --exclude "http://localhost:8000"
+
 
       - name: Check 404s (README)
         uses: gaurav-nelson/github-action-markdown-link-check@v1
