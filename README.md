@@ -124,6 +124,8 @@ It will help measure the impact of the TeachOpenCADD platform and future funding
   [`opencadd`](https://opencadd.readthedocs.io/en/latest/),
   [`plip`](https://github.com/pharmai/plip),
   [`openff`](https://github.com/openforcefield/openff-toolkit),
+  [`openff-toolkit`](https://github.com/openforcefield/openff-toolkit),
+  [`openmmforcefields`](https://github.com/openmm/openmmforcefields),
   [`pdbfixer`](https://github.com/openmm/pdbfixer),
   [`mdanalysis`](https://www.mdanalysis.org/),
   [`biotite`](https://www.biotite-python.org/)
