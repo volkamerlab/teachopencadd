@@ -28,7 +28,8 @@ dependencies:
   - biopython<=1.77
   - mdtraj
   - openmm
-  - openmmforcefields
+  # depends on openff-toolkit->ambertools -> not available on Windows yet!
+  # - openmmforcefields
   - pdbfixer
   - redo
   - requests-cache

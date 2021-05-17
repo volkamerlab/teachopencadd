@@ -23,9 +23,14 @@ dependencies:
   - ipywidgets>=7.5
   - nglview>=3
   - biotite
-  - mdanalysis
+  - mdanalysis>=1.0.0
   - plip
   - biopython<=1.77
+  - mdtraj
+  - openmm
+  # depends on openff-toolkit->ambertools -> not available on Windows yet!
+  # - openmmforcefields
+  - pdbfixer
   - redo
   - requests-cache
   - suds-community

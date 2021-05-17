@@ -13,6 +13,8 @@ __Note__
 
 This talktorial was designed to be used with [Google Colab](https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/1bd7cb0c9f6379aebc0c1a0b1c7413685910cffa/teachopencadd/talktorials/019_md_simulation/talktorial.ipynb). It is also possible to use it on a local computer. However, performing the molecular dynamics simulation may take a considerably long time if no GPU is available.
 
+Also, note that this talktorial **will not run on Windows** for the time being.
+
 
 ## Aim of this talktorial
 
@@ -32,6 +34,8 @@ In this talktorial, we will learn why molecular dynamics (MD) simulations are im
 ### Contents in *Practical*
 
 - Installation on Google Colab
+- Adjust environment for local installations running on Linux or MacOS
+- Import dependencies
 - Download PDB file
 - Prepare the protein ligand complex
   - Protein preparation
