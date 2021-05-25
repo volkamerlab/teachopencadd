@@ -6,7 +6,16 @@
 [![GH Actions CI ](https://github.com/volkamerlab/teachopencadd/workflows/CI/badge.svg)](https://github.com/volkamerlab/teachopencadd/actions?query=branch%3Amaster+workflow%3ACI)
 [![GH Actions Docs](https://github.com/volkamerlab/teachopencadd/workflows/Docs/badge.svg)](https://projects.volkamerlab.org/teachopencadd/)
 
-![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/volkamerlab/teachopencadd )
+![GitHub closed pr](https://img.shields.io/github/issues-pr-closed-raw/volkamerlab/teachopencadd) ![GitHub open pr](https://img.shields.io/github/issues-pr-raw/volkamerlab/teachopencadd)  
+ 
+![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/volkamerlab/teachopencadd) ![GitHub closed issues](https://img.shields.io/github/issues/volkamerlab/teachopencadd)  
+
+![TOC](https://img.shields.io/badge/soocool-TeachOpenCADD-pink)
+
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/volkamerlab/teachopencadd)
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 
 > 🌟 You are looking at a new release of the TeachOpenCADD repository with [major changes](https://github.com/volkamerlab/teachopencadd/pull/29).
