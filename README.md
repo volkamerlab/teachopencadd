@@ -11,7 +11,7 @@
 
 ![GitHub closed pr](https://img.shields.io/github/issues-pr-closed-raw/volkamerlab/teachopencadd) ![GitHub open pr](https://img.shields.io/github/issues-pr-raw/volkamerlab/teachopencadd) ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/volkamerlab/teachopencadd) ![GitHub open issues](https://img.shields.io/github/issues/volkamerlab/teachopencadd)  
 
-![TOC](https://img.shields.io/badge/soocool-TeachOpenCADD-pink)
+![TOC](https://img.shields.io/badge/TeachOpenCADD-pink) ![TOC](https://img.shields.io/badge/Project-TeachOpenCADD-pink)
 
 
 > 🌟 You are looking at a new release of the TeachOpenCADD repository with [major changes](https://github.com/volkamerlab/teachopencadd/pull/29).
