@@ -9,8 +9,8 @@ Authors:
 
 ## Aim of this talktorial
 
-KLIFS is a database for kinase-ligand interaction fingerprints and structures. In this talktorial, we will use the programmatic access to this database (KLIFS OpenAPI) and the `opencadd` package to interact with its rich content. 
-First, we will use a query kinase (EGFR) to fetch all available structures and explore their bound ligands and interaction fingerprints. Then, we will explore the bioactivity data for the EGFR inhibitor Gefitinib in order to find off-targets. Last but not least, we offer a convenience function that allows you to easily explore different (if you want random) kinases.
+[KLIFS](https://klifs.net/) is a database for kinase-ligand interaction fingerprints and structures. In this talktorial, we will use the programmatic access to this database (KLIFS OpenAPI) and the [`opencadd`](https://github.com/volkamerlab/opencadd) package to interact with its rich content. 
+First, we will use a query kinase ([EGFR](https://www.uniprot.org/uniprot/P00533)) to fetch all available protein structures and explore their bound ligands as well as interaction fingerprints. Then, we will explore the bioactivity data for the EGFR inhibitor [Gefitinib](https://pubchem.ncbi.nlm.nih.gov/compound/Gefitinib) in order to find off-targets. Last but not least, we offer a convenience function that allows to easily explore different kinases.
 
 
 ### Contents in *Theory*
@@ -41,7 +41,7 @@ First, we will use a query kinase (EGFR) to fetch all available structures and e
   - Show the structure with `nglview`
   - Show all kinase-bound ligands with `rdkit`
   - Explore profiling data for Gefitinib
-- Explore random kinase in KLIFS (show example structure and all bound ligands)
+- Explore a random kinase in KLIFS
 
 
 ### References

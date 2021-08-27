@@ -2,14 +2,14 @@
 
 Authors:
 
-- Jaime Rodríguez-Guerra, Volkamer Lab, Charité
-- Dominique Sydow, Volkamer Lab, Charité
-- David Schaller, Volkamer Lab, Charité
+- Jaime Rodríguez-Guerra, 2020-2021, [Volkamer lab, Charité](https://volkamerlab.org/)
+- Dominique Sydow, 2021, [Volkamer lab, Charité](https://volkamerlab.org/)
+- David Schaller, 2021, [Volkamer lab, Charité](https://volkamerlab.org/)
 
 
 ## Aim of this talktorial
 
-In this notebook, you will learn how to programmatically use online web-services from Python, always in the context of drug design. By the end of this talktorial, you will be familiar with REST services and web scraping.
+In this notebook, you will learn how to programmatically use online web-services from Python, in the context of drug design. By the end of this talktorial, you will be familiar with REST services and web scraping.
 
 
 ### Contents in Theory

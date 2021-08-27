@@ -2,16 +2,17 @@
 
 Authors:
 
-- Jaime Rodríguez-Guerra, [Volkamer lab, Charité](https://volkamerlab.org/)  
-- Dominique Sydow, [Volkamer lab, Charité](https://volkamerlab.org/)  
-- Michele Wichmann, [Volkamer lab, Charité](https://volkamerlab.org/)  
+- Jaime Rodríguez-Guerra, 2019-20, [Volkamer lab, Charité](https://volkamerlab.org/)  
+- Dominique Sydow, 2019-20, [Volkamer lab, Charité](https://volkamerlab.org/)  
+- Michele Wichmann, 2019-20, student work at [Volkamer lab, Charité](https://volkamerlab.org/)  
 - Maria Trofimova, CADD seminar, 2020, Charité/FU Berlin  
-- David Schaller, [Volkamer lab, Charité](https://volkamerlab.org/)  
+- David Schaller, 2020-21, [Volkamer lab, Charité](https://volkamerlab.org/)  
+- Andrea Volkamer, 2021, [Volkamer lab, Charité](https://volkamerlab.org/)  
 
 
 ## Aim of this talktorial
 
-In this talktorial, we will use molecular docking to predict the binding mode of a small molecule in a protein binding site. The epidermal growth factor receptor (EGFR) will serve as a model system to explain important steps of a molecular docking workflow with the docking software Smina.
+In this talktorial, we will use molecular docking to predict the binding mode of a small molecule in a protein binding site. The epidermal growth factor receptor ([EGFR](https://www.uniprot.org/uniprot/P00533)) will serve as a model system to explain important steps of a molecular docking workflow with the docking software [Smina](https://sourceforge.net/projects/smina/), a fork of Autodock Vina.
 
 
 ### Contents in *Theory*
@@ -35,13 +36,18 @@ In this talktorial, we will use molecular docking to predict the binding mode of
 
 
 ### References
-- Pagadala et al. 2017 _Software for molecular docking: a review_ ([_Biophy Rev_ (2017), __9__, 91-102](https://doi.org/10.1007/s12551-016-0247-1))
-- Meng et al. 2011 _Molecular Docking: A Powerful Approach for Structure-Based Drug Discovery_ ([_Curr Comput Aided Drug Des_ (2011), __7__, 2, 146-157](https://doi.org/10.2174/157340911795677602))
-- Gromski et al. 2019 _How to explore chemical space using algorithms and automation_ ([_Nat Rev Chem_ (2019), __3__, 119-128](https://doi.org/10.1038/s41570-018-0066-y))
-- Warren et al. 2006 _A critical assessment of docking programs and scoring functions_ ([_J Med Chem_ (2006), __49__, 20, 5912-31](https://doi.org/10.1021/jm050362n))
-- Wang et al. 2016 _Comprehensive evaluation of ten docking programs on a diverse set of protein-ligand complexes: the prediction accuracy of sampling power and scoring power_ ([_Phys Chem Chem Phys_ (2016), __18__, 18, 12964-75](https://doi.org/10.1039/c6cp01555g))
-- Koes et al. 2013 _Lessons Learned in Empirical Scoring with smina from the CSAR 2011 Benchmarking Exercise_ ([_J Chem Inf Model_ (2013), __53__, 8, 1893-1904](https://doi.org/10.1021/ci300604z))
-- Fischer et al. 2021 _Decision Making in Structure-Based Drug Discovery: Visual Inspection of Docking Results_ ([_J Med Chem_ (2021)](https://doi.org/10.1021/acs.jmedchem.0c02227))
-- [OpenBabel](http://openbabel.org/wiki/Main_Page)
-- [Smina](https://sourceforge.net/projects/smina/)
-- [NGLView](http://nglviewer.org/nglview/latest/)
+- Molecular docking:
+    - Pagadala _et al._, [_Biophy Rev_ (2017), __9__, 91-102](https://doi.org/10.1007/s12551-016-0247-1)
+    - Meng _et al._, [_Curr Comput Aided Drug Des_ (2011), __7__, 2, 146-157](https://doi.org/10.2174/157340911795677602)
+    - Gromski _et al._, [_Nat Rev Chem_ (2019), __3__, 119-128](https://doi.org/10.1038/s41570-018-0066-y)
+- Docking and scoring function assessment:
+    - Warren _et al._, [_J Med Chem_ (2006), __49__, 20, 5912-31](https://doi.org/10.1021/jm050362n)
+    - Wang _et al._, [_Phys Chem Chem Phys_ (2016), __18__, 18, 12964-75](https://doi.org/10.1039/c6cp01555g)
+    - Koes _et al._, [_J Chem Inf Model_ (2013), __53__, 8, 1893-1904](https://doi.org/10.1021/ci300604z)
+    - Kimber _et al._, [_Int J Mol Sci_, (2021), __22__, 9, 1-34](https://doi.org/10.3390/ijms22094435)
+    - McNutt _et al._, [_J Cheminform_ (2021), __13__, 43, 13-43](https://doi.org/10.1186/s13321-021-00522-2)
+- Visual inspection of docking results: Fischer et al., [_J Med Chem_ (2021), __64__, 5, 2489–2500](https://doi.org/10.1021/acs.jmedchem.0c02227)
+- Tools used
+    - [OpenBabel](http://openbabel.org/wiki/Main_Page)
+    - [Smina](https://sourceforge.net/projects/smina/)
+    - [NGLView](http://nglviewer.org/nglview/latest/)
