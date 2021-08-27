@@ -178,7 +178,7 @@ It will help measure the impact of the TeachOpenCADD platform and future funding
   [`beautifulsoup4`](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
 - Utilities:
   [`tqdm`](https://tqdm.github.io/),
-  [`requests_cache`](https://requests-cache.readthedocs.io/en/latest/user_guide.html),
+  [`requests_cache`](https://requests-cache.readthedocs.io),
   [`redo`](https://github.com/mozilla-releng/redo),
   [`google-colab`](https://pypi.org/project/google-colab/),
   [`condacolab`](https://pypi.org/project/condacolab/)
