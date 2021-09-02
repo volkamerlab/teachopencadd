@@ -35,7 +35,7 @@ In the context of drug design, it is important to filter candidate molecules by 
 ### References
 
 * ADME criteria ([Wikipedia](https://en.wikipedia.org/wiki/ADME) and [<i>Mol Pharm.</i> (2010), <b>7(5)</b>, 1388-1405](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3025274/))
-* [SwissADME](http://www.swissadme.ch/) webserver
+* [SwissADME](https://www.nature.com/articles/srep42717) webserver
 * What are lead compounds? ([Wikipedia](https://en.wikipedia.org/wiki/Lead_compound))
 * What is the LogP value? ([Wikipedia](https://en.wikipedia.org/wiki/Partition_coefficient))
 * Lipinski et al. "Experimental and computational approaches to estimate solubility and permeability in drug discovery and development settings." ([<i>Adv. Drug Deliv. Rev.</i> (1997), <b>23</b>, 3-25](https://www.sciencedirect.com/science/article/pii/S0169409X96004231))

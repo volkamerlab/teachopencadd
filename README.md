@@ -1,10 +1,18 @@
 # TeachOpenCADD
+A teaching platform for computer-aided drug design (CADD) using open source packages and data.
 
 [![DOI](https://img.shields.io/badge/DOI-10.1186%2Fs13321--019--0351--x-blue.svg)](https://doi.org/10.1186/s13321-019-0351-x)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2600909.svg)](https://doi.org/10.5281/zenodo.2600909)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/volkamerlab/TeachOpenCADD/master)
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/volkamerlab/teachopencadd)
 [![GH Actions CI ](https://github.com/volkamerlab/teachopencadd/workflows/CI/badge.svg)](https://github.com/volkamerlab/teachopencadd/actions?query=branch%3Amaster+workflow%3ACI)
 [![GH Actions Docs](https://github.com/volkamerlab/teachopencadd/workflows/Docs/badge.svg)](https://projects.volkamerlab.org/teachopencadd/)
+
+![GitHub closed pr](https://img.shields.io/github/issues-pr-closed-raw/volkamerlab/teachopencadd) ![GitHub open pr](https://img.shields.io/github/issues-pr-raw/volkamerlab/teachopencadd) ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/volkamerlab/teachopencadd) ![GitHub open issues](https://img.shields.io/github/issues/volkamerlab/teachopencadd)  
+![TOC](https://img.shields.io/badge/Project-TeachOpenCADD-pink)
+
 
 > 🌟 You are looking at a new release of the TeachOpenCADD repository with [major changes](https://github.com/volkamerlab/teachopencadd/pull/29).
 >
@@ -63,7 +71,7 @@ If you prefer to work in the context of a graphical interface, talktorials T001-
 
 ### Python programming introduction
 
-The TeachOpenCADD platform is not a Python programming course from scratch but teaches how to solve tasks in cheminformatics and structural bioinformatics programmatically. 
+The TeachOpenCADD platform is not a Python programming course from scratch but teaches how to solve tasks in cheminformatics and structural bioinformatics programmatically.
 If you wish to get started first with a Python programming introduction before diving into the TeachOpenCADD material, here are a few great resources to do so:
 
 - [AI in Medicine course](https://github.com/volkamerlab/ai_in_medicine) by the [Volkamer Lab](https://volkamerlab.org/) and [Ritter Lab](https://psychiatrie-psychotherapie.charite.de/metas/person/person/address_detail/ritter-7/) at the Charité: Introduction to Python basics, Jupyter Notebook, and important data science packages such as Pandas, Matplotlib and Scikit-learn
@@ -141,20 +149,39 @@ It will help measure the impact of the TeachOpenCADD platform and future funding
   [`mdanalysis`](https://www.mdanalysis.org/),
   [`biopython`](https://biopython.org/),
   [`biopandas`](http://rasbt.github.io/biopandas/),
-  [`opencadd`](https://opencadd.readthedocs.io/en/latest/)
+  [`opencadd`](https://opencadd.readthedocs.io/en/latest/),
+  [`plip`](https://github.com/pharmai/plip),
+  [`openff`](https://github.com/openforcefield/openff-toolkit),
+  [`openff-toolkit`](https://github.com/openforcefield/openff-toolkit),
+  [`openmmforcefields`](https://github.com/openmm/openmmforcefields),
+  [`pdbfixer`](https://github.com/openmm/pdbfixer),
+  [`mdanalysis`](https://www.mdanalysis.org/),
+  [`biotite`](https://www.biotite-python.org/)
 - Data science (PyData stack):
   [`numpy`](https://numpy.org/),
   [`pandas`](https://pandas.pydata.org/),
   [`scikit-learn`](https://scikit-learn.org/),
+  [`tensorflow`](https://www.tensorflow.org/),
   [`jupyter`](https://jupyter.org/),
   [`ipywidgets`](https://ipywidgets.readthedocs.io)
 - Data visualization:
   [`matplotlib`](https://matplotlib.org/), 
+  [`mpl_toolkits`](https://matplotlib.org/stable/api/toolkits/index.html),
+  [`matplotlib_venn`](https://github.com/konstantint/matplotlib-venn),
   [`seaborn`](https://seaborn.pydata.org/),
   [`nglview`](http://nglviewer.org/nglview/latest/)
 - Web services clients:
   [`pypdb`](https://github.com/williamgilpin/pypdb),
-  [`chembl_webresource_client`](https://github.com/chembl/chembl_webresource_client)
+  [`chembl_webresource_client`](https://github.com/chembl/chembl_webresource_client),
+  [`requests`](https://docs.python-requests.org/en/master/),
+  [`bravado`](https://bravado.readthedocs.io/en/stable/),
+  [`beautifulsoup4`](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+- Utilities:
+  [`tqdm`](https://tqdm.github.io/),
+  [`requests_cache`](https://requests-cache.readthedocs.io),
+  [`redo`](https://github.com/mozilla-releng/redo),
+  [`google-colab`](https://pypi.org/project/google-colab/),
+  [`condacolab`](https://pypi.org/project/condacolab/)
 - Continuous integration:
   [`pytest`](https://docs.pytest.org),
   [`nbval`](https://nbval.readthedocs.io)

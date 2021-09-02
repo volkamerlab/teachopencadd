@@ -23,12 +23,20 @@ dependencies:
   - ipywidgets>=7.5
   - nglview>=3
   - biotite
-  - mdanalysis
+  - mdanalysis>=1.0.0
   - plip
   - biopython<=1.77
+  - mdtraj
+  - openmm
+  # depends on openff-toolkit->ambertools -> not available on Windows yet!
+  # - openmmforcefields
+  - pdbfixer
   - redo
   - requests-cache
   - suds-community
+  - tensorflow>=2.0
+  - smina
+  - matplotlib-venn
   ## CI tests
   # Workaround for https://github.com/computationalmodelling/nbval/issues/153
   - pytest 5.*
@@ -48,6 +56,6 @@ dependencies:
       - black-nb
       - nbsphinx-link
       - https://github.com/jaimergp/autodocktools-prepare-py3k/archive/master.zip
-      - https://github.com/volkamerlab/opencadd/archive/b6d9c511f89ff200c45532e614f1abffa35e2ab7.zip
+      - https://github.com/volkamerlab/opencadd/archive/c860671ae88eb84afdd6ef599a4ecea9587c123c.zip
       # the package itself (teachopencadd)
       - https://github.com/volkamerlab/teachopencadd/archive/master.tar.gz

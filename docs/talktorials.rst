@@ -36,6 +36,10 @@ Ligand-based cheminformatics
    talktorials/T005_compound_clustering.nblink
    talktorials/T006_compound_maximum_common_substructures.nblink
    talktorials/T007_compound_activity_machine_learning.nblink
+   talktorials/T012_query_klifs.nblink
+   talktorials/T013_query_pubchem.nblink
+   talktorials/T021_one_hot_encoding.nblink
+   talktorials/T022_ligand_based_screening_neural_network.nblink
 
 Structural biology
 ------------------
@@ -47,3 +51,25 @@ Structural biology
    talktorials/T008_query_pdb.nblink
    talktorials/T009_compound_ensemble_pharmacophores.nblink
    talktorials/T010_binding_site_comparison.nblink
+   talktorials/T012_query_klifs.nblink
+   talktorials/T014_binding_site_detection.nblink
+   talktorials/T015_protein_ligand_docking.nblink
+   talktorials/T016_protein_ligand_interactions.nblink
+   talktorials/T017_advanced_nglview_usage.nblink
+   talktorials/T019_md_simulation.nblink
+   talktorials/T020_md_analysis.nblink
+
+
+Online APIs/servers
+-------------------
+
+.. nbgallery::
+   :name: onlineapi
+   :caption: Online API/servers for structural bioinformatics and cheminformatics
+
+   talktorials/T001_query_chembl.nblink
+   talktorials/T008_query_pdb.nblink
+   talktorials/T011_query_online_api_webservices.nblink
+   talktorials/T012_query_klifs.nblink
+   talktorials/T013_query_pubchem.nblink
+

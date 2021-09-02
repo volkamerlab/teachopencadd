@@ -43,8 +43,9 @@ requirements:
     - redo
     - requests-cache
     - suds-community
+    - smina
     # note there are some pip dependencies not available in conda yet!
-    # check /environment.yml for details
+    # check devtools/conda_envs/test_env.yml for details
 
 test:
   requires:
