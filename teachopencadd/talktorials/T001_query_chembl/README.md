@@ -39,7 +39,6 @@ Our work here will include finding compounds which were tested against a certain
     * Select target ChEMBL ID
 * Get bioactivity data
     * Fetch and download bioactivity data for target
-    * Freeze bioactivity data to ChEMBL 27
     * Preprocess and filter bioactivity data
 * Get compound data
     * Fetch and download compound data
@@ -47,6 +46,7 @@ Our work here will include finding compounds which were tested against a certain
 * Output bioactivity-compound data
     * Merge bioactivity and compound data, and add pIC50 values
     * Draw molecules with highest pIC50
+    * Freeze bioactivity data to ChEMBL 27
     * Write output file
 
 
