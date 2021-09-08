@@ -14,14 +14,13 @@ A teaching platform for computer-aided drug design (CADD) using open source pack
 ![TOC](https://img.shields.io/badge/Project-TeachOpenCADD-pink)
 
 
-> 🌟 You are looking at a new release of the TeachOpenCADD repository with [major changes](https://github.com/volkamerlab/teachopencadd/pull/29).
+> 🌟 You are looking at a new release of the TeachOpenCADD repository with [major changes](https://github.com/volkamerlab/teachopencadd/pull/29) and a lot of [new talktorials](https://github.com/volkamerlab/teachopencadd/pull/74).
 >
 > - We applied a new folder structure to the repository allowing us to offer for the first time a `teachopencadd` conda package! You can find all talktorials under `teachopencadd/talktorials`. Each directory contains a `talktorial.ipynb` notebook ready to be run!
-> - We refactored all published notebooks (T001-T010) to apply best practices to our code!
+> - We refactored all published talktorials (T001-T010) to apply best practices to our code!
+> - We doubled the amount of TeachOpenCADD talktorials, extending our collection by topics from structure-based drug design, database queries, 3D visualization, and deep learning.
 > - We proudly present our brand new [TeachOpenCADD website](https://projects.volkamerlab.org/teachopencadd/)!
->
-> We are adding new notebooks to the repository soon -
-> subscribe to the repository releases (top-right menu: `Watch` > `Releases`) to stay tuned!
+
 >
 > If you would like to continue working with the old repository structure, please refer to release [`1.3.0`](https://github.com/volkamerlab/teachopencadd/tree/v1.3.0). Downloadable [here](https://github.com/volkamerlab/teachopencadd/releases/tag/v1.3.0).
 
