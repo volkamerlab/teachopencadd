@@ -75,11 +75,11 @@
   
   
     <title>teachopencadd.utils &#8212; TeachOpenCADD 0 documentation</title>
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/material.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/material.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
@@ -136,7 +136,7 @@
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
-    <form class="md-search__form" action="../../search.html" method="GET" name="search">
+    <form class="md-search__form" action="../../search.html" method="get" name="search">
       <input type="text" class="md-search__input" name="q" placeholder="Search"
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
@@ -345,6 +345,47 @@ Helper functions and constants for the TeachOpenCADD talktorials
     random.seed(seed)
     os.environ["PYTHONHASHSEED"] = str(seed)
     np.random.seed(seed)</div>
+
+<div class="viewcode-block" id="show_pdf"><a class="viewcode-back" href="../../generated/teachopencadd.utils.show_pdf.html#teachopencadd.utils.show_pdf">[docs]</a>def show_pdf(pdf_url):
+    """ PDF viewer in notebook
+
+    Parameters
+    ----------
+    pdf_url : str
+            URL to the PDF file.
+    Notes
+    -----
+    You might need to click "File&gt; Trust this notebook for this live PDF preview to work".
+    """
+    import requests
+    from IPython.display import HTML
+
+    display(
+        HTML(
+            f"""
+    &lt;iframe src="https://docs.google.com/viewer?url={pdf_url}&amp;embedded=true"
+        frameborder="0" webkitallowfullscreen mozallowfullscreen
+        allowfullscreen width="900" height="600"&gt;
+    &lt;/iframe&gt;
+    """
+        )
+    )</div>
+
+<div class="viewcode-block" id="pdbqt_to_pdbblock"><a class="viewcode-back" href="../../generated/teachopencadd.utils.pdbqt_to_pdbblock.html#teachopencadd.utils.pdbqt_to_pdbblock">[docs]</a>def pdbqt_to_pdbblock(pdbqt):
+    """ File converter
+
+    Parameters
+    ----------
+    pdbqt :
+        pdbqt file.
+
+    """
+    lines = []
+    with open(pdbqt) as f:
+        for line in f:
+            if line[:6] in ("ATOM  ", "HETATM"):
+                lines.append(line[:67].strip())
+    return "\n".join(lines)</div>
 </pre></div>
 
           </article>
@@ -369,7 +410,7 @@ Helper functions and constants for the TeachOpenCADD talktorials
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 3.5.3.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.1.2.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

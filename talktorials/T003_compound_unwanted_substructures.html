@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="lang:clipboard.copy" content="Copy to clipboard">
@@ -75,11 +76,11 @@
   
   
     <title>T003 · Molecular filtering: unwanted substructures &#8212; TeachOpenCADD 0 documentation</title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/material.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/material.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -87,6 +88,8 @@
     <script src="../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="T004 · Ligand-based screening: compound similarity" href="T004_compound_similarity.html" />
@@ -138,7 +141,7 @@
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
-    <form class="md-search__form" action="../search.html" method="GET" name="search">
+    <form class="md-search__form" action="../search.html" method="get" name="search">
       <input type="text" class="md-search__input" name="q" placeholder="Search"
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
@@ -246,137 +249,42 @@
     
     
       <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#jcim-2019" class="md-nav__link">JCIM 2019</a>
       
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#ligand-based-cheminformatics" class="md-nav__link">Ligand-based cheminformatics</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#structural-biology" class="md-nav__link">Structural biology</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#online-apis-servers" class="md-nav__link">Online APIs/servers</a>
+      
+    
+    </li></ul>
     
     </li>
     <li class="md-nav__item">
     
     
       <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="T001_query_chembl.html" class="md-nav__link">T001 · Compound data acquisition (ChEMBL)</a>
       
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T002_compound_adme.html" class="md-nav__link">T002 · Molecular filtering: ADME and lead-likeness criteria</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> T003 · Molecular filtering: unwanted substructures </label>
-    
-      <a href="#" class="md-nav__link md-nav__link--active">T003 · Molecular filtering: unwanted substructures</a>
-      
-        
-<nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#talktorials-t003-compound-unwanted-substructures--page-root" class="md-nav__link">T003 · Molecular filtering: unwanted substructures</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in Theory</a>
-        </li>
-        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in Practical</a>
-        </li>
-        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Unwanted-substructures" class="md-nav__link">Unwanted substructures</a>
-        </li>
-        <li class="md-nav__item"><a href="#Pan-Assay-Interference-Compounds-(PAINS)" class="md-nav__link">Pan Assay Interference Compounds (PAINS)</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Load-and-visualize-data" class="md-nav__link">Load and visualize data</a>
-        </li>
-        <li class="md-nav__item"><a href="#Filter-for-PAINS" class="md-nav__link">Filter for PAINS</a>
-        </li>
-        <li class="md-nav__item"><a href="#Filter-and-highlight-unwanted-substructures" class="md-nav__link">Filter and highlight unwanted substructures</a>
-        </li>
-        <li class="md-nav__item"><a href="#Highlight-substructures" class="md-nav__link">Highlight substructures</a>
-        </li>
-        <li class="md-nav__item"><a href="#Substructure-statistics" class="md-nav__link">Substructure statistics</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
-        </li>
-        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
-        </li></ul>
-            </nav>
-        </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T003_compound_unwanted_substructures.nblink.txt">Show Source</a> </li>
-
-  </ul>
-</nav>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T004_compound_similarity.html" class="md-nav__link">T004 · Ligand-based screening: compound similarity</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T005_compound_clustering.html" class="md-nav__link">T005 · Compound clustering</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T006_compound_maximum_common_substructures.html" class="md-nav__link">T006 · Maximum common substructure</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T007_compound_activity_machine_learning.html" class="md-nav__link">T007 · Ligand-based screening: machine learning</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T008_query_pdb.html" class="md-nav__link">T008 · Protein data acquisition: Protein Data Bank (PDB)</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T009_compound_ensemble_pharmacophores.html" class="md-nav__link">T009 · Ligand-based pharmacophores</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T010_binding_site_comparison.html" class="md-nav__link">T010 · Binding site similarity and off-target prediction</a>
-      
-    
-    </li></ul>
     
     </li>
     <li class="md-nav__item">
@@ -745,7 +653,7 @@ div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
 </style>
-
+<section id="T003-·-Molecular-filtering:-unwanted-substructures">
 <h1 id="talktorials-t003-compound-unwanted-substructures--page-root">T003 · Molecular filtering: unwanted substructures<a class="headerlink" href="#talktorials-t003-compound-unwanted-substructures--page-root" title="Permalink to this headline">¶</a></h1>
 <p>Authors:</p>
 <ul class="simple">
@@ -753,17 +661,17 @@ div.rendered_html tbody tr:hover {
 <li><p>Sandra Krüger, CADD seminar, 2018, Charité/FU Berlin</p></li>
 </ul>
 <p><strong>Talktorial T003</strong>: This talktorial is part of the TeachOpenCADD pipeline described in the first TeachOpenCADD publication (<a class="reference external" href="https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x">J. Cheminform. (2019), 11, 1-7</a>), comprising of talktorials T001-T010.</p>
-
+<section id="Aim-of-this-talktorial">
 <h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this headline">¶</a></h2>
 <p>There are some substructures we prefer not to include into our screening library. In this talktorial, we learn about different types of such unwanted substructures and how to find, highlight and remove them with RDKit.</p>
-
+<section id="Contents-in-Theory">
 <h3 id="Contents-in-Theory">Contents in Theory<a class="headerlink" href="#Contents-in-Theory" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Unwanted substructures</p></li>
 <li><p>Pan Assay Interference Compounds (PAINS)</p></li>
 </ul>
-
-
+</section>
+<section id="Contents-in-Practical">
 <h3 id="Contents-in-Practical">Contents in Practical<a class="headerlink" href="#Contents-in-Practical" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Load and visualize data</p></li>
@@ -772,8 +680,8 @@ div.rendered_html tbody tr:hover {
 <li><p>Highlight substructures</p></li>
 <li><p>Substructure statistics</p></li>
 </ul>
-
-
+</section>
+<section id="References">
 <h3 id="References">References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Pan Assay Interference compounds (<a class="reference external" href="https://en.wikipedia.org/wiki/Pan-assay_interference_compounds">wikipedia</a>, <a class="reference external" href="https://pubs.acs.org/doi/abs/10.1021/jm901137j">J. Med. Chem. (2010), 53, 2719-2740</a>)</p></li>
@@ -781,29 +689,29 @@ div.rendered_html tbody tr:hover {
 <li><p>Inspired by a Teach-Discover-Treat tutorial (<a class="reference external" href="https://github.com/sriniker/TDT-tutorial-2014/blob/master/TDT_challenge_tutorial.ipynb">repository</a>)</p></li>
 <li><p>RDKit (<a class="reference external" href="https://github.com/rdkit/rdkit">repository</a>, <a class="reference external" href="https://www.rdkit.org/docs/index.html">documentation</a>)</p></li>
 </ul>
-
-
-
+</section>
+</section>
+<section id="Theory">
 <h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this headline">¶</a></h2>
-
+<section id="Unwanted-substructures">
 <h3 id="Unwanted-substructures">Unwanted substructures<a class="headerlink" href="#Unwanted-substructures" title="Permalink to this headline">¶</a></h3>
 <p>Substructures can be unfavorable, e.g., because they are toxic or reactive, due to unfavorable pharmacokinetic properties, or because they likely interfere with certain assays. Nowadays, drug discovery campaigns often involve <a class="reference external" href="https://en.wikipedia.org/wiki/High-throughput_screening">high throughput screening</a>. Filtering unwanted substructures can support assembling more efficient screening libraries, which can save time and resources.</p>
 <p>Brenk <em>et al.</em> (<a class="reference external" href="https://onlinelibrary.wiley.com/doi/full/10.1002/cmdc.200700139">Chem. Med. Chem. (2008), 3, 435-44</a>) have assembled a list of unfavorable substructures to filter their libraries used to screen for compounds to treat neglected diseases. Examples of such unwanted features are nitro groups (mutagenic), sulfates and phosphates (likely resulting in unfavorable pharmacokinetic properties), 2-halopyridines and thiols (reactive). This list of undesired substructures was published in
 the above mentioned paper and will be used in the practical part of this talktorial.</p>
-
-
+</section>
+<section id="Pan-Assay-Interference-Compounds-(PAINS)">
 <h3 id="Pan-Assay-Interference-Compounds-(PAINS)">Pan Assay Interference Compounds (PAINS)<a class="headerlink" href="#Pan-Assay-Interference-Compounds-(PAINS)" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Pan-assay_interference_compounds">PAINS</a> are compounds that often occur as hits in HTS even though they actually are false positives. PAINS show activity at numerous targets rather than one specific target. Such behavior results from unspecific binding or interaction with assay components. Baell <em>et al.</em> (<a class="reference external" href="https://pubs.acs.org/doi/abs/10.1021/jm901137j">J. Med. Chem. (2010), 53, 2719-2740</a>) focused on substructures interfering in assay signaling. They
 described substructures which can help to identify such PAINS and provided a list which can be used for substructure filtering.</p>
 <img alt="PAINS" src="../_images/PAINS_Figure.jpeg"/>
 <p>Figure 1: Specific and unspecific binding in the context of PAINS. Figure taken from <a class="reference external" href="https://commons.wikimedia.org/wiki/File:PAINS_Figure.tif">Wikipedia</a>.</p>
-
-
-
+</section>
+</section>
+<section id="Practical">
 <h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this headline">¶</a></h2>
-
+<section id="Load-and-visualize-data">
 <h3 id="Load-and-visualize-data">Load and visualize data<a class="headerlink" href="#Load-and-visualize-data" title="Permalink to this headline">¶</a></h3>
-<p>First, we import the required libraries, load our filtered dataset from <strong>Talktorial T2</strong> and draw the first molecules.</p>
+<p>First, we import the required libraries, load our filtered dataset from <strong>Talktorial T002</strong> and draw the first molecules.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -824,7 +732,7 @@ described substructures which can help to identify such PAINS and provided a lis
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-&lt;frozen importlib._bootstrap&gt;:219: RuntimeWarning: to-Python converter for boost::shared_ptr&lt;RDKit::FilterCatalogEntry const&gt; already registered; second conversion method ignored.
+&lt;frozen importlib._bootstrap&gt;:228: RuntimeWarning: to-Python converter for boost::shared_ptr&lt;RDKit::FilterCatalogEntry const&gt; already registered; second conversion method ignored.
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -860,7 +768,7 @@ described substructures which can help to identify such PAINS and provided a lis
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Dataframe shape: (4525, 10)
+Dataframe shape: (4635, 10)
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -924,19 +832,19 @@ Dataframe shape: (4525, 10)
 </tr>
 <tr>
 <th>3</th>
-<td>CHEMBL53753</td>
+<td>CHEMBL66031</td>
 <td>0.008</td>
 <td>nM</td>
-<td>CNc1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
+<td>Brc1cccc(Nc2ncnc3cc4[nH]cnc4cc23)c1</td>
 <td>11.096910</td>
 <td>True</td>
 </tr>
 <tr>
 <th>4</th>
-<td>CHEMBL66031</td>
+<td>CHEMBL53753</td>
 <td>0.008</td>
 <td>nM</td>
-<td>Brc1cccc(Nc2ncnc3cc4[nH]cnc4cc23)c1</td>
+<td>CNc1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
 <td>11.096910</td>
 <td>True</td>
 </tr>
@@ -967,8 +875,8 @@ Dataframe shape: (4525, 10)
 <img alt="../_images/talktorials_T003_compound_unwanted_substructures_15_0.png" src="../_images/talktorials_T003_compound_unwanted_substructures_15_0.png"/>
 </div>
 </div>
-
-
+</section>
+<section id="Filter-for-PAINS">
 <h3 id="Filter-for-PAINS">Filter for PAINS<a class="headerlink" href="#Filter-for-PAINS" title="Permalink to this headline">¶</a></h3>
 <p>The PAINS filter is already implemented in RDKit (<a class="reference external" href="http://rdkit.org/docs/source/rdkit.Chem.rdfiltercatalog.html">documentation</a>). Such pre-defined filters can be applied via the <code class="docutils literal notranslate"><span class="pre">FilterCatalog</span></code> class. Let’s learn how it can be used.</p>
 <div class="nbinput nblast docutils container">
@@ -1012,19 +920,11 @@ Dataframe shape: (4525, 10)
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d345df241438401a8fa76a38488f30f1", "version_major": 2, "version_minor": 0}</script></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-
-</pre></div></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a4409fcdbec641e08512cd46f9b81646", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
@@ -1042,8 +942,8 @@ Dataframe shape: (4525, 10)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Number of compounds with PAINS: 396
-Number of compounds without PAINS: 4129
+Number of compounds with PAINS: 408
+Number of compounds without PAINS: 4227
 </pre></div></div>
 </div>
 <p>Let’s have a look at the first 3 identified PAINS.</p>
@@ -1067,8 +967,8 @@ Number of compounds without PAINS: 4129
 <img alt="../_images/talktorials_T003_compound_unwanted_substructures_21_0.png" src="../_images/talktorials_T003_compound_unwanted_substructures_21_0.png"/>
 </div>
 </div>
-
-
+</section>
+<section id="Filter-and-highlight-unwanted-substructures">
 <h3 id="Filter-and-highlight-unwanted-substructures">Filter and highlight unwanted substructures<a class="headerlink" href="#Filter-and-highlight-unwanted-substructures" title="Permalink to this headline">¶</a></h3>
 <p>Some lists of unwanted substructures, like PAINS, are already implemented in RDKit. However, it is also possible to use an external list and get the substructure matches manually. Here, we use the list provided in the supporting information from Brenk <em>et al.</em> (<a class="reference external" href="https://onlinelibrary.wiley.com/doi/full/10.1002/cmdc.200700139">Chem. Med. Chem. (2008), 3, 535-44</a>).</p>
 <div class="nbinput docutils container">
@@ -1098,8 +998,8 @@ Number of unwanted substructures in collection: 104
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">Chem</span><span class="o">.</span><span class="n">Draw</span><span class="o">.</span><span class="n">MolsToGridImage</span><span class="p">(</span>
-    <span class="nb">list</span><span class="p">(</span><span class="n">substructures</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">rdkit_molecule</span><span class="p">),</span>
-    <span class="n">legends</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">substructures</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">name</span><span class="p">),</span>
+    <span class="n">mols</span><span class="o">=</span><span class="n">substructures</span><span class="o">.</span><span class="n">rdkit_molecule</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">],</span>
+    <span class="n">legends</span><span class="o">=</span><span class="n">substructures</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">],</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -1143,19 +1043,11 @@ Number of unwanted substructures in collection: 104
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "6417faeadc9f471b9452cb2a0cfbc258", "version_major": 2, "version_minor": 0}</script></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-
-</pre></div></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "bb3bd89af5774ee9b9e52057c0adfde8", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
@@ -1173,14 +1065,14 @@ Number of unwanted substructures in collection: 104
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Number of found unwanted substructure: 3108
-Number of compounds without unwanted substructure: 2077
+Number of found unwanted substructure: 3232
+Number of compounds without unwanted substructure: 2089
 </pre></div></div>
 </div>
-
-
+</section>
+<section id="Highlight-substructures">
 <h3 id="Highlight-substructures">Highlight substructures<a class="headerlink" href="#Highlight-substructures" title="Permalink to this headline">¶</a></h3>
-<p>Let’s have a look at the first 3 identified unwanted substructures. Since we have access to the underlying SMARTS patterns we can highlight the substructures within the rdkit molecules.</p>
+<p>Let’s have a look at the first 3 identified unwanted substructures. Since we have access to the underlying SMARTS patterns we can highlight the substructures within the RDKit molecules.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
@@ -1205,8 +1097,8 @@ Number of compounds without unwanted substructure: 2077
 <img alt="../_images/talktorials_T003_compound_unwanted_substructures_31_0.png" src="../_images/talktorials_T003_compound_unwanted_substructures_31_0.png"/>
 </div>
 </div>
-
-
+</section>
+<section id="Substructure-statistics">
 <h3 id="Substructure-statistics">Substructure statistics<a class="headerlink" href="#Substructure-statistics" title="Permalink to this headline">¶</a></h3>
 <p>Finally, we want to find the most frequent substructure found in our data set. The Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> provides convenient methods to group containing data and to retrieve group sizes.</p>
 <div class="nbinput docutils container">
@@ -1229,22 +1121,22 @@ Number of compounds without unwanted substructure: 2077
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 substructure_name
-Michael-acceptor               1031
-Aliphatic-long-chain            487
-Oxygen-nitrogen-single-bond     352
-triple-bond                     250
-nitro-group                     172
-imine                           140
+Michael-acceptor               1113
+Aliphatic-long-chain            489
+Oxygen-nitrogen-single-bond     367
+triple-bond                     252
+nitro-group                     177
+imine                           150
 Thiocarbonyl-group              114
-aniline                          62
+aniline                          64
 halogenated-ring                 62
 conjugated-nitrile-group         59
 dtype: int64
 </pre></div></div>
 </div>
-
-
-
+</section>
+</section>
+<section id="Discussion">
 <h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this headline">¶</a></h2>
 <p>In this talktorial we learned two possibilities to perform a search for unwanted substructures with RDKit:</p>
 <ul class="simple">
@@ -1259,16 +1151,18 @@ use <code class="docutils literal notranslate"><span class="pre">GetMatches()</s
 <li><p>Either, the substructure search is applied as a filter and the compounds are excluded from further testing to save time and money.</p></li>
 <li><p>Or, they can be used as warnings, since ~5 % of FDA-approved drugs were found to contain PAINS (<a class="reference external" href="https://pubs.acs.org/doi/10.1021/acschembio.7b00903">ACS. Chem. Biol. (2018), 13, 36-44</a>). In this case experts can judge manually, if an identified substructure is critical or not.</p></li>
 </ul>
-
-
+</section>
+<section id="Quiz">
 <h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Why should we consider removing “PAINS” from a screening library? What is the issue with these compounds?</p></li>
 <li><p>Can you find situations when some unwanted substructures would not need to be removed?</p></li>
 <li><p>How are the substructures we used in this tutorial encoded?</p></li>
 </ul>
-
-
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {"1f8ab4e1052f44fbb0c08c8103af9cd6": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_f3867fd7667240bcb9f0cd2c980c756c", "style": "IPY_MODEL_3485e31d3ec34586affcdb824d29fa43", "value": " 4635/4635 [00:27&lt;00:00, 269.79it/s]"}}, "220cac4d9f614ee4a2802d460f9f7b28": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_2d52e6a56b38408c9d71bf181fd303a9", "max": 4635, "style": "IPY_MODEL_7e4b0b18ad1b464cbd396916caa97c2c", "value": 4635}}, "22b2351a426948d3b7636eee8b863dad": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "2d52e6a56b38408c9d71bf181fd303a9": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "2d77feecd80b42beb3e483923e795583": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "3485e31d3ec34586affcdb824d29fa43": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "50451bf8f3e9414ba91d8465b936e454": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_7a85b484b444480abddc6096263e39dd", "max": 4227, "style": "IPY_MODEL_d73dfdd68ed248eca3408eccd1797245", "value": 4227}}, "61549d9bbe834e73818590ad20cb5947": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "6ad2549622814b28870bc73784527264": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "7a85b484b444480abddc6096263e39dd": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "7e4b0b18ad1b464cbd396916caa97c2c": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "81bf31469aeb442aa720e871d502d8d6": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "8cfee89eb6b1442caa8ca1970072f944": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "a4409fcdbec641e08512cd46f9b81646": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_e41caae531644dcf9450006d9a995238", "IPY_MODEL_220cac4d9f614ee4a2802d460f9f7b28", "IPY_MODEL_1f8ab4e1052f44fbb0c08c8103af9cd6"], "layout": "IPY_MODEL_2d77feecd80b42beb3e483923e795583"}}, "bb3bd89af5774ee9b9e52057c0adfde8": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_d1176b1e6c4541d4bc6993ad307b9ecb", "IPY_MODEL_50451bf8f3e9414ba91d8465b936e454", "IPY_MODEL_d4cf1bea7ea446f9b17e380bb5bc15df"], "layout": "IPY_MODEL_8cfee89eb6b1442caa8ca1970072f944"}}, "c344cb6e99d144648471048ebb024b7f": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "d1176b1e6c4541d4bc6993ad307b9ecb": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_e82549c17c8f496e9913e0f6472cf179", "style": "IPY_MODEL_61549d9bbe834e73818590ad20cb5947", "value": "100%"}}, "d4cf1bea7ea446f9b17e380bb5bc15df": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_6ad2549622814b28870bc73784527264", "style": "IPY_MODEL_c344cb6e99d144648471048ebb024b7f", "value": " 4227/4227 [01:10&lt;00:00, 65.27it/s]"}}, "d73dfdd68ed248eca3408eccd1797245": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "e41caae531644dcf9450006d9a995238": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_22b2351a426948d3b7636eee8b863dad", "style": "IPY_MODEL_81bf31469aeb442aa720e871d502d8d6", "value": "100%"}}, "e82549c17c8f496e9913e0f6472cf179": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "f3867fd7667240bcb9f0cd2c980c756c": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}}, "version_major": 2, "version_minor": 0}
+</script></section>
+</section>
 
 
           </article>
@@ -1317,7 +1211,7 @@ use <code class="docutils literal notranslate"><span class="pre">GetMatches()</s
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 3.5.3.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.1.2.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

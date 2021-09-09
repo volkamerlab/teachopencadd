@@ -1,0 +1,2234 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
+
+    <style>
+      body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+    </style>
+  
+
+  <link rel="stylesheet" href="../_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="../_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#2196f3">
+  <script src="../_static/javascripts/modernizr.js"></script>
+  
+    <script async src="../_static/cookieconsent.min.js"></script>
+    <script>
+        window.addEventListener("load", function(){
+        window.cookieconsent.initialise({
+            "palette": {
+            "popup": {
+                "background": "#f0f0f0",
+                "text": "#999"
+            },
+            "button": {
+                "text": "#fff",
+                "background": "#009688"
+            }
+            },
+            "theme": "classic"
+        })});
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6ZE82CNZB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-Q6ZE82CNZB');
+    </script>
+  
+    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
+  
+  
+    <title>T022 · Ligand-based screening: neural networks &#8212; TeachOpenCADD 0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/material.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="T014 · Binding site detection" href="T014_binding_site_detection.html" />
+    <link rel="prev" title="T021 · One-Hot Encoding" href="T021_one_hot_encoding.html" />
+  
+    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
+  
+   
+
+  </head>
+  <body dir=ltr
+        data-md-color-primary=teal data-md-color-accent=cyan>
+  
+  <svg class="md-svg">
+    <defs data-children-count="0">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
+    </defs>
+  </svg>
+  
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#talktorials/T022_ligand_based_screening_neural_network" tabindex="1" class="md-skip"> Skip to content </a>
+  <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../index.html" title="TeachOpenCADD 0 documentation"
+           class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic">TeachOpenCADD (WIP 🚧)</span>
+          <span class="md-header-nav__topic"> T022 · Ligand-based screening: neural networks </span>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="../search.html" method="get" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder="Search"
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    TeachOpenCADD
+  </div>
+</a>
+          </div>
+        </div>
+      
+      
+    </div>
+  </nav>
+</header>
+
+  
+  <div class="md-container">
+    
+    
+    
+  <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+      <ul class="md-tabs__list">
+            
+            <li class="md-tabs__item"><a href="../talktorials.html" class="md-tabs__link">Our talktorials</a></li>
+            
+            <li class="md-tabs__item"><a href="../installing.html" class="md-tabs__link">Run locally</a></li>
+            
+            <li class="md-tabs__item"><a href="../contribute.html" class="md-tabs__link">Contribute</a></li>
+          <li class="md-tabs__item"><a href="../talktorials.html" class="md-tabs__link">Talktorials by collection</a></li>
+      </ul>
+    </div>
+  </nav>
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../index.html" title="TeachOpenCADD 0 documentation" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    <a href="../index.html"
+       title="TeachOpenCADD 0 documentation">TeachOpenCADD (WIP 🚧)</a>
+  </label>
+    <div class="md-nav__source">
+      <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    TeachOpenCADD
+  </div>
+</a>
+    </div>
+  
+  
+
+  
+  <ul class="md-nav__list">
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Our talktorials</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#jcim-2019" class="md-nav__link">JCIM 2019</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#ligand-based-cheminformatics" class="md-nav__link">Ligand-based cheminformatics</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#structural-biology" class="md-nav__link">Structural biology</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#online-apis-servers" class="md-nav__link">Online APIs/servers</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Run locally</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../installing.html" class="md-nav__link">Installing</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Contributors</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../contribute.html" class="md-nav__link">For contributors</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../api.html" class="md-nav__link">API Documentation</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">External resources</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../external_resources.html" class="md-nav__link">Python programming introduction</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../external_resources.html#cheminformatics-resources-collections" class="md-nav__link">Cheminformatics resources collections</a>
+      
+    
+    </li>
+  </ul>
+  
+
+</nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#talktorials-t022-ligand-based-screening-neural-network--page-root" class="md-nav__link">T022 · Ligand-based screening: neural networks</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
+        </li>
+        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
+        </li>
+        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Biological-background" class="md-nav__link">Biological background</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#EGFR-kinase" class="md-nav__link">EGFR kinase</a>
+        </li>
+        <li class="md-nav__item"><a href="#Compound-activity-measures" class="md-nav__link">Compound activity measures</a>
+        </li>
+        <li class="md-nav__item"><a href="#Molecule-encoding" class="md-nav__link">Molecule encoding</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Neural-networks" class="md-nav__link">Neural networks</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#What-is-a-neural-network?" class="md-nav__link">What is a neural network?</a>
+        </li>
+        <li class="md-nav__item"><a href="#Activation-function" class="md-nav__link">Activation function</a>
+        </li>
+        <li class="md-nav__item"><a href="#Loss-function" class="md-nav__link">Loss function</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Training-a-neural-network" class="md-nav__link">Training a neural network</a>
+        </li>
+        <li class="md-nav__item"><a href="#Keras-workflow" class="md-nav__link">Keras workflow</a>
+        </li>
+        <li class="md-nav__item"><a href="#Advantages-and-applications-of-neural-networks" class="md-nav__link">Advantages and applications of neural networks</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Data-preparation" class="md-nav__link">Data preparation</a>
+        </li>
+        <li class="md-nav__item"><a href="#Define-neural-network" class="md-nav__link">Define neural network</a>
+        </li>
+        <li class="md-nav__item"><a href="#Train-the-model" class="md-nav__link">Train the model</a>
+        </li>
+        <li class="md-nav__item"><a href="#Evaluation-&amp;-prediction-on-test-set" class="md-nav__link">Evaluation & prediction on test set</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Scatter-plot" class="md-nav__link">Scatter plot</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Prediction-on-external/unlabeled-data" class="md-nav__link">Prediction on external/unlabeled data</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Select-the-top-3-compounds" class="md-nav__link">Select the top 3 compounds</a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
+        </li>
+        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
+        </li>
+        <li class="md-nav__item"><a href="#Supplementary-section" class="md-nav__link">Supplementary section</a>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T022_ligand_based_screening_neural_network.nblink.txt">Show Source</a> </li>
+
+<li id="searchbox" class="md-nav__item"></li>
+
+  </ul>
+</nav>
+              </div>
+            </div>
+          </div>
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<section id="T022-·-Ligand-based-screening:-neural-networks">
+<h1 id="talktorials-t022-ligand-based-screening-neural-network--page-root">T022 · Ligand-based screening: neural networks<a class="headerlink" href="#talktorials-t022-ligand-based-screening-neural-network--page-root" title="Permalink to this headline">¶</a></h1>
+<p>Authors :</p>
+<ul class="simple">
+<li><p>Ahmed Atta, CADD Seminar 2020, Charité/FU Berlin</p></li>
+<li><p>Sakshi Misra, internship (2020/21), <a class="reference external" href="https://volkamerlab.org">Volkamer lab</a>, Charité</p></li>
+<li><p>Talia B. Kimber, 2020/21, <a class="reference external" href="https://volkamerlab.org">Volkamer lab</a>, Charité</p></li>
+<li><p>Andrea Volkamer, 2021, <a class="reference external" href="https://volkamerlab.org">Volkamer lab</a>, Charité</p></li>
+</ul>
+<section id="Aim-of-this-talktorial">
+<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this headline">¶</a></h2>
+<p>In recent years, the use of machine learning, and deep learning, in pharmaceutical research has shown promising results in addressing diverse problems in drug discovery. In this talktorial, we get familiar with the basics of neural networks. We will learn how to build a simple two layer neural network and train it on a subset of ChEMBL data in order to predict the pIC50 values of compounds against EGFR, the target of interest. Furthermore, we select three compounds from an external, unlabeled
+data set that are predicted to be the most active against that kinase.</p>
+<section id="Contents-in-Theory">
+<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Biological background</p>
+<ul>
+<li><p>EGFR kinase</p></li>
+<li><p>Compound activity measures</p></li>
+<li><p>Molecule encoding</p></li>
+</ul>
+</li>
+<li><p>Neural networks</p>
+<ul>
+<li><p>What is a neural network?</p></li>
+<li><p>Activation function</p></li>
+<li><p>Loss function</p></li>
+</ul>
+</li>
+<li><p>Training a neural network</p></li>
+<li><p>Keras workflow</p></li>
+<li><p>Advantages and applications of neural networks</p></li>
+</ul>
+</section>
+<section id="Contents-in-Practical">
+<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Data preparation</p></li>
+<li><p>Define neural network</p></li>
+<li><p>Train the model</p></li>
+<li><p>Evaluation &amp; prediction on test set</p>
+<ul>
+<li><p>Scatter plot</p></li>
+</ul>
+</li>
+<li><p>Prediction on external/unlabeled data</p>
+<ul>
+<li><p>Select the top 3 compounds</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="References">
+<h3 id="References">References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Theoretical background:</p>
+<ul>
+<li><p>Articles</p>
+<ul>
+<li><p>Siddharth Sharma, “Activation functions in neural networks”. <a class="reference external" href="https://www.ijeast.com/papers/310-316,Tesma412,IJEAST.pdf">International Journal of Engineering Applied Sciences and Technology, 2020 Vol. 4, Issue 12, 310-316 (2020).</a></p></li>
+<li><p>Shun-ichi Amari, “Backpropagation and stochastic gradient descent method”, <a class="reference external" href="https://doi.org/10.1016/0925-2312(93)90006-O">ScienceDirectVolume 5, Issue 4-5, 185-196</a></p></li>
+<li><p>Gisbert Schneider et al., “Artificial neural networks for computer-based molecular design”, <a class="reference external" href="https://doi.org/10.1016/S0079-6107(98)00026-1">ScienceDirectVolume 70, Issue 3, 175-222</a></p></li>
+<li><p>Filippo Amato et al., “Artificial neural networks in medical diagnosis”, <a class="reference external" href="https://doi.org/10.2478/v10136-012-0031-x">ScienceDirectVolume 11, Issue 2, 47-58</a></p></li>
+</ul>
+</li>
+<li><p>Blogposts</p>
+<ul>
+<li><p>Imad Dabbura, <em>Coding Neural Network — Forward Propagation and Backpropagtion</em>, <a class="reference external" href="https://towardsdatascience.com/coding-neural-network-forward-propagation-and-backpropagtion-ccf8cf369f76">towardsdatascience, accessed April 1st, 2018</a>.</p></li>
+<li><p>Lavanya Shukla, <em>Designing Your Neural Networks</em>, <a class="reference external" href="https://towardsdatascience.com/designing-your-neural-networks-a5e4617027ed">towardsdatascience, accessed Sep 23rd, 2019</a></p></li>
+<li><p>Arthur Arnx, <em>First neural network for beginners explained (with code)</em>, <a class="reference external" href="https://towardsdatascience.com/first-neural-network-for-beginners-explained-with-code-4cfd37e06eaf">towardsdatascience, accessed Jan 13th, 2019</a></p></li>
+<li><p>Varun Divakar, <em>Understanding Backpropagation</em>, <a class="reference external" href="https://blog.quantinsti.com/backpropagation/">QuantInst, accessed Nov 19th, 2018</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Packages:</p>
+<ul>
+<li><p><a class="reference external" href="http://rdkit.org/">rdkit</a>: Greg Landrum, <em>RDKit Documentation</em>, <a class="reference external" href="https://www.rdkit.org/UGM/2012/Landrum_RDKit_UGM.Fingerprints.Final.pptx.pdf">PDF</a>, Release on 2019.09.1.</p></li>
+<li><p><a class="reference external" href="https://keras.io/">Keras</a>: Book chapter: “An Introduction to Deep Learning and Keras” in <a class="reference external" href="https://doi.org/10.1007/978-1-4842-4240-7">Learn Keras for Deep Neural Networks (2019), page(s):1-16</a>.</p></li>
+<li><p><a class="reference external" href="https://keras.io/api/models/sequential/">Sequential model</a> in keras</p></li>
+<li><p><a class="reference external" href="https://keras.io/api/models/model_training_apis/#model-training-apis">Model training APIs</a></p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="Theory">
+<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this headline">¶</a></h2>
+<section id="Biological-background">
+<h3 id="Biological-background">Biological background<a class="headerlink" href="#Biological-background" title="Permalink to this headline">¶</a></h3>
+<section id="EGFR-kinase">
+<h4 id="EGFR-kinase">EGFR kinase<a class="headerlink" href="#EGFR-kinase" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Epidermal_growth_factor_receptor">Epidermal Growth Factor Receptor (EGFR)</a> is a transmembrane protein/receptor present on the cell membrane. It is a member of the ErbB family of receptors.</p></li>
+<li><p>EGFR plays an important role in controlling normal cell growth, apoptosis and other cellular functions.</p></li>
+<li><p>It is activated by ligand binding to its extracellular domain, upon activation EGFR undergoes a transition from an inactive monomeric form to an active homodimers.</p></li>
+<li><p>The EGFR receptor is upregulated in various types of tumors or cancers, so an EGFR inhibition is a type of biological therapy that might stop cancer cells from growing.</p></li>
+</ul>
+</section>
+<section id="Compound-activity-measures">
+<h4 id="Compound-activity-measures">Compound activity measures<a class="headerlink" href="#Compound-activity-measures" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><strong>IC50</strong> is the half maximal inhibitory concentration of a drug which indicates how much of a drug is needed to inhibit a biological process by half.</p></li>
+<li><p><strong>pIC50</strong> is the negative logarithm of the IC50 value. It is more easily interpretable than IC50 values and a common measure for potency of compounds (see <strong>Talktorial T001</strong> for further details).</p></li>
+</ul>
+</section>
+<section id="Molecule-encoding">
+<h4 id="Molecule-encoding">Molecule encoding<a class="headerlink" href="#Molecule-encoding" title="Permalink to this headline">¶</a></h4>
+<p>For machine learning algorithms, molecules need to be converted into a machine readable format, e.g. a list of features. In this notebook, molecular fingerprints are used.</p>
+<p>Molecular fingerprints encode chemical structures and molecular features in a bit string, where at each position “1” represents the presence and “0” represents the absence of a feature. One of the common fingerprints used are <strong>M</strong>olecular <strong>ACC</strong>ess <strong>S</strong>ystem fingerprints <a class="reference external" href="https://docs.eyesopen.com/toolkits/python/graphsimtk/fingerprint.html#maccs">(MACCS Keys)</a> which are 166 bits structural key descriptors in which each bit is associated with a
+<a class="reference external" href="https://docs.eyesopen.com/toolkits/python/oechemtk/glossary.html#term-smarts">SMARTS</a> pattern encoding a specific substructure (see <strong>Talktorial T004</strong> for further details).</p>
+</section>
+</section>
+<section id="Neural-networks">
+<h3 id="Neural-networks">Neural networks<a class="headerlink" href="#Neural-networks" title="Permalink to this headline">¶</a></h3>
+<section id="What-is-a-neural-network?">
+<h4 id="What-is-a-neural-network?">What is a neural network?<a class="headerlink" href="#What-is-a-neural-network?" title="Permalink to this headline">¶</a></h4>
+<p>Neural networks, also known as artificial neural networks (ANNs), are a subset of machine learning algorithms. The structure and the name of the neural network is inspired by the human brain, mimicking the way that biological neurons transfer signals to one another.</p>
+<img alt="Basic structure" src="../_images/basic_structure.png"/>
+<p><em>Figure 1:</em> The figure shows the basic structure of an artificial neural network. It is taken from the blogpost: “<em>Designing Your Neural Networks</em>”, Lavanya Shukla, <a class="reference external" href="https://towardsdatascience.com/designing-your-neural-networks-a5e4617027ed">towardsdatascience</a>.</p>
+<p>ANNs consist of three main layers as shown in the figure above: the <em>input layer</em>, some <em>hidden layers</em> and the <em>output layer</em>. Let’s take a deeper look at each of them.</p>
+<ol class="arabic simple">
+<li><p><strong>Input neurons or input layer</strong></p>
+<ul class="simple">
+<li><p>This layer represents the number of features which are used to make the predictions.</p></li>
+<li><p>The input vector needs one input neuron per feature.</p></li>
+</ul>
+</li>
+<li><p><strong>Hidden layers and neurons per hidden layer</strong></p>
+<ul class="simple">
+<li><p>The dimension of the hidden layers may vary greatly, but a good rule of thumb is to have dimensions in the range of the input layer and the output layer.</p></li>
+<li><p>In general, using the same number of neurons for all hidden layers will suffice but for some datasets, having a large first layer and following it up with smaller layers may lead to a better performance as first layers can learn many low-level features.</p></li>
+</ul>
+</li>
+<li><p><strong>Output neurons or output layer</strong></p>
+<ul class="simple">
+<li><p>The output layer represents the value of interest, which will be predicted by the neural network.</p>
+<ul>
+<li><p>Regression task: the value is a real number (or vector) such as the pIC50 value.</p></li>
+<li><p>Binary classification task: the output neuron represents the probability of belonging to the positive class.</p></li>
+<li><p>Multi-class classification task: there is one output neuron per class and the predictions represent the probability of belonging to each class. A certain activation function is applied on the output layer to ensure the final probabilities sum up to 1.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>Neurons</strong> are the core units of a neural network. Let’s look into the operations done by each neuron to understand the overall mechanism of a neural network.</p>
+<img alt="Neuron" src="../_images/neuron.png"/>
+<p><em>Figure 2:</em> Operations done by a neuron. The figure is taken from the blogpost: “<em>First neural network for beginners explained (with code)</em>”, Arthur Arnx, <a class="reference external" href="https://towardsdatascience.com/first-neural-network-for-beginners-explained-with-code-4cfd37e06eaf">towardsdatascience</a>.</p>
+<p>Each input neuron <span class="math notranslate nohighlight">\(x_i\)</span> is multiplied by a weight <span class="math notranslate nohighlight">\(w_i\)</span>. In Figure 2, we have <span class="math notranslate nohighlight">\((x1, x2, x3)\)</span> and <span class="math notranslate nohighlight">\((w1, w2, w3)\)</span>. The value of a weight determines the influence that the input neuron will have on the neuron of the next layer. The multiplied values are then summed. An additional value, called bias, is also added and allows to shift the activation function. This new value becomes the value of the hidden neuron. Mathematically, we have:</p>
+<div class="math notranslate nohighlight">
+\[h = (w1*x1 + w2*x2 + w3*x3) + b = \sum_i ^ 3w_i*x_i+ b\]</div>
+<p>An activation function, discussed in greater details in the next section, is then applied to the hidden neuron to determine if the neuronal value should be activated or not. An activated neuron transmits data to the neuron of the next layer. In this manner, the data is propagated through the network which is known as <a class="reference external" href="https://en.wikipedia.org/wiki/Feedforward_neural_network">forward propagation</a>.</p>
+<p>The weights and biases in a neural network are referred to as <em>learnable parameters</em>. They are tuned when training the model to obtain a good performance.</p>
+</section>
+<section id="Activation-function">
+<h4 id="Activation-function">Activation function<a class="headerlink" href="#Activation-function" title="Permalink to this headline">¶</a></h4>
+<p><strong>What is an activation function?</strong></p>
+<p>An <a class="reference external" href="https://en.wikipedia.org/wiki/Activation_function">activation function</a> regulates the amount of information passed through a neural network. This function is applied to each neuron and determines whether the neuron should be activated or not. It works as a “gate” between the input feeding the current neuron and its output going to the next layer as shown in the figure below.</p>
+<img alt="Activation" src="../_images/activation.png"/>
+<p><em>Figure 3:</em> The figure shows an activation function applied on a neuron. It is taken from the blogpost: <a class="reference external" href="https://xzz201920.medium.com/activation-functions-linear-non-linear-in-deep-learning-relu-sigmoid-softmax-swish-leaky-relu-a6333be712ea">Activation Functions (Linear/Non-linear) in Deep Learning</a></p>
+<p><strong>Types of activation function</strong></p>
+<p>There are many types of activation functions, but we only discuss the two which we use in the practical section below. For more information, see the supplementary section and references. Most neural networks use non-linear activation functions in the hidden layers to learn complex features and adapt to a variety of data.</p>
+<ol class="arabic simple">
+<li><p>Rectified Linear Unit (ReLU)</p></li>
+</ol>
+<ul class="simple">
+<li><p>It takes the form: <span class="math notranslate nohighlight">\(\boxed{f(x) = max\{ 0, x\}}\)</span>.</p></li>
+<li><p>As shown in the figure below, <a class="reference external" href="https://machinelearningmastery.com/rectified-linear-activation-function-for-deep-learning-neural-networks/">ReLU</a> outputs <span class="math notranslate nohighlight">\(x\)</span>, if <span class="math notranslate nohighlight">\(x\)</span> is positive and <span class="math notranslate nohighlight">\(0\)</span> otherwise. The range of ReLU is <span class="math notranslate nohighlight">\([0, +\infty)\)</span>.</p></li>
+<li><p>One of the reasons it is commonly used is its sparsity: only few neurons will be activated and thereby making the activations sparse and efficient.</p></li>
+<li><p>It has become the default activation function for many types of neural networks because it makes the training of a model less expensive and the model often achieves better performance.</p></li>
+<li><p>A possible drawback of ReLU is the so-called <em>dying ReLU problem</em> where neurons get stuck as inactive for all inputs, it is a form of <a class="reference external" href="https://en.wikipedia.org/wiki/Vanishing_gradient_problem">vanishing gradient problem</a>.</p></li>
+</ul>
+<img alt="ReLU" src="../_images/relu.png"/>
+<p><em>Figure 4:</em> Representation of the <em>ReLU</em> function. Figure by Sakshi Misra.</p>
+<ol class="arabic simple" start="2">
+<li><p>Linear activation function</p></li>
+</ol>
+<ul class="simple">
+<li><p>A <a class="reference external" href="https://keras.io/api/layers/core_layers/dense/">linear activation function</a> takes the form: <span class="math notranslate nohighlight">\(\boxed{a(x) = x}\)</span>.</p></li>
+<li><p>It is the most appropriate activation function in a regression setting, since there is no constraint on the output.</p></li>
+</ul>
+</section>
+<section id="Loss-function">
+<h4 id="Loss-function">Loss function<a class="headerlink" href="#Loss-function" title="Permalink to this headline">¶</a></h4>
+<p>When training a neural network, the aim is to optimize the prediction error, i.e. the difference between the true value and the value predicted by the model. The prediction error can be written as a function, known as the objective function, cost function, or <strong>loss function</strong>. The goal is therefore to minimize the loss function, in other words, to find local minima. The loss function is one of the important components in training a neural network. For more details on loss functions, please
+refer to the blogpost: <a class="reference external" href="https://machinelearningmastery.com/loss-and-loss-functions-for-training-deep-learning-neural-networks/">Loss and Loss Functions for Training Deep Learning Neural Networks</a>. Two commonly used loss functions in regression tasks are</p>
+<ol class="arabic simple">
+<li><p>the <strong>Mean Squared Error (MSE)</strong>: As the name suggests, this loss is calculated by taking the mean of the squared differences between the true and predicted values.</p></li>
+<li><p>the <strong>Mean Absolute Error (MAE)</strong>: The loss is calculated by taking the mean of the absolute difference between the true and predicted values.</p></li>
+</ol>
+</section>
+</section>
+<section id="Training-a-neural-network">
+<h3 id="Training-a-neural-network">Training a neural network<a class="headerlink" href="#Training-a-neural-network" title="Permalink to this headline">¶</a></h3>
+<p>When starting with a neural network, the parameters, i.e. the weights and biases, are randomly initialized. The inputs are then fed into the network and produce an output. However, the corresponding output will most likely be very different from the true value. In other words, the prediction error will be very poor: the loss function is far from being minimal. Therefore, the initial parameters have to be optimized to obtain better predictions.</p>
+<p>To this end, we need to minimize the loss function. An efficient way to find such a minimum is to use the <a class="reference external" href="https://en.wikipedia.org/wiki/Gradient_descent#:~:text=Gradient%20descent%20is%20a%20first,the%20direction%20of%20steepest%20descent.">gradient descent</a> algorithm. This optimization scheme is iterative and uses both the derivative of the loss function (or gradient in the multivariate case) and a learning rate. The main idea behind the algorithm is to follow the steepest direction of the
+function, obtained with the gradient and managing the length of each step with the learning rate. The latter is often referred to as a hyperparameter, which can be tuned using cross-validation (more details in future talktorials).</p>
+<p>In training neural networks, it is very common to use <em>back-propagation</em>, which is a way of efficiently obtaining the gradients using the chain-rule for differentiation.</p>
+<p>In summary, after each forward pass through a network, back-propagation performs a backward pass while adjusting the model’s parameters in order to minimize the loss function.</p>
+<p><strong>Computation cost</strong></p>
+<p>If the data set used is very large, computing the gradient of the loss function can be very expensive. A way to solve this issue is to use instead a sample, or mini-batch, of the training data at a time, known as <a class="reference external" href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent">Stochastic Gradient Descent (SGD)</a> or <em>Mini-Batch Stochastic Gradient Descent</em>.</p>
+</section>
+<section id="Keras-workflow">
+<h3 id="Keras-workflow">Keras workflow<a class="headerlink" href="#Keras-workflow" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://keras.io/getting_started/">Keras</a> is an open-source library for machine learning and more specifically neural networks. Its API runs on top of the very well-known <a class="reference external" href="https://www.tensorflow.org/">tensorflow</a> deep learning platform.</p>
+<p>Below, we present a common workflow for training a neural network with <a class="reference external" href="https://keras.io/getting_started/">keras</a>.</p>
+<ul class="simple">
+<li><p><strong>Prepare the data</strong> − Foremost for any machine learning algorithm, we process, filter and select only the required information from the data. Then, the data is split into training and test data sets. The test data is used to evaluate the prediction of the algorithm and to cross check the efficiency of the learning process.</p></li>
+<li><p><strong>Define the model</strong> - In keras, every ANN is represented by keras <a class="reference external" href="https://keras.io/api/models/model/#model-class">models</a>. Keras provides a way to create a model which is called <a class="reference external" href="https://keras.io/api/models/sequential/">sequential</a>. The layers are arranged sequentially where the data flows from one layer to another layer in a given order until the data finally reaches the output layer. Each layer in the ANN can be represented by a <em>keras layer</em>.</p></li>
+<li><p><strong>Compile the model</strong> − The compilation is the final step in creating a model. Once the compilation is done, we can move on to the training phase. A <em>loss function</em> and an <em>optimizer</em> are required in the learning phase to define the prediction error and to minimize it, respectively. In the practical part of this talktorial, we use the mean squared error as a loss and the <a class="reference external" href="https://machinelearningmastery.com/adam-optimization-algorithm-for-deep-learning/">adam</a> optimizer, which is a popular
+version of gradient descent and has shown to give good results in a wide range of problems.</p></li>
+<li><p><strong>Fit the model</strong> - The actual learning process will be done in this phase using the training data set. We can call the <a class="reference external" href="https://keras.io/api/models/model_training_apis/#fit-method">fit()</a> method which needs several parameters such as <span class="math notranslate nohighlight">\(x\)</span> the input data, <span class="math notranslate nohighlight">\(y\)</span> the target data, the batch size, the number of epochs, etc. An <em>epoch</em> is when the entire dataset is passed forward and backward through the neural network once.</p></li>
+<li><p><strong>Evaluate model</strong> − We can evaluate the model by looking at the loss function between the predicted and true values of the test data using the <a class="reference external" href="https://keras.io/api/models/model_training_apis/#evaluate-method">evaluate()</a> method.</p>
+<ul>
+<li><p>Scatter plots are a common and simple approach to visualize the evaluation of a model. They plot the predicted vs. true values. If the fit was perfect, we should see the <span class="math notranslate nohighlight">\(y=x\)</span> line, meaning that the predicted value is exactly the true value.</p></li>
+</ul>
+</li>
+<li><p><strong>Predictions on external/unlabeled data</strong> − We make predictions based on the trained model for the external data set using the <a class="reference external" href="https://keras.io/api/models/model_training_apis/#predict-method">predict()</a> method.</p></li>
+</ul>
+</section>
+<section id="Advantages-and-applications-of-neural-networks">
+<h3 id="Advantages-and-applications-of-neural-networks">Advantages and applications of neural networks<a class="headerlink" href="#Advantages-and-applications-of-neural-networks" title="Permalink to this headline">¶</a></h3>
+<p><strong>Advantages of a neural network</strong></p>
+<ul class="simple">
+<li><p><strong>Organic learning</strong>: Neural networks have the ability to learn by extracting the important features present in the input data.</p></li>
+<li><p><strong>Non linear data processing</strong>: They have the ability to learn and model non-linear and complex relationships.</p></li>
+<li><p><strong>Time operation</strong>: The computation cost during training time can be reduced using parallelization.</p></li>
+</ul>
+<p>To learn more about advantages and disadvantages of a neural network, please refer to the article: J V Tu, “<em>Advantages and disadvantages of using artificial neural networks versus logistic regression for predicting medical outcomes</em>”, <a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/8892489/">Journal of Clinical Epidemiology, vol 49 issue 11, pages: 1225-1231</a>.</p>
+<p><strong>Applications of neural networks</strong></p>
+<p>There are various applications of neural networks in computer-aided drug design such as:</p>
+<ul class="simple">
+<li><p>Drug design and discovery</p></li>
+<li><p>Biomarker identification and/or classification</p></li>
+<li><p>Various types of cancer detection</p></li>
+<li><p>Pattern recognition</p></li>
+</ul>
+<p>Please refer to the article: Cheirdaris D.G. (2020), “<em>Artificial Neural Networks in Computer-Aided Drug Design: An Overview of Recent Advances</em>”, <a class="reference external" href="https://link.springer.com/chapter/10.1007/978-3-030-32622-7_10">GeNeDis 2018. Advances in Experimental Medicine and Biology, vol 1194. Springer</a> for more details.</p>
+</section>
+</section>
+<section id="Practical">
+<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this headline">¶</a></h2>
+<p>The first step is to import all the necessary libraries.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">warnings</span> <span class="kn">import</span> <span class="n">filterwarnings</span>
+
+<span class="c1"># Silence some expected warnings</span>
+<span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">rdkit</span> <span class="kn">import</span> <span class="n">Chem</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">MACCSkeys</span><span class="p">,</span> <span class="n">Draw</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="c1"># Neural network specific libraries</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span><span class="p">,</span> <span class="n">load_model</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.callbacks</span> <span class="kn">import</span> <span class="n">ModelCheckpoint</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Set path to this notebook</span>
+<span class="n">HERE</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">_dh</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">DATA</span> <span class="o">=</span> <span class="n">HERE</span> <span class="o">/</span> <span class="s2">"data"</span>
+</pre></div>
+</div>
+</div>
+<section id="Data-preparation">
+<h3 id="Data-preparation">Data preparation<a class="headerlink" href="#Data-preparation" title="Permalink to this headline">¶</a></h3>
+<p>Let’s load the data which is a subset of ChEMBL for EGFR. The important columns in the dataframe are:</p>
+<ul class="simple">
+<li><p>CHEMBL-ID</p></li>
+<li><p>SMILES string of the corresponding compound</p></li>
+<li><p>Measured affinity: pIC50</p></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Load data</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"CHEMBL25_activities_EGFR.csv"</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Check the dimension and missing value of the data</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Shape of dataframe : "</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Shape of dataframe :  (3906, 5)
+&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 3906 entries, 0 to 3905
+Data columns (total 5 columns):
+ #   Column            Non-Null Count  Dtype
+---  ------            --------------  -----
+ 0   chembl_id         3906 non-null   object
+ 1   IC50              3906 non-null   float64
+ 2   units             3906 non-null   object
+ 3   canonical_smiles  3906 non-null   object
+ 4   pIC50             3906 non-null   float64
+dtypes: float64(2), object(3)
+memory usage: 152.7+ KB
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Look at head</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>chembl_id</th>
+<th>IC50</th>
+<th>units</th>
+<th>canonical_smiles</th>
+<th>pIC50</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>CHEMBL207869</td>
+<td>77.0</td>
+<td>nM</td>
+<td>Clc1c(OCc2cc(F)ccc2)ccc(Nc2c(C#Cc3ncccn3)cncn2)c1</td>
+<td>7.113509</td>
+</tr>
+<tr>
+<th>1</th>
+<td>CHEMBL3940060</td>
+<td>330.0</td>
+<td>nM</td>
+<td>ClCC(=O)OCCN1C(=O)Oc2c1cc1c(Nc3cc(Cl)c(F)cc3)n...</td>
+<td>6.481486</td>
+</tr>
+<tr>
+<th>2</th>
+<td>CHEMBL3678951</td>
+<td>1.0</td>
+<td>nM</td>
+<td>FC(F)(F)c1cc(Nc2n(C(C)C)c3nc(Nc4ccc(N5CC[NH+](...</td>
+<td>9.000000</td>
+</tr>
+<tr>
+<th>3</th>
+<td>CHEMBL504034</td>
+<td>40.0</td>
+<td>nM</td>
+<td>Clc1c(OCc2cc(F)ccc2)ccc(Nc2ncnc3c2sc(C#C[C@H]2...</td>
+<td>7.397940</td>
+</tr>
+<tr>
+<th>4</th>
+<td>CHEMBL158797</td>
+<td>43000.0</td>
+<td>nM</td>
+<td>S(Sc1n(C)c2c(c1C(=O)NCC(O)CO)cccc2)c1n(C)c2c(c...</td>
+<td>4.366531</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Keep necessary columns</span>
+<span class="n">chembl_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s2">"canonical_smiles"</span><span class="p">,</span> <span class="s2">"pIC50"</span><span class="p">]]</span>
+<span class="n">chembl_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>canonical_smiles</th>
+<th>pIC50</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>Clc1c(OCc2cc(F)ccc2)ccc(Nc2c(C#Cc3ncccn3)cncn2)c1</td>
+<td>7.113509</td>
+</tr>
+<tr>
+<th>1</th>
+<td>ClCC(=O)OCCN1C(=O)Oc2c1cc1c(Nc3cc(Cl)c(F)cc3)n...</td>
+<td>6.481486</td>
+</tr>
+<tr>
+<th>2</th>
+<td>FC(F)(F)c1cc(Nc2n(C(C)C)c3nc(Nc4ccc(N5CC[NH+](...</td>
+<td>9.000000</td>
+</tr>
+<tr>
+<th>3</th>
+<td>Clc1c(OCc2cc(F)ccc2)ccc(Nc2ncnc3c2sc(C#C[C@H]2...</td>
+<td>7.397940</td>
+</tr>
+<tr>
+<th>4</th>
+<td>S(Sc1n(C)c2c(c1C(=O)NCC(O)CO)cccc2)c1n(C)c2c(c...</td>
+<td>4.366531</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p><strong>Molecular encoding</strong></p>
+<p>We convert the SMILES string to numerical data to apply a neural network. We use the already defined function <code class="docutils literal notranslate"><span class="pre">smiles_to_fp</span></code> from <strong>Talktorial T007</strong> which generates fingerprints from SMILES. The default encoding are MACCS keys with 166 bits (see <a class="reference external" href="https://github.com/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T007_compound_activity_machine_learning/talktorial.ipynb">talktorial T007</a> for more information on molecular encoding).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">smiles_to_fp</span><span class="p">(</span><span class="n">smiles</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"maccs"</span><span class="p">,</span> <span class="n">n_bits</span><span class="o">=</span><span class="mi">2048</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Encode a molecule from a SMILES string into a fingerprint.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    smiles : str</span>
+<span class="sd">        The SMILES string defining the molecule.</span>
+
+<span class="sd">    method : str</span>
+<span class="sd">        The type of fingerprint to use. Default is MACCS keys.</span>
+
+<span class="sd">    n_bits : int</span>
+<span class="sd">        The length of the fingerprint.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    array</span>
+<span class="sd">        The fingerprint array.</span>
+<span class="sd">    """</span>
+
+    <span class="c1"># Convert smiles to RDKit mol object</span>
+    <span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="n">smiles</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">"maccs"</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">MACCSkeys</span><span class="o">.</span><span class="n">GenMACCSKeys</span><span class="p">(</span><span class="n">mol</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">"morgan2"</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">GetMorganFingerprintAsBitVect</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">nBits</span><span class="o">=</span><span class="n">n_bits</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">"morgan3"</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">GetMorganFingerprintAsBitVect</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">nBits</span><span class="o">=</span><span class="n">n_bits</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Warning: Wrong method specified: </span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">."</span> <span class="s2">" Default will be used instead."</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">MACCSkeys</span><span class="o">.</span><span class="n">GenMACCSKeys</span><span class="p">(</span><span class="n">mol</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<p>Convert all SMILES strings to MACCS fingerprints.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">chembl_df</span><span class="p">[</span><span class="s2">"fingerprints_df"</span><span class="p">]</span> <span class="o">=</span> <span class="n">chembl_df</span><span class="p">[</span><span class="s2">"canonical_smiles"</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">smiles_to_fp</span><span class="p">)</span>
+
+<span class="c1"># Look at head</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Shape of dataframe:"</span><span class="p">,</span> <span class="n">chembl_df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">chembl_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Shape of dataframe: (3906, 3)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>canonical_smiles</th>
+<th>pIC50</th>
+<th>fingerprints_df</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>Clc1c(OCc2cc(F)ccc2)ccc(Nc2c(C#Cc3ncccn3)cncn2)c1</td>
+<td>7.113509</td>
+<td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
+</tr>
+<tr>
+<th>1</th>
+<td>ClCC(=O)OCCN1C(=O)Oc2c1cc1c(Nc3cc(Cl)c(F)cc3)n...</td>
+<td>6.481486</td>
+<td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
+</tr>
+<tr>
+<th>2</th>
+<td>FC(F)(F)c1cc(Nc2n(C(C)C)c3nc(Nc4ccc(N5CC[NH+](...</td>
+<td>9.000000</td>
+<td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>Next, we define <span class="math notranslate nohighlight">\(x\)</span>, the <strong>features</strong>, and <span class="math notranslate nohighlight">\(y\)</span>, the <strong>target data</strong> which will be used to train the model. In our case, features are the bit vectors and the target values are the pIC50 values of the molecules.</p>
+<p>We use <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code> from the <em>scikit-learn</em> library to split the data into 70% training and 30% test data.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Split the data into training and test set</span>
+<span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">chembl_df</span><span class="p">[</span><span class="s2">"fingerprints_df"</span><span class="p">],</span> <span class="n">chembl_df</span><span class="p">[[</span><span class="s2">"pIC50"</span><span class="p">]],</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
+<span class="p">)</span>
+
+<span class="c1"># Print the shape of training and testing data</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Shape of training data:"</span><span class="p">,</span> <span class="n">x_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Shape of test data:"</span><span class="p">,</span> <span class="n">x_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Shape of training data: (2734,)
+Shape of test data: (1172,)
+</pre></div></div>
+</div>
+</section>
+<section id="Define-neural-network">
+<h3 id="Define-neural-network">Define neural network<a class="headerlink" href="#Define-neural-network" title="Permalink to this headline">¶</a></h3>
+<p>A keras model is defined by specifying the number of neurons in the hidden layers and the activation function as arguments. For our purpose, we define a model with <em>two hidden layers</em>. We use ReLU in the hidden layers and a linear function on the output layer, since the aim is to predict pIC50 values. Finally, we compile the model using the <em>mean squared error</em> as a loss argument and <em>adam</em> as an optimizer.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">neural_network_model</span><span class="p">(</span><span class="n">hidden1</span><span class="p">,</span> <span class="n">hidden2</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Creating a neural network from two hidden layers</span>
+<span class="sd">    using ReLU as activation function in the two hidden layers</span>
+<span class="sd">    and a linear activation in the output layer.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    hidden1 : int</span>
+<span class="sd">        Number of neurons in first hidden layer.</span>
+
+<span class="sd">    hidden2: int</span>
+<span class="sd">        Number of neurons in second hidden layer.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    model</span>
+<span class="sd">        Fully connected neural network model with two hidden layers.</span>
+<span class="sd">    """</span>
+
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+    <span class="c1"># First hidden layer</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="n">hidden1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">"relu"</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"layer1"</span><span class="p">))</span>
+    <span class="c1"># Second hidden layer</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="n">hidden2</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">"relu"</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"layer2"</span><span class="p">))</span>
+    <span class="c1"># Output layer</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">"linear"</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"layer3"</span><span class="p">))</span>
+
+    <span class="c1"># Compile model</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s2">"mean_squared_error"</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s2">"adam"</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">"mse"</span><span class="p">,</span> <span class="s2">"mae"</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">model</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Train-the-model">
+<h3 id="Train-the-model">Train the model<a class="headerlink" href="#Train-the-model" title="Permalink to this headline">¶</a></h3>
+<p>We try different mini-batch sizes and plot the respective losses.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Neural network parameters</span>
+<span class="n">batch_sizes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">64</span><span class="p">]</span>
+<span class="n">nb_epoch</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">layer1_size</span> <span class="o">=</span> <span class="mi">64</span>
+<span class="n">layer2_size</span> <span class="o">=</span> <span class="mi">32</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Plot</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">color_codes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">batch</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">batch_sizes</span><span class="p">):</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">batch_sizes</span><span class="p">),</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">neural_network_model</span><span class="p">(</span><span class="n">layer1_size</span><span class="p">,</span> <span class="n">layer2_size</span><span class="p">)</span>
+
+    <span class="c1"># Fit model on x_train, y_train data</span>
+    <span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">((</span><span class="n">x_train</span><span class="p">)))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span>
+        <span class="n">y_train</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+        <span class="n">batch_size</span><span class="o">=</span><span class="n">batch</span><span class="p">,</span>
+        <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">((</span><span class="n">x_test</span><span class="p">)))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span> <span class="n">y_test</span><span class="o">.</span><span class="n">values</span><span class="p">),</span>
+        <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">epochs</span><span class="o">=</span><span class="n">nb_epoch</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s2">"loss"</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">"train"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s2">"val_loss"</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">"test"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">"train"</span><span class="p">,</span> <span class="s2">"test"</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="s2">"upper right"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"loss"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"epoch"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">"test loss = </span><span class="si">{</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">'val_loss'</span><span class="p">][</span><span class="n">nb_epoch</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, "</span> <span class="sa">f</span><span class="s2">"batch size = </span><span class="si">{</span><span class="n">batch</span><span class="si">}</span><span class="s2">"</span>
+    <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_T022_ligand_based_screening_neural_network_44_0.png" src="../_images/talktorials_T022_ligand_based_screening_neural_network_44_0.png"/>
+</div>
+</div>
+<p>From the loss plots above, a batch of size 16 seems to give the best performance.</p>
+<p>A <a class="reference external" href="https://keras.io/api/callbacks/">ModelCheckpoint callback</a> is used to save the best model/weights (in a checkpoint file) at some interval, so the model/weights can either be saved as it or be loaded later to continue the training from the state saved.</p>
+<p>Now, we train the model with a batch size of 16 (because as seen from the figure above, it has the lowest test loss) and we save the weights that give the best perfomance in the file <code class="docutils literal notranslate"><span class="pre">best_weights.hdf5</span></code>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Save the trained model</span>
+<span class="n">filepath</span> <span class="o">=</span> <span class="n">DATA</span> <span class="o">/</span> <span class="s2">"best_weights.hdf5"</span>
+<span class="n">checkpoint</span> <span class="o">=</span> <span class="n">ModelCheckpoint</span><span class="p">(</span>
+    <span class="nb">str</span><span class="p">(</span><span class="n">filepath</span><span class="p">),</span>
+    <span class="n">monitor</span><span class="o">=</span><span class="s2">"loss"</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">save_best_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">mode</span><span class="o">=</span><span class="s2">"min"</span><span class="p">,</span>
+    <span class="n">save_weights_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">callbacks_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">checkpoint</span><span class="p">]</span>
+
+<span class="c1"># Fit the model</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">((</span><span class="n">x_train</span><span class="p">)))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span>
+    <span class="n">y_train</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="n">epochs</span><span class="o">=</span><span class="n">nb_epoch</span><span class="p">,</span>
+    <span class="n">batch_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+    <span class="n">callbacks</span><span class="o">=</span><span class="n">callbacks_list</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;tensorflow.python.keras.callbacks.History at 0x7f3a78556400&gt;
+</pre></div></div>
+</div>
+</section>
+<section id="Evaluation-&amp;-prediction-on-test-set">
+<h3 id="Evaluation-&amp;-prediction-on-test-set">Evaluation &amp; prediction on test set<a class="headerlink" href="#Evaluation-&amp;-prediction-on-test-set" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="https://keras.io/api/models/model_training_apis/#evaluate-method">evaluate()</a> method is used to check the performance of our model. It reports the <strong>loss</strong> (which is the mse in our case) as well as evaluation metrics (which are the <strong>mse</strong> and <strong>mae</strong>).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Evalute the model</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Evaluate the model on the test data"</span><span class="p">)</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">((</span><span class="n">x_test</span><span class="p">))),</span> <span class="n">y_test</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">" loss: </span><span class="si">{</span><span class="n">scores</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">" mse (same as loss): </span><span class="si">{</span><span class="n">scores</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">" mae: </span><span class="si">{</span><span class="n">scores</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Evaluate the model on the test data
+ loss: 1.28
+ mse (same as loss): 1.28
+ mae: 0.85
+</pre></div></div>
+</div>
+<p>The mean absolute error on the test set is as below <span class="math notranslate nohighlight">\(1.0\)</span> which given the range of pIC50 values is pretty low.</p>
+<p>We now predict the pIC50 values on the test data.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Predict pIC50 values on x_test data</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">((</span><span class="n">x_test</span><span class="p">))))</span>
+
+<span class="c1"># Print 5 first pIC50 predicted values</span>
+<span class="n">first_5_prediction</span> <span class="o">=</span> <span class="p">[</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">y_pred</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+5.53
+7.15
+8.35
+7.92
+9.40
+</pre></div></div>
+</div>
+<section id="Scatter-plot">
+<h4 id="Scatter-plot">Scatter plot<a class="headerlink" href="#Scatter-plot" title="Permalink to this headline">¶</a></h4>
+<p>To visualize the predictions, we plot the predicted vs. the true pIC50 values on the test set.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Scatter plot</span>
+<span class="n">limits</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">15</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">"."</span><span class="p">)</span>
+<span class="n">lin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">*</span><span class="n">limits</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lin</span><span class="p">,</span> <span class="n">lin</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">"equal"</span><span class="p">,</span> <span class="n">adjustable</span><span class="o">=</span><span class="s2">"box"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Predicted values"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"True values"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Scatter plot: pIC50 values"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">limits</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">limits</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_T022_ligand_based_screening_neural_network_54_0.png" src="../_images/talktorials_T022_ligand_based_screening_neural_network_54_0.png"/>
+</div>
+</div>
+<p>As we can see, there is a positive linear relation between the predicted and true values, but the fit is far from perfect.</p>
+</section>
+</section>
+<section id="Prediction-on-external/unlabeled-data">
+<h3 id="Prediction-on-external/unlabeled-data">Prediction on external/unlabeled data<a class="headerlink" href="#Prediction-on-external/unlabeled-data" title="Permalink to this headline">¶</a></h3>
+<p>We use the trained neural network to predict the pIC50 values on the unlabeled compounds from the <code class="docutils literal notranslate"><span class="pre">test.csv</span></code>file.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Load external/unlabeled data set</span>
+<span class="n">external_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"test.csv"</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">external_data</span> <span class="o">=</span> <span class="n">external_data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">external_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>canonical_smiles</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>S(Cc1c([O-])c(OC)cc(/C=C(\C#N)/C(=O)N)c1)c1ccccc1</td>
+</tr>
+<tr>
+<th>1</th>
+<td>S=C(N)N1C(c2ccc(OC)cc2)CC(c2cc(C)c(C)cc2)=N1</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Clc1c(O)cc(-c2nn(C(C)C)c3ncnc(N)c23)cc1</td>
+</tr>
+<tr>
+<th>3</th>
+<td>O=C(/C=C/CN1CC[NH+](C)CC1)N1Cc2sc3ncnc(N[C@H](...</td>
+</tr>
+<tr>
+<th>4</th>
+<td>S(=O)(=O)(NC(=O)Cn1c(C)ncc1[N+](=O)[O-])c1ccc(...</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>We use the same <code class="docutils literal notranslate"><span class="pre">smiles_to_fp</span></code> function and convert the SMILES strings into MACCS fingerprints.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Convert SMILES strings to MACCS fingerprints</span>
+<span class="n">external_data</span><span class="p">[</span><span class="s2">"fingerprints_df"</span><span class="p">]</span> <span class="o">=</span> <span class="n">external_data</span><span class="p">[</span><span class="s2">"canonical_smiles"</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">smiles_to_fp</span><span class="p">)</span>
+
+<span class="c1"># Look at head</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Shape of dataframe : "</span><span class="p">,</span> <span class="n">external_data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">external_data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Shape of dataframe :  (60, 2)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>canonical_smiles</th>
+<th>fingerprints_df</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>S(Cc1c([O-])c(OC)cc(/C=C(\C#N)/C(=O)N)c1)c1ccccc1</td>
+<td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
+</tr>
+<tr>
+<th>1</th>
+<td>S=C(N)N1C(c2ccc(OC)cc2)CC(c2cc(C)c(C)cc2)=N1</td>
+<td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Clc1c(O)cc(-c2nn(C(C)C)c3ncnc(N)c23)cc1</td>
+<td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p><strong>Note</strong>: For reproducibility of the results, we saved one model under <code class="docutils literal notranslate"><span class="pre">ANN_model.hdf5</span></code>, with the same architecture as above. Even though the model is the same, the weights that are saved from one simulation to another might differ due to the randomness in the <em>stochastic</em> gradient algorithm. We load the ANN model weights with the <a class="reference external" href="https://keras.io/api/models/model_saving_apis/#loadmodel-function">load_model()</a> function.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Load model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">load_model</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"ANN_model.hdf5"</span><span class="p">,</span> <span class="nb">compile</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Prediction on external/unlabeled data</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">((</span><span class="n">external_data</span><span class="p">[</span><span class="s2">"fingerprints_df"</span><span class="p">])))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span> <span class="n">callbacks</span><span class="o">=</span><span class="n">callbacks_list</span>
+<span class="p">)</span>
+
+<span class="n">predicted_pIC50</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"predicted_pIC50"</span><span class="p">])</span>
+<span class="n">predicted_pIC50_df</span> <span class="o">=</span> <span class="n">external_data</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">predicted_pIC50</span><span class="p">)</span>
+
+<span class="n">predicted_pIC50_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>canonical_smiles</th>
+<th>fingerprints_df</th>
+<th>predicted_pIC50</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>S(Cc1c([O-])c(OC)cc(/C=C(\C#N)/C(=O)N)c1)c1ccccc1</td>
+<td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
+<td>5.779419</td>
+</tr>
+<tr>
+<th>1</th>
+<td>S=C(N)N1C(c2ccc(OC)cc2)CC(c2cc(C)c(C)cc2)=N1</td>
+<td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
+<td>5.483406</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Clc1c(O)cc(-c2nn(C(C)C)c3ncnc(N)c23)cc1</td>
+<td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
+<td>5.343009</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Save the predicted values in a csv file in the data folder</span>
+<span class="n">predicted_pIC50_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"predicted_pIC50_df.csv"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<section id="Select-the-top-3-compounds">
+<h4 id="Select-the-top-3-compounds">Select the top 3 compounds<a class="headerlink" href="#Select-the-top-3-compounds" title="Permalink to this headline">¶</a></h4>
+<p>We select the 3 compounds with the highest predicted pIC50 values, which could be further investigated as potential EGRF inhibitors.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Select top 3 drugs</span>
+<span class="n">predicted_pIC50_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"predicted_pIC50_df.csv"</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">top3_drug</span> <span class="o">=</span> <span class="n">predicted_pIC50_df</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">"predicted_pIC50"</span><span class="p">)</span>
+<span class="n">top3_drug</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>canonical_smiles</th>
+<th>fingerprints_df</th>
+<th>predicted_pIC50</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>9</th>
+<td>Brc1cc(Nc2ncnc3nc(NC)ccc23)ccc1</td>
+<td>[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0...</td>
+<td>8.481803</td>
+</tr>
+<tr>
+<th>53</th>
+<td>c1cc(ccc1Nc2c(c(nc[nH+]2)NCCCn3cc[nH+]c3)N)I</td>
+<td>[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0...</td>
+<td>8.144416</td>
+</tr>
+<tr>
+<th>18</th>
+<td>Clc1c(F)ccc(NC=2N=CNC=3C=2C=C(OCCCCC=C=C)C(=O)...</td>
+<td>[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0...</td>
+<td>8.120270</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Draw the drug molecules</span>
+<span class="n">highest_pIC50</span> <span class="o">=</span> <span class="n">predicted_pIC50_df</span><span class="p">[</span><span class="s2">"canonical_smiles"</span><span class="p">][</span><span class="n">top3_drug</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
+
+<span class="n">mols_EGFR</span> <span class="o">=</span> <span class="p">[</span><span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="n">smile</span><span class="p">)</span> <span class="k">for</span> <span class="n">smile</span> <span class="ow">in</span> <span class="n">highest_pIC50</span><span class="p">]</span>
+<span class="n">pIC50_EGFR</span> <span class="o">=</span> <span class="n">top3_drug</span><span class="p">[</span><span class="s2">"predicted_pIC50"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">pIC50_values</span> <span class="o">=</span> <span class="p">[(</span><span class="sa">f</span><span class="s2">"pIC50 value: </span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">pIC50_EGFR</span><span class="p">]</span>
+
+<span class="n">Draw</span><span class="o">.</span><span class="n">MolsToGridImage</span><span class="p">(</span><span class="n">mols_EGFR</span><span class="p">,</span> <span class="n">molsPerRow</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">subImgSize</span><span class="o">=</span><span class="p">(</span><span class="mi">450</span><span class="p">,</span> <span class="mi">300</span><span class="p">),</span> <span class="n">legends</span><span class="o">=</span><span class="n">pIC50_values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_T022_ligand_based_screening_neural_network_68_0.png" src="../_images/talktorials_T022_ligand_based_screening_neural_network_68_0.png"/>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="Discussion">
+<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this headline">¶</a></h2>
+<p>From above we can see that there are some similarities between the three molecules. For example, they contain an aniline and pyrimidine group, as well as several aromatic carbon rings.</p>
+<img alt="Drug similarity" src="../_images/drugs_similarity.png"/>
+<p><em>Figure 5:</em> Representing similarities between selected top three drug molecules.</p>
+<p>Since the external/unlabeled data is also taken from ChEMBL, we can double check if our predictions make sense. For example, the first compound with SMILES <code class="docutils literal notranslate"><span class="pre">Brc1cc(Nc2ncnc3nc(NC)ccc23)ccc1</span></code> and predicted pIC50 value of 8.48, has a high tested affinity against EGFR: a pIC50 value of 7.28, see entry <a class="reference external" href="https://www.ebi.ac.uk/chembl/compound_report_card/CHEMBL298637/">CHEMBL298637</a>.</p>
+<p>Using the neural network for predictive modeling has some advantages: it is not as time consuming as laboratory experiments and it is much cheaper. It also hints at the kind of molecules that could be further investigated as potential EGFR inhibitors.</p>
+<p>However, this model has some disadvantages: it highly depends on the chemical space of the training data, the parameter tuning as well as variable initialization which might affect the final results. Such a model neither provides information about the side effects of compounds nor their potential toxicity.</p>
+</section>
+<section id="Quiz">
+<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>What other hyperparameters can be tuned to get better performance results?</p></li>
+<li><p>What other activation functions and metrics can be used while defining the model?</p></li>
+<li><p>Can you think of any other visualization method to plot the predictions and observed values?</p></li>
+</ul>
+</section>
+<hr class="docutils"/>
+<section id="Supplementary-section">
+<h2 id="Supplementary-section">Supplementary section<a class="headerlink" href="#Supplementary-section" title="Permalink to this headline">¶</a></h2>
+<details><summary><p>If you are interested in more details, please keep reading this section. We define other activation and forward propagation functions to get a better understanding of the underlying concepts.</p>
+</summary><p><strong>Activation functions</strong></p>
+<p>Let’s discuss some other activation functions and define them using python.</p>
+<ol class="arabic">
+<li><p><strong>Sigmoid function :math:`sigma`</strong>: It takes the form:</p>
+<div class="math notranslate nohighlight">
+\[\boxed{\sigma(x)=\frac{1}{1+e^{−x}}}.\]</div>
+<ul class="simple">
+<li><p>The sigmoid curve looks like a <em>S</em>-shaped curve as shown in the figure below.</p></li>
+<li><p>It has a “smooth gradient” which prevents jumps in the output values and it bounds the output values between 0 and 1.</p></li>
+<li><p>It is recommended to be used only on the output layer so that the output can be interpreted as probabilities.</p></li>
+<li><p>If you notice in the figure below, for <span class="math notranslate nohighlight">\(x\)</span> values between -2.5 to 2.5, <span class="math notranslate nohighlight">\(y\)</span> values are very steep, so any small change in values of <span class="math notranslate nohighlight">\(x\)</span> in that region will cause value of <span class="math notranslate nohighlight">\(y\)</span> to change significantly. It tends to bring the activations to either side of the curve.</p></li>
+<li><p>However, for very high or very low values of <span class="math notranslate nohighlight">\(x\)</span>, there is almost no change in the <span class="math notranslate nohighlight">\(y\)</span> values, causing a <a class="reference external" href="https://towardsdatascience.com/the-vanishing-exploding-gradient-problem-in-deep-neural-networks-191358470c11">vanishing gradient</a> problem. This can cause the network to learn slowly or even refuse to learn further.</p></li>
+</ul>
+</li>
+</ol>
+<img alt="sigmoid" src="../_images/sigmoid.png"/>
+<p><em>Figure 6:</em> Representation of the sigmoid function. Figure by Sakshi Misra.</p>
+<ol class="arabic" start="2">
+<li><p><strong>Hyperbolic Tangent function or tanh</strong>: It takes the form:</p>
+<div class="math notranslate nohighlight">
+\[\boxed{f(x)= tanh(x) = \frac{e^x -  e^{-x}}{e^x + e^{-x}}}.\]</div>
+<ul class="simple">
+<li><p>It is non-linear as the sigmoid function and the output is bound between -1 and 1. Deciding between a sigmoid and a tanh depends upon on the problem at hand.</p></li>
+<li><p>Similarly to the sigmoid, it can also suffer from the vanishing gradient problem.</p></li>
+</ul>
+</li>
+</ol>
+<img alt="tanh" src="../_images/tanh.png"/>
+<p><em>Figure 7:</em> Representation of the hyperbolic tangent <em>tanh</em> function. Figure by Sakshi Misra.</p>
+<ol class="arabic" start="3">
+<li><p><strong>Leaky Rectified Linear Unit</strong>: it takes the form:</p>
+<div class="math notranslate nohighlight">
+\[\boxed{f(x)= \max\{ α ∗ x,x\}}.\]</div>
+<ul class="simple">
+<li><p>This is a variation of ReLU which has a small positive slope in the negative area.</p></li>
+<li><p>The range of Leaky ReLU is <span class="math notranslate nohighlight">\((-\infty, \infty)\)</span>.</p></li>
+<li><p>It overcomes the zero gradient issue from ReLU and assigns <span class="math notranslate nohighlight">\(\alpha\)</span> which is a small value for <span class="math notranslate nohighlight">\(x≤0\)</span>.</p></li>
+</ul>
+</li>
+</ol>
+<img alt="leaky" src="../_images/leaky.png"/>
+<p><em>Figure 8:</em> Representation of the “Leaky ReLU” function. Figure by Sakshi Misra.</p>
+<p>Which activation function do we choose?</p>
+<p>It mainly depends on the type of problem you are trying to solve and the computation cost. There are many activation functions, but the general idea remains the same. Please refer to the article by H. N. Mhaskar, <a class="reference external" href="https://papers.nips.cc/paper/1993/file/51ef186e18dc00c2d31982567235c559-Paper.pdf">How to Choose an Activation Function</a> for more details.</p>
+<p>Now we define in python the activation functions discussed above and plot them.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define activation functions that can be used in forward propagation</span>
+<span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="n">input_array</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Computes the sigmoid of the input element-wise.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    input_array : array</span>
+<span class="sd">             Input values.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    activation_function : array</span>
+<span class="sd">             Post activation output.</span>
+<span class="sd">    input_array : array</span>
+<span class="sd">             Input values.</span>
+<span class="sd">    """</span>
+    <span class="n">activation_function</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">input_array</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">activation_function</span><span class="p">,</span> <span class="n">input_array</span>
+
+
+<span class="k">def</span> <span class="nf">tanh</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Computes the hyperbolic tagent of the input element-wise.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    input_array : array</span>
+<span class="sd">             Input values.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    activation_function : array</span>
+<span class="sd">             Post activation output.</span>
+<span class="sd">    input_array : array</span>
+<span class="sd">             Input values.</span>
+<span class="sd">    """</span>
+    <span class="n">activation_function</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">input_array</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">activation_function</span><span class="p">,</span> <span class="n">input_array</span>
+
+
+<span class="k">def</span> <span class="nf">relu</span><span class="p">(</span><span class="n">input_array</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Computes the Rectified Linear Unit (ReLU) element-wise.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    input_array : array</span>
+<span class="sd">             Input values.</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    activation_function : array</span>
+<span class="sd">             Post activation output.</span>
+<span class="sd">    input_array : array</span>
+<span class="sd">             Input values.</span>
+<span class="sd">    """</span>
+    <span class="n">activation_function</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">input_array</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">activation_function</span><span class="p">,</span> <span class="n">input_array</span>
+
+
+<span class="k">def</span> <span class="nf">leaky_relu</span><span class="p">(</span><span class="n">input_array</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Computes Leaky Rectified Linear Unit element-wise.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    input_array : array</span>
+<span class="sd">             Input values.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    activation_function : array</span>
+<span class="sd">             Post activation output.</span>
+<span class="sd">    input_array : array</span>
+<span class="sd">             Input values.</span>
+<span class="sd">    """</span>
+    <span class="n">activation_function</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">*</span> <span class="n">input_array</span><span class="p">,</span> <span class="n">input_array</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">activation_function</span><span class="p">,</span> <span class="n">input_array</span>
+</pre></div>
+</div>
+<p>We can also plot all the activation functions using the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> library as shown below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the four activation functions</span>
+<span class="n">input_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Computes post-activation outputs</span>
+<span class="n">activation_sigmoid</span><span class="p">,</span> <span class="n">input_array</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">input_array</span><span class="p">)</span>
+<span class="n">activation_tanh</span><span class="p">,</span> <span class="n">input_array</span> <span class="o">=</span> <span class="n">tanh</span><span class="p">(</span><span class="n">input_array</span><span class="p">)</span>
+<span class="n">activation_relu</span><span class="p">,</span> <span class="n">input_array</span> <span class="o">=</span> <span class="n">relu</span><span class="p">(</span><span class="n">input_array</span><span class="p">)</span>
+<span class="n">activation_leaky_relu</span><span class="p">,</span> <span class="n">input_array</span> <span class="o">=</span> <span class="n">leaky_relu</span><span class="p">(</span><span class="n">input_array</span><span class="p">)</span>
+
+<span class="c1"># Plot sigmoid function</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">input_array</span><span class="p">,</span> <span class="n">activation_sigmoid</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"input(x)"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$\frac</span><span class="si">{1}</span><span class="s2">{1 + e^{-x}}$"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Sigmoid Function"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="c1"># Plot tanh function</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">input_array</span><span class="p">,</span> <span class="n">activation_tanh</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"input(x)"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$\frac{e^x - e^{-x}}{e^x + e^{-x}}$"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Hyperbolic Tangent Function"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="c1"># plot relu function</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">input_array</span><span class="p">,</span> <span class="n">activation_relu</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"input(x)"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$max\{0, x\}$"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"ReLU Function"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="c1"># plot leaky relu function</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">input_array</span><span class="p">,</span> <span class="n">activation_leaky_relu</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"input(x)"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$max\{0.1x, x\}$"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Leaky ReLU Function"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Forward Propagation</strong></p>
+<p>Now, we will define forward propagation functions using classes, to better understand the forward propagation concept.</p>
+<p>First, we define a class named <code class="docutils literal notranslate"><span class="pre">Layer_Dense</span></code>. It has two properties, <code class="docutils literal notranslate"><span class="pre">weights</span></code> and <code class="docutils literal notranslate"><span class="pre">biases</span></code>. We randomly assign their values and define a function named <code class="docutils literal notranslate"><span class="pre">forward_pass</span></code> which calculates the <em>dot product</em> of the input values and weights and adds them to the bias values. Since we know that the activation function is applied on every neuron, we create another class named <code class="docutils literal notranslate"><span class="pre">Activation_Function</span></code> using <code class="docutils literal notranslate"><span class="pre">ReLU</span></code> as an example.</p>
+<p>After defining classes and their attributes, we create an object from both classes and call the functions on our dataset. We can then print the output values which are the predicted pIC50 values.</p>
+<p><strong>Note:</strong> The predicted values will differ in every run because the weights are randomly assigned.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># create forward pass function with one hidden layer</span>
+<span class="k">class</span> <span class="nc">Layer_Dense</span><span class="p">:</span>
+    <span class="sd">"""</span>
+<span class="sd">    A class to represent a neural network</span>
+
+<span class="sd">    '''</span>
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n_inputs : int</span>
+<span class="sd">        Number of neurons in input layer</span>
+<span class="sd">    n_neurons : int</span>
+<span class="sd">        Number of neurons in hidden layer</span>
+
+<span class="sd">    Method</span>
+<span class="sd">    ------</span>
+<span class="sd">    forward_pass(inputs):</span>
+<span class="sd">        Computes the forward pass of a neural network.</span>
+<span class="sd">    """</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_inputs</span><span class="p">,</span> <span class="n">n_neurons</span><span class="p">):</span>
+        <span class="sd">"""</span>
+<span class="sd">        Constructs all the necessary attributes.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        n_inputs : int</span>
+<span class="sd">            Number of neurons in input layer</span>
+<span class="sd">        n_neurons : int</span>
+<span class="sd">            Number of neurons in hidden layer</span>
+
+<span class="sd">        """</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weights</span> <span class="o">=</span> <span class="mf">0.10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_inputs</span><span class="p">,</span> <span class="n">n_neurons</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">biases</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_neurons</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">forward_pass</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">):</span>
+        <span class="sd">"""</span>
+<span class="sd">        Compute forward pass.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        input : int</span>
+<span class="sd">            Input neurons.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None</span>
+
+<span class="sd">        """</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">output</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">weights</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">biases</span>
+
+
+<span class="k">class</span> <span class="nc">Activation_Function</span><span class="p">:</span>
+    <span class="sd">"""</span>
+<span class="sd">    A class to represent an activation function</span>
+
+<span class="sd">    Method</span>
+<span class="sd">    ------</span>
+<span class="sd">    ReLU(inputs):</span>
+<span class="sd">        Apply the ReLU activation function.</span>
+<span class="sd">    """</span>
+    <span class="k">def</span> <span class="nf">ReLU</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">):</span>
+        <span class="sd">"""</span>
+<span class="sd">        Apply the activation function to the neurons.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        input : int</span>
+<span class="sd">            Input neurons.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None</span>
+
+<span class="sd">        """</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">output</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">inputs</span><span class="p">)</span>
+
+
+<span class="c1"># object</span>
+<span class="n">layer1</span> <span class="o">=</span> <span class="n">Layer_Dense</span><span class="p">(</span><span class="mi">167</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">layer2</span> <span class="o">=</span> <span class="n">Layer_Dense</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">activation1</span> <span class="o">=</span> <span class="n">Activation_Function</span><span class="p">()</span>
+<span class="n">activation2</span> <span class="o">=</span> <span class="n">Activation_Function</span><span class="p">()</span>
+
+<span class="c1"># function calling</span>
+<span class="n">layer1</span><span class="o">.</span><span class="n">forward_pass</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">((</span><span class="n">chembl_df</span><span class="p">[</span><span class="s1">'fingerprints_df'</span><span class="p">]))))</span>
+<span class="n">layer2</span><span class="o">.</span><span class="n">forward_pass</span><span class="p">(</span><span class="n">layer1</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
+<span class="n">activation1</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(</span><span class="n">layer1</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
+<span class="n">activation2</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(</span><span class="n">layer2</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">activation2</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
+</pre></div>
+</div>
+</details><script type="application/vnd.jupyter.widget-state+json">
+{"state": {}, "version_major": 2, "version_minor": 0}
+</script></section>
+</section>
+
+
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="md-footer">
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="T021_one_hot_encoding.html" title="T021 · One-Hot Encoding"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> Previous </span> T021 · One-Hot Encoding </span>
+              </div>
+            </a>
+          
+          
+            <a href="T014_binding_site_detection.html" title="T014 · Binding site detection"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> Next </span> T014 · Binding site detection </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          
+        </a>
+        
+      </nav>
+    </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169; Copyright 2018-2021, Volkamer Lab. Project structure based on the Computational Molecular Science Python Cookiecutter version 1.1.
+              
+          </div>
+            Created using
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.1.2.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../_static/javascripts/application.js"></script>
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  </body>
+</html>

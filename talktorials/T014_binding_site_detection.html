@@ -1,0 +1,2389 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
+
+    <style>
+      body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+    </style>
+  
+
+  <link rel="stylesheet" href="../_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="../_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#2196f3">
+  <script src="../_static/javascripts/modernizr.js"></script>
+  
+    <script async src="../_static/cookieconsent.min.js"></script>
+    <script>
+        window.addEventListener("load", function(){
+        window.cookieconsent.initialise({
+            "palette": {
+            "popup": {
+                "background": "#f0f0f0",
+                "text": "#999"
+            },
+            "button": {
+                "text": "#fff",
+                "background": "#009688"
+            }
+            },
+            "theme": "classic"
+        })});
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6ZE82CNZB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-Q6ZE82CNZB');
+    </script>
+  
+    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
+  
+  
+    <title>T014 · Binding site detection &#8212; TeachOpenCADD 0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/material.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="T015 · Protein ligand docking" href="T015_protein_ligand_docking.html" />
+    <link rel="prev" title="T022 · Ligand-based screening: neural networks" href="T022_ligand_based_screening_neural_network.html" />
+  
+    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
+  
+   
+
+  </head>
+  <body dir=ltr
+        data-md-color-primary=teal data-md-color-accent=cyan>
+  
+  <svg class="md-svg">
+    <defs data-children-count="0">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
+    </defs>
+  </svg>
+  
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#talktorials/T014_binding_site_detection" tabindex="1" class="md-skip"> Skip to content </a>
+  <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../index.html" title="TeachOpenCADD 0 documentation"
+           class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic">TeachOpenCADD (WIP 🚧)</span>
+          <span class="md-header-nav__topic"> T014 · Binding site detection </span>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="../search.html" method="get" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder="Search"
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    TeachOpenCADD
+  </div>
+</a>
+          </div>
+        </div>
+      
+      
+    </div>
+  </nav>
+</header>
+
+  
+  <div class="md-container">
+    
+    
+    
+  <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+      <ul class="md-tabs__list">
+            
+            <li class="md-tabs__item"><a href="../talktorials.html" class="md-tabs__link">Our talktorials</a></li>
+            
+            <li class="md-tabs__item"><a href="../installing.html" class="md-tabs__link">Run locally</a></li>
+            
+            <li class="md-tabs__item"><a href="../contribute.html" class="md-tabs__link">Contribute</a></li>
+          <li class="md-tabs__item"><a href="../talktorials.html" class="md-tabs__link">Talktorials by collection</a></li>
+      </ul>
+    </div>
+  </nav>
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../index.html" title="TeachOpenCADD 0 documentation" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    <a href="../index.html"
+       title="TeachOpenCADD 0 documentation">TeachOpenCADD (WIP 🚧)</a>
+  </label>
+    <div class="md-nav__source">
+      <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    TeachOpenCADD
+  </div>
+</a>
+    </div>
+  
+  
+
+  
+  <ul class="md-nav__list">
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Our talktorials</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#jcim-2019" class="md-nav__link">JCIM 2019</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#ligand-based-cheminformatics" class="md-nav__link">Ligand-based cheminformatics</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#structural-biology" class="md-nav__link">Structural biology</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#online-apis-servers" class="md-nav__link">Online APIs/servers</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Run locally</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../installing.html" class="md-nav__link">Installing</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Contributors</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../contribute.html" class="md-nav__link">For contributors</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../api.html" class="md-nav__link">API Documentation</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">External resources</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../external_resources.html" class="md-nav__link">Python programming introduction</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../external_resources.html#cheminformatics-resources-collections" class="md-nav__link">Cheminformatics resources collections</a>
+      
+    
+    </li>
+  </ul>
+  
+
+</nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#talktorials-t014-binding-site-detection--page-root" class="md-nav__link">T014 · Binding site detection</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
+        </li>
+        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
+        </li>
+        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Protein-binding-sites" class="md-nav__link">Protein binding sites</a>
+        </li>
+        <li class="md-nav__item"><a href="#Binding-site-detection" class="md-nav__link">Binding site detection</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Methods-overview" class="md-nav__link">Methods overview</a>
+        </li>
+        <li class="md-nav__item"><a href="#DoGSiteScorer" class="md-nav__link">DoGSiteScorer</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Comparison-to-KLIFS-pocket" class="md-nav__link">Comparison to KLIFS pocket</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Binding-site-detection-using-DoGSiteScorer" class="md-nav__link">Binding site detection using DoGSiteScorer</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Job-submission-for-structure-of-interest" class="md-nav__link">Job submission for structure of interest</a>
+        </li>
+        <li class="md-nav__item"><a href="#Get-DoGSiteScorer-pocket-metadata" class="md-nav__link">Get DoGSiteScorer pocket metadata</a>
+        </li>
+        <li class="md-nav__item"><a href="#Pick-the-most-suitable-pocket" class="md-nav__link">Pick the most suitable pocket</a>
+        </li>
+        <li class="md-nav__item"><a href="#Get-binding-site-file-content" class="md-nav__link">Get binding site file content</a>
+        </li>
+        <li class="md-nav__item"><a href="#Investigate-detected-pocket" class="md-nav__link">Investigate detected pocket</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Comparison-between-DoGSiteScorer-and-KLIFS-pocket" class="md-nav__link">Comparison between DoGSiteScorer and KLIFS pocket</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Get-DoGSiteScorer-pocket-residues" class="md-nav__link">Get DoGSiteScorer pocket residues</a>
+        </li>
+        <li class="md-nav__item"><a href="#Get-KLIFS-pocket-residues" class="md-nav__link">Get KLIFS pocket residues</a>
+        </li>
+        <li class="md-nav__item"><a href="#Overlap-of-pocket-residues" class="md-nav__link">Overlap of pocket residues</a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
+        </li>
+        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T014_binding_site_detection.nblink.txt">Show Source</a> </li>
+
+<li id="searchbox" class="md-nav__item"></li>
+
+  </ul>
+</nav>
+              </div>
+            </div>
+          </div>
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<section id="T014-·-Binding-site-detection">
+<h1 id="talktorials-t014-binding-site-detection--page-root">T014 · Binding site detection<a class="headerlink" href="#talktorials-t014-binding-site-detection--page-root" title="Permalink to this headline">¶</a></h1>
+<p>Authors:</p>
+<ul class="simple">
+<li><p>Adapted from Abishek Laxmanan Ravi Shankar, 2019, internship at Volkamer lab</p></li>
+<li><p>Andrea Volkamer, 2020/21, <a class="reference external" href="https://volkamerlab.org/">Volkamer lab, Charité</a></p></li>
+<li><p>Dominique Sydow, 2020/21, <a class="reference external" href="https://volkamerlab.org/">Volkamer lab, Charité</a></p></li>
+</ul>
+<section id="Aim-of-this-talktorial">
+<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this headline">¶</a></h2>
+<p>The binding site of a protein is the key to its function. In this talktorial, we introduce the concepts of computational binding site detection tools using DoGSiteScorer from the <a class="reference external" href="https://proteins.plus/">protein.plus</a> web server, exemplified on an EGFR structure. Additionally, we compare the results to the pre-defined KLIFS binding site by calculating the percentage of residues in accordance between the two sets.</p>
+<section id="Contents-in-Theory">
+<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Protein binding sites</p></li>
+<li><p>Binding site detection</p>
+<ul>
+<li><p>Methods overview</p></li>
+<li><p>DoGSiteScorer</p></li>
+</ul>
+</li>
+<li><p>Comparison to KLIFS pocket</p></li>
+</ul>
+</section>
+<section id="Contents-in-Practical">
+<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Binding site detection using DoGSiteScorer</p>
+<ul>
+<li><p>Job submission of structure of interest</p></li>
+<li><p>Get DoGSiteScorer pocket metadata</p></li>
+<li><p>Pick the most suitable pocket</p></li>
+<li><p>Get best binding site file content</p></li>
+<li><p>Investigate detected pocket</p></li>
+</ul>
+</li>
+<li><p>Comparison between DoGSiteScorer and KLIFS pocket</p>
+<ul>
+<li><p>Get DoGSiteScorer pocket residues</p></li>
+<li><p>Get KLIFS pocket residues</p></li>
+<li><p>Overlap of pocket residues</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="References">
+<h3 id="References">References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Prediction, Analysis, and Comparison of Active Sites <a class="reference external" href="https://doi.org/10.1002/9783527806539.ch6g">Volkamer et al., (2018)</a>, book chapter in Applied Chemoinformatics: Achievements and Future Opportunities, Wiley</p></li>
+<li><p>DoGSiteScorer, <a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/22148551/">Volkamer et al., J.Chem.Inf.Model, (2012), 52(2):360-372</a></p></li>
+<li><p><a class="reference external" href="https://proteins.plus/">ProteinsPlus</a>: a web portal for structure analysis of macromolecules. <a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/28472372/">Fährrolfes et al., NAR, (2017), 3;45(W1)</a></p></li>
+<li><p><a class="reference external" href="https://klifs.net/">KLIFS</a>: a structural kinase-ligand interaction database, <a class="reference external" href="https://academic.oup.com/nar/article/49/D1/D562/5934416">Kanev et al., NAR, (2021), 49(D1):D562-D569</a></p></li>
+</ul>
+</section>
+</section>
+<section id="Theory">
+<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this headline">¶</a></h2>
+<section id="Protein-binding-sites">
+<h3 id="Protein-binding-sites">Protein binding sites<a class="headerlink" href="#Protein-binding-sites" title="Permalink to this headline">¶</a></h3>
+<p>Most biological processes are guided through (non-)reversible binding of molecules. Given a therapeutic target associated to a specific disease, knowing its binding site(s), i.e. the key to the proteins function, is of utmost importance for designing new drugs.</p>
+<p>Depending on the given data, e.g., no protein-ligand complex structure (x-ray) is available or one is interested in allosteric sites, binding site detection algorithms come into play. Binding sites, or in the case of enzymes rather called active sites, are cavities in 3-dimensional space, mostly on the surface of a protein structure, that serve as binding (docking) regions for ligands, peptides, or proteins. To interact with each other, the two binding partners need to be complementary
+concerning shape and physico-chemical properties (<em>key and look</em> principle).</p>
+<img alt="Binding site example" src="../_images/3w32_SP_0_0_scale025.png"/>
+<p><em>Figure 1:</em> Example of a detected binding site for EGFR kinase (PDB: <a class="reference external" href="https://www.rcsb.org/structure/3W32">3w32</a>) using DoGSiteScorer from <a class="reference external" href="https://proteins.plus">proteins.plus</a>. Protein shown as blue cartoon, ligand as sticks (carbons in gray) and binding site as violet cloud (largest subpocket SP_0_0 shown).</p>
+</section>
+<section id="Binding-site-detection">
+<h3 id="Binding-site-detection">Binding site detection<a class="headerlink" href="#Binding-site-detection" title="Permalink to this headline">¶</a></h3>
+<section id="Methods-overview">
+<h4 id="Methods-overview">Methods overview<a class="headerlink" href="#Methods-overview" title="Permalink to this headline">¶</a></h4>
+<p>If ligand information is available, i.e., a protein-ligand complex, the protein residues surrounding the ligand can simply be defined as pocket (e.g. using all protein residues within a predefined radius of the ligand atoms such as 6 Å). If the ligand is absent, prediction tools can be used for <em>in silico</em> pocket detection. These methods can be grouped on the one hand in geometry- and energy-based methods as well as on the other hand in grid-based and grid-free approaches, as outlined in Figure
+2. Note that in recent years, more and more machine or deep learning based methods have been developed (see e.g. <a class="reference external" href="https://doi.org/10.1093/bioinformatics/btx350">DeepSite</a> by Jiménez <em>et al.</em>, Bioinformatics, 2017, 33(19), 3036–3042).</p>
+<img alt="Binding site detection methods" src="../_images/Figure2_DetectionMethods_scale05.png"/>
+<p><em>Figure 2</em>: Binding site detection methods can be grouped into geometry-based and energy-based approaches as well as grid-based and grid-free approaches. Figure taken from Prediction, Analysis, and Comparison of Active Sites, <a class="reference external" href="https://doi.org/10.1002/9783527806539.ch6g">Volkamer et al., (2018)</a>, Applied Chemoinformatics: Achievements and Future Opportunities, Wiley.</p>
+<p><strong>Geometry-based approaches</strong> analyze the shape of a molecular surface to locate cavities and incorporate the 3D spatial arrangement of the atoms on the protein surface. <strong>Energy-based approaches</strong> record interactions of probes or molecular fragments with the protein, thus, favorable energetic responses are assigned to pockets. Both strategies can be performed on a Cartesian <strong>grid-based</strong> representation of the protein (i.e. checking the environment per grid point) or without
+(i.e. <strong>grid-free</strong>).</p>
+<p>In the following, an example for each of the four categories will be shortly introduced:</p>
+<ul class="simple">
+<li><p><em>Geometric, grid-based approach</em>: In <a class="reference external" href="https://doi.org/10.1016/s1093-3263(98)00002-3">LIGSITE</a> (Hendlich, <em>et al.</em>, J Mol Graph Model., 1997, 15(6):359-63, 389), a Cartesian grid (e.g. 1Å grid spacing) is spanned over the protein of interest. Each grid point is then scanned in seven direction (along the x, y and z axes as well as the four cubic diagonals) and the number of Protein-Solvent-Protein (PSP) events per point is stored (# rays restricted on both side by the protein). Finally, grid
+points that are buried (= have a high PSP value) are clustered to pockets.</p></li>
+<li><p><em>Geometric, grid-free approach</em>: In <a class="reference external" href="https://doi.org/10.1016/0263-7855(95)00073-9">SURFNET</a> (Laskowski, J Mol Graph., 1995, 13(5):323-30, 307-8), spheres are placed midway between all pairs of atoms on the protein surface directly. In case a probe clashes with any nearby atom, its radius is reduced until no overlap occurs. The resulting probes define the cavities.</p></li>
+<li><p><em>Energy, grid-based approach</em>: In <a class="reference external" href="https://doi.org/10.11234/GI1990.15.2_31">DrugSite</a> (An, <em>et al.</em>, Genome Informatics, 2004, 15(2): 31–41), the protein is embedded in a Cartesian grid and carbon probes are placed on each grid point. Then, van der Waals energies between the probe and the protein environment within 8 Å distance are calculated. Grid points with unfavorable energies, i.e., above an energy cut-off based on the mean energy and standard deviation over the whole grid, are
+discarded. Finally, grid points fulfilling this cut-off are merged to pockets.</p></li>
+<li><p><em>Energy, grid-free approach</em>: In <strong>docking</strong>-based methods, fragments (or small molecules) are docked against the protein of interest (placed and scored, for more info on docking see talktorial T015). Pockets are then assigned based on the quantity of fragments that bind to a specific area.</p></li>
+</ul>
+</section>
+<section id="DoGSiteScorer">
+<h4 id="DoGSiteScorer">DoGSiteScorer<a class="headerlink" href="#DoGSiteScorer" title="Permalink to this headline">¶</a></h4>
+<p>In this talktorial, we will use the DoGSiteScorer functionality, available within <a class="reference external" href="https://proteins.plus/">protein.plus</a>, to detect and score the pockets of a protein of interest. Thus, the algorithm will be explained in a bit more detail (see Figure 3 for a visual explanation).</p>
+<ul>
+<li><p><em>Pocket detection</em>: DoGSiteScorer incorporates a <strong>geometric</strong> and <strong>grid-based</strong> algorithm to detect pockets. The protein is embedded in a Cartesian grid, and each grid point is labeled as either 0 (free) or 1 (occupied), depending on if it lies within any protein atom’s van der Waals radius. Then, an edge-detection algorithm from image processing, a <strong>Difference of Gaussian filter</strong> (thus the name DoGSite) is invoked to identify protrusion on the protein surface (i.e. the positions on a
+protein surface where the location of a sphere-like object is favorable). Based on specific cut-off criteria, grid points with the highest intensity are selected and first clustered to subpockets, then merged to pockets.</p></li>
+<li><div class="line-block">
+<div class="line"><em>Descriptor calculation</em>: Based on the grid representation of the respective pocket as well as the surrounding protein atoms, properties describing the pocket are derived. These include properties such as volume, surface, or depth of the pocket (calculated directly from the properties of the individual grid points) as well as hyprophobicity, number of available hydrogen bond donors/acceptors or amino acid count (derived from the neighboring protein residues).</div>
+</div>
+</li>
+<li><p><em>Druggability estimates</em>: Additionally, the tool has an in-built druggability predictor. <a class="reference external" href="https://en.wikipedia.org/wiki/Druggability">Druggability</a> can be defined as the ability of a (disease-associated) target to bind - and potentially be modulated by - low molecular weight compounds (sometimes also referred to as ligandability). In DoGSiteScorer, druggablity is predicted using a support vector machine (SVM) model, trained and tested on the freely available (non-redundant) druggability
+data set (NR) DD. The DD consists of 1069 targets and each target was assigned to one of the three classes: druggable, difficult, or undruggable.</p>
+<p>For more detail on DoGSiteScorer’s druggability model, see <a class="reference external" href="https://pubs.acs.org/doi/10.1021/ci200454v">Volkamer et al., J. Chem. Inf. Model., 2012, 52, 2, 360–372</a>. For more info on the <em>druggability</em> concept itself refer to e.g. Hopkins and Groom, <a class="reference external" href="https://www.nature.com/articles/nrd892">The druggable genome</a>. Nat Rev Drug Discov 1, 727–730 (2002).</p>
+</li>
+</ul>
+<img alt="DoGSiteScorer methodology" src="../_images/3w32_DoGSite_Overview_scale05.png"/>
+<p><em>Figure 3</em>: Schematic representation of the individual steps within DoGSiteScorer: A. Pocket detection, B. descriptor calculation and C. druggability estimation. Figure newly composed based on <a class="reference external" href="https://pubs.acs.org/doi/10.1021/ci200454v">Volkamer et al., J. Chem. Inf. Model., 2012, 52(2), 360–372</a> and <a class="reference external" href="https://pubs.acs.org/doi/10.1021/ci100241y">Volkamer et al., J. Chem. Inf. Model., 2010, 50(11), 2041–2052</a>.</p>
+</section>
+</section>
+<section id="Comparison-to-KLIFS-pocket">
+<h3 id="Comparison-to-KLIFS-pocket">Comparison to KLIFS pocket<a class="headerlink" href="#Comparison-to-KLIFS-pocket" title="Permalink to this headline">¶</a></h3>
+<p>Once we obtain the binding site of interest from DoGSiteScorer, we can compare the results with any other method in order to validate it. Here, we compare it with the KLIFS binding pocket definition for our target kinase structure using the KLIFS API (see <strong>Talktorial T012</strong> for more detail).</p>
+<p><strong>KLIFS pocket definition</strong> in a nutshell: The <a class="reference external" href="https://klifs.net/">KLIFS</a> (Kinase-Ligand Interaction Fingerprints and Structures) database is a structural repository of information on over 3600 human and mouse kinase structures. The curated KLIFS data allows systematic analyses of all kinase structures and binding sites, bound ligands and protein-ligand interactions. KLIFS comes with a nomenclature of typical structural motifs within kinases (such as DFG-in/out, hinge region, …) and maps the
+binding site of all known kinases to 85 residues, defined via an elaborated multiple sequence alignment. It is possible to compare the interaction patterns of kinase-inhibitors to each other to, for example, identify crucial interactions determining kinase-inhibitor selectivity.</p>
+<p>In this talktorial, we will query the KLIFS API to return the binding pocket of a specific protein kinase structure of interest for further analysis.</p>
+</section>
+</section>
+<section id="Practical">
+<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this headline">¶</a></h2>
+<p>In this practical part, we will introduce how to query the <a class="reference external" href="https://proteins.plus">proteins.plus</a> server for binding site detection using DoGSiteScorer for our protein of interest.</p>
+<p>Import all necessary libraries.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">gzip</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">matplotlib_venn</span> <span class="kn">import</span> <span class="n">venn2</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">biopandas.pdb</span> <span class="kn">import</span> <span class="n">PandasPdb</span>
+<span class="kn">import</span> <span class="nn">nglview</span>
+
+<span class="kn">from</span> <span class="nn">opencadd.databases.klifs</span> <span class="kn">import</span> <span class="n">setup_remote</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">"display.max_columns"</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "0d3941fe933346f7bbc00191b75a1c51", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<p>Add globals to this talktorial’s path (<code class="docutils literal notranslate"><span class="pre">HERE</span></code>) and its data folder (<code class="docutils literal notranslate"><span class="pre">DATA</span></code>).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">HERE</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">_dh</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">DATA</span> <span class="o">=</span> <span class="n">HERE</span> <span class="o">/</span> <span class="s2">"data"</span>
+<span class="n">DATATMP</span> <span class="o">=</span> <span class="n">DATA</span> <span class="o">/</span> <span class="s2">"_tmp"</span>
+<span class="n">DATATMP</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<section id="Binding-site-detection-using-DoGSiteScorer">
+<h3 id="Binding-site-detection-using-DoGSiteScorer">Binding site detection using DoGSiteScorer<a class="headerlink" href="#Binding-site-detection-using-DoGSiteScorer" title="Permalink to this headline">¶</a></h3>
+<p>We first define a function to query the server for a protein of interest. Infos on the REST API can be found <a class="reference external" href="https://proteins.plus/help/dogsite_rest">here</a>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">submit_dogsitescorer_job_with_pdbid</span><span class="p">(</span><span class="n">pdb_code</span><span class="p">,</span> <span class="n">chain_id</span><span class="p">,</span> <span class="n">ligand</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Submit PDB ID to DoGSiteScorer webserver using their API and get back URL for job location.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    pdb_code : str</span>
+<span class="sd">        4-letter valid PDB ID, e.g. '3w32'.</span>
+<span class="sd">    chain_id : str</span>
+<span class="sd">        Chain ID, e.g. 'A'.</span>
+<span class="sd">    ligand : str</span>
+<span class="sd">        Name of ligand bound to PDB structure with pdb_id, e.g. 'W32_A_1101'.</span>
+<span class="sd">        Currently, the ligand name must be checked manually on the DoGSiteScorer website.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    str</span>
+<span class="sd">        Job location URL for submitted query.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Function is adapted from: https://github.com/volkamerlab/TeachOpenCADD/pull/3 (@jaimergp)</span>
+<span class="sd">    """</span>
+
+    <span class="c1"># Submit job to proteins.plus</span>
+    <span class="c1"># For details on parameters see: https://proteins.plus/help/dogsite_rest</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+        <span class="s2">"https://proteins.plus/api/dogsite_rest"</span><span class="p">,</span>
+        <span class="n">json</span><span class="o">=</span><span class="p">{</span>
+            <span class="s2">"dogsite"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">"pdbCode"</span><span class="p">:</span> <span class="n">pdb_code</span><span class="p">,</span>  <span class="c1"># PDB code of protein</span>
+                <span class="s2">"analysisDetail"</span><span class="p">:</span> <span class="s2">"1"</span><span class="p">,</span>  <span class="c1"># 1 = include subpockets in results</span>
+                <span class="s2">"bindingSitePredictionGranularity"</span><span class="p">:</span> <span class="s2">"1"</span><span class="p">,</span>  <span class="c1"># 1 = include drugablity scores</span>
+                <span class="s2">"ligand"</span><span class="p">:</span> <span class="n">ligand</span><span class="p">,</span>  <span class="c1"># if name is specified, ligand coverage is calculated</span>
+                <span class="s2">"chain"</span><span class="p">:</span> <span class="n">chain_id</span><span class="p">,</span>  <span class="c1"># if chain is specified, calculation is only performed on this chain</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">"Content-type"</span><span class="p">:</span> <span class="s2">"application/json"</span><span class="p">,</span> <span class="s2">"Accept"</span><span class="p">:</span> <span class="s2">"application/json"</span><span class="p">},</span>
+    <span class="p">)</span>
+
+    <span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">"location"</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<section id="Job-submission-for-structure-of-interest">
+<h4 id="Job-submission-for-structure-of-interest">Job submission for structure of interest<a class="headerlink" href="#Job-submission-for-structure-of-interest" title="Permalink to this headline">¶</a></h4>
+<p>Define the protein of interest. As an example, we chose an EGFR kinase structure, more details can be found in the respective PDB entry: <a class="reference external" href="https://www.rcsb.org/structure/3W32">3w32</a>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">pdb_id</span> <span class="o">=</span> <span class="s2">"3w32"</span>
+<span class="n">chain_id</span> <span class="o">=</span> <span class="s2">"A"</span>
+<span class="c1"># Ligand id manually looked-up from DoGSiteScorer within proteins.plus</span>
+<span class="c1"># Note that it is generally composed of [pdb_lig_id]_[chain_id]_[pdb_residue_id]</span>
+<span class="n">ligand_id</span> <span class="o">=</span> <span class="s2">"W32_A_1101"</span>
+</pre></div>
+</div>
+</div>
+<p>Submit the query and identify the job location (URL) on the web server for further investigation.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">job_location</span> <span class="o">=</span> <span class="n">submit_dogsitescorer_job_with_pdbid</span><span class="p">(</span><span class="n">pdb_id</span><span class="p">,</span> <span class="n">chain_id</span><span class="p">,</span> <span class="n">ligand_id</span><span class="p">)</span>
+<span class="n">job_location</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+'https://proteins.plus/api/dogsite_rest/TJMQAsXaco7EjH7JyJexe9Ls'
+</pre></div></div>
+</div>
+</section>
+<section id="Get-DoGSiteScorer-pocket-metadata">
+<h4 id="Get-DoGSiteScorer-pocket-metadata">Get DoGSiteScorer pocket metadata<a class="headerlink" href="#Get-DoGSiteScorer-pocket-metadata" title="Permalink to this headline">¶</a></h4>
+<p>We now define a function that collects all data returned by the server and stores them in a pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">get_dogsitescorer_metadata</span><span class="p">(</span><span class="n">job_location</span><span class="p">,</span> <span class="n">attempts</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Get results from a DoGSiteScorer query, i.e., the binding sites which are found over the protein surface,</span>
+<span class="sd">    in the form of a table with the details about all detected pockets.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    job_location : str</span>
+<span class="sd">        Consists of the location of a finished DoGSiteScorer job on the proteins.plus web server.</span>
+<span class="sd">    attempts : int</span>
+<span class="sd">        The time waiting for the feedback from DoGSiteScorer service.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pandas.DataFrame</span>
+<span class="sd">        Table with metadata on detected binding sites.</span>
+<span class="sd">    """</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Querying for job at URL </span><span class="si">{</span><span class="n">job_location</span><span class="si">}</span><span class="s2">..."</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+
+    <span class="k">while</span> <span class="n">attempts</span><span class="p">:</span>
+        <span class="c1"># Get job results</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">job_location</span><span class="p">)</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+        <span class="c1"># Get URL of result table file</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="k">if</span> <span class="s2">"result_table"</span> <span class="ow">in</span> <span class="n">response</span><span class="p">:</span>
+            <span class="n">result_file</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s2">"result_table"</span><span class="p">]</span>
+            <span class="k">break</span>
+        <span class="n">attempts</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"."</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+    <span class="c1"># Get result table (as string)</span>
+    <span class="n">result_table</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">result_file</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+    <span class="c1"># Load the table (csv format using "\t" as separator) with pandas DataFrame</span>
+    <span class="c1"># We cannot load the table from a string directly but from a file</span>
+    <span class="c1"># Use io.StringIO to wrap this string as file-like object as needed for read_csv method</span>
+    <span class="c1"># See more: https://docs.python.org/3/library/io.html#io.StringIO</span>
+    <span class="n">result_table_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="n">result_table</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">"name"</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">result_table_df</span>
+</pre></div>
+</div>
+</div>
+<p>All detected pockets from DoGSiteScorer web server are retrieved and a dataframe is returned containing all pocket descriptor information.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">metadata</span> <span class="o">=</span> <span class="n">get_dogsitescorer_metadata</span><span class="p">(</span><span class="n">job_location</span><span class="p">)</span>
+<span class="n">metadata</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Querying for job at URL https://proteins.plus/api/dogsite_rest/TJMQAsXaco7EjH7JyJexe9Ls...
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>lig_cov</th>
+<th>poc_cov</th>
+<th>lig_name</th>
+<th>volume</th>
+<th>enclosure</th>
+<th>surface</th>
+<th>depth</th>
+<th>surf/vol</th>
+<th>lid/hull</th>
+<th>ellVol</th>
+<th>ell c/a</th>
+<th>ell b/a</th>
+<th>siteAtms</th>
+<th>accept</th>
+<th>donor</th>
+<th>hydrophobic_interactions</th>
+<th>hydrophobicity</th>
+<th>metal</th>
+<th>Cs</th>
+<th>Ns</th>
+<th>Os</th>
+<th>Ss</th>
+<th>Xs</th>
+<th>negAA</th>
+<th>posAA</th>
+<th>polarAA</th>
+<th>apolarAA</th>
+<th>ALA</th>
+<th>ARG</th>
+<th>ASN</th>
+<th>ASP</th>
+<th>CYS</th>
+<th>GLN</th>
+<th>GLU</th>
+<th>GLY</th>
+<th>HIS</th>
+<th>ILE</th>
+<th>LEU</th>
+<th>LYS</th>
+<th>MET</th>
+<th>PHE</th>
+<th>PRO</th>
+<th>SER</th>
+<th>THR</th>
+<th>TRP</th>
+<th>TYR</th>
+<th>VAL</th>
+<th>simpleScore</th>
+<th>drugScore</th>
+</tr>
+<tr>
+<th>name</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>P_0</th>
+<td>85.48</td>
+<td>31.22</td>
+<td>W32_A_1101</td>
+<td>1422.66</td>
+<td>0.10</td>
+<td>1673.75</td>
+<td>19.26</td>
+<td>1.176493</td>
+<td>-</td>
+<td>-</td>
+<td>0.13</td>
+<td>0.67</td>
+<td>288</td>
+<td>86</td>
+<td>40</td>
+<td>71</td>
+<td>0.36</td>
+<td>0</td>
+<td>198</td>
+<td>45</td>
+<td>41</td>
+<td>4</td>
+<td>0</td>
+<td>0.10</td>
+<td>0.13</td>
+<td>0.24</td>
+<td>0.53</td>
+<td>4</td>
+<td>5</td>
+<td>2</td>
+<td>5</td>
+<td>2</td>
+<td>2</td>
+<td>1</td>
+<td>5</td>
+<td>0</td>
+<td>3</td>
+<td>12</td>
+<td>3</td>
+<td>2</td>
+<td>3</td>
+<td>3</td>
+<td>1</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>5</td>
+<td>0.63</td>
+<td>0.810023</td>
+</tr>
+<tr>
+<th>P_0_0</th>
+<td>85.48</td>
+<td>73.90</td>
+<td>W32_A_1101</td>
+<td>599.23</td>
+<td>0.06</td>
+<td>540.06</td>
+<td>17.51</td>
+<td>0.901257</td>
+<td>-</td>
+<td>-</td>
+<td>0.14</td>
+<td>0.22</td>
+<td>131</td>
+<td>35</td>
+<td>13</td>
+<td>25</td>
+<td>0.34</td>
+<td>0</td>
+<td>95</td>
+<td>16</td>
+<td>17</td>
+<td>3</td>
+<td>0</td>
+<td>0.03</td>
+<td>0.10</td>
+<td>0.28</td>
+<td>0.59</td>
+<td>1</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>2</td>
+<td>0</td>
+<td>2</td>
+<td>7</td>
+<td>1</td>
+<td>2</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+<td>0.59</td>
+<td>0.620201</td>
+</tr>
+<tr>
+<th>P_0_1</th>
+<td>3.23</td>
+<td>0.44</td>
+<td>W32_A_1101</td>
+<td>201.73</td>
+<td>0.08</td>
+<td>381.07</td>
+<td>11.36</td>
+<td>1.889010</td>
+<td>-</td>
+<td>-</td>
+<td>0.17</td>
+<td>0.25</td>
+<td>51</td>
+<td>17</td>
+<td>9</td>
+<td>10</td>
+<td>0.28</td>
+<td>0</td>
+<td>36</td>
+<td>6</td>
+<td>7</td>
+<td>2</td>
+<td>0</td>
+<td>0.08</td>
+<td>0.17</td>
+<td>0.25</td>
+<td>0.50</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>3</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0.17</td>
+<td>0.174816</td>
+</tr>
+<tr>
+<th>P_0_2</th>
+<td>0.00</td>
+<td>0.00</td>
+<td>W32_A_1101</td>
+<td>185.60</td>
+<td>0.17</td>
+<td>282.00</td>
+<td>9.35</td>
+<td>1.519397</td>
+<td>-</td>
+<td>-</td>
+<td>0.45</td>
+<td>0.55</td>
+<td>48</td>
+<td>17</td>
+<td>8</td>
+<td>12</td>
+<td>0.32</td>
+<td>0</td>
+<td>31</td>
+<td>8</td>
+<td>8</td>
+<td>1</td>
+<td>0</td>
+<td>0.17</td>
+<td>0.25</td>
+<td>0.08</td>
+<td>0.50</td>
+<td>0</td>
+<td>2</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+<td>0.13</td>
+<td>0.195695</td>
+</tr>
+<tr>
+<th>P_0_3</th>
+<td>6.45</td>
+<td>0.29</td>
+<td>W32_A_1101</td>
+<td>175.30</td>
+<td>0.15</td>
+<td>297.42</td>
+<td>9.29</td>
+<td>1.696634</td>
+<td>-</td>
+<td>-</td>
+<td>0.23</td>
+<td>0.37</td>
+<td>48</td>
+<td>16</td>
+<td>8</td>
+<td>14</td>
+<td>0.37</td>
+<td>0</td>
+<td>32</td>
+<td>8</td>
+<td>8</td>
+<td>0</td>
+<td>0</td>
+<td>0.14</td>
+<td>0.14</td>
+<td>0.36</td>
+<td>0.36</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0.13</td>
+<td>0.168845</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p><strong>Note</strong>: We selected to have pockets and subpockets returned from the algorithm, e.g. pocket <code class="docutils literal notranslate"><span class="pre">P_0</span></code> contains subpockets <code class="docutils literal notranslate"><span class="pre">P_0_0</span></code> to <code class="docutils literal notranslate"><span class="pre">P_0_5</span></code>. Depending on your research question you might prefer to work with the pockets - mostly if you are more interested in the general location (e.g. for docking) - or the subpockets, which give a more granular description.</p>
+</section>
+<section id="Pick-the-most-suitable-pocket">
+<h4 id="Pick-the-most-suitable-pocket">Pick the most suitable pocket<a class="headerlink" href="#Pick-the-most-suitable-pocket" title="Permalink to this headline">¶</a></h4>
+<p>The pockets are initially sorted by the volume of the respective pocket. We want to have a deeper look at the pocket that contains the ligand (see ligand coverage column <code class="docutils literal notranslate"><span class="pre">lig_cov</span></code>) and which is covered by the ligand the most (pocket coverage <code class="docutils literal notranslate"><span class="pre">poc_cov</span></code>).</p>
+<p>For clarity, we drop a few columns first from the dataframe.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span>
+    <span class="p">[</span>
+        <span class="s2">"lig_cov"</span><span class="p">,</span>
+        <span class="s2">"poc_cov"</span><span class="p">,</span>
+        <span class="s2">"lig_name"</span><span class="p">,</span>
+        <span class="s2">"volume"</span><span class="p">,</span>
+        <span class="s2">"enclosure"</span><span class="p">,</span>
+        <span class="s2">"surface"</span><span class="p">,</span>
+        <span class="s2">"depth"</span><span class="p">,</span>
+        <span class="s2">"surf/vol"</span><span class="p">,</span>
+        <span class="s2">"accept"</span><span class="p">,</span>
+        <span class="s2">"donor"</span><span class="p">,</span>
+        <span class="s2">"hydrophobic_interactions"</span><span class="p">,</span>
+        <span class="s2">"hydrophobicity"</span><span class="p">,</span>
+        <span class="s2">"metal"</span><span class="p">,</span>
+        <span class="s2">"simpleScore"</span><span class="p">,</span>
+        <span class="s2">"drugScore"</span><span class="p">,</span>
+    <span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<p>Sort the obtained binding site by your column of interest.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">metadata</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">"lig_cov"</span><span class="p">,</span> <span class="s2">"poc_cov"</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>lig_cov</th>
+<th>poc_cov</th>
+<th>lig_name</th>
+<th>volume</th>
+<th>enclosure</th>
+<th>surface</th>
+<th>depth</th>
+<th>surf/vol</th>
+<th>accept</th>
+<th>donor</th>
+<th>hydrophobic_interactions</th>
+<th>hydrophobicity</th>
+<th>metal</th>
+<th>simpleScore</th>
+<th>drugScore</th>
+</tr>
+<tr>
+<th>name</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>P_0_0</th>
+<td>85.48</td>
+<td>73.90</td>
+<td>W32_A_1101</td>
+<td>599.23</td>
+<td>0.06</td>
+<td>540.06</td>
+<td>17.51</td>
+<td>0.901257</td>
+<td>35</td>
+<td>13</td>
+<td>25</td>
+<td>0.34</td>
+<td>0</td>
+<td>0.59</td>
+<td>0.620201</td>
+</tr>
+<tr>
+<th>P_0</th>
+<td>85.48</td>
+<td>31.22</td>
+<td>W32_A_1101</td>
+<td>1422.66</td>
+<td>0.10</td>
+<td>1673.75</td>
+<td>19.26</td>
+<td>1.176493</td>
+<td>86</td>
+<td>40</td>
+<td>71</td>
+<td>0.36</td>
+<td>0</td>
+<td>0.63</td>
+<td>0.810023</td>
+</tr>
+<tr>
+<th>P_0_3</th>
+<td>6.45</td>
+<td>0.29</td>
+<td>W32_A_1101</td>
+<td>175.30</td>
+<td>0.15</td>
+<td>297.42</td>
+<td>9.29</td>
+<td>1.696634</td>
+<td>16</td>
+<td>8</td>
+<td>14</td>
+<td>0.37</td>
+<td>0</td>
+<td>0.13</td>
+<td>0.168845</td>
+</tr>
+<tr>
+<th>P_0_1</th>
+<td>3.23</td>
+<td>0.44</td>
+<td>W32_A_1101</td>
+<td>201.73</td>
+<td>0.08</td>
+<td>381.07</td>
+<td>11.36</td>
+<td>1.889010</td>
+<td>17</td>
+<td>9</td>
+<td>10</td>
+<td>0.28</td>
+<td>0</td>
+<td>0.17</td>
+<td>0.174816</td>
+</tr>
+<tr>
+<th>P_0_2</th>
+<td>0.00</td>
+<td>0.00</td>
+<td>W32_A_1101</td>
+<td>185.60</td>
+<td>0.17</td>
+<td>282.00</td>
+<td>9.35</td>
+<td>1.519397</td>
+<td>17</td>
+<td>8</td>
+<td>12</td>
+<td>0.32</td>
+<td>0</td>
+<td>0.13</td>
+<td>0.195695</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p><strong>Note</strong>: We decided here to select the pocket with the best ligand and pocket coverage to have a precise description of the pocket for our comparison later. In other drug design scenarios, you might want to simply sort by <code class="docutils literal notranslate"><span class="pre">drugScore</span></code> (<code class="docutils literal notranslate"><span class="pre">metadata.sort_values(by='drugScore',</span> <span class="pre">ascending=False)</span></code>) or other values, such as <code class="docutils literal notranslate"><span class="pre">volume</span></code> or <code class="docutils literal notranslate"><span class="pre">simpleScore</span></code>.</p>
+<p>We define a function that returns the ID (variable is called <code class="docutils literal notranslate"><span class="pre">best_pocket_id</span></code>) of the pocket that fullfills our sorting criterion.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">select_best_pocket</span><span class="p">(</span><span class="n">metadata</span><span class="p">,</span> <span class="n">sorted_by</span><span class="o">=</span><span class="s2">"drugScore"</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    This function uses the defined sorting parameter to identify</span>
+<span class="sd">    the best pocket among the obtained pockets.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    metadata : pd.DataFrame</span>
+<span class="sd">        Pockets retrieved from the DoGSiteScorer website</span>
+
+<span class="sd">    by : str</span>
+<span class="sd">        Method name(s) to sort table by (default is to sort by drugScore).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    str</span>
+<span class="sd">        Best binding site name.</span>
+<span class="sd">    """</span>
+
+    <span class="n">by_methods</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"drugScore"</span><span class="p">,</span> <span class="s2">"volume"</span><span class="p">,</span> <span class="s2">"simpleScore"</span><span class="p">,</span> <span class="s2">"lig_cov"</span><span class="p">,</span> <span class="s2">"poc_cov"</span><span class="p">]</span>
+
+    <span class="c1"># Sort by the selected method</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">elem</span> <span class="ow">in</span> <span class="n">by_methods</span> <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">sorted_by</span><span class="p">):</span>
+        <span class="n">sorted_pocket</span> <span class="o">=</span> <span class="n">metadata</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">sorted_by</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Selection method not in list: </span><span class="si">{</span><span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">by_methods</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+
+    <span class="c1"># Get name of best pocket</span>
+    <span class="n">best_pocket_name</span> <span class="o">=</span> <span class="n">sorted_pocket</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">name</span>
+
+    <span class="k">return</span> <span class="n">best_pocket_name</span>
+</pre></div>
+</div>
+</div>
+<p>We now programatically access the name of the best pocket based on the selected sorting.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">best_pocket_id</span> <span class="o">=</span> <span class="n">select_best_pocket</span><span class="p">(</span><span class="n">metadata</span><span class="p">,</span> <span class="p">[</span><span class="s2">"lig_cov"</span><span class="p">,</span> <span class="s2">"poc_cov"</span><span class="p">])</span>
+<span class="n">best_pocket_id</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+'P_0_0'
+</pre></div></div>
+</div>
+</section>
+<section id="Get-binding-site-file-content">
+<h4 id="Get-binding-site-file-content">Get binding site file content<a class="headerlink" href="#Get-binding-site-file-content" title="Permalink to this headline">¶</a></h4>
+<p>We define two helper functions to first get the URL for all pocket pdb or ccp4 files, respectively. Then, we only process the files further for our pocket of interest.</p>
+<p>Note that DoGSiteScorer returns two structural (3D) file formats per pocket:</p>
+<ul class="simple">
+<li><p><em>pdb</em>: These files contain all atoms/residues surrounding the pocket.</p>
+<ul>
+<li><p>Accessed via <code class="docutils literal notranslate"><span class="pre">residues</span></code></p></li>
+<li><p>Naming scheme, e.g. 3w32_P_0_0<code class="docutils literal notranslate"><span class="pre">_res.pdb</span></code></p></li>
+</ul>
+</li>
+<li><p><em>ccp4</em>: These files contain the grid points composing the pocket, also considered the <em>volume</em> of the pocket.</p>
+<ul>
+<li><p>Accessed via <code class="docutils literal notranslate"><span class="pre">pockets</span></code></p></li>
+<li><p>Naming scheme, e.g. 3w32_P_0_0<code class="docutils literal notranslate"><span class="pre">_gpsAll.ccp4.gz</span></code></p></li>
+</ul>
+</li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">get_url_for_pockets</span><span class="p">(</span><span class="n">job_location</span><span class="p">,</span> <span class="n">file_type</span><span class="o">=</span><span class="s2">"pdb"</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Get all pocket file locations for a finished DoGSiteScorer job</span>
+<span class="sd">    for a selected file type (pdb/ccp4).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    job_location : str</span>
+<span class="sd">        URL of finished job submitted to the DoGSiteScorer web server.</span>
+<span class="sd">    file_type : str</span>
+<span class="sd">        Type of file to be returned (pdb/ccp4).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list</span>
+<span class="sd">        List of all respective pocket file URLs.</span>
+<span class="sd">    """</span>
+
+    <span class="c1"># Get job results</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">job_location</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">file_type</span> <span class="o">==</span> <span class="s2">"pdb"</span><span class="p">:</span>
+        <span class="c1"># Get pocket residues</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">"residues"</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">file_type</span> <span class="o">==</span> <span class="s2">"ccp4"</span><span class="p">:</span>
+        <span class="c1"># Get pocket volumes</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">"pockets"</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"File type </span><span class="si">{</span><span class="n">file_type</span><span class="si">}</span><span class="s2"> not available."</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">get_selected_pocket_location</span><span class="p">(</span><span class="n">job_location</span><span class="p">,</span> <span class="n">best_pocket</span><span class="p">,</span> <span class="n">file_type</span><span class="o">=</span><span class="s2">"pdb"</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Get the selected binding site file location.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    job_location : str</span>
+<span class="sd">        URL of finished job submitted to the DoGSiteScorer web server.</span>
+<span class="sd">    best_pocket : str</span>
+<span class="sd">        Selected pocket id.</span>
+<span class="sd">    file_type : str</span>
+<span class="sd">        Type of file to be returned (pdb/ccp4).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    ------</span>
+<span class="sd">    str</span>
+<span class="sd">        URL of selected pocket file on the DoGSiteScorer web server.</span>
+<span class="sd">    """</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Get URL for all available pdb or ccp4 files</span>
+    <span class="n">pocket_files</span> <span class="o">=</span> <span class="n">get_url_for_pockets</span><span class="p">(</span><span class="n">job_location</span><span class="p">,</span> <span class="n">file_type</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">pocket_file</span> <span class="ow">in</span> <span class="n">pocket_files</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">file_type</span> <span class="o">==</span> <span class="s2">"pdb"</span><span class="p">:</span>
+            <span class="k">if</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">best_pocket</span><span class="si">}</span><span class="s2">_res"</span> <span class="ow">in</span> <span class="n">pocket_file</span><span class="p">:</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pocket_file</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">file_type</span> <span class="o">==</span> <span class="s2">"ccp4"</span><span class="p">:</span>
+            <span class="k">if</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">best_pocket</span><span class="si">}</span><span class="s2">_gpsAll"</span> <span class="ow">in</span> <span class="n">pocket_file</span><span class="p">:</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pocket_file</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Multiple strings detected: </span><span class="si">{</span><span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="si">}</span><span class="s1">.'</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"No string detected."</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+    <span class="k">return</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<p>Get URL for PDB file containing the selected pocket’s residues.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">selected_pocket_residues_url</span> <span class="o">=</span> <span class="n">get_selected_pocket_location</span><span class="p">(</span><span class="n">job_location</span><span class="p">,</span> <span class="n">best_pocket_id</span><span class="p">,</span> <span class="s2">"pdb"</span><span class="p">)</span>
+<span class="n">selected_pocket_residues_url</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+'https://proteins.plus/results/dogsite/TJMQAsXaco7EjH7JyJexe9Ls/3w32_P_0_0_res.pdb'
+</pre></div></div>
+</div>
+</section>
+<section id="Investigate-detected-pocket">
+<h4 id="Investigate-detected-pocket">Investigate detected pocket<a class="headerlink" href="#Investigate-detected-pocket" title="Permalink to this headline">¶</a></h4>
+<p><strong>Pocket descriptors</strong></p>
+<p>The algorithm returns information on all calculated descriptors for the respective pocket.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">metadata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">best_pocket_id</span><span class="p">]</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+lig_cov                          85.48
+poc_cov                           73.9
+lig_name                    W32_A_1101
+volume                          599.23
+enclosure                         0.06
+surface                         540.06
+depth                            17.51
+surf/vol                      0.901257
+accept                              35
+donor                               13
+hydrophobic_interactions            25
+hydrophobicity                    0.34
+metal                                0
+simpleScore                       0.59
+drugScore                     0.620201
+Name: P_0_0, dtype: object
+</pre></div></div>
+</div>
+<p><strong>Visualize the pocket</strong></p>
+<p>We need to get the respective <code class="docutils literal notranslate"><span class="pre">ccp4</span></code> file that contains the pocket information. First, we get the URL for the<code class="docutils literal notranslate"><span class="pre">ccp4</span></code> file containing the selected pocket’s volume.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">selected_pocket_volume_url</span> <span class="o">=</span> <span class="n">get_selected_pocket_location</span><span class="p">(</span><span class="n">job_location</span><span class="p">,</span> <span class="n">best_pocket_id</span><span class="p">,</span> <span class="s2">"ccp4"</span><span class="p">)</span>
+<span class="n">selected_pocket_volume_url</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+'https://proteins.plus/results/dogsite/TJMQAsXaco7EjH7JyJexe9Ls/3w32_P_0_0_gpsAll.ccp4.gz'
+</pre></div></div>
+</div>
+<p>We get the grid point coordinates from that proteins.plus URL. We do not save this to disk, but to a memory file (<code class="docutils literal notranslate"><span class="pre">io.BytesIO</span></code>). Thanks to the extension in the URL, we know this is a gzipped (<code class="docutils literal notranslate"><span class="pre">.gz</span></code> extension) CCP4 map (<code class="docutils literal notranslate"><span class="pre">.ccp4</span></code>). What we do:</p>
+<ol class="arabic simple">
+<li><p>Download the file from the server into memory. At this point we have gzipped bytes.</p></li>
+<li><p>We decompress the response in memory using <code class="docutils literal notranslate"><span class="pre">gzip.decompress</span></code>.</p></li>
+<li><p>We wrap it in a <code class="docutils literal notranslate"><span class="pre">io.BytesIO</span></code> object that will behave as an opened file.</p></li>
+</ol>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">selected_pocket_volume_url</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="c1"># Decompress response content and wrap it in a file-like object</span>
+<span class="n">memfile</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">gzip</span><span class="o">.</span><span class="n">decompress</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<p><strong>Note</strong>: If the pocket volume does not show in the NGLviewer, please try to run the notebook with Jupyter Notebook (instead of Jupyter Lab).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">viewer</span> <span class="o">=</span> <span class="n">nglview</span><span class="o">.</span><span class="n">show_pdbid</span><span class="p">(</span><span class="n">pdb_id</span><span class="p">)</span>
+<span class="c1"># Since we are passing bytes with no path or extension</span>
+<span class="c1"># we need to tell nglview what kind of data this is: ccp4</span>
+<span class="n">viewer</span><span class="o">.</span><span class="n">add_component</span><span class="p">(</span><span class="n">memfile</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s2">"ccp4"</span><span class="p">)</span>
+<span class="n">viewer</span><span class="o">.</span><span class="n">center</span><span class="p">()</span>
+<span class="n">viewer</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "bb3e1aef721e43d6a4fa9ccbada11b37", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">viewer</span><span class="o">.</span><span class="n">render_image</span><span class="p">(</span><span class="n">trim</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">viewer</span><span class="o">.</span><span class="n">_display_image</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_T014_binding_site_detection_58_0.png" src="../_images/talktorials_T014_binding_site_detection_58_0.png"/>
+</div>
+</div>
+<p>The above rendered image shows the same content as when using the proteins.plus web server directly (see Figure 1).</p>
+</section>
+</section>
+<section id="Comparison-between-DoGSiteScorer-and-KLIFS-pocket">
+<h3 id="Comparison-between-DoGSiteScorer-and-KLIFS-pocket">Comparison between DoGSiteScorer and KLIFS pocket<a class="headerlink" href="#Comparison-between-DoGSiteScorer-and-KLIFS-pocket" title="Permalink to this headline">¶</a></h3>
+<section id="Get-DoGSiteScorer-pocket-residues">
+<h4 id="Get-DoGSiteScorer-pocket-residues">Get DoGSiteScorer pocket residues<a class="headerlink" href="#Get-DoGSiteScorer-pocket-residues" title="Permalink to this headline">¶</a></h4>
+<p>Since we want to compare the automatically predicted pocket with the manually assigned KLIFS pocket, we need to identify the pocket residues.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">get_pocket_residues</span><span class="p">(</span><span class="n">pocket_url</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Gets residue IDs and names of a specified pocket (via URL).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    pocket_url : str</span>
+<span class="sd">        URL of selected pocket file on the DoGSiteScorer web server.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pandas.DataFrame</span>
+<span class="sd">        Table of residues names and IDs for the selected binding site.</span>
+<span class="sd">    """</span>
+
+    <span class="c1"># Retrieve PDB file content from URL</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pocket_url</span><span class="p">)</span>
+
+    <span class="c1"># Get content of PDB file</span>
+    <span class="n">pdb_residues</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">text</span>
+
+    <span class="c1"># Load PDB format as DataFrame</span>
+    <span class="n">ppdb</span> <span class="o">=</span> <span class="n">PandasPdb</span><span class="p">()</span><span class="o">.</span><span class="n">read_pdb_from_list</span><span class="p">(</span><span class="n">pdb_residues</span><span class="o">.</span><span class="n">splitlines</span><span class="p">(</span><span class="kc">True</span><span class="p">))</span>
+    <span class="n">pdb_df</span> <span class="o">=</span> <span class="n">ppdb</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s2">"ATOM"</span><span class="p">]</span>
+
+    <span class="c1"># Drop duplicates</span>
+    <span class="c1"># PDB file contains per atom entries, we only need per residue info</span>
+    <span class="n">pdb_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">"residue_number"</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">pdb_df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s2">"residue_number"</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="s2">"first"</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">pdb_df</span><span class="p">[[</span><span class="s2">"residue_number"</span><span class="p">,</span> <span class="s2">"residue_name"</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<p>We get the residues of selected pocket and show the top 5 residues.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">dogsite_pocket_residues_df</span> <span class="o">=</span> <span class="n">get_pocket_residues</span><span class="p">(</span><span class="n">selected_pocket_residues_url</span><span class="p">)</span>
+<span class="n">dogsite_pocket_residues_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>residue_number</th>
+<th>residue_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>718</td>
+<td>LEU</td>
+</tr>
+<tr>
+<th>4</th>
+<td>726</td>
+<td>VAL</td>
+</tr>
+<tr>
+<th>11</th>
+<td>743</td>
+<td>ALA</td>
+</tr>
+<tr>
+<th>12</th>
+<td>744</td>
+<td>ILE</td>
+</tr>
+<tr>
+<th>20</th>
+<td>745</td>
+<td>LYS</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p><strong>Another pocket visualization</strong></p>
+<p>We can also use the selected pocket residues to investigate our pocket in 3D.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Show protein structure as cartoon</span>
+<span class="n">viewer</span> <span class="o">=</span> <span class="n">nglview</span><span class="o">.</span><span class="n">show_pdbid</span><span class="p">(</span><span class="n">pdb_id</span><span class="p">)</span>
+<span class="c1"># Select pocket residues</span>
+<span class="n">selection</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="sa">f</span><span class="s2">":</span><span class="si">{</span><span class="n">chain_id</span><span class="si">}</span><span class="s2"> and (</span><span class="si">{</span><span class="s1">' or '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dogsite_pocket_residues_df</span><span class="p">[</span><span class="s1">'residue_number'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">))</span><span class="si">}</span><span class="s2">)"</span>
+<span class="p">)</span>
+<span class="c1"># Show pocket residues as stick</span>
+<span class="n">viewer</span><span class="o">.</span><span class="n">add_representation</span><span class="p">(</span><span class="s2">"ball+stick"</span><span class="p">,</span> <span class="n">selection</span><span class="o">=</span><span class="n">selection</span><span class="p">,</span> <span class="n">aspectRatio</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="c1"># Show ligand as ball and stick</span>
+<span class="n">viewer</span><span class="o">.</span><span class="n">add_representation</span><span class="p">(</span><span class="s2">"ball+stick"</span><span class="p">,</span> <span class="n">selection</span><span class="o">=</span><span class="n">ligand_id</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"_"</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">viewer</span><span class="o">.</span><span class="n">center</span><span class="p">()</span>
+<span class="n">viewer</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a7ef1a61f9184492979b4db19b7448a7", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">viewer</span><span class="o">.</span><span class="n">render_image</span><span class="p">(</span><span class="n">trim</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">viewer</span><span class="o">.</span><span class="n">_display_image</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_T014_binding_site_detection_68_0.png" src="../_images/talktorials_T014_binding_site_detection_68_0.png"/>
+</div>
+</div>
+</section>
+<section id="Get-KLIFS-pocket-residues">
+<h4 id="Get-KLIFS-pocket-residues">Get KLIFS pocket residues<a class="headerlink" href="#Get-KLIFS-pocket-residues" title="Permalink to this headline">¶</a></h4>
+<p>We are using the <code class="docutils literal notranslate"><span class="pre">opencadd.databases.klifs</span></code> module to extract the binding site residues (PDB residue numbering) as defined in the KLIFS database.</p>
+<p>Please refer to <strong>Talktorial T012</strong> for detailed information about KLIFS and the <code class="docutils literal notranslate"><span class="pre">opencadd.databases.klifs</span></code> module usage.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">session</span> <span class="o">=</span> <span class="n">setup_remote</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Get first structure KLIFS ID associated with PDB ID</span>
+<span class="n">structures</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">structures</span><span class="o">.</span><span class="n">by_structure_pdb_id</span><span class="p">(</span><span class="n">pdb_id</span><span class="p">)</span>
+<span class="n">structure_klifs_id</span> <span class="o">=</span> <span class="n">structures</span><span class="p">[</span><span class="s2">"structure.klifs_id"</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Get the structure's pocket</span>
+<span class="n">klifs_pocket_df</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">pockets</span><span class="o">.</span><span class="n">by_structure_klifs_id</span><span class="p">(</span><span class="n">structure_klifs_id</span><span class="p">)</span>
+<span class="c1"># Residue ID: Cast string to int</span>
+<span class="n">klifs_pocket_df</span> <span class="o">=</span> <span class="n">klifs_pocket_df</span><span class="o">.</span><span class="n">astype</span><span class="p">({</span><span class="s2">"residue.id"</span><span class="p">:</span> <span class="nb">int</span><span class="p">})</span>
+<span class="n">klifs_pocket_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>residue.klifs_id</th>
+<th>residue.id</th>
+<th>residue.klifs_region_id</th>
+<th>residue.klifs_region</th>
+<th>residue.klifs_color</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1</td>
+<td>716</td>
+<td>I.1</td>
+<td>I</td>
+<td>khaki</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2</td>
+<td>717</td>
+<td>I.2</td>
+<td>I</td>
+<td>khaki</td>
+</tr>
+<tr>
+<th>2</th>
+<td>3</td>
+<td>718</td>
+<td>I.3</td>
+<td>I</td>
+<td>khaki</td>
+</tr>
+<tr>
+<th>3</th>
+<td>4</td>
+<td>719</td>
+<td>g.l.4</td>
+<td>g.l</td>
+<td>green</td>
+</tr>
+<tr>
+<th>4</th>
+<td>5</td>
+<td>720</td>
+<td>g.l.5</td>
+<td>g.l</td>
+<td>green</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="Overlap-of-pocket-residues">
+<h4 id="Overlap-of-pocket-residues">Overlap of pocket residues<a class="headerlink" href="#Overlap-of-pocket-residues" title="Permalink to this headline">¶</a></h4>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Get DoGSiteScorer pocket residues as list</span>
+<span class="n">dogsite_pocket_residues</span> <span class="o">=</span> <span class="n">dogsite_pocket_residues_df</span><span class="p">[</span><span class="s2">"residue_number"</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">"DoGSiteScorer pocket </span><span class="si">{</span><span class="n">best_pocket_id</span><span class="si">}</span><span class="s2"> with </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">dogsite_pocket_residues</span><span class="p">)</span><span class="si">}</span><span class="s2"> residues detected."</span>
+<span class="p">)</span>
+<span class="c1"># Get KLIFS pocket residues as list</span>
+<span class="n">klifs_pocket_residues</span> <span class="o">=</span> <span class="n">klifs_pocket_df</span><span class="p">[</span><span class="s2">"residue.id"</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"KLIFS pocket with </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">klifs_pocket_residues</span><span class="p">)</span><span class="si">}</span><span class="s2"> residues detected."</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+DoGSiteScorer pocket P_0_0 with 29 residues detected.
+KLIFS pocket with 85 residues detected.
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">overlap</span> <span class="o">=</span> <span class="nb">set</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">dogsite_pocket_residues</span><span class="p">),</span> <span class="nb">set</span><span class="p">(</span><span class="n">klifs_pocket_residues</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Overlap between the two residue sets: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">overlap</span><span class="p">)</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Overlap between the two residue sets: 27.
+</pre></div></div>
+</div>
+<p>Plot the overlap as Venn diagram.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Residue overlap between the two methods using </span><span class="si">{</span><span class="n">best_pocket_id</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+<span class="n">venn2</span><span class="p">(</span>
+    <span class="p">[</span><span class="nb">set</span><span class="p">(</span><span class="n">dogsite_pocket_residues</span><span class="p">),</span> <span class="nb">set</span><span class="p">(</span><span class="n">klifs_pocket_residues</span><span class="p">)],</span>
+    <span class="n">set_labels</span><span class="o">=</span><span class="p">(</span><span class="s2">"DoGSiteScorer"</span><span class="p">,</span> <span class="s2">"KLIFS"</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Residue overlap between the two methods using P_0_0.
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_T014_binding_site_detection_78_1.png" src="../_images/talktorials_T014_binding_site_detection_78_1.png"/>
+</div>
+</div>
+<p>As we can see, the subpocket we choose from DoGSiteScorer is very precise. In fact, 27 out of the 29 residues do overlap with the KLIFS definition (85 residues). Though, the KLIFS pocket covers a larger overall pocket area. Out of interest, we can also do the same comparison using the pocket <code class="docutils literal notranslate"><span class="pre">P_0</span></code> (instead of subpocket <code class="docutils literal notranslate"><span class="pre">P_0_0</span></code>) to see how that compares to KLIFS.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Get info for largest DoGSiteScorer pocket P_0</span>
+<span class="n">new_pocket_id</span> <span class="o">=</span> <span class="s2">"P_0"</span>
+<span class="n">dogsite_pocket_residues_df_p0</span> <span class="o">=</span> <span class="n">get_pocket_residues</span><span class="p">(</span>
+    <span class="n">get_selected_pocket_location</span><span class="p">(</span><span class="n">job_location</span><span class="p">,</span> <span class="n">new_pocket_id</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">dogsite_pocket_residues_p0</span> <span class="o">=</span> <span class="n">dogsite_pocket_residues_df_p0</span><span class="p">[</span><span class="s2">"residue_number"</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"DoGSiteScorer pocket </span><span class="si">{</span><span class="n">new_pocket_id</span><span class="si">}</span><span class="s2"> with </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">dogsite_pocket_residues_p0</span><span class="p">)</span><span class="si">}</span><span class="s2"> detected."</span><span class="p">)</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+DoGSiteScorer pocket P_0 with 62 detected.
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Residue overlap between the two methods using </span><span class="si">{</span><span class="n">new_pocket_id</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+<span class="n">venn2</span><span class="p">(</span>
+    <span class="p">[</span><span class="nb">set</span><span class="p">(</span><span class="n">dogsite_pocket_residues_p0</span><span class="p">),</span> <span class="nb">set</span><span class="p">(</span><span class="n">klifs_pocket_residues</span><span class="p">)],</span>
+    <span class="n">set_labels</span><span class="o">=</span><span class="p">(</span><span class="s2">"DoGSiteScorer"</span><span class="p">,</span> <span class="s2">"KLIFS"</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Residue overlap between the two methods using P_0.
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_T014_binding_site_detection_81_1.png" src="../_images/talktorials_T014_binding_site_detection_81_1.png"/>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="Discussion">
+<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this headline">¶</a></h2>
+<p>We introduced the idea of binding site detection algorithms using DoGSiteScorer, which can be queried through the <a class="reference external" href="https://proteins.plus">proteins.plus</a> server. Besides investigating into the main (known) binding site, as exemplified above, one can use other predicted pockets to initiate drug design campaigns against a novel, e.g. allosteric or less explored, pocket.</p>
+<p>Potential shortcomings: Such algorithms detect the pockets based on a given protein structure (x-ray). If another structure of the same protein is available, applying the algorithm to that structure might lead to (slightly) different pockets due to e.g. conformational changes induced by the bound ligand. Also differences between apo and holo structures do affect the predictions.</p>
+</section>
+<section id="Quiz">
+<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>What techniques can be invoked to automatically detect pockets on the protein surface?</p></li>
+<li><p>What are advantages and disadvantages of automatic binding site detection algorithms?</p></li>
+<li><p>Try another protein EGFR kinase structure and check the overlap between the predicted residues.</p></li>
+</ol>
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {}, "version_major": 2, "version_minor": 0}
+</script></section>
+</section>
+
+
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="md-footer">
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="T022_ligand_based_screening_neural_network.html" title="T022 · Ligand-based screening: neural networks"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> Previous </span> T022 · Ligand-based screening: neural networks </span>
+              </div>
+            </a>
+          
+          
+            <a href="T015_protein_ligand_docking.html" title="T015 · Protein ligand docking"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> Next </span> T015 · Protein ligand docking </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          
+        </a>
+        
+      </nav>
+    </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169; Copyright 2018-2021, Volkamer Lab. Project structure based on the Computational Molecular Science Python Cookiecutter version 1.1.
+              
+          </div>
+            Created using
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.1.2.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../_static/javascripts/application.js"></script>
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  </body>
+</html>

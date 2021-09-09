@@ -1,0 +1,1297 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
+
+    <style>
+      body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+    </style>
+  
+
+  <link rel="stylesheet" href="../_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="../_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#2196f3">
+  <script src="../_static/javascripts/modernizr.js"></script>
+  
+    <script async src="../_static/cookieconsent.min.js"></script>
+    <script>
+        window.addEventListener("load", function(){
+        window.cookieconsent.initialise({
+            "palette": {
+            "popup": {
+                "background": "#f0f0f0",
+                "text": "#999"
+            },
+            "button": {
+                "text": "#fff",
+                "background": "#009688"
+            }
+            },
+            "theme": "classic"
+        })});
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6ZE82CNZB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-Q6ZE82CNZB');
+    </script>
+  
+    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
+  
+  
+    <title>T013 · Data acquisition from PubChem &#8212; TeachOpenCADD 0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/material.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="T021 · One-Hot Encoding" href="T021_one_hot_encoding.html" />
+    <link rel="prev" title="T012 · Data acquisition from KLIFS" href="T012_query_klifs.html" />
+  
+    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
+  
+   
+
+  </head>
+  <body dir=ltr
+        data-md-color-primary=teal data-md-color-accent=cyan>
+  
+  <svg class="md-svg">
+    <defs data-children-count="0">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
+    </defs>
+  </svg>
+  
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#talktorials/T013_query_pubchem" tabindex="1" class="md-skip"> Skip to content </a>
+  <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../index.html" title="TeachOpenCADD 0 documentation"
+           class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic">TeachOpenCADD (WIP 🚧)</span>
+          <span class="md-header-nav__topic"> T013 · Data acquisition from PubChem </span>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="../search.html" method="get" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder="Search"
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    TeachOpenCADD
+  </div>
+</a>
+          </div>
+        </div>
+      
+      
+    </div>
+  </nav>
+</header>
+
+  
+  <div class="md-container">
+    
+    
+    
+  <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+      <ul class="md-tabs__list">
+            
+            <li class="md-tabs__item"><a href="../talktorials.html" class="md-tabs__link">Our talktorials</a></li>
+            
+            <li class="md-tabs__item"><a href="../installing.html" class="md-tabs__link">Run locally</a></li>
+            
+            <li class="md-tabs__item"><a href="../contribute.html" class="md-tabs__link">Contribute</a></li>
+          <li class="md-tabs__item"><a href="../talktorials.html" class="md-tabs__link">Talktorials by collection</a></li>
+      </ul>
+    </div>
+  </nav>
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../index.html" title="TeachOpenCADD 0 documentation" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    <a href="../index.html"
+       title="TeachOpenCADD 0 documentation">TeachOpenCADD (WIP 🚧)</a>
+  </label>
+    <div class="md-nav__source">
+      <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    TeachOpenCADD
+  </div>
+</a>
+    </div>
+  
+  
+
+  
+  <ul class="md-nav__list">
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Our talktorials</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#jcim-2019" class="md-nav__link">JCIM 2019</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#ligand-based-cheminformatics" class="md-nav__link">Ligand-based cheminformatics</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#structural-biology" class="md-nav__link">Structural biology</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#online-apis-servers" class="md-nav__link">Online APIs/servers</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Run locally</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../installing.html" class="md-nav__link">Installing</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Contributors</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../contribute.html" class="md-nav__link">For contributors</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../api.html" class="md-nav__link">API Documentation</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">External resources</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../external_resources.html" class="md-nav__link">Python programming introduction</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../external_resources.html#cheminformatics-resources-collections" class="md-nav__link">Cheminformatics resources collections</a>
+      
+    
+    </li>
+  </ul>
+  
+
+</nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#talktorials-t013-query-pubchem--page-root" class="md-nav__link">T013 · Data acquisition from PubChem</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
+        </li>
+        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
+        </li>
+        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#PubChem" class="md-nav__link">PubChem</a>
+        </li>
+        <li class="md-nav__item"><a href="#Programmatic-access-to-PubChem" class="md-nav__link">Programmatic access to PubChem</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Simple-examples-for-the-PubChem-API" class="md-nav__link">Simple examples for the PubChem API</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#How-to-get-the-PubChem-CID-for-a-compound" class="md-nav__link">How to get the PubChem CID for a compound</a>
+        </li>
+        <li class="md-nav__item"><a href="#Retrieve-molecular-properties-based-on-a-PubChem-CID" class="md-nav__link">Retrieve molecular properties based on a PubChem CID</a>
+        </li>
+        <li class="md-nav__item"><a href="#Depict-a-compound-with-PubChem" class="md-nav__link">Depict a compound with PubChem</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Query-PubChem-for-similar-compounds" class="md-nav__link">Query PubChem for similar compounds</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#1.-Determine-a-query-compound" class="md-nav__link">1. Determine a query compound</a>
+        </li>
+        <li class="md-nav__item"><a href="#2.-Create-task-and-get-the-job-key" class="md-nav__link">2. Create task and get the job key</a>
+        </li>
+        <li class="md-nav__item"><a href="#3.-Download-results-when-job-finished" class="md-nav__link">3. Download results when job finished</a>
+        </li>
+        <li class="md-nav__item"><a href="#4.-Get-canonical-SMILES-for-resulting-molecules" class="md-nav__link">4. Get canonical SMILES for resulting molecules</a>
+        </li>
+        <li class="md-nav__item"><a href="#5.-Show-the-results" class="md-nav__link">5. Show the results</a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
+        </li>
+        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T013_query_pubchem.nblink.txt">Show Source</a> </li>
+
+<li id="searchbox" class="md-nav__item"></li>
+
+  </ul>
+</nav>
+              </div>
+            </div>
+          </div>
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<section id="T013-·-Data-acquisition-from-PubChem">
+<h1 id="talktorials-t013-query-pubchem--page-root">T013 · Data acquisition from PubChem<a class="headerlink" href="#talktorials-t013-query-pubchem--page-root" title="Permalink to this headline">¶</a></h1>
+<p>Authors:</p>
+<ul class="simple">
+<li><p>Jaime Rodríguez-Guerra, 2019-2020, <a class="reference external" href="https://volkamerlab.org/">Volkamer lab, Charité</a></p></li>
+<li><p>Dominique Sydow, 2019-2020, <a class="reference external" href="https://volkamerlab.org/">Volkamer lab, Charité</a></p></li>
+<li><p>Yonghui Chen, 2019-2020, <a class="reference external" href="https://volkamerlab.org/">Volkamer lab, Charité</a></p></li>
+</ul>
+<section id="Aim-of-this-talktorial">
+<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this headline">¶</a></h2>
+<p>In this notebook, you will learn how to search for compounds similar to an input SMILES in <a class="reference external" href="https://pubchem.ncbi.nlm.nih.gov/">PubChem</a> with the API web service.</p>
+<section id="Contents-in-Theory">
+<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>PubChem</p></li>
+<li><p>Programmatic access to PubChem</p></li>
+</ul>
+</section>
+<section id="Contents-in-Practical">
+<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Simple examples for the PubChem API</p>
+<ul>
+<li><p>How to get the PubChem CID for a compound</p></li>
+<li><p>Retrieve molecular properties based on a PubChem CID</p></li>
+<li><p>Depict a compound with PubChem</p></li>
+</ul>
+</li>
+<li><p>Query PubChem for similar compounds</p>
+<ul>
+<li><p>Determine a query compound</p></li>
+<li><p>Create task and get the job key</p></li>
+<li><p>Download results when job finished</p></li>
+<li><p>Get canonical SMILES for resulting molecules</p></li>
+<li><p>Show the results</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="References">
+<h2 id="References">References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Literature:</p>
+<ul>
+<li><p>PubChem 2019 update: <a class="reference external" href="https://academic.oup.com/nar/article/47/D1/D1102/5146201">Nucleic Acids Res. (2019), 47, D1102-1109</a></p></li>
+<li><p>PubChem in 2021: <a class="reference external" href="https://academic.oup.com/nar/article/49/D1/D1388/5957164">Nucleic Acids Res.(2021), 49, D1388–D1395</a></p></li>
+</ul>
+</li>
+<li><p>Documentation:</p>
+<ul>
+<li><p><a class="reference external" href="https://pubchem.ncbi.nlm.nih.gov/sources">PubChem Source Information</a></p></li>
+<li><p><a class="reference external" href="https://pubchemdocs.ncbi.nlm.nih.gov/pug-rest">PUG REST</a></p></li>
+<li><p><a class="reference external" href="https://pubchemdocs.ncbi.nlm.nih.gov/programmatic-access">Programmatic Access</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/PubChem">PubChem - Wikipedia</a></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="Theory">
+<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this headline">¶</a></h2>
+<section id="PubChem">
+<h3 id="PubChem">PubChem<a class="headerlink" href="#PubChem" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://pubchem.ncbi.nlm.nih.gov/">PubChem</a> is an open database containing chemical molecules and their measured activities against biological assays, maintained by the <a class="reference external" href="https://www.ncbi.nlm.nih.gov/">National Center for Biotechnology Information (NCBI)</a>, part of <a class="reference external" href="https://www.nih.gov/">National Institutes of Health (NIH)</a>. It is the world’s largest freely available database of chemical information, collected from more than 770 data sources. There are three dynamically growing primary
+subdatabases, i.e., substances, compounds, and bioassay databases. As of August 2020, PubChem contains over 110 million unique chemical structures and over 270 million bioactivities (<a class="reference external" href="https://academic.oup.com/nar/article/49/D1/D1388/5957164">Nucleic Acids Res.(2021), 49, D1388–D1395</a>).</p>
+<p>These compounds can be queried using a broad range of properties including chemical structure, name, fragments, chemical formula, molecular weight, XlogP, hydrogen bond donor and acceptor count, etc. There is no doubt that PubChem has become a key chemical information resource for scientists, students, and the general public.</p>
+<p>Every data from PubChem is free to access through both the web interface and a programmatic interface. Here, we are going to learn how to use the API of PubChem to do some cool things.</p>
+</section>
+<section id="Programmatic-access-to-PubChem">
+<h3 id="Programmatic-access-to-PubChem">Programmatic access to PubChem<a class="headerlink" href="#Programmatic-access-to-PubChem" title="Permalink to this headline">¶</a></h3>
+<p>For some reasons, mainly historical, PubChem provides several ways of programmatic access to the open data. * <a class="reference external" href="https://pubchemdocs.ncbi.nlm.nih.gov/pug-rest">PUG-REST</a> is a Representational State Transfer (REST)-style version of the PUG (Power User Gateway) web service, with both the syntax of the HTTP requests and the available functions. It can also provide convenient access to information on PubChem records which are not reachable with other PUG services.</p>
+<ul class="simple">
+<li><p>PUG-View is another REST-style web service for PubChem. It can provide full reports, including third-party textual annotation, for PubChem records.</p></li>
+<li><p>PUG offers programmatic access to PubChem service via a single common gateway interface (CGI).</p></li>
+<li><p>PUG-SOAP uses the simple object access protocol (SOAP) to access PubChem data.</p></li>
+<li><p>PubChemRDF REST interface is a special interface for RDF-encoded PubChem data.</p></li>
+</ul>
+<p>For more details about the PubChem API, please check out the introduction of <a class="reference external" href="https://pubchemdocs.ncbi.nlm.nih.gov/programmatic-access">programmatic access</a> in the PubChem Docs.</p>
+<p>In this tutorial, we will focus on the <strong>PUG-REST</strong> variant of the API, please refer to <strong>Talktorial T011</strong> for an introduction.</p>
+</section>
+</section>
+<section id="Practical">
+<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this headline">¶</a></h2>
+<p>In this section, we will discuss how to search PubChem based on a given query molecule using the PUG-REST access.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">quote</span>
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span><span class="p">,</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">rdkit</span> <span class="kn">import</span> <span class="n">Chem</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">PandasTools</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem.Draw</span> <span class="kn">import</span> <span class="n">MolsToGridImage</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">HERE</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">_dh</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">DATA</span> <span class="o">=</span> <span class="n">HERE</span> <span class="o">/</span> <span class="s2">"data"</span>
+</pre></div>
+</div>
+</div>
+<section id="Simple-examples-for-the-PubChem-API">
+<h3 id="Simple-examples-for-the-PubChem-API">Simple examples for the PubChem API<a class="headerlink" href="#Simple-examples-for-the-PubChem-API" title="Permalink to this headline">¶</a></h3>
+<p>Before querying PubChem for similar compounds, we provide some simple examples to show how to use the PubChem API. For more detail about the PubChem API, see <a class="reference external" href="https://pubchemdocs.ncbi.nlm.nih.gov/pug-rest-tutorial">PUG-REST tutorial</a>.</p>
+<section id="How-to-get-the-PubChem-CID-for-a-compound">
+<h4 id="How-to-get-the-PubChem-CID-for-a-compound">How to get the PubChem CID for a compound<a class="headerlink" href="#How-to-get-the-PubChem-CID-for-a-compound" title="Permalink to this headline">¶</a></h4>
+<p>For example, we will search for the PubChem Compound Identification (CID) for Aspirin by name.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Get PubChem CID by name</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s2">"aspirin"</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">/cids/JSON"</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="k">if</span> <span class="s2">"IdentifierList"</span> <span class="ow">in</span> <span class="n">response</span><span class="p">:</span>
+    <span class="n">cid</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s2">"IdentifierList"</span><span class="p">][</span><span class="s2">"CID"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Could not find matches for compound: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"PubChem CID for </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> is:</span><span class="se">\n</span><span class="si">{</span><span class="n">cid</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+PubChem CID for aspirin is:
+2244
+</pre></div></div>
+</div>
+</section>
+<section id="Retrieve-molecular-properties-based-on-a-PubChem-CID">
+<h4 id="Retrieve-molecular-properties-based-on-a-PubChem-CID">Retrieve molecular properties based on a PubChem CID<a class="headerlink" href="#Retrieve-molecular-properties-based-on-a-PubChem-CID" title="Permalink to this headline">¶</a></h4>
+<p>We can get interesting properties for a compound through its PubChem CID, such as molecular weight, pKd, logP, etc. Here, we will search for the molecular weight for Aspirin.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Get mol weight for aspirin</span>
+<span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/</span><span class="si">{</span><span class="n">cid</span><span class="si">}</span><span class="s2">/property/MolecularWeight/JSON"</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="s2">"PropertyTable"</span> <span class="ow">in</span> <span class="n">response</span><span class="p">:</span>
+    <span class="n">mol_weight</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s2">"PropertyTable"</span><span class="p">][</span><span class="s2">"Properties"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">"MolecularWeight"</span><span class="p">]</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Could not find matches for PubChem CID: </span><span class="si">{</span><span class="n">cid</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Molecular weight for </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> is:</span><span class="se">\n</span><span class="si">{</span><span class="n">mol_weight</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Molecular weight for aspirin is:
+180.16
+</pre></div></div>
+</div>
+</section>
+<section id="Depict-a-compound-with-PubChem">
+<h4 id="Depict-a-compound-with-PubChem">Depict a compound with PubChem<a class="headerlink" href="#Depict-a-compound-with-PubChem" title="Permalink to this headline">¶</a></h4>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Get PNG image from PubChem</span>
+<span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/</span><span class="si">{</span><span class="n">cid</span><span class="si">}</span><span class="s2">/PNG"</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="s2">"The 2D structure of Aspirin:"</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<p>The 2D structure of Aspirin:</p>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_T013_query_pubchem_16_1.png" src="../_images/talktorials_T013_query_pubchem_16_1.png"/>
+</div>
+</div>
+</section>
+</section>
+<section id="Query-PubChem-for-similar-compounds">
+<h3 id="Query-PubChem-for-similar-compounds">Query PubChem for similar compounds<a class="headerlink" href="#Query-PubChem-for-similar-compounds" title="Permalink to this headline">¶</a></h3>
+<p>Use a <code class="docutils literal notranslate"><span class="pre">SMILES</span></code> string of a query compound to search for similar compounds in PubChem.</p>
+<blockquote>
+<div><p>Tip: You can check <strong>Talktorial T001</strong> to see how to do a similar operation with the ChEMBL database.</p>
+</div></blockquote>
+<p>We define a function to query the PubChem service for similar compounds to the given one. The Tanimoto-based similarity between (2D) PubChem fingerprint will be calculated here. You can see <a class="reference external" href="https://jcheminf.biomedcentral.com/articles/10.1186/s13321-016-0163-1">this paper</a> for more details about similarity evaluation in PubChem, and the <a class="reference external" href="https://ftp.ncbi.nlm.nih.gov/pubchem/specifications/pubchem_fingerprints.pdf">PubChem fingerprint specification</a> for the details about PubChem
+fingerprint.</p>
+<section id="1.-Determine-a-query-compound">
+<h4 id="1.-Determine-a-query-compound">1. Determine a query compound<a class="headerlink" href="#1.-Determine-a-query-compound" title="Permalink to this headline">¶</a></h4>
+<p>In the following steps, we will search compounds similar to Gefitinib, an inhibitor for EGFR, from the PubChem service. You can also choose another compound which you are interested in.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">"COC1=C(C=C2C(=C1)N=CN=C2NC3=CC(=C(C=C3)F)Cl)OCCCN4CCOCC4"</span>  <span class="c1"># Gefitinib</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"The structure of Gefitinib:"</span><span class="p">)</span>
+<span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The structure of Gefitinib:
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_T013_query_pubchem_19_1.png" src="../_images/talktorials_T013_query_pubchem_19_1.png"/>
+</div>
+</div>
+</section>
+<section id="2.-Create-task-and-get-the-job-key">
+<h4 id="2.-Create-task-and-get-the-job-key">2. Create task and get the job key<a class="headerlink" href="#2.-Create-task-and-get-the-job-key" title="Permalink to this headline">¶</a></h4>
+<p>Input the canonical <code class="docutils literal notranslate"><span class="pre">SMILES</span></code> string for the given compound to create a new task, so we obtain a job key here. Note that this asynchronous API will not return the data immediately. In this case, the callback will be provided only when the requested resource is ready, which can be checked by the job key. So asynchronous requests are useful to work around certain slower operations.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">query_pubchem_for_similar_compounds</span><span class="p">(</span><span class="n">smiles</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span> <span class="n">n_records</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Query PubChem for similar compounds and return the job key.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    smiles : str</span>
+<span class="sd">        The canonical SMILES string for the given compound.</span>
+<span class="sd">    threshold : int</span>
+<span class="sd">        The threshold of similarity, default 75%. In PubChem, the default threshold is 90%.</span>
+<span class="sd">    n_records : int</span>
+<span class="sd">        The maximum number of feedback records.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    str</span>
+<span class="sd">        The job key from the PubChem web service.</span>
+<span class="sd">    """</span>
+    <span class="n">escaped_smiles</span> <span class="o">=</span> <span class="n">quote</span><span class="p">(</span><span class="n">smiles</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"/"</span><span class="p">,</span> <span class="s2">"."</span><span class="p">)</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/similarity/smiles/</span><span class="si">{</span><span class="n">escaped_smiles</span><span class="si">}</span><span class="s2">/JSON?Threshold=</span><span class="si">{</span><span class="n">threshold</span><span class="si">}</span><span class="s2">&amp;MaxRecords=</span><span class="si">{</span><span class="n">n_records</span><span class="si">}</span><span class="s2">"</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">"Waiting"</span><span class="p">][</span><span class="s2">"ListKey"</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">key</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">job_key</span> <span class="o">=</span> <span class="n">query_pubchem_for_similar_compounds</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="3.-Download-results-when-job-finished">
+<h4 id="3.-Download-results-when-job-finished">3. Download results when job finished<a class="headerlink" href="#3.-Download-results-when-job-finished" title="Permalink to this headline">¶</a></h4>
+<p>Check if the job finished within the time limit. The standard time limit in PubChem is 30 seconds (we can reset it). It means that if a request is not completed within the time limit, a timeout error will be returned. So, just wait patiently for the callback.</p>
+<p>Then download results - PubChem CIDs in this case - when the job is finished.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">check_and_download</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">attempts</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Check job status and download PubChem CIDs when the job finished</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    key : str</span>
+<span class="sd">        The job key of the PubChem service.</span>
+<span class="sd">    attempts : int</span>
+<span class="sd">        The time waiting for the feedback from the PubChem service.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list</span>
+<span class="sd">        The PubChem CIDs of similar compounds.</span>
+<span class="sd">    """</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/listkey/</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">/cids/JSON"</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Querying for job </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> at URL </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">..."</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">attempts</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="k">if</span> <span class="s2">"IdentifierList"</span> <span class="ow">in</span> <span class="n">response</span><span class="p">:</span>
+            <span class="n">cids</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s2">"IdentifierList"</span><span class="p">][</span><span class="s2">"CID"</span><span class="p">]</span>
+            <span class="k">break</span>
+        <span class="n">attempts</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"."</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Could not find matches for job key: </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">cids</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">similar_cids</span> <span class="o">=</span> <span class="n">check_and_download</span><span class="p">(</span><span class="n">job_key</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Querying for job 4176789509392053309 at URL https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/listkey/4176789509392053309/cids/JSON....
+</pre></div></div>
+</div>
+</section>
+<section id="4.-Get-canonical-SMILES-for-resulting-molecules">
+<h4 id="4.-Get-canonical-SMILES-for-resulting-molecules">4. Get canonical SMILES for resulting molecules<a class="headerlink" href="#4.-Get-canonical-SMILES-for-resulting-molecules" title="Permalink to this headline">¶</a></h4>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">smiles_from_pubchem_cids</span><span class="p">(</span><span class="n">cids</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Get the canonical SMILES string from the PubChem CIDs.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    cids : list</span>
+<span class="sd">        A list of PubChem CIDs.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list</span>
+<span class="sd">        The canonical SMILES strings of the PubChem CIDs.</span>
+<span class="sd">    """</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/</span><span class="si">{</span><span class="s1">','</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">cids</span><span class="p">))</span><span class="si">}</span><span class="s2">/property/CanonicalSMILES/JSON"</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="s2">"CanonicalSMILES"</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">"PropertyTable"</span><span class="p">][</span><span class="s2">"Properties"</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">similar_smiles</span> <span class="o">=</span> <span class="n">smiles_from_pubchem_cids</span><span class="p">(</span><span class="n">similar_cids</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Then, we create the RDKit molecules and depict them.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">query_results_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"smiles"</span><span class="p">:</span> <span class="n">similar_smiles</span><span class="p">,</span> <span class="s2">"CIDs"</span><span class="p">:</span> <span class="n">similar_cids</span><span class="p">})</span>
+<span class="n">PandasTools</span><span class="o">.</span><span class="n">AddMoleculeColumnToFrame</span><span class="p">(</span><span class="n">query_results_df</span><span class="p">,</span> <span class="n">smilesCol</span><span class="o">=</span><span class="s2">"smiles"</span><span class="p">)</span>
+<span class="n">query_results_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>smiles</th>
+<th>CIDs</th>
+<th>ROMol</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>CS(=O)(=O)CCNCC1=CC=C(O1)C2=CC3=C(C=C2)N=CN=C3...</td>
+<td>208908</td>
+<td><img alt="Mol" data-content="rdkit/molecule" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAIAAAAiOjnJAAAABmJLR0QA/wD/AP+gvaeTAAAXAElEQVR4nO3de1jMaf8H8M+cOkzppIMUJR5L9eRQtLRRDhGuR06PtVckklxaLFb9rEStdbHsslrksCTHnt0nyw8pKvyc1iyh9EwopKI07ajVcebz++PraVvVNBO3qe3zulx7jbrnns+Y93zn/t73/Z3lISIQ8q7xtV0A+WuiYBEmKFiECQoWYYKCRZigYBEmKFiECQoWYYKCRZigYBEmKFiECQoWYYKCRZigYBEmKFiECQoWYYKCRZigYBEmKFiECQoWYYKCRZigYBEmKFiECQoWYYKCRZigYBEmKFiECQoWYYKCRZigYBEmKFiECQoWYYKCRZigYBEmKFiECQoWYYKCRZigYBEmKFiECQoWYYKCRZigYBEmKFiECQoWYYKCRZigYBEmKFiECQoWYYKCRZigYBEmKFiECQoWYYKCRZigYBEmKFiECQoWYYKCRZigYBEmKFiECQoWYYKCRZigYBEmKFiECQoWYYKCRZigYBEmKFiECQoWYYKCRZigYBEmKFiECQqWZjZtgpgYAICVK7VdSttGwdJMZSXk5MDTp1BZCceOwdWrIJdru6Y2SajtAtqfpUth40YAgJkzobYWAKB7d/D2XmppKXR0dHR2dnZ2dtbT09NukVpHwdJAdTUAgLExfPghxMfDjBlw8yY8fAj5+Xj8+D65/Deu2c6dO/38/KysrLRZq7ZRsNSVlwfDhkFoKBgYwIwZYG8PvXuDhQXo6cGQIYVCoYuenl5dXV1mZmZISEhJScmqVau0XbI20RhLLXI5jB8PT5/CtWugowM8HgwdCkVFYG8P1dVQU3Pn4sWLycnJZmZmBw4cAIADBw4gorar1iZeB3/+6lAoFAEBlYcOGbq4wOXLYGj4p9+Wl0NOTmFGxpl79+4NGDDgk08+sbe3z8/Pv3z58tChQ7VUsvZ19GDJZLKcnJz09HQnJycnJ6cePXrweLw32ixdunT//hP9+l3et8/K3r7lPteu3ZaWZjd4sOfGjaYsam4XOnSwysvLhw4diohZWVncT3R0dHr16uXk5OTo6Ojq6urk5HTx4sXAwECRSJSSkjJ8+HB1us3OBkdHMDaGoiLQ12f5BNoy7KgUCsWECRMAwM7OLjQ01MfHx8bGpvG/j4GBAQDs3btXo87d3BAAjx1jVHs70HGDtWzZMgAwMzMLCQmprKzkfvjbb79JJJK4uLiwsLAJEyZYWFgYGRnZ2Nho2nlMDALgJ5+866Lbjw4arP379wOASCRyd3cHgICAgCabVVVVmZubA0BGRoZG/ZeW4qxZWFGBT57glSvvoOB2pyNON1y5cmX+/PkA4OXldf369c6dO0dERDRuduDAAUdHx379+gFAXFycRg9hZga//w5bt0JpKUil76TqdqbDBevx48eTJk2qrq4eO3ZsSkqKSCT68ccfe/bs2bhlbW1tbm6uXC4HgEOHDtVyyzdqs7MDxA6aKoAONngvLy93cXEBgMGDB+vq6gJAbGxsc43lcrlYLObxeL179waAkydPtth/cTFWVb2+vXQpvnqFo0bhvn3vqPp2pWMdsaKjo+/cufPBBx88evSourp6yZIlwcHBzTU2MjLy8/NDRHt7ewDgptRVqKyEceNg5Eg4exZWrIC//x309SE8HNSZ+voL0nay36vly5fr6emlpKQcPXp00qRJdXV1qtufPXsWAOzt7QUCgY6OzosXL5prqVQqQ0JyAdDODrt0QQDctu1dV9+udKxgBQYGAsCqVavUbK9QKLp16wYAgwcPBoAdO3Y01zIqKsrAwNDT84STEwKgtzfW1LyjotunjhWs9PR0ALCzs1MoFGreJTw8XE9PLygoCABcXFyePn3auM3du3f5fL5AIPDy8ho+PLJHD2Vx8Tutux3qWEs6iNirV6/c3NzU1FRvb2917lJaWioQCGQymYuLi66urkwmMzY27tWrl6OjI7fy4+bmZm1tHR8ff/To0dOnTxsbG1+9erdv326sn0tbp+1kv2+rV6+G5mdEm/Tq1atBgwYBQJcuXTp37tz439DCwmLAgAE8Hk8gEJw+fZpZ7e1JxzpiAUBeXl7Pnj3FYvGzZ88M39gB0xRE9Pf3P3z4sL29/S+//GJhYVFWVpaVlXXv3j3uv7dv3y4pKQEAKyursWPHcnP6pMMdsRDxo48+AoC4uDh1GkdHRwNAp06d7t6921ybJ0+eLFy4EAB8fX3fXZlaU1paWltb+5adaBistDRct669r37t3r0bAEaMGIGImzdv9vb2Dg0N3blz56VLl2QyWcOWiYmJfD6fz+efOHFCdZ+lpaW6uroCgaCwsLAVJb18+bKmDZxG1tTULFq0aNy4cSKRyMHBYcKECZGRkQkJCZmZmS1OzbxBk2BdvYrr12NtLYaH4717mpXcltRPqUul0ilTprxxCLexsdm6dSsiZmRkcJ+VX3/9tTrdTp48WU/PZMeOVE3riYiImDt3rlAo5F7LsLCwuLi4VryWb49bQjU2Nubz35w5F4vFbm5uAQEBFy9eVKcrTYK1eTNKpYiI167hDz+0qvK2wtXV1dTUVCAQ2NnZubu7e3t7e3p6Ojo6ckmKiYkpKSlxcHAAgFmzZqnZ5+nTBcbGSmdnzSrZvHkz97I1fi319PQGDBjg7+9//PhxjZ+h5rZu3co96PXr17dt2+bu7u7r6zthwoShQ4fa29vXb6z9xz/+ceTIkRZ70yRYCQnInfIcPIjnz7e2fu07fvw4n88XiURC4ZsXKeno6PTt29fPz69Xr14A4OHhUVW/+NeS2lq0skIAvHlT3UqSkpIEAgGPxzt69OjPP//s5ubm4+Mzfvx4Ly+vDz74oD5qPj4+3EGUneTkZKFQyOPxDh8+jIizZs1641+ma9euCxcunDNnDgAMGTKkxQ41CVZtLa5di1FRGBGB//oXlpe3+mloUVZWlpGREQBs2LChpqYmMzMzISEhMjJy2rRpjo6O9a/lhx9+2LNnz2fPnmnU+aJFCICLF6vVODs728TEBACioqIQce3atW+8llZWVh9//HF4eDj3urL7ZJRKpaampgCwevVq7ieFhYVJSUlff/11YGCgm5sbt41248aNr169MjY2BoDs7GzVfWo4eP/qK+zfH/v1QwA8dap1T0OLXrx4we2QmTlzZpMNKioqbty4sW/fvtTU1FevXqnZbUnJ6xupqejujseOYU0NyuWq7lJaWsodFKdOnapUKhGxuLg4OTn5m2++CQoKcnd379SpEwAEBwcjYp8+fQAgKSlJ7SeqAblc7ujoCACTJk1qbkFCqVQ+fPjw+fPniMgdtL744gvV3WoYrJkzEQBHj0YAXL5cs/tqW01NDXc1xJAhQ9T/gFPHwoWvb4SGoocHpqXhvXu4c6eqSkaMGAEAAwcO/P3335trlpeX9+jRI0T88ssvAWDGjBmaFpaamrp9+3ZTU1MPD4/g4OAtW7ZcunTp5cuX9Q3q6urGjRsHAP3796+oqFCnzwsXLgCAra2t6iOohsHatw8tzSs/m1S6btiT9HGa3bd5SuWbNzT26hW2tPw3b9487jOloKCgtQ/TtOBgTEjAhAScOxeXLsX58zEjA9euxcWLcdcuvHIFf/vtT+0XLFgAANbW1vn5+er0n5+fLxAI9PT0ysrK1K8qJyfH1NRUR0cHGrG3tx8/fvyKFSt8fX25z9zHjx+r2a1SqeSO+udVjrM1C1bNq0eSG7xbt0xu3tT79VdBXZ2s5fuoITT0zRuaiYrCjRvx009VTLBt2rQJAPT19W/cuNGqx1BlwQKUSlEqxZAQXLYM797FuXMxIAABXv+xt8/p3r372LFjP//8c39/f+7k69q1a+o/BHeE2717t5rt5XK5k5MTAPj5+eXn56ekpGzZsiU4ONjDw4MbMNUP40Qi0RUNJyYjIyNbPF/W7LsbRPp2uno9qqtzxWLXurri6uo8sfiPazKlUmlaWlpaWlplZeXo0aMDAwPVWTMBgJoakEgAABQKjcoBAICyMqiogIgIUCggNBTWrAEdHTAxAROTDebmok6dTExMHj9+vG7dOh6Pt2/fPjc3N80fowV8PvTuDQDAnWU6O4OZGRgYwIYNkJUFWVkgFmdeuvTkyZMnSUlJhoaGQqFw79693HUcagoICEhNTY2Li+P2WbRAoaieO9eYz+/Xr198fLyhoaGtre2oUaP++0tFbm7u3bt3b968uXHjRu6v69evX7hw4ZgxY9QpZvbs2VFRUT/99FNMTAw3FmyCRlFFxJKSXSUlsQUFa4uK1tfVyaqqHpaU7MnN9f/uu/H1fXLnVl5eXioGEA0FBWFSEiYlYUiIpuUgPn+OERGvbwcHI4/3+ijB4+kIBPUl6erqRkZGat67Wuo/oMrKkNsLWFX1p8G7QqG4f/9+YmLil19+yZ1V7dmzZ+bMmXv27FHzISoqKriXUMpNJaq2eDECVNnaFrX0Affxxx8DgI+PDwBMnz5dzWIQ0dPTEwD279/fXIPWrBVWVFx/9myzUllTULBGIgHuz9mztpaWltOmTduyZcvJkyft7OwAYNSoUeqcW73tR+GCBXjmDG7YgD/+iJcu4cmTGB+v+P77qKiopUuXzpkzhzurT09Pb1Xv79jKlSsBgPtoGzRokPp3DAgIgAYzAs06eBABUFcXL19usc8zZ84AQI8ePdQfwx04cEAul8fExADA1KlTm2umbrBqa4tlsoQnTxbdu+cql5968uTTp0/DysoSMzI6P3gw+fnzbZWVWQ3b5+TkdO3alXs31F8O2pyffno9KabG9QqNXLmCQUEYH495eY1/KZPJEhMT//nPfwLAmjVrNO/93ZNKpTwez8jIiDt0qVjbrvfzzz8XFhaeO3cOAExMTGbNmrVhw4ZTp05Vv3FAunMH/+//sLgYR45E9UZjCoXC1taWiziovLSEEx8fDwD9+/f39fUVCoVHjx5trqWqYJWWlv773//+9NNPnZ2db92yrj84FRREIKJMdkwmS0Rs9lxMKpVaW1sDwNixY1Wf3oeEIPeiL1mi+nk1xd8fAbCZ3cbcG4ubZRg+fLjmvTPBja64g1Z4eLjqxhcvXtTR0bG1tQ0JCeHxePVTuEI+Hw0MsFMndHfHoCD87jvcsweTkjA0tMUT5IY+//xzABg5ciQAcN9k0RyJRKKvrw8A3FDMzMzs/v37zTVuNlgvX74UiUT1Y5Rz50bk5PgUFa2vqLheWZldWBiVn/9ZeXm6XJ6iopTs7Gzui+38/Pwar94XFODBg7hoES5bhps34+3bmgerrAzFYuTzmzxc4X+/7aNLly7c1RBqjvlY2759OwBw8bKxsVExIfTo0SNLS0vuzQkAIpEoJiZm165dixcvXjhlyuvLNgDQwgLnz399n8WLsaWPiIYyMzO5AyE3hvvPf/7TZLOCggLuuy18fX15PJ5IJGr9dIO7u7urq2tYWFhKSkrDQ05V1YMHDyZJpSMlEsjM7KO67oyMDG7X5eTJk2tra4uLixMSEpYsWd2nzx9n47NnY3U1zp+v7mJIvWe7d6NQiGPGNNdAqVR26dIFAJydnQEgJUXV2+C9kclkurq6fD6fmxBKTk5usln9VZDu7u7cVZC7du16s9GLF5iejomJOG/e62nAkBDUcPFn4MCB9UfQb775pnGD+j20gwcPFovFALB9+3bVfaoKlrKZ+cra2hcSCf/mTfGtW0YSCdTUNHF9QUMSiYQbPltaWtYvknfrVtOpE44fj5s2vT5QpaXhggXo7Y0tLUP9wdnZub+V1QOVQzPuxGf06NEAsHLlSnW7Zmzq1Kn1p2ML62fuG1AoFBMnTgSAnj17WlhYAMCyZctU9ZiWhp99hmvXYkyMpsVw+xq8vLx+/fXXJhtMnz4dABwcHLixTagaJ1mt3EGafWfA4yN/l2+aXDd8gPLY4RbbX7t2zcvLq2vXrmKxePTo0V999dUvv5Q03qUYGIgA2K0bPnzYcg1XrlwBACsrK9Vb5GJjYwGAOz1WZ1n+/Th58iQA9O7d+/z5802u0H3xxRfcOIZbKBwzZkzLi9BKZesuOispKdHR0eHz+YsWLTp48OCtW7feGBMnJSV169aNO+qPGjVKnf2lrd2avPSzPxYN585V805SqbS6ulpFg4oKHDYMAbBHD8Xjx6ouoSopKeGGHeHh4dnZ2dHR0c0dX+/fvw8A5ubm3D4ZuerF4feltraWG33OmjUrLi5OIpG8MS9z69YtBwcHDw8PAOjTp49GizmtEBsb23DqWCAQNNx1eOPGDW5HpIODQ0n9krtKrQ3W8eMIgK6uaGiI8+a1spOmVFSgl5fio4/mdO/ePe/PQ/Ly8vKUlJSwsDBXV1c+ny8UCsVicVBQUN++fQFgypQpzS2jjhkzZvHixdwo4VSb2ZRx6NAhbgG4nrW19ahRoxYtWsRFbcmSJS2efL1Dp06dWrNmzbRp0/r27dt4p5qenp6RkVFzQ/vGWhussjJctw5XrcKoKNyx4y1Wj5sgl5dzZ0x/+9vfcnJyzpw5s2LFikGDBgkazKTr6+u7uLhwz9/T05Mbw7m4uHDbARq7cOGCpaXlwIEDr1+//g5LfUsXLlyIjo6ePn26s7Nzw3NwjoGBgVAoTE3VeK/z26uurr59+/aRI0dWrlzp5+fXpUsXoVDo4+Ojfg9vcZXO1av4/feIiIcO4bu+mK6srMzV1RUAGr51dHR0PD09IyMj09PTuUFAcnIyt0OtT58+3PYmc3PzCxcuNOzqxYsXAQEB3EmDu7u7+tdAv2fcrsNjx45FRERMmTKlW7duurq6ffv21XZdiIh5eXk8Hs/AwKDhlhvV3iJYP/yA3Ls/Jwc3b259P80oLS1dvnz50KFDuSmPEydONDk8un//PvdR2LlzZ26UoKurm5iYyP02ISGBmwfS19ePjIxUPcJrUzRbHGRv2LBhALBP7e9keotgSST47beIiD/8gOfOtb4fldTZjyuXy7mvqdXV1R03bpyZmVlOTk5ubm79Wv2wYcNa3ErbBqm7OPhe7I+PHxMe/j9qb/V5uwtWjx3D6Ghsfon7vamrqwsLC+NiFBgY+O2333I7dkxNTWNjY5s7YWzj0tLS+vj1mZg0UYnar7+irs7j5k03iaRAvc23f6kroWNjYxsOgf39/Yvb89e+KFHZ424P+BXSy9vEvowvcnNdJZI96l2RK1izZg38Vbi6unp6etrY2JiZmW3btm358uUNd0u2Ozzgvah7cbHiIg94E00marscEAsEp2Wysrq6aRYWLTbucF8K0r48qH7QO6u3Ad+gyKXIkK/Wdlx2lIh7i4qqlEp9gWCSuXnnRvMjDVGw2roNzzeYC82FIBxnPO6U/NTszrO1WExqWZmJUDiwue3IDXSsL7dtj9zEboU1hcM7Dc+uyr5TeUfb5cD/ymR7i4pabEbBauvOl58PsQix17EfZjhM27UAAEwwM5trbd1iMwpWW2cuNC+sLdR2Fa91FomMGy0jNon+171tXWDnwNWFq82EZu5idzOhmXaL6afe9XxAg3fCCH0UEiYoWIQJChZhgoJFmKBgESYoWIQJChZhgoJFmKBgESYoWIQJChZhgoJFmKBgESYoWIQJChZhgoJFmKBgESYoWIQJChZhgoJFmKBgESYoWIQJChZhgoJFmKBgESYoWIQJChZhgoJFmKBgESYoWIQJChZhgoJFmKBgESYoWIQJChZhgoJFmKBgESYoWIQJChZhgoJFmKBgESYoWIQJChZhgoJFmKBgESYoWIQJChZhgoJFmKBgESYoWIQJChZhgoJFmKBgESYoWIQJChZhgoJFmKBgESYoWIQJChZhgoJFmKBgESYoWIQJChZhgoJFmKBgESYoWIQJChZhgoJFmKBgESYoWIQJChZh4v8BOH4bzAj8iXAAAAK2elRYdHJka2l0UEtMIHJka2l0IDIwMjAuMDkuNAAAeJydkl1IFFEUx+/c3Zmd3dlPXffLr9l1tVX0IQtJSHcmVLRQIysqpK6GcZOwyDeJaB+0DCIV7MkoP7Ine2p7iNidedIgRGEpCD8QegkiH0woLGrmjEpgvnTh8P/NOef+772HWU/NrCBt2bVgkLFiWpRrcYfhENHzJjcSNeV4KJnwjhplvKsWQ5ndvAR9Zk6iupqYv8Co8NK2097OncR+FhajYvpHwthiQVDAzH+Y73nh/hZ7n7YNVhga4zFE0MbLYB4zJi3MyMwilkOcBVl4xFspttqITaBYsBPBITqcFDtdxOWm2O0hnixNskm2l2JvDsnxUezzi/6AGAhSHAyRUC7FuXkkL1+TArGgEBWKSAxTHI6QSBHFRVESLaY4UoJCB5CdJ1kO4nOR/AApFomXZXmrTbBzTpfbk+Xgsr05PpebC4Zy8/IDXDhSFC0W/Tt/BYq9dXaq9tbetP7RNn9cHS/3Alcs1anIgRWd+5STavrjpbjOyw8OqR9ip1M6d89G1PbMJPR/GxDU5gEKjBKbCh35BexFs0olMw88LUwopC4KnvU/byq1C2uQv9HZr1RVPgHP601J5V1vO3Aw0aycsZ2Dc++9Xk4vjfuBN7sa0tMTq8D+jWfplkyTpHPH44PKta/ngWNrPcoQ6zb4xUxqdGUQOLw0HB9YTADXjmXinqelxt7Sw/GrPWnwnM+MxY/dfVWj81FnhdRwsQTuc6KnRUotzsGd3YOPpC32M/BGWVLqp2XAX/qmpK7JGvAxneqWVoXbwCu3Pkm/F7qhp+MhI8819dbqfPZIUN5IdL3R+cJQWP6xkISe1upquYp9Dyzfb5S3rpiBayoleX3qMng2Dsbkl9wIcNuwLI+y9TBbf/Vz6Xt/C7DvDwckxJ82LqLjAAACqnpUWHRNT0wgcmRraXQgMjAyMC4wOS40AAB4nJ1WS6obQQzc+xS6gBu11D+t85JNSAIJ5A6BLHN/Uv2x3jxIwE9mMCXGXa4pqavnRvPz/eXzrz/kH3m53agwlULE/7zMjH4KM9+I7rmkLKNh4Z2TVS6TgxPuMn2g/1Fcr8UiqfVaNkvtY1xYfryHRVnn2rskVuELy7fnWTRx6Wft6KXEWHISkbyfSLhLzBdOuWufLODrMD7AQveRuvBx13joheXr8ywdPVqeQouNzDEtLUle/QVLYwvNC91r4qa2O11b6zEWTd1a21p6K6Ee0R07oC1P4a5mDvaoptaqnHnJ9dqjp6duPpHkR2dG0aAWuKFyFFQTjbFw6r0uLeArsR2w5t5anWs1wZYWY5GpRTZL4RrUotOXpUWSVA77ompLQUFejesOeH43wtOsVjcL1zZCWsDS2p4XJPDb9H6HFnR65y74itVYj2gmpndmWI5pQae58PY5t92t92vRqaXu+YO5sX2EzkCLbJYhHNQykyHX/UTIiFjWgSUX5tOtwsF50anlzL2ZxNKb+tRyss5wwIWyjkZi68dT0R6cOsP7RjvpzblwiAXnNLScc7pI7C2I8M4ALWfqzlkbYMGJqPstCOmdg7kLFs6P5B/Dgiw8tdSTV9Gpm1ps8E5g7uO6jz69ZwdgT/fNItLe7OnfT7IglGR9zwJI1/cpyrWo/jOg5gVQ9wJoeAFkXhjNVC6rAMrZiww7vBCam/G1KA8CoBkZ506l3LxolLsXnfLwYlC2yx1xBUDiCoDEFQCJKwASVwAk7gGQuAIgcQVA4gqAxBUAKV/uaH6wAal3AUjVCyUtjzVA6h4AqSsAUlcApOP6M+8CtM08OI7q6s9xx5bX/tiv9kKyvP7pWNpW8YXo49eX21+T0hWps2uEdQAAAdN6VFh0U01JTEVTIHJka2l0IDIwMjAuMDkuNAAAeJwtUjuu3EAMu0pKG7AH+muERSoDKd8rcoRpg5cLvMOHmk2x8IJDiRSl5/fx8/Ps3/N8PIvXWse9ZC1dx1pyfq2vpR8NHM+fcx2fD17W8esEUc9m/OUf38fNNlhmXDeNcjLx63WzjEi3xjznpHhjSjqvWwapkDWkgywvGjPNVBrhISLchULJMxujwal53XjLqqbNkejgW5OmVAFLSEqTajIpgBiCBtFQUBkD8kGh6AAPHhHdXUdWhDcrw7ghDBRTsrsrU+lmCXMbNYVgmxqpglkxYIlyT0Mj0wp0vFnyzmFIhc1LB7t61wlILgrEyHm+DahYXTLESd+NFCa5LkNi0zAwD9ZyBUAeUxuIYBIUBYowPsRJ0wPiVo7vq5N0MTikWYy/10uahLCgwCEWqNNmwSGsojMAA8dgEMBExkC8KR1tc6Pj8Fa33QfRhSO0HGwke+PFudXmoMpOSGAMB/IqHEPI3hqB3TlityDt3RrUMD0uAKy9D+yzF4nDoZotTzlxLg249iUhfE6ueHMYrrGhiX347gySIw9IzW26NXuJaYRN9ewYQwIIrko7jbsn8//3xy7Tr/P7H8ZXpdReuVkDAAAAAElFTkSuQmCC"/></td>
+</tr>
+<tr>
+<th>1</th>
+<td>COCCOC1=C(C=C2C(=C1)C(=NC=N2)NC3=CC=CC(=C3)C#C...</td>
+<td>176870</td>
+<td><img alt="Mol" data-content="rdkit/molecule" src="data:image/png;base64,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"/></td>
+</tr>
+<tr>
+<th>2</th>
+<td>COC1=C(C=C2C(=C1)C(=NC(=N2)N3CCN(CC3)C(=O)C4=C...</td>
+<td>68546</td>
+<td><img alt="Mol" data-content="rdkit/molecule" src="data:image/png;base64,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"/></td>
+</tr>
+<tr>
+<th>3</th>
+<td>CN(CCCNC(=O)C1CCCO1)C2=NC3=CC(=C(C=C3C(=N2)N)O...</td>
+<td>2092</td>
+<td><img alt="Mol" data-content="rdkit/molecule" src="data:image/png;base64,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"/></td>
+</tr>
+<tr>
+<th>4</th>
+<td>COC1=CC2=C(C=CN=C2C=C1OC)OC3=CC=C(C=C3)NC(=O)C...</td>
+<td>25102847</td>
+<td><img alt="Mol" data-content="rdkit/molecule" src="data:image/png;base64,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"/></td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="5.-Show-the-results">
+<h4 id="5.-Show-the-results">5. Show the results<a class="headerlink" href="#5.-Show-the-results" title="Permalink to this headline">¶</a></h4>
+<p>Show the compounds with images using RDKit’s drawing functions.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">multi_preview_smiles</span><span class="p">(</span><span class="n">query_smiles</span><span class="p">,</span> <span class="n">query_name</span><span class="p">,</span> <span class="n">similar_molecules_pd</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Show query and similar compounds in 2D structure representation.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    query_smiles : str</span>
+<span class="sd">        The SMILES string of query compound.</span>
+<span class="sd">    query_name : str</span>
+<span class="sd">        The name of query compound.</span>
+<span class="sd">    similar_molecules_pd : pandas</span>
+<span class="sd">        The pandas DataFrame which contains the SMILES string and CIDs of similar molecules.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    MolsToGridImage</span>
+<span class="sd">    """</span>
+
+    <span class="n">legends</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">"PubChem CID: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">similar_molecules_pd</span><span class="p">[</span><span class="s2">"CIDs"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()]</span>
+    <span class="n">molecules</span> <span class="o">=</span> <span class="p">[</span><span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">similar_molecules_pd</span><span class="p">[</span><span class="s2">"smiles"</span><span class="p">]]</span>
+    <span class="n">query_smiles</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="n">query_smiles</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">MolsToGridImage</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">query_smiles</span><span class="p">]</span> <span class="o">+</span> <span class="n">molecules</span><span class="p">,</span>
+        <span class="n">molsPerRow</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+        <span class="n">subImgSize</span><span class="o">=</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">),</span>
+        <span class="n">maxMols</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">molecules</span><span class="p">),</span>
+        <span class="n">legends</span><span class="o">=</span><span class="p">([</span><span class="n">query_name</span><span class="p">]</span> <span class="o">+</span> <span class="n">legends</span><span class="p">),</span>
+        <span class="n">useSVG</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"The results of querying similar compounds for Gefitinib:"</span><span class="p">)</span>
+<span class="n">multi_preview_smiles</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="s2">"Gefitinib"</span><span class="p">,</span> <span class="n">query_results_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The results of querying similar compounds for Gefitinib:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/home/andrea/.local/miniconda/envs/teachopencadd_review/lib/python3.8/site-packages/rdkit/Chem/Draw/IPythonConsole.py:190: UserWarning: Truncating the list of molecules to be displayed to 10. Change the maxMols value to display more.
+  warnings.warn(
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_T013_query_pubchem_33_2.svg" src="../_images/talktorials_T013_query_pubchem_33_2.svg"/></div>
+</div>
+</section>
+</section>
+</section>
+<section id="Discussion">
+<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this headline">¶</a></h2>
+<p>In this notebook, you have learned how to access and search similar compounds from the PubChem database via the PUG-REST programmatic access. Is it convenient? PUG-REST can do more than that. See <a class="reference external" href="https://pubchemdocs.ncbi.nlm.nih.gov/pug-rest-tutorial">PUG-REST</a> to get more power!</p>
+</section>
+<section id="Quiz">
+<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Can you make the similarity search more strict?</p></li>
+<li><p>Is any of the proposed candidates already an approved inhibitor? (Hint: You can <em>scrape</em> <a class="reference external" href="http://www.icoa.fr/pkidb/">PKIDB</a> and check against the list of SMILES, also see <strong>Talktorial T011</strong>)</p></li>
+<li><p>Can you try to reuse the functions in this notebook so search for similar compounds to Imatinib and inspect your results?</p></li>
+</ul>
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {}, "version_major": 2, "version_minor": 0}
+</script></section>
+</section>
+
+
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="md-footer">
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="T012_query_klifs.html" title="T012 · Data acquisition from KLIFS"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> Previous </span> T012 · Data acquisition from KLIFS </span>
+              </div>
+            </a>
+          
+          
+            <a href="T021_one_hot_encoding.html" title="T021 · One-Hot Encoding"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> Next </span> T021 · One-Hot Encoding </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          
+        </a>
+        
+      </nav>
+    </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169; Copyright 2018-2021, Volkamer Lab. Project structure based on the Computational Molecular Science Python Cookiecutter version 1.1.
+              
+          </div>
+            Created using
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.1.2.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../_static/javascripts/application.js"></script>
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  </body>
+</html>

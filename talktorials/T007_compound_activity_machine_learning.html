@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="lang:clipboard.copy" content="Copy to clipboard">
@@ -75,11 +76,11 @@
   
   
     <title>T007 · Ligand-based screening: machine learning &#8212; TeachOpenCADD 0 documentation</title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/material.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/material.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -87,6 +88,8 @@
     <script src="../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="T008 · Protein data acquisition: Protein Data Bank (PDB)" href="T008_query_pdb.html" />
@@ -138,7 +141,7 @@
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
-    <form class="md-search__form" action="../search.html" method="GET" name="search">
+    <form class="md-search__form" action="../search.html" method="get" name="search">
       <input type="text" class="md-search__input" name="q" placeholder="Search"
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
@@ -246,167 +249,42 @@
     
     
       <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#jcim-2019" class="md-nav__link">JCIM 2019</a>
       
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#ligand-based-cheminformatics" class="md-nav__link">Ligand-based cheminformatics</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#structural-biology" class="md-nav__link">Structural biology</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#online-apis-servers" class="md-nav__link">Online APIs/servers</a>
+      
+    
+    </li></ul>
     
     </li>
     <li class="md-nav__item">
     
     
       <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="T001_query_chembl.html" class="md-nav__link">T001 · Compound data acquisition (ChEMBL)</a>
       
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T002_compound_adme.html" class="md-nav__link">T002 · Molecular filtering: ADME and lead-likeness criteria</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T003_compound_unwanted_substructures.html" class="md-nav__link">T003 · Molecular filtering: unwanted substructures</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T004_compound_similarity.html" class="md-nav__link">T004 · Ligand-based screening: compound similarity</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T005_compound_clustering.html" class="md-nav__link">T005 · Compound clustering</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T006_compound_maximum_common_substructures.html" class="md-nav__link">T006 · Maximum common substructure</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> T007 · Ligand-based screening: machine learning </label>
-    
-      <a href="#" class="md-nav__link md-nav__link--active">T007 · Ligand-based screening: machine learning</a>
-      
-        
-<nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#talktorials-t007-compound-activity-machine-learning--page-root" class="md-nav__link">T007 · Ligand-based screening: machine learning</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
-        </li>
-        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
-        </li>
-        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Data-preparation:-Molecule-encoding" class="md-nav__link">Data preparation: Molecule encoding</a>
-        </li>
-        <li class="md-nav__item"><a href="#Machine-learning-(ML)" class="md-nav__link">Machine learning (ML)</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Supervised-learning" class="md-nav__link">Supervised learning</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Model-validation-and-evaluation" class="md-nav__link">Model validation and evaluation</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Validation-strategy:-K-fold-cross-validation" class="md-nav__link">Validation strategy: K-fold cross validation</a>
-        </li>
-        <li class="md-nav__item"><a href="#Performance-measures" class="md-nav__link">Performance measures</a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Load-compound-and-activity-data" class="md-nav__link">Load compound and activity data</a>
-        </li>
-        <li class="md-nav__item"><a href="#Data-preparation" class="md-nav__link">Data preparation</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Data-labeling" class="md-nav__link">Data labeling</a>
-        </li>
-        <li class="md-nav__item"><a href="#Molecule-encoding" class="md-nav__link">Molecule encoding</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Machine-Learning-(ML)" class="md-nav__link">Machine Learning (ML)</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Helper-functions" class="md-nav__link">Helper functions</a>
-        </li>
-        <li class="md-nav__item"><a href="#Random-forest-classifier" class="md-nav__link">Random forest classifier</a>
-        </li>
-        <li class="md-nav__item"><a href="#Support-vector-classifier" class="md-nav__link">Support vector classifier</a>
-        </li>
-        <li class="md-nav__item"><a href="#Neural-network-classifier" class="md-nav__link">Neural network classifier</a>
-        </li>
-        <li class="md-nav__item"><a href="#Cross-validation" class="md-nav__link">Cross-validation</a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Where-can-we-go-from-here?" class="md-nav__link">Where can we go from here?</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
-        </li></ul>
-            </nav>
-        </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T007_compound_activity_machine_learning.nblink.txt">Show Source</a> </li>
-
-  </ul>
-</nav>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T008_query_pdb.html" class="md-nav__link">T008 · Protein data acquisition: Protein Data Bank (PDB)</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T009_compound_ensemble_pharmacophores.html" class="md-nav__link">T009 · Ligand-based pharmacophores</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T010_binding_site_comparison.html" class="md-nav__link">T010 · Binding site similarity and off-target prediction</a>
-      
-    
-    </li></ul>
     
     </li>
     <li class="md-nav__item">
@@ -805,7 +683,7 @@ div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
 </style>
-
+<section id="T007-·-Ligand-based-screening:-machine-learning">
 <h1 id="talktorials-t007-compound-activity-machine-learning--page-root">T007 · Ligand-based screening: machine learning<a class="headerlink" href="#talktorials-t007-compound-activity-machine-learning--page-root" title="Permalink to this headline">¶</a></h1>
 <p>Authors:</p>
 <ul class="simple">
@@ -815,10 +693,10 @@ div.rendered_html tbody tr:hover {
 <li><p>Andrea Volkamer, 2019-2020, <a class="reference external" href="https://volkamerlab.org">Volkamer lab</a></p></li>
 </ul>
 <p><strong>Talktorial T007</strong>: This talktorial is part of the TeachOpenCADD pipeline described in the <a class="reference external" href="https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x">first TeachOpenCADD paper</a>, comprising of talktorials T001-T010.</p>
-
+<section id="Aim-of-this-talktorial">
 <h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this headline">¶</a></h2>
 <p>Due to larger available data sources, machine learning (ML) gained momentum in drug discovery and especially in ligand-based virtual screening. In this talktorial, we learn how to use different supervised ML algorithms to predict the activity of novel compounds against our target of interest (EGFR).</p>
-
+<section id="Contents-in-Theory">
 <h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Data preparation: Molecule encoding</p></li>
@@ -834,8 +712,8 @@ div.rendered_html tbody tr:hover {
 </ul>
 </li>
 </ul>
-
-
+</section>
+<section id="Contents-in-Practical">
 <h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Load compound and activity data</p></li>
@@ -855,17 +733,20 @@ div.rendered_html tbody tr:hover {
 </ul>
 </li>
 </ul>
-
-
+</section>
+<section id="References">
 <h3 id="References">References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>“Fingerprints in the RDKit” <a class="reference external" href="https://www.rdkit.org/UGM/2012/Landrum_RDKit_UGM.Fingerprints.Final.pptx.pdf">slides</a>, G. Landrum, RDKit UGM 2012</p></li>
 <li><p>Extended-connectivity fingerprints (ECFPs): Rogers, David, and Mathew Hahn. “Extended-connectivity fingerprints.” <a class="reference external" href="https://doi.org/10.1021/ci100050t">Journal of chemical information and modeling 50.5 (2010): 742-754.</a></p></li>
 <li><p>Machine learning (ML):</p>
 <ul>
-<li><p>Random forest (RF): Breiman, L. “Random Forests”. <a class="reference external" href="https://doi.org/10.1023/A:1010933404324">Machine Learning 45, 5–32 (2001).</a></p></li>
-<li><p>Support vector machines (SVM): Cortes, C., Vapnik, V. “Support-vector networks”. <a class="reference external" href="https://doi.org/10.1007/BF00994018">Machine Learning 20, 273–297 (1995).</a></p></li>
+<li><p>Random forest (RF): Breiman, L. “Random Forests”. <a class="reference external" href="https://link.springer.com/article/10.1023%2FA%3A1010933404324">Machine Learning 45, 5–32 (2001).</a></p></li>
+<li><p>Support vector machines (SVM): Cortes, C., Vapnik, V. “Support-vector networks”. <a class="reference external" href="https://link.springer.com/article/10.1007%2FBF00994018">Machine Learning 20, 273–297 (1995).</a></p>
+<ul>
 <li><p>Artificial neural networks (ANN): Van Gerven, Marcel, and Sander Bohte. “Artificial neural networks as models of neural information processing.” <a class="reference external" href="https://doi.org/10.3389/fncom.2017.00114">Frontiers in Computational Neuroscience 11 (2017): 114.</a></p></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><p>Performance:</p>
@@ -875,15 +756,21 @@ div.rendered_html tbody tr:hover {
 </ul>
 </li>
 <li><p>See also <a class="reference external" href="https://github.com/Team-SKI/Publications/tree/master/Profiling_prediction_of_kinase_inhibitors">github notebook by B. Merget</a> from <a class="reference external" href="https://pubs.acs.org/doi/10.1021/acs.jmedchem.6b01611">J. Med. Chem., 2017, 60, 474−485</a></p></li>
+<li><p>Activity cutoff <span class="math notranslate nohighlight">\(pIC_{50} = 6.3\)</span> used in this talktorial</p>
+<ul>
+<li><p>Profiling Prediction of Kinase Inhibitors: Toward the Virtual Assay <a class="reference external" href="https://doi.org/10.1021/acs.jmedchem.6b01611">J. Med. Chem. (2017), 60, 474-485</a></p></li>
+<li><p>Notebook accompanying the publication mentioned before: <a class="reference external" href="https://github.com/Team-SKI/Publications/blob/master/Profiling_prediction_of_kinase_inhibitors/Build_ABL1_model.ipynb">Notebook</a></p></li>
 </ul>
-
-
-
+</li>
+</ul>
+</section>
+</section>
+<section id="Theory">
 <h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this headline">¶</a></h2>
 <p>To successfully apply ML, we need a large data set of molecules, a molecular encoding, a label per molecule in the data set, and a ML algorithm to train a model. Then, we can make predictions for new molecules.</p>
 <img alt="ML overview" src="../_images/ML_overview.png"/>
 <p><em>Figure 1</em>: Machine learning overview: Molecular encoding, label, ML algorithm, prediction. Figure by Andrea Volkamer.</p>
-
+<section id="Data-preparation:-Molecule-encoding">
 <h3 id="Data-preparation:-Molecule-encoding">Data preparation: Molecule encoding<a class="headerlink" href="#Data-preparation:-Molecule-encoding" title="Permalink to this headline">¶</a></h3>
 <p>For ML, molecules need to be converted into a list of features. Often molecular fingerprints are used as representation.</p>
 <p>The fingerprints used in this talktorial as implemented in RDKit (more info can be found in a <a class="reference external" href="https://www.rdkit.org/UGM/2012/Landrum_RDKit_UGM.Fingerprints.Final.pptx.pdf">presentation by G. Landrum</a>) are:</p>
@@ -892,8 +779,8 @@ div.rendered_html tbody tr:hover {
 <li><p><strong>Morgan fingerprints</strong> (and <strong>ECFP</strong>): ‘Extended-Connectivity Fingerprints (ECFPs) are circular topological fingerprints designed for molecular characterization, similarity searching, and structure-activity modeling.’ (see ChemAxon’s <code class="docutils literal notranslate"><span class="pre">ECFP</span></code> <a class="reference external" href="https://docs.chemaxon.com/display/docs/Extended+Connectivity+Fingerprint+ECFP">docs</a>) The original implementation of the ECFPs was done in Pipeline Pilot which is not open-source. Instead we use the implementation from RDKit which is called Morgan
 fingerprint. The two most important parameters of these fingerprints are the radius and fingerprint length. The first specifies the radius of circular neighborhoods considered for each atom. Here two radii are considered: 2 and 3. The length parameter specifies the length to which the bit string representation is hashed. The default length is 2048.</p></li>
 </ul>
-
-
+</section>
+<section id="Machine-learning-(ML)">
 <h3 id="Machine-learning-(ML)">Machine learning (ML)<a class="headerlink" href="#Machine-learning-(ML)" title="Permalink to this headline">¶</a></h3>
 <p>ML can be applied for (text adapted from <a class="reference external" href="http://scikit-learn.org/stable/">scikit-learn page</a>):</p>
 <ul class="simple">
@@ -901,7 +788,7 @@ fingerprint. The two most important parameters of these fingerprints are the rad
 <li><p>Regression: Prediction of a continuous-values attribute associated with an object</p></li>
 <li><p>Clustering (unsupervised): Automated grouping of similar objects into sets (see also <strong>talktorial T005</strong>)</p></li>
 </ul>
-
+<section id="Supervised-learning">
 <h4 id="Supervised-learning">Supervised learning<a class="headerlink" href="#Supervised-learning" title="Permalink to this headline">¶</a></h4>
 <p>A learning algorithm creates rules by finding patterns in the training data.</p>
 <ul class="simple">
@@ -911,11 +798,11 @@ fingerprint. The two most important parameters of these fingerprints are the rad
 </ul>
 <img alt="ANN_example" src="../_images/ANN_wiki.png"/>
 <p><em>Figure 2</em>: Example of a neural network with one hidden layer. Figure taken from <a class="reference external" href="https://en.wikipedia.org/wiki/Artificial_neural_network">Wikipedia</a>.</p>
-
-
-
+</section>
+</section>
+<section id="Model-validation-and-evaluation">
 <h3 id="Model-validation-and-evaluation">Model validation and evaluation<a class="headerlink" href="#Model-validation-and-evaluation" title="Permalink to this headline">¶</a></h3>
-
+<section id="Validation-strategy:-K-fold-cross-validation">
 <h4 id="Validation-strategy:-K-fold-cross-validation">Validation strategy: K-fold cross validation<a class="headerlink" href="#Validation-strategy:-K-fold-cross-validation" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p>This model validation technique splits the dataset in two groups in an iterative manner:</p>
@@ -927,8 +814,8 @@ fingerprint. The two most important parameters of these fingerprints are the rad
 </li>
 <li><p>The goal is to test the ability of the model to predict data which it has never seen before in order to flag problems known as over-fitting and to assess the generalization ability of the model.</p></li>
 </ul>
-
-
+</section>
+<section id="Performance-measures">
 <h4 id="Performance-measures">Performance measures<a class="headerlink" href="#Performance-measures" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p><strong>Sensitivity</strong>, also true positive rate</p>
@@ -985,10 +872,10 @@ fingerprint. The two most important parameters of these fingerprints are the rad
 </tr>
 </tbody>
 </table>
-
-
-
-
+</section>
+</section>
+</section>
+<section id="Practical">
 <h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -1033,7 +920,7 @@ fingerprint. The two most important parameters of these fingerprints are the rad
 </pre></div>
 </div>
 </div>
-
+<section id="Load-compound-and-activity-data">
 <h3 id="Load-compound-and-activity-data">Load compound and activity data<a class="headerlink" href="#Load-compound-and-activity-data" title="Permalink to this headline">¶</a></h3>
 <p>Let’s start by loading our data, which focuses on the Epidermal growth factor receptor (EGFR) kinase. The <em>csv</em> file from <strong>talktorial T002</strong> is loaded into a dataframe with the important columns:</p>
 <ul class="simple">
@@ -1064,7 +951,7 @@ fingerprint. The two most important parameters of these fingerprints are the rad
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Shape of dataframe :  (4525, 10)
+Shape of dataframe :  (4635, 10)
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1144,19 +1031,6 @@ Shape of dataframe :  (4525, 10)
 </tr>
 <tr>
 <th>3</th>
-<td>CHEMBL53753</td>
-<td>0.008</td>
-<td>nM</td>
-<td>CNc1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
-<td>11.096910</td>
-<td>329.027607</td>
-<td>5</td>
-<td>2</td>
-<td>3.5726</td>
-<td>True</td>
-</tr>
-<tr>
-<th>4</th>
 <td>CHEMBL66031</td>
 <td>0.008</td>
 <td>nM</td>
@@ -1166,6 +1040,19 @@ Shape of dataframe :  (4525, 10)
 <td>4</td>
 <td>2</td>
 <td>4.0122</td>
+<td>True</td>
+</tr>
+<tr>
+<th>4</th>
+<td>CHEMBL53753</td>
+<td>0.008</td>
+<td>nM</td>
+<td>CNc1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
+<td>11.096910</td>
+<td>329.027607</td>
+<td>5</td>
+<td>2</td>
+<td>3.5726</td>
 <td>True</td>
 </tr>
 </tbody>
@@ -1233,30 +1120,30 @@ Shape of dataframe :  (4525, 10)
 </tr>
 <tr>
 <th>3</th>
-<td>CHEMBL53753</td>
-<td>CNc1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
+<td>CHEMBL66031</td>
+<td>Brc1cccc(Nc2ncnc3cc4[nH]cnc4cc23)c1</td>
 <td>11.096910</td>
 </tr>
 <tr>
 <th>4</th>
-<td>CHEMBL66031</td>
-<td>Brc1cccc(Nc2ncnc3cc4[nH]cnc4cc23)c1</td>
+<td>CHEMBL53753</td>
+<td>CNc1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
 <td>11.096910</td>
 </tr>
 </tbody>
 </table>
 </div></div>
 </div>
-
-
+</section>
+<section id="Data-preparation">
 <h3 id="Data-preparation">Data preparation<a class="headerlink" href="#Data-preparation" title="Permalink to this headline">¶</a></h3>
-
+<section id="Data-labeling">
 <h4 id="Data-labeling">Data labeling<a class="headerlink" href="#Data-labeling" title="Permalink to this headline">¶</a></h4>
 <p>We need to classify each compound as active or inactive. Therefore, we use the pIC50 value.</p>
 <ul class="simple">
 <li><p>pIC50 = -log10(IC50)</p></li>
 <li><p>IC50 describes the amount of substance needed to inhibit, <em>in vitro</em>, a process by 50% .</p></li>
-<li><p>A common cut-off value to discretize pIC50 data is 6,3, which we will use for our experiment.</p></li>
+<li><p>A common cut-off value to discretize pIC50 data is 6.3, which we will use for our experiment (refer to <a class="reference external" href="https://doi.org/10.1021/acs.jmedchem.6b01611">J. Med. Chem. (2017), 60, 474-485</a> and the corresponding <a class="reference external" href="https://github.com/Team-SKI/Publications/blob/master/Profiling_prediction_of_kinase_inhibitors/Build_ABL1_model.ipynb">notebook</a>)</p></li>
 <li><p>Note that there are several other suggestions for an activity cut-off ranging from an pIC50 value of 5 to 7 in the literature or even to define an exclusion range when not to take data points.</p></li>
 </ul>
 <div class="nbinput docutils container">
@@ -1281,8 +1168,8 @@ Shape of dataframe :  (4525, 10)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Number of active compounds: 2555
-Number of inactive compounds: 1970
+Number of active compounds: 2631
+Number of inactive compounds: 2004
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1348,15 +1235,15 @@ Number of inactive compounds: 1970
 </tr>
 <tr>
 <th>3</th>
-<td>CHEMBL53753</td>
-<td>CNc1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
+<td>CHEMBL66031</td>
+<td>Brc1cccc(Nc2ncnc3cc4[nH]cnc4cc23)c1</td>
 <td>11.096910</td>
 <td>1.0</td>
 </tr>
 <tr>
 <th>4</th>
-<td>CHEMBL66031</td>
-<td>Brc1cccc(Nc2ncnc3cc4[nH]cnc4cc23)c1</td>
+<td>CHEMBL53753</td>
+<td>CNc1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
 <td>11.096910</td>
 <td>1.0</td>
 </tr>
@@ -1364,8 +1251,8 @@ Number of inactive compounds: 1970
 </table>
 </div></div>
 </div>
-
-
+</section>
+<section id="Molecule-encoding">
 <h4 id="Molecule-encoding">Molecule encoding<a class="headerlink" href="#Molecule-encoding" title="Permalink to this headline">¶</a></h4>
 <p>Now we define a function <code class="docutils literal notranslate"><span class="pre">smiles_to_fp</span></code> to generate fingerprints from SMILES. For now, we incorporated the choice between the following fingerprints:</p>
 <ul class="simple">
@@ -1495,9 +1382,9 @@ Number of inactive compounds: 1970
 </table>
 </div></div>
 </div>
-
-
-
+</section>
+</section>
+<section id="Machine-Learning-(ML)">
 <h3 id="Machine-Learning-(ML)">Machine Learning (ML)<a class="headerlink" href="#Machine-Learning-(ML)" title="Permalink to this headline">¶</a></h3>
 <p>In the following, we will try several ML approaches to classify our molecules. We will use:</p>
 <ul class="simple">
@@ -1509,7 +1396,7 @@ Number of inactive compounds: 1970
 <p>The goal is to test the ability of the model to predict data which it has never seen before in order to flag problems known as over fitting and to assess the generalization ability of the model.</p>
 <p>We start by defining a function <code class="docutils literal notranslate"><span class="pre">model_training_and_validation</span></code> which fits a model on a random train-test split of the data and returns measures such as accuracy, sensitivity, specificity and AUC evaluated on the test set. We also plot the ROC curves using <code class="docutils literal notranslate"><span class="pre">plot_roc_curves_for_models</span></code>.</p>
 <p>We then define a function named <code class="docutils literal notranslate"><span class="pre">crossvalidation</span></code> which executes a cross validation procedure and prints the statistics of the results over the folds.</p>
-
+<section id="Helper-functions">
 <h4 id="Helper-functions">Helper functions<a class="headerlink" href="#Helper-functions" title="Permalink to this headline">¶</a></h4>
 <p>Helper function to plot customized ROC curves. Code inspired by <a class="reference external" href="https://stackoverflow.com/questions/42894871/how-to-plot-multiple-roc-curves-in-one-plot-with-legend-and-auc-scores-in-python">stackoverflow</a>.</p>
 <div class="nbinput nblast docutils container">
@@ -1688,12 +1575,12 @@ Number of inactive compounds: 1970
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Training data size: 3620
-Test data size: 905
+Training data size: 3708
+Test data size: 927
 </pre></div></div>
 </div>
-
-
+</section>
+<section id="Random-forest-classifier">
 <h4 id="Random-forest-classifier">Random forest classifier<a class="headerlink" href="#Random-forest-classifier" title="Permalink to this headline">¶</a></h4>
 <p>We start with a random forest classifier, where we first set the parameters.</p>
 <p>We train the model on a random train-test split and plot the results.</p>
@@ -1726,9 +1613,9 @@ Test data size: 905
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Sensitivity: 0.86
-Specificity: 0.78
-AUC: 0.89
+Sensitivity: 0.90
+Specificity: 0.77
+AUC: 0.90
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1750,8 +1637,8 @@ AUC: 0.89
 <img alt="../_images/talktorials_T007_compound_activity_machine_learning_42_0.png" src="../_images/talktorials_T007_compound_activity_machine_learning_42_0.png"/>
 </div>
 </div>
-
-
+</section>
+<section id="Support-vector-classifier">
 <h4 id="Support-vector-classifier">Support vector classifier<a class="headerlink" href="#Support-vector-classifier" title="Permalink to this headline">¶</a></h4>
 <p>Here we train a SVM with a radial-basis function kernel (also: squared-exponential kernel). For more information, see <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.RBF.html">sklearn RBF kernel</a>.</p>
 <div class="nbinput docutils container">
@@ -1772,9 +1659,9 @@ AUC: 0.89
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Sensitivity: 0.88
-Specificity: 0.77
-AUC: 0.89
+Sensitivity: 0.92
+Specificity: 0.74
+AUC: 0.90
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1796,8 +1683,8 @@ AUC: 0.89
 <img alt="../_images/talktorials_T007_compound_activity_machine_learning_45_0.png" src="../_images/talktorials_T007_compound_activity_machine_learning_45_0.png"/>
 </div>
 </div>
-
-
+</section>
+<section id="Neural-network-classifier">
 <h4 id="Neural-network-classifier">Neural network classifier<a class="headerlink" href="#Neural-network-classifier" title="Permalink to this headline">¶</a></h4>
 <p>The last approach we try here is a neural network model. We train an MLPClassifier (Multi-layer Perceptron classifier) with 3 layers, each with 5 neurons. As before, we do the crossvalidation procedure and plot the results. For more information on MLP, see <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html">sklearn MLPClassifier</a>.</p>
 <div class="nbinput docutils container">
@@ -1818,9 +1705,9 @@ AUC: 0.89
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Sensitivity: 0.84
-Specificity: 0.71
-AUC: 0.87
+Sensitivity: 0.85
+Specificity: 0.73
+AUC: 0.86
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1842,9 +1729,9 @@ AUC: 0.87
 <img alt="../_images/talktorials_T007_compound_activity_machine_learning_48_0.png" src="../_images/talktorials_T007_compound_activity_machine_learning_48_0.png"/>
 </div>
 </div>
-<p>Our models show very good values for all measured values, e.g. AUCs of 0.88 or 0.92, and thus seem to be predictive.</p>
-
-
+<p>Our models show very good values for all measured values (see AUCs) and thus seem to be predictive.</p>
+</section>
+<section id="Cross-validation">
 <h4 id="Cross-validation">Cross-validation<a class="headerlink" href="#Cross-validation" title="Permalink to this headline">¶</a></h4>
 <p>Next, we will perform cross-validation experiments with the three different models. Therefore, we define a helper function for machine learning model training and validation in a cross-validation loop.</p>
 <div class="nbinput nblast docutils container">
@@ -1959,29 +1846,29 @@ AUC: 0.87
 
 =======
 Model_RF
-Mean accuracy: 0.83     and std : 0.00
-Mean sensitivity: 0.88  and std : 0.01
-Mean specificity: 0.76  and std : 0.02
-Mean AUC: 0.89  and std : 0.00
-Time taken : 1.78s
+Mean accuracy: 0.83     and std : 0.01
+Mean sensitivity: 0.88  and std : 0.02
+Mean specificity: 0.76  and std : 0.01
+Mean AUC: 0.89  and std : 0.01
+Time taken : 2.84s
 
 
 =======
 Model_SVM
 Mean accuracy: 0.84     and std : 0.01
 Mean sensitivity: 0.90  and std : 0.01
-Mean specificity: 0.75  and std : 0.01
-Mean AUC: 0.89  and std : 0.00
-Time taken : 31.40s
+Mean specificity: 0.76  and std : 0.00
+Mean AUC: 0.89  and std : 0.01
+Time taken : 29.97s
 
 
 =======
 Model_ANN
-Mean accuracy: 0.80     and std : 0.01
-Mean sensitivity: 0.88  and std : 0.01
-Mean specificity: 0.71  and std : 0.02
-Mean AUC: 0.86  and std : 0.01
-Time taken : 7.40s
+Mean accuracy: 0.81     and std : 0.00
+Mean sensitivity: 0.86  and std : 0.01
+Mean specificity: 0.73  and std : 0.01
+Mean AUC: 0.87  and std : 0.00
+Time taken : 8.68s
 
 </pre></div></div>
 </div>
@@ -2096,30 +1983,30 @@ Time taken : 7.40s
 Model_RF
 Mean accuracy: 0.86     and std : 0.01
 Mean sensitivity: 0.90  and std : 0.01
-Mean specificity: 0.80  and std : 0.02
-Mean AUC: 0.92  and std : 0.00
-Time taken : 5.78s
+Mean specificity: 0.81  and std : 0.00
+Mean AUC: 0.92  and std : 0.01
+Time taken : 8.88s
 
 
 =======
 Model_ANN
-Mean accuracy: 0.82     and std : 0.01
-Mean sensitivity: 0.85  and std : 0.00
-Mean specificity: 0.78  and std : 0.02
-Mean AUC: 0.88  and std : 0.00
-Time taken : 99.76s
+Mean accuracy: 0.81     and std : 0.01
+Mean sensitivity: 0.84  and std : 0.01
+Mean specificity: 0.77  and std : 0.00
+Mean AUC: 0.88  and std : 0.01
+Time taken : 95.45s
 
 </pre></div></div>
 </div>
-
-
-
-
+</section>
+</section>
+</section>
+<section id="Discussion">
 <h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Which model performed best on our data set and why?</p>
 <ul>
-<li><p>All three models perform (very) well on our dataset. The best models are the random forest and support vector machine models which showed a mean AUC of at least 90%. Our neural network showed slightly lower results with a mean AUC of 87%.</p></li>
+<li><p>All three models perform (very) well on our dataset. The best models are the random forest and support vector machine models which showed a mean AUC of about 90%. Our neural network showed slightly lower results.</p></li>
 <li><p>There might be several reasons that random forest and support vector machine models performed best. Our dataset might be easily separable in active/inactive with some simple tree-like decisions or with the radial basis function, respectively. Thus, there is not such a complex pattern in the fingerprints to do this classification.</p></li>
 <li><p>A cause for the slightly poorer performance of the ANN could be that there was simply too few data to train the model on.</p></li>
 <li><p>Additionally, it is always advisable to have another external validation set for model evaluation.</p></li>
@@ -2128,11 +2015,11 @@ Time taken : 99.76s
 <li><p>Was MACCS the right choice?</p>
 <ul>
 <li><p>Obviously, MACCS was good to start training and validating models to see if a classification is possible.</p></li>
-<li><p>However, MACCS keys are rather short (166 bit) compared to others (2048 bit), as for example Morgan fingerprint. As shown in the last simulation, having longer fingerprint helps the learning process. All tested models performed slightly better using Morgan fingerprints. For example, with random forest, the mean AUC increases from approximately 0.89 to 0.92.</p></li>
+<li><p>However, MACCS keys are rather short (166 bit) compared to others (2048 bit), as for example Morgan fingerprint. As shown in the last simulation, having longer fingerprint helps the learning process. All tested models performed slightly better using Morgan fingerprints (see mean AUC increase).</p></li>
 </ul>
 </li>
 </ul>
-
+<section id="Where-can-we-go-from-here?">
 <h3 id="Where-can-we-go-from-here?">Where can we go from here?<a class="headerlink" href="#Where-can-we-go-from-here?" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>We successfully trained several models.</p></li>
@@ -2141,9 +2028,9 @@ Time taken : 99.76s
 <li><p>Our models could be used to rank the MolPort compounds and then further study those with the highest predicted probability of being active.</p></li>
 <li><p>For such an application, see also the <a class="reference external" href="https://github.com/sriniker/TDT-tutorial-2014">TDT Tutorial</a> developed by S. Riniker and G. Landrum, where they trained a fusion model to screen <a class="reference external" href="https://www.emolecules.com/">eMolecules</a> for new anti-malaria drugs.</p></li>
 </ul>
-
-
-
+</section>
+</section>
+<section id="Quiz">
 <h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>How can you apply ML for virtual screening?</p></li>
@@ -2152,8 +2039,8 @@ Time taken : 99.76s
 </ul>
 <script type="application/vnd.jupyter.widget-state+json">
 {"state": {}, "version_major": 2, "version_minor": 0}
-</script>
-
+</script></section>
+</section>
 
 
           </article>
@@ -2202,7 +2089,7 @@ Time taken : 99.76s
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 3.5.3.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.1.2.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

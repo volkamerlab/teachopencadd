@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="lang:clipboard.copy" content="Copy to clipboard">
@@ -75,11 +76,11 @@
   
   
     <title>Installing &#8212; TeachOpenCADD 0 documentation</title>
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/material.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/material.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
@@ -138,7 +139,7 @@
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
-    <form class="md-search__form" action="search.html" method="GET" name="search">
+    <form class="md-search__form" action="search.html" method="get" name="search">
       <input type="text" class="md-search__input" name="q" placeholder="Search"
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
@@ -376,9 +377,9 @@
         <div class="md-content">
           <article class="md-content__inner md-typeset" role="main">
             
-  
+  <section id="installing">
 <h1 id="installing--page-root">Installing<a class="headerlink" href="#installing--page-root" title="Permalink to this headline">¶</a></h1>
-
+<section id="install-from-the-conda-package">
 <h2 id="install-from-the-conda-package">Install from the conda package<a class="headerlink" href="#install-from-the-conda-package" title="Permalink to this headline">¶</a></h2>
 <p>Eventually, we will have a <code class="docutils literal notranslate"><span class="pre">conda</span></code> package, but for now you need to create a new environment manually.</p>
 <div class="admonition note">
@@ -387,7 +388,7 @@
 </div>
 <ol class="arabic">
 <li><p>Create a new conda environment for TeachOpenCADD:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda env create -f https://raw.githubusercontent.com/volkamerlab/TeachOpenCADD/master/environment.yml
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda env create -f https://raw.githubusercontent.com/volkamerlab/TeachOpenCADD/master/devtools/other-conda-envs/users_env.yml
 </pre></div>
 </div>
 </li>
@@ -399,8 +400,8 @@
 <li><p>Run <code class="docutils literal notranslate"><span class="pre">teachopencadd</span> <span class="pre">-h</span></code> to test that it works.</p></li>
 <li><p>[WIP 🚧] Run <code class="docutils literal notranslate"><span class="pre">teachopencadd</span> <span class="pre">start</span> <span class="pre">.</span></code> to set up a new workspace. This step is not fully functional yet. Please refer to <a class="reference external" href="https://projects.volkamerlab.org/teachopencadd/installing.html#install-from-the-latest-development-snapshot">Install from the latest development snapshot</a> for manual steps.</p></li>
 </ol>
-
-
+</section>
+<section id="id1">
 <h2 id="id1">Install from the latest development snapshot<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>If you have already created a <em>conda environment</em> and it has been activated  (see above), the next step is downloading a copy of the current state of the <a class="reference external" href="https://github.com/volkamerlab/teachopencadd">GitHub repository</a>.</p>
 <ol class="arabic simple">
@@ -426,8 +427,8 @@ cd ~/Documents/teachopencadd-master/talktorials
 jupyter lab
 </pre></div>
 </div>
-</details>
-
+</details></section>
+</section>
 
 
           </article>
@@ -476,7 +477,7 @@ jupyter lab
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 3.5.3.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.1.2.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
