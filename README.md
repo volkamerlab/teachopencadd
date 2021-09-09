@@ -1,19 +1,26 @@
 # TeachOpenCADD
+A teaching platform for computer-aided drug design (CADD) using open source packages and data.
 
 [![DOI](https://img.shields.io/badge/DOI-10.1186%2Fs13321--019--0351--x-blue.svg)](https://doi.org/10.1186/s13321-019-0351-x)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2600909.svg)](https://doi.org/10.5281/zenodo.2600909)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/volkamerlab/TeachOpenCADD/master)
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/volkamerlab/teachopencadd)
 [![GH Actions CI ](https://github.com/volkamerlab/teachopencadd/workflows/CI/badge.svg)](https://github.com/volkamerlab/teachopencadd/actions?query=branch%3Amaster+workflow%3ACI)
 [![GH Actions Docs](https://github.com/volkamerlab/teachopencadd/workflows/Docs/badge.svg)](https://projects.volkamerlab.org/teachopencadd/)
 
-> 🌟 You are looking at a new release of the TeachOpenCADD repository with [major changes](https://github.com/volkamerlab/teachopencadd/pull/29).
+![GitHub closed pr](https://img.shields.io/github/issues-pr-closed-raw/volkamerlab/teachopencadd) ![GitHub open pr](https://img.shields.io/github/issues-pr-raw/volkamerlab/teachopencadd) ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/volkamerlab/teachopencadd) ![GitHub open issues](https://img.shields.io/github/issues/volkamerlab/teachopencadd)  
+![TOC](https://img.shields.io/badge/Project-TeachOpenCADD-pink)
+
+
+> 🌟 You are looking at a new release of the TeachOpenCADD repository with [major changes](https://github.com/volkamerlab/teachopencadd/pull/29) and a lot of [new talktorials](https://github.com/volkamerlab/teachopencadd/pull/74).
 >
 > - We applied a new folder structure to the repository allowing us to offer for the first time a `teachopencadd` conda package! You can find all talktorials under `teachopencadd/talktorials`. Each directory contains a `talktorial.ipynb` notebook ready to be run!
-> - We refactored all published notebooks (T001-T010) to apply best practices to our code!
+> - We refactored all published talktorials (T001-T010) to apply best practices to our code!
+> - We doubled the amount of TeachOpenCADD talktorials, extending our collection by topics from structure-based drug design, database queries, 3D visualization, and deep learning.
 > - We proudly present our brand new [TeachOpenCADD website](https://projects.volkamerlab.org/teachopencadd/)!
->
-> We are adding new notebooks to the repository soon -
-> subscribe to the repository releases (top-right menu: `Watch` > `Releases`) to stay tuned!
+
 >
 > If you would like to continue working with the old repository structure, please refer to release [`1.3.0`](https://github.com/volkamerlab/teachopencadd/tree/v1.3.0). Downloadable [here](https://github.com/volkamerlab/teachopencadd/releases/tag/v1.3.0).
 
@@ -63,11 +70,11 @@ If you prefer to work in the context of a graphical interface, talktorials T001-
 
 ### Python programming introduction
 
-The TeachOpenCADD platform is not a Python programming course from scratch but teaches how to solve tasks in cheminformatics and structural bioinformatics programmatically. 
+The TeachOpenCADD platform is not a Python programming course from scratch but teaches how to solve tasks in cheminformatics and structural bioinformatics programmatically.
 If you wish to get started first with a Python programming introduction before diving into the TeachOpenCADD material, here are a few great resources to do so:
 
-- [AI in Medicine course](https://github.com/volkamerlab/ai_in_medicine) by the [Volkamer Lab](https://volkamerlab.org/) and [Ritter Lab](https://psychiatrie-psychotherapie.charite.de/en/research/neuroimaging_and_neurotechnology/machine_learning/) at the Charité: Introduction to Python basics, Jupyter Notebook, and important data science packages such as Pandas, Matplotlib and Scikit-learn
-- [Python for Chemists course](https://github.com/GDChCICTeam/python-for-chemists) by the [GDCh/CIC](https://en.gdch.de/main-navi/network-structures/divisions/computers-in-chemistry.html) team: Crash-course introduction to Python for natural scientists
+- [AI in Medicine course](https://github.com/volkamerlab/ai_in_medicine) by the [Volkamer Lab](https://volkamerlab.org/) and [Ritter Lab](https://psychiatrie-psychotherapie.charite.de/metas/person/person/address_detail/ritter-7/) at the Charité: Introduction to Python basics, Jupyter Notebook, and important data science packages such as Pandas, Matplotlib and Scikit-learn
+- [Python for Chemists course](https://github.com/GDChCICTeam/python-for-chemists) by the [GDCh/CIC](https://en.gdch.de/network-structures/divisions/computers-in-chemistry-cic.html) team: Crash-course introduction to Python for natural scientists
 - [MolSSI Education Resources](http://education.molssi.org/resources.html) by [The Molecular Sciences Software Institute](https://molssi.org/): Collection of tutorials on Python programming basics and data analysis but also more advanced material on software development and computational molecular science
 - [Core lessons](https://software-carpentry.org/lessons/) by the [Software Carpentry](https://software-carpentry.org/): Introduction to Python, Git, command line interfaces and more
 
@@ -141,20 +148,39 @@ It will help measure the impact of the TeachOpenCADD platform and future funding
   [`mdanalysis`](https://www.mdanalysis.org/),
   [`biopython`](https://biopython.org/),
   [`biopandas`](http://rasbt.github.io/biopandas/),
-  [`opencadd`](https://opencadd.readthedocs.io/en/latest/)
+  [`opencadd`](https://opencadd.readthedocs.io/en/latest/),
+  [`plip`](https://github.com/pharmai/plip),
+  [`openff`](https://github.com/openforcefield/openff-toolkit),
+  [`openff-toolkit`](https://github.com/openforcefield/openff-toolkit),
+  [`openmmforcefields`](https://github.com/openmm/openmmforcefields),
+  [`pdbfixer`](https://github.com/openmm/pdbfixer),
+  [`mdanalysis`](https://www.mdanalysis.org/),
+  [`biotite`](https://www.biotite-python.org/)
 - Data science (PyData stack):
   [`numpy`](https://numpy.org/),
   [`pandas`](https://pandas.pydata.org/),
   [`scikit-learn`](https://scikit-learn.org/),
+  [`tensorflow`](https://www.tensorflow.org/),
   [`jupyter`](https://jupyter.org/),
   [`ipywidgets`](https://ipywidgets.readthedocs.io)
 - Data visualization:
   [`matplotlib`](https://matplotlib.org/), 
+  [`mpl_toolkits`](https://matplotlib.org/stable/api/toolkits/index.html),
+  [`matplotlib_venn`](https://github.com/konstantint/matplotlib-venn),
   [`seaborn`](https://seaborn.pydata.org/),
   [`nglview`](http://nglviewer.org/nglview/latest/)
 - Web services clients:
   [`pypdb`](https://github.com/williamgilpin/pypdb),
-  [`chembl_webresource_client`](https://github.com/chembl/chembl_webresource_client)
+  [`chembl_webresource_client`](https://github.com/chembl/chembl_webresource_client),
+  [`requests`](https://docs.python-requests.org/en/master/),
+  [`bravado`](https://bravado.readthedocs.io/en/stable/),
+  [`beautifulsoup4`](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+- Utilities:
+  [`tqdm`](https://tqdm.github.io/),
+  [`requests_cache`](https://requests-cache.readthedocs.io),
+  [`redo`](https://github.com/mozilla-releng/redo),
+  [`google-colab`](https://pypi.org/project/google-colab/),
+  [`condacolab`](https://pypi.org/project/condacolab/)
 - Continuous integration:
   [`pytest`](https://docs.pytest.org),
   [`nbval`](https://nbval.readthedocs.io)
