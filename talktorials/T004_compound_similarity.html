@@ -715,7 +715,7 @@ div.rendered_html tbody tr:hover {
 <p><strong>Talktorial T004</strong>: This talktorial is part of the TeachOpenCADD pipeline described in the <a class="reference external" href="https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x">first TeachOpenCADD paper</a>, comprising of <strong>talktorials T001-T010</strong>.</p>
 <section id="Aim-of-this-talktorial">
 <h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this headline">¶</a></h2>
-<p>In this talktorial, we get familiar with different approaches to encode (descriptors, fingerprints) and compare (similarity measures) molecules. Furthermore, we perform a virtual screening in the form of a similarity search for the EGFR inhibitor Gefitinib against our dataset of EGFR-tested molecules from the ChEMBL database filtered by Lipinski’s rule of five (see <strong>talktorial 002</strong>).</p>
+<p>In this talktorial, we get familiar with different approaches to encode (descriptors, fingerprints) and compare (similarity measures) molecules. Furthermore, we perform a virtual screening in the form of a similarity search for the EGFR inhibitor Gefitinib against our dataset of EGFR-tested molecules from the ChEMBL database filtered by Lipinski’s rule of five (see <strong>Talktorial T002</strong>).</p>
 <section id="Contents-in-Theory">
 <h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -817,7 +817,7 @@ div.rendered_html tbody tr:hover {
 </ul>
 </li>
 </ul>
-<p>We already learned how to calculate 1D physicochemical parameters, such as the molecular weight and logP in <strong>talktorial 002</strong>. More information about these <a class="reference external" href="https://www.rdkit.org/docs/GettingStartedInPython.html#list-of-available-descriptors">descriptors</a> in the <code class="docutils literal notranslate"><span class="pre">rdkit</span></code> documentation.</p>
+<p>We already learned how to calculate 1D physicochemical parameters, such as the molecular weight and logP in <strong>Talktorial T002</strong>. More information about these <a class="reference external" href="https://www.rdkit.org/docs/GettingStartedInPython.html#list-of-available-descriptors">descriptors</a> in the <code class="docutils literal notranslate"><span class="pre">rdkit</span></code> documentation.</p>
 <p>In the following, we focus on the definition of 2D molecular descriptors. Due to their, mostly, uniqueness per molecule, these descriptors are also called fingerprints.</p>
 </section>
 <section id="Molecular-fingerprints">
@@ -897,7 +897,7 @@ fingerprint</a> can be found in the <code class="docutils literal notranslate"><
 <section id="Practical">
 <h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this headline">¶</a></h2>
 <p>In the first part of this practical section, we will use <code class="docutils literal notranslate"><span class="pre">rdkit</span></code> to encode molecules (molecular fingerprints) and compare them in order to calculate their similarity (molecular similarity measures), as discussed in the theory section above.</p>
-<p>In the second part, we will use these encoding and comparison techniques to conduct a similarity search (virtual screening): We use the known EGFR inhibitor Gefitinib as query and search for similar molecules in our data set of molecules tested on EGFR, which we collected from the ChEMBL database in <strong>talktorial 001</strong> and filtered by Lipinski’s rule of five in <strong>talktorial 002</strong>.</p>
+<p>In the second part, we will use these encoding and comparison techniques to conduct a similarity search (virtual screening): We use the known EGFR inhibitor Gefitinib as query and search for similar molecules in our data set of molecules tested on EGFR, which we collected from the ChEMBL database in <strong>Talktorial T001</strong> and filtered by Lipinski’s rule of five in <strong>Talktorial T002</strong>.</p>
 <section id="Import-and-draw-molecules">
 <h3 id="Import-and-draw-molecules">Import and draw molecules<a class="headerlink" href="#Import-and-draw-molecules" title="Permalink to this headline">¶</a></h3>
 <p>First, we define and draw eight example molecules, which we will encode and compare later on. The molecules in SMILES format are converted to <code class="docutils literal notranslate"><span class="pre">rdkit</span></code> molecule objects and visualized with the <code class="docutils literal notranslate"><span class="pre">Draw</span></code> module in <code class="docutils literal notranslate"><span class="pre">rdkit</span></code>.</p>
@@ -1745,10 +1745,10 @@ Print top 400 fingerprint bits:
 <section id="id1">
 <h3 id="id1">Virtual screening using similarity search<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Now that we have learned how to calculate fingerprints and the similarity between them, we can apply this knowledge to a similarity search of a query molecule against a full data set of molecules.</p>
-<p>We use the known EGFR inhibitor Gefitinib as query and search for similar molecules in our data set of molecules tested on EGFR, which we collected from the ChEMBL database in <strong>talktorial 001</strong> and filtered by Lipinski’s rule of five in <strong>talktorial 002</strong>.</p>
+<p>We use the known EGFR inhibitor Gefitinib as query and search for similar molecules in our data set of molecules tested on EGFR, which we collected from the ChEMBL database in <strong>Talktorial T001</strong> and filtered by Lipinski’s rule of five in <strong>Talktorial T002</strong>.</p>
 <section id="Compare-query-molecule-to-all-molecules-in-the-data-set">
 <h4 id="Compare-query-molecule-to-all-molecules-in-the-data-set">Compare query molecule to all molecules in the data set<a class="headerlink" href="#Compare-query-molecule-to-all-molecules-in-the-data-set" title="Permalink to this headline">¶</a></h4>
-<p>We import molecules from a <em>csv</em> file containing the filtered EGFR-tested molecules from the ChEMBL database as provided by <strong>talktorial 002</strong>. Given one query molecule (here Gefitinib), we screen that data set for similar molecules.</p>
+<p>We import molecules from a <em>csv</em> file containing the filtered EGFR-tested molecules from the ChEMBL database as provided by <strong>Talktorial T002</strong>. Given one query molecule (here Gefitinib), we screen that data set for similar molecules.</p>
 <p><strong>Dataset</strong>: Import data from the <em>csv</em> file containing molecules in the SMILES format.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
@@ -2135,7 +2135,7 @@ Number of molecules in dataset: 4635
 </section>
 <section id="Visualize-most-similar-molecules">
 <h4 id="Visualize-most-similar-molecules">Visualize most similar molecules<a class="headerlink" href="#Visualize-most-similar-molecules" title="Permalink to this headline">¶</a></h4>
-<p>We visually inspect the structure of Gefitinib in comparison to the most similar molecules in our ranking, including the information about their bioactivity (pIC50 derived from the ChEMBL database in <strong>talktorial 001</strong>).</p>
+<p>We visually inspect the structure of Gefitinib in comparison to the most similar molecules in our ranking, including the information about their bioactivity (pIC50 derived from the ChEMBL database in <strong>Talktorial T001</strong>).</p>
 <p>Here, we sort the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> by the Tanimoto similarity based on Morgan fingerprints.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
@@ -2248,7 +2248,7 @@ Number of molecules in dataset: 4635
 </div>
 </div>
 <p>The top ranked molecules for Gefitinib are Gefitinib entries (rank 1 and 2) in our dataset, followed by alterations of Gefitinib, e.g. different benzole substitution patterns. Note: ChEMBL contains the complete structure-activity relationship analysis for Gefitinib (being a well-studied molecule), therefore it is not surprising to have that many Gefitinib-like molecules in our dataset.</p>
-<p>We now check how well the similarity search is able to distinguish between active and inactive molecules based on our dataset. Therefore, we use the bioactivity values, which we collected from ChEMBL for each molecule (bioactivity against EGFR) in <strong>talktorial 001</strong>.</p>
+<p>We now check how well the similarity search is able to distinguish between active and inactive molecules based on our dataset. Therefore, we use the bioactivity values, which we collected from ChEMBL for each molecule (bioactivity against EGFR) in <strong>Talktorial T001</strong>.</p>
 </section>
 <section id="Generate-enrichment-plots">
 <h4 id="Generate-enrichment-plots">Generate enrichment plots<a class="headerlink" href="#Generate-enrichment-plots" title="Permalink to this headline">¶</a></h4>
@@ -2259,7 +2259,7 @@ Number of molecules in dataset: 4635
 <li><p>the ratio of active molecules (y-axis) from the whole dataset.</p></li>
 </ul>
 <p>We compare the Tanimoto similarity for MACCS and Morgan fingerprints.</p>
-<p>In order to decide whether we treat a molecule as active or inactive, we apply the commonly used pIC50 cutoff value of 6.3. Although there are several suggestions ranging from an pIC50 cutoff values of 5 to 7 in the literature or even to define an exclusion range, we think this cutoff is reasonable. The same cutoff will be used for machine learning in <strong>talktorial 010</strong>.</p>
+<p>In order to decide whether we treat a molecule as active or inactive, we apply the commonly used pIC50 cutoff value of 6.3. Although there are several suggestions ranging from an pIC50 cutoff values of 5 to 7 in the literature or even to define an exclusion range, we think this cutoff is reasonable. The same cutoff will be used for machine learning in <strong>Talktorial T010</strong>.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>

@@ -793,25 +793,45 @@ simulations are nowadays recommended to evaluate the stability of the predicted 
 </section>
 <section id="Visual-inspection">
 <h3 id="Visual-inspection">Visual inspection<a class="headerlink" href="#Visual-inspection" title="Permalink to this headline">¶</a></h3>
-<div class="line-block">
-<div class="line">Due to the afore mentioned limitations of sampling algorithms and docking scoring functions, a visual inspection is commonly performed in most docking scenarios. Interestingly, a survey revealed that molecular modeling experts find docking scores to be the least important criterion for selecting docking poses (<a class="reference external" href="https://doi.org/10.1021/acs.jmedchem.0c02227">J Med Chem (2021), 64, 5, 2489–2500</a>). Instead, the following criteria are used when selecting docking poses:</div>
-<div class="line">- Similarity to binding modes observed in available crystal structures of the protein of interest</div>
-<div class="line">- Steric as well as electrostatic and hydrophobic complementary of ligand and protein</div>
-<div class="line">- Unsatisfied hydrogen bond donor and acceptor groups in ligand and protein</div>
-<div class="line">- Solvent exposed hydrophobic ligand moieties</div>
-<div class="line">- Interactions with side chains or metal ions critical for protein function, e.g., enzymatic activity - Interaction partners and localization of hydrogen bonds - Hydrogen bonds formed with the protein backbone in an enclosed hydrophobic protein environment are considered more favorable</div>
-<div class="line">- Hydrogen bonds with charged and solvent exposed protein side chains are considered less favorable</div>
-<div class="line">- Displacement of or interactions with water molecules in the binding pocket</div>
-<div class="line">- Protein and ligand strain induced by ligand binding</div>
-</div>
+<p>Due to the afore mentioned limitations of sampling algorithms and docking scoring functions, a visual inspection is commonly performed in most docking scenarios. Interestingly, a survey revealed that molecular modeling experts find docking scores to be the least important criterion for selecting docking poses (<a class="reference external" href="https://doi.org/10.1021/acs.jmedchem.0c02227">J Med Chem (2021), 64, 5, 2489–2500</a>). Instead, the following criteria are used when selecting docking poses:</p>
+<ul class="simple">
+<li><p>Similarity to binding modes observed in available crystal structures of the protein of interest</p></li>
+<li><p>Steric as well as electrostatic and hydrophobic complementary of ligand and protein</p>
+<ul>
+<li><p>Unsatisfied hydrogen bond donor and acceptor groups in ligand and protein</p></li>
+<li><p>Solvent exposed hydrophobic ligand moieties</p></li>
+</ul>
+</li>
+<li><p>Interactions with side chains or metal ions critical for protein function, e.g., enzymatic activity</p></li>
+<li><p>Interaction partners and localization of hydrogen bonds</p>
+<ul>
+<li><p>Hydrogen bonds formed with the protein backbone in an enclosed hydrophobic protein environment are considered more favorable</p></li>
+<li><p>Hydrogen bonds with charged and solvent exposed protein side chains are considered less favorable</p></li>
+</ul>
+</li>
+<li><p>Displacement of or interactions with water molecules in the binding pocket</p></li>
+<li><p>Protein and ligand strain induced by ligand binding</p></li>
+</ul>
 <p>However, also the visual inspection of docking poses has considerable limitations. Of course the success of visual inspection strongly depends on the experience and intuition of the participating scientists. Also, visual inspection can only be performed for a rather small number of molecules considering the available chemical space in virtual screening. Hence, visual inspection is often restricted to the highest scoring molecules of a virtual screening pipeline or only performed for a smaller
 set of ligands, in which scientists are particularly interested. Finally, also the best expert cannot pick the correct binding pose if it was not sampled by the docking program.</p>
 </section>
 <section id="Docking-software">
 <h3 id="Docking-software">Docking software<a class="headerlink" href="#Docking-software" title="Permalink to this headline">¶</a></h3>
 <p>In the following, several docking programs are exemplary listed and categorized according to the availability of free licenses. A more comprehensive list can be found at <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_protein-ligand_docking_software">Wikipedia</a>.</p>
-<p><strong>Commercial</strong> - <a class="reference external" href="https://www.ccdc.cam.ac.uk/solutions/csd-discovery/components/gold/">GOLD</a> - <a class="reference external" href="https://www.schrodinger.com/glide">Glide</a> - <a class="reference external" href="https://www.biosolveit.de/FlexX/">FlexX</a></p>
-<p><strong>Free (for academics)</strong> - <a class="reference external" href="http://autodock.scripps.edu/">AutoDock</a> - <a class="reference external" href="http://vina.scripps.edu/">AutoDock Vina</a> - <a class="reference external" href="http://dock.compbio.ucsf.edu/">DOCK</a> - <a class="reference external" href="https://www.eyesopen.com/">OpenEye</a> - <a class="reference external" href="https://sourceforge.net/projects/smina/">Smina</a></p>
+<p><strong>Commercial</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.ccdc.cam.ac.uk/solutions/csd-discovery/components/gold/">GOLD</a></p></li>
+<li><p><a class="reference external" href="https://www.schrodinger.com/glide">Glide</a></p></li>
+<li><p><a class="reference external" href="https://www.biosolveit.de/FlexX/">FlexX</a></p></li>
+</ul>
+<p><strong>Free (for academics)</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://autodock.scripps.edu/">AutoDock</a></p></li>
+<li><p><a class="reference external" href="http://vina.scripps.edu/">AutoDock Vina</a></p></li>
+<li><p><a class="reference external" href="http://dock.compbio.ucsf.edu/">DOCK</a></p></li>
+<li><p><a class="reference external" href="https://www.eyesopen.com/">OpenEye</a></p></li>
+<li><p><a class="reference external" href="https://sourceforge.net/projects/smina/">Smina</a></p></li>
+</ul>
 </section>
 </section>
 <section id="Practical">
@@ -1027,8 +1047,11 @@ set of ligands, in which scientists are particularly interested. Finally, also t
 </section>
 <section id="Docking-calculation">
 <h3 id="Docking-calculation">Docking calculation<a class="headerlink" href="#Docking-calculation" title="Permalink to this headline">¶</a></h3>
-<p>Finally, we can proceed to the actual docking calculation. Smina is a command line tool, which currently does not provide a Python API. * However, we can write a function that will take care of generating the proper command and execute the calculation. * Besides providing the ligand, protein and pocket information, we can also alter the behavior of the docking calculation by setting the number of docking poses to be generated and by changing the exhaustiveness, which controls the number of
-independent docking calculations.</p>
+<p>Finally, we can proceed to the actual docking calculation. Smina is a command line tool, which currently does not provide a Python API.</p>
+<ul class="simple">
+<li><p>However, we can write a function that will take care of generating the proper command and execute the calculation.</p></li>
+<li><p>Besides providing the ligand, protein and pocket information, we can also alter the behavior of the docking calculation by setting the number of docking poses to be generated and by changing the exhaustiveness, which controls the number of independent docking calculations.</p></li>
+</ul>
 <p><strong>Note:</strong> Depending on the CPU speed and the docking settings this step may take a few minutes.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
