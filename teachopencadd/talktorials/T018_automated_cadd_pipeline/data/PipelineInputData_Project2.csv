@@ -1,0 +1,25 @@
+,Subject,Property,Value,Description
+0,Protein,Input Type*,pdb_code,"Allowed: 'pdb_code', 'pdb_filepath'."
+1,Protein,Input Value*,3W32,Either a valid PDB-code or a local filepath to a PDB-file
+2,Ligand,Input Type*,smiles,"Allowed: 'smiles', 'cid', 'inchi', 'inchikey', 'iupac_name', 'name' (Note that 'name' and 'iupac_name' identifiers do not work for all compounds)."
+3,Ligand,Input Value*,CC1=NC2=C(C=C1)C(=CC=C2)N3CCN(CC3)CCC4=CC(=CC=C4)N5CCNC5=O,"Identifier value corresponding to given input type, e.g. SMILES or CID number."
+4,Binding Site,Definition Method,detection,"Definition method for the protein binding site. Allowed: 'coordinates', 'ligand', 'detection'. Default: detection"
+5,Binding Site,Coordinates,,"If Definition Method is 'coordinates', enter the coordinates here. The coordinates should be entered as six numbers separated by spaces in the following order: center_x center_y center_z size_x size_y size_z."
+6,Binding Site,Ligand,,"If the Definition Method is 'ligand', enter the ligand-ID (as specified in the PDB file) here."
+7,Binding Site,Detection Method,dogsitescorer,"If the Definition Method is 'detection', enter the detection method here. Allowed: 'dogsitescorer'. Default: dogsitescorer"
+8,Binding Site,Protein Chain-ID,A,"If the Definition Method is 'detection', optionally a specific chain-ID can be given here, so that detection is only performed on that chain alone."
+9,Binding Site,Protein Ligand-ID,W32,"If the Definition Method is 'detection', optionally a specific ligand-ID present in the PDB file can be given here, so that the ligand coverage is also considered in the detection results."
+10,Binding Site,Selection Method,sorting,"If the Detection Method is 'dogsitescorer', a selection method should be specified in order to select the best detected binding site. Allowed: 'sorting', 'function'. Default: sorting."
+11,Binding Site,Selection Criteria,"lig_cov, poc_cov","If the Selection Method is 'function', a valid Python function manipulating the detection results should be entered here. If the Selection Method is 'sorting', a list of binding-site properties to sort the detected binding-sites should be entered here. For more details see the Supplementary Information chapter of the notebook. Default for 'sorting': lig_cov, poc_cov. Default for 'function': (df['drugScore'] + df['simpleScore']) / df['volume']."
+12,Ligand Similarity Search,Search Engine,pubchem,Search engine used for the similarity search. Allowed: 'pubchem'. Default: pubchem
+13,Ligand Similarity Search,Minumum Similarity [%],70,Threshold of similarity (in percent) for finding analogs. Default: 80
+14,Ligand Similarity Search,Maximum Number of Results,30,Maximum number of analogs to retrieve from the similarity search. Default: 100
+15,Ligand Similarity Search,Maximum Number of Most Drug-Like Analogs to Continue With,20,Maximum number of analogs with highest drug-likeness to perform docking on. Default: 30
+16,Docking,Program,smina,The docking program to use. Allowed: 'smina'. Default: smina
+17,Docking,Number of Docking Poses per Ligand,5,Number of docking poses to generate for each ligand. Default: 5
+18,Docking,Exhaustiveness,10,Exhaustiveness for sampling the conformation space of ligand. Default: 10
+19,Docking,Random Seed,1111,Random seed for the docking algorithm to make the results deterministic. Default: None
+20,Interaction Analysis,Program,plip,The program to use for protein-ligand interaction analysis. Allowed: 'plip'. Default: plip
+21,Optimized Ligand,Number of Results,1,Number of optimized ligands to output at the end. Default: 1
+22,Optimized Ligand,Selection Method,sorting,"Method to select the best optimized ligand(s). Allowed: 'sorting', 'function'. Default: sorting"
+23,Optimized Ligand,Selection Criteria,"affinity, total_num_interactions, drug_score_total","If the Selection Method is 'function', a valid Python function manipulating the parameters should be entered here. If the Selection Method is 'sorting', a list of parameters to sort the optimized ligands should be entered here. Allowed parameters are: 'affinity', 'h_bond', 'hydrophobic', 'salt_bridge', 'water_bridge', 'pi_stacking', 'pi_cation', 'halogen', 'metal', 'total_num_interactions', 'drug_score_total'. Default: affinity, total_num_interactions, drug_score_total. For more details see the Supplementary Information chapter of the notebook."
