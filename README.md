@@ -1,17 +1,15 @@
 # TeachOpenCADD
 A teaching platform for computer-aided drug design (CADD) using open source packages and data.
 
+![TOC](https://img.shields.io/badge/Project-TeachOpenCADD-pink)
 [![DOI](https://img.shields.io/badge/DOI-10.1186%2Fs13321--019--0351--x-blue.svg)](https://doi.org/10.1186/s13321-019-0351-x)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2600909.svg)](https://doi.org/10.5281/zenodo.2600909)
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/volkamerlab/TeachOpenCADD/master)
 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/volkamerlab/TeachOpenCADD/master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/volkamerlab/teachopencadd)
 [![GH Actions CI ](https://github.com/volkamerlab/teachopencadd/workflows/CI/badge.svg)](https://github.com/volkamerlab/teachopencadd/actions?query=branch%3Amaster+workflow%3ACI)
 [![GH Actions Docs](https://github.com/volkamerlab/teachopencadd/workflows/Docs/badge.svg)](https://projects.volkamerlab.org/teachopencadd/)
-
-![GitHub closed pr](https://img.shields.io/github/issues-pr-closed-raw/volkamerlab/teachopencadd) ![GitHub open pr](https://img.shields.io/github/issues-pr-raw/volkamerlab/teachopencadd) ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/volkamerlab/teachopencadd) ![GitHub open issues](https://img.shields.io/github/issues/volkamerlab/teachopencadd)  
-![TOC](https://img.shields.io/badge/Project-TeachOpenCADD-pink)
 
 
 > 🌟 You are looking at a new release of the TeachOpenCADD repository with [major changes](https://github.com/volkamerlab/teachopencadd/pull/29) and a lot of [new talktorials](https://github.com/volkamerlab/teachopencadd/pull/74).
@@ -88,6 +86,8 @@ The following resources are collections of interesting cheminformatics-related t
 
 ## Contact
 
+![GitHub closed pr](https://img.shields.io/github/issues-pr-closed-raw/volkamerlab/teachopencadd) ![GitHub open pr](https://img.shields.io/github/issues-pr-raw/volkamerlab/teachopencadd) ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/volkamerlab/teachopencadd) ![GitHub open issues](https://img.shields.io/github/issues/volkamerlab/teachopencadd)  
+
 Please contact us if you have questions or suggestions!
 
 - If you have questions regarding our Jupyter Notebooks, please [open an issue](https://github.com/volkamerlab/teachopencadd/issues) on our GitHub repository.
@@ -107,6 +107,7 @@ If you make use of the TeachOpenCADD material in scientific publications, please
 
 - [TeachOpenCADD Jupyter Notebooks: Talktorials T001-T010](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x)
 - [TeachOpenCADD KNIME workflows](https://pubs.acs.org/doi/10.1021/acs.jcim.9b00662)
+- [How to use the TeachOpenCADD material for teaching?](https://pubs.acs.org/doi/abs/10.1021/bk-2021-1387.ch010)
 
 It will help measure the impact of the TeachOpenCADD platform and future funding!
 
@@ -133,6 +134,16 @@ It will help measure the impact of the TeachOpenCADD platform and future funding
     number = {10},
     pages = {4083-4086},
     year = {2019}
+}
+
+@inbook{doi:10.1021/bk-2021-1387.ch010,
+    author = {Sydow, Dominique and Rodríguez-Guerra, Jaime and Volkamer, Andrea},
+    title = {Teaching Computer-Aided Drug Design Using TeachOpenCADD},
+    booktitle = {Teaching Programming across the Chemistry Curriculum},
+    chapter = {10},
+    pages = {135-158},
+    doi = {10.1021/bk-2021-1387.ch010},
+    URL = {https://pubs.acs.org/doi/abs/10.1021/bk-2021-1387.ch010},
 }
 ```
 
