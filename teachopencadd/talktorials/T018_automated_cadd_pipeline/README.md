@@ -8,20 +8,19 @@ __Authors__
 
 ## Aim of This Talktorial
 
-In this talktorial we will learn how to develop an **automated structure-based virtual screening pipeline, particulary suited for hit expansion and lead optimization** phases of a drug discovery project, where a known promising ligand (i.e. an initial hit or lead compound) needs to be structurally modified in order to improve its binding affinity and selectivity for the target protein. The general architecture of the pipeline can thus be summarized as follows (Figure 1):
+In this talktorial we will learn how to develop an **automated structure-based virtual screening pipeline**. This is particulary suited for the hit expansion and lead optimization phases of a drug discovery project, where a promising ligand (i.e. an initial hit or lead compound) needs to be structurally modified in order to improve its binding affinity and selectivity for the target protein. The general architecture of the pipeline can thus be summarized as follows (Figure 1):
 
 **Input**
-* Target protein structure and a promising ligand (e.g. lead or hit compound), plus specifications of the processes that need to be performed.
+* A target protein structure and a promising ligand plus specifications of the processes that need to be performed.
 
 **Processes**
-1. Detection of the most druggable binding site on the given protein structure (if not defined in the input data).
-2. Finding derivatives and structural analogs of the given ligand by performing similarity search on available compound databases, and filtering the results to obtain the most drug-like analogs.
-3. Performing docking experiments on the selected binding site, using the found analogs.
-4. Analyzing the protein–ligand interactions in the calculated binding modes of each analog.
-5. Visualizing the binding modes and the corresponding interactions.
+1. Detection of the most druggable binding site for the given protein structure.
+2. Finding derivatives and structural analogs for the ligand. 
+3. Performing docking calculations on the selected binding site of those analogs.
+4. Analyzing and vizualizing predicted protein–ligand interactions and binding modes for each analog.
 
 **Output**
-* Optimized ligand structure(s) in terms of binding affinity and selectivity.
+* Protein-ligand structure(s) optimized for affinity and selectivity.
 
 <p style="text-align:center;"><img src="images/fig1.png"/></p>
 
