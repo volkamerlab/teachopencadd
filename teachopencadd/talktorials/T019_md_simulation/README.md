@@ -13,7 +13,7 @@ __Note__
 
 This talktorial was designed to be used with [Google Colab](https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/1bd7cb0c9f6379aebc0c1a0b1c7413685910cffa/teachopencadd/talktorials/019_md_simulation/talktorial.ipynb). It is also possible to use it on a local computer. However, performing the molecular dynamics simulation may take a considerably long time if no GPU is available.
 
-Also, note that this talktorial **will not run on Windows** for the time being.
+Also, note that this talktorial **will not run on Windows** for the time being (check progress in [this issue](https://github.com/volkamerlab/teachopencadd/issues/136)).
 
 
 ## Aim of this talktorial

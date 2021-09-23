@@ -26,6 +26,7 @@ Authors:
     * Show a structure using a local file
     * Saving the widget state as a screenshot for offline viewing
     * Customize the representations
+    * Control representations by selections
     * NMR and multimodel structures
     * Load more than one structure
     * Show and hide components

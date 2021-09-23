@@ -9,8 +9,8 @@ Authors:
 
 ## Aim of this talktorial
 
-The binding site of a protein is the key to its function. In this talktorial, we introduce the concepts of computational binding site detection tools, exemplified on an EGFR structure using DoGSiteScorer from the  [protein.plus](https://proteins.plus/) web server. 
-Additionally, we will compare the results to the pre-defined KLIFS binding site by calculating the percentage of residues in accordance between the two sets.
+The binding site of a protein is the key to its function. In this talktorial, we introduce the concepts of computational binding site detection tools using DoGSiteScorer from the [protein.plus](https://proteins.plus/) web server, exemplified on an EGFR structure. 
+Additionally, we compare the results to the pre-defined KLIFS binding site by calculating the percentage of residues in accordance between the two sets.
 
 
 ### Contents in *Theory*
