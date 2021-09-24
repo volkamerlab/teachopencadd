@@ -59,12 +59,8 @@ pd.set_option("display.max_colwidth", 200)  # increasing the maximum column widt
 pd.set_option("display.width", None)  # showing each row in a single line
 
 """
-Miscellaneous utilities for Talktorial T018
+Protein, ligand and various helper classes for Talktorial T018
 """
-
-class LeadOptimizationPipeline:
-    def __init__(self, project_name):
-        self.name = project_name
 
 class Consts:
     """
