@@ -22,13 +22,13 @@ jobs:
       matrix:
         cfg:
           - os: ubuntu-latest
-            python-version: "3.6"
+            python-version: "3.7"
           - os: ubuntu-latest
             python-version: "3.9"
           - os: macos-latest
-            python-version: "3.6"
+            python-version: "3.7"
           - os: windows-latest
-            python-version: "3.6"
+            python-version: "3.7"
 
     env:
       PYVER: ${{ matrix.cfg.python-version }}
