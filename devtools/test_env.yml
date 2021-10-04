@@ -20,6 +20,8 @@ dependencies:
   - openbabel
   - tqdm
   - lxml
+  # Remove jsonschema once this issue is fixed: https://github.com/Yelp/bravado/issues/478
+  - jsonschema<4.0.0
   - bravado
   - beautifulsoup4
   - ipywidgets>=7.5
