@@ -2,10 +2,12 @@ name: teachopencadd
 channels:
   - conda-forge
 dependencies:
-  - python>=3.6
+  - python>=3.7
   - pip
   - jupyter
   - jupyterlab>=3
+  # Explicitly add numpy because of https://github.com/volkamerlab/teachopencadd/issues/150
+  - numpy
   - rdkit>=2021.03
   - scikit-learn
   - biopandas
