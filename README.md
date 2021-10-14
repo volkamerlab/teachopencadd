@@ -26,7 +26,7 @@ Open source programming packages for cheminformatics and structural bioinformati
 
 TeachOpenCADD is a teaching platform developed by students for students, which provides teaching material for central CADD topics. Since we cover both the theoretical as well as practical aspect of these topics, the platform addresses students and researchers with a biological/chemical as well as a computational background.
 
-For each topic, an interactive Jupyter Notebook is offered, using open source packages such as the Python packages `rdkit`, `pypdb`, `biopandas`, `nglview`, and `mdanalysis`. Topics are continuously expanded and open for contributions from the community. Beyond their teaching purpose, the TeachOpenCADD material can serve as starting point for users’ project-directed modifications and extensions.
+For each topic, an interactive Jupyter Notebook is offered, using open source packages such as the Python packages `rdkit`, `pypdb`, `biopandas`, `nglview`, and `mdanalysis` (find the full list [here](https://github.com/volkamerlab/teachopencadd#external-resources)). Topics are continuously expanded and open for contributions from the community. Beyond their teaching purpose, the TeachOpenCADD material can serve as starting point for users’ project-directed modifications and extensions.
 
 > If you use TeachOpenCADD in a publication,
 > please [cite](https://github.com/volkamerlab/TeachOpenCADD/blob/master/README.md#citation) us!
