@@ -19,3 +19,9 @@ The following resources are collections of interesting cheminformatics-related t
 - `Curated list of resources from the RDKit UGM 2020 <https://github.com/rdkit/UGM_2020/blob/master/info/curated_list_of_resources.md>`_
 - `A Highly Opinionated List of Open Source Cheminformatics Resources <https://github.com/PatWalters/resources/blob/main/cheminformatics_resources.md>`_ by Pat Walters
 - `Awesome Cheminformatics <https://github.com/hsiaoyi0504/awesome-cheminformatics#resources>`_ by Yi Hsiao
+
+
+Packages and webservers used in TeachOpenCADD
+---------------------------------------------
+
+Please find the full list on `GitHub <https://github.com/volkamerlab/teachopencadd#external-resources>`_.
