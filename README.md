@@ -155,7 +155,7 @@ It will help measure the impact of the TeachOpenCADD platform and future funding
 
 - Cheminformatics and structural bioinformatics:
   [`rdkit`](http://rdkit.org/),
-  [`openbabel`](http://openbabel.org/wiki/),
+  [`openbabel`](https://openbabel.org/),
   [`mdanalysis`](https://www.mdanalysis.org/),
   [`biopython`](https://biopython.org/),
   [`biopandas`](http://rasbt.github.io/biopandas/),
@@ -166,12 +166,13 @@ It will help measure the impact of the TeachOpenCADD platform and future funding
   [`openmmforcefields`](https://github.com/openmm/openmmforcefields),
   [`pdbfixer`](https://github.com/openmm/pdbfixer),
   [`mdanalysis`](https://www.mdanalysis.org/),
-  [`biotite`](https://www.biotite-python.org/)
+  [`biotite`](https://www.biotite-python.org/),
+  [`smina`](https://sourceforge.net/p/smina/discussion/)
 - Data science (PyData stack):
   [`numpy`](https://numpy.org/),
   [`pandas`](https://pandas.pydata.org/),
   [`scikit-learn`](https://scikit-learn.org/),
-  [`tensorflow`](https://www.tensorflow.org/),
+  [`keras`](https://keras.io/),
   [`jupyter`](https://jupyter.org/),
   [`ipywidgets`](https://ipywidgets.readthedocs.io)
 - Data visualization:
@@ -201,12 +202,15 @@ It will help measure the impact of the TeachOpenCADD platform and future funding
 - Code style:
   [`black-nb`](https://github.com/tomcatling/black-nb)
 
-#### Databases
+#### Databases and webservers
 
 - [ChEMBL](https://www.ebi.ac.uk/chembl/)
 - [RCSB PDB](https://www.rcsb.org/)
 - [KLIFS](https://klifs.net/)
 - [PubMed](https://pubchem.ncbi.nlm.nih.gov/)
+- [ProteinsPlus](https://proteins.plus/)
+
+If we are using your resource and forgot to add it here, please contact us so that we can rectify this, thank you!
 
 ### Funding
 
