@@ -99,7 +99,7 @@ highlight_language = "none"
 
 # -- Options for HTML output -------------------------------------------------
 # -- HTML theme settings ------------------------------------------------
-html_short_title = "TeachOpenCADD (WIP 🚧)"
+html_short_title = "TeachOpenCADD"
 html_show_sourcelink = True
 html_sidebars = {"**": ["logo-text.html", "globaltoc.html", "localtoc.html", "searchbox.html"]}
 
@@ -178,7 +178,13 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, "teachopencadd.tex", "TeachOpenCADD Documentation", "teachopencadd", "manual",),
+    (
+        master_doc,
+        "teachopencadd.tex",
+        "TeachOpenCADD Documentation",
+        "teachopencadd",
+        "manual",
+    ),
 ]
 
 
