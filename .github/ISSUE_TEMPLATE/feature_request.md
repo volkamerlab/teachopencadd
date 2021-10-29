@@ -7,6 +7,14 @@ assignees: ''
 
 ---
 
+-----------------------------------------
+
+If you have a question about TeachOpenCADD please use the Discussions tab above (https://github.com/volkamerlab/teachopencadd/discussions) instead of posting it here.
+
+Please delete this section before submitting your issue.
+
+-----------------------------------------
+
 **Is your feature request related to a problem? Please describe.**
 A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
 
