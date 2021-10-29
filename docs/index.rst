@@ -31,8 +31,8 @@ Table of contents
    :maxdepth: 1
    :caption: Our talktorials
 
-   talktorials
    all_talktorials
+   talktorials
 
 .. toctree::
    :maxdepth: 1
