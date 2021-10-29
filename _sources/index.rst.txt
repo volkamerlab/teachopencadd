@@ -31,8 +31,8 @@ Table of contents
    :maxdepth: 1
    :caption: Our talktorials
 
-   talktorials
    all_talktorials
+   talktorials
 
 .. toctree::
    :maxdepth: 1
@@ -51,7 +51,8 @@ Table of contents
    :maxdepth: 1
    :caption: External resources
 
-   external_resources
+   external_dependencies
+   external_tutorials_collections
 
 
 Citation
