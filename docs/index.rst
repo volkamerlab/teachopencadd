@@ -51,7 +51,8 @@ Table of contents
    :maxdepth: 1
    :caption: External resources
 
-   external_resources
+   external_dependencies
+   external_tutorials_blogs
 
 
 Citation

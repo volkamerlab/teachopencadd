@@ -1,5 +1,8 @@
-Python programming introduction
--------------------------------
+External tutorials and blogs
+----------------------------
+
+Python programming
+~~~~~~~~~~~~~~~~~~
 
 The TeachOpenCADD platform is not a Python programming course from scratch but teaches how to solve tasks in cheminformatics and structural bioinformatics programmatically.
 If you wish to get started first with a Python programming introduction before diving into the TeachOpenCADD material, here are a few great resources to do so:
@@ -11,17 +14,11 @@ If you wish to get started first with a Python programming introduction before d
 - `Best practices for Python, Git and Jupyter <https://zenodo.org/record/4630714>`_, a slide deck used in the introduction of our CADD Block course 2021, part of the Master's degree in Bioinformatics curriculum at the Freie Universität (FU) Berlin.
 
 
-Cheminformatics resources collections
--------------------------------------
+Cheminformatics
+~~~~~~~~~~~~~~~
 
 The following resources are collections of interesting cheminformatics-related training material, blogs, and books.
 
 - `Curated list of resources from the RDKit UGM 2020 <https://github.com/rdkit/UGM_2020/blob/master/info/curated_list_of_resources.md>`_
 - `A Highly Opinionated List of Open Source Cheminformatics Resources <https://github.com/PatWalters/resources/blob/main/cheminformatics_resources.md>`_ by Pat Walters
 - `Awesome Cheminformatics <https://github.com/hsiaoyi0504/awesome-cheminformatics#resources>`_ by Yi Hsiao
-
-
-Packages and webservers used in TeachOpenCADD
----------------------------------------------
-
-Please find the full list on `GitHub <https://github.com/volkamerlab/teachopencadd#external-resources>`_.
