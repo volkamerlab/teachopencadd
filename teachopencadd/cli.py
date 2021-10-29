@@ -68,11 +68,11 @@ def _start(args):
     talktorials_dst_dir = Path(args.workspace) / TALKTORIAL_FOLDER_NAME
 
     if not Path(args.workspace).is_dir():
-        raise RuntimeError(f"Could not find user-defined location `{args.workspace}`")
+        raise RuntimeError(f"Could not find user-defined location `{args.workspace}`.")
 
     if not talktorials_src_dir.is_dir():
         raise RuntimeError(
-            f"Could not find talktorials at expected location `{talktorials_src_dir}`"
+            f"Could not find talktorials at expected location `{talktorials_src_dir}`."
         )
 
     try:

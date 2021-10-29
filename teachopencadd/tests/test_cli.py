@@ -14,6 +14,24 @@ from teachopencadd.cli import TALKTORIAL_FOLDER_NAME
 
 
 def capture(command):
+    """
+    Run input command as subprocess and caputure the subprocess' exit code, stdout and stderr.
+
+    Parameters
+    ----------
+    command : list of str
+        Command to be run as subprocess.
+
+    Returns
+    -------
+    out : bytes
+        Standard output message.
+    err : bytes
+        Standard error message.
+    exitcode : int
+        Exit code.
+    """
+
     proc = subprocess.Popen(
         command,
         stdout=subprocess.PIPE,
@@ -27,7 +45,7 @@ def test_start_workspace():
     """
     Test `teachopencadd start` (exit code, stdout, and stderr) for existing user-defined workspace
     - Run #1: Talktorials do not exist, yet, and are therefore copied
-    - Run #2: Talktorials do already exist, and are therefor NOT copied again
+    - Run #2: Talktorials do already exist, and are therefore NOT copied again
     - Check if number of copied files equals number of files in repository
     - At the end: Remove talktorial copy
     """
@@ -78,12 +96,8 @@ def test_start_workspace():
     files_list_template = sorted(talktorials_path_template.glob("**/*"))
     files_list_test = sorted(talktorials_path_test.glob("**/*"))
     # Remove checkpoint files that may be present
-    files_list_template = [
-        file for file in files_list_template if "checkpoint" not in str(file)
-    ]
-    files_list_test = [
-        file for file in files_list_test if "checkpoint" not in str(file)
-    ]
+    files_list_template = [file for file in files_list_template if "checkpoint" not in str(file)]
+    files_list_test = [file for file in files_list_test if "checkpoint" not in str(file)]
     # The same number of files?
     assert len(files_list_test) == len(files_list_template)
 
@@ -100,10 +114,8 @@ def test_start_incorrect_workspace():
     out, err, exitcode = capture(command.split())
 
     assert exitcode == 1
-    # Keep console output without the trailing "\n"
-    out_template = (_greeting_string() + "\n").encode()
-    assert out == out_template
+    assert out == (_greeting_string() + "\n").encode()
     # Keep console error without traceback
     err = err.split(b"\n")[-2]
-    err_template = b"RuntimeError: Could not find user-defined location `xxx`"
+    err_template = b"RuntimeError: Could not find user-defined location `xxx`."
     assert err == err_template
