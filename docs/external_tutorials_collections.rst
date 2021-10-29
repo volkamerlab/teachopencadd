@@ -1,5 +1,5 @@
-External tutorials and blogs
-----------------------------
+External tutorials and collections
+----------------------------------
 
 Python programming
 ~~~~~~~~~~~~~~~~~~

@@ -52,7 +52,7 @@ Table of contents
    :caption: External resources
 
    external_dependencies
-   external_tutorials_blogs
+   external_tutorials_collections
 
 
 Citation
