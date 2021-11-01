@@ -5,6 +5,7 @@ Unit tests for Command Line Interface.
 from pathlib import Path
 import shutil
 import subprocess
+import warnings
 
 from teachopencadd.utils import (
     _greeting_string,
@@ -107,3 +108,17 @@ def test_start_incorrect_workspace():
     assert exitcode == 0
     assert out == _greeting_string() + "\n" + "Could not find user-defined location `xxx`.\n"
     assert not err
+
+
+def test_jlab_import():
+    """
+    Add warning if JupyterLab cannot be imported.
+    """
+
+    try:
+        import jupyterlab
+    except ImportError:
+        warnings.warn(
+            "JupyterLab cannot be imported; install with `mamba install jupyterlab`.",
+            ImportWarning,
+        )
