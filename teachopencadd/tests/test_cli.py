@@ -3,6 +3,7 @@ Unit tests for Command Line Interface.
 """
 
 from pathlib import Path
+import shutil
 import subprocess
 
 from teachopencadd.utils import (
@@ -24,19 +25,15 @@ def capture(command):
 
     Returns
     -------
-    out : bytes
+    out : str
         Standard output message.
-    err : bytes
+    err : str
         Standard error message.
     exitcode : int
         Exit code.
     """
 
-    proc = subprocess.Popen(
-        command,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-    )
+    proc = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     out, err = proc.communicate()
     return out, err, proc.returncode
 
@@ -56,37 +53,31 @@ def test_start_workspace():
     out, err, exitcode = capture(command.split())
     # Check exit code, stdout, and stderr
     assert exitcode == 0
-    assert (
-        out
-        == (
-            _greeting_string()
-            + "\n"
-            + _talktorial_list_string(TALKTORIAL_FOLDER_NAME)
-            + "\n"
-            + _run_jlab_string(TALKTORIAL_FOLDER_NAME)
-            + "\n"
-        ).encode()
+    assert out == (
+        _greeting_string()
+        + "\n"
+        + _talktorial_list_string(TALKTORIAL_FOLDER_NAME)
+        + "\n"
+        + _run_jlab_string(TALKTORIAL_FOLDER_NAME)
+        + "\n"
     )
-    assert err == b""
+    assert not err
 
     # Start workspace #2 (this time the talktorial folder already exists)
     out, err, exitcode = capture(command.split())
     # Check exit code, stdout, and stderr
     assert exitcode == 0
-    assert (
-        out
-        == (
-            _greeting_string()
-            + "\n"
-            + f"Workspace exists already at location {TALKTORIAL_FOLDER_NAME}."
-            + "\n"
-            + _talktorial_list_string(TALKTORIAL_FOLDER_NAME)
-            + "\n"
-            + _run_jlab_string(TALKTORIAL_FOLDER_NAME)
-            + "\n"
-        ).encode()
+    assert out == (
+        _greeting_string()
+        + "\n"
+        + f"Workspace exists already at location `{TALKTORIAL_FOLDER_NAME}`."
+        + "\n"
+        + _talktorial_list_string(TALKTORIAL_FOLDER_NAME)
+        + "\n"
+        + _run_jlab_string(TALKTORIAL_FOLDER_NAME)
+        + "\n"
     )
-    assert err == b""
+    assert not err
 
     # Check if all files were transferred to workspace
     # Set path to template (repository) and test (copy) talktorial directories
@@ -102,7 +93,7 @@ def test_start_workspace():
     assert len(files_list_test) == len(files_list_template)
 
     # At the very end: Delete TeachOpenCADD talktorial folder
-    subprocess.run(f"rm -r {TALKTORIAL_FOLDER_NAME}".split())
+    shutil.rmtree(TALKTORIAL_FOLDER_NAME)
 
 
 def test_start_incorrect_workspace():
@@ -113,9 +104,6 @@ def test_start_incorrect_workspace():
     command = "teachopencadd start xxx"
     out, err, exitcode = capture(command.split())
 
-    assert exitcode == 1
-    assert out == (_greeting_string() + "\n").encode()
-    # Keep console error without traceback
-    err = err.split(b"\n")[-2]
-    err_template = b"RuntimeError: Could not find user-defined location `xxx`."
-    assert err == err_template
+    assert exitcode == 0
+    assert out == _greeting_string() + "\n" + "Could not find user-defined location `xxx`.\n"
+    assert not err

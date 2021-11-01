@@ -6,6 +6,7 @@ from pathlib import Path
 import argparse
 import subprocess
 import shutil
+import sys
 
 from teachopencadd.utils import _greeting_string, _run_jlab_string, _talktorial_list_string
 from . import _version
@@ -68,17 +69,17 @@ def _start(args):
     talktorials_dst_dir = Path(args.workspace) / TALKTORIAL_FOLDER_NAME
 
     if not Path(args.workspace).is_dir():
-        raise RuntimeError(f"Could not find user-defined location `{args.workspace}`.")
+        print(f"Could not find user-defined location `{args.workspace}`.")
+        sys.exit()
 
     if not talktorials_src_dir.is_dir():
-        raise RuntimeError(
-            f"Could not find talktorials at expected location `{talktorials_src_dir}`."
-        )
+        print(f"Could not find talktorials at expected location `{talktorials_src_dir}`.")
+        sys.exit()
 
     try:
         shutil.copytree(talktorials_src_dir, talktorials_dst_dir)
     except FileExistsError:
-        print(f"Workspace exists already at location {talktorials_dst_dir}.")
+        print(f"Workspace exists already at location `{talktorials_dst_dir}`.")
 
     print(_talktorial_list_string(talktorials_dst_dir))
     print(_run_jlab_string(talktorials_dst_dir))

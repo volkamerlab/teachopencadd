@@ -3,6 +3,7 @@ Helper functions and constants for the TeachOpenCADD talktorials
 """
 
 from pathlib import Path
+import sys
 
 from . import _version
 
@@ -127,6 +128,5 @@ def _talktorial_list_string(talktorials_dst_dir):
         message = "\n".join(message)
         return message
     else:
-        raise RuntimeError(
-            f"Could not find talktorials at expected location `{talktorials_dst_dir}`"
-        )
+        print(f"Could not find talktorials at expected location `{talktorials_dst_dir}`")
+        sys.exit()
