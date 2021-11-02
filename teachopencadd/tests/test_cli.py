@@ -122,3 +122,19 @@ def test_jlab_import():
             "JupyterLab cannot be imported; install with `mamba install jupyterlab`.",
             ImportWarning,
         )
+
+
+def test_incomplete_signature():
+    """
+    Test behavior when the user enters an incomplete CLI command.
+    """
+
+    command = "teachopencadd"
+    out, err, exitcode = capture(command.split())
+
+    assert exitcode == 0
+    # Since the output will change whenever new subcommands are added to the CLI,
+    # Check only the beginning and end of the message, which will stay the same.
+    assert out.startswith("usage")
+    assert out.endswith("show this help message and exit\n")
+    assert not err

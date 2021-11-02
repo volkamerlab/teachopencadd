@@ -20,8 +20,6 @@ def main():
     - teachopencadd start path/to/workspace
     """
 
-    print(_greeting_string())
-
     parser = argparse.ArgumentParser()
     subparsers = parser.add_subparsers()
 
@@ -63,6 +61,8 @@ def _start(args):
     - print list of talktorials in workspace
     - print instructions on how to fire up the talktorials in JupyterLab
     """
+
+    print(_greeting_string())
 
     # Source and destination directories for talktorials
     talktorials_src_dir = Path(_version.__file__).parent / "talktorials"
