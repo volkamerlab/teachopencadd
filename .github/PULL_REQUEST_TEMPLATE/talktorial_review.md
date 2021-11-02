@@ -1,7 +1,9 @@
 <!-- Talktorial review template -->
 <!-- Thank you very much for helping us improve TeachOpenCADD! -->
 
-# Details
+# Talktorial review
+
+## Details
 
 * Talktorial ID: ###
 * Title: XXXXXXXXXXXXXXXXXXXXX
@@ -9,7 +11,7 @@
 * Reviewer(s):
 * Date of review:
 
-# Content review
+## Content review
 
 * Potential labels or categories (e.g. machine learning, small molecules, online APIs): XXXXXXXX
 * One line summary: XXXXXXXXXX
@@ -23,7 +25,7 @@
 * [ ] I have checked that cell outputs are not incredibly long (this applies also to `DataFrames`)
 * [ ] Formatting looks correctly on the Sphinx render (bold, italics, figure placing)
 
-# Code review
+## Code review
 
 * Time it took to execute (approx.):
 * [ ] Variable and function names follow snake case rules (e.g. `a_variable_name` vs `aVariableName`)

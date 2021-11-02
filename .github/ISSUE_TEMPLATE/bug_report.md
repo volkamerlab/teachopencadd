@@ -29,10 +29,16 @@ If applicable, add screenshots to help explain your problem.
 
 
 **Configuration (please complete the following information):**
- - Version of packages involved in the issue: 
- - OS: [e.g. Ubuntu 20.04]
- - Python version (if relevant):
- - How did you install TeachOpenCADD?
+ - How did you use TeachOpenCADD?
+   1. Installation from conda package?
+   2. Installation from GitHub code?
+   3. Binder? Google Colab?
+   4. TeachOpenCADD website? Browser (if relevant)?
+   5. Other?
+ - In case you did _not_ use 4.
+   - Version of packages involved in the issue: 
+   - OS: [e.g. Ubuntu 20.04]
+   - Python version (if relevant):
 
 **Additional context**
 Add any other context about the problem here.
