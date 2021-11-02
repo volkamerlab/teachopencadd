@@ -5,6 +5,11 @@ You are welcome to contribute to the project either by requesting new topics, pr
 getting involved in the development!
 Please, use `this form <http://contribute.volkamerlab.org/>`_ to let us know!
 
+- Engage with the maintainers and other TeachOpenCADD users in our `GitHub Discussions forum <https://github.com/volkamerlab/teachopencadd/discussions>`_!
+- Send us your ideas for new talktorials via `this form <http://contribute.volkamerlab.org/>`_!
+- If you plan to contribute a new talktorial, please use this `talktorial template <https://github.com/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T000_template/talktorial.ipynb>`_ and this `PR template <https://github.com/volkamerlab/teachopencadd/blob/master/.github/PULL_REQUEST_TEMPLATE/talktorial_review.md>`_. Feel free to contact us before you start!
+- If you like to support us in maintaining TeachOpenCADD, please contact us!
+
 TeachOpenCADD has been initiated by the members of `Volkamer Lab <https://volkamerlab.org/>`_,
 Charité - Universitätsmedizin Berlin, with special thanks to
 `@dominiquesydow <https://github.com/dominiquesydow/>`_,
