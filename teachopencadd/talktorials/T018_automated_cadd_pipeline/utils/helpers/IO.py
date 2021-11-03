@@ -32,7 +32,7 @@ def create_dataframe_from_csv_input_file(
     """
     input_df = pd.read_csv(input_data_filepath)
     input_df.set_index(list_of_index_column_names, inplace=True)
-    input_df.drop(input_df.columns.difference(list_of_columns_to_keep), 1, inplace=True)
+    input_df.drop(input_df.columns.difference(list_of_columns_to_keep), axis=1, inplace=True)
     return input_df
 
 
