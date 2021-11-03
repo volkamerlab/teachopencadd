@@ -1369,7 +1369,7 @@ The target ChEMBL ID is CHEMBL203
 Length and type of bioactivities object: 8816, &lt;class 'chembl_webresource_client.query_set.QuerySet'&gt;
 </pre></div></div>
 </div>
-<p>Our bioactivity set contains 8463 entries, each holding the following information.</p>
+<p>Each entry in our bioactivity set holds the following information:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
@@ -1564,7 +1564,7 @@ DataFrame shape: (8817, 13)
 </table>
 </div></div>
 </div>
-<p>Note, that we have columns for <code class="docutils literal notranslate"><span class="pre">standard_units</span></code>/<code class="docutils literal notranslate"><span class="pre">units</span></code> and <code class="docutils literal notranslate"><span class="pre">standard_values</span></code>/<code class="docutils literal notranslate"><span class="pre">values</span></code> - in the following we will use the standardized columns (standardization by ChEMBL). Thus, we drop the other two columns.</p>
+<p>Note that the first two rows describe the same bioactivity entry; we will remove such artifacts later during the deduplication step. Note also that we have columns for <code class="docutils literal notranslate"><span class="pre">standard_units</span></code>/<code class="docutils literal notranslate"><span class="pre">units</span></code> and <code class="docutils literal notranslate"><span class="pre">standard_values</span></code>/<code class="docutils literal notranslate"><span class="pre">values</span></code>; in the following, we will use the standardized columns (standardization by ChEMBL), and thus, we drop the other two columns.</p>
 <p>If we used the <code class="docutils literal notranslate"><span class="pre">units</span></code> and <code class="docutils literal notranslate"><span class="pre">values</span></code> columns, we would need to convert all values with many different units to nM:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
