@@ -55,6 +55,7 @@ class OptimizedLigands:
             if analog.drug_score_total > project.Ligand.drug_score_total
         ]
 
+        # Optimization methods is sorting
         if (
             project.Specs.OptimizedLigands.selection_method
             is Consts.OptimizedLigands.SelectionMethods.SORTING
@@ -69,16 +70,24 @@ class OptimizedLigands:
                 .unique()
             )
 
+        # Optimization method is user-defined function
         elif (
             project.Specs.OptimizedLigands.selection_method
             is Consts.OptimizedLigands.SelectionMethods.FUNCTION
         ):
-            # TODO should this be project.Specs.OptimizedLigands.selection_criteria?
+            # FIXME should this be project.Specs.OptimizedLigands.selection_criteria?
             df["function_score"] = eval(selection_criteria)
             final_results_cids = (
                 df.sort_values(by="function_score", ascending=False)
                 .index.get_level_values(0)
                 .unique()
+            )
+
+        # Optimization method is unknown
+        else:
+            raise ValueError(
+                f"Optimization method is unknown: "
+                f"{project.Specs.OptimizedLigands.selection_method}"
             )
 
         self.output = [project.Ligand.analogs[cid] for cid in final_results_cids][

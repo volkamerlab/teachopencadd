@@ -82,8 +82,8 @@ def upload_pdb_file(filepath):
             url, files={request_msg: f}
         )  # Post API query and get the response
     response.raise_for_status()  # Raise HTTPError if one occured during query
+    response_values = response.json()  # Turn the response values into a dict
     if response.ok:
-        response_values = response.json()  # Turn the response values into a dict
         # If the request is accepted, the response will contain a URL,
         # from which the needed ID of the uploaded protein can be obtained.
         # Here, we store this URL from the response values in the url_of_id variable.
