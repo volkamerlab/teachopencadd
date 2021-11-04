@@ -13,8 +13,9 @@ def seed_everything(seed=22):
     os.environ["PYTHONHASHSEED"] = str(seed)
     np.random.seed(seed)
 
+
 def show_pdf(pdf_url):
-    """ PDF viewer in notebook
+    """PDF viewer in notebook
 
     Parameters
     ----------
@@ -38,8 +39,9 @@ def show_pdf(pdf_url):
         )
     )
 
+
 def pdbqt_to_pdbblock(pdbqt):
-    """ File converter
+    """File converter
 
     Parameters
     ----------
