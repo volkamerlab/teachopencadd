@@ -106,6 +106,7 @@ def upload_pdb_file(filepath):
             break
         else:
             time.sleep(5)
+
     if not (
         id_response.ok & (APIConsts.FileUpload.RESPONSE_MSG_FETCH_ID["id"] in id_response_values)
     ):
@@ -177,6 +178,10 @@ def submit_job(pdb_id, ligand_id="", chain_id="", num_attempts=30):
                 APIConsts.SubmitJob.RESPONSE_MSG_FETCH_BINDING_SITES["pockets_ccp4_files"]
             ]
             break
+        else:
+            # FIXME action needed?
+            pass
+
         attempt_count += 1
         time.sleep(10)
     else:
@@ -254,11 +259,14 @@ def select_best_pocket(binding_site_df, selection_method, selection_criteria, as
         Name of the selected binding-site.
     """
     df = binding_site_df
+
     if selection_method == "sorting":
         sorted_df = df.sort_values(by=selection_criteria, ascending=ascending)
     elif selection_method == "function":
         df["function_score"] = eval(selection_criteria)
         sorted_df = df.sort_values(by="function_score", ascending=ascending)
+    else:
+        raise ValueError(f"Binding site selection method unknown: {selection_method}")
 
     selected_pocket_name = sorted_df.iloc[0].name
     return selected_pocket_name
@@ -290,6 +298,7 @@ def calculate_pocket_coordinates_from_pocket_pdb_file(filepath):
         try:
             coordinates.append(float(elem))
         except:
+            # FIXME specify exception
             pass
     pocket_coordinates = {
         "center": coordinates[:3],

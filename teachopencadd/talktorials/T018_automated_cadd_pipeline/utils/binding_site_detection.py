@@ -82,6 +82,8 @@ class BindingSiteDetection:
             self.dogsitescorer_pdb_id = Protein.pdb_code
         elif hasattr(Protein, "pdb_filepath"):
             self.dogsitescorer_pdb_id = dogsitescorer.upload_pdb_file(Protein.pdb_filepath)
+        else:
+            raise AttributeError(f"Protein has neither `pdb_code` nor `pdb_filepath attributes.")
 
         # try to get the chain_id for binding-site detection if it's available in input data
         if BindingSiteSpecs.protein_chain_id != "":
@@ -98,6 +100,7 @@ class BindingSiteDetection:
                 self.dogsitescorer_chain_id = Protein.chains[0]
             # if no chain is found in PDB file either, leave the chain_id empty
             except:
+                # FIXME specify exception
                 self.dogsitescorer_chain_id = ""
 
         # create a list of ligand ids in the DoGSiteScorer format
@@ -134,6 +137,9 @@ class BindingSiteDetection:
                     ):
                         self.dogsitescorer_ligand_id = ligand
                         break
+                    else:
+                        pass
+
                 if self.dogsitescorer_ligand_id is None:
                     raise ValueError(
                         f"The input ligand-ID ({BindingSiteSpecs.protein_ligand_id}) "

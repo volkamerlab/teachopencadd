@@ -208,6 +208,14 @@ class Specs:
                         else selection_criteria
                     )
 
+                else:
+                    raise ValueError(f"Binding site selection method: {self.selection_method}")
+
+            else:
+                raise ValueError(
+                    f"Binding site detection method unknown: {self.definition_method}"
+                )
+
     class LigandSimilaritySearch:
         def __init__(self, similarity_search_data):
 
@@ -335,6 +343,11 @@ class Specs:
                     Specs.OptimizedLigandsDefaults.SELECTION_CRITERIA_FUNCTION.value
                     if selection_criteria is np.nan
                     else selection_criteria
+                )
+
+            else:
+                raise ValueError(
+                    f"Optimized ligand selection method unknown: {self.selection_method}"
                 )
 
     class OutputPaths:

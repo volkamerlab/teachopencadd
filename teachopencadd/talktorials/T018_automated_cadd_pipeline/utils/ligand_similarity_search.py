@@ -38,6 +38,8 @@ class LigandSimilaritySearch:
                 SimilaritySearchSpecs.min_similarity_percent,
                 SimilaritySearchSpecs.max_num_results,
             )
+        else:
+            raise ValueError(f"Search engine unknown: {SimilaritySearchSpecs.search_engine}")
 
         # create dataframe from initial results
         all_analog_identifiers_df = pd.DataFrame(analogs_info)

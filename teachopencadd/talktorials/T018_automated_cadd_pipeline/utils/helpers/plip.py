@@ -138,6 +138,9 @@ def create_protein_ligand_complex(
             for line in file:
                 if line[:4] == "ATOM":
                     lines.append(line[:67].strip())
+                else:
+                    # FIXME action needed?
+                    pass
         return "\n".join(lines)
 
     protein_pdbblock = pdbqt_to_pdbblock(protein_pdbqt_filepath)

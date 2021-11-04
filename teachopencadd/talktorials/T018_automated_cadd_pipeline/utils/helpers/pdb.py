@@ -31,6 +31,9 @@ def read_pdb_file_content(input_type, input_value):
     elif input_type == "pdb_filepath":
         with open(input_value) as f:
             pdb_file_content = f.read()
+    else:
+        # FIXME action needed?
+        pass
     return pdb_file_content
 
 
@@ -148,12 +151,15 @@ def extract_info_from_pdb_file_content(pdb_file_text_content):
                 try:
                     pdb_content[index][1] = pdb_content[index][1].split(" ", 1)[1]
                 except:
+                    # FIXME specify exception
                     pass
         except:
+            # FIXME specify exception
             pdb_content[index].append(" ")
 
     info = {"Structure Title": [], "Name": [], "Chains": [], "Ligands": []}
     for content in pdb_content:
+        # FIXME this should be elifs, no?
         if content[0] == "TITLE":
             info["Structure Title"].append(content[1])
         if content[0] == "COMPND" and content[1].startswith("MOLECULE: "):

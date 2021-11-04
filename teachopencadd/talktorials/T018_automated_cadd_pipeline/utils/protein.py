@@ -73,14 +73,22 @@ class Protein:
                     protein_property.name.lower(),
                     protein_info[protein_property.value],
                 )
+            else:
+                # FIXME action needed?
+                pass
 
         if identifier_type is Consts.Protein.InputTypes.PDB_CODE:
             self.pdb_filepath = pdb.fetch_and_save_pdb_file(
                 identifier_value, str(protein_output_path) + "/" + identifier_value
             )
+        else:
+            # FIXME action needed?
+            pass
 
     def __call__(self):
         for protein_property in self.Consts.Properties:
+
+            # Display property if available
             if hasattr(self, protein_property.name.lower()):
                 display(
                     Markdown(

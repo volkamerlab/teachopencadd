@@ -49,6 +49,7 @@ class Ligand:
                 setattr(self, identifier.value, new_id)
                 self.dataframe.loc[identifier.value] = new_id
             except:
+                # FIXME specify exception
                 pass
 
         self.rdkit_obj = rdkit.create_molecule_object("smiles", self.smiles)

@@ -140,6 +140,9 @@ def convert_compound_identifier(
     """
     if isinstance(input_id_value, list):
         input_id_value = ",".join(map(str, input_id_value))
+    else:
+        # FIXME action needed?
+        pass
     url = (
         getattr(APIConsts.URLs.Inputs, input_id_type.upper()).value
         + str(input_id_value)
@@ -221,6 +224,7 @@ def get_description_from_smiles(smiles, output_data_type="json", printout=False)
             try:
                 print(entry["Description"] + "\n")
             except:
+                # FIXME specify exception
                 pass
     else:
         return response_data
@@ -283,6 +287,9 @@ def similarity_search(
                 APIConsts.ResponseMsgs.SimilaritySearch.RESULT_KEY1.value
             ][APIConsts.ResponseMsgs.SimilaritySearch.RESULT_KEY2.value]
             break
+        else:
+            # FIXME action needed?
+            pass
         time.sleep(10)
         num_attempts += 1
     else:

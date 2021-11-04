@@ -290,6 +290,8 @@ def interactions(
 
             for interaction_type, interaction_list in interactions.items():
                 color = color_map[interaction_type]
+
+                # FIXME what does this if clause do?
                 if len(interaction_list) == 1:
                     continue
                 df_interactions = pd.DataFrame.from_records(

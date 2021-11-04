@@ -159,6 +159,11 @@ class InteractionAnalysis:
             self.results = results_df
             self.master_df = interaction_master_df
 
+        else:
+            raise AttributeError(
+                f"Interaction analysis tool unknown: {InteractionAnalysisSpecs_object.program}"
+            )
+
     def find_poses_with_specific_interactions(self, list_interaction_data, all_or_any):
         """
         Find docking poses containing a specific set of interactions.
@@ -201,6 +206,7 @@ class InteractionAnalysis:
                     )
                     if residue_nr in interaction_df["RESNR"].values:
                         num_hits_in_analog_docking_pose += 1
+
                 if (
                     (all_or_any == "all")
                     and (num_hits_in_analog_docking_pose == len(list_interaction_data))
@@ -208,6 +214,10 @@ class InteractionAnalysis:
                     list_eligible_analog_cid_docking_pose_nr_tuple.append(
                         (analog.cid, analog_docking_pose_nr)
                     )
+                else:
+                    # FIXME action needed?
+                    pass
+
         return list_eligible_analog_cid_docking_pose_nr_tuple
 
     def visualize_all_interactions(self):

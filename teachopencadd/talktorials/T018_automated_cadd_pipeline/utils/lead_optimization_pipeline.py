@@ -283,6 +283,10 @@ class LeadOptimizationPipeline:
                     )
                 ]
             )
+        else:
+            raise AttributeError(
+                f"Binding site definition tool unknown: {self.Specs.BindingSite.definition_method}"
+            )
         self._pprint(
             [
                 (
