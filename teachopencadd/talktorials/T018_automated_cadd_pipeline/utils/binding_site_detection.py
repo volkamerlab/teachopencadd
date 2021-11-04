@@ -87,7 +87,8 @@ class BindingSiteDetection:
                 self.dogsitescorer_chain_id = BindingSiteSpecs.protein_chain_id
             else:
                 raise ValueError(
-                    f"The input protein chain-ID ({BindingSiteSpecs.protein_chain_id}) does not exist in the input protein. Existing chains are: {Protein.chains}"
+                    f"The input protein chain-ID ({BindingSiteSpecs.protein_chain_id}) "
+                    f"does not exist in the input protein. Existing chains are: {Protein.chains}"
                 )
         else:
             # if chain_id is not in input data, try to set it to the first chain found in PDB file
@@ -119,7 +120,9 @@ class BindingSiteDetection:
                     self.dogsitescorer_chain_id = ligand_id.split("_")[1][0]
                 else:
                     raise ValueError(
-                        f"The input ligand-ID ({BindingSiteSpecs.protein_ligand_id}) does not exist in the input protein. Existing ligand-IDs are: {ligand[0] for ligand in Protein.ligands}"
+                        f"The input ligand-ID ({BindingSiteSpecs.protein_ligand_id}) "
+                        f"does not exist in the input protein. Existing ligand-IDs are: "
+                        f"{[ligand[0] for ligand in Protein.ligands]}"
                     )
             else:
                 self.dogsitescorer_ligand_id = None
@@ -131,7 +134,9 @@ class BindingSiteDetection:
                         break
                 if self.dogsitescorer_ligand_id == None:
                     raise ValueError(
-                        f"The input ligand-ID ({BindingSiteSpecs.protein_ligand_id}) does not exist in the input protein. Existing ligand-IDs are: {[ligand[0] for ligand in Protein.ligands]}"
+                        f"The input ligand-ID ({BindingSiteSpecs.protein_ligand_id}) "
+                        f"does not exist in the input protein. Existing ligand-IDs are: "
+                        f"{[ligand[0] for ligand in Protein.ligands]}"
                     )
 
         else:

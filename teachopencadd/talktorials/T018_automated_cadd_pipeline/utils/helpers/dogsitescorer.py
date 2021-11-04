@@ -1,16 +1,16 @@
 """
 Class Containing all the required functions and constants
 to communicate with the DoGSiteScorer's Rest-API.
-This can be used to submit binding-site detection jobs, 
-either by providing the PDB-code of protein structure, 
-or by uploading its PDB file. 
+This can be used to submit binding-site detection jobs,
+either by providing the PDB-code of protein structure,
+or by uploading its PDB file.
 It returns a table of all detected pockets and sub-pockets
-and their corresponding descriptors. 
-For each detected (sub-)pocket, a PDB file is provided 
-and a CCP4 map file is generated. 
-These can be downloaded and used to define the coordinates of 
-the (sub-)pocket needed for the docking calculation and visualization. 
-The function ***select_best_pocket*** is also defined which provides 
+and their corresponding descriptors.
+For each detected (sub-)pocket, a PDB file is provided
+and a CCP4 map file is generated.
+These can be downloaded and used to define the coordinates of
+the (sub-)pocket needed for the docking calculation and visualization.
+The function ***select_best_pocket*** is also defined which provides
 several methods for selecting the most suitable binding-site.
 """
 

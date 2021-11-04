@@ -35,7 +35,11 @@ class Specs:
             Consts.BindingSite.SelectionCriteria.LIGAND_COVERAGE.value,
             Consts.BindingSite.SelectionCriteria.POCKET_COVERAGE.value,
         ]
-        SELECTION_CRITERIA_FUNCTION = f"(df[{Consts.BindingSite.SelectionCriteria.DRUG_SCORE.value}] + df[{Consts.BindingSite.SelectionCriteria.SIMPLE_SCORE.value}]) / df[{Consts.BindingSite.SelectionCriteria.VOLUME}]"
+        SELECTION_CRITERIA_FUNCTION = (
+            f"(df[{Consts.BindingSite.SelectionCriteria.DRUG_SCORE.value}] "
+            f"+ df[{Consts.BindingSite.SelectionCriteria.SIMPLE_SCORE.value}]) "
+            f"/ df[{Consts.BindingSite.SelectionCriteria.VOLUME}]"
+        )
         PROTEIN_CHAIN_ID = ""
         PROTEIN_LIGAND_ID = ""
 
@@ -61,7 +65,11 @@ class Specs:
             Consts.OptimizedLigands.SelectionCriteria.BINDING_AFFINITY.value,
             Consts.OptimizedLigands.SelectionCriteria.NUM_ALL_INTERACTIONS.value,
         ]
-        SELECTION_CRITERIA_FUNCTION = f"-2*df[{Consts.OptimizedLigands.SelectionCriteria.BINDING_AFFINITY.value}] + df[{Consts.OptimizedLigands.SelectionCriteria.NUM_ALL_INTERACTIONS}] * df[{Consts.OptimizedLigands.SelectionCriteria.DRUG_SCORE_TOTAL}]"
+        SELECTION_CRITERIA_FUNCTION = (
+            f"-2*df[{Consts.OptimizedLigands.SelectionCriteria.BINDING_AFFINITY.value}] "
+            f"+ df[{Consts.OptimizedLigands.SelectionCriteria.NUM_ALL_INTERACTIONS}] "
+            f"* df[{Consts.OptimizedLigands.SelectionCriteria.DRUG_SCORE_TOTAL}]"
+        )
 
     # -----------------------------------------------------
 
@@ -182,7 +190,8 @@ class Specs:
                             Specs.BindingSiteDefaults.SELECTION_CRITERIA_SORTING.value
                         )
                     else:
-                        # pass the column names through the SelectionCriteria enumeration class to make sure they are valid
+                        # pass the column names through the SelectionCriteria enumeration class
+                        # to make sure they are valid
                         self.selection_criteria = [
                             Consts.BindingSite.SelectionCriteria(pocket_property.strip()).value
                             for pocket_property in selection_criteria.split(",")

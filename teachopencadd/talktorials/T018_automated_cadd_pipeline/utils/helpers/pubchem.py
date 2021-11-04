@@ -1,7 +1,7 @@
 """
-Implementation of the functionalities of PubChem PUG REST API. 
-It can obtain new information on ligands such as other identifiers (e.g. IUPAC name, SMILES), 
-physiochemical properties and, descriptions etc. 
+Implementation of the functionalities of PubChem PUG REST API.
+It can obtain new information on ligands such as other identifiers (e.g. IUPAC name, SMILES),
+physiochemical properties and, descriptions etc.
 Ths class has also the ability to perform similarity searches on a given ligand.
 """
 

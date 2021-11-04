@@ -1,7 +1,7 @@
 """
-Contains all the necessary functions for handling the input and output data. 
-e.g. creating a dataframe from the input CSV file, extracting specific information from the dataframe, 
-or creating folders for storing the output data.
+Contains all the necessary functions for handling the input and output data.
+e.g. creating a dataframe from the input CSV file, extracting specific information
+from the dataframe, or creating folders for storing the output data.
 """
 
 # Standard library:

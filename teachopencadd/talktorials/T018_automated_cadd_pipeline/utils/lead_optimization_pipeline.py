@@ -71,7 +71,9 @@ class LeadOptimizationPipeline:
         pprint(
             [
                 (
-                    f"&nbsp;&nbsp;&nbsp;&nbsp;Output folders created at: **{output_data_root_folder_path}/{project.name}**",
+                    f"&nbsp;&nbsp;&nbsp;&nbsp;"
+                    f"Output folders created at: "
+                    f"**{output_data_root_folder_path}/{project.name}**",
                     "black",
                 )
             ]
@@ -103,7 +105,9 @@ class LeadOptimizationPipeline:
         pprint(
             [
                 (
-                    f"&nbsp;&nbsp;&nbsp;&nbsp;Binding site definition method: **{project.Specs.BindingSite.definition_method.name}**",
+                    f"&nbsp;&nbsp;&nbsp;&nbsp;"
+                    f"Binding site definition method: "
+                    f"**{project.Specs.BindingSite.definition_method.name}**",
                     "black",
                 )
             ]
@@ -115,7 +119,9 @@ class LeadOptimizationPipeline:
             pprint(
                 [
                     (
-                        f"&nbsp;&nbsp;&nbsp;&nbsp;Binding site detection method: **{project.Specs.BindingSite.detection_method.name}**",
+                        f"&nbsp;&nbsp;&nbsp;&nbsp;"
+                        f"Binding site detection method: "
+                        f"**{project.Specs.BindingSite.detection_method.name}**",
                         "black",
                     )
                 ]
@@ -123,7 +129,9 @@ class LeadOptimizationPipeline:
             pprint(
                 [
                     (
-                        f"&nbsp;&nbsp;&nbsp;&nbsp;Selection method for best binding site: **{project.Specs.BindingSite.selection_method.name}**",
+                        f"&nbsp;&nbsp;&nbsp;&nbsp;"
+                        f"Selection method for best binding site: "
+                        f"**{project.Specs.BindingSite.selection_method.name}**",
                         "black",
                     )
                 ]
@@ -131,7 +139,9 @@ class LeadOptimizationPipeline:
             pprint(
                 [
                     (
-                        f"&nbsp;&nbsp;&nbsp;&nbsp;Selection criteria for best binding site: **{project.Specs.BindingSite.selection_criteria}**",
+                        f"&nbsp;&nbsp;&nbsp;&nbsp;"
+                        f"Selection criteria for best binding site: "
+                        f"**{project.Specs.BindingSite.selection_criteria}**",
                         "black",
                     )
                 ]
@@ -139,7 +149,9 @@ class LeadOptimizationPipeline:
             pprint(
                 [
                     (
-                        f"&nbsp;&nbsp;&nbsp;&nbsp;Name of selected binding site: **{project.BindingSiteDetection.best_binding_site_name}**",
+                        f"&nbsp;&nbsp;&nbsp;&nbsp;"
+                        f"Name of selected binding site: "
+                        f"**{project.BindingSiteDetection.best_binding_site_name}**",
                         "black",
                     )
                 ]
@@ -147,7 +159,9 @@ class LeadOptimizationPipeline:
         pprint(
             [
                 (
-                    f"&nbsp;&nbsp;&nbsp;&nbsp;Binding site coordinates - center: **{project.Protein.binding_site_coordinates['center']}**",
+                    f"&nbsp;&nbsp;&nbsp;&nbsp;"
+                    f"Binding site coordinates - center: "
+                    f"**{project.Protein.binding_site_coordinates['center']}**",
                     "black",
                 )
             ]
@@ -155,7 +169,9 @@ class LeadOptimizationPipeline:
         pprint(
             [
                 (
-                    f"&nbsp;&nbsp;&nbsp;&nbsp;Binding site coordinates - size: **{project.Protein.binding_site_coordinates['size']}**",
+                    f"&nbsp;&nbsp;&nbsp;&nbsp;"
+                    f"Binding site coordinates - size: "
+                    f"**{project.Protein.binding_site_coordinates['size']}**",
                     "black",
                 )
             ]
@@ -179,7 +195,8 @@ class LeadOptimizationPipeline:
         pprint(
             [
                 (
-                    f"&nbsp;&nbsp;&nbsp;&nbsp;Search engine: **{project.Specs.LigandSimilaritySearch.search_engine.name}**",
+                    f"&nbsp;&nbsp;&nbsp;&nbsp;Search engine: "
+                    f"**{project.Specs.LigandSimilaritySearch.search_engine.name}**",
                     "black",
                 )
             ]
@@ -187,7 +204,10 @@ class LeadOptimizationPipeline:
         pprint(
             [
                 (
-                    f"&nbsp;&nbsp;&nbsp;&nbsp;Number of fetched analogs with a similarity higher than **{project.Specs.LigandSimilaritySearch.min_similarity_percent}%**: **{len(project.LigandSimilaritySearch.all_analogs)}**",
+                    f"&nbsp;&nbsp;&nbsp;&nbsp;"
+                    f"Number of fetched analogs with a similarity higher than "
+                    f"**{project.Specs.LigandSimilaritySearch.min_similarity_percent}%**: "
+                    f"**{len(project.LigandSimilaritySearch.all_analogs)}**",
                     "black",
                 )
             ]
@@ -195,7 +215,27 @@ class LeadOptimizationPipeline:
         pprint(
             [
                 (
-                    f"&nbsp;&nbsp;&nbsp;&nbsp;Dice-similarity range of fetched analogs: **{project.LigandSimilaritySearch.all_analogs['dice_similarity'].min()} - {project.LigandSimilaritySearch.all_analogs['dice_similarity'].max()}**",
+                    f"&nbsp;&nbsp;&nbsp;&nbsp;"
+                    f"Dice-similarity range of fetched analogs: "
+                    f"**{project.LigandSimilaritySearch.all_analogs['dice_similarity'].min()} - "
+                    f"{project.LigandSimilaritySearch.all_analogs['dice_similarity'].max()}**",
+                    "black",
+                )
+            ]
+        )
+        dice_similarity = (
+            project.LigandSimilaritySearch.all_analogs.sort_values(
+                by="dice_similarity", ascending=False
+            )
+            .head(1)
+            .index.values[0]
+        )
+        pprint(
+            [
+                (
+                    f"&nbsp;&nbsp;&nbsp;&nbsp;"
+                    f"CID of analog with the highest Dice-similarity: "
+                    f"**{dice_similarity}**",
                     "black",
                 )
             ]
@@ -203,15 +243,9 @@ class LeadOptimizationPipeline:
         pprint(
             [
                 (
-                    f"&nbsp;&nbsp;&nbsp;&nbsp;CID of analog with the highest Dice-similarity: **{project.LigandSimilaritySearch.all_analogs.sort_values(by='dice_similarity', ascending=False).head(1).index.values[0]}**",
-                    "black",
-                )
-            ]
-        )
-        pprint(
-            [
-                (
-                    f"&nbsp;&nbsp;&nbsp;&nbsp;Number of selected drug-like analogs: **{len(project.Ligand.analogs)}**",
+                    f"&nbsp;&nbsp;&nbsp;&nbsp;"
+                    f"Number of selected drug-like analogs: "
+                    f"**{len(project.Ligand.analogs)}**",
                     "black",
                 )
             ]
@@ -222,7 +256,10 @@ class LeadOptimizationPipeline:
         pprint(
             [
                 (
-                    f"&nbsp;&nbsp;&nbsp;&nbsp;Range of drug-likeness score in selected analogs: **{sorted_analogs_df['drug_score_total'].min()} - {sorted_analogs_df['drug_score_total'].max()}**",
+                    f"&nbsp;&nbsp;&nbsp;&nbsp;"
+                    f"Range of drug-likeness score in selected analogs: "
+                    f"**{sorted_analogs_df['drug_score_total'].min()} - "
+                    f"{sorted_analogs_df['drug_score_total'].max()}**",
                     "black",
                 )
             ]
@@ -230,7 +267,9 @@ class LeadOptimizationPipeline:
         pprint(
             [
                 (
-                    f"&nbsp;&nbsp;&nbsp;&nbsp;CID of analog with the highest drug-likeness score: **{sorted_analogs_df.head(1).index.values[0]}**",
+                    f"&nbsp;&nbsp;&nbsp;&nbsp;"
+                    f"CID of analog with the highest drug-likeness score: "
+                    f"**{sorted_analogs_df.head(1).index.values[0]}**",
                     "black",
                 )
             ]
@@ -252,7 +291,9 @@ class LeadOptimizationPipeline:
         pprint(
             [
                 (
-                    f"&nbsp;&nbsp;&nbsp;&nbsp;Highest binding affinity of input ligand: **{project.Ligand.binding_affinity_best}**",
+                    f"&nbsp;&nbsp;&nbsp;&nbsp;"
+                    f"Highest binding affinity of input ligand: "
+                    f"**{project.Ligand.binding_affinity_best}**",
                     "black",
                 )
             ]
@@ -260,23 +301,46 @@ class LeadOptimizationPipeline:
         pprint(
             [
                 (
-                    f"&nbsp;&nbsp;&nbsp;&nbsp;Binding affinity range of analogs: **{project.Docking.results_dataframe['affinity[kcal/mol]'].max()} - {project.Docking.results_dataframe['affinity[kcal/mol]'].min()}**",
+                    f"&nbsp;&nbsp;&nbsp;&nbsp;"
+                    f"Binding affinity range of analogs: "
+                    f"**{project.Docking.results_dataframe['affinity[kcal/mol]'].max()} - "
+                    f"{project.Docking.results_dataframe['affinity[kcal/mol]'].min()}**",
                     "black",
                 )
             ]
         )
-        pprint(
-            [
-                (
-                    f"&nbsp;&nbsp;&nbsp;&nbsp;Number of analog docking poses with higher affinity than ligand: **{len(project.Docking.results_dataframe[project.Docking.results_dataframe['affinity[kcal/mol]']<project.Ligand.binding_affinity_best].sort_values(by=['affinity[kcal/mol]']))}**",
-                    "black",
-                )
-            ]
+        n_analog_poses = len(
+            project.Docking.results_dataframe[
+                project.Docking.results_dataframe["affinity[kcal/mol]"]
+                < project.Ligand.binding_affinity_best
+            ].sort_values(by=["affinity[kcal/mol]"])
         )
         pprint(
             [
                 (
-                    f"&nbsp;&nbsp;&nbsp;&nbsp;Number of analogs with higher affinity than ligand: **{len(set(project.Docking.results_dataframe[project.Docking.results_dataframe['affinity[kcal/mol]']<project.Ligand.binding_affinity_best].sort_values(by=['affinity[kcal/mol]']).index.get_level_values(0)))}**",
+                    f"&nbsp;&nbsp;&nbsp;&nbsp;"
+                    f"Number of analog docking poses with higher affinity than ligand: "
+                    f"**{n_analog_poses}**",
+                    "black",
+                )
+            ]
+        )
+        n_analogs = len(
+            set(
+                project.Docking.results_dataframe[
+                    project.Docking.results_dataframe["affinity[kcal/mol]"]
+                    < project.Ligand.binding_affinity_best
+                ]
+                .sort_values(by=["affinity[kcal/mol]"])
+                .index.get_level_values(0)
+            )
+        )
+        pprint(
+            [
+                (
+                    f"&nbsp;&nbsp;&nbsp;&nbsp;"
+                    f"Number of analogs with higher affinity than ligand: "
+                    f"**{n_analogs}**",
                     "black",
                 )
             ]
@@ -293,7 +357,9 @@ class LeadOptimizationPipeline:
         pprint(
             [
                 (
-                    f"&nbsp;&nbsp;&nbsp;&nbsp;CIDs of analogs with higher affinity than ligand: **{highest_aff_cids}**",
+                    f"&nbsp;&nbsp;&nbsp;&nbsp;"
+                    f"CIDs of analogs with higher affinity than ligand: "
+                    f"**{highest_aff_cids}**",
                     "black",
                 )
             ]
@@ -321,10 +387,19 @@ class LeadOptimizationPipeline:
             project.Specs.OutputPaths.ligand,
         )
         pprint_header("8. Protein-Ligand Interaction Analysis")
+        n_interactions = (
+            project.Ligand.InteractionAnalysis.results.sort_values(
+                by="total_num_interactions", ascending=False
+            )
+            .head(1)["total_num_interactions"]
+            .values[0]
+        )
         pprint(
             [
                 (
-                    f"&nbsp;&nbsp;&nbsp;&nbsp;Highest number of total interactions in a docking pose of input ligand: **{project.Ligand.InteractionAnalysis.results.sort_values(by='total_num_interactions',ascending=False).head(1)['total_num_interactions'].values[0]}**",
+                    f"&nbsp;&nbsp;&nbsp;&nbsp;"
+                    f"Highest number of total interactions in a docking pose of input ligand: "
+                    f"**{n_interactions}**",
                     "black",
                 )
             ]
@@ -332,7 +407,10 @@ class LeadOptimizationPipeline:
         pprint(
             [
                 (
-                    f"&nbsp;&nbsp;&nbsp;&nbsp;Range of total number of interactions in docking poses of analogs: **{project.InteractionAnalysis.results['total_num_interactions'].min()} - {project.InteractionAnalysis.results['total_num_interactions'].max()}**",
+                    f"&nbsp;&nbsp;&nbsp;&nbsp;"
+                    f"Range of total number of interactions in docking poses of analogs: "
+                    f"**{project.InteractionAnalysis.results['total_num_interactions'].min()} - "
+                    f"{project.InteractionAnalysis.results['total_num_interactions'].max()}**",
                     "black",
                 )
             ]
@@ -340,7 +418,9 @@ class LeadOptimizationPipeline:
         pprint(
             [
                 (
-                    f"&nbsp;&nbsp;&nbsp;&nbsp;Correlation plot between binding affinity and number of interactions in docking poses of analogs:",
+                    f"&nbsp;&nbsp;&nbsp;&nbsp;"
+                    f"Correlation plot between binding affinity and number of interactions "
+                    f"in docking poses of analogs:",
                     "black",
                 )
             ]

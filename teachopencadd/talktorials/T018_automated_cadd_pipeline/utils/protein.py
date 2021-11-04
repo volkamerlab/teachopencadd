@@ -83,7 +83,10 @@ class Protein:
             if hasattr(self, protein_property.name.lower()):
                 display(
                     Markdown(
-                        f"<span style='color:black'>&nbsp;&nbsp;&nbsp;&nbsp;{protein_property.value}: </span><span style='color:black'>**{getattr(self, protein_property.name.lower())}**</span>"
+                        f"<span style='color:black'>"
+                        f"&nbsp;&nbsp;&nbsp;&nbsp;{protein_property.value}: "
+                        f"</span><span style='color:black'>"
+                        f"**{getattr(self, protein_property.name.lower())}**</span>"
                     )
                 )
         if hasattr(self, "pdb_code"):
