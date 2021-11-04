@@ -132,7 +132,7 @@ class BindingSiteDetection:
                     ):
                         self.dogsitescorer_ligand_id = ligand
                         break
-                if self.dogsitescorer_ligand_id == None:
+                if self.dogsitescorer_ligand_id is None:
                     raise ValueError(
                         f"The input ligand-ID ({BindingSiteSpecs.protein_ligand_id}) "
                         f"does not exist in the input protein. Existing ligand-IDs are: "

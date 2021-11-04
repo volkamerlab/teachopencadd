@@ -52,7 +52,7 @@ def protein(input_type, input_value, output_image_filename=None):
     viewer.add_representation(repr_type="ball+stick", selection="hetero and not water")
     viewer.center("protein")
 
-    if output_image_filename != None:
+    if output_image_filename is not None:
         viewer.render_image(trim=True, factor=2)
         viewer._display_image()
         viewer.download_image(output_image_filename)

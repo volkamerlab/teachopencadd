@@ -63,7 +63,7 @@ def draw_molecules(
     -------
         RDKit MolsToGridImage object.
     """
-    if list_legends == None:
+    if list_legends is None:
         list_legends = list(range(1, len(list_mol_objs) + 1))
     figure = Draw.MolsToGridImage(
         list_mol_objs,
@@ -71,7 +71,7 @@ def draw_molecules(
         subImgSize=sub_img_size,
         legends=list_legends,
     )
-    if filepath != None:
+    if filepath is not None:
         with open(str(filepath) + ".png", "wb") as f:
             f.write(figure.data)
     return figure

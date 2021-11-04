@@ -134,7 +134,7 @@ def split_multistructure_file(filetype, filepath, output_folder_path=None):
     """
     filepath = Path(filepath)
     filename = filepath.stem
-    if output_folder_path == None:
+    if output_folder_path is None:
         output_folder_path = filepath.parent
     else:
         output_folder_path = Path(output_folder_path)
