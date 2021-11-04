@@ -1,7 +1,9 @@
-# Standard library:
+"""
+Contains binding site detection class.
+"""
+
 from enum import Enum  # for creating enumeration classes
 
-# Modules in the util folder:
 from .helpers import dogsitescorer, pdb, nglview
 
 

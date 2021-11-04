@@ -1,9 +1,10 @@
-# Standard library:
+"""
+Contains the ligand similarity search class.
+"""
 
-# 3rd-party packages:
+from typing_extensions import ParamSpecKwargs
 import pandas as pd  # for creating dataframes and handling data
 
-# Modules in the util folder:
 from .consts import Consts
 from .ligand import Ligand
 from .helpers import pubchem, rdkit

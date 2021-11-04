@@ -1,11 +1,12 @@
-# Standard library:
+"""
+Contains pipeline specification class.
+"""
+
 from enum import Enum  # for creating enumeration classes
 from pathlib import Path  # for creating folders and handling local paths
 
-# 3rd-party packages:
 import numpy as np  # for some more functionalities when using Pandas (e.g. for handling NaN values)
 
-# Modules in the util folder:
 from .consts import Consts
 from .helpers import io
 

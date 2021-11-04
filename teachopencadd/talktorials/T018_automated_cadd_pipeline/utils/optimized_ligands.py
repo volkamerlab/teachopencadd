@@ -1,8 +1,10 @@
-# 3rd-party packages:
+"""
+Contains optimized ligand selection class.
+"""
+
 from IPython.display import display, Markdown  # ror more display options in the Jupyter Notebook
 import pandas as pd  # for creating dataframes and handling data
 
-# Modules in the util folder:
 from .consts import Consts
 
 
@@ -123,38 +125,35 @@ class OptimizedLigands:
             )
 
         pprint(
-            """Number of docking poses with higher binding affinity than highest binding affinity 
-            of ligand: """,
+            "Number of docking poses with higher binding affinity than highest binding affinity "
+            "of ligand: ",
             len(self.higher_affinity_poses),
         )
         pprint(
-            """&nbsp;&nbsp;&nbsp;&nbsp;
-            CIDs of analogs corresponding to these docking poses: """,
+            "&nbsp;&nbsp;&nbsp;&nbsp;CIDs of analogs corresponding to these docking poses: ",
             [analog.cid for analog in self.higher_affinity_analogs],
         )
         pprint(
-            """Number of docking poses with higher number of total interactions than highest 
-            interacting pose of ligand: """,
+            "Number of docking poses with higher number of total interactions than highest "
+            "interacting pose of ligand: ",
             len(self.higher_interacting_poses),
         )
         pprint(
-            """&nbsp;&nbsp;&nbsp;&nbsp;
-            CIDs of analogs corresponding to these docking poses: """,
+            "&nbsp;&nbsp;&nbsp;&nbsp;CIDs of analogs corresponding to these docking poses: ",
             [analog.cid for analog in self.higher_interacting_analogs],
         )
         pprint(
-            """Number of docking poses with higher affinity and number of total interactions than 
-            best corresponding poses of ligand: """,
+            "Number of docking poses with higher affinity and number of total interactions than "
+            "best corresponding poses of ligand: ",
             len(self.higher_affinity_and_interacting_poses),
         )
         pprint(
-            """&nbsp;&nbsp;&nbsp;&nbsp;
-            CIDs of analogs corresponding to these docking poses: """,
+            "&nbsp;&nbsp;&nbsp;&nbsp;CIDs of analogs corresponding to these docking poses: ",
             [analog.cid for analog in self.higher_affinity_and_interacting_analogs],
         )
         pprint(
-            """CIDs of analogs with higher binding affinity, number of total interactions and 
-            drug-likeness score than ligand: """,
+            "CIDs of analogs with higher binding affinity, number of total interactions and "
+            "drug-likeness score than ligand: ",
             [analog.cid for analog in self.higher_affinity_and_interacting_and_druglike_analogs],
         )
         pprint(

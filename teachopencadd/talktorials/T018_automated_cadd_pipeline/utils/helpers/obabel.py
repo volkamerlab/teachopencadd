@@ -3,10 +3,8 @@ A set of functions based on the OpenBabel's pybel package,
 for preparing proteins and ligands for the docking experiment.
 """
 
-# Standard library:
 from pathlib import Path  # for creating folders and handling local paths
 
-# 3rd-party packages:
 from openbabel import (
     pybel,
 )  # for preparing protein and ligand for docking, and other manipulations of PDB files

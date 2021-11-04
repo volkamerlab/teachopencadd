@@ -1,11 +1,12 @@
-# Standard library:
+"""
+Contains ligand class.
+"""
+
 from enum import Enum  # for creating enumeration classes
 
-# 3rd-party packages:
 import pandas as pd  # for creating dataframes and handling data
 from rdkit.Chem import PandasTools
 
-# Modules in the util folder:
 from .helpers import pubchem, rdkit
 
 

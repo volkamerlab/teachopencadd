@@ -1,4 +1,7 @@
-# 3rd-party packages:
+"""
+Contains RDKit-related functions.
+"""
+
 from rdkit import (
     Chem,
 )  # for handling ligand data and calculating ligand-related properties

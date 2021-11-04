@@ -1,9 +1,11 @@
-# 3rd-party packages:
+"""
+Contains interaction analysis class.
+"""
+
 import pandas as pd  # for creating dataframes and handling data
 import matplotlib.pyplot as plt  # for plotting of data
 import matplotlib as mpl  # for changing the display settings of plots (see bottom of the cell: Settings)
 
-# Modules in the util folder:
 from .consts import Consts
 from .helpers import plip, nglview
 
@@ -304,7 +306,7 @@ class InteractionAnalysis:
         """
         df = self.results.sort_values(by="affinity[kcal/mol]", ascending=True)
 
-        fig, ax1 = plt.subplots()
+        _, ax1 = plt.subplots()
         color = "tab:red"
         ax1.set_xlabel(
             "Docking pose count (sorted by binding affinity)", color="black", fontsize=9

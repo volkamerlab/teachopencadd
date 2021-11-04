@@ -1,11 +1,12 @@
-# Standard library:
+"""
+Contains protein class.
+"""
+
 from enum import Enum  # for creating enumeration classes
 
-# 3rd-party packages:
 from IPython.display import display, Markdown  # for more display options in the Jupyter Notebook
 import numpy as np
 
-# Modules in the util folder:
 from .consts import Consts
 from .helpers import pdb, nglview
 

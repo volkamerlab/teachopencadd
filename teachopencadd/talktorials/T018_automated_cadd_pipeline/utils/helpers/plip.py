@@ -2,12 +2,10 @@
 Set of functions required to analyze protein-ligand interactions using the PLIP package.
 """
 
-# Standard library:
 from enum import Enum  # for creating enumeration classes
 from pathlib import Path  # for creating folders and handling local paths
 import logging  # for setting the logging level of some packages (i.e. to disable excessive logging default to some packages e.g. PLIP)
 
-# 3rd-party packages:
 import plip  # for changing the logging setting of the package (see bottom of the cell: Settings)
 from plip.structure.preparation import (
     PDBComplex,

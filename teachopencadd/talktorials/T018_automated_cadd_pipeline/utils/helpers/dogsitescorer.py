@@ -14,12 +14,10 @@ The function ***select_best_pocket*** is also defined which provides
 several methods for selecting the most suitable binding-site.
 """
 
-# Standard library:
 import io  # for creating file-like objects from strings of data (needed as input for some functions)
 import gzip  # for decompressing .gz files downloaded from DoGSiteScorer
 import time  # for creating pauses during the runtime (e.g. to wait for the response of API requests)
 
-# 3rd-party packages:
 import requests  # for communicating with web-service APIs
 import pandas as pd  # for creating dataframes and handling data
 from biopandas.pdb import PandasPdb  # for working with PDB files

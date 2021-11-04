@@ -1,7 +1,9 @@
-# 3rd-party packages:
+"""
+Contains docking class.
+"""
+
 import pandas as pd  # for creating dataframes and handling data
 
-# Modules in the util folder:
 from .helpers import obabel, smina, pdb, nglview
 
 
@@ -33,6 +35,7 @@ class Docking:
         self.pdb_filepath_extracted_protein = docking_output_path / (
             Protein_object.pdb_code + "_extracted_protein.pdb"
         )
+        print(Protein_object)
         Protein_object.Universe = pdb.extract_molecule_from_pdb_file(
             "protein", Protein_object.pdb_filepath, self.pdb_filepath_extracted_protein
         )

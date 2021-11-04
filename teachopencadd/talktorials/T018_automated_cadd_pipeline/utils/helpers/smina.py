@@ -3,10 +3,8 @@ Set of functions for communicating with the Smina docking program,
 and extracting data from its log file.
 """
 
-# Standard library:
 import subprocess  # for creating shell processes (needed to communicate with Smina program)
 
-# 3rd-party packages:
 import pandas as pd  # for creating dataframes and handling data
 
 

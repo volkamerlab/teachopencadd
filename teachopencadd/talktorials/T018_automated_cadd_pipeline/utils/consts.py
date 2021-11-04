@@ -1,4 +1,7 @@
-# Standard Library
+"""
+Contains class with constants needed in this pipelines.
+"""
+
 from enum import Enum  # for creating enumeration classes
 
 

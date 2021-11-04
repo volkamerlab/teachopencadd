@@ -2,10 +2,8 @@
 Contains all the necessary functions for handling protein data by processing PDB files
 """
 
-# Standard library:
 from pathlib import Path  # for creating folders and handling local paths
 
-# 3rd-party packages:
 import pypdb  # for communicating with the RCSB Protein Data Bank (PDB) to fetch PDB files
 from biopandas.pdb import PandasPdb  # for working with PDB files
 from opencadd.structure.core import Structure  # for manipulating PDB files

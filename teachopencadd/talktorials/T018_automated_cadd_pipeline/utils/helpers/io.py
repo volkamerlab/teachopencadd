@@ -4,10 +4,8 @@ e.g. creating a dataframe from the input CSV file, extracting specific informati
 from the dataframe, or creating folders for storing the output data.
 """
 
-# Standard library:
 from pathlib import Path  # for creating folders and handling local paths
 
-# 3rd-party packages:
 import pandas as pd  # for creating dataframes and handling data
 
 

@@ -1,7 +1,9 @@
-# Standard library:
+"""
+Contains NGLview-related functions.
+"""
+
 import time  # for creating pauses during the runtime (e.g. to wait for the response of API requests)
 
-# 3rd-party packages:
 import nglview as nv  # for visualization of the protein and protein-related data (e.g. binding sites, docking poses)
 from ipywidgets import (
     AppLayout,
