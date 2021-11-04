@@ -1,14 +1,11 @@
-# Standard library:
-from pathlib import Path  # for creating folders and handling local paths
-
 # 3rd-party packages:
 import pandas as pd  # for creating dataframes and handling data
 import matplotlib.pyplot as plt  # for plotting of data
 import matplotlib as mpl  # for changing the display settings of plots (see bottom of the cell: Settings)
 
 # Modules in the util folder:
-from utils.Consts import *
-from utils.helpers import PLIP, NGLView
+from .consts import Consts
+from .helpers import plip, nglview
 
 # Settings:
 mpl.rcParams["figure.dpi"] = 300  # for plots with higher resolution
@@ -56,7 +53,7 @@ class InteractionAnalysis:
 
             for analog in list_Ligand_objects:
                 analog.dataframe.loc["average_num_total_interactions", "Value"] = 0
-                for interaction_type in PLIP.Consts.InteractionTypes:
+                for interaction_type in plip.Consts.InteractionTypes:
                     analog.dataframe.loc[
                         f"average_num_{interaction_type.name.lower()}", "Value"
                     ] = 0
@@ -65,7 +62,7 @@ class InteractionAnalysis:
                     range(len(analog.docking_poses_split_filepaths)),
                     analog.docking_poses_split_filepaths,
                 ):
-                    analog.protein_complex_filepath = PLIP.create_protein_ligand_complex(
+                    analog.protein_complex_filepath = plip.create_protein_ligand_complex(
                         separated_protein_pdbqt_filepath,
                         docking_pose_filepath,
                         analog.cid,
@@ -74,7 +71,7 @@ class InteractionAnalysis:
 
                     # interaction_data will be dict of dicts, where each of the
                     # outer dict's items correspond to a ligand found in the pdb file
-                    interaction_data = PLIP.calculate_interactions(analog.protein_complex_filepath)
+                    interaction_data = plip.calculate_interactions(analog.protein_complex_filepath)
 
                     # Since we are only passing PDB files with a single ligand, the outer dict
                     # will only have one item, which we extract:
@@ -105,8 +102,8 @@ class InteractionAnalysis:
                         interaction_data[list(interaction_data.keys())[0]]
                     ]
 
-                    for interaction_type in PLIP.Consts.InteractionTypes:
-                        df = PLIP.create_dataframe_of_ligand_interactions(
+                    for interaction_type in plip.Consts.InteractionTypes:
+                        df = plip.create_dataframe_of_ligand_interactions(
                             interaction_data[list(interaction_data.keys())[0]],
                             interaction_type,
                         )
@@ -143,7 +140,7 @@ class InteractionAnalysis:
                 analog.num_total_interactions_mean = analog.dataframe.loc[
                     "average_num_total_interactions", "Value"
                 ]
-                for interaction_type in PLIP.Consts.InteractionTypes:
+                for interaction_type in plip.Consts.InteractionTypes:
                     analog.dataframe.loc[
                         f"average_num_{interaction_type.name.lower()}", "Value"
                     ] = round(
@@ -285,7 +282,7 @@ class InteractionAnalysis:
             map(lambda x: x[0] + " - " + str(x[1]), fitted_master_df.index.tolist())
         )
 
-        view = NGLView.interactions(
+        view = nglview.interactions(
             self._pdb_filepath_extracted_protein,
             "pdb",
             fitted_master_df["filepath"].tolist(),

@@ -6,7 +6,7 @@ import pandas as pd  # for creating dataframes and handling data
 from rdkit.Chem import PandasTools
 
 # Modules in the util folder:
-from utils.helpers import PubChem, RDKit
+from .helpers import pubchem, rdkit
 
 
 class Ligand:
@@ -42,7 +42,7 @@ class Ligand:
         setattr(self, identifier_type.name.lower(), identifier_value)
         for identifier in self.Consts.IdentifierTypes:
             try:
-                new_id = PubChem.convert_compound_identifier(
+                new_id = pubchem.convert_compound_identifier(
                     identifier_type.value, identifier_value, identifier.value
                 )
                 setattr(self, identifier.value, new_id)
@@ -50,9 +50,9 @@ class Ligand:
             except:
                 pass
 
-        self.rdkit_obj = RDKit.create_molecule_object("smiles", self.smiles)
+        self.rdkit_obj = rdkit.create_molecule_object("smiles", self.smiles)
 
-        dict_of_properties = RDKit.calculate_druglikeness(self.rdkit_obj)
+        dict_of_properties = rdkit.calculate_druglikeness(self.rdkit_obj)
         for property_ in dict_of_properties:
             setattr(self, property_, dict_of_properties[property_])
             self.dataframe.loc[property_] = dict_of_properties[property_]
@@ -108,7 +108,7 @@ class Ligand:
             float
             Dice similarity between the two ligands.
         """
-        return RDKit.calculate_similarity_dice(self.rdkit_obj, mol_obj)
+        return rdkit.calculate_similarity_dice(self.rdkit_obj, mol_obj)
 
     def save_as_image(self, filepath):
         """
@@ -123,7 +123,7 @@ class Ligand:
         -------
             None
         """
-        RDKit.save_molecule_image_to_file(self.rdkit_obj, filepath)
+        rdkit.save_molecule_image_to_file(self.rdkit_obj, filepath)
 
     def save_3D_structure_as_SDF_file(self, filepath):
         """
@@ -138,4 +138,4 @@ class Ligand:
         -------
             None
         """
-        RDKit.save_3D_molecule_to_SDfile(self.rdkit_obj, filepath)
+        rdkit.save_3D_molecule_to_SDfile(self.rdkit_obj, filepath)

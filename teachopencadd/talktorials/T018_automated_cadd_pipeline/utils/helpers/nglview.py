@@ -7,8 +7,8 @@ from ipywidgets import (
     AppLayout,
     Layout,
     Select,
-    Button,
 )  # for interactive outputs in the Jupyter Notebook
+from IPython.display import display
 import matplotlib as mpl  # for changing the display settings of plots (see bottom of the cell: Settings)
 import matplotlib.pyplot as plt  # for plotting of data
 from matplotlib import (
@@ -76,7 +76,7 @@ def binding_site(protein_input_type, protein_input_value, ccp4_filepath):
     -------
     NGL viewer that visualizes the selected pocket at its respective position.
     """
-    viewer = NGLView.protein(protein_input_type, protein_input_value)
+    viewer = protein(protein_input_type, protein_input_value)
     with open(ccp4_filepath, "rb") as f:
         viewer.add_component(f, ext="ccp4")
     viewer.center()
@@ -132,9 +132,12 @@ def docking(
     """
     print("Docking modes")
     print("(CID - mode)")
+
     # Create viewer widget
     viewer = nv.NGLWidget(height="860px")
-    viewer.add_component(protein_filepath, ext=protein_file_extension)
+
+    with open(protein_filepath) as f:
+        viewer.add_component(f, ext=protein_file_extension)
     # viewer.add_representation("cartoon", selection="protein")
     # Select first atom in molecule (@0) so it holds the affinity label
     label_kwargs = dict(
@@ -149,7 +152,9 @@ def docking(
     for docking_pose_filepath, ligand_label in zip(
         list_docking_poses_filepaths, list_docking_poses_affinities
     ):
-        ngl_ligand = viewer.add_component(docking_pose_filepath, ext=docking_poses_file_extension)
+
+        with open(docking_pose_filepath) as f:
+            ngl_ligand = viewer.add_component(f, ext=docking_poses_file_extension)
         ngl_ligand.add_label(labelText=[str(ligand_label)], **label_kwargs)
 
     # Create selection widget
@@ -253,9 +258,10 @@ def interactions(
 
             # NGL Viewer
             app.center = viewer = nv.NGLWidget(height="860px", default=True, gui=True)
-            prot_component = viewer.add_component(
-                protein_filepath, ext=protein_file_extension, default_representation=False
-            )  # add protein
+            with open(protein_filepath) as f:
+                prot_component = viewer.add_component(
+                    f, ext=protein_file_extension, default_representation=False
+                )  # add protein
             prot_component.add_representation("cartoon")
             time.sleep(1)
 
@@ -265,9 +271,10 @@ def interactions(
                 showBackground=True,
                 backgroundColor="black",
             )
-            lig_component = viewer.add_component(
-                list_docking_poses_filepaths[change["new"]], ext=docking_poses_file_extension
-            )  # add selected ligand
+            with open(list_docking_poses_filepaths[change["new"]]) as f:
+                lig_component = viewer.add_component(
+                    f, ext=docking_poses_file_extension
+                )  # add selected ligand
             lig_component.add_label(
                 labelText=[str(list_docking_poses_affinities[change["new"]])], **label_kwargs
             )

@@ -1,17 +1,13 @@
 # Standard library:
 from enum import Enum  # for creating enumeration classes
-from pathlib import Path  # for creating folders and handling local paths
 
 # 3rd-party packages:
-from IPython.display import (
-    Markdown,
-    Image,
-)  # for more display options in the Jupyter Notebook
+from IPython.display import display, Markdown  # for more display options in the Jupyter Notebook
 import numpy as np
 
 # Modules in the util folder:
-from utils.Consts import *
-from utils.helpers import PDB, NGLView
+from .consts import Consts
+from .helpers import pdb, nglview
 
 
 class Protein:
@@ -45,9 +41,9 @@ class Protein:
 
         setattr(self, identifier_type.name.lower(), identifier_value)
 
-        self.file_content = PDB.read_pdb_file_content(identifier_type.value, identifier_value)
+        self.file_content = pdb.read_pdb_file_content(identifier_type.value, identifier_value)
 
-        dict_of_dataframes = PDB.load_pdb_file_as_dataframe(self.file_content)
+        dict_of_dataframes = pdb.load_pdb_file_as_dataframe(self.file_content)
         for key, value in dict_of_dataframes.items():
             setattr(self, f"dataframe_PDBcontent_{key.lower()}", value)
 
@@ -67,7 +63,7 @@ class Protein:
         self.residue_number_last = longest_chain.iloc[-1]["residue_number"]
         self.residues_length = self.residue_number_last - self.residue_number_first + 1
 
-        protein_info = PDB.extract_info_from_pdb_file_content(self.file_content)
+        protein_info = pdb.extract_info_from_pdb_file_content(self.file_content)
 
         for protein_property in self.Consts.Properties:
             if protein_property.value in protein_info:
@@ -78,7 +74,7 @@ class Protein:
                 )
 
         if identifier_type is Consts.Protein.InputTypes.PDB_CODE:
-            self.pdb_filepath = PDB.fetch_and_save_pdb_file(
+            self.pdb_filepath = pdb.fetch_and_save_pdb_file(
                 identifier_value, str(protein_output_path) + "/" + identifier_value
             )
 
@@ -91,9 +87,9 @@ class Protein:
                     )
                 )
         if hasattr(self, "pdb_code"):
-            viewer = NGLView.protein("pdb_code", self.pdb_code)
+            viewer = nglview.protein("pdb_code", self.pdb_code)
         else:
-            viewer = NGLView.protein("pdb", self.pdb_filepath)
+            viewer = nglview.protein("pdb", self.pdb_filepath)
 
         return viewer
 

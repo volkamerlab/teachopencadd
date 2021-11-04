@@ -2,7 +2,7 @@
 from enum import Enum  # for creating enumeration classes
 
 # Modules in the util folder:
-from utils.helpers import DoGSiteScorer, PDB, NGLView
+from .helpers import dogsitescorer, pdb, nglview
 
 
 class BindingSiteDetection:
@@ -43,7 +43,7 @@ class BindingSiteDetection:
         Protein.binding_site_coordinates = BindingSiteSpecs.coordinates
 
     def compute_by_ligand(self, Protein, BindingSiteSpecs, binding_site_output_path):
-        ligand_object = PDB.extract_molecule_from_pdb_file(
+        ligand_object = pdb.extract_molecule_from_pdb_file(
             BindingSiteSpecs.protein_ligand_id,
             Protein.pdb_filepath,
             binding_site_output_path / BindingSiteSpecs.protein_ligand_id,
@@ -79,7 +79,7 @@ class BindingSiteDetection:
         if hasattr(Protein, "pdb_code"):
             self.dogsitescorer_pdb_id = Protein.pdb_code
         elif hasattr(Protein, "pdb_filepath"):
-            self.dogsitescorer_pdb_id = DoGSiteScorer.upload_pdb_file(Protein.pdb_filepath)
+            self.dogsitescorer_pdb_id = dogsitescorer.upload_pdb_file(Protein.pdb_filepath)
 
         # try to get the chain_id for binding-site detection if it's available in input data
         if BindingSiteSpecs.protein_chain_id != "":
@@ -90,10 +90,10 @@ class BindingSiteDetection:
                     f"The input protein chain-ID ({BindingSiteSpecs.protein_chain_id}) does not exist in the input protein. Existing chains are: {Protein.chains}"
                 )
         else:
-            # if chain_id is not in input data, try to set it to the first chain found in pdb file
+            # if chain_id is not in input data, try to set it to the first chain found in PDB file
             try:
                 self.dogsitescorer_chain_id = Protein.chains[0]
-            # if no chain is found in pdb file either, leave the chain_id empty
+            # if no chain is found in PDB file either, leave the chain_id empty
             except:
                 self.dogsitescorer_chain_id = ""
 
@@ -140,16 +140,16 @@ class BindingSiteDetection:
             )
             self.dogsitescorer_ligand_id = list_dogsitescorer_ligand_ids[index_of_heaviest_ligand]
 
-        self.dogsitescorer_binding_sites_df = DoGSiteScorer.submit_job(
+        self.dogsitescorer_binding_sites_df = dogsitescorer.submit_job(
             self.dogsitescorer_pdb_id,
             self.dogsitescorer_ligand_id,
             self.dogsitescorer_chain_id,
         )
-        DoGSiteScorer.save_binding_sites_to_file(
+        dogsitescorer.save_binding_sites_to_file(
             self.dogsitescorer_binding_sites_df, binding_site_output_path
         )
 
-        self.best_binding_site_name = DoGSiteScorer.select_best_pocket(
+        self.best_binding_site_name = dogsitescorer.select_best_pocket(
             self.dogsitescorer_binding_sites_df,
             BindingSiteSpecs.selection_method.value,
             BindingSiteSpecs.selection_criteria,
@@ -160,7 +160,7 @@ class BindingSiteDetection:
         ]
 
         self.best_binding_site_coordinates = (
-            DoGSiteScorer.calculate_pocket_coordinates_from_pocket_pdb_file(
+            dogsitescorer.calculate_pocket_coordinates_from_pocket_pdb_file(
                 binding_site_output_path / (self.best_binding_site_name)
             )
         )
@@ -184,13 +184,13 @@ class BindingSiteDetection:
             Viewer showing the given pocket.
         """
         if hasattr(self.Protein, "pdb_code"):
-            viewer = NGLView.binding_site(
+            viewer = nglview.binding_site(
                 "pdb_code",
                 self.Protein.pdb_code,
                 str(self.output_path / pocket_name) + ".ccp4",
             )
         else:
-            viewer = NGLView.protein(
+            viewer = nglview.protein(
                 "pdb",
                 self.Protein.pdb_filepath,
                 str(self.output_path / pocket_name) + ".ccp4",

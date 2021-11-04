@@ -1,12 +1,8 @@
-# Standard library:
-import subprocess  # for creating shell processes (needed to communicate with Smina program)
-from pathlib import Path  # for creating folders and handling local paths
-
 # 3rd-party packages:
 import pandas as pd  # for creating dataframes and handling data
 
 # Modules in the util folder:
-from utils.helpers import OBabel, Smina, PDB, NGLView
+from .helpers import obabel, smina, pdb, nglview
 
 
 class Docking:
@@ -37,7 +33,7 @@ class Docking:
         self.pdb_filepath_extracted_protein = docking_output_path / (
             Protein_object.pdb_code + "_extracted_protein.pdb"
         )
-        Protein_object.Universe = PDB.extract_molecule_from_pdb_file(
+        Protein_object.Universe = pdb.extract_molecule_from_pdb_file(
             "protein", Protein_object.pdb_filepath, self.pdb_filepath_extracted_protein
         )
 
@@ -45,7 +41,7 @@ class Docking:
             Protein_object.pdb_code + "_extracted_protein_ready_for_docking.pdbqt"
         )
 
-        OBabel.create_pdbqt_from_pdb_file(
+        obabel.create_pdbqt_from_pdb_file(
             self.pdb_filepath_extracted_protein, self.pdbqt_filepath_extracted_protein
         )
 
@@ -54,13 +50,13 @@ class Docking:
 
         for ligand in list_Ligand_objects:
             ligand.pdbqt_filepath = docking_output_path / ("CID_" + ligand.cid + ".pdbqt")
-            OBabel.create_pdbqt_from_smiles(ligand.remove_counterion(), ligand.pdbqt_filepath)
+            obabel.create_pdbqt_from_smiles(ligand.remove_counterion(), ligand.pdbqt_filepath)
 
             ligand.docking_poses_filepath = docking_output_path / (
                 "CID_" + ligand.cid + "_docking_poses.pdbqt"
             )
 
-            raw_log = Smina.dock(
+            raw_log = smina.dock(
                 ligand.pdbqt_filepath,
                 self.pdbqt_filepath_extracted_protein,
                 Protein_object.binding_site_coordinates["center"],
@@ -73,13 +69,13 @@ class Docking:
                 log=True,
             )
 
-            ligand.docking_poses_split_filepaths = OBabel.split_multistructure_file(
+            ligand.docking_poses_split_filepaths = obabel.split_multistructure_file(
                 "pdbqt", ligand.docking_poses_filepath
             )
 
             # Assigning the the dataframe of the Smina output
             # to the ligand's attribute 'dataframe_docking'
-            df = Smina.convert_log_to_dataframe(raw_log)
+            df = smina.convert_log_to_dataframe(raw_log)
             ligand.dataframe_docking = df.copy()
 
             # Extracting some useful information from the Smina-output dataframe
@@ -127,7 +123,7 @@ class Docking:
 
         Returns
         -------
-            NGLViewer object
+            NGLView object
             Interactive viewer of all analogs' docking poses,
             sorted by their binding affinities.
         """
@@ -146,7 +142,7 @@ class Docking:
 
         Returns
         -------
-            NGLViewer object
+            NGLView object
             Interactive viewer of given analog's docking poses,
             sorted by their binding affinities.
         """
@@ -166,14 +162,14 @@ class Docking:
 
         Returns
         -------
-            NGLViewer object
+            NGLView object
             Interactive viewer of given analog's docking poses,
             sorted by their binding affinities.
         """
         list_docking_poses_labels = list(
             map(lambda x: x[0] + " - " + str(x[1]), fitted_master_df.index.tolist())
         )
-        NGLView.docking(
+        nglview.docking(
             self.pdb_filepath_extracted_protein,
             "pdb",
             fitted_master_df["filepath"].tolist(),

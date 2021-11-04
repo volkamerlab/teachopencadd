@@ -17,10 +17,14 @@ several methods for selecting the most suitable binding-site.
 # Standard library:
 import io  # for creating file-like objects from strings of data (needed as input for some functions)
 import gzip  # for decompressing .gz files downloaded from DoGSiteScorer
+import time  # for creating pauses during the runtime (e.g. to wait for the response of API requests)
 
 # 3rd-party packages:
 import requests  # for communicating with web-service APIs
 import pandas as pd  # for creating dataframes and handling data
+from biopandas.pdb import PandasPdb  # for working with PDB files
+
+from . import pdb
 
 
 class APIConsts:
@@ -280,7 +284,7 @@ def calculate_pocket_coordinates_from_pocket_pdb_file(filepath):
     """
     with open(str(filepath) + ".pdb") as f:
         pdb_file_text_content = f.read()
-    pdb_file_df = PDB.load_pdb_file_as_dataframe(pdb_file_text_content)
+    pdb_file_df = pdb.load_pdb_file_as_dataframe(pdb_file_text_content)
     pocket_coordinates_data = pdb_file_df["OTHERS"].loc[5, "entry"]
     coordinates_data_as_list = pocket_coordinates_data.split(" ")
     coordinates = []

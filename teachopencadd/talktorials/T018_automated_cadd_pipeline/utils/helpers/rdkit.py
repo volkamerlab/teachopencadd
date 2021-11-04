@@ -2,7 +2,7 @@
 from rdkit import (
     Chem,
 )  # for handling ligand data and calculating ligand-related properties
-from rdkit.Chem import Draw, AllChem, Descriptors, PandasTools, rdFMCS
+from rdkit.Chem import Draw, AllChem, Descriptors
 import numpy as np  # for some more functionalities when using Pandas (e.g. for handling NaN values)
 
 

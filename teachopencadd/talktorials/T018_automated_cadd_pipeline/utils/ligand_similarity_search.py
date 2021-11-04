@@ -4,8 +4,9 @@
 import pandas as pd  # for creating dataframes and handling data
 
 # Modules in the util folder:
-from utils.Consts import Consts
-from utils.Ligand import *
+from .consts import Consts
+from .ligand import Ligand
+from .helpers import pubchem, rdkit
 
 
 class LigandSimilaritySearch:
@@ -31,7 +32,7 @@ class LigandSimilaritySearch:
             SimilaritySearchSpecs.search_engine
             is Consts.LigandSimilaritySearch.SearchEngines.PUBCHEM
         ):
-            analogs_info = PubChem.similarity_search(
+            analogs_info = pubchem.similarity_search(
                 Ligand_obj.smiles,
                 SimilaritySearchSpecs.min_similarity_percent,
                 SimilaritySearchSpecs.max_num_results,
@@ -40,15 +41,15 @@ class LigandSimilaritySearch:
         # create dataframe from initial results
         all_analog_identifiers_df = pd.DataFrame(analogs_info)
         all_analog_identifiers_df["Mol"] = all_analog_identifiers_df["CanonicalSMILES"].apply(
-            lambda smiles: RDKit.create_molecule_object("smiles", smiles)
+            lambda smiles: rdkit.create_molecule_object("smiles", smiles)
         )
         all_analog_identifiers_df["dice_similarity"] = all_analog_identifiers_df["Mol"].apply(
-            lambda mol: RDKit.calculate_similarity_dice(Ligand_obj.rdkit_obj, mol)
+            lambda mol: rdkit.calculate_similarity_dice(Ligand_obj.rdkit_obj, mol)
         )
         all_analog_properties_df = pd.DataFrame(
             (
                 all_analog_identifiers_df["Mol"].apply(
-                    lambda mol: RDKit.calculate_druglikeness(mol)
+                    lambda mol: rdkit.calculate_druglikeness(mol)
                 )
             ).tolist()
         )
@@ -73,7 +74,7 @@ class LigandSimilaritySearch:
                 similarity_search_output_path,
             )
 
-            new_analog_object.dice_similarity = RDKit.calculate_similarity_dice(
+            new_analog_object.dice_similarity = rdkit.calculate_similarity_dice(
                 Ligand_obj.rdkit_obj, new_analog_object.rdkit_obj
             )
 

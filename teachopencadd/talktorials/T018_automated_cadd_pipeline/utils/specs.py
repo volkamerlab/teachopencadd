@@ -6,8 +6,8 @@ from pathlib import Path  # for creating folders and handling local paths
 import numpy as np  # for some more functionalities when using Pandas (e.g. for handling NaN values)
 
 # Modules in the util folder:
-from utils.Consts import *
-from utils.helpers import IO
+from .consts import Consts
+from .helpers import io
 
 
 class Specs:
@@ -83,7 +83,7 @@ class Specs:
     class RawData:
         def __init__(self, input_data_filepath):
             self.filepath = input_data_filepath
-            self.all_data = IO.create_dataframe_from_csv_input_file(
+            self.all_data = io.create_dataframe_from_csv_input_file(
                 input_data_filepath=input_data_filepath,
                 list_of_index_column_names=[
                     Consts.DataFrame.ColumnNames.SUBJECT.value,
@@ -93,7 +93,7 @@ class Specs:
             )
 
             for subject_name in Consts.DataFrame.SubjectNames:
-                subject_data = IO.copy_series_from_dataframe(
+                subject_data = io.copy_series_from_dataframe(
                     input_df=self.all_data,
                     index_name=subject_name.value,
                     column_name=Consts.DataFrame.ColumnNames.VALUE.value,
@@ -337,5 +337,5 @@ class Specs:
         def __init__(self, output_path):
             self.root = Path(output_path)
             for folder_name in Consts.Output.FolderNames:
-                folder_path = IO.create_folder(folder_name.value, output_path)
+                folder_path = io.create_folder(folder_name.value, output_path)
                 setattr(self, folder_name.name.lower(), folder_path)

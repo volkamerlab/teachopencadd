@@ -1,12 +1,9 @@
 # 3rd-party packages:
-from IPython.display import (
-    Markdown,
-    Image,
-)  # ror more display options in the Jupyter Notebook
+from IPython.display import display, Markdown  # ror more display options in the Jupyter Notebook
 import pandas as pd  # for creating dataframes and handling data
 
 # Modules in the util folder:
-from utils.Consts import *
+from .consts import Consts
 
 
 class OptimizedLigands:
@@ -76,6 +73,7 @@ class OptimizedLigands:
             project.Specs.OptimizedLigands.selection_method
             is Consts.OptimizedLigands.SelectionMethods.FUNCTION
         ):
+            # TODO should this be project.Specs.OptimizedLigands.selection_criteria?
             df["function_score"] = eval(selection_criteria)
             final_results_cids = (
                 df.sort_values(by="function_score", ascending=False)
