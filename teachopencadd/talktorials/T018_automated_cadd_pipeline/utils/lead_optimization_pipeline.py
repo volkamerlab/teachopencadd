@@ -17,6 +17,7 @@ from .optimized_ligands import OptimizedLigands
 
 class LeadOptimizationPipeline:
     def __init__(self, project_name):
+        # TODO explicitly add attributes here!
         self.name = project_name
 
     @classmethod
