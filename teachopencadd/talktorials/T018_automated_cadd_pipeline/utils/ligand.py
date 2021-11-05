@@ -44,7 +44,7 @@ class Ligand:
             Type of the ligand identifier, e.g. InputTypes.SMILES.
         indentifier_value : str
             Value of the ligand identifier, e.g. its SMILES.
-        ligand_output_path : str or path.Pathlib
+        ligand_output_path : str or pathlib.Path
             TODO
         """
 
