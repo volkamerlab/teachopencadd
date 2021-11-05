@@ -12,18 +12,10 @@ from .helpers import io
 
 
 class Specs:
-
     """
     Data-class containing all the input data and output paths of the project.
     Take the filepath to the CSV input-data as well as output path, and
     internalize all the data as instance attributes.
-
-    Parameters
-    ----------
-    input_data_filepath : str or pathlib.Path object
-        Relative or absolute local path of the input CSV-data-file for the project.
-    output_data_root_folder_path : str or pathlib.Path object
-        Relative or absolute local path of root folder to store output data in.
     """
 
     # Defining the default values for all optional entries
@@ -75,6 +67,16 @@ class Specs:
     # -----------------------------------------------------
 
     def __init__(self, input_data_filepath, output_data_root_folder_path):
+        """
+        Initialize specifications.
+
+        Parameters
+        ----------
+        input_data_filepath : str or pathlib.Path
+            Relative or absolute local path of the input CSV-data-file for the project.
+        output_data_root_folder_path : str or pathlib.Path
+            Relative or absolute local path of root folder to store output data in.
+        """
         self.RawData = self.RawData(input_data_filepath)
         self.Protein = self.Protein(self.RawData.protein)
         self.Ligand = self.Ligand(self.RawData.ligand)
@@ -87,9 +89,11 @@ class Specs:
         self.OptimizedLigands = self.OptimizedLigands(self.RawData.optimized_ligand)
         self.OutputPaths = self.OutputPaths(output_data_root_folder_path)
 
-    # Defining a sub-class for each part of the pipeline
-    # -----------------------------------------------------
     class RawData:
+        """
+        Defining a sub-class for each part of the pipeline
+        """
+
         def __init__(self, input_data_filepath):
             self.filepath = input_data_filepath
             self.all_data = io.create_dataframe_from_csv_input_file(
@@ -110,6 +114,10 @@ class Specs:
                 setattr(self, subject_name.name.lower(), subject_data)
 
     class Protein:
+        """
+        TODO
+        """
+
         def __init__(self, input_protein_data):
             self.input_type = Consts.Protein.InputTypes(
                 input_protein_data[Consts.Protein.Properties.INPUT_TYPE.value]
@@ -117,6 +125,10 @@ class Specs:
             self.input_value = input_protein_data[Consts.Protein.Properties.INPUT.value]
 
     class Ligand:
+        """
+        TODO
+        """
+
         def __init__(self, input_ligand_data):
             self.input_type = Consts.Ligand.InputTypes(
                 input_ligand_data[Consts.Ligand.Properties.INPUT_TYPE.value]
@@ -124,6 +136,10 @@ class Specs:
             self.input_value = input_ligand_data[Consts.Ligand.Properties.INPUT.value]
 
     class BindingSite:
+        """
+        TODO
+        """
+
         def __init__(self, input_binding_site_data):
             definition_method = input_binding_site_data[
                 Consts.BindingSite.Properties.DEFINITION_METHOD.value
@@ -217,6 +233,10 @@ class Specs:
                 )
 
     class LigandSimilaritySearch:
+        """
+        TODO
+        """
+
         def __init__(self, similarity_search_data):
 
             search_engine = similarity_search_data[
@@ -258,6 +278,10 @@ class Specs:
             )
 
     class Docking:
+        """
+        TODO
+        """
+
         def __init__(self, docking_data):
 
             program = docking_data[Consts.Docking.Properties.PROGRAM.value]
@@ -289,6 +313,10 @@ class Specs:
             )
 
     class InteractionAnalysis:
+        """
+        TODO
+        """
+
         def __init__(self, interaction_analysis_data):
 
             program = interaction_analysis_data[
@@ -301,6 +329,10 @@ class Specs:
             )
 
     class OptimizedLigands:
+        """
+        TODO
+        """
+
         def __init__(self, optimized_ligand_data):
             num_results = optimized_ligand_data[
                 Consts.OptimizedLigands.Properties.NUM_RESULTS.value

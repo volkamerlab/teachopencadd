@@ -11,15 +11,15 @@ from opencadd.structure.core import Structure  # for manipulating PDB files
 
 def read_pdb_file_content(input_type, input_value):
     """
-    Read the content of a PDB file either from a local path or via fetching the file from PDB webserver.
+    Read the content of a PDB file either from a local path or via fetching the file from
+    the PDB webserver.
 
     Parameters
     ----------
     input_type : str
         Either 'pdb_code' or 'pdb_filepath'.
-
     input_value : str
-        Either a valid PDB-code, or a local filepath of a PDB file.
+        Either a valid PDB code, or a local filepath of a PDB file.
 
     Returns
     -------
@@ -44,14 +44,13 @@ def fetch_and_save_pdb_file(pdb_code, output_filepath):
     Parameters
     ----------
     pdb_code : str
-        PDB-code of the protein structure.
-
-    output_filepath : str or pathlib.Path object
+        PDB code of the protein structure.
+    output_filepath : str or pathlib.Path
         Local file path (including file name, but not the extension) to save the PDB file in.
 
     Returns
     -------
-    pathlib.Path object
+    pathlib.Path
         The full path of the saved PDB file.
     """
     pdb_file_content = pypdb.get_pdb_file(pdb_code)
@@ -71,16 +70,14 @@ def extract_molecule_from_pdb_file(molecule_name, input_filepath, output_filepat
     molecule_name : str
         Name of the molecule to be extracted.
         For the protein, enter 'protein'. For a ligand, enter the ligand-ID.
-
-    input_filepath : str or pathlib.Path object
+    input_filepath : str or pathlib.Path
         Local path of the original PDB file.
-
-    output_filepath : str or pathlib.Path object
+    output_filepath : str or pathlib.Path
         Local file path (including file name) to save the PDB file of the extracted molecule in.
 
     Returns
     -------
-        <Universe> Structure object
+    MDAnalysis.core.universe.Universe
         Structure object of the extracted molecule.
     """
 
@@ -93,7 +90,7 @@ def extract_molecule_from_pdb_file(molecule_name, input_filepath, output_filepat
 
 def load_pdb_file_as_dataframe(pdb_file_text_content):
     """
-    Transform the textual content of a PDB file into a dictionary of Pandas DataFrames.
+    Transform the textual content of a PDB file into a dictionary of pandas DataFrames.
 
     Parameters
     ----------
@@ -102,14 +99,12 @@ def load_pdb_file_as_dataframe(pdb_file_text_content):
 
     Returns
     -------
-    Dictionary of Pandas DataFrames.
-    The dictionary has four entries with following keys: 'ATOM', 'HETATM', 'ANISOU' and 'OTHERS'.
-    Each value is a Pandas DataFrame corresponding to the specific information described by the key.
+    Dict of pandas.DataFrames
+        The dictionary has 4 entries with following keys: 'ATOM', 'HETATM', 'ANISOU' and 'OTHERS'.
+        Each value is a DataFrame corresponding to the specific information described by the key.
     """
-    ppdb = PandasPdb()
-    pdb_df = ppdb._construct_df(pdb_file_text_content.splitlines(True))
-    # TODO: Change _construct_df to read_pdb_from_lines once biopandas
-    # cuts a new release (currently: 0.2.7), see https://github.com/rasbt/biopandas/pull/72
+    ppdb = PandasPdb().read_pdb_from_list(pdb_file_text_content.splitlines(True))
+    pdb_df = ppdb.df
     return pdb_df
 
 
@@ -124,17 +119,18 @@ def extract_info_from_pdb_file_content(pdb_file_text_content):
 
     Returns
     -------
-        dict
+    dict
         Dictionary of the successfully extracted information.
         Possible keys are:
             'structure_title' : str
                 Title of the PDB structure.
             'name' : str
                 Name of the protein.
-            'chains' : list of strings
+            'chains' : list of str
                 List of chain-IDs of the available chains in the protein.
-            'ligands' : list of lists of strings
-                List of ligand information: [ligand-ID, chain-ID+residue number, number of heavy atoms]
+            'ligands' : list of list of str
+                List of ligand information:
+                [ligand-ID, chain-ID+residue number, number of heavy atoms]
     """
 
     pdb_content = pdb_file_text_content.strip().split("\n")

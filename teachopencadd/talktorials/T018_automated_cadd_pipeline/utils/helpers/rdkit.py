@@ -25,7 +25,8 @@ def create_molecule_object(input_type, input_value):
 
     Returns
     -------
-        RDKit molecule object.
+    rdkit.Chem.rdchem.Mol
+        Structure as RDKit molecule object.
     """
 
     functions = {
@@ -52,19 +53,22 @@ def draw_molecules(
     ----------
     list_mol_objs: list
         List of RDKit molecule objects to be drawn.
-    list_legends: list (optional)
+    list_legends: list
+        Optional; default None.
         List of legends for the molecules.
         If not provided, the list indices (+1) will be used as legend.
-    mols_per_row : int (optional; default: 3)
+    mols_per_row : int
+        Optional; default: 3.
         Number of structures to show per row.
     sub_img_size : tuple (int, int)
         Size of each structure.
-    filepath : str or pathlib.Path object
+    filepath : str or pathlib.Path
         Full filepath to save the image in.
 
     Returns
     -------
-        RDKit MolsToGridImage object.
+    rdkit.Chem.Draw.MolsToGridImage
+        Molecules shown as grid.
     """
     if list_legends is None:
         list_legends = list(range(1, len(list_mol_objs) + 1))
@@ -86,14 +90,10 @@ def save_molecule_image_to_file(mol_obj, filepath):
 
     Parameters
     ----------
-    mol_obj : RDKit Molecule objects
+    mol_obj : rdkit.Chem.rdchem.Mol
         The molecule to be saved as image.
-    filepath : str or pathlib.Path object
+    filepath : str or pathlib.Path
         Full filpath to save the image in.
-
-    Returns
-    -------
-        None
     """
     Draw.MolToFile(mol_obj, str(filepath) + ".png")
 
@@ -104,14 +104,10 @@ def save_3D_molecule_to_SDfile(mol_obj, filepath):
 
     Parameters
     ----------
-    mol_obj : RDKit Molecule objects
+    mol_obj : rdkit.Chem.rdchem.Mol
         The molecule to be saved as SDF file.
-    filepath : str or pathlib.Path object
+    filepath : str or pathlib.Path
         Full filpath to save the image in.
-
-    Returns
-    -------
-        None
     """
     mol = Chem.AddHs(mol_obj)
     embedding = AllChem.EmbedMolecule(mol, maxAttempts=1000, clearConfs=True)
@@ -131,15 +127,15 @@ def calculate_similarity_dice(mol_obj1, mol_obj2):
 
     Parameters
     ----------
-    mol_obj1 : RDKit Molecule objects
+    mol_obj1 : rdkit.Chem.rdchem.Mol
         The first molecule.
-    mol_obj2 : RDKit Molecule objects
+    mol_obj2 : rdkit.Chem.rdchem.Mol
         The second molecule.
 
     Returns
     -------
-        float
-        Dice similarity between the two molecules
+    float
+        Dice similarity between the two molecules.
     """
     morgan_fp_mol1 = AllChem.GetMorganFingerprintAsBitVect(mol_obj1, radius=2, nBits=4096)
     morgan_fp_mol2 = AllChem.GetMorganFingerprintAsBitVect(mol_obj2, radius=2, nBits=4096)
@@ -154,12 +150,12 @@ def calculate_druglikeness(mol_obj):
 
     Parameters
     ----------
-    MolObj: RDKit molecule object
+    mol_obj: rdkit.Chem.rdchem.Mol
         Molecule object of interest.
 
     Returns
     -------
-        dict
+    dict
         The calculated values are returned in a dictionary with following keys:
         MolWt, NumHAcceptors, NumHDonors, MolLogP, TPSA, NumRotBonds, Saturation,
         lipinski_score, custom_drug_score, qed_score, total_drug_score

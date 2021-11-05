@@ -35,18 +35,21 @@ def dock(
         Lengths of edges defining the binding site.
     output_path : str or pathlib.Path
         Path to which docking poses should be saved, SDF or PDB format.
+    output_format : str
+        Output format (default: pdbqt).
     num_poses : int or str
         Maximum number of poses to generate.
     exhaustiveness : int or str
         Accuracy of docking calculations.
     random_seed : int or str
         Seed number to make the docking deterministic for reproducibility.
-    log : bool (optional; default: True)
+    log : bool
+        Optional; default: True.
         Whether to also write a log-file in the same output path for each docking.
 
     Returns
     -------
-    output_text: str
+    output_text : str
         The output log of the docking calculation.
     """
     smina_command = (
@@ -88,7 +91,7 @@ def dock(
 
 def convert_log_to_dataframe(raw_log):
     """
-    Convert docking's raw output log into a Pandas DataFrame.
+    Convert docking's raw output log into a pandas.DataFrame.
 
     Parameters
     ----------
@@ -97,7 +100,7 @@ def convert_log_to_dataframe(raw_log):
 
     Returns
     -------
-        Pandas DataFrame
+    pandas.DataFrame
         DataFrame containing columns 'mode', 'affinity[kcal/mol]',
         'dist from best mode_rmsd_l.b', and 'dist from best mode_rmsd_u.b'
         for each generated docking pose.

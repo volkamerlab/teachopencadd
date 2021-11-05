@@ -4,7 +4,7 @@ Set of functions required to analyze protein-ligand interactions using the PLIP 
 
 from enum import Enum  # for creating enumeration classes
 from pathlib import Path  # for creating folders and handling local paths
-import logging  # for setting the logging level of some packages (i.e. to disable excessive logging default to some packages e.g. PLIP)
+import logging  # for setting logging levels (to disable logging defaults of packages e.g. PLIP)
 
 import plip  # for changing the logging setting of the package (see bottom of the cell: Settings)
 from plip.structure.preparation import (
@@ -22,6 +22,10 @@ logging.getLogger(plip.__name__).setLevel(
 
 
 class Consts:
+    """
+    Constants for PLIP.
+    """
+
     class InteractionTypes(Enum):
         H_BOND = "hbond"
         HYDROPHOBIC = "hydrophobic"
@@ -39,15 +43,17 @@ def calculate_interactions(pdb_filepath):
 
     Parameters
     ----------
-    pdb_filepath : str or pathlib.Path object
+    pdb_filepath : str or pathlib.Path
         Filepath of the PDB file containing the protein-ligand complex.
 
     Returns
     -------
-        dict of dicts
+    dict of dict
         Dictionary of all different interaction data for all detected ligands.
-        The keys of first dictionary correspond to the ligand-IDs of detected ligands in the PDB file.
-        The keys of each sub-dictionary correspond to interaction types, as defined in PLIP.Consts.InteractionTypes.
+        - The keys of first dictionary correspond to the ligand-IDs of detected ligands in the
+          PDB file.
+        - The keys of each sub-dictionary correspond to interaction types, as defined in
+          `PLIP.Consts.InteractionTypes`.
     """
     protein_ligand_complex = PDBComplex()
     protein_ligand_complex.load_pdb(str(pdb_filepath))
@@ -78,22 +84,22 @@ def calculate_interactions(pdb_filepath):
 
 def create_dataframe_of_ligand_interactions(ligand_interaction_data, interaction_type):
     """
-    Create a Pandas DataFrame from interaction data of a specific ligand,
+    Create a pandas.DataFrame from interaction data of a specific ligand,
     for a specific interaction type.
 
     Parameters
     ----------
     ligand_interaction_data : dict
-        Interaction data calculated by the 'calculate_interactions' function,
+        Interaction data calculated by the `calculate_interactions` function,
         where only one ligand's interaction data is chosen from the output of
         that function.
     interaction_type : Enum
-        One of the enumerations from PLIP.Consts.InteractionTypes,
+        One of the enumerations from `PLIP.Consts.InteractionTypes`,
         specifying the type of interaction, for which the DataFrame should be created.
 
     Returns
     -------
-        pandas DataFrame
+    pandas.DataFrame
         DataFrame containing all the information for the specified interactions
         in the input ligand interaction data.
     """
@@ -113,23 +119,23 @@ def create_protein_ligand_complex(
     protein_pdbqt_filepath, docking_pose_pdbqt_filepath, ligand_id, output_filepath
 ):
     """
-    Create a protein-ligand-complex PDB file out of separate protein and ligand files.
+    Create a protein-ligand complex PDB file out of separate protein and ligand files.
 
     Parameters
     ----------
-    protein_pdbqt_filepath : str or pathlib.Path object
+    protein_pdbqt_filepath : str or pathlib.Path
         Filepath of the PDB file containing the protein.
-    docking_pose_pdbqt_filepath : str or pathlib.Path object
+    docking_pose_pdbqt_filepath : str or pathlib.Path
         Filepath of the PDB file containing the ligand.
     ligand_id : str
         An identifier for the ligand to write into the PDB file.
-    output_filepath : str or pathlib.Path object
+    output_filepath : str or pathlib.Path
         Output filepath of the PDB file containing the protein-ligand complex.
 
     Returns
     -------
-        pathlib.Path object
-        Complete filepath of the created protein-ligand-complex PDB file.
+    pathlib.Path
+        Complete filepath of the created protein-ligand complex PDB file.
     """
 
     def pdbqt_to_pdbblock(pdbqt_filepath):
@@ -146,6 +152,7 @@ def create_protein_ligand_complex(
     protein_pdbblock = pdbqt_to_pdbblock(protein_pdbqt_filepath)
 
     ligand_pdbblock = pdbqt_to_pdbblock(docking_pose_pdbqt_filepath)
+    # FIXME can the comments below go?
     # ligand_pdbblock = ligand_pdbblock.replace('ATOM', 'HETATM')
     # ligand_pdbblock = ligand_pdbblock.replace('UNL     ', (ligand_id[:8]+
     #                                    " "*(8-len(ligand_id))))

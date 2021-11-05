@@ -13,16 +13,9 @@ class Docking:
     Take in a Protein and a list of ligands, and
     dock each ligand on the protein, using the given specifications.
 
-    Parameters
+    Attributes
     ----------
-    Protein_object : object; instance of Protein class
-        The protein to perform docking on.
-    list_Ligand_objects : list of Ligand objects (instances of Ligand class)
-        List of ligands to dock on the protein.
-    DockingSpecs_object : object; instance of Specs.Docking class
-        Specifications for the docking experiment.
-    docking_output_path : str or pathlib.Path object
-        Output folder path to store the docking data in.
+    TODO
     """
 
     def __init__(
@@ -32,10 +25,23 @@ class Docking:
         DockingSpecs_object,
         docking_output_path,
     ):
+        """
+        Initialize docking.
+
+        Parameters
+        ----------
+        Protein_object : utils.Protein
+            The protein to perform docking on.
+        list_Ligand_objects : list of utils.Ligand
+            List of ligands to dock on the protein.
+        DockingSpecs_object : utils.Specs.Docking
+            Specifications for the docking experiment.
+        docking_output_path : str or pathlib.Path
+            Output folder path to store the docking data in.
+        """
         self.pdb_filepath_extracted_protein = docking_output_path / (
             Protein_object.pdb_code + "_extracted_protein.pdb"
         )
-        print(Protein_object)
         Protein_object.Universe = pdb.extract_molecule_from_pdb_file(
             "protein", Protein_object.pdb_filepath, self.pdb_filepath_extracted_protein
         )
@@ -126,7 +132,7 @@ class Docking:
 
         Returns
         -------
-            NGLView object
+        nglview.widget.NGLWidget
             Interactive viewer of all analogs' docking poses,
             sorted by their binding affinities.
         """
@@ -145,7 +151,7 @@ class Docking:
 
         Returns
         -------
-            NGLView object
+        nglview.widget.NGLWidget
             Interactive viewer of given analog's docking poses,
             sorted by their binding affinities.
         """
@@ -159,13 +165,13 @@ class Docking:
 
         Parameters
         ----------
-        fitted_master_df : Pandas DataFrame
+        fitted_master_df : pandas.DataFrame
             Any section of the master docking dataframe,
             stored under self.master_df.
 
         Returns
         -------
-            NGLView object
+        nglview.widget.NGLWidget
             Interactive viewer of given analog's docking poses,
             sorted by their binding affinities.
         """

@@ -16,8 +16,17 @@ from .optimized_ligands import OptimizedLigands
 
 
 class LeadOptimizationPipeline:
+    """
+    Contains the full automated lead optimization pipeline.
+
+    Attributes
+    ----------
+    TODO add static attributes to this class?
+    name : str
+        Project name
+    """
+
     def __init__(self, project_name):
-        # TODO explicitly add attributes here!
         self.name = project_name
 
     @classmethod
@@ -37,7 +46,7 @@ class LeadOptimizationPipeline:
 
         Returns
         -------
-        LeadOptimizationPipeline
+        utils.LeadOptimizationPipeline
             Object containing all the information about the pipeline.
         """
 
@@ -139,6 +148,9 @@ class LeadOptimizationPipeline:
 
     @staticmethod
     def _pprint(markdown_list):
+        """
+        TODO
+        """
         markdown_command = ""
         for command in markdown_list:
             text, color = command
@@ -147,6 +159,9 @@ class LeadOptimizationPipeline:
 
     @staticmethod
     def _pprint_header(header):
+        """
+        TODO
+        """
         display(
             Markdown(
                 f"<span style='color:blue'>**{header}:** "

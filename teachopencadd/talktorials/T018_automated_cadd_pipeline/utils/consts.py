@@ -12,18 +12,26 @@ class Consts:
     index names, subject names, properties, etc.
     """
 
-    # Constants for the input dataframe
     class DataFrame:
+        """
+        Constants for the input DataFrame.
+        """
 
-        # Name of the columns
         class ColumnNames(Enum):
+            """
+            Name of the columns.
+            """
+
             SUBJECT = "Subject"
             PROPERTY = "Property"
             VALUE = "Value"
             DESCRIPTION = "Description"
 
-        # Name of the subjects
         class SubjectNames(Enum):
+            """
+            Name of the subjects.
+            """
+
             PROTEIN = "Protein"
             LIGAND = "Ligand"
             BINDING_SITE = "Binding Site"
@@ -32,9 +40,12 @@ class Consts:
             INTERACTION_ANALYSIS = "Interaction Analysis"
             OPTIMIZED_LIGAND = "Optimized Ligand"
 
-    # Constants for the input protein data
-    # i.e. name of protein properties, and their respective allowed values
     class Protein:
+        """
+        Constants for the input protein data
+        i.e. name of protein properties, and their respective allowed values
+        """
+
         class Properties(Enum):
             INPUT_TYPE = "Input Type*"
             INPUT = "Input Value*"
@@ -43,8 +54,11 @@ class Consts:
             PDB_CODE = "pdb_code"
             PDB_FILEPATH = "pdb_filepath"
 
-    # Constants for the input ligand data
     class Ligand:
+        """
+        Constants for the input ligand data.
+        """
+
         class Properties(Enum):
             INPUT_TYPE = "Input Type*"
             INPUT = "Input Value*"
@@ -57,8 +71,11 @@ class Consts:
             INCHI = "inchi"
             INCHIKEY = "inchikey"
 
-    # Constants for the input specification data regarding binding-site
     class BindingSite:
+        """
+        Constants for the input specification data regarding binding site.
+        """
+
         class Properties(Enum):
             DEFINITION_METHOD = "Definition Method"
             COORDINATES = "Coordinates"
@@ -109,8 +126,11 @@ class Consts:
             SIMPLE_SCORE = "simpleScore"
             DRUG_SCORE = "drugScore"
 
-    # Constants for the input specification data regarding ligand similarity search
     class LigandSimilaritySearch:
+        """
+        Constants for the input specification data regarding ligand similarity search.
+        """
+
         class Properties(Enum):
             SEARCH_ENGINE = "Search Engine"
             MIN_SIMILARITY_PERCENT = "Minumum Similarity [%]"
@@ -120,8 +140,11 @@ class Consts:
         class SearchEngines(Enum):
             PUBCHEM = "pubchem"
 
-    # Constants for the input specification data regarding docking
     class Docking:
+        """
+        Constants for the input specification data regarding docking.
+        """
+
         class Properties(Enum):
             PROGRAM = "Program"
             NUM_POSES_PER_LIGAND = "Number of Docking Poses per Ligand"
@@ -131,8 +154,11 @@ class Consts:
         class Programs(Enum):
             SMINA = "smina"
 
-    # Constants for the input specification data regarding interaction analysis
     class InteractionAnalysis:
+        """
+        Constants for the input specification data regarding interaction analysis.
+        """
+
         class Properties(Enum):
             PROGRAM = "Program"
 
@@ -140,6 +166,10 @@ class Consts:
             PLIP = "plip"
 
     class OptimizedLigands:
+        """
+        Constants for the input specification data regarding the selection of optimized ligands.
+        """
+
         class Properties(Enum):
             NUM_RESULTS = "Number of Results"
             SELECTION_METHOD = "Selection Method"
@@ -165,8 +195,11 @@ class Consts:
             DRUG_SCORE_CUSTOM = "drug_score_custom"
             DRUG_SCORE_TOTAL = "drug_score_total"
 
-    # Constants for the input data regarding output paths
     class Output:
+        """
+        Constants for the input data regarding output paths.
+        """
+
         class FolderNames(Enum):
             PROTEIN = "1_Protein"
             LIGAND = "2_Ligand"

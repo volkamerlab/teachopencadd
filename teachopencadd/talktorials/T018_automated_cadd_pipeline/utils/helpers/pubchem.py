@@ -12,11 +12,12 @@ from enum import Enum  # for creating enumeration classes
 import requests  # for communicating with web-service APIs
 
 
-# -----------------------------------------------------------------------------
-# Constants for API requests
 class APIConsts:
     """
-    Constants for API requests.
+    Contains constants for PubChem API requests.
+
+    Notes
+    -----
     Request URLs should have the format:
         APIConsts.URLs.PROLOG + APIConsts.URLs.Inputs.<type>.value + ...
         ... <input_value> + APIConsts.URLs.Operations.GET_<property>.value + ...
@@ -68,9 +69,6 @@ class APIConsts:
             RESPONSE_KEY2 = "Information"
 
 
-# -----------------------------------------------------------------------------
-
-
 def send_request(partial_url, response_type="txt", optional_params=""):
     """
     Send an API request to PubChem and get the response data.
@@ -81,7 +79,8 @@ def send_request(partial_url, response_type="txt", optional_params=""):
         The URL part of the request consisting of input-type, input-value and operation.
         E.g. 'compound/cid/2244/property/CanonicalSMILES/' requests the SMILES of
         the compound with an CID of 2244.
-    response_type : str (optional; default: txt)
+    response_type : str
+        Optional; default: txt.
         Expected response-type of the API request.
         Valid values are 'txt', 'json', 'png', 'csv' and 'sdf'.
         Valid values are stored in: APIConsts.URLs.Outputs
@@ -90,7 +89,7 @@ def send_request(partial_url, response_type="txt", optional_params=""):
 
     Returns
     -------
-        Datatype depends on the value of input parameter 'response_type'.
+    Datatype depends on the value of input parameter 'response_type'.
         The response data of the API request.
     """
     full_url = (
@@ -121,21 +120,22 @@ def convert_compound_identifier(
     input_id_type : str
         Type of the input identifier.
         Valid values are: 'name', 'cid', 'smiles', 'inchi' and 'inchikey'.
-        Valid values are stored in: APIConsts.URLs.Inputs
-    input_id_value : str, integer, list of strings or list of integers
+        Valid values are stored in: `APIConsts.URLs.Inputs`
+    input_id_value : str or int or list of str or list of int
         Value of the input identifier.
     output_id_type : str
         Type of the ouput identifier.
         Valid values are: 'name', 'cid', 'smiles', 'inchi', 'inchikey', 'iupac_name'.
-        Valid values are stored in: APIConsts.URLs.Operations
-    output_data_type : str (optional; default: 'txt')
+        Valid values are stored in: `APIConsts.URLs.Operations`
+    output_data_type : str
+        Optional; default: 'txt'.
         Datatype of the output data.
         Valid values are 'txt', 'json', 'csv'.
-        A list of all valid values are stored in: APIConsts.URLs.Outputs
+        A list of all valid values are stored in: `APIConsts.URLs.Outputs`
 
     Returns
     -------
-        Datatype depends on the value of input parameter 'response_type'
+    Datatype depends on the value of input parameter 'response_type'
         The response data of the API request.
     """
     if isinstance(input_id_value, list):
@@ -164,17 +164,18 @@ def get_compound_record(input_id_type, input_id_value, output_data_type="json"):
     input_id_type : str
         Type of the input identifier.
         Valid values are: 'name', 'cid', 'smiles', 'inchi' and 'inchikey'.
-        Valid values are stored in: APIConsts.URLs.Inputs
-    input_id_value : str or integer
+        Valid values are stored in: `APIConsts.URLs.Inputs`
+    input_id_value : str or int
         Value of the input identifier.
-    output_data_type : str (optional; default: 'txt')
+    output_data_type : str
+        Optional; default: 'txt'.
         Datatype of the output data.
         Valid values are 'txt', 'json', 'csv'.
-        A list of all valid values are stored in: APIConsts.URLs.Outputs
+        A list of all valid values are stored in: `APIConsts.URLs.Outputs`
 
     Returns
     -------
-        dict
+    dict
         Dictionary keys are: 'id', 'atoms', 'bonds', 'coords', 'charge', 'props', 'count'
     """
     url = (
@@ -196,16 +197,17 @@ def get_description_from_smiles(smiles, output_data_type="json", printout=False)
     ----------
     smiles : str
         SMILES of the molecule.
-    output_data_type : str (optional; default: 'txt')
+    output_data_type : str
+        Optional; default: 'txt'.
         Datatype of the output data.
         Valid values are 'txt', 'json', 'csv'.
-        A list of all valid values are stored in: APIConsts.URLs.Outputs
+        A list of all valid values are stored in: `APIConsts.URLs.Outputs`
     printout : bool
         Whether to print the descriptions, or return the data.
 
     Returns
     -------
-        list of dicts
+    list of dict
         When the parameter printout is set to False, the raw data is
         returned as a list of dicts, where each element of the list
         corresponds to a description from a specific source (e.g. a journal article).
@@ -244,20 +246,25 @@ def similarity_search(
     ----------
     smiles : str
         The canonical SMILES string for the given compound.
-    min_similarity : int (optional; default: 80)
+    min_similarity : int
+        Optional; default: 80.
         The threshold of similarity in percent.
-    max_num_results : int (optional; default: 100)
+    max_num_results : int
+        Optional; default: 100.
         The maximum number of feedback records.
-    output_data_type : str (optional; default: 'json')
+    output_data_type : str
+        Optional; default: 'json'.
         Datatype of the output data.
         Valid values are 'txt', 'json', 'csv'.
         A list of all valid values are stored in: APIConsts.URLs.Outputs
-    max_num_attempts : int (optional; default: 30)
+    max_num_attempts : int
+        Optional; default: 30.
         Maximum number of attempts to fetch the API response, after the job has been submitted.
-        Each failed attempt is followed by a 10-second pause.
+        Each failed attempt is followed by a 10 second pause.
+
     Returns
     -------
-        Datatype depends on the 'output_data_type' parameter
+    Datatype depends on the 'output_data_type' parameter
         E.g. when set to "json", returns a list of dicts
         Each dictionary in the list corresponds to a similar compound,
         which has a 'CID' and a 'CanonicalSMILES' key.

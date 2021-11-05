@@ -17,18 +17,16 @@ class Protein:
     Take a protein identifier type and corresponding value,
     and create a Protein object, while assigning some properties as attributes.
 
-    Parameters
+    Attributes
     ----------
-    identifier_type : enum 'InputTypes' from the 'Consts.Protein' class
-        Type of the protein identifier, e.g. InputTypes.PDB_CODE.
-    indentifier_value : str
-        Value of the protein identifier, e.g. its PDB-code.
-    protein_output_path : str or pathlib.Path object
-        Output path of the project for protein data.
+    TODO see `Consts` class.
     """
 
     class Consts:
-        # Available properties that are assigned as instance attributes upon instantiation.
+        """
+        Available properties that are assigned as instance attributes upon instantiation.
+        """
+
         class Properties(Enum):
             STRUCTURE_TITLE = "Structure Title"
             NAME = "Name"
@@ -39,6 +37,18 @@ class Protein:
             RESIDUES_LENGTH = "Number of Residues"
 
     def __init__(self, identifier_type, identifier_value, protein_output_path):
+        """
+        Initialize protein.
+
+        Parameters
+        ----------
+        identifier_type : enum 'InputTypes' from the 'Consts.Protein' class
+            Type of the protein identifier, e.g. InputTypes.PDB_CODE.
+        identifier_value : str
+            Value of the protein identifier, e.g. its PDB code.
+        protein_output_path : str or pathlib.Path
+            Output path of the project for protein data.
+        """
 
         setattr(self, identifier_type.name.lower(), identifier_value)
 

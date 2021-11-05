@@ -16,17 +16,16 @@ class Ligand:
     Take a ligand identifier type and corresponding value,
     and create a Ligand object, while assigning some properties as attributes.
 
-    Parameters
+    Attributes
     ----------
-    identifier_type : enum 'InputTypes' from the 'Consts.Ligand' class
-        Type of the ligand identifier, e.g. InputTypes.SMILES.
-
-    indentifier_value : str
-        Value of the ligand identifier, e.g. its SMILES.
+    TODO see `Consts` class. More attributes?
     """
 
     class Consts:
-        # Available properties that are assigned as instance attributes upon instantiation.
+        """
+        Available properties that are assigned as instance attributes upon instantiation.
+        """
+
         class IdentifierTypes(Enum):
             NAME = "name"
             IUPAC_NAME = "iupac_name"
@@ -36,6 +35,18 @@ class Ligand:
             INCHIKEY = "inchikey"
 
     def __init__(self, identifier_type, identifier_value, ligand_output_path):
+        """
+        Initialize ligand.
+
+        Parameters
+        ----------
+        identifier_type : enum 'InputTypes' from the 'Consts.Ligand' class
+            Type of the ligand identifier, e.g. InputTypes.SMILES.
+        indentifier_value : str
+            Value of the ligand identifier, e.g. its SMILES.
+        ligand_output_path : str or path.Pathlib
+            TODO
+        """
 
         self.dataframe = pd.DataFrame(columns=["Value"])
         self.dataframe.index.name = "Property"
@@ -79,7 +90,7 @@ class Ligand:
 
         Returns
         -------
-            str
+        str
             SMILES of the molecule without its counter-ion.
         """
         if (
@@ -107,7 +118,7 @@ class Ligand:
 
         Returns
         -------
-            float
+        float
             Dice similarity between the two ligands.
         """
         return rdkit.calculate_similarity_dice(self.rdkit_obj, mol_obj)
@@ -123,7 +134,7 @@ class Ligand:
 
         Returns
         -------
-            None
+        None
         """
         rdkit.save_molecule_image_to_file(self.rdkit_obj, filepath)
 
@@ -138,6 +149,6 @@ class Ligand:
 
         Returns
         -------
-            None
+        None
         """
         rdkit.save_3D_molecule_to_SDfile(self.rdkit_obj, filepath)

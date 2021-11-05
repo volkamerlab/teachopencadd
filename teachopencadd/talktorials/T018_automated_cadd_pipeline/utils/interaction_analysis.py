@@ -4,7 +4,7 @@ Contains interaction analysis class.
 
 import pandas as pd  # for creating dataframes and handling data
 import matplotlib.pyplot as plt  # for plotting of data
-import matplotlib as mpl  # for changing the display settings of plots (see bottom of the cell: Settings)
+import matplotlib as mpl  # for changing the display settings of plots (see Settings below)
 
 from .consts import Consts
 from .helpers import plip, nglview
@@ -18,18 +18,13 @@ class InteractionAnalysis:
     """
     Automated protein-ligand interaction analysis process of the pipeline.
 
-    Parameters
+    Attributes
     ----------
-    separated_protein_pdbqt_filepath : str or pathlib.Path object
-        Filepath of the separated protein PDBQT file used in docking.
-    list_Ligand_objects : list of Ligand objects (instances of Ligand class)
-        List of ligands to analyze their interactions with the protein.
-    docking_results_df : pandas DataFrame
-        Summary dataframe created by the docking class.
-    InteractionAnalysisSpecs_object : object; instance of Specs.InteractionAnalysis class
-        Specifications for the interaction analysis processes.
-    interaction_analysis_output_path : str or pathlib.Path object
-        Output folder path to store the analyzed data in.
+    TODO
+    results
+    master_df
+    _analogs
+    _pdb_filepath_extracted_protein
     """
 
     def __init__(
@@ -42,6 +37,26 @@ class InteractionAnalysis:
         InteractionAnalysisSpecs_object,
         interaction_analysis_output_path,
     ):
+        """
+        Initialize the interaction analysis.
+
+        Parameters
+        ----------
+        separated_protein_pdbqt_filepath : str or pathlib.Path
+            Filepath of the separated protein PDBQT file used in docking.
+        separated_protein_pdb_filepath : TODO
+            TODO
+        protein_first_residue_number : TODO
+            TODO
+        list_Ligand_objects : list of utils.Ligand
+            List of ligands to analyze their interactions with the protein.
+        docking_master_df : pandas.DataFrame
+            Summary dataframe created by the docking class.
+        InteractionAnalysisSpecs_object : utils.Specs.InteractionAnalysis
+            Specifications for the interaction analysis processes.
+        interaction_analysis_output_path : str or pathlib.Path
+            Output folder path to store the analyzed data in.
+        """
 
         self._analogs = list_Ligand_objects
         self._pdb_filepath_extracted_protein = separated_protein_pdb_filepath
@@ -173,13 +188,13 @@ class InteractionAnalysis:
         list_interaction_data : list of lists
             List of desired interactions. Each sub-list should have the following format:
             [interaction_type, residue_number]
+            Example: [["h_bond", 793], ["hydrophobic", 860]]
             interaction_type : str
                 Type of desired interaction. Allowed values are:
                 'h_bond', 'hydrophobic', 'salt_bridge', 'water_bridge',
                 'pi_stacking', 'pi_cation', 'halogen', 'metal'
             residue_nr : int
                 Residue number involved in the given interaction_type
-            Example: [["h_bond", 793], ["hydrophobic", 860]]
         all_or_any : str
             Allowed values: "all", "any"
             "all": all given interactions should be present in a docking pose.
@@ -187,7 +202,7 @@ class InteractionAnalysis:
 
         Returns
         -------
-            list of tuples
+        list of tuples
             List of identifiers for the docking poses in the format:
             (CID, pose_nr)
             CID : str
@@ -227,7 +242,8 @@ class InteractionAnalysis:
 
         Returns
         -------
-            None
+        nglview.widget.NGLWidget
+            NGLView viewer for all interactions.
         """
         df = self.master_df.sort_values(by=["affinity[kcal/mol]", "CID", "mode"])
         view = self.visualize(df)
@@ -245,7 +261,8 @@ class InteractionAnalysis:
 
         Returns
         -------
-            None
+        nglview.widget.NGLWidget
+            NGLView viewer for analog interactions.
         """
         df = self.master_df.xs(str(cid), level=0, axis=0, drop_level=False)
         view = self.visualize(df)
@@ -269,7 +286,8 @@ class InteractionAnalysis:
 
         Returns
         -------
-            None
+        nglview.widget.NGLWidget
+            NGLView viewer for docking poses interactions.
         """
         df = self.master_df.loc[list_of_cid_pose_nr_tuples]
         view = self.visualize(df)
@@ -282,13 +300,14 @@ class InteractionAnalysis:
 
         Parameters
         ----------
-        fitted_master_df : Pandas DataFrame
+        fitted_master_df : pandas.DataFrame
             Any section of the master InteractionAnalysis dataframe,
             stored under self.master_df.
 
         Returns
         -------
-            None
+        nglview.widget.NGLWidget
+            NGLView viewer.
         """
         list_docking_poses_labels = list(
             map(lambda x: x[0] + " - " + str(x[1]), fitted_master_df.index.tolist())
@@ -309,10 +328,6 @@ class InteractionAnalysis:
         """
         View a correlation plot between binding affinity and number of interactions
         in each docking pose.
-
-        Returns
-        -------
-            None
         """
         df = self.results.sort_values(by="affinity[kcal/mol]", ascending=True)
 

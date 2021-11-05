@@ -9,19 +9,15 @@ from .helpers import dogsitescorer, pdb, nglview
 
 class BindingSiteDetection:
     """
-    Automated binding-site detection process of the pipeline.
+    Automated binding site detection process of the pipeline.
     Take in the Protein object, Specs.BindingSite object and
     the corresponding output path, and automatically run all the necessary calculations
-    to output the suitable binding-site coordinates based on the input specifications of the project.
+    to output the suitable binding site coordinates based on the input specifications of the
+    project.
 
-    Parameters
+    Attributes
     ----------
-    Protein : Protein object
-        The Protein object of the project.
-    BindingSiteSpecs : Specs.BindingSite object
-        The binding-site specification data-class of the project.
-    binding_site_output_path : str or pathlib.Path object
-        Output path of the project's binding-site information.
+    TODO see `Consts` class. More attributes?
     """
 
     class Consts:
@@ -31,6 +27,18 @@ class BindingSiteDetection:
             COORDINATES = "coordinates"
 
     def __init__(self, Protein, BindingSiteSpecs, binding_site_output_path):
+        """
+        Initialize binding site detection.
+
+        Parameters
+        ----------
+        Protein : utils.Protein
+            The Protein object of the project.
+        BindingSiteSpecs : utils.Specs.BindingSite
+            The binding site specification data-class of the project.
+        binding_site_output_path : str or pathlib.Path
+            Output path of the project's binding site information.
+        """
 
         self.output_path = binding_site_output_path
         self.Protein = Protein
@@ -41,10 +49,16 @@ class BindingSiteDetection:
         # call the function
         definition_method(Protein, BindingSiteSpecs, binding_site_output_path)
 
-    def compute_by_coordinates(self, Protein, BindingSiteSpecs, binding_site_output_path):
+    def compute_by_coordinates(self, Protein, BindingSiteSpecs):
+        """
+        TODO Add docstring
+        """
         Protein.binding_site_coordinates = BindingSiteSpecs.coordinates
 
     def compute_by_ligand(self, Protein, BindingSiteSpecs, binding_site_output_path):
+        """
+        TODO Add docstring
+        """
         ligand_object = pdb.extract_molecule_from_pdb_file(
             BindingSiteSpecs.protein_ligand_id,
             Protein.pdb_filepath,
@@ -69,6 +83,9 @@ class BindingSiteDetection:
         return
 
     def compute_by_detection(self, Protein, BindingSiteSpecs, binding_site_output_path):
+        """
+        TODO Add docstring
+        """
         # derive the relevant function name from detection method
         detection_method_name = "detect_by_" + BindingSiteSpecs.detection_method.name.lower()
         # get the function from its name
@@ -77,7 +94,9 @@ class BindingSiteDetection:
         detection_method(Protein, BindingSiteSpecs, binding_site_output_path)
 
     def detect_by_dogsitescorer(self, Protein, BindingSiteSpecs, binding_site_output_path):
-
+        """
+        TODO Add docstring
+        """
         if hasattr(Protein, "pdb_code"):
             self.dogsitescorer_pdb_id = Protein.pdb_code
         elif hasattr(Protein, "pdb_filepath"):
@@ -85,7 +104,7 @@ class BindingSiteDetection:
         else:
             raise AttributeError(f"Protein has neither `pdb_code` nor `pdb_filepath attributes.")
 
-        # try to get the chain_id for binding-site detection if it's available in input data
+        # try to get the chain_id for binding site detection if it's available in input data
         if BindingSiteSpecs.protein_chain_id != "":
             if hasattr(Protein, "chains") and BindingSiteSpecs.protein_chain_id in Protein.chains:
                 self.dogsitescorer_chain_id = BindingSiteSpecs.protein_chain_id
@@ -193,7 +212,7 @@ class BindingSiteDetection:
 
         Returns
         -------
-            NGLView viewer
+        nglview.widget.NGLWidget
             Viewer showing the given pocket.
         """
         if hasattr(self.Protein, "pdb_code"):
@@ -218,7 +237,7 @@ class BindingSiteDetection:
 
         Returns
         -------
-            NGLView viewer
+        nglview.widget.NGLWidget
             Viewer showing the given pocket.
         """
         return self.visualize(self.best_binding_site_name)

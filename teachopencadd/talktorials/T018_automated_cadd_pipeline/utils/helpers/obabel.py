@@ -18,29 +18,35 @@ def optimize_structure_for_docking(
     generate_3d_structure=False,
 ):
     """
-    Take a pybel structure object and prepare for docking.
+    Take a pybel structure object and prepare it for docking.
 
     Parameters
     ----------
-    pybel_structure_object : object
+    pybel_structure_object : openbabel.pybel.Molecule
         The structure to optimize.
-    add_hydrogens : bool (optional; default: True)
+    add_hydrogens : bool
+        Optional; default: True.
         Whether to add hydrogen atoms to the structure.
-    protonate_for_pH : float (optional; default: 7.4)
+    protonate_for_pH : float
+        Optional; default: 7.4
         pH value to protonate the structure at.
         If set to 0 or False, will not protonate.
-    calculate_partial_charges : bool (optional; default: True)
+    calculate_partial_charges : bool
+        Optional; default: True.
         Whether to calculate partial charges for each atom
-    generate_3d_structure : bool (optional; default: False)
+    generate_3d_structure : bool
+        Optional; default: False.
         Whether to generate a 3D conformation.
         Must be set to True if the pybel structure is 2D,
         for example is structure is made from SMILES string.
 
     Returns
     -------
-        None
+    None
         The structure object is optimized in place.
     """
+    print(pybel_structure_object, "optimize_structure_for_docking")
+
     if add_hydrogens:
         pybel_structure_object.addh()
     if protonate_for_pH:
@@ -70,7 +76,7 @@ def create_pdbqt_from_pdb_file(pdb_filepath, pdbqt_filepath, pH=7.4):
 
     Returns
     -------
-        Pybel Molecule object
+    openbabel.pybel.Molecule
         Molecule object of PDB file optimized for docking.
     """
     # readfile() provides an iterator over the Molecules in a file.
@@ -79,6 +85,7 @@ def create_pdbqt_from_pdb_file(pdb_filepath, pdbqt_filepath, pH=7.4):
     molecule = next(pybel.readfile("pdb", str(pdb_filepath)))
     optimize_structure_for_docking(molecule, protonate_for_pH=pH)
     molecule.write("pdbqt", str(pdbqt_filepath), overwrite=True)
+    print(molecule, "create_pdbqt_from_pdb_file")
     return molecule
 
 
@@ -96,10 +103,6 @@ def create_pdbqt_from_smiles(smiles, pdbqt_path, pH=7.4):
         Path to output PDBQT file.
     pH: float
         Protonation at given pH.
-
-    Returns
-    -------
-        None
     """
     molecule = pybel.readstring("smi", smiles)
     optimize_structure_for_docking(molecule, protonate_for_pH=pH, generate_3d_structure=True)
@@ -110,7 +113,7 @@ def create_pdbqt_from_smiles(smiles, pdbqt_path, pH=7.4):
 def split_multistructure_file(filetype, filepath, output_folder_path=None):
     """
     Split a multi-structure file into seperate files (with the same format)
-    for each structure.Each file is named with consecutive numbers (starting at 1)
+    for each structure. Each file is named with consecutive numbers (starting at 1)
     at the end of the original filename.
 
     Parameters
@@ -118,17 +121,17 @@ def split_multistructure_file(filetype, filepath, output_folder_path=None):
     filetype : str
         Type of the multimodel file to be split.
         Examples: 'sdf', 'pdb', 'pdbqt' etc.
-        For a full list of acceptable file-types, call pybel.informats
+        For a full list of acceptable file types, call pybel.informats
     filepath : str or pathlib.Path
         Path of the file to be split.
     output_folder_path : str or pathlib.Path
-        (optional; default: same folder as input filepath)
+        Optional; default: same folder as input filepath.
         Path of the output folder to save the split files.
 
     Returns
     -------
-        list of pathlib.Path objects
-        List of the full-paths for each split file.
+    list of pathlib.Path
+        List of the full paths for each split file.
     """
     filepath = Path(filepath)
     filename = filepath.stem
@@ -155,19 +158,19 @@ def merge_molecules_to_single_file(
 
     Parameters
     ----------
-    list_of_pybel_molecule_objects : list of pybel Molecule objects
+    list_of_pybel_molecule_objects : list of openbabel.pybel.Molecule
         List of molecule ojects to be merged into a single file.
     output_filetype : str
         Type of the output file.
         Examples: 'sdf', 'pdb', 'pdbqt' etc.
-        For a full list of acceptable file-types, call pybel.outformats
+        For a full list of acceptable file types, call pybel.outformats
     output_filepath : str or pathlib.Path
-        Path of the output file including file-name, but excluding extension.
+        Path of the output file including file name, but excluding extension.
 
     Returns
     -------
-        pathlib.Path object
-        Full-path (including extension) of the output file.
+    pathlib.Path
+        Full path (including extension) of the output file.
     """
     fullpath = Path(str(output_filepath) + "." + output_filetype)
 

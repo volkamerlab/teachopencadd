@@ -4,19 +4,19 @@ Contains NGLview-related functions.
 
 import time  # for creating pauses during the runtime (e.g. to wait for the response of API requests)
 
-import nglview as nv  # for visualization of the protein and protein-related data (e.g. binding sites, docking poses)
+import nglview as nv  # for visualization of the protein and protein-related data
 from ipywidgets import (
     AppLayout,
     Layout,
     Select,
 )  # for interactive outputs in the Jupyter Notebook
 from IPython.display import display
-import matplotlib as mpl  # for changing the display settings of plots (see bottom of the cell: Settings)
+import matplotlib as mpl  # for changing the display settings of plots (see Settings below)
 import matplotlib.pyplot as plt  # for plotting of data
 from matplotlib import (
     colors,
 )  # for plotting color-maps (for visualization of protein-ligand interactions)
-import numpy as np  # for some more functionalities when using Pandas (e.g. for handling NaN values)
+import numpy as np  # for more functionalities when using Pandas (e.g. for handling NaN values)
 import pandas as pd  # for creating dataframes and handling data
 
 # Settings:
@@ -26,22 +26,23 @@ mpl.rcParams["agg.path.chunksize"] = 10000  # for handling plots with large numb
 
 def protein(input_type, input_value, output_image_filename=None):
     """
-    Contain all the necessary functions for visualizing protein data
+    Visualizing protein data.
 
     Parameters
     ----------
     input_type : str
         Either "pdb_code" or a file extension e.g. "pdb".
-    input_value: str or pathlib.Path object
-        Either the PDB-code of the protein, or a local filepath.
-    output_image_filename : str (optional; default: None)
+    input_value: str or pathlib.Path
+        Either the PDB code of the protein or a local filepath.
+    output_image_filename : str
+        Optional; default: None.
         Filename to save a static image of the protein.
 
     Returns
     -------
-        NGLViewer object
-        Interactive NGL viewer of the given Protein
-        and (if available) its co-crystallized ligand.
+    nglview.widget.NGLWidget
+        Interactive NGL viewer visualizing a given protein and (if available) its co-crystallized
+        ligand.
     """
 
     if input_type == "pdb_code":
@@ -63,20 +64,21 @@ def protein(input_type, input_value, output_image_filename=None):
 
 def binding_site(protein_input_type, protein_input_value, ccp4_filepath):
     """
-    3D visualization of a binding pocket using a CCP4 file.
+    Visualize a binding pocket in 3D using a CCP4 file.
 
     Parameters
     ----------
     protein_input_type : str
         Either "pdb_code" or a file extension e.g. "pdb".
-    protein_input_value: str or pathlib.Path object
-        Either the PDB-code of the protein, or a local filepath.
+    protein_input_value: str or pathlib.Path
+        Either the PDB code of the protein, or a local filepath.
     ccp4_filepath : str
         Local file path of the output of the Binding Site Detection.
 
     Returns
     -------
-    NGL viewer that visualizes the selected pocket at its respective position.
+    nglview.widget.NGLWidget
+        Interactive NGL viewer visualizing the selected pocket at its respective position.
     """
     viewer = protein(protein_input_type, protein_input_value)
     with open(ccp4_filepath, "rb") as f:
@@ -95,29 +97,28 @@ def docking(
     list_docking_poses_affinities,
 ):
     """
-    Visualize a list of docking poses
-    in the protein structure, using NGLView.
+    Visualize a list of docking poses in the protein structure, using NGLView.
 
     Parameters
     ----------
-    protein_filepath : str or pathlib.Path object
+    protein_filepath : str or pathlib.Path
         Filepath of the extracted protein structure used in docking experiment.
     protein_file_extension : str
         File extension of the protein file, e.g. "pdb", "pdbqt" etc.
-    list_docking_poses_filepaths : list of strings/pathlib.Path objects
+    list_docking_poses_filepaths : list of str or pathlib.Path
         List of filepaths for the separated docking poses.
     docking_poses_file_extension : str
         File extension of the docking-pose files, e.g. "pdb", "pdbqt" etc.
-    list_docking_poses_labels : list of strings
+    list_docking_poses_labels : list of str
         List of labels for docking poses to be used for the selection menu.
-    list_docking_poses_affinities : list of strings/numbers
+    list_docking_poses_affinities : list of str or float
         List of binding affinities in kcal/mol, to be viewed for each docking pose.
 
     Returns
     -------
-        NGLView viewer
+    nglview.widget.NGLWidget
         Interactive viewer containing the protein structure and all docking poses,
-        with menu to select between docking poses.
+        with a menu to select between docking poses.
     """
 
     # JavaScript code needed to update residues around the ligand
@@ -140,7 +141,6 @@ def docking(
 
     with open(protein_filepath) as f:
         viewer.add_component(f, ext=protein_file_extension)
-    # viewer.add_representation("cartoon", selection="protein")
     # Select first atom in molecule (@0) so it holds the affinity label
     label_kwargs = dict(
         labelType="text",
@@ -160,8 +160,8 @@ def docking(
         ngl_ligand.add_label(labelText=[str(ligand_label)], **label_kwargs)
 
     # Create selection widget
-    #   Options is a list of (text, value) tuples. When we click on select, the value will be passed
-    #   to the callable registered in `.observe(...)`
+    # Options is a list of (text, value) tuples. When we click on select, the value will be passed
+    # to the callable registered in `.observe(...)`
     selector = Select(
         options=[(label, i) for (i, label) in enumerate(list_docking_poses_labels, 1)],
         description="",
@@ -203,6 +203,32 @@ def interactions(
     list_docking_poses_affinities,
     list_docking_poses_plip_dicts,
 ):
+    """
+    Visualize protein-ligand interactions.
+
+    Parameters
+    ----------
+    protein_filepath : str or pathlib.Path
+        Filepath of the extracted protein structure used in docking experiment.
+    protein_file_extension : str
+        File extension of the protein file, e.g. "pdb", "pdbqt" etc.
+    list_docking_poses_filepaths : list of str or pathlib.Path
+        List of filepaths for the separated docking poses.
+    docking_poses_file_extension : str
+        File extension of the docking-pose files, e.g. "pdb", "pdbqt" etc.
+    list_docking_poses_labels : list of str
+        List of labels for docking poses to be used for the selection menu.
+    list_docking_poses_affinities : list of str or float
+        List of binding affinities in kcal/mol, to be viewed for each docking pose.
+    list_docking_poses_plip_dicts : TODO
+        TODO
+
+    Returns
+    -------
+    nglview.widget.NGLWidget
+        Interactive viewer containing the protein structure, all docking poses, and the
+        interactions between them, with a menu to select between docking poses.
+    """
 
     color_map = {
         "hydrophobic": [0.90, 0.10, 0.29],

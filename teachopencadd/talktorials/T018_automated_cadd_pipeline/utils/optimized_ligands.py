@@ -13,9 +13,29 @@ class OptimizedLigands:
     The automated selection process of optimized analog(s) at the end of the pipeline.
     Take in the whole project, create a short summary of results, and select the best
     optimized analogs based on user's specifications defined in the input data.
+
+    Attributes
+    ----------
+    TODO
+    _project
+    higher_affinity_poses
+    higher_affinity_analogs
+    higher_interacting_poses
+    higher_interacting_analogs
+    higher_affinity_and_interacting_poses
+    higher_affinity_and_interacting_analogs
+    higher_affinity_and_interacting_and_druglike_analogs
     """
 
     def __init__(self, project):
+        """
+        Initialize the selection of optimized ligands.
+
+        Parameters
+        ----------
+        project : utils.LeadOptimizationPipeline
+            Project from which the ligands shall be selected.
+        """
 
         self._project = project
 
@@ -97,27 +117,45 @@ class OptimizedLigands:
         ]
 
     def show_higher_affinity_analogs(self):
+        """
+        TODO
+        """
         for analog in self.higher_affinity_analogs:
             display(analog())
 
     def show_higher_interacting_analogs(self):
+        """
+        TODO
+        """
         for analog in self.higher_interacting_analogs:
             display(analog())
 
     def show_higher_affinity_and_interacting_analogs(self):
+        """
+        TODO
+        """
         for analog in self.higheraffinity_and_interacting_analogs:
             display(analog())
 
     def show_higher_affinity_and_interacting_and_druglike_analogs(self):
+        """
+        TODO
+        """
         for analog in self.higher_affinity_and_interacting_and_druglike_analogs:
             display(analog)
 
     def show_final_output(self):
+        """
+        TODO
+        """
         for analog in self.output:
             display(analog())
 
     def __call__(self):
         def pprint(text1, text2):
+            """
+            TODO
+            """
             display(
                 Markdown(
                     f"<span style='color:blue'>{text1}</span><span style='color:black'>{text2}</span>"

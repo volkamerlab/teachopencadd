@@ -17,17 +17,25 @@ class LigandSimilaritySearch:
     and the corresponding output path, and automatically run all the necessary
     processes to output a set of analogs with the highest drug-likeness scores.
 
-    Parameters
+    Attributes
     ----------
-    Ligand_obj : Ligand object
-        The Protein object of the project.
-    BindingSiteSpecs : Specs.BindingSite object
-        The binding-site specification data-class of the project.
-    binding_site_output_path : str or pathlib.Path object
-        Output path of the project's binding-site information.
+    TODO
+    all_analogs
     """
 
     def __init__(self, Ligand_obj, SimilaritySearchSpecs, similarity_search_output_path):
+        """
+        Initialize the ligand similarity search.
+
+        Parameters
+        ----------
+        Ligand_obj : utils.Ligand
+            The Ligand object of the project.
+        SimilaritySearchSpecs : utils.Specs.SimilaritySearchSpecs
+            The similarity search specification data-class of the project.
+        similarity_search_output_path : str or pathlib.Path
+            Output path of the project's similarity search information.
+        """
 
         if (
             SimilaritySearchSpecs.search_engine
