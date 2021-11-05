@@ -45,7 +45,6 @@ def optimize_structure_for_docking(
     None
         The structure object is optimized in place.
     """
-    print(pybel_structure_object, "optimize_structure_for_docking")
 
     if add_hydrogens:
         pybel_structure_object.addh()
@@ -85,7 +84,6 @@ def create_pdbqt_from_pdb_file(pdb_filepath, pdbqt_filepath, pH=7.4):
     molecule = next(pybel.readfile("pdb", str(pdb_filepath)))
     optimize_structure_for_docking(molecule, protonate_for_pH=pH)
     molecule.write("pdbqt", str(pdbqt_filepath), overwrite=True)
-    print(molecule, "create_pdbqt_from_pdb_file")
     return molecule
 
 
