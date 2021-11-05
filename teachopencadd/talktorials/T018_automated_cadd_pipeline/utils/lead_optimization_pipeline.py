@@ -89,8 +89,8 @@ class LeadOptimizationPipeline:
         # TODO once ProteinsPlus is back
         # Remove line below and remove comment block above
         project.Protein.binding_site_coordinates = {
-            "center": [16.55, 23.34, 1.31],
-            "size": [26.14, 26.14, 26.14],
+            "center": [15.91, 32.33, 11.03],
+            "size": [24.84, 24.84, 24.84],
         }
 
         # Search similar ligands
