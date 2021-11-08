@@ -294,9 +294,6 @@ def similarity_search(
                 APIConsts.ResponseMsgs.SimilaritySearch.RESULT_KEY1.value
             ][APIConsts.ResponseMsgs.SimilaritySearch.RESULT_KEY2.value]
             break
-        else:
-            # FIXME action needed?
-            pass
         time.sleep(10)
         num_attempts += 1
     else:
