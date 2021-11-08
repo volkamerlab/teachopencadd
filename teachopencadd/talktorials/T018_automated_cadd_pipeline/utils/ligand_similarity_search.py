@@ -40,7 +40,7 @@ class LigandSimilaritySearch:
             containing the columns "CID" and "CanonicalSMILES" for the analogs.
         """
 
-        if not frozen_data is None:
+        if not frozen_data_filepath is None:
             all_analog_identifiers_df = pd.read_csv(frozen_data_filepath)
         elif (
             SimilaritySearchSpecs.search_engine
