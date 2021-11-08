@@ -31,7 +31,7 @@ class LigandSimilaritySearch:
         ----------
         Ligand_obj : utils.Ligand
             The Ligand object of the project.
-        SimilaritySearchSpecs : utils.Specs.SimilaritySearchSpecs
+        SimilaritySearchSpecs : utils.Specs.LigandSimilaritySearch
             The similarity search specification data-class of the project.
         similarity_search_output_path : str or pathlib.Path
             Output path of the project's similarity search information.
