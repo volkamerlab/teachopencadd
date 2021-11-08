@@ -30,7 +30,7 @@ class LeadOptimizationPipeline:
         self.name = project_name
 
     @classmethod
-    def run(cls, project_name, input_data_filepath, output_data_root_folder_path):
+    def run(cls, project_name, input_data_filepath, output_data_root_folder_path, frozen_data_filepath=None):
         """
         Automatically run the whole lead optimization pipeline to completion,
         and print out a summary in real-time.
@@ -78,26 +78,20 @@ class LeadOptimizationPipeline:
         project._report_processed_ligand("4. Processing Ligand Data")
 
         # Detect binding site
-        """
         project.BindingSiteDetection = BindingSiteDetection(
             project.Protein,
             project.Specs.BindingSite,
             project.Specs.OutputPaths.binding_site_detection,
         )
         project._report_detected_binding_site("5. Binding Site Detection")
-        """
-        # TODO once ProteinsPlus is back
-        # Remove line below and remove comment block above
-        project.Protein.binding_site_coordinates = {
-            "center": [15.91, 32.33, 11.03],
-            "size": [24.84, 24.84, 24.84],
-        }
+        
 
         # Search similar ligands
         project.LigandSimilaritySearch = LigandSimilaritySearch(
             project.Ligand,
             project.Specs.LigandSimilaritySearch,
             project.Specs.OutputPaths.similarity_search,
+            frozen_data_filepath
         )
         project._report_similar_ligands("6. Ligand Similarity Search")
 
