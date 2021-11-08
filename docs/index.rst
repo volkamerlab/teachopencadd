@@ -31,8 +31,8 @@ Table of contents
    :maxdepth: 1
    :caption: Our talktorials
 
-   talktorials
    all_talktorials
+   talktorials
 
 .. toctree::
    :maxdepth: 1
@@ -51,7 +51,8 @@ Table of contents
    :maxdepth: 1
    :caption: External resources
 
-   external_resources
+   external_dependencies
+   external_tutorials_collections
 
 
 Citation
@@ -61,6 +62,7 @@ If you make use of the TeachOpenCADD material in scientific publications, please
 
 - `TeachOpenCADD Jupyter Notebooks: Talktorials T001-T010 <https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x>`_
 - `TeachOpenCADD KNIME workflows <https://pubs.acs.org/doi/10.1021/acs.jcim.9b00662>`_
+- `How to use the TeachOpenCADD material for teaching? <https://pubs.acs.org/doi/abs/10.1021/bk-2021-1387.ch010>`_
 
 It will help measure the impact of the TeachOpenCADD platform and future funding!
 
@@ -90,12 +92,23 @@ It will help measure the impact of the TeachOpenCADD platform and future funding
       year = {2019}
    }
 
+   @inbook{doi:10.1021/bk-2021-1387.ch010,
+      author = {Sydow, Dominique and Rodríguez-Guerra, Jaime and Volkamer, Andrea},
+      title = {Teaching Computer-Aided Drug Design Using TeachOpenCADD},
+      booktitle = {Teaching Programming across the Chemistry Curriculum},
+      chapter = {10},
+      pages = {135-158},
+      doi = {10.1021/bk-2021-1387.ch010},
+      URL = {https://pubs.acs.org/doi/abs/10.1021/bk-2021-1387.ch010},
+   }
+
 
 Funding
 -------
 
 Volkamer Lab's projects are supported by several public funding sources
 (for more info see our `webpage <https://volkamerlab.org/>`_).
+
 
 License
 -------
