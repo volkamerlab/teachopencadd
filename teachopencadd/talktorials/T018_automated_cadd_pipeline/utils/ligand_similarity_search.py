@@ -23,7 +23,7 @@ class LigandSimilaritySearch:
     all_analogs
     """
 
-    def __init__(self, Ligand_obj, SimilaritySearchSpecs, similarity_search_output_path):
+    def __init__(self, Ligand_obj, SimilaritySearchSpecs, similarity_search_output_path, frozen_data_filepath=None):
         """
         Initialize the ligand similarity search.
 
@@ -35,9 +35,14 @@ class LigandSimilaritySearch:
             The similarity search specification data-class of the project.
         similarity_search_output_path : str or pathlib.Path
             Output path of the project's similarity search information.
+        frozen_data_filepath : str or pathlib.Path
+            If existing data is to be used, provide the path to a csv file
+            containing the columns "CID" and "CanonicalSMILES" for the analogs.
         """
 
-        if (
+        if not frozen_data is None:
+            all_analog_identifiers_df = pd.read_csv(frozen_data_filepath)
+        elif (
             SimilaritySearchSpecs.search_engine
             is Consts.LigandSimilaritySearch.SearchEngines.PUBCHEM
         ):
@@ -46,11 +51,11 @@ class LigandSimilaritySearch:
                 SimilaritySearchSpecs.min_similarity_percent,
                 SimilaritySearchSpecs.max_num_results,
             )
+            all_analog_identifiers_df = pd.DataFrame(analogs_info)
         else:
             raise ValueError(f"Search engine unknown: {SimilaritySearchSpecs.search_engine}")
 
         # create dataframe from initial results
-        all_analog_identifiers_df = pd.DataFrame(analogs_info)
         all_analog_identifiers_df["Mol"] = all_analog_identifiers_df["CanonicalSMILES"].apply(
             lambda smiles: rdkit.create_molecule_object("smiles", smiles)
         )
