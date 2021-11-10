@@ -277,7 +277,7 @@
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#install-from-the-conda-package" class="md-nav__link">Install from the conda package</a>
         </li>
-        <li class="md-nav__item"><a href="#id1" class="md-nav__link">Install from the latest development snapshot</a>
+        <li class="md-nav__item"><a href="#install-from-the-latest-development-snapshot" class="md-nav__link">Install from the latest development snapshot</a>
         </li></ul>
             </nav>
         </li>
@@ -297,7 +297,7 @@
     <li class="md-nav__item">
     
     
-      <a href="#id1" class="md-nav__link">Install from the latest development snapshot</a>
+      <a href="#install-from-the-latest-development-snapshot" class="md-nav__link">Install from the latest development snapshot</a>
       
     
     </li></ul>
@@ -359,7 +359,7 @@
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#install-from-the-conda-package" class="md-nav__link">Install from the conda package</a>
         </li>
-        <li class="md-nav__item"><a href="#id1" class="md-nav__link">Install from the latest development snapshot</a>
+        <li class="md-nav__item"><a href="#install-from-the-latest-development-snapshot" class="md-nav__link">Install from the latest development snapshot</a>
         </li></ul>
             </nav>
         </li>
@@ -379,16 +379,16 @@
             
   <section id="installing">
 <h1 id="installing--page-root">Installing<a class="headerlink" href="#installing--page-root" title="Permalink to this headline">¶</a></h1>
-<section id="install-from-the-conda-package">
-<h2 id="install-from-the-conda-package">Install from the conda package<a class="headerlink" href="#install-from-the-conda-package" title="Permalink to this headline">¶</a></h2>
-<p>Eventually, we will have a <code class="docutils literal notranslate"><span class="pre">conda</span></code> package, but for now you need to create a new environment manually.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>We are assuming you have a working <code class="docutils literal notranslate"><span class="pre">conda</span></code> installation in your computer. If this is not the case, please refer to the official documentation <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/#regular-installation">here</a>. We recommend using Miniconda.</p>
+<p>We are assuming you have a working <code class="docutils literal notranslate"><span class="pre">mamba</span></code> installation in your computer.
+If this is not the case, please refer to their <a class="reference external" href="https://mamba.readthedocs.io/en/latest/installation.html#mamba">official documentation</a>.</p>
 </div>
+<section id="install-from-the-conda-package">
+<h2 id="install-from-the-conda-package">Install from the conda package<a class="headerlink" href="#install-from-the-conda-package" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p>Create a new conda environment for TeachOpenCADD:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda env create -f https://raw.githubusercontent.com/volkamerlab/TeachOpenCADD/master/devtools/other-conda-envs/users_env.yml
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mamba install teachopencadd
 </pre></div>
 </div>
 </li>
@@ -398,24 +398,29 @@
 </div>
 </li>
 <li><p>Run <code class="docutils literal notranslate"><span class="pre">teachopencadd</span> <span class="pre">-h</span></code> to test that it works.</p></li>
-<li><p>[WIP 🚧] Run <code class="docutils literal notranslate"><span class="pre">teachopencadd</span> <span class="pre">start</span> <span class="pre">.</span></code> to set up a new workspace. This step is not fully functional yet. Please refer to <a class="reference external" href="https://projects.volkamerlab.org/teachopencadd/installing.html#install-from-the-latest-development-snapshot">Install from the latest development snapshot</a> for manual steps.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">teachopencadd</span> <span class="pre">start</span> <span class="pre">.</span></code> to set up a new workspace.</p></li>
 </ol>
 </section>
-<section id="id1">
-<h2 id="id1">Install from the latest development snapshot<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>If you have already created a <em>conda environment</em> and it has been activated  (see above), the next step is downloading a copy of the current state of the <a class="reference external" href="https://github.com/volkamerlab/teachopencadd">GitHub repository</a>.</p>
-<ol class="arabic simple">
+<section id="install-from-the-latest-development-snapshot">
+<h2 id="install-from-the-latest-development-snapshot">Install from the latest development snapshot<a class="headerlink" href="#install-from-the-latest-development-snapshot" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Create a new conda environment:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mamba env create -f https://raw.githubusercontent.com/volkamerlab/TeachOpenCADD/master/devtools/test_env.yml
+</pre></div>
+</div>
+</li>
 <li><p>Download a zipfile of the repository using <a class="reference external" href="https://github.com/volkamerlab/teachopencadd/archive/master.zip">this link</a>.</p></li>
 <li><p>Unzip to your location of choice.</p></li>
-<li><p>Navigate to <code class="docutils literal notranslate"><span class="pre">path/to/your/location/teachopencadd-master/talktorials</span></code>.</p></li>
+<li><p>Navigate to your location.</p></li>
 <li><p>Start Jupyter Lab.</p></li>
 <li><p>Double click on the lesson you want to start.</p></li>
 </ol>
+<p>Steps 2 to 5 are summarized below.</p>
 <details>
 <summary>Instructions for Linux / MacOS</summary><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget https://github.com/volkamerlab/teachopencadd/archive/master.zip -O teachopencadd.zip
 mkdir -p ~/Documents
 unzip teachopencadd.zip -d ~/Documents
-<span class="nb">cd</span> ~/Documents/teachopencadd-master/talktorials
+<span class="nb">cd</span> ~/Documents/teachopencadd-master/teachopencadd/talktorials
 jupyter lab
 </pre></div>
 </div>
@@ -423,7 +428,7 @@ jupyter lab
 <summary>Instructions for Windows (PowerShell)</summary><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>wget https://github.com/volkamerlab/teachopencadd/archive/master.zip -O teachopencadd.zip
 mkdir ~/Documents/
 Expand-Archive teachopencadd.zip -d ~/Documents
-cd ~/Documents/teachopencadd-master/talktorials
+cd ~/Documents/teachopencadd-master/teachopencadd/talktorials
 jupyter lab
 </pre></div>
 </div>
