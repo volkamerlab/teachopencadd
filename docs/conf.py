@@ -61,6 +61,7 @@ extensions = [
     "nbsphinx_link",
     "IPython.sphinxext.ipython_console_highlighting",
     "sphinx_copybutton",
+    "sphinxext.opengraph",
 ]
 
 autosummary_generate = True
