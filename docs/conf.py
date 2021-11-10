@@ -221,3 +221,11 @@ html_css_files = [
     "custom.css",
 ]
 html_js_files = []
+
+
+# -- Extension for opengraph -------------------------------------------------
+
+ogp_site_url = "https://projects.volkamerlab.org/teachopencadd/"
+ogp_image = "https://github.com/volkamerlab/teachopencadd/blob/master/docs/_static/images/TeachOpenCADD_topics.svg"
+ogp_description_length = 300
+ogp_type = "website"
