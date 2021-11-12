@@ -99,8 +99,8 @@ def test_start_workspace():
         if ("checkpoint" not in str(file)) or ("__pycache__" not in str(file))
     ]
     # The same number of files?
-    assert files_list_test == files_list_template
-    # assert len(files_list_test) == len(files_list_template)
+    # assert files_list_test == files_list_template
+    assert len(files_list_test) == len(files_list_template)
 
     # At the very end: Delete TeachOpenCADD talktorial folder
     shutil.rmtree(TALKTORIAL_FOLDER_NAME)
