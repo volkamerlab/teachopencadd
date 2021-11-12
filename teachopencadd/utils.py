@@ -2,6 +2,11 @@
 Helper functions and constants for the TeachOpenCADD talktorials
 """
 
+from pathlib import Path
+import sys
+
+from . import _version
+
 
 def seed_everything(seed=22):
     """Set the RNG seed in Python and Numpy"""
@@ -25,8 +30,7 @@ def show_pdf(pdf_url):
     -----
     You might need to click "File> Trust this notebook for this live PDF preview to work".
     """
-    import requests
-    from IPython.display import HTML
+    from IPython.display import display, HTML
 
     display(
         HTML(
