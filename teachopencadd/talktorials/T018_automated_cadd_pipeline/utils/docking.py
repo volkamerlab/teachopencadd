@@ -2,6 +2,8 @@
 Contains docking class.
 """
 
+from pathlib import Path
+
 import pandas as pd  # for creating dataframes and handling data
 
 from .helpers import obabel, smina, pdb, nglview
@@ -24,6 +26,7 @@ class Docking:
         list_Ligand_objects,
         DockingSpecs_object,
         docking_output_path,
+        frozen_data_filepath=None,
     ):
         """
         Initialize docking.
@@ -38,7 +41,17 @@ class Docking:
             Specifications for the docking experiment.
         docking_output_path : str or pathlib.Path
             Output folder path to store the docking data in.
+        frozen_data_filepath : str or pathlib.Path
+            If existing data is to be used, provide the path to a folder
+            containing the pdbqt files for
+            (a) the protein `<PDBcode>_extracted_protein_ready_for_docking.pdbqt` and
+            (b) all previously defined ligands/analogs `CID_<CID>.pdbqt`.
         """
+
+        docking_output_path = Path(docking_output_path)
+        if frozen_data_filepath is not None:
+            frozen_data_filepath = Path(frozen_data_filepath)
+
         self.pdb_filepath_extracted_protein = docking_output_path / (
             Protein_object.pdb_code + "_extracted_protein.pdb"
         )
@@ -46,20 +59,32 @@ class Docking:
             "protein", Protein_object.pdb_filepath, self.pdb_filepath_extracted_protein
         )
 
-        self.pdbqt_filepath_extracted_protein = docking_output_path / (
-            Protein_object.pdb_code + "_extracted_protein_ready_for_docking.pdbqt"
-        )
-
-        obabel.create_pdbqt_from_pdb_file(
-            self.pdb_filepath_extracted_protein, self.pdbqt_filepath_extracted_protein
-        )
+        if frozen_data_filepath is not None:
+            # Set path to frozen PDBQT files
+            self.pdbqt_filepath_extracted_protein = frozen_data_filepath / (
+                Protein_object.pdb_code + "_extracted_protein_ready_for_docking.pdbqt"
+            )
+        else:
+            # Generate PDBQT files
+            self.pdbqt_filepath_extracted_protein = docking_output_path / (
+                Protein_object.pdb_code + "_extracted_protein_ready_for_docking.pdbqt"
+            )
+            obabel.create_pdbqt_from_pdb_file(
+                self.pdb_filepath_extracted_protein, self.pdbqt_filepath_extracted_protein
+            )
 
         temp_list_results_df = []
         temp_list_master_df = []
 
         for ligand in list_Ligand_objects:
-            ligand.pdbqt_filepath = docking_output_path / ("CID_" + ligand.cid + ".pdbqt")
-            obabel.create_pdbqt_from_smiles(ligand.remove_counterion(), ligand.pdbqt_filepath)
+
+            if frozen_data_filepath is not None:
+                # Set path to frozen PDBQT files
+                ligand.pdbqt_filepath = frozen_data_filepath / ("CID_" + ligand.cid + ".pdbqt")
+            else:
+                # Generate PDBQT files
+                ligand.pdbqt_filepath = docking_output_path / ("CID_" + ligand.cid + ".pdbqt")
+                obabel.create_pdbqt_from_smiles(ligand.remove_counterion(), ligand.pdbqt_filepath)
 
             ligand.docking_poses_filepath = docking_output_path / (
                 "CID_" + ligand.cid + "_docking_poses.pdbqt"
