@@ -30,7 +30,13 @@ class LeadOptimizationPipeline:
         self.name = project_name
 
     @classmethod
-    def run(cls, project_name, input_data_filepath, output_data_root_folder_path, frozen_data_filepath=None):
+    def run(
+        cls,
+        project_name,
+        input_data_filepath,
+        output_data_root_folder_path,
+        frozen_data_filepath={"ligand_similarity_search": None, "docking": None},
+    ):
         """
         Automatically run the whole lead optimization pipeline to completion,
         and print out a summary in real-time.
@@ -43,6 +49,15 @@ class LeadOptimizationPipeline:
             Filepath of the input CSV file containing all the specifications of the project.
         output_data_root_folder_path : str or pathlib.Path
             Root folder path to save the pipeline's data in.
+        frozen_data_filepath : dict of str or pathlib.Path
+            "ligand_similarity_search":
+                If existing data is to be used, provide the path to a csv file
+                containing the columns "CID" and "CanonicalSMILES" for the analogs.
+            "docking":
+                If existing data is to be used, provide the path to a folder
+                containing the pdbqt files for
+                (a) the protein `<PDBcode>_extracted_protein_ready_for_docking.pdbqt` and
+                (b) all previously defined ligands/analogs `CID_<CID>.pdbqt`.
 
         Returns
         -------
@@ -84,14 +99,13 @@ class LeadOptimizationPipeline:
             project.Specs.OutputPaths.binding_site_detection,
         )
         project._report_detected_binding_site("5. Binding Site Detection")
-        
 
         # Search similar ligands
         project.LigandSimilaritySearch = LigandSimilaritySearch(
             project.Ligand,
             project.Specs.LigandSimilaritySearch,
             project.Specs.OutputPaths.similarity_search,
-            frozen_data_filepath
+            frozen_data_filepath["ligand_similarity_search"],
         )
         project._report_similar_ligands("6. Ligand Similarity Search")
 
@@ -101,12 +115,14 @@ class LeadOptimizationPipeline:
             list(project.Ligand.analogs.values()),
             project.Specs.Docking,
             project.Specs.OutputPaths.docking,
+            frozen_data_filepath["docking"],
         )
         project.Ligand.Docking = Docking(
             project.Protein,
             [project.Ligand],
             project.Specs.Docking,
             project.Specs.OutputPaths.ligand,
+            frozen_data_filepath["docking"],
         )
         project._report_docked_poses("7. Docking Experiment")
 
