@@ -35,7 +35,7 @@ For each topic, an interactive Jupyter Notebook is offered, using open source pa
 > (and tell your students to star) those repositories you consider useful for your learning/teaching activities.
 
 <p align="center">
-  <img src="docs/_static/images/TeachOpenCADD_topics.svg" alt="TeachOpenCADD topics" width="800"/>
+  <img src="docs/_static/images/TeachOpenCADD_topics.png" alt="TeachOpenCADD topics" width="800"/>
   <br>
   <font size="1">
   Figure adapted from Figure 1 in the TeachOpenCADD publication
