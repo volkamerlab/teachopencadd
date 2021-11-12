@@ -1,0 +1,25 @@
+Subject,Property,Value,Description
+Protein,Input Type*,,"Allowed: 'pdb_code', 'pdb_filepath'."
+Protein,Input Value*,,Either a valid PDB-code or a local filepath to a PDB-file
+Ligand,Input Type*,,"Allowed: 'smiles', 'cid', 'inchi', 'inchikey', 'iupac_name', 'name' (Note that 'name' and 'iupac_name' identifiers do not work for all compounds)."
+Ligand,Input Value*,,"Identifier value corresponding to given input type, e.g. SMILES or CID number."
+Binding Site,Definition Method,,"Definition method for the protein binding site. Allowed: 'coordinates', 'ligand', 'detection'. Default: detection"
+Binding Site,Coordinates,,"If Definition Method is 'coordinates', enter the coordinates here. The coordinates should be entered as six numbers separated by spaces in the following order: center_x center_y center_z size_x size_y size_z."
+Binding Site,Ligand,,"If the Definition Method is 'ligand', enter the ligand-ID (as specified in the PDB file) here."
+Binding Site,Detection Method,,"If the Definition Method is 'detection', enter the detection method here. Allowed: 'dogsitescorer'. Default: dogsitescorer"
+Binding Site,Protein Chain-ID,,"If the Definition Method is 'detection', optionally a specific chain-ID can be given here, so that detection is only performed on that chain alone."
+Binding Site,Protein Ligand-ID,,"If the Definition Method is 'detection', optionally a specific ligand-ID present in the PDB file can be given here, so that the ligand coverage is also considered in the detection results."
+Binding Site,Selection Method,,"If the Detection Method is 'dogsitescorer', a selection method should be specified in order to select the best detected binding site. Allowed: 'sorting', 'function'. Default: sorting."
+Binding Site,Selection Criteria,,"If the Selection Method is 'function', a valid Python function manipulating the detection results should be entered here. If the Selection Method is 'sorting', a list of binding-site properties to sort the detected binding-sites should be entered here. For more details see the Supplementary Information chapter of the notebook. Default for 'sorting': lig_cov, poc_cov. Default for 'function': (df['drugScore'] + df['simpleScore']) / df['volume']."
+Ligand Similarity Search,Search Engine,,Search engine used for the similarity search. Allowed: 'pubchem'. Default: pubchem
+Ligand Similarity Search,Minumum Similarity [%],,Threshold of similarity (in percent) for finding analogs. Default: 80
+Ligand Similarity Search,Maximum Number of Results,,Maximum number of analogs to retrieve from the similarity search. Default: 100
+Ligand Similarity Search,Maximum Number of Most Drug-Like Analogs to Continue With,,Maximum number of analogs with highest drug-likeness to perform docking on. Default: 30
+Docking,Program,,The docking program to use. Allowed: 'smina'. Default: smina
+Docking,Number of Docking Poses per Ligand,,Number of docking poses to generate for each ligand. Default: 5
+Docking,Exhaustiveness,,Exhaustiveness for sampling the conformation space of ligand. Default: 10
+Docking,Random Seed,,Random seed for the docking algorithm to make the results deterministic. Default: None
+Interaction Analysis,Program,,The program to use for protein-ligand interaction analysis. Allowed: 'plip'. Default: plip
+Optimized Ligand,Number of Results,,Number of optimized ligands to output at the end. Default: 1
+Optimized Ligand,Selection Method,,"Method to select the best optimized ligand(s). Allowed: 'sorting', 'function'. Default: sorting"
+Optimized Ligand,Selection Criteria,,"If the Selection Method is 'function', a valid Python function manipulating the parameters should be entered here. If the Selection Method is 'sorting', a list of parameters to sort the optimized ligands should be entered here. Allowed parameters are: 'affinity', 'h_bond', 'hydrophobic', 'salt_bridge', 'water_bridge', 'pi_stacking', 'pi_cation', 'halogen', 'metal', 'total_num_interactions', 'drug_score_total'. Default: affinity, total_num_interactions, drug_score_total. For more details see the Supplementary Information chapter of the notebook."
