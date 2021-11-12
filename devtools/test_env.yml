@@ -1,46 +1,51 @@
 ﻿name: teachopencadd
 channels:
   - conda-forge
+  - defaults
 dependencies:
-  - python>=3.6
+  - python>=3.7
   - pip
   - jupyter
   - jupyterlab>=3
-  - rdkit>=2021.03
-  - scikit-learn
-  - biopandas
-  - seaborn
-  - pypdb
-  - requests-cache
-  - chembl_webresource_client
-  - nglview
-  - requests
-  - openbabel
-  - tqdm
-  - lxml
-  - bravado
-  - beautifulsoup4
-  - ipywidgets>=7.5
   - nglview>=3
-  - biotite
-  - mdanalysis>=1.0.0
-  - plip
+  - ipywidgets>=7.5
+  # Explicitly add numpy because of https://github.com/volkamerlab/teachopencadd/issues/150
+  - numpy
+  - scikit-learn
+  - tensorflow>=2.0
+  - seaborn
+  - matplotlib-venn
+  # Remove jsonschema once this issue is fixed: https://github.com/Yelp/bravado/issues/478
+  - jsonschema<4.0.0
+  - bravado
+  - requests
+  - requests-cache
+  - redo
+  - suds-community
+  - beautifulsoup4
+  - chembl_webresource_client
+  - pypdb
   - biopython<=1.77
+  - biopandas
+  - rdkit
+  - openbabel
+  - opencadd
+  - biotite
+  - smina
+  - mdanalysis>=1.0.0
   - mdtraj
+  - plip
   - openmm
   # depends on openff-toolkit->ambertools -> not available on Windows yet!
   # - openmmforcefields
   - pdbfixer
-  - redo
-  - requests-cache
-  - suds-community
-  - tensorflow>=2.0
-  - smina
-  - matplotlib-venn
+  - tqdm
+  - lxml
   ## CI tests
   # Workaround for https://github.com/computationalmodelling/nbval/issues/153
   - pytest 5.*
   - pytest-xdist
+  - pytest-cov
   - nbval
   - shyaml
   ## Docs
@@ -55,7 +60,6 @@ dependencies:
   - pip:
       - black-nb
       - nbsphinx-link
-      - https://github.com/jaimergp/autodocktools-prepare-py3k/archive/master.zip
-      - https://github.com/volkamerlab/opencadd/archive/c860671ae88eb84afdd6ef599a4ecea9587c123c.zip
+      - sphinxext-opengraph
       # TeachOpenCADD itself
       - ../

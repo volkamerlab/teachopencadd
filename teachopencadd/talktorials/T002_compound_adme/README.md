@@ -13,7 +13,7 @@ __Talktorial T002__: This talktorial is part of the TeachOpenCADD pipeline descr
 
 ## Aim of this talktorial
 
-In the context of drug design, it is important to filter candidate molecules by e.g. their physicochemical properties. In this talktorial, the compounds acquired from ChEMBL (__Talktorial 001__) will be filtered by Lipinsik's rule of five to keep only orally bioavailable compounds.
+In the context of drug design, it is important to filter candidate molecules by e.g. their physicochemical properties. In this talktorial, the compounds acquired from ChEMBL (__Talktorial T001__) will be filtered by Lipinsik's rule of five to keep only orally bioavailable compounds.
 
 
 ### Contents in _Theory_

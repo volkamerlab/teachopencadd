@@ -61,6 +61,7 @@ extensions = [
     "nbsphinx_link",
     "IPython.sphinxext.ipython_console_highlighting",
     "sphinx_copybutton",
+    "sphinxext.opengraph",
 ]
 
 autosummary_generate = True
@@ -99,7 +100,7 @@ highlight_language = "none"
 
 # -- Options for HTML output -------------------------------------------------
 # -- HTML theme settings ------------------------------------------------
-html_short_title = "TeachOpenCADD (WIP 🚧)"
+html_short_title = "TeachOpenCADD"
 html_show_sourcelink = True
 html_sidebars = {"**": ["logo-text.html", "globaltoc.html", "localtoc.html", "searchbox.html"]}
 
@@ -178,7 +179,13 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, "teachopencadd.tex", "TeachOpenCADD Documentation", "teachopencadd", "manual",),
+    (
+        master_doc,
+        "teachopencadd.tex",
+        "TeachOpenCADD Documentation",
+        "teachopencadd",
+        "manual",
+    ),
 ]
 
 
@@ -214,3 +221,11 @@ html_css_files = [
     "custom.css",
 ]
 html_js_files = []
+
+
+# -- Extension for opengraph -------------------------------------------------
+
+ogp_site_url = "https://projects.volkamerlab.org/teachopencadd/"
+ogp_image = "https://github.com/volkamerlab/teachopencadd/blob/master/docs/_static/images/TeachOpenCADD_topics.png"
+ogp_description_length = 300
+ogp_type = "website"
