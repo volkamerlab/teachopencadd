@@ -91,12 +91,12 @@ def test_start_workspace():
     files_list_template = [
         file
         for file in files_list_template
-        if ("checkpoint" not in str(file)) or ("__pycache__" not in str(file))
+        if ("checkpoint" not in str(file)) and ("__pycache__" not in str(file))
     ]
     files_list_test = [
         file
         for file in files_list_test
-        if ("checkpoint" not in str(file)) or ("__pycache__" not in str(file))
+        if ("checkpoint" not in str(file)) and ("__pycache__" not in str(file))
     ]
     # The same number of files?
     # assert files_list_test == files_list_template
