@@ -2,6 +2,8 @@
 Contains interaction analysis class.
 """
 
+from pathlib import Path
+
 import pandas as pd  # for creating dataframes and handling data
 import matplotlib.pyplot as plt  # for plotting of data
 import matplotlib as mpl  # for changing the display settings of plots (see Settings below)
@@ -57,6 +59,10 @@ class InteractionAnalysis:
         interaction_analysis_output_path : str or pathlib.Path
             Output folder path to store the analyzed data in.
         """
+
+        separated_protein_pdbqt_filepath = Path(separated_protein_pdbqt_filepath)
+        separated_protein_pdb_filepath = Path(separated_protein_pdb_filepath)
+        interaction_analysis_output_path = Path(interaction_analysis_output_path)
 
         self._analogs = list_Ligand_objects
         self._pdb_filepath_extracted_protein = separated_protein_pdb_filepath

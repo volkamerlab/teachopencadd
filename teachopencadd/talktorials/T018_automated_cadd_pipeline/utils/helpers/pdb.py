@@ -53,11 +53,13 @@ def fetch_and_save_pdb_file(pdb_code, output_filepath):
     pathlib.Path
         The full path of the saved PDB file.
     """
+    output_filepath = Path(output_filepath)
+
     pdb_file_content = pypdb.get_pdb_file(pdb_code)
-    full_filepath = str(output_filepath) + ".pdb"
+    full_filepath = Path(f"{output_filepath}.pdb")
     with open(full_filepath, "w") as f:
         f.write(pdb_file_content)
-    return Path(full_filepath)
+    return full_filepath
 
 
 def extract_molecule_from_pdb_file(molecule_name, input_filepath, output_filepath):

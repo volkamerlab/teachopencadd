@@ -17,6 +17,7 @@ several methods for selecting the most suitable binding site.
 import io  # for creating file-like objects from strings (needed as input for some functions)
 import gzip  # for decompressing .gz files downloaded from DoGSiteScorer
 import time  # for creating pauses during runtime (e.g. to wait for the response of API requests)
+from pathlib import Path
 
 import requests  # for communicating with web-service APIs
 import pandas as pd  # for creating dataframes and handling data
@@ -70,7 +71,7 @@ def upload_pdb_file(filepath):
 
     Parameters
     ----------
-    filepath : str
+    filepath : str or pathlib.Path
         Relative or absolute path of the PDB file.
 
     Returns
@@ -78,6 +79,9 @@ def upload_pdb_file(filepath):
     str
         Dummy PDB code of the uploaded structure, which can be used instead of a PDB code.
     """
+
+    filepath = Path(filepath)
+
     # Read API URL and API request message from Constants
     url = APIConsts.FileUpload.URL
     request_msg = APIConsts.FileUpload.REQUEST_MSG
@@ -222,6 +226,9 @@ def save_binding_sites_to_file(binding_site_df, output_path):
     output_path : str or pathlib.Path
         Local file path to save the files in.
     """
+
+    output_path = Path(output_path)
+
     for binding_site in binding_site_df.index:
         for column in ["pdb_file_url", "ccp4_file_url"]:
             response = requests.get(binding_site_df.loc[binding_site, column])

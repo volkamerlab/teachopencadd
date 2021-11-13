@@ -3,6 +3,7 @@ Contains ligand class.
 """
 
 from enum import Enum  # for creating enumeration classes
+from pathlib import Path
 
 import pandas as pd  # for creating dataframes and handling data
 from rdkit.Chem import PandasTools
@@ -47,6 +48,8 @@ class Ligand:
         ligand_output_path : str or pathlib.Path
             TODO
         """
+
+        ligand_output_path = Path(ligand_output_path)
 
         self.dataframe = pd.DataFrame(columns=["Value"])
         self.dataframe.index.name = "Property"

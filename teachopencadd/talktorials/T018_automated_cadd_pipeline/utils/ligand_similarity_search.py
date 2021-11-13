@@ -2,6 +2,8 @@
 Contains the ligand similarity search class.
 """
 
+from pathlib import Path
+
 from typing_extensions import ParamSpecKwargs
 import pandas as pd  # for creating dataframes and handling data
 
@@ -23,7 +25,13 @@ class LigandSimilaritySearch:
     all_analogs
     """
 
-    def __init__(self, Ligand_obj, SimilaritySearchSpecs, similarity_search_output_path, frozen_data_filepath=None):
+    def __init__(
+        self,
+        Ligand_obj,
+        SimilaritySearchSpecs,
+        similarity_search_output_path,
+        frozen_data_filepath=None,
+    ):
         """
         Initialize the ligand similarity search.
 
@@ -39,6 +47,8 @@ class LigandSimilaritySearch:
             If existing data is to be used, provide the path to a csv file
             containing the columns "CID" and "CanonicalSMILES" for the analogs.
         """
+
+        similarity_search_output_path = Path(similarity_search_output_path)
 
         if not frozen_data_filepath is None:
             all_analog_identifiers_df = pd.read_csv(frozen_data_filepath)

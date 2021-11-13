@@ -2,6 +2,8 @@
 Contains the full lead optimization pipeline.
 """
 
+from pathlib import Path
+
 from IPython.display import display, Markdown  # for more display options in the Jupyter Notebook
 
 from .consts import Consts
@@ -64,6 +66,10 @@ class LeadOptimizationPipeline:
         utils.LeadOptimizationPipeline
             Object containing all the information about the pipeline.
         """
+
+        input_data_filepath = Path(input_data_filepath)
+        output_data_root_folder_path = Path(output_data_root_folder_path)
+        frozen_data_filepath = {key: Path(path) for key, path in frozen_data_filepath.items()}
 
         # Initialize project
         project = cls(project_name=project_name)

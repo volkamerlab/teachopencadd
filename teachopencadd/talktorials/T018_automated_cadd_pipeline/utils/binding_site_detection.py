@@ -3,6 +3,7 @@ Contains binding site detection class.
 """
 
 from enum import Enum  # for creating enumeration classes
+from pathlib import Path
 
 from .helpers import dogsitescorer, pdb, nglview
 
@@ -40,7 +41,7 @@ class BindingSiteDetection:
             Output path of the project's binding site information.
         """
 
-        self.output_path = binding_site_output_path
+        self.output_path = Path(binding_site_output_path)
         self.Protein = Protein
         # derive the relevant function name from definition method
         definition_method_name = "compute_by_" + BindingSiteSpecs.definition_method.name.lower()

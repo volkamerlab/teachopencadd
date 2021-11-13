@@ -3,6 +3,7 @@ Contains protein class.
 """
 
 from enum import Enum  # for creating enumeration classes
+from pathlib import Path
 
 from IPython.display import display, Markdown  # for more display options in the Jupyter Notebook
 import numpy as np
@@ -50,6 +51,8 @@ class Protein:
             Output path of the project for protein data.
         """
 
+        protein_output_path = Path(protein_output_path)
+
         setattr(self, identifier_type.name.lower(), identifier_value)
 
         self.file_content = pdb.read_pdb_file_content(identifier_type.value, identifier_value)
@@ -89,7 +92,7 @@ class Protein:
 
         if identifier_type is Consts.Protein.InputTypes.PDB_CODE:
             self.pdb_filepath = pdb.fetch_and_save_pdb_file(
-                identifier_value, str(protein_output_path) + "/" + identifier_value
+                identifier_value, f"{protein_output_path}/{identifier_value}"
             )
         else:
             # FIXME action needed?

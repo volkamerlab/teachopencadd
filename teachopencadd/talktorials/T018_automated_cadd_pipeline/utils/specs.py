@@ -77,6 +77,10 @@ class Specs:
         output_data_root_folder_path : str or pathlib.Path
             Relative or absolute local path of root folder to store output data in.
         """
+
+        input_data_filepath = Path(input_data_filepath)
+        output_data_root_folder_path = Path(output_data_root_folder_path)
+
         self.RawData = self.RawData(input_data_filepath)
         self.Protein = self.Protein(self.RawData.protein)
         self.Ligand = self.Ligand(self.RawData.ligand)

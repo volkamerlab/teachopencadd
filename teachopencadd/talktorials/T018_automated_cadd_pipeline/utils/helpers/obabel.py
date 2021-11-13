@@ -102,6 +102,9 @@ def create_pdbqt_from_smiles(smiles, pdbqt_path, pH=7.4):
     pH: float
         Protonation at given pH.
     """
+
+    pdbqt_path = Path(pdbqt_path)
+
     molecule = pybel.readstring("smi", smiles)
     optimize_structure_for_docking(molecule, protonate_for_pH=pH, generate_3d_structure=True)
     molecule.write("pdbqt", str(pdbqt_path), overwrite=True)
