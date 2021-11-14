@@ -138,11 +138,11 @@ def convert_compound_identifier(
     Datatype depends on the value of input parameter 'response_type'
         The response data of the API request.
     """
+
+    print(input_id_value)
     if isinstance(input_id_value, list):
         input_id_value = ",".join(map(str, input_id_value))
-    else:
-        # FIXME action needed?
-        pass
+
     url = (
         getattr(APIConsts.URLs.Inputs, input_id_type.upper()).value
         + str(input_id_value)
@@ -285,15 +285,20 @@ def similarity_search(
         + job_key
         + APIConsts.URLs.Operations.GET_SMILES.value
     )
+    print(url)
 
     num_attempts = 0
     while num_attempts < max_num_attempts:
         response_data = send_request(url, output_data_type)
+        print(APIConsts.ResponseMsgs.SimilaritySearch.RESULT_KEY1.value)
+        print(type(response_data))
         if APIConsts.ResponseMsgs.SimilaritySearch.RESULT_KEY1.value in response_data:
             similar_compounds = response_data[
                 APIConsts.ResponseMsgs.SimilaritySearch.RESULT_KEY1.value
             ][APIConsts.ResponseMsgs.SimilaritySearch.RESULT_KEY2.value]
+            print(similar_compounds)
             break
+        print(f"not done yet after {num_attempts}")
         time.sleep(10)
         num_attempts += 1
     else:
