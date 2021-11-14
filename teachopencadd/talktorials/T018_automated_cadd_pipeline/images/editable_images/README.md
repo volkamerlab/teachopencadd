@@ -3,13 +3,13 @@ This folder contains a few editable files for images shown in T018.
 * `sb_vs_pipeline.pptx` created with PowerPoint, PyMol, ChemDraw.
   * Slide 1 for Figure 1.
   * Slide 2 for Figure 5, which is also used in Figure 1.
-* `pipeline_io_protein.pse` created with PyMol.
+* `sb_vs_pipeline_protein.pse` created with PyMol.
   * Contains the protein structure used in Figure 1 (`sb_vs_pipeline.pptx`).
-* `pipeline_io_binding_site.pse` created with PyMol.
+* `sb_vs_pipeline_binding_site.pse` created with PyMol.
   * Contains the binding site structure used in Figure 1 (`sb_vs_pipeline.pptx`).
-* `pipeline_io_docking_1.pse` created with PyMol.
+* `sb_vs_pipeline_docking_1.pse` created with PyMol.
   * Contains the docking pose interactions used in Figure 1 (`sb_vs_pipeline.pptx`).
-* `pipeline_io_docking_2.pse` created with PyMol.
+* `sb_vs_pipeline_docking_2.pse` created with PyMol.
   * Contains the docking pose used in Figure 1 (`sb_vs_pipeline.pptx`).
 * `fig3.pse` created with PyMol.
   * Contains the protein-ligand complex structure (Figure 3).
