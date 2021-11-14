@@ -110,7 +110,7 @@ def send_request(partial_url, response_type="txt", optional_params=""):
 
 
 def convert_compound_identifier(
-    input_id_type, input_id_value, output_id_type, output_data_type="txt"
+    input_id_type, input_id_value, output_id_type, output_data_type="txt", max_num_attempts=30
 ):
     """
     Convert an identifier to another identifier, e.g. CID to SMILES, SMILES to IUPAC-name etc.
@@ -124,7 +124,7 @@ def convert_compound_identifier(
     input_id_value : str or int or list of str or list of int
         Value of the input identifier.
     output_id_type : str
-        Type of the ouput identifier.
+        Type of the output identifier.
         Valid values are: 'name', 'cid', 'smiles', 'inchi', 'inchikey', 'iupac_name'.
         Valid values are stored in: `APIConsts.URLs.Operations`
     output_data_type : str
@@ -132,6 +132,10 @@ def convert_compound_identifier(
         Datatype of the output data.
         Valid values are 'txt', 'json', 'csv'.
         A list of all valid values are stored in: `APIConsts.URLs.Outputs`
+    max_num_attempts : int
+        Optional; default: 30.
+        Maximum number of attempts to fetch the API response, after the job has been submitted.
+        Each failed attempt is followed by a 10 second pause.
 
     Returns
     -------
@@ -139,7 +143,6 @@ def convert_compound_identifier(
         The response data of the API request.
     """
 
-    print(input_id_value)
     if isinstance(input_id_value, list):
         input_id_value = ",".join(map(str, input_id_value))
 
@@ -148,11 +151,21 @@ def convert_compound_identifier(
         + str(input_id_value)
         + getattr(APIConsts.URLs.Operations, f"GET_{output_id_type}".upper()).value
     )
-    response_data = send_request(url, output_data_type)
-    if isinstance(input_id_value, list):
-        return response_data.strip().split("\n")
+
+    num_attempts = 0
+    while num_attempts < max_num_attempts:
+        response_data = send_request(url, output_data_type)
+        if response_data:
+            if isinstance(input_id_value, list):
+                response_data = response_data.strip().split("\n")
+            else:
+                response_data = response_data.strip()
+            break
+        time.sleep(10)
+        num_attempts += 1
     else:
-        return response_data.strip()
+        raise ValueError(f"Could not find matches in the response URL: {url}")
+    return response_data
 
 
 def get_compound_record(input_id_type, input_id_value, output_data_type="json"):
@@ -285,20 +298,15 @@ def similarity_search(
         + job_key
         + APIConsts.URLs.Operations.GET_SMILES.value
     )
-    print(url)
 
     num_attempts = 0
     while num_attempts < max_num_attempts:
         response_data = send_request(url, output_data_type)
-        print(APIConsts.ResponseMsgs.SimilaritySearch.RESULT_KEY1.value)
-        print(type(response_data))
         if APIConsts.ResponseMsgs.SimilaritySearch.RESULT_KEY1.value in response_data:
             similar_compounds = response_data[
                 APIConsts.ResponseMsgs.SimilaritySearch.RESULT_KEY1.value
             ][APIConsts.ResponseMsgs.SimilaritySearch.RESULT_KEY2.value]
-            print(similar_compounds)
             break
-        print(f"not done yet after {num_attempts}")
         time.sleep(10)
         num_attempts += 1
     else:
