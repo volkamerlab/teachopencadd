@@ -173,7 +173,7 @@ def merge_molecules_to_single_file(
     pathlib.Path
         Full path (including extension) of the output file.
     """
-    fullpath = Path(str(output_filepath) + "." + output_filetype)
+    fullpath = Path(f"{output_filepath}.{output_filetype}")
 
     merged_molecule_file = pybel.Outputfile(output_filetype, str(fullpath))
 

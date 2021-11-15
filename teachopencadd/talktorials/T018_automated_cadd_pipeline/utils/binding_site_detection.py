@@ -44,7 +44,7 @@ class BindingSiteDetection:
         self.output_path = Path(binding_site_output_path)
         self.Protein = Protein
         # derive the relevant function name from definition method
-        definition_method_name = "compute_by_" + BindingSiteSpecs.definition_method.name.lower()
+        definition_method_name = f"compute_by_{BindingSiteSpecs.definition_method.name.lower()}"
         # get the function from its name
         definition_method = getattr(self, definition_method_name)
         # call the function
@@ -88,7 +88,7 @@ class BindingSiteDetection:
         TODO Add docstring
         """
         # derive the relevant function name from detection method
-        detection_method_name = "detect_by_" + BindingSiteSpecs.detection_method.name.lower()
+        detection_method_name = f"detect_by_{BindingSiteSpecs.detection_method.name.lower()}"
         # get the function from its name
         detection_method = getattr(self, detection_method_name)
         # call the function
@@ -220,13 +220,13 @@ class BindingSiteDetection:
             viewer = nglview.binding_site(
                 "pdb_code",
                 self.Protein.pdb_code,
-                str(self.output_path / pocket_name) + ".ccp4",
+                f"{self.output_path / pocket_name}.ccp4",
             )
         else:
             viewer = nglview.protein(
                 "pdb",
                 self.Protein.pdb_filepath,
-                str(self.output_path / pocket_name) + ".ccp4",
+                f"{self.output_path / pocket_name}.ccp4",
             )
         return viewer
 

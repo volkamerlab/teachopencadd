@@ -71,8 +71,8 @@ def calculate_interactions(pdb_filepath):
 
         interaction_data = {
             interaction_type.value: (
-                [getattr(interaction_object, interaction_type.value + "_features")]
-                + getattr(interaction_object, interaction_type.value + "_info")
+                [getattr(interaction_object, f"{interaction_type.value}_features")]
+                + getattr(interaction_object, f"{interaction_type.value}_info")
             )
             for interaction_type in Consts.InteractionTypes
         }
@@ -157,7 +157,7 @@ def create_protein_ligand_complex(
     # ligand_pdbblock = ligand_pdbblock.replace('UNL     ', (ligand_id[:8]+
     #                                    " "*(8-len(ligand_id))))
 
-    full_output_filepath = str(output_filepath) + ".pdb"
+    full_output_filepath = f"{output_filepath}.pdb"
     with open(full_output_filepath, "w") as file:
         file.write(protein_pdbblock)
         file.write(f"\nCOMPND    {ligand_id}\n")

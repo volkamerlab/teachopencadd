@@ -89,7 +89,7 @@ class InteractionAnalysis:
                         separated_protein_pdbqt_filepath,
                         docking_pose_filepath,
                         analog.cid,
-                        interaction_analysis_output_path / (f"CID_{analog.cid}_{index+1}"),
+                        interaction_analysis_output_path / f"CID_{analog.cid}_{index + 1}",
                     )
 
                     # interaction_data will be dict of dicts, where each of the
@@ -316,7 +316,7 @@ class InteractionAnalysis:
             NGLView viewer.
         """
         list_docking_poses_labels = list(
-            map(lambda x: x[0] + " - " + str(x[1]), fitted_master_df.index.tolist())
+            map(lambda x: f"{x[0]} - {x[1]}", fitted_master_df.index.tolist())
         )
 
         view = nglview.interactions(

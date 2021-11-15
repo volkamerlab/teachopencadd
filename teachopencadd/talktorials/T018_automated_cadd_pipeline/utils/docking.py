@@ -53,7 +53,7 @@ class Docking:
             frozen_data_filepath = Path(frozen_data_filepath)
 
         self.pdb_filepath_extracted_protein = docking_output_path / (
-            Protein_object.pdb_code + "_extracted_protein.pdb"
+            f"{Protein_object.pdb_code}_extracted_protein.pdb"
         )
         Protein_object.Universe = pdb.extract_molecule_from_pdb_file(
             "protein", Protein_object.pdb_filepath, self.pdb_filepath_extracted_protein
@@ -62,12 +62,12 @@ class Docking:
         if frozen_data_filepath is not None:
             # Set path to frozen PDBQT files
             self.pdbqt_filepath_extracted_protein = frozen_data_filepath / (
-                Protein_object.pdb_code + "_extracted_protein_ready_for_docking.pdbqt"
+                f"{Protein_object.pdb_code}_extracted_protein_ready_for_docking.pdbqt"
             )
         else:
             # Generate PDBQT files
             self.pdbqt_filepath_extracted_protein = docking_output_path / (
-                Protein_object.pdb_code + "_extracted_protein_ready_for_docking.pdbqt"
+                f"{Protein_object.pdb_code}_extracted_protein_ready_for_docking.pdbqt"
             )
             obabel.create_pdbqt_from_pdb_file(
                 self.pdb_filepath_extracted_protein, self.pdbqt_filepath_extracted_protein
@@ -80,14 +80,14 @@ class Docking:
 
             if frozen_data_filepath is not None:
                 # Set path to frozen PDBQT files
-                ligand.pdbqt_filepath = frozen_data_filepath / ("CID_" + ligand.cid + ".pdbqt")
+                ligand.pdbqt_filepath = frozen_data_filepath / (f"CID_{ligand.cid}.pdbqt")
             else:
                 # Generate PDBQT files
-                ligand.pdbqt_filepath = docking_output_path / ("CID_" + ligand.cid + ".pdbqt")
+                ligand.pdbqt_filepath = docking_output_path / (f"CID_{ligand.cid}.pdbqt")
                 obabel.create_pdbqt_from_smiles(ligand.remove_counterion(), ligand.pdbqt_filepath)
 
             ligand.docking_poses_filepath = docking_output_path / (
-                "CID_" + ligand.cid + "_docking_poses.pdbqt"
+                f"CID_{ligand.cid}_docking_poses.pdbqt"
             )
 
             raw_log = smina.dock(
@@ -201,7 +201,7 @@ class Docking:
             sorted by their binding affinities.
         """
         list_docking_poses_labels = list(
-            map(lambda x: x[0] + " - " + str(x[1]), fitted_master_df.index.tolist())
+            map(lambda x: f"{x[0]} - {x[1]}", fitted_master_df.index.tolist())
         )
         nglview.docking(
             self.pdb_filepath_extracted_protein,

@@ -149,7 +149,7 @@ def docking(
         backgroundColor="black",
     )
     list_docking_poses_affinities = list(
-        map(lambda x: str(x) + " kcal/mol", list_docking_poses_affinities)
+        map(lambda x: f"{x} kcal/mol", list_docking_poses_affinities)
     )
     for docking_pose_filepath, ligand_label in zip(
         list_docking_poses_filepaths, list_docking_poses_affinities
@@ -273,7 +273,7 @@ def interactions(
     plt.show()
 
     list_docking_poses_affinities = list(
-        map(lambda x: str(x) + " kcal/mol", list_docking_poses_affinities)
+        map(lambda x: f"{x} kcal/mol", list_docking_poses_affinities)
     )
 
     # This is the event handler - action taken when the user clicks on the selection box

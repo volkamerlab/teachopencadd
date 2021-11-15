@@ -79,7 +79,7 @@ def draw_molecules(
         legends=list_legends,
     )
     if filepath is not None:
-        with open(str(filepath) + ".png", "wb") as f:
+        with open(f"{filepath}.png", "wb") as f:
             f.write(figure.data)
     return figure
 
@@ -95,7 +95,7 @@ def save_molecule_image_to_file(mol_obj, filepath):
     filepath : str or pathlib.Path
         Full filpath to save the image in.
     """
-    Draw.MolToFile(mol_obj, str(filepath) + ".png")
+    Draw.MolToFile(mol_obj, f"{filepath}.png")
 
 
 def save_3D_molecule_to_SDfile(mol_obj, filepath):
@@ -115,7 +115,7 @@ def save_3D_molecule_to_SDfile(mol_obj, filepath):
     # check if calculations converged (both should return 0 when converged)
     if embedding + uffoptim != 0:
         raise ValueError("Embedding/Optimization failed to converge.")
-    session = Chem.SDWriter(str(filepath) + ".sdf")
+    session = Chem.SDWriter(f"{filepath}.sdf")
     session.write(mol)
     session.close()
 

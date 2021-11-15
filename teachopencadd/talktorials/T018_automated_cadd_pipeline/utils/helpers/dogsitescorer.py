@@ -305,7 +305,7 @@ def calculate_pocket_coordinates_from_pocket_pdb_file(filepath):
         Binding site coordinates in format:
         `{'center': [x, y, z], 'size': [x, y, z]}`
     """
-    with open(str(filepath) + ".pdb") as f:
+    with open(f"{filepath}.pdb") as f:
         pdb_file_text_content = f.read()
     pdb_file_df = pdb.load_pdb_file_as_dataframe(pdb_file_text_content)
     pocket_coordinates_data = pdb_file_df["OTHERS"].loc[5, "entry"]
