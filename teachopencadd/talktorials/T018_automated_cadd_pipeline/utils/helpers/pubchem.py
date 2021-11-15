@@ -10,6 +10,7 @@ import time  # for creating pauses during the runtime (to wait for the response 
 from enum import Enum  # for creating enumeration classes
 
 import requests  # for communicating with web-service APIs
+import redo
 
 
 class APIConsts:
@@ -69,6 +70,7 @@ class APIConsts:
             RESPONSE_KEY2 = "Information"
 
 
+@redo.retriable(attempts=20, sleeptime=30)
 def send_request(partial_url, response_type="txt", optional_params=""):
     """
     Send an API request to PubChem and get the response data.
@@ -110,7 +112,7 @@ def send_request(partial_url, response_type="txt", optional_params=""):
 
 
 def convert_compound_identifier(
-    input_id_type, input_id_value, output_id_type, output_data_type="txt", max_num_attempts=30
+    input_id_type, input_id_value, output_id_type, output_data_type="txt"
 ):
     """
     Convert an identifier to another identifier, e.g. CID to SMILES, SMILES to IUPAC-name etc.
@@ -132,10 +134,6 @@ def convert_compound_identifier(
         Datatype of the output data.
         Valid values are 'txt', 'json', 'csv'.
         A list of all valid values are stored in: `APIConsts.URLs.Outputs`
-    max_num_attempts : int
-        Optional; default: 30.
-        Maximum number of attempts to fetch the API response, after the job has been submitted.
-        Each failed attempt is followed by a 10 second pause.
 
     Returns
     -------
@@ -151,20 +149,12 @@ def convert_compound_identifier(
         + str(input_id_value)
         + getattr(APIConsts.URLs.Operations, f"GET_{output_id_type}".upper()).value
     )
+    response_data = send_request(url, output_data_type)
 
-    num_attempts = 0
-    while num_attempts < max_num_attempts:
-        response_data = send_request(url, output_data_type)
-        if response_data:
-            if isinstance(input_id_value, list):
-                response_data = response_data.strip().split("\n")
-            else:
-                response_data = response_data.strip()
-            break
-        time.sleep(30)
-        num_attempts += 1
+    if isinstance(input_id_value, list):
+        response_data = response_data.strip().split("\n")
     else:
-        raise ValueError(f"Could not find matches in the response URL: {url}")
+        response_data = response_data.strip()
     return response_data
 
 
@@ -199,6 +189,7 @@ def get_compound_record(input_id_type, input_id_value, output_data_type="json"):
     response_data = send_request(url, output_data_type)[
         APIConsts.ResponseMsgs.GetRecords.RESPONSE_KEY.value
     ][0]
+
     return response_data
 
 
@@ -238,9 +229,8 @@ def get_description_from_smiles(smiles, output_data_type="json", printout=False)
         for entry in response_data:
             try:
                 print(entry["Description"] + "\n")
-            except:
-                # FIXME specify exception
-                pass
+            except KeyError:
+                print(entry)
     else:
         return response_data
 
@@ -250,7 +240,6 @@ def similarity_search(
     min_similarity=80,
     max_num_results=100,
     output_data_type="json",
-    max_num_attempts=30,
 ):
     """
     Run a similarity search on a molecule and get all the similar ligands.
@@ -270,10 +259,6 @@ def similarity_search(
         Datatype of the output data.
         Valid values are 'txt', 'json', 'csv'.
         A list of all valid values are stored in: APIConsts.URLs.Outputs
-    max_num_attempts : int
-        Optional; default: 30.
-        Maximum number of attempts to fetch the API response, after the job has been submitted.
-        Each failed attempt is followed by a 10 second pause.
 
     Returns
     -------
@@ -299,16 +284,15 @@ def similarity_search(
         + APIConsts.URLs.Operations.GET_SMILES.value
     )
 
-    num_attempts = 0
-    while num_attempts < max_num_attempts:
-        response_data = send_request(url, output_data_type)
-        if APIConsts.ResponseMsgs.SimilaritySearch.RESULT_KEY1.value in response_data:
-            similar_compounds = response_data[
-                APIConsts.ResponseMsgs.SimilaritySearch.RESULT_KEY1.value
-            ][APIConsts.ResponseMsgs.SimilaritySearch.RESULT_KEY2.value]
-            break
-        time.sleep(30)
-        num_attempts += 1
+    response_data = send_request(url, output_data_type)
+    if APIConsts.ResponseMsgs.SimilaritySearch.RESULT_KEY1.value in response_data:
+        similar_compounds = response_data[
+            APIConsts.ResponseMsgs.SimilaritySearch.RESULT_KEY1.value
+        ][APIConsts.ResponseMsgs.SimilaritySearch.RESULT_KEY2.value]
     else:
-        raise ValueError(f"Could not find matches in the response URL: {url}")
+        # FIXME Do we need this?
+        raise KeyError(
+            f"{APIConsts.ResponseMsgs.SimilaritySearch.RESULT_KEY1.value} not in {response_data}"
+        )
+
     return similar_compounds
