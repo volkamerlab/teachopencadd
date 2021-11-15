@@ -155,13 +155,14 @@ def convert_compound_identifier(
     num_attempts = 0
     while num_attempts < max_num_attempts:
         response_data = send_request(url, output_data_type)
+        print(num_attempts, response_data)
         if response_data:
             if isinstance(input_id_value, list):
                 response_data = response_data.strip().split("\n")
             else:
                 response_data = response_data.strip()
             break
-        time.sleep(10)
+        time.sleep(30)
         num_attempts += 1
     else:
         raise ValueError(f"Could not find matches in the response URL: {url}")
@@ -307,7 +308,7 @@ def similarity_search(
                 APIConsts.ResponseMsgs.SimilaritySearch.RESULT_KEY1.value
             ][APIConsts.ResponseMsgs.SimilaritySearch.RESULT_KEY2.value]
             break
-        time.sleep(10)
+        time.sleep(30)
         num_attempts += 1
     else:
         raise ValueError(f"Could not find matches in the response URL: {url}")
