@@ -240,6 +240,7 @@ def similarity_search(
     min_similarity=80,
     max_num_results=100,
     output_data_type="json",
+    max_num_attempts=30,
 ):
     """
     Run a similarity search on a molecule and get all the similar ligands.
@@ -259,6 +260,10 @@ def similarity_search(
         Datatype of the output data.
         Valid values are 'txt', 'json', 'csv'.
         A list of all valid values are stored in: APIConsts.URLs.Outputs
+    max_num_attempts : int
+        Optional; default: 30.
+        Maximum number of attempts to fetch the API response, after the job has been submitted.
+        Each failed attempt is followed by a 10 second pause.
 
     Returns
     -------
@@ -284,15 +289,20 @@ def similarity_search(
         + APIConsts.URLs.Operations.GET_SMILES.value
     )
 
-    response_data = send_request(url, output_data_type)
-    if APIConsts.ResponseMsgs.SimilaritySearch.RESULT_KEY1.value in response_data:
-        similar_compounds = response_data[
-            APIConsts.ResponseMsgs.SimilaritySearch.RESULT_KEY1.value
-        ][APIConsts.ResponseMsgs.SimilaritySearch.RESULT_KEY2.value]
+    # Wait until the request has been processed
+    # While the request is still running, `response_data` looks like this:
+    # `{'Waiting': {'ListKey': '3270344311506161039', 'Message': 'Your request is running'}}`
+    num_attempts = 0
+    while num_attempts < max_num_attempts:
+        response_data = send_request(url, output_data_type)
+        if APIConsts.ResponseMsgs.SimilaritySearch.RESULT_KEY1.value in response_data:
+            similar_compounds = response_data[
+                APIConsts.ResponseMsgs.SimilaritySearch.RESULT_KEY1.value
+            ][APIConsts.ResponseMsgs.SimilaritySearch.RESULT_KEY2.value]
+            break
+        time.sleep(30)
+        num_attempts += 1
     else:
-        # FIXME Do we need this?
-        raise KeyError(
-            f"{APIConsts.ResponseMsgs.SimilaritySearch.RESULT_KEY1.value} not in {response_data}"
-        )
+        raise ValueError(f"Could not find matches in the response URL: {url}")
 
     return similar_compounds
