@@ -155,7 +155,6 @@ def convert_compound_identifier(
     num_attempts = 0
     while num_attempts < max_num_attempts:
         response_data = send_request(url, output_data_type)
-        print(num_attempts, response_data)
         if response_data:
             if isinstance(input_id_value, list):
                 response_data = response_data.strip().split("\n")
