@@ -60,11 +60,12 @@ class Ligand:
                 new_id = pubchem.convert_compound_identifier(
                     identifier_type.value, identifier_value, identifier.value
                 )
+                print(new_id)
                 setattr(self, identifier.value, new_id)
                 self.dataframe.loc[identifier.value] = new_id
-            except:
+            except Exception as e:
                 # FIXME specify exception
-                pass
+                raise ValueError(e)
 
         self.rdkit_obj = rdkit.create_molecule_object("smiles", self.smiles)
 
