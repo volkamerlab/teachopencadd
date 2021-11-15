@@ -12,3 +12,4 @@ from .docking import Docking
 from .interaction_analysis import InteractionAnalysis
 from .optimized_ligands import OptimizedLigands
 from .lead_optimization_pipeline import LeadOptimizationPipeline
+from .frozen_data import FrozenData

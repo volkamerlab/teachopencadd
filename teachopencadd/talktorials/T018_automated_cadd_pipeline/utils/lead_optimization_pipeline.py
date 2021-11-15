@@ -37,7 +37,7 @@ class LeadOptimizationPipeline:
         project_name,
         input_data_filepath,
         output_data_root_folder_path,
-        frozen_data_filepath={"ligand_similarity_search": None, "docking": None},
+        frozen_data_filepath={"pubchem_similarity_search": None, "docking_pdbqt_files": None},
     ):
         """
         Automatically run the whole lead optimization pipeline to completion,
@@ -52,10 +52,10 @@ class LeadOptimizationPipeline:
         output_data_root_folder_path : str or pathlib.Path
             Root folder path to save the pipeline's data in.
         frozen_data_filepath : dict of str or pathlib.Path
-            "ligand_similarity_search":
+            "pubchem_similarity_search":
                 If existing data is to be used, provide the path to a csv file
                 containing the columns "CID" and "CanonicalSMILES" for the analogs.
-            "docking":
+            "docking_pdbqt_files":
                 If existing data is to be used, provide the path to a folder
                 containing the pdbqt files for
                 (a) the protein `<PDBcode>_extracted_protein_ready_for_docking.pdbqt` and
@@ -69,7 +69,10 @@ class LeadOptimizationPipeline:
 
         input_data_filepath = Path(input_data_filepath)
         output_data_root_folder_path = Path(output_data_root_folder_path)
-        frozen_data_filepath = {key: Path(path) for key, path in frozen_data_filepath.items()}
+        frozen_data_filepath = {
+            key: Path(path) if path is not None else path
+            for key, path in frozen_data_filepath.items()
+        }
 
         # Initialize project
         project = cls(project_name=project_name)
@@ -111,7 +114,7 @@ class LeadOptimizationPipeline:
             project.Ligand,
             project.Specs.LigandSimilaritySearch,
             project.Specs.OutputPaths.similarity_search,
-            frozen_data_filepath["ligand_similarity_search"],
+            frozen_data_filepath["pubchem_similarity_search"],
         )
         project._report_similar_ligands("6. Ligand Similarity Search")
 
@@ -121,14 +124,14 @@ class LeadOptimizationPipeline:
             list(project.Ligand.analogs.values()),
             project.Specs.Docking,
             project.Specs.OutputPaths.docking,
-            frozen_data_filepath["docking"],
+            frozen_data_filepath["docking_pdbqt_files"],
         )
         project.Ligand.Docking = Docking(
             project.Protein,
             [project.Ligand],
             project.Specs.Docking,
             project.Specs.OutputPaths.ligand,
-            frozen_data_filepath["docking"],
+            frozen_data_filepath["docking_pdbqt_files"],
         )
         project._report_docked_poses("7. Docking Experiment")
 
