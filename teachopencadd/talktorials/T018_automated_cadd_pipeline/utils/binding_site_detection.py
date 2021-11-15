@@ -120,7 +120,6 @@ class BindingSiteDetection:
                 self.dogsitescorer_chain_id = Protein.chains[0]
             # if no chain is found in PDB file either, leave the chain_id empty
             except:
-                # FIXME specify exception
                 self.dogsitescorer_chain_id = ""
 
         # create a list of ligand ids in the DoGSiteScorer format

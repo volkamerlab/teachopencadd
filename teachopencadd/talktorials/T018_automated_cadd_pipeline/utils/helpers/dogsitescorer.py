@@ -310,12 +310,17 @@ def calculate_pocket_coordinates_from_pocket_pdb_file(filepath):
     pdb_file_df = pdb.load_pdb_file_as_dataframe(pdb_file_text_content)
     pocket_coordinates_data = pdb_file_df["OTHERS"].loc[5, "entry"]
     coordinates_data_as_list = pocket_coordinates_data.split(" ")
+    # `coordinates_data_as_list` looks like this:
+    # ['\tGeometric', 'pocket', 'center', 'at', '', '15.91', '', '32.33', '', '11.03', 'with', 'max', 'radius', '12.42']
+
+    # Let's keep only coordinates
     coordinates = []
     for elem in coordinates_data_as_list:
         try:
+            # If element can be cast to float (i.e. is a coordinate)
             coordinates.append(float(elem))
         except:
-            # FIXME specify exception
+            # If element cannot be cast to float, pass and continue with next list element
             pass
     pocket_coordinates = {
         "center": coordinates[:3],

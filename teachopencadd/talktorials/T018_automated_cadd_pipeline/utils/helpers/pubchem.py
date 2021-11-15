@@ -228,9 +228,11 @@ def get_description_from_smiles(smiles, output_data_type="json", printout=False)
     if printout:
         for entry in response_data:
             try:
+                # If response data contains a compound description, print it
                 print(entry["Description"] + "\n")
-            except KeyError:
-                print(entry)
+            except:
+                # If not, do nothing
+                pass
     else:
         return response_data
 
