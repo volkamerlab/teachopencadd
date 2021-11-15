@@ -73,8 +73,8 @@ class Ligand:
             setattr(self, property_, dict_of_properties[property_])
             self.dataframe.loc[property_] = dict_of_properties[property_]
 
-        self.save_as_image(ligand_output_path / ("CID_" + self.cid))
-        self.dataframe.to_csv(ligand_output_path / ("CID_" + self.cid + ".csv"))
+        self.save_as_image(ligand_output_path / (f"CID_{self.cid}"))
+        self.dataframe.to_csv(ligand_output_path / (f"CID_{self.cid}.csv"))
 
     def __repr__(self):
         return f"<Ligand CID: {self.cid}>"
