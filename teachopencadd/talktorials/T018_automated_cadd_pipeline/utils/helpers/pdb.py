@@ -148,21 +148,21 @@ def extract_info_from_pdb_file_content(pdb_file_text_content):
             # '4 FRAGMENT: KINASE DOMAIN, UNP RESIDUES 696-1022;'
 
             # Strip ';' at the end of the line if present
-            if line[1][-1] == ";":
+            if pdb_content[index][1][-1] == ";":
                 pdb_content[index][1] = pdb_content[index][1][:-1]
                 # '4 FRAGMENT: KINASE DOMAIN, UNP RESIDUES 696-1022'
 
             # For certain records followed by a digit, get everything after that digit
             if (
-                line[0] in ["TITLE", "REMARK", "COMPND"]
-                and line[1][0].isdigit()
+                pdb_content[index][0] in ["TITLE", "REMARK", "COMPND"]
+                and pdb_content[index][1][0].isdigit()
             ):
                 try:
-                    pdb_content[index][1] = pdb_content[index][1].split(" ", 1)[1]
+                    pdb_content[index][1] = pdb_content[index][1].split(maxsplit=1)[1]
                     # 'FRAGMENT: KINASE DOMAIN, UNP RESIDUES 696-1022'
                 except IndexError as e:
                     pass
-        except:
+        except IndexError as e:
             pdb_content[index].append(" ")
 
     info = {"Structure Title": [], "Name": [], "Chains": [], "Ligands": []}
