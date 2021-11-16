@@ -110,6 +110,8 @@ def upload_pdb_file(filepath):
     for try_nr in range(30):
         # Query the URL containing the ID
         id_response = requests.get(url_of_id)
+        # Raise HTTPError if one occured during query
+        id_response.raise_for_status()
         # Turn the response values into a dict
         id_response_values = id_response.json()
         # The response should contain the `id` keyword:
