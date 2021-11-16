@@ -68,7 +68,12 @@ class APIConsts:
         class GetDescription(Enum):
             RESPONSE_KEY1 = "InformationList"
             RESPONSE_KEY2 = "Information"
-
+            TITLE_KEY = "Title"
+            CID_KEY = "CID"
+            DESCRIPTION_KEY = "Description"
+            DESCRIPTION_SOURCE_NAME_KEY = "DescriptionSourceName"
+            DESCRIPTION_SOURCE_URL = "DescriptionURL"
+            
 
 @redo.retriable(attempts=20, sleeptime=30)
 def send_request(partial_url, response_type="txt", optional_params=""):
@@ -226,13 +231,18 @@ def get_description_from_smiles(smiles, output_data_type="json", printout=False)
     ][APIConsts.ResponseMsgs.GetDescription.RESPONSE_KEY2.value]
 
     if printout:
-        for entry in response_data:
-            try:
-                # If response data contains a compound description, print it
-                print(entry["Description"] + "\n")
-            except:
-                # If not, do nothing
-                pass
+        print(
+            f"Name: {response_data[0][APIConsts.ResponseMsgs.GetDescription.TITLE_KEY.value]}\n"
+            f"CID: {response_data[0][APIConsts.ResponseMsgs.GetDescription.CID_KEY.value]}\n"
+        )
+        if len(response_data) == 1:
+            print("No description available.")
+        else:
+            for entry in response_data[1:]:
+                print(
+                    f"{entry[APIConsts.ResponseMsgs.GetDescription.DESCRIPTION_KEY.value]}\n"
+                    f"Source: {entry[APIConsts.ResponseMsgs.GetDescription.DESCRIPTION_SOURCE_NAME_KEY.value]}, {entry[APIConsts.ResponseMsgs.GetDescription.DESCRIPTION_SOURCE_URL.value]}\n\n"
+                )
     else:
         return response_data
 
