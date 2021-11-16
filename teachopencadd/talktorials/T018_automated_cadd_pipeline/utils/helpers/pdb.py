@@ -136,7 +136,7 @@ def extract_info_from_pdb_file_content(pdb_file_text_content):
 
     pdb_content = pdb_file_text_content.strip().split("\n")
 
-    for index in range(len(pdb_content)):
+    for index, line in enumerate(pdb_content):
 
         # pdb_content[index]
         # 'COMPND   4 FRAGMENT: KINASE DOMAIN, UNP RESIDUES 696-1022;                      '
@@ -148,14 +148,14 @@ def extract_info_from_pdb_file_content(pdb_file_text_content):
             # '4 FRAGMENT: KINASE DOMAIN, UNP RESIDUES 696-1022;'
 
             # Strip ';' at the end of the line if present
-            if pdb_content[index][1][-1] == ";":
+            if line[1][-1] == ";":
                 pdb_content[index][1] = pdb_content[index][1][:-1]
                 # '4 FRAGMENT: KINASE DOMAIN, UNP RESIDUES 696-1022'
 
             # For certain records followed by a digit, get everything after that digit
             if (
-                pdb_content[index][0] in ["TITLE", "REMARK", "COMPND"]
-                and pdb_content[index][1][0].isdigit()
+                line[0] in ["TITLE", "REMARK", "COMPND"]
+                and line[1][0].isdigit()
             ):
                 try:
                     pdb_content[index][1] = pdb_content[index][1].split(" ", 1)[1]
