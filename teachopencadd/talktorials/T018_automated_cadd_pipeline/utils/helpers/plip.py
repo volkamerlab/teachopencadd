@@ -7,18 +7,15 @@ from pathlib import Path  # for creating folders and handling local paths
 import logging  # for setting logging levels (to disable logging defaults of packages e.g. PLIP)
 
 import plip  # for changing the logging setting of the package (see bottom of the cell: Settings)
-from plip.structure.preparation import (
-    PDBComplex,
-)  # for calculating protein-ligand interactions
-from plip.exchange.report import (
-    BindingSiteReport,
-)  # for calculating protein-ligand interactions
+# for calculating protein-ligand interactions
+from plip.structure.preparation import PDBComplex  
+# for calculating protein-ligand interactions
+from plip.exchange.report import BindingSiteReport
 import pandas as pd  # for creating dataframes and handling data
 
 # Settings:
-logging.getLogger(plip.__name__).setLevel(
-    logging.WARNING
-)  # disabling excessive INFO logs of the PLIP package
+# disabling excessive INFO logs of the PLIP package
+logging.getLogger(plip.__name__).setLevel(logging.WARNING)
 
 
 class Consts:
