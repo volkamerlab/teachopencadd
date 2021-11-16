@@ -3,11 +3,10 @@ A set of functions based on the OpenBabel's pybel package,
 for preparing proteins and ligands for the docking experiment.
 """
 
-from pathlib import Path  # for creating folders and handling local paths
-
-from openbabel import (
-    pybel,
-)  # for preparing protein and ligand for docking, and other manipulations of PDB files
+# for creating folders and handling local paths
+from pathlib import Path  
+# for preparing protein and ligand for docking, and other manipulations of PDB files
+from openbabel import pybel  
 
 
 def optimize_structure_for_docking(
