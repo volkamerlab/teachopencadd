@@ -32,8 +32,7 @@ def read_pdb_file_content(input_type, input_value):
         with open(input_value) as f:
             pdb_file_content = f.read()
     else:
-        # FIXME action needed?
-        pass
+        raise ValueError(f"Provided input type {input_type} not valid. Accepted values are 'pdb_code' and 'pdb_filepath'.")
     return pdb_file_content
 
 
