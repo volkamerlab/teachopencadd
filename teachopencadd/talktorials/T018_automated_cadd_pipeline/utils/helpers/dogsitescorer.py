@@ -113,7 +113,7 @@ def upload_pdb_file(filepath):
         # Turn the response values into a dict
         id_response_values = id_response.json()
         # The response should contain the `id` keyword:
-        if id_response.ok & (
+        if id_response.ok and (
             APIConsts.FileUpload.RESPONSE_MSG_FETCH_ID["id"] in id_response_values
         ):
             id_response_values = id_response.json()
