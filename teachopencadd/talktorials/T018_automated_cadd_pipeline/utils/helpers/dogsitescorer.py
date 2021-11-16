@@ -125,7 +125,7 @@ def upload_pdb_file(filepath):
             time.sleep(5)
 
     if not (
-        id_response.ok & (APIConsts.FileUpload.RESPONSE_MSG_FETCH_ID["id"] in id_response_values)
+        id_response.ok and (APIConsts.FileUpload.RESPONSE_MSG_FETCH_ID["id"] in id_response_values)
     ):
         raise ValueError(
             "Fetching the ID of uploaded protein failed.\n"
