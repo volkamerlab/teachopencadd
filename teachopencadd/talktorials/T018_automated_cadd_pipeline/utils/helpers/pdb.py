@@ -140,7 +140,7 @@ def extract_info_from_pdb_file_content(pdb_file_text_content):
 
         # pdb_content[index]
         # 'COMPND   4 FRAGMENT: KINASE DOMAIN, UNP RESIDUES 696-1022;                      '
-        pdb_content[index] = pdb_content[index].split(" ", 1)
+        pdb_content[index] = pdb_content[index].split(maxsplit=1)
         # ['COMPND', '  4 FRAGMENT: KINASE DOMAIN, UNP RESIDUES 696-1022;                      ']
 
         try:
