@@ -1,78 +1,54 @@
-<div class="alert alert-block alert-info">
-
-<b>Thank you for contributing to TeachOpenCADD!</b>
-
-</div>
-
-
-<div class="alert alert-block alert-info">
-
-<b>Set up your PR</b>: Please check out our <a href="https://github.com/volkamerlab/teachopencadd/issues/41">issue</a> on how to set up a PR for new talktorials, including standard checks and TODOs.
-
-</div>
-
-
-# T000 · Talktorial topic title
+# T025 · Kinase similarity: Kinase pocket (KiSSim fingerprint)
 
 Authors:
 
-- First and last name, year(s) of contribution, lab, institution
-- First and last name, year(s) of contribution, lab, institution
-
-
-*The examples used in this talktorial template are taken from [__Talktorial T001__](https://github.com/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T001_query_chembl/talktorial.ipynb) and [__Talktorial T002__](https://github.com/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb).*
-
-
-<div class="alert alert-block alert-info">
-
-<b>Cross-referencing talktorials</b>: If you want to cross-reference to existing talktorials in your notebook, please use the following formatting: <b>Talktorial T000</b>.
-
-</div>
+- Dominique Sydow, 2021, [Volkamer lab, Charité](https://volkamerlab.org/)
+- Talia B. Kimber, 2021, [Volkamer lab, Charité](https://volkamerlab.org/)
+- Andrea Volkamer, 2021, [Volkamer lab, Charité](https://volkamerlab.org/)
 
 
 ## Aim of this talktorial
 
-Add a short summary of this talktorial's content.
+We will assess the similarity between a set of kinases from a structural point of view using the [KiSSim](https://kissim.readthedocs.io/en/latest/) fingerprint. This fingerprint describes the physicochemical and spatial properties in structurally resolved kinases.
 
 
 ### Contents in *Theory*
 
-_Add Table of Contents (TOC) for Theory section._
-
-* ChEMBL database
-* Compound activity measures
-
-
-<div class="alert alert-block alert-info">
-
-<b>Sync TOC with section titles</b>: These points should refer to the headlines of your <i>Theory</i> section.
-
-</div>
+* Kinase dataset
+* Kinase similarity descriptor: Kinase pockets (KiSSim fingerprint)
+* Fetching KLIFS data with `opencadd.databases.klifs`
 
 
 ### Contents in *Practical*
 
-_Add Table of Contents (TOC) for Practical section._
-
-* Connect to ChEMBL database
-* Load and draw molecules
-
-
-<div class="alert alert-block alert-info">
-
-<b>Sync TOC with section titles</b>: These points should refer to the headlines of your <i>Practical</i> section.
-
-</div>
+* Define the kinases of interest
+* Retrieve and preprocess data
+    * Set up a remote KLIFS session
+    * Fetch all structures describing these kinases
+    * Filter structures
+* Show kinase coverage
+* Load KiSSim fingerprints
+* Compare structures
+* Map structure to kinase distance matrix
+* Save kinase distance matrix
 
 
 ### References
 
-* Paper 
-* Tutorial links
-* Other useful resources
-
-*We suggest the following citation style:*
-* Keyword describing resource: <i>Journal</i> (year), <b>volume</b>, pages (link to resource) 
-
-*Example:*
-* ChEMBL web services: [<i>Nucleic Acids Res.</i> (2015), <b>43</b>, 612-620](https://academic.oup.com/nar/article/43/W1/W612/2467881) 
+* Kinase dataset: [<i>Molecules</i> (2021), <b>26(3)</b>, 629](https://www.mdpi.com/1420-3049/26/3/629) 
+* Protein Data Bank
+  * PDB URL: http://www.rcsb.org/
+  * PDB database: [<i>Acta Cryst.</i> (2002), <b>D58</b>, 899-907](https://doi.org/10.1107/S0907444902003451) and [<i>Structure</i> (2012), <b>20(3)</b>, 391-396](https://doi.org/10.1016/j.str.2012.01.010)
+* KLIFS
+  * KLIFS URL: https://klifs.net/
+  * KLIFS database: [<i>Nucleic Acid Res.</i> (2020), <b>49(D1)</b>, D562-D569](https://doi.org/10.1093/nar/gkaa895)
+  * KLIFS binding site definition: [<i>J. Med. Chem.</i> (2014), <b>57(2)</b>, 249-277](https://doi.org/10.1021/jm400378w)
+ * Binding site comparison reviews: 
+   * [<i>Curr. Comput. Aided Drug Des. </i> (2008), <b>4</b>, 209-20](https://www.eurekaselect.com/67606/article/how-measure-similarity-between-protein-ligand-binding-sites)
+    * [<i>J. Med. Chem. </i> (2016), <b>9</b>, 4121-51](https://pubs.acs.org/doi/10.1021/acs.jmedchem.6b00078)
+* KiSSim: Kinase Structural Similarity
+  * GitHub repository: https://github.com/volkamerlab/kissim
+  * Documentation: https://kissim.readthedocs.io
+* `opencadd`, a Python library for structural cheminformatics
+  * GitHub repository: https://github.com/volkamerlab/opencadd
+  * Documentation: https://opencadd.readthedocs.io
