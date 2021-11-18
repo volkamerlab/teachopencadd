@@ -71,7 +71,7 @@ def draw_molecules(
         Molecules shown as grid.
     """
     if list_legends is None:
-        list_legends = list(range(1, len(list_mol_objs) + 1))
+        list_legends = list(map(str, range(1, len(list_mol_objs) + 1)))
     figure = Draw.MolsToGridImage(
         list_mol_objs,
         molsPerRow=mols_per_row,
@@ -179,7 +179,7 @@ def calculate_druglikeness(mol_obj):
     properties["drug_score_lipinski"] = round((l1 + l2 + l3 + l4) / 4, 2)
 
     # Calculating druglikeness score with custom scoring functions
-    # derived from Hopkins paper https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3524573/
+    # derived from Hopkins paper: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3524573/
     def molWt_score(molWt):
         if molWt <= 440:
             return np.exp(-((molWt - 300) ** 2) / 15000)
