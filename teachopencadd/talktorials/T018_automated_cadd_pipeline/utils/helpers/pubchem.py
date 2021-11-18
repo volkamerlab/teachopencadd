@@ -176,7 +176,7 @@ def get_compound_record(input_id_type, input_id_value, output_data_type="json"):
     input_id_value : str or int
         Value of the input identifier.
     output_data_type : str
-        Optional; default: 'txt'.
+        Optional; default: 'json'.
         Datatype of the output data.
         Valid values are 'txt', 'json', 'csv'.
         A list of all valid values are stored in: `APIConsts.URLs.Outputs`
