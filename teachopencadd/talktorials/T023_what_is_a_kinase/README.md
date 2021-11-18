@@ -1,78 +1,49 @@
-<div class="alert alert-block alert-info">
-
-<b>Thank you for contributing to TeachOpenCADD!</b>
-
-</div>
-
-
-<div class="alert alert-block alert-info">
-
-<b>Set up your PR</b>: Please check out our <a href="https://github.com/volkamerlab/teachopencadd/issues/41">issue</a> on how to set up a PR for new talktorials, including standard checks and TODOs.
-
-</div>
-
-
-# T000 · Talktorial topic title
+# T023 · What is a kinase?
 
 Authors:
 
-- First and last name, year(s) of contribution, lab, institution
-- First and last name, year(s) of contribution, lab, institution
-
-
-*The examples used in this talktorial template are taken from [__Talktorial T001__](https://github.com/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T001_query_chembl/talktorial.ipynb) and [__Talktorial T002__](https://github.com/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb).*
-
-
-<div class="alert alert-block alert-info">
-
-<b>Cross-referencing talktorials</b>: If you want to cross-reference to existing talktorials in your notebook, please use the following formatting: <b>Talktorial T000</b>.
-
-</div>
+- Dominique Sydow, 2021, [Volkamer lab, Charité](https://volkamerlab.org/)
+- Talia B. Kimber, 2021, [Volkamer lab, Charité](https://volkamerlab.org/)
+- Andrea Volkamer, 2021, [Volkamer lab, Charité](https://volkamerlab.org/)
 
 
 ## Aim of this talktorial
 
-Add a short summary of this talktorial's content.
+In this talktorial, we will talk about kinases: why are they important in life and drug design, what do they look like, and what data resources are available?
+Finally, we select a set of kinases which will be analyzed in the forthcoming talktorials **T024**-**T028** with respect to their similarity, the goal being to gain insight into potential off-target effects.
 
 
 ### Contents in *Theory*
 
-_Add Table of Contents (TOC) for Theory section._
-
-* ChEMBL database
-* Compound activity measures
-
-
-<div class="alert alert-block alert-info">
-
-<b>Sync TOC with section titles</b>: These points should refer to the headlines of your <i>Theory</i> section.
-
-</div>
+- Kinases in a nutshell
+    - The human kinome
+    - Kinase structures and important motifs
+- Kinase resources
+    - Kinase structures and related information
+    - Bioactivity data
+- Kinase similarity: Off-targets and promiscuous binding
+- Kinase dataset compilation
 
 
 ### Contents in *Practical*
 
-_Add Table of Contents (TOC) for Practical section._
-
-* Connect to ChEMBL database
-* Load and draw molecules
-
-
-<div class="alert alert-block alert-info">
-
-<b>Sync TOC with section titles</b>: These points should refer to the headlines of your <i>Practical</i> section.
-
-</div>
+- Define the kinases of interest
 
 
 ### References
 
-* Paper 
-* Tutorial links
-* Other useful resources
-
-*We suggest the following citation style:*
-* Keyword describing resource: <i>Journal</i> (year), <b>volume</b>, pages (link to resource) 
-
-*Example:*
-* ChEMBL web services: [<i>Nucleic Acids Res.</i> (2015), <b>43</b>, 612-620](https://academic.oup.com/nar/article/43/W1/W612/2467881) 
+- Kinases as drug targets: [<i>Nat. Rev. Drug Discov.</i> (2021), <b>20(7)</b>, 551-569](https://doi.org/10.1038/s41573-021-00195-4)
+- Sequence-based kinase clustering: Manning et al. [<i>Science</i> (2002), <b>298(5600)</b>, 1912-1934](https://doi.org/10.1126/science.1075762)
+- KinMap: 
+  - Paper: [<i>BMC Bioinformatics</i> (2017), <b>18</b>, 16](https://dx.doi.org/10.1186%2Fs12859-016-1433-7)
+  - Website: http://www.kinhub.org/kinmap/
+- KLIFS
+  - KLIFS URL: https://klifs.net/
+  - KLIFS database: [<i>Nucleic Acid Res.</i> (2020), <b>49(D1)</b>, D562-D569](https://doi.org/10.1093/nar/gkaa895)
+  - KLIFS binding site definition: [<i>J. Med. Chem.</i> (2014), <b>57(2)</b>, 249-277](https://doi.org/10.1021/jm400378w)
+- Bioactivity data
+  - Karaman et al. dataset: [<i>Nature Biotechnology</i> (2008), <b>26</b>, 127-132](https://doi.org/10.1038/nbt1358)
+  - Davis et al. dataset: [<i>Nature Biotechnology</i> (2011), <b>29</b>, 1046-1051](https://doi.org/10.1038/nbt.1990)
+  - KIBA dataset: [<i>J. Chem. Inf. Model.</i> (2014), <b>54(3)</b>, 753-743](https://doi.org/10.1021/ci400709d)
+  - PKIS dataset: [<i>PLOS ONE</i> (2017), <b>12</b>, 1-20](https://doi.org/10.1371/journal.pone.0181585)
+- Kinase selection: [<i>Molecules</i> (2021), <b>26(3)</b>, 629](https://www.mdpi.com/1420-3049/26/3/629)

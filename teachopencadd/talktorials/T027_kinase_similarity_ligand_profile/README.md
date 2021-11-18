@@ -1,78 +1,47 @@
-<div class="alert alert-block alert-info">
-
-<b>Thank you for contributing to TeachOpenCADD!</b>
-
-</div>
-
-
-<div class="alert alert-block alert-info">
-
-<b>Set up your PR</b>: Please check out our <a href="https://github.com/volkamerlab/teachopencadd/issues/41">issue</a> on how to set up a PR for new talktorials, including standard checks and TODOs.
-
-</div>
-
-
-# T000 · Talktorial topic title
+# T027 · Kinase similarity: Ligand profile
 
 Authors:
 
-- First and last name, year(s) of contribution, lab, institution
-- First and last name, year(s) of contribution, lab, institution
-
-
-*The examples used in this talktorial template are taken from [__Talktorial T001__](https://github.com/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T001_query_chembl/talktorial.ipynb) and [__Talktorial T002__](https://github.com/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb).*
-
-
-<div class="alert alert-block alert-info">
-
-<b>Cross-referencing talktorials</b>: If you want to cross-reference to existing talktorials in your notebook, please use the following formatting: <b>Talktorial T000</b>.
-
-</div>
+- Talia B. Kimber, 2021, [Volkamer lab, Charité](https://volkamerlab.org/)
+- Dominique Sydow, 2021, [Volkamer lab, Charité](https://volkamerlab.org/)
+- Andrea Volkamer, 2021, [Volkamer lab, Charité](https://volkamerlab.org/)
 
 
 ## Aim of this talktorial
 
-Add a short summary of this talktorial's content.
+The aim of this talktorial is to investigate kinase similarity through ligand profiling data. In the context of drug design, the following assumption is often made: if a compound was tested active on two different kinases, it is suspected that these two kinases may have some degree of similarity. We will use this assumption in this talktorial. The concept of kinase promiscuity is also covered.
 
 
 ### Contents in *Theory*
 
-_Add Table of Contents (TOC) for Theory section._
-
-* ChEMBL database
-* Compound activity measures
-
-
-<div class="alert alert-block alert-info">
-
-<b>Sync TOC with section titles</b>: These points should refer to the headlines of your <i>Theory</i> section.
-
-</div>
+* Kinase dataset
+* Bioactivity data
+* Kinase similarity descriptor: Ligand profile
+    * Kinase similarity
+    * Kinase promiscuity
+* From similarity matrix to distance matrix
 
 
 ### Contents in *Practical*
 
-_Add Table of Contents (TOC) for Practical section._
-
-* Connect to ChEMBL database
-* Load and draw molecules
-
-
-<div class="alert alert-block alert-info">
-
-<b>Sync TOC with section titles</b>: These points should refer to the headlines of your <i>Practical</i> section.
-
-</div>
+* Define the kinases of interest
+* Retrieve the data
+* Preprocess the data
+    * Hit or non-hit
+* Kinase promiscuity
+* Kinase similarity
+    * Visualize similarity as kinase matrix
+    * Save kinase similarity matrix
+* Kinase distance matrix
+    * Save kinase distance matrix
 
 
 ### References
 
-* Paper 
-* Tutorial links
-* Other useful resources
-
-*We suggest the following citation style:*
-* Keyword describing resource: <i>Journal</i> (year), <b>volume</b>, pages (link to resource) 
-
-*Example:*
-* ChEMBL web services: [<i>Nucleic Acids Res.</i> (2015), <b>43</b>, 612-620](https://academic.oup.com/nar/article/43/W1/W612/2467881) 
+* Kinase dataset: [<i>Molecules</i> (2021), <b>26(3)</b>, 629](https://www.mdpi.com/1420-3049/26/3/629) 
+* ChEMBL database
+  * Website: https://www.ebi.ac.uk/chembl/
+  * Paper: [<i>Nucleic Acid Research</i> (2017), <b>45(D1)</b>, D945-D954](https://doi.org/10.1093/nar/gkw1074) 
+* KinMap
+  * Website: http://www.kinhub.org/kinmap/
+  * Paper: [<i>BMC Bioinformatics</i> (2017), <b>18(1)</b>, 16](https://doi.org/10.1186/s12859-016-1433-7) 

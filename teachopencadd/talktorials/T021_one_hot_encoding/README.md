@@ -52,9 +52,9 @@ The aim of the talktorial is to perform one-hot encoding of SMILES structures on
 ## References
 
 - Theoretical background:
-     - ChEMBL database: " The ChEMBL bioactivity database: an update." ([<i>Nucleic acids research<i> (2014), <b>42.D1</b>, D1083-D1090](https://doi.org/10.1093/nar/gkt1031))
-     - Allen Chieng Hoon Choong, Nung Kion Lee, " *Evaluation of Convolutionary Neural Networks Modeling of DNA Sequences using Ordinal versus one-hot Encoding Method* ", [bioRxiv, October 25, 2017](https://doi.org/10.1101/186965).
-     - Patricio Cerda, Gael Varoquaux, " *Encoding high-cardinality string categorical variables* ", [arXiv:1907, 18 May 2020](https://arxiv.org/pdf/1907.01860v5.pdf).
+     - ChEMBL database: "The ChEMBL bioactivity database: an update." ([<i>Nucleic acids research<i> (2014), <b>42.D1</b>, D1083-D1090](https://doi.org/10.1093/nar/gkt1031))
+     - Allen Chieng Hoon Choong, Nung Kion Lee, "*Evaluation of Convolutionary Neural Networks Modeling of DNA Sequences using Ordinal versus one-hot Encoding Method*", [bioRxiv, October 25, 2017](https://doi.org/10.1101/186965).
+     - Patricio Cerda, Gael Varoquaux, "*Encoding high-cardinality string categorical variables*", [arXiv:1907, 18 May 2020](https://arxiv.org/pdf/1907.01860v5.pdf).
      - Blogpost: Jason Brownlee, *How to One Hot Encode Sequence Data in Python*, [Machine Learning Mastery, accessed November 9th, 2020](https://machinelearningmastery.com/how-to-one-hot-encode-sequence-data-in-python/).
      - Blogpost: Krishna Kumar Mahto, *One-Hot-Encoding, Multicollinearity and the Dummy Variable Trap*, towardsdatascience, Available from [one-hot-encoding-multicollinearity](https://towardsdatascience.com/one-hot-encoding-multicollinearity-and-the-dummy-variable-trap-b5840be3c41a/), accessed July 8th, 2019.
      - Blogpost: Chris, *What is padding in a neural network?*, MachineCurve, [Padding](https://www.machinecurve.com/index.php/2020/02/07/what-is-padding-in-a-neural-network/#:~:text=Padding%20avoids%20the%20loss%20of%20spatial%20dimensions,-Sometimes%2C%20however%2C%20you&text=You%20need%20the%20output%20images,in%20order%20to%20generate%20them.) section, accessed February 7th, 2020
@@ -67,5 +67,4 @@ The aim of the talktorial is to perform one-hot encoding of SMILES structures on
         - Jiangang Hao, et al. "A Review of Scikit-learn Package in Python Programming Language." [*Journal of Education and Behavioral Statistics* **Volume: 44 issue: 3** (2019), page(s): 348-361](https://doi.org/10.3102/1076998619832248)
      - [**Keras**](https://keras.io/): Book chapter: "An Introduction to Deep Learning and Keras" in [*Learn Keras for Deep Neural Networks* (2019), **page(s):1-16**](https://doi.org/10.1007/978-1-4842-4240-7).
      - [**Matplotlib**](https://matplotlib.org/)
-     - [**timeit**](https://docs.python.org/3/library/timeit.html)
      - `smiles encoder` function: Blogpost by iwatobipen, *encode and decode SMILES strings* , [Wordpress, accessed November 9th, 2020](https://iwatobipen.wordpress.com/2017/01/22/encode-and-decode-smiles-strings/)
