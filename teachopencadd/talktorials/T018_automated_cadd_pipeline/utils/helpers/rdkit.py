@@ -43,7 +43,7 @@ def draw_molecules(
     list_mol_objs,
     list_legends=None,
     mols_per_row=3,
-    sub_img_size=(550, 550),
+    sub_img_size=(350, 350),
     filepath=None,
 ):
     """
@@ -54,13 +54,14 @@ def draw_molecules(
     list_mol_objs: list
         List of RDKit molecule objects to be drawn.
     list_legends: list
-        Optional; default None.
+        Optional; default: None
         List of legends for the molecules.
-        If not provided, the list indices (+1) will be used as legend.
+        If not provided, the list indices (+1) will be used as legends.
     mols_per_row : int
-        Optional; default: 3.
+        Optional; default: 3
         Number of structures to show per row.
     sub_img_size : tuple (int, int)
+        Optional; default: (350, 350)
         Size of each structure.
     filepath : str or pathlib.Path
         Full filepath to save the image in.
@@ -76,7 +77,7 @@ def draw_molecules(
         list_mol_objs,
         molsPerRow=mols_per_row,
         subImgSize=sub_img_size,
-        legends=list_legends,
+        legends=list(map(str, list_legends)),
     )
     if filepath is not None:
         with open(f"{filepath}.png", "wb") as f:
@@ -120,7 +121,7 @@ def save_3D_molecule_to_SDfile(mol_obj, filepath):
     session.close()
 
 
-def calculate_similarity_dice(mol_obj1, mol_obj2):
+def calculate_similarity_dice(mol_obj1, mol_obj2, morgan_radius=2, morgan_nbits=4096):
     """
     Calculate the Dice similarity between two molecules,
     based on 4096-bit Morgan fingerprints with a radius of 2.
@@ -131,15 +132,26 @@ def calculate_similarity_dice(mol_obj1, mol_obj2):
         The first molecule.
     mol_obj2 : rdkit.Chem.rdchem.Mol
         The second molecule.
-
+    morgan_radius : int
+        Optional; default: 2
+        The radius used to generate Morgan fingerprints.
+    morgan_nbits : int
+        Optional; default: 4096
+        The number of bits in the Morgan fingerprints.
     Returns
     -------
     float
-        Dice similarity between the two molecules.
+        Dice similarity between the two molecules rounded to two decimal places.
     """
-    morgan_fp_mol1 = AllChem.GetMorganFingerprintAsBitVect(mol_obj1, radius=2, nBits=4096)
-    morgan_fp_mol2 = AllChem.GetMorganFingerprintAsBitVect(mol_obj2, radius=2, nBits=4096)
-    dice_similarity = round(AllChem.DataStructs.DiceSimilarity(morgan_fp_mol1, morgan_fp_mol2), 2)
+    morgan_fp_mol1 = AllChem.GetMorganFingerprintAsBitVect(
+        mol_obj1, radius=morgan_radius, nBits=morgan_nbits
+    )
+    morgan_fp_mol2 = AllChem.GetMorganFingerprintAsBitVect(
+        mol_obj2, radius=morgan_radius, nBits=morgan_nbits
+    )
+    dice_similarity = round(
+        AllChem.DataStructs.DiceSimilarity(morgan_fp_mol1, morgan_fp_mol2), 2
+    )
     return dice_similarity
 
 
