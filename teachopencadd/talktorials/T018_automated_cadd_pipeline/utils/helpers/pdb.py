@@ -167,14 +167,14 @@ def extract_info_from_pdb_file_content(pdb_file_text_content):
 
     info = {"Structure Title": [], "Name": [], "Chains": [], "Ligands": []}
     for content in pdb_content:
-        # FIXME this should be elifs, no?
         if content[0] == "TITLE":
             info["Structure Title"].append(content[1])
-        if content[0] == "COMPND" and content[1].startswith("MOLECULE: "):
-            info["Name"].append(content[1].split("MOLECULE: ")[1])
-        if content[0] == "COMPND" and content[1].startswith("CHAIN: "):
-            info["Chains"].append(content[1].split("CHAIN: ")[1][0])
-        if content[0] == "HET":
+        elif content[0] == "COMPND": 
+            if content[1].startswith("MOLECULE: "):
+                info["Name"].append(content[1].split("MOLECULE: ")[1])
+            elif content[1].startswith("CHAIN: "):
+                info["Chains"].append(content[1].split("CHAIN: ")[1][0])
+        elif content[0] == "HET":
             lig = list(filter(lambda x: x != "", content[1].split(" ")))
             lig[-1] = int(lig[-1])
             info["Ligands"].append(lig)
