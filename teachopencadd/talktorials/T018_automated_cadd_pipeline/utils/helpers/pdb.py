@@ -45,23 +45,21 @@ def fetch_and_save_pdb_file(pdb_code, output_filepath):
     pdb_code : str
         PDB code of the protein structure.
     output_filepath : str or pathlib.Path
-        Local file path (including file name, but not the extension) to save the PDB file in.
+        Local filepath (including filename) to save the PDB file in.
 
     Returns
     -------
     pathlib.Path
         The full path of the saved PDB file.
     """
-    output_filepath = Path(output_filepath)
-
     pdb_file_content = pypdb.get_pdb_file(pdb_code)
-    full_filepath = Path(f"{output_filepath}.pdb")
+    full_filepath = Path(output_filepath).with_suffix(".pdb")
     with open(full_filepath, "w") as f:
         f.write(pdb_file_content)
     return full_filepath
 
 
-def extract_molecule_from_pdb_file(molecule_name, input_filepath, output_filepath):
+def extract_molecule_from_pdb_file(molecule_name, input_filepath, output_filepath=None):
     """
     Extract a specific molecule (i.e. the protein or a ligand)
     from a local PDB file and save as a new PDB file in a given path.
@@ -85,7 +83,8 @@ def extract_molecule_from_pdb_file(molecule_name, input_filepath, output_filepat
     pdb_structure = Structure.from_string(input_filepath)
     molecule_name = f"resname {molecule_name}" if molecule_name != "protein" else molecule_name
     extracted_structure = pdb_structure.select_atoms(molecule_name)
-    extracted_structure.write(output_filepath)
+    if output_filepath is not None:
+        extracted_structure.write(Path(output_filepath).withsuffix(".pdb"))
     return extracted_structure
 
 
