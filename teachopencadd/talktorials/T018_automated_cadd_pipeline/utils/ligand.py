@@ -1,12 +1,12 @@
 """
-Contains ligand class.
+Contains the Ligand class of the pipeline.
 """
 
 from enum import Enum  # for creating enumeration classes
 from pathlib import Path
 
 import pandas as pd  # for creating dataframes and handling data
-from rdkit.Chem import PandasTools
+from rdkit.Chem import PandasTools # for displaying structures inside Pandas DataFrame
 
 from .helpers import pubchem, rdkit
 
@@ -37,8 +37,6 @@ class Ligand:
 
     def __init__(self, identifier_type, identifier_value, ligand_output_path):
         """
-        Initialize ligand.
-
         Parameters
         ----------
         identifier_type : enum 'InputTypes' from the 'Consts.Ligand' class
@@ -48,8 +46,6 @@ class Ligand:
         ligand_output_path : str or pathlib.Path
             TODO
         """
-
-        ligand_output_path = Path(ligand_output_path)
 
         self.dataframe = pd.DataFrame(columns=["Value"])
         self.dataframe.index.name = "Property"
@@ -69,6 +65,7 @@ class Ligand:
             setattr(self, property_, dict_of_properties[property_])
             self.dataframe.loc[property_] = dict_of_properties[property_]
 
+        ligand_output_path = Path(ligand_output_path)
         self.save_as_image(ligand_output_path / f"CID_{self.cid}")
         self.dataframe.to_csv(ligand_output_path / f"CID_{self.cid}.csv")
 
@@ -92,14 +89,13 @@ class Ligand:
         str
             SMILES of the molecule without its counter-ion.
         """
-        if (
-            "." in self.smiles
-        ):  # SMILES of salts contain a dot, separating the anion and the cation
+        
+        # SMILES of salts contain a dot, separating the anion and the cation
+        if "." in self.smiles:  
             ions = self.smiles.split(".")
             length_ions = list(map(len, ions))
-            molecule_index = length_ions.index(
-                max(length_ions)
-            )  # The parent molecule is almost always larger than its corresponding counter-ion
+            # The parent molecule is almost always larger than its corresponding counter-ion
+            molecule_index = length_ions.index(max(length_ions))  
             molecule_smiles = ions[molecule_index]
         else:
             molecule_smiles = self.smiles
