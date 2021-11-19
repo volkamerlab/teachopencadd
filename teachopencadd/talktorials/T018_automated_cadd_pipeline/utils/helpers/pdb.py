@@ -134,42 +134,30 @@ def extract_info_from_pdb_file_content(pdb_file_text_content):
                 [ligand-ID, chain-ID+residue number, number of heavy atoms]
     """
 
-    pdb_content = pdb_file_text_content.strip().split("\n")
-
+    # clean up the file content and prepare for data extraction
+    pdb_content = pdb_file_text_content.strip().splitlines()
     for index, _ in enumerate(pdb_content):
-
-        # pdb_content[index]
-        # 'COMPND   4 FRAGMENT: KINASE DOMAIN, UNP RESIDUES 696-1022;                      '
         pdb_content[index] = pdb_content[index].split(maxsplit=1)
-        # ['COMPND', '  4 FRAGMENT: KINASE DOMAIN, UNP RESIDUES 696-1022;                      ']
-
-        try:
+        if len(pdb_content[index]) > 1:
             pdb_content[index][1] = pdb_content[index][1].strip()
-            # '4 FRAGMENT: KINASE DOMAIN, UNP RESIDUES 696-1022;'
-
-            # Strip ';' at the end of the line if present
+            # remove semicolon from end of lines
             if pdb_content[index][1][-1] == ";":
                 pdb_content[index][1] = pdb_content[index][1][:-1]
-                # '4 FRAGMENT: KINASE DOMAIN, UNP RESIDUES 696-1022'
-
-            # For certain records followed by a digit, get everything after that digit
+            # for certain records followed by a digit, get everything after that digit
             if (
                 pdb_content[index][0] in ["TITLE", "REMARK", "COMPND"]
                 and pdb_content[index][1][0].isdigit()
             ):
-                try:
-                    pdb_content[index][1] = pdb_content[index][1].split(maxsplit=1)[1]
-                    # 'FRAGMENT: KINASE DOMAIN, UNP RESIDUES 696-1022'
-                except IndexError as e:
-                    pass
-        except IndexError as e:
-            pdb_content[index].append(" ")
+                temp = pdb_content[index][1].split(maxsplit=1)
+                if len(temp) > 1:
+                    pdb_content[index][1] = temp[1]
 
+    # extract desired data from cleaned-up PDB file content
     info = {"Structure Title": [], "Name": [], "Chains": [], "Ligands": []}
     for content in pdb_content:
         if content[0] == "TITLE":
             info["Structure Title"].append(content[1])
-        elif content[0] == "COMPND": 
+        elif content[0] == "COMPND" and len(content) > 1: 
             if content[1].startswith("MOLECULE: "):
                 info["Name"].append(content[1].split("MOLECULE: ")[1])
             elif content[1].startswith("CHAIN: "):
