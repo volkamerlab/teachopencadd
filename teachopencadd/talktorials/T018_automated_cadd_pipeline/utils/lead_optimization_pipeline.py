@@ -168,7 +168,18 @@ class LeadOptimizationPipeline:
     @staticmethod
     def _pprint(markdown_list):
         """
-        TODO
+        Display multiple lines in a given color for each line.
+        
+        Parameters
+        ----------
+        markdown_list : list of lists/tuples
+            List of texts and their respective colors to be displayed.
+            Each tuple has two elements: the text, followed by its color.
+        
+        Returns
+        -------
+        None
+            The texts are displayed in their given colors.
         """
         markdown_command = ""
         for command in markdown_list:
@@ -179,7 +190,19 @@ class LeadOptimizationPipeline:
     @staticmethod
     def _pprint_header(header):
         """
-        TODO
+        Display the report header of each part of the pipeline after its successful completion.
+        
+        Parameters
+        ----------
+        header : str
+            Name of a process in the pipeline, e.g. "Binding site detection".
+        
+        Returns
+        -------
+        None
+            The header will be displayed in blue color and bold,
+            followed by "successful" in green.
+            Example: Binding site detection: Successful
         """
         display(
             Markdown(
