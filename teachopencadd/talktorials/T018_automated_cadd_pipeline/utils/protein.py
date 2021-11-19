@@ -83,11 +83,11 @@ class Protein:
 
         protein_info = pdb.extract_info_from_pdb_file_content(self.file_content)
 
-        for protein_property in self.Consts.Properties:
+        for protein_property in protein_info: 
             setattr(
                 self,
-                protein_property.name.lower(),
-                protein_info[protein_property.value],
+                self.Consts.Properties(protein_property).name.lower(),
+                protein_info[protein_property],
             )
 
     def __call__(self):
