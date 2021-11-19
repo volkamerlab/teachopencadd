@@ -84,7 +84,7 @@ def extract_molecule_from_pdb_file(molecule_name, input_filepath, output_filepat
     molecule_name = f"resname {molecule_name}" if molecule_name != "protein" else molecule_name
     extracted_structure = pdb_structure.select_atoms(molecule_name)
     if output_filepath is not None:
-        extracted_structure.write(Path(output_filepath).withsuffix(".pdb"))
+        extracted_structure.write(Path(output_filepath).with_suffix(".pdb"))
     return extracted_structure
 
 
