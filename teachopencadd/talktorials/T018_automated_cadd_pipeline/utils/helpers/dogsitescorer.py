@@ -322,10 +322,8 @@ def get_pocket_residues(pocket_pdb_filepath):
     """
     
     with open(pocket_pdb_filepath) as f:
-        pdb_residues = f.read()
-    # Load PDB file as DataFrame and get atom info
-    ppdb = PandasPdb().read_pdb_from_list(pdb_residues.splitlines(True))
-    pdb_df = ppdb.df["ATOM"]
+        pdb_content = f.read()
+    atom_info = pdb.load_pdb_file_as_dataframe(pdb_content)["ATOM"]
     # Drop duplicates, since the PDB file contains one entry per atom,
     # but we only need one entry per residue
     pdb_df.sort_values("residue_number", inplace=True)
