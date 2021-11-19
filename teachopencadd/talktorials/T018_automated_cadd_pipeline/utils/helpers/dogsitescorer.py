@@ -326,8 +326,8 @@ def get_pocket_residues(pocket_pdb_filepath):
     atom_info = pdb.load_pdb_file_as_dataframe(pdb_content)["ATOM"]
     # Drop duplicates, since the PDB file contains one entry per atom,
     # but we only need one entry per residue
-    pdb_df.sort_values("residue_number", inplace=True)
-    pdb_df.drop_duplicates(subset="residue_number", keep="first", inplace=True)
-    pdb_df.reset_index(drop=True, inplace=True)
-    pdb_df.index += 1
-    return pdb_df[["residue_number", "residue_name"]]
+    atom_info.sort_values("residue_number", inplace=True)
+    atom_info.drop_duplicates(subset="residue_number", keep="first", inplace=True)
+    atom_info.reset_index(drop=True, inplace=True)
+    atom_info.index += 1
+    return atom_info[["residue_number", "residue_name"]]
