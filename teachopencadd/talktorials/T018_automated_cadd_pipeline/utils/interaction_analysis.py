@@ -235,9 +235,6 @@ class InteractionAnalysis:
                     list_eligible_analog_cid_docking_pose_nr_tuple.append(
                         (analog.cid, analog_docking_pose_nr)
                     )
-                else:
-                    # FIXME action needed?
-                    pass
 
         return list_eligible_analog_cid_docking_pose_nr_tuple
 
