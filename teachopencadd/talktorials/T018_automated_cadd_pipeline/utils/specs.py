@@ -1,5 +1,5 @@
 """
-Contains pipeline specification class.
+Contains pipeline's specification class.
 """
 
 from enum import Enum  # for creating enumeration classes
@@ -13,9 +13,12 @@ from .helpers import io
 
 class Specs:
     """
-    Data-class containing all the input data and output paths of the project.
-    Take the filepath to the CSV input-data as well as output path, and
-    internalize all the data as instance attributes.
+    Class containing all the input data and output paths of the project.
+    Take the filepath to the CSV input data, as well as a main output path, 
+    and internalize all the data as instance attributes, categorized into
+    sub-classes corresponding to each process of the pipeline.
+    The validity and integrity of the data will be examined,
+    and any missing optional parameter will be set to its default value.
     """
 
     # Defining the default values for all optional entries
@@ -63,19 +66,16 @@ class Specs:
             f"+ df[{Consts.OptimizedLigands.SelectionCriteria.NUM_ALL_INTERACTIONS}] "
             f"* df[{Consts.OptimizedLigands.SelectionCriteria.DRUG_SCORE_TOTAL}]"
         )
-
     # -----------------------------------------------------
 
     def __init__(self, input_data_filepath, output_data_root_folder_path):
         """
-        Initialize specifications.
-
         Parameters
         ----------
         input_data_filepath : str or pathlib.Path
-            Relative or absolute local path of the input CSV-data-file for the project.
+            Relative or absolute local path of the input CSV file for the project.
         output_data_root_folder_path : str or pathlib.Path
-            Relative or absolute local path of root folder to store output data in.
+            Relative or absolute local path of the root folder to store output data in.
         """
 
         input_data_filepath = Path(input_data_filepath)
@@ -95,7 +95,8 @@ class Specs:
 
     class RawData:
         """
-        Defining a sub-class for each part of the pipeline
+        Subclass containing the raw data from the input CSV file,
+        initialized automatically by the parent class.
         """
 
         def __init__(self, input_data_filepath):
@@ -119,7 +120,8 @@ class Specs:
 
     class Protein:
         """
-        TODO
+        Subclass containing the input protein data,
+        initialized automatically by the parent class.
         """
 
         def __init__(self, input_protein_data):
@@ -130,7 +132,8 @@ class Specs:
 
     class Ligand:
         """
-        TODO
+        Subclass containing the input ligand data,
+        initialized automatically by the parent class.
         """
 
         def __init__(self, input_ligand_data):
@@ -141,7 +144,9 @@ class Specs:
 
     class BindingSite:
         """
-        TODO
+        Subclass containing input specifications for 
+        the binding site detection process of the pipeline,
+        initialized automatically by the parent class.
         """
 
         def __init__(self, input_binding_site_data):
@@ -238,7 +243,9 @@ class Specs:
 
     class LigandSimilaritySearch:
         """
-        TODO
+        Subclass containing input specifications for 
+        the ligand similarity search process of the pipeline,
+        initialized automatically by the parent class.
         """
 
         def __init__(self, similarity_search_data):
@@ -283,7 +290,9 @@ class Specs:
 
     class Docking:
         """
-        TODO
+        Subclass containing input specifications for 
+        the docking process of the pipeline,
+        initialized automatically by the parent class.
         """
 
         def __init__(self, docking_data):
@@ -318,7 +327,9 @@ class Specs:
 
     class InteractionAnalysis:
         """
-        TODO
+        Subclass containing input specifications for 
+        the interaction analysis process of the pipeline,
+        initialized automatically by the parent class.
         """
 
         def __init__(self, interaction_analysis_data):
@@ -334,7 +345,9 @@ class Specs:
 
     class OptimizedLigands:
         """
-        TODO
+        Subclass containing input specifications for 
+        the selection of the output ligand,
+        initialized automatically by the parent class.
         """
 
         def __init__(self, optimized_ligand_data):
@@ -388,9 +401,11 @@ class Specs:
 
     class OutputPaths:
         """
-        Data-class containing all the output paths for different parts of the pipeline.
+        Subclass containing all the output paths for different parts of the pipeline,
+        initialized automatically by the parent class.
         Take a main output path, and create all required parent folders,
-        as well as sub-folders for each part of the pipeline.
+        as well as sub-folders for each part of the pipeline,
+        and store their paths.
         """
 
         def __init__(self, output_path):
