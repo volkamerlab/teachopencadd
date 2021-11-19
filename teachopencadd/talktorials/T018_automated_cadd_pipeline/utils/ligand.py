@@ -19,6 +19,13 @@ class Ligand:
 
     Attributes
     ----------
+    dataframe : Pandas DataFrame
+        Dataframe containing the most important data available for the ligand.
+        Each time a process is performed on the ligand (e.g. docking), 
+        the important results are added to the dataframe.
+    rdkit_obj : rdkit.Chem.rdchem.Mol
+        RDKit molecule object for the ligand with its own set of attributes.
+    
     TODO see `Consts` class. More attributes?
     """
 
@@ -44,7 +51,7 @@ class Ligand:
         indentifier_value : str
             Value of the ligand identifier, e.g. its SMILES.
         ligand_output_path : str or pathlib.Path
-            TODO
+            Output path of the project for ligand data.
         """
 
         self.dataframe = pd.DataFrame(columns=["Value"])
