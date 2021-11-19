@@ -118,35 +118,63 @@ class OptimizedLigands:
 
     def show_higher_affinity_analogs(self):
         """
-        TODO
+        Show analogs with a higher calculated binding affinity than the input ligand.
+        
+        Returns
+        -------
+        None
+            The analogs' dataframes are displayed. 
         """
         for analog in self.higher_affinity_analogs:
             display(analog())
 
     def show_higher_interacting_analogs(self):
         """
-        TODO
+        Show analogs with a higher number of protein-ligand interactions than the input ligand.
+        
+        Returns
+        -------
+        None
+            The analogs' dataframes are displayed. 
         """
         for analog in self.higher_interacting_analogs:
             display(analog())
 
     def show_higher_affinity_and_interacting_analogs(self):
         """
-        TODO
+        Show analogs with a higher calculated binding affinity and 
+        a higher number of protein-ligand interactions than the input ligand.
+        
+        Returns
+        -------
+        None
+            The analogs' dataframes are displayed. 
         """
         for analog in self.higheraffinity_and_interacting_analogs:
             display(analog())
 
     def show_higher_affinity_and_interacting_and_druglike_analogs(self):
         """
-        TODO
+        Show analogs with a higher calculated binding affinity, 
+        a higher number of protein-ligand interactions, and
+        a higher drug-likeness score than the input ligand.        
+        
+        Returns
+        -------
+        None
+            The analogs' dataframes are displayed. 
         """
         for analog in self.higher_affinity_and_interacting_and_druglike_analogs:
             display(analog)
 
     def show_final_output(self):
         """
-        TODO
+        Show analogs that have been selected as the final output of the pipeline.
+        
+        Returns
+        -------
+        None
+            The analogs' dataframes are displayed. 
         """
         for analog in self.output:
             display(analog())
@@ -154,7 +182,20 @@ class OptimizedLigands:
     def __call__(self):
         def pprint(text1, text2):
             """
-            TODO
+            Take two strings and display them next to each other as Markdown, 
+            where first string is colored blue, and the second string is colored black.
+            
+            Parameters:
+            -----------
+            text1 : str
+                The first part of the text; it will be printed in blue.
+            text2 : str
+                The second part of the text; it will be printed in black.
+            
+            Returns
+            -------
+            None
+                The strings are displayed.
             """
             display(
                 Markdown(
