@@ -20,6 +20,9 @@ class Protein:
 
     Attributes
     ----------
+    pdb_filepath : pathlib.Path
+        Filepath of the protein PDB file.
+    
     TODO see `Consts` class.
     """
 
@@ -39,8 +42,6 @@ class Protein:
 
     def __init__(self, identifier_type, identifier_value, protein_output_path):
         """
-        Initialize protein.
-
         Parameters
         ----------
         identifier_type : enum 'InputTypes' from the 'Consts.Protein' class
@@ -51,10 +52,13 @@ class Protein:
             Output path of the project for protein data.
         """
 
-        protein_output_path = Path(protein_output_path)
-
         setattr(self, identifier_type.name.lower(), identifier_value)
-
+        # if the protein is inputted by its PDB code, also download its PDB file
+        if identifier_type is Consts.Protein.InputTypes.PDB_CODE:
+            self.pdb_filepath = pdb.fetch_and_save_pdb_file(
+                identifier_value, Path(protein_output_path) / identifier_value
+            )
+        
         self.file_content = pdb.read_pdb_file_content(identifier_type.value, identifier_value)
 
         dict_of_dataframes = pdb.load_pdb_file_as_dataframe(self.file_content)
@@ -80,27 +84,14 @@ class Protein:
         protein_info = pdb.extract_info_from_pdb_file_content(self.file_content)
 
         for protein_property in self.Consts.Properties:
-            if protein_property.value in protein_info:
-                setattr(
-                    self,
-                    protein_property.name.lower(),
-                    protein_info[protein_property.value],
-                )
-            else:
-                # FIXME action needed?
-                pass
-
-        if identifier_type is Consts.Protein.InputTypes.PDB_CODE:
-            self.pdb_filepath = pdb.fetch_and_save_pdb_file(
-                identifier_value, f"{protein_output_path}/{identifier_value}"
+            setattr(
+                self,
+                protein_property.name.lower(),
+                protein_info[protein_property.value],
             )
-        else:
-            # FIXME action needed?
-            pass
 
     def __call__(self):
         for protein_property in self.Consts.Properties:
-
             # Display property if available
             if hasattr(self, protein_property.name.lower()):
                 display(
@@ -115,7 +106,6 @@ class Protein:
             viewer = nglview.protein("pdb_code", self.pdb_code)
         else:
             viewer = nglview.protein("pdb", self.pdb_filepath)
-
         return viewer
 
     def __repr__(self):
