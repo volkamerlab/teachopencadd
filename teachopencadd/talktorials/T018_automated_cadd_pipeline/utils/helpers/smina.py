@@ -17,7 +17,7 @@ def dock(
     output_format="pdbqt",
     num_poses=10,
     exhaustiveness=10,
-    random_seed="",
+    random_seed=None,
     log=True,
 ):
     """
@@ -79,7 +79,7 @@ def dock(
             str(exhaustiveness),
         ]
         + (["--log", str(output_path) + "_log.txt"] if log else [])
-        + (["--seed", str(random_seed)] if random_seed != "" else [])
+        + (["--seed", str(random_seed)] if random_seed is not None else [])
     )
 
     output_text = subprocess.check_output(
