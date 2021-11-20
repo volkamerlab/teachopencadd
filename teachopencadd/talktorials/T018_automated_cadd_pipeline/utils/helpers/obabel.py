@@ -79,7 +79,7 @@ def create_pdbqt_from_pdb_file(pdb_filepath, pdbqt_filepath, pH=7.4):
     """
     # readfile() provides an iterator over the Molecules in a file.
     # To access the first (and possibly only) molecule in a file,
-    # we use .next()
+    # we use next()
     molecule = next(pybel.readfile("pdb", str(pdb_filepath)))
     optimize_structure_for_docking(molecule, protonate_for_pH=pH)
     molecule.write("pdbqt", str(pdbqt_filepath), overwrite=True)
