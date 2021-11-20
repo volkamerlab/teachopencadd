@@ -75,7 +75,7 @@ class APIConsts:
             DESCRIPTION_SOURCE_URL = "DescriptionURL"
             
 
-@redo.retriable(attempts=20, sleeptime=30)
+#@redo.retriable(attempts=30, sleeptime=1, sleepscale=1.1, max_sleeptime=20)
 def send_request(partial_url, response_type="txt", optional_params=""):
     """
     Send an API request to PubChem and get the response data.
