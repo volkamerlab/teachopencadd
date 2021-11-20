@@ -19,7 +19,7 @@ def create_molecule_object(input_type, input_value):
     ----------
     input_type : str
         Type of the input.
-        Allowed input-types are: 'smiles', 'inchi', 'smarts', 'pdb_files'
+        Allowed input-types are: 'smiles', 'inchi', 'smarts', 'pdb_file'
     input_value : str
         Value of the corresponding input type.
 
