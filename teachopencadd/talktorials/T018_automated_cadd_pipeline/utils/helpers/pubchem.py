@@ -130,6 +130,7 @@ def convert_compound_identifier(
         Valid values are stored in: `APIConsts.URLs.Inputs`
     input_id_value : str or int or list of str or list of int
         Value of the input identifier.
+        For CIDs, multiple values can be entered as a list.
     output_id_type : str
         Type of the output identifier.
         Valid values are: 'name', 'cid', 'smiles', 'inchi', 'inchikey', 'iupac_name'.
@@ -147,11 +148,16 @@ def convert_compound_identifier(
     """
 
     if isinstance(input_id_value, list):
-        input_id_value = ",".join(map(str, input_id_value))
+        if input_id_type == "cid":
+            input_id_value = ",".join(map(str, input_id_value))
+        else:
+            raise ValueError("Only CIDs can be entered as a list.")
+    else:
+        escaped_input_id_value = quote(input_id_value).replace("/", ".")
 
     url = (
         getattr(APIConsts.URLs.Inputs, input_id_type.upper()).value
-        + str(input_id_value)
+        + str(escaped_input_id_value)
         + getattr(APIConsts.URLs.Operations, f"GET_{output_id_type}".upper()).value
     )
     response_data = send_request(url, output_data_type)
@@ -186,9 +192,11 @@ def get_compound_record(input_id_type, input_id_value, output_data_type="json"):
     dict
         Dictionary keys are: 'id', 'atoms', 'bonds', 'coords', 'charge', 'props', 'count'
     """
+    
+    escaped_input_id_value = quote(input_id_value).replace("/", ".")
     url = (
         getattr(APIConsts.URLs.Inputs, input_id_type.upper()).value
-        + str(input_id_value)
+        + str(escaped_input_id_value)
         + getattr(APIConsts.URLs.Operations, "GET_RECORD").value
     )
     response_data = send_request(url, output_data_type)[
@@ -221,9 +229,11 @@ def get_description_from_smiles(smiles, output_data_type="json", printout=False)
         returned as a list of dicts, where each element of the list
         corresponds to a description from a specific source (e.g. a journal article).
     """
+    
+    escaped_smiles = quote(smiles).replace("/", ".")
     url = (
         APIConsts.URLs.Inputs.SMILES.value
-        + smiles
+        + escaped_smiles
         + APIConsts.URLs.Operations.GET_DESCRIPTION.value
     )
     response_data = send_request(url, output_data_type)[
