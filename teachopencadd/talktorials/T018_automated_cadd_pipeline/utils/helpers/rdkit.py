@@ -2,9 +2,8 @@
 Contains RDKit-related functions.
 """
 
-from rdkit import (
-    Chem,
-)  # for handling ligand data and calculating ligand-related properties
+# for handling ligand data and calculating ligand-related properties
+from rdkit import Chem  
 from rdkit.Chem import Draw, AllChem, Descriptors
 import numpy as np  # for some more functionalities when using Pandas (e.g. for handling NaN values)
 
@@ -36,6 +35,7 @@ def create_molecule_object(input_type, input_value):
         "pdb_file": Chem.MolFromPDBFile,
     }
     Molobj = functions[input_type](input_value)
+    Molobj.smiles = Chem.MolToSmiles(Molobj)
     return Molobj
 
 
