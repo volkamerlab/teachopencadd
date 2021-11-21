@@ -80,10 +80,10 @@ def create_pdbqt_from_pdb_file(pdb_filepath, pdbqt_filepath, pH=7.4):
     # readfile() provides an iterator over the Molecules in a file.
     # To access the first (and possibly only) molecule in a file,
     # we use next()
-    molecule = next(pybel.readfile("pdb", str(pdb_filepath)))
+    molecule = next(pybel.readfile("pdb", str(Path(pdb_filepath).with_suffix(".pdb"))))
     optimize_structure_for_docking(molecule, protonate_for_pH=pH)
-    molecule.write("pdbqt", str(pdbqt_filepath), overwrite=True)
-    return molecule
+    molecule.write("pdbqt", str(Path(pdbqt_filepath).with_suffix(".pdbqt")), overwrite=True)
+    return
 
 
 def create_pdbqt_from_smiles(smiles, pdbqt_path, pH=7.4):
@@ -100,13 +100,12 @@ def create_pdbqt_from_smiles(smiles, pdbqt_path, pH=7.4):
         Path to output PDBQT file.
     pH: float
         Protonation at given pH.
+        Optional; default: 7.4
     """
-
-    pdbqt_path = Path(pdbqt_path)
 
     molecule = pybel.readstring("smi", smiles)
     optimize_structure_for_docking(molecule, protonate_for_pH=pH, generate_3d_structure=True)
-    molecule.write("pdbqt", str(pdbqt_path), overwrite=True)
+    molecule.write("pdbqt", str(Path(pdbqt_path).with_suffix(".pdbqt")), overwrite=True)
     return
 
 
