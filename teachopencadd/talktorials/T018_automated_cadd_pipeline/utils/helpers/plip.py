@@ -161,3 +161,44 @@ def create_protein_ligand_complex(
         file.write(ligand_pdbblock)
 
     return Path(full_output_filepath)
+
+
+def correct_protein_residue_numbers(ligand_interaction_data, protein_first_residue_number):
+    """
+    Correct the protein residue numbers in interaction data.
+    
+    Parameters
+    ----------
+    ligand_interaction_data : dict
+        One of sub-dicts (corresponding to a single ligand)
+        created by the function `calculate_interactions`.
+    
+    protein_first_residue_number : int
+        The first residue number in the protein.
+    
+    Returns
+    -------
+    dict
+        Corrects the residue numbers in-place 
+        in the input dict and returns it.
+    """
+    
+    # loop through interaction data for each interaction type (i.e. dict values)
+    for certain_interactions_data in ligand_interaction_data.values():
+        # for each type, the interaction data is a list,
+        # and the actual data starts from the second element
+        for single_interaction_data in range(1, len(certain_interactions_data)):
+            # the data are stored in tuples, we have to convert them to a list first, 
+            # in order to be able to change them.
+            list_from_tuple = list(
+                certain_interactions_data[single_interaction_data]
+            )
+            # add the protein's first residue number to them, and subtract 1,
+            # so that we get back the original residue numbers.
+            list_from_tuple[0] += protein_first_residue_number - 1
+            # convert back to tuple and overwrite in-place
+            certain_interactions_data[single_interaction_data] = tuple(
+                list_from_tuple
+            )
+    return ligand_interaction_data
+    

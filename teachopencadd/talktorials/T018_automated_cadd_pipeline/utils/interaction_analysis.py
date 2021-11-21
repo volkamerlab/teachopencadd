@@ -107,19 +107,9 @@ class InteractionAnalysis:
                     # Since this PDBQT file is also used to create a protein-ligand complext file
                     # for interaction-analysis with PLIP, the residue numbers in PLIP are also affected.
                     # Now we have to fix this here, before further processing the PLIP data.
-                    # To do so, we simply loop through all the interaction data to find all the
-                    # residue numbers, add the protein's first residue number to them, and subtract 1,
-                    # so that we get back the original residue numbers. Also, since the data are stored
-                    # in tuples, we have to convert them to a list first, in order to be able to change them.
-                    for certain_interactions_data in ligand_interaction_data.values():
-                        for single_interaction_data in range(1, len(certain_interactions_data)):
-                            list_from_tuple = list(
-                                certain_interactions_data[single_interaction_data]
-                            )
-                            list_from_tuple[0] += protein_first_residue_number - 1
-                            certain_interactions_data[single_interaction_data] = tuple(
-                                list_from_tuple
-                            )
+                    ligand_interaction_data = plip.correct_protein_residue_numbers(
+                        ligand_interaction_data,
+                        protein_first_residue_number)
 
                     interaction_master_df.loc[(analog.cid, index + 1), "plip_dict"] = [
                         interaction_data[list(interaction_data.keys())[0]]
