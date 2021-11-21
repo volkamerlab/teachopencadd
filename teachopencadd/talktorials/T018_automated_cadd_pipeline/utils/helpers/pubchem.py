@@ -153,7 +153,7 @@ def convert_compound_identifier(
         else:
             raise ValueError("Only CIDs can be entered as a list.")
     else:
-        escaped_input_id_value = quote(input_id_value).replace("/", ".")
+        escaped_input_id_value = quote(str(input_id_value)).replace("/", ".")
 
     url = (
         getattr(APIConsts.URLs.Inputs, input_id_type.upper()).value
