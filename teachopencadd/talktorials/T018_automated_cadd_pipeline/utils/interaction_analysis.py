@@ -46,10 +46,10 @@ class InteractionAnalysis:
         ----------
         separated_protein_pdbqt_filepath : str or pathlib.Path
             Filepath of the separated protein PDBQT file used in docking.
-        separated_protein_pdb_filepath : TODO
-            TODO
-        protein_first_residue_number : TODO
-            TODO
+        separated_protein_pdb_filepath : str or pathlib.Path
+            Filepath of the separated protein PDB file.
+        protein_first_residue_number : int
+            First residue number in the protein.
         list_Ligand_objects : list of utils.Ligand
             List of ligands to analyze their interactions with the protein.
         docking_master_df : pandas.DataFrame
