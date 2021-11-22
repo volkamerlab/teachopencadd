@@ -205,9 +205,7 @@ class Docking:
         )
         nglview.docking(
             self.pdb_filepath_extracted_protein,
-            "pdb",
             fitted_master_df["filepath"].tolist(),
-            "pdbqt",
             list_docking_poses_labels,
             fitted_master_df["affinity[kcal/mol]"].tolist(),
         )
