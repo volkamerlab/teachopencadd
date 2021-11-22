@@ -22,9 +22,9 @@ class Docking:
 
     def __init__(
         self,
-        Protein_object,
-        list_Ligand_objects,
-        DockingSpecs_object,
+        protein_obj,
+        list_ligand_obj,
+        docking_specs_obj,
         docking_output_path,
         frozen_data_filepath=None,
     ):
@@ -33,11 +33,11 @@ class Docking:
 
         Parameters
         ----------
-        Protein_object : utils.Protein
+        protein_obj : utils.Protein
             The protein to perform docking on.
-        list_Ligand_objects : list of utils.Ligand
+        list_ligand_obj : list of utils.Ligand
             List of ligands to dock on the protein.
-        DockingSpecs_object : utils.Specs.Docking
+        docking_specs_obj : utils.Specs.Docking
             Specifications for the docking experiment.
         docking_output_path : str or pathlib.Path
             Output folder path to store the docking data in.
@@ -53,21 +53,21 @@ class Docking:
             frozen_data_filepath = Path(frozen_data_filepath)
 
         self.pdb_filepath_extracted_protein = docking_output_path / (
-            f"{Protein_object.pdb_code}_extracted_protein.pdb"
+            f"{protein_obj.pdb_code}_extracted_protein.pdb"
         )
-        Protein_object.Universe = pdb.extract_molecule_from_pdb_file(
-            "protein", Protein_object.pdb_filepath, self.pdb_filepath_extracted_protein
+        protein_obj.Universe = pdb.extract_molecule_from_pdb_file(
+            "protein", protein_obj.pdb_filepath, self.pdb_filepath_extracted_protein
         )
 
         if frozen_data_filepath is not None:
             # Set path to frozen PDBQT files
             self.pdbqt_filepath_extracted_protein = frozen_data_filepath / (
-                f"{Protein_object.pdb_code}_extracted_protein_ready_for_docking.pdbqt"
+                f"{protein_obj.pdb_code}_extracted_protein_ready_for_docking.pdbqt"
             )
         else:
             # Generate PDBQT files
             self.pdbqt_filepath_extracted_protein = docking_output_path / (
-                f"{Protein_object.pdb_code}_extracted_protein_ready_for_docking.pdbqt"
+                f"{protein_obj.pdb_code}_extracted_protein_ready_for_docking.pdbqt"
             )
             obabel.create_pdbqt_from_pdb_file(
                 self.pdb_filepath_extracted_protein, self.pdbqt_filepath_extracted_protein
@@ -76,7 +76,7 @@ class Docking:
         temp_list_results_df = []
         temp_list_master_df = []
 
-        for ligand in list_Ligand_objects:
+        for ligand in list_ligand_obj:
 
             if frozen_data_filepath is not None:
                 # Set path to frozen PDBQT files
@@ -93,13 +93,13 @@ class Docking:
             raw_log = smina.dock(
                 ligand.pdbqt_filepath,
                 self.pdbqt_filepath_extracted_protein,
-                Protein_object.binding_site_coordinates["center"],
-                Protein_object.binding_site_coordinates["size"],
+                protein_obj.binding_site_coordinates["center"],
+                protein_obj.binding_site_coordinates["size"],
                 str(ligand.docking_poses_filepath).split(".")[0],
                 output_format="pdbqt",
-                num_poses=DockingSpecs_object.num_poses_per_ligand,
-                exhaustiveness=DockingSpecs_object.exhaustiveness,
-                random_seed=DockingSpecs_object.random_seed,
+                num_poses=docking_specs_obj.num_poses_per_ligand,
+                exhaustiveness=docking_specs_obj.exhaustiveness,
+                random_seed=docking_specs_obj.random_seed,
                 log=True,
             )
 
