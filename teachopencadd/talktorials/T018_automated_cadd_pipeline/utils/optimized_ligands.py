@@ -77,7 +77,7 @@ class OptimizedLigands:
             if analog.drug_score_total > project.Ligand.drug_score_total
         ]
 
-        # Optimization methods is sorting
+        # Optimization method is sorting
         if (
             project.Specs.OptimizedLigands.selection_method
             is Consts.OptimizedLigands.SelectionMethods.SORTING
@@ -97,8 +97,7 @@ class OptimizedLigands:
             project.Specs.OptimizedLigands.selection_method
             is Consts.OptimizedLigands.SelectionMethods.FUNCTION
         ):
-            # FIXME should this be project.Specs.OptimizedLigands.selection_criteria?
-            df["function_score"] = eval(selection_criteria)
+            df["function_score"] = eval(project.Specs.OptimizedLigands.selection_criteria)
             final_results_cids = (
                 df.sort_values(by="function_score", ascending=False)
                 .index.get_level_values(0)
