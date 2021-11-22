@@ -137,7 +137,7 @@ def create_protein_ligand_complex(
 
     def pdbqt_to_pdbblock(pdbqt_filepath):
         lines = []
-        with open(Path(pdbqt_filepath).with_suffix(".pdb")) as file:
+        with open(Path(pdbqt_filepath).with_suffix(".pdbqt")) as file:
             for line in file:
                 # we are only interested in lines starting with "ATOM"
                 # and ignore the rest.
@@ -149,7 +149,7 @@ def create_protein_ligand_complex(
 
     ligand_pdbblock = pdbqt_to_pdbblock(docking_pose_pdbqt_filepath)
 
-    full_output_filepath = Path(full_output_filepath).with_suffix(".pdb")
+    full_output_filepath = Path(output_filepath).with_suffix(".pdb")
     with open(full_output_filepath, "w") as file:
         file.write(protein_pdbblock)
         file.write(f"\nCOMPND    {ligand_id}\n")
