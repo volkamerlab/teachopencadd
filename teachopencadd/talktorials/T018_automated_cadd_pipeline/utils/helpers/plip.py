@@ -53,7 +53,7 @@ def calculate_interactions(pdb_filepath):
           `PLIP.Consts.InteractionTypes`.
     """
     protein_ligand_complex = PDBComplex()
-    protein_ligand_complex.load_pdb(str(pdb_filepath))
+    protein_ligand_complex.load_pdb(str(Path(pdb_filepath).with_suffix(".pdb")))
 
     for ligand in protein_ligand_complex.ligands:
         protein_ligand_complex.characterize_complex(ligand)
@@ -137,30 +137,25 @@ def create_protein_ligand_complex(
 
     def pdbqt_to_pdbblock(pdbqt_filepath):
         lines = []
-        with open(pdbqt_filepath) as file:
+        with open(Path(pdbqt_filepath).with_suffix(".pdb")) as file:
             for line in file:
+                # we are only interested in lines starting with "ATOM"
+                # and ignore the rest.
                 if line[:4] == "ATOM":
                     lines.append(line[:67].strip())
-                else:
-                    # FIXME action needed?
-                    pass
         return "\n".join(lines)
 
     protein_pdbblock = pdbqt_to_pdbblock(protein_pdbqt_filepath)
 
     ligand_pdbblock = pdbqt_to_pdbblock(docking_pose_pdbqt_filepath)
-    # FIXME can the comments below go?
-    # ligand_pdbblock = ligand_pdbblock.replace('ATOM', 'HETATM')
-    # ligand_pdbblock = ligand_pdbblock.replace('UNL     ', (ligand_id[:8]+
-    #                                    " "*(8-len(ligand_id))))
 
-    full_output_filepath = f"{output_filepath}.pdb"
+    full_output_filepath = Path(full_output_filepath).with_suffix(".pdb")
     with open(full_output_filepath, "w") as file:
         file.write(protein_pdbblock)
         file.write(f"\nCOMPND    {ligand_id}\n")
         file.write(ligand_pdbblock)
 
-    return Path(full_output_filepath)
+    return full_output_filepath
 
 
 def correct_protein_residue_numbers(ligand_interaction_data, protein_first_residue_number):
