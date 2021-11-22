@@ -130,7 +130,7 @@ def upload_pdb_file(filepath):
     """
 
     # Open the local PDB file for reading in binary mode
-    with open(Path(filepath), "rb") as f:
+    with open(Path(filepath).with_suffix(".pdb"), "rb") as f:
         # Post API query and get the response
         url_of_id = _send_request_get_results(
             "post",
@@ -213,7 +213,7 @@ def save_binding_sites_to_file(binding_site_df, output_path):
     binding_site_df : pandas.DataFrame
         Binding site data retrieved from the DoGSiteScorer webserver.
     output_path : str or pathlib.Path
-        Local file path to save the files in.
+        Local folder path to save the files in.
     """
 
     for binding_site in binding_site_df.index:
@@ -284,7 +284,7 @@ def calculate_pocket_coordinates_from_pocket_pdb_file(filepath):
     Parameters
     ----------
     filepath : str or pathlib.Path
-        Local filepath (including filename, without extension) of the binding site's PDB file.
+        Local filepath of the binding site's PDB file.
 
     Returns
     -------
@@ -292,7 +292,7 @@ def calculate_pocket_coordinates_from_pocket_pdb_file(filepath):
         Binding site coordinates in format:
         `{'center': [x, y, z], 'size': [x, y, z]}`
     """
-    with open(f"{filepath}.pdb") as f:
+    with open(Path(filepath).with_suffix(".pdb")) as f:
         pdb_file_text_content = f.read()
     pdb_file_df = pdb.load_pdb_file_as_dataframe(pdb_file_text_content)
     pocket_coordinates_data = pdb_file_df["OTHERS"].loc[5, "entry"]
@@ -321,7 +321,7 @@ def get_pocket_residues(pocket_pdb_filepath):
         Table of residues names and IDs for the selected binding site.
     """
     
-    with open(pocket_pdb_filepath) as f:
+    with open(Path(pocket_pdb_filepath).with_suffix(".pdb")) as f:
         pdb_content = f.read()
     atom_info = pdb.load_pdb_file_as_dataframe(pdb_content)["ATOM"]
     # Drop duplicates, since the PDB file contains one entry per atom,
