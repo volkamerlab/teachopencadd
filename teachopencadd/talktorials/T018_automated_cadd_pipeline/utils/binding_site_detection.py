@@ -177,13 +177,13 @@ class BindingSiteDetection:
                     f"The input protein chain-ID ({binding_site_specs_obj.protein_chain_id}) "
                     f"does not exist in the input protein. Existing chains are: {protein_obj.chains}"
                 )
+        # if chain_id is not in input data, but the protein has chain-IDs
+        # set it to the first chain-ID found in the list of chain-IDs
+        elif hasattr(protein_obj, "chains") and len(protein_obj.chains)>0:
+            self.dogsitescorer_chain_id = protein_obj.chains[0]
+        # if no chain is found in PDB file either, leave the chain-ID empty
         else:
-            # if chain_id is not in input data, try to set it to the first chain found in PDB file
-            try:
-                self.dogsitescorer_chain_id = protein_obj.chains[0]
-            # if no chain is found in PDB file either, leave the chain_id empty
-            except:
-                self.dogsitescorer_chain_id = ""
+            self.dogsitescorer_chain_id = ""
 
         # create a list of ligand ids in the DoGSiteScorer format
         list_dogsitescorer_ligand_ids = []
