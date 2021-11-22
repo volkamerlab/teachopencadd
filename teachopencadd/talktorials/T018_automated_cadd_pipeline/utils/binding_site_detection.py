@@ -27,43 +27,43 @@ class BindingSiteDetection:
             LIGAND = "ligand"
             COORDINATES = "coordinates"
 
-    def __init__(self, Protein, BindingSiteSpecs, binding_site_output_path):
+    def __init__(self, protein_obj, binding_site_specs_obj, binding_site_output_path):
         """
         Initialize binding site detection.
 
         Parameters
         ----------
-        Protein : utils.Protein
+        protein_obj : utils.Protein
             The Protein object of the project.
-        BindingSiteSpecs : utils.Specs.BindingSite
+        binding_site_specs_obj : utils.Specs.BindingSite
             The binding site specification data-class of the project.
         binding_site_output_path : str or pathlib.Path
             Output path of the project's binding site information.
         """
 
         self.output_path = Path(binding_site_output_path)
-        self.Protein = Protein
+        self.Protein = protein_obj
         # derive the relevant function name from definition method
-        definition_method_name = f"compute_by_{BindingSiteSpecs.definition_method.name.lower()}"
+        definition_method_name = f"compute_by_{binding_site_specs_obj.definition_method.name.lower()}"
         # get the function from its name
         definition_method = getattr(self, definition_method_name)
         # call the function
-        definition_method(Protein, BindingSiteSpecs, binding_site_output_path)
+        definition_method(protein_obj, binding_site_specs_obj, binding_site_output_path)
 
-    def compute_by_coordinates(self, Protein, BindingSiteSpecs):
+    def compute_by_coordinates(self, protein_obj, binding_site_specs_obj):
         """
         TODO Add docstring
         """
-        Protein.binding_site_coordinates = BindingSiteSpecs.coordinates
+        protein_obj.binding_site_coordinates = binding_site_specs_obj.coordinates
 
-    def compute_by_ligand(self, Protein, BindingSiteSpecs, binding_site_output_path):
+    def compute_by_ligand(self, protein_obj, binding_site_specs_obj, binding_site_output_path):
         """
         TODO Add docstring
         """
         ligand_object = pdb.extract_molecule_from_pdb_file(
-            BindingSiteSpecs.protein_ligand_id,
-            Protein.pdb_filepath,
-            binding_site_output_path / BindingSiteSpecs.protein_ligand_id,
+            binding_site_specs_obj.protein_ligand_id,
+            protein_obj.pdb_filepath,
+            binding_site_output_path / binding_site_specs_obj.protein_ligand_id,
         )
         # calculate the geometric center of the molecule,
         # which represents the center of the rectangular box,
@@ -80,44 +80,44 @@ class BindingSiteDetection:
             "center": pocket_center.tolist(),
             "size": [pocket_size.tolist()],
         }
-        Protein.binding_site_coordinates = pocket_coordinates
+        protein_obj.binding_site_coordinates = pocket_coordinates
         return
 
-    def compute_by_detection(self, Protein, BindingSiteSpecs, binding_site_output_path):
+    def compute_by_detection(self, protein_obj, binding_site_specs_obj, binding_site_output_path):
         """
         TODO Add docstring
         """
         # derive the relevant function name from detection method
-        detection_method_name = f"detect_by_{BindingSiteSpecs.detection_method.name.lower()}"
+        detection_method_name = f"detect_by_{binding_site_specs_obj.detection_method.name.lower()}"
         # get the function from its name
         detection_method = getattr(self, detection_method_name)
         # call the function
-        detection_method(Protein, BindingSiteSpecs, binding_site_output_path)
+        detection_method(protein_obj, binding_site_specs_obj, binding_site_output_path)
 
-    def detect_by_dogsitescorer(self, Protein, BindingSiteSpecs, binding_site_output_path):
+    def detect_by_dogsitescorer(self, protein_obj, binding_site_specs_obj, binding_site_output_path):
         """
         TODO Add docstring
         """
-        if hasattr(Protein, "pdb_code"):
-            self.dogsitescorer_pdb_id = Protein.pdb_code
-        elif hasattr(Protein, "pdb_filepath"):
-            self.dogsitescorer_pdb_id = dogsitescorer.upload_pdb_file(Protein.pdb_filepath)
+        if hasattr(protein_obj, "pdb_code"):
+            self.dogsitescorer_pdb_id = protein_obj.pdb_code
+        elif hasattr(protein_obj, "pdb_filepath"):
+            self.dogsitescorer_pdb_id = dogsitescorer.upload_pdb_file(protein_obj.pdb_filepath)
         else:
             raise AttributeError(f"Protein has neither `pdb_code` nor `pdb_filepath attributes.")
 
         # try to get the chain_id for binding site detection if it's available in input data
-        if BindingSiteSpecs.protein_chain_id != "":
-            if hasattr(Protein, "chains") and BindingSiteSpecs.protein_chain_id in Protein.chains:
-                self.dogsitescorer_chain_id = BindingSiteSpecs.protein_chain_id
+        if binding_site_specs_obj.protein_chain_id != "":
+            if hasattr(protein_obj, "chains") and binding_site_specs_obj.protein_chain_id in protein_obj.chains:
+                self.dogsitescorer_chain_id = binding_site_specs_obj.protein_chain_id
             else:
                 raise ValueError(
-                    f"The input protein chain-ID ({BindingSiteSpecs.protein_chain_id}) "
-                    f"does not exist in the input protein. Existing chains are: {Protein.chains}"
+                    f"The input protein chain-ID ({binding_site_specs_obj.protein_chain_id}) "
+                    f"does not exist in the input protein. Existing chains are: {protein_obj.chains}"
                 )
         else:
             # if chain_id is not in input data, try to set it to the first chain found in PDB file
             try:
-                self.dogsitescorer_chain_id = Protein.chains[0]
+                self.dogsitescorer_chain_id = protein_obj.chains[0]
             # if no chain is found in PDB file either, leave the chain_id empty
             except:
                 self.dogsitescorer_chain_id = ""
@@ -125,7 +125,7 @@ class BindingSiteDetection:
         # create a list of ligand ids in the DoGSiteScorer format
         list_dogsitescorer_ligand_ids = []
         list_ligands_heavy_atom_count = []
-        for ligand in Protein.ligands:
+        for ligand in protein_obj.ligands:
             list_ligands_heavy_atom_count.append(ligand[-1])
             if len(ligand) == 3:
                 list_dogsitescorer_ligand_ids.append(
@@ -135,8 +135,8 @@ class BindingSiteDetection:
                 list_dogsitescorer_ligand_ids.append(ligand[0] + "_" + ligand[1] + "_" + ligand[2])
 
         # try to get the ligand_id for detection calculation if it's available in input data
-        if BindingSiteSpecs.protein_ligand_id != "":
-            ligand_id = BindingSiteSpecs.protein_ligand_id
+        if binding_site_specs_obj.protein_ligand_id != "":
+            ligand_id = binding_site_specs_obj.protein_ligand_id
             # check if the given ligand_id is already given in the DoGSiteScorer format
             if "_" in ligand_id:
                 if ligand_id in list_dogsitescorer_ligand_ids:
@@ -144,9 +144,9 @@ class BindingSiteDetection:
                     self.dogsitescorer_chain_id = ligand_id.split("_")[1][0]
                 else:
                     raise ValueError(
-                        f"The input ligand-ID ({BindingSiteSpecs.protein_ligand_id}) "
+                        f"The input ligand-ID ({binding_site_specs_obj.protein_ligand_id}) "
                         f"does not exist in the input protein. Existing ligand-IDs are: "
-                        f"{[ligand[0] for ligand in Protein.ligands]}"
+                        f"{[ligand[0] for ligand in protein_obj.ligands]}"
                     )
             else:
                 self.dogsitescorer_ligand_id = None
@@ -161,9 +161,9 @@ class BindingSiteDetection:
 
                 if self.dogsitescorer_ligand_id is None:
                     raise ValueError(
-                        f"The input ligand-ID ({BindingSiteSpecs.protein_ligand_id}) "
+                        f"The input ligand-ID ({binding_site_specs_obj.protein_ligand_id}) "
                         f"does not exist in the input protein. Existing ligand-IDs are: "
-                        f"{[ligand[0] for ligand in Protein.ligands]}"
+                        f"{[ligand[0] for ligand in protein_obj.ligands]}"
                     )
 
         else:
@@ -183,8 +183,8 @@ class BindingSiteDetection:
 
         self.best_binding_site_name = dogsitescorer.select_best_pocket(
             self.dogsitescorer_binding_sites_df,
-            BindingSiteSpecs.selection_method.value,
-            BindingSiteSpecs.selection_criteria,
+            binding_site_specs_obj.selection_method.value,
+            binding_site_specs_obj.selection_criteria,
         )
 
         self.best_binding_site_data = self.dogsitescorer_binding_sites_df.loc[
@@ -197,7 +197,7 @@ class BindingSiteDetection:
             )
         )
 
-        Protein.binding_site_coordinates = self.best_binding_site_coordinates
+        protein_obj.binding_site_coordinates = self.best_binding_site_coordinates
         return
 
     def visualize(self, pocket_name):
