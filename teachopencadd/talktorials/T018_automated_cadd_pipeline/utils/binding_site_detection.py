@@ -278,16 +278,10 @@ class BindingSiteDetection:
         nglview.widget.NGLWidget
             Viewer showing the given pocket.
         """
-        if hasattr(self.Protein, "pdb_code"):
-            viewer = nglview.binding_site(
-                "pdb_code",
-                self.Protein.pdb_code,
-                f"{self.output_path / pocket_name}.ccp4",
-            )
-        else:
-            viewer = nglview.protein(
-                "pdb",
-                self.Protein.pdb_filepath,
+        protein_input_type, protein_input_value = ("pdb_code", self.Protein.pdb_code) if hasattr(self.Protein, "pdb_code") else ("pdb", self.Protein.pdb_filepath)
+        viewer = nglview.binding_site(
+                protein_input_type,
+                protein_input_value,
                 f"{self.output_path / pocket_name}.ccp4",
             )
         return viewer
