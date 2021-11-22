@@ -34,9 +34,9 @@ class InteractionAnalysis:
         separated_protein_pdbqt_filepath,
         separated_protein_pdb_filepath,
         protein_first_residue_number,
-        list_Ligand_objects,
+        list_ligand_obj,
         docking_master_df,
-        InteractionAnalysisSpecs_object,
+        interaction_analysis_specs_obj,
         interaction_analysis_output_path,
     ):
         """
@@ -50,11 +50,11 @@ class InteractionAnalysis:
             Filepath of the separated protein PDB file.
         protein_first_residue_number : int
             First residue number in the protein.
-        list_Ligand_objects : list of utils.Ligand
+        list_ligand_obj : list of utils.Ligand
             List of ligands to analyze their interactions with the protein.
         docking_master_df : pandas.DataFrame
             Summary dataframe created by the docking class.
-        InteractionAnalysisSpecs_object : utils.Specs.InteractionAnalysis
+        interaction_analysis_specs_obj : utils.Specs.InteractionAnalysis
             Specifications for the interaction analysis processes.
         interaction_analysis_output_path : str or pathlib.Path
             Output folder path to store the analyzed data in.
@@ -64,17 +64,17 @@ class InteractionAnalysis:
         separated_protein_pdb_filepath = Path(separated_protein_pdb_filepath)
         interaction_analysis_output_path = Path(interaction_analysis_output_path)
 
-        self._analogs = list_Ligand_objects
+        self._analogs = list_ligand_obj
         self._pdb_filepath_extracted_protein = separated_protein_pdb_filepath
 
-        if InteractionAnalysisSpecs_object.program is Consts.InteractionAnalysis.Programs.PLIP:
+        if interaction_analysis_specs_obj.program is Consts.InteractionAnalysis.Programs.PLIP:
             results_df = docking_master_df.copy()
             results_df.drop("filepath", axis=1, inplace=True)
             results_df["total_num_interactions"] = 0
 
             interaction_master_df = docking_master_df.copy()
 
-            for analog in list_Ligand_objects:
+            for analog in list_ligand_obj:
                 analog.dataframe.loc["average_num_total_interactions", "Value"] = 0
                 for interaction_type in plip.Consts.InteractionTypes:
                     analog.dataframe.loc[
@@ -172,7 +172,7 @@ class InteractionAnalysis:
 
         else:
             raise AttributeError(
-                f"Interaction analysis tool unknown: {InteractionAnalysisSpecs_object.program}"
+                f"Interaction analysis tool unknown: {interaction_analysis_specs_obj.program}"
             )
 
     def find_poses_with_specific_interactions(self, list_interaction_data, all_or_any):
