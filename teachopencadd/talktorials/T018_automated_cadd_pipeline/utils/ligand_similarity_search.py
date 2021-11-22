@@ -27,8 +27,8 @@ class LigandSimilaritySearch:
 
     def __init__(
         self,
-        Ligand_obj,
-        SimilaritySearchSpecs,
+        ligand_obj,
+        similarity_search_specs_obj,
         similarity_search_output_path,
         frozen_data_filepath=None,
     ):
@@ -37,9 +37,9 @@ class LigandSimilaritySearch:
 
         Parameters
         ----------
-        Ligand_obj : utils.Ligand
+        ligand_obj : utils.Ligand
             The Ligand object of the project.
-        SimilaritySearchSpecs : utils.Specs.LigandSimilaritySearch
+        similarity_search_specs_obj : utils.Specs.LigandSimilaritySearch
             The similarity search specification data-class of the project.
         similarity_search_output_path : str or pathlib.Path
             Output path of the project's similarity search information.
@@ -53,24 +53,24 @@ class LigandSimilaritySearch:
         if not frozen_data_filepath is None:
             all_analog_identifiers_df = pd.read_csv(frozen_data_filepath)
         elif (
-            SimilaritySearchSpecs.search_engine
+            similarity_search_specs_obj.search_engine
             is Consts.LigandSimilaritySearch.SearchEngines.PUBCHEM
         ):
             analogs_info = pubchem.similarity_search(
-                Ligand_obj.smiles,
-                SimilaritySearchSpecs.min_similarity_percent,
-                SimilaritySearchSpecs.max_num_results,
+                ligand_obj.smiles,
+                similarity_search_specs_obj.min_similarity_percent,
+                similarity_search_specs_obj.max_num_results,
             )
             all_analog_identifiers_df = pd.DataFrame(analogs_info)
         else:
-            raise ValueError(f"Search engine unknown: {SimilaritySearchSpecs.search_engine}")
+            raise ValueError(f"Search engine unknown: {similarity_search_specs_obj.search_engine}")
 
         # create dataframe from initial results
         all_analog_identifiers_df["Mol"] = all_analog_identifiers_df["CanonicalSMILES"].apply(
             lambda smiles: rdkit.create_molecule_object("smiles", smiles)
         )
         all_analog_identifiers_df["dice_similarity"] = all_analog_identifiers_df["Mol"].apply(
-            lambda mol: rdkit.calculate_similarity_dice(Ligand_obj.rdkit_obj, mol)
+            lambda mol: rdkit.calculate_similarity_dice(ligand_obj.rdkit_obj, mol)
         )
         all_analog_properties_df = pd.DataFrame(
             (
@@ -91,7 +91,7 @@ class LigandSimilaritySearch:
         analogs_dict = {}
         for analog_cid in (
             self.all_analogs.sort_values(by="drug_score_total", ascending=False)
-            .head(SimilaritySearchSpecs.max_num_druglike)
+            .head(similarity_search_specs_obj.max_num_druglike)
             .index
         ):
             new_analog_object = Ligand(
@@ -101,11 +101,11 @@ class LigandSimilaritySearch:
             )
 
             new_analog_object.dice_similarity = rdkit.calculate_similarity_dice(
-                Ligand_obj.rdkit_obj, new_analog_object.rdkit_obj
+                ligand_obj.rdkit_obj, new_analog_object.rdkit_obj
             )
 
             new_analog_object.dataframe.loc["similarity"] = new_analog_object.dice_similarity
 
             analogs_dict[new_analog_object.cid] = new_analog_object
 
-        Ligand_obj.analogs = analogs_dict
+        ligand_obj.analogs = analogs_dict
