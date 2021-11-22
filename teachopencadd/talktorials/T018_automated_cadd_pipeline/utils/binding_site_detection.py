@@ -52,13 +52,42 @@ class BindingSiteDetection:
 
     def compute_by_coordinates(self, protein_obj, binding_site_specs_obj):
         """
-        TODO Add docstring
+        Extract the binding site coordinates specified in input specifications. 
+        The function is called when binding site definition method is `coordinates`.
+        
+        Parameters
+        ----------
+        protein_obj : utils.Protein
+            The Protein object of the project.
+        binding_site_specs_obj : utils.Specs.BindingSite
+            The binding site specification data-class of the project.
+        
+        Returns
+        -------
+        None
+            The coordinates are assigned to protein_obj.binding_site_coordinates.
         """
         protein_obj.binding_site_coordinates = binding_site_specs_obj.coordinates
 
     def compute_by_ligand(self, protein_obj, binding_site_specs_obj, binding_site_output_path):
         """
-        TODO Add docstring
+        Calculate the coordinates of the binding site from the position
+        of the co-crystallized ligand in the input protein structure.
+        The function is called when binding site definition method is 'ligand'.
+        
+        Parameters
+        ----------
+        protein_obj : utils.Protein
+            The Protein object of the project.
+        binding_site_specs_obj : utils.Specs.BindingSite
+            The binding site specification data-class of the project.
+        binding_site_output_path : str or pathlib.Path
+            Output path of the project's binding site information.
+        
+        Returns
+        -------
+        None
+            The coordinates are assigned to protein_obj.binding_site_coordinates.
         """
         ligand_object = pdb.extract_molecule_from_pdb_file(
             binding_site_specs_obj.protein_ligand_id,
@@ -85,7 +114,23 @@ class BindingSiteDetection:
 
     def compute_by_detection(self, protein_obj, binding_site_specs_obj, binding_site_output_path):
         """
-        TODO Add docstring
+        Derive the name of the function corresponding to the user-specified detection method,
+        and call that function, passing the necessary arguments, to perform a detection job.
+        The function is called when binding site definition method is 'detection'.
+        
+        Parameters
+        ----------
+        protein_obj : utils.Protein
+            The Protein object of the project.
+        binding_site_specs_obj : utils.Specs.BindingSite
+            The binding site specification data-class of the project.
+        binding_site_output_path : str or pathlib.Path
+            Output path of the project's binding site information.
+        
+        Returns
+        -------
+        None
+            Another function is called.
         """
         # derive the relevant function name from detection method
         detection_method_name = f"detect_by_{binding_site_specs_obj.detection_method.name.lower()}"
@@ -96,7 +141,25 @@ class BindingSiteDetection:
 
     def detect_by_dogsitescorer(self, protein_obj, binding_site_specs_obj, binding_site_output_path):
         """
-        TODO Add docstring
+        Calculate the coordinates of the binding site by submitting a
+        detection job to DoGSiteScorer, and analyzing the results to find
+        the best binding site according to input specifications.
+        The function is called when binding site definition method is 'detection',
+        and detection method is 'dogsitescorer'.
+        
+        Parameters
+        ----------
+        protein_obj : utils.Protein
+            The Protein object of the project.
+        binding_site_specs_obj : utils.Specs.BindingSite
+            The binding site specification data-class of the project.
+        binding_site_output_path : str or pathlib.Path
+            Output path of the project's binding site information.
+        
+        Returns
+        -------
+        None
+            The coordinates are assigned to protein_obj.binding_site_coordinates.
         """
         if hasattr(protein_obj, "pdb_code"):
             self.dogsitescorer_pdb_id = protein_obj.pdb_code
