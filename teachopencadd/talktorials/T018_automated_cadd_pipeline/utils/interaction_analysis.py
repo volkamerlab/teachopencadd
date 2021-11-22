@@ -308,9 +308,7 @@ class InteractionAnalysis:
 
         view = nglview.interactions(
             self._pdb_filepath_extracted_protein,
-            "pdb",
             fitted_master_df["filepath"].tolist(),
-            "pdbqt",
             list_docking_poses_labels,
             fitted_master_df["affinity[kcal/mol]"].tolist(),
             fitted_master_df["plip_dict"].tolist(),
