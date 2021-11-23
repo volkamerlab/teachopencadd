@@ -86,7 +86,7 @@ The following resources are collections of interesting cheminformatics-related t
 
 ## Contact
 
-![GitHub closed pr](https://img.shields.io/github/issues-pr-closed-raw/volkamerlab/teachopencadd) ![GitHub open pr](https://img.shields.io/github/issues-pr-raw/volkamerlab/teachopencadd) ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/volkamerlab/teachopencadd) ![GitHub open issues](https://img.shields.io/github/issues/volkamerlab/teachopencadd)  
+![GitHub closed pr](https://img.shields.io/github/issues-pr-closed-raw/volkamerlab/teachopencadd) ![GitHub open pr](https://img.shields.io/github/issues-pr-raw/volkamerlab/teachopencadd) ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/volkamerlab/teachopencadd) ![GitHub open issues](https://img.shields.io/github/issues/volkamerlab/teachopencadd)
 
 Please contact us if you have questions or suggestions!
 
@@ -177,7 +177,7 @@ It will help measure the impact of the TeachOpenCADD platform and future funding
   [`ipywidgets`](https://ipywidgets.readthedocs.io)
 - Data visualization:
   [`matplotlib`](https://matplotlib.org/), 
-  [`mpl_toolkits`](https://matplotlib.org/stable/api/toolkits/index.html),
+  [`mpl_toolkits`](https://matplotlib.org/stable/api/toolkits/mplot3d.html),
   [`matplotlib_venn`](https://github.com/konstantint/matplotlib-venn),
   [`seaborn`](https://seaborn.pydata.org/),
   [`nglview`](http://nglviewer.org/nglview/latest/)
