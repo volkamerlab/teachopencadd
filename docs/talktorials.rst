@@ -25,9 +25,10 @@ Talktorials as presented in the original `JCIM 2019 article <https://jcheminf.bi
 Ligand-based cheminformatics
 ----------------------------
 
+The basis for computer-aided drug discovery
+
 .. nbgallery::
    :name: ligandbased
-   :caption: The basis for computer-aided drug discovery
 
    talktorials/T001_query_chembl.nblink
    talktorials/T002_compound_adme.nblink
@@ -44,9 +45,10 @@ Ligand-based cheminformatics
 Structural biology
 ------------------
 
+3D models, structural similarity, protein-ligand interaction analysis and other methods
+
 .. nbgallery::
    :name: structuralmodeling
-   :caption: 3D models, structural similarity, protein-ligand interaction analysis and other methods
 
    talktorials/T008_query_pdb.nblink
    talktorials/T009_compound_ensemble_pharmacophores.nblink
@@ -63,13 +65,30 @@ Structural biology
 Online APIs/servers
 -------------------
 
+Online API/servers for structural bioinformatics and cheminformatics
+
 .. nbgallery::
    :name: onlineapi
-   :caption: Online API/servers for structural bioinformatics and cheminformatics
 
    talktorials/T001_query_chembl.nblink
    talktorials/T008_query_pdb.nblink
    talktorials/T011_query_online_api_webservices.nblink
    talktorials/T012_query_klifs.nblink
    talktorials/T013_query_pubchem.nblink
+
+
+Kinase similarity
+-------------------
+
+Kinase similarity comparison using various methods
+
+.. nbgallery::
+   :name: kinasesimilarity
+
+   talktorials/T023_what_is_a_kinase.nblink
+   talktorials/T024_kinase_similarity_sequence.nblink
+   talktorials/T025_kinase_similarity_kissim.nblink
+   talktorials/T026_kinase_similarity_ifp.nblink
+   talktorials/T027_kinase_similarity_ligand_profile.nblink
+   talktorials/T028_kinase_similarity_compare_perspectives.nblink
 
