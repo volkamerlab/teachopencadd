@@ -91,7 +91,7 @@ class LeadOptimizationPipeline:
             identifier_value=project.Specs.Protein.input_value,
             protein_output_path=project.Specs.OutputPaths.protein,
         )
-        project._report_processed_protein("3. Processing Protein Data")
+        project._report_processed_protein("3. Processing Protein")
 
         # Process ligand
         project.Ligand = Ligand(
@@ -99,7 +99,7 @@ class LeadOptimizationPipeline:
             identifier_value=project.Specs.Ligand.input_value,
             ligand_output_path=project.Specs.OutputPaths.ligand,
         )
-        project._report_processed_ligand("4. Processing Ligand Data")
+        project._report_processed_ligand("4. Processing Ligand")
 
         # Detect binding site
         project.BindingSiteDetection = BindingSiteDetection(
