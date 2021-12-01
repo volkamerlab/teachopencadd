@@ -42,7 +42,7 @@ class OptimizedLigands:
         df = project.InteractionAnalysis.results.rename(columns={"affinity[kcal/mol]": "affinity"})
 
         self.higher_affinity_poses = (
-            df[df["affinity"] < project.Ligand.binding_affinity_best]
+            df[df["affinity"] <= project.Ligand.binding_affinity_best]
             .copy()
             .sort_values(by="affinity")
         )
@@ -53,7 +53,7 @@ class OptimizedLigands:
         self.higher_interacting_poses = (
             df[
                 df["total_num_interactions"]
-                > project.Ligand.InteractionAnalysis.results["total_num_interactions"].max()
+                >= project.Ligand.InteractionAnalysis.results["total_num_interactions"].max()
             ]
             .copy()
             .sort_values(by="total_num_interactions", ascending=False)
@@ -74,7 +74,7 @@ class OptimizedLigands:
         self.higher_affinity_and_interacting_and_druglike_analogs = [
             analog
             for analog in self.higher_affinity_and_interacting_analogs
-            if analog.drug_score_total > project.Ligand.drug_score_total
+            if analog.drug_score_total >= project.Ligand.drug_score_total
         ]
 
         # Optimization method is sorting
