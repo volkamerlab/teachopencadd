@@ -11,6 +11,8 @@ A teaching platform for computer-aided drug design (CADD) using open source pack
 [![GH Actions CI ](https://github.com/volkamerlab/teachopencadd/workflows/CI/badge.svg)](https://github.com/volkamerlab/teachopencadd/actions?query=branch%3Amaster+workflow%3ACI)
 [![GH Actions Docs](https://github.com/volkamerlab/teachopencadd/workflows/Docs/badge.svg)](https://projects.volkamerlab.org/teachopencadd/)
 
+[![Anaconda-Server Badge](https://anaconda.org/conda-forge/teachopencadd/badges/installer/conda.svg)](https://conda.anaconda.org/conda-forge)
+
 
 > 🌟 You are looking at a new release of the TeachOpenCADD repository with [major changes](https://github.com/volkamerlab/teachopencadd/pull/29) and a lot of [new talktorials](https://github.com/volkamerlab/teachopencadd/pull/74).
 >
