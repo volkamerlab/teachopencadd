@@ -37,7 +37,7 @@ The pipeline is **particularly suited for the hit expansion and lead optimizatio
 
 <a id='#Contents-in-Theory'></a>
 
-### Contents in [*Theory*](#theory)
+### Contents in [*Theory*](#Theory)
 
 - [Drug design pipeline](#Drug-design-pipeline)
 - [Protein binding site](#Protein-binding-site) 
@@ -51,7 +51,7 @@ The pipeline is **particularly suited for the hit expansion and lead optimizatio
 
 <a id='Contents-in-Practical'></a>
 
-### Contents in [*Practical*](#practical)
+### Contents in [*Practical*](#Practical)
 
 - [Outline of the virtual screening pipeline](#Outline-of-the-virtual-screening-pipeline)
 - [Creating a new project](#Creating-a-new-project)
