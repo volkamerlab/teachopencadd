@@ -1,0 +1,2275 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta property="og:title" content="T025 · Kinase similarity: Kinase pocket (KiSSim fingerprint)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://projects.volkamerlab.org/teachopencadd/talktorials/T025_kinase_similarity_kissim.html" />
+  <meta property="og:description" content="Authors: Dominique Sydow, 2021, Volkamer lab, Charité, Talia B. Kimber, 2021, Volkamer lab, Charité, Andrea Volkamer, 2021, Volkamer lab, Charité. Aim of this talktorial: We will assess the similarity between a set of kinases from a structural point of view using the KiSSim fingerprint. This fing..." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/volkamerlab/teachopencadd/master/docs/_static/images/TeachOpenCADD_topics.png" />
+  <meta property="og:image:alt" content="T025 · Kinase similarity: Kinase pocket (KiSSim fingerprint)" />
+  
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
+
+    <style>
+      body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+    </style>
+  
+
+  <link rel="stylesheet" href="../_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="../_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#2196f3">
+  <script src="../_static/javascripts/modernizr.js"></script>
+  
+    <script async src="../_static/cookieconsent.min.js"></script>
+    <script>
+        window.addEventListener("load", function(){
+        window.cookieconsent.initialise({
+            "palette": {
+            "popup": {
+                "background": "#f0f0f0",
+                "text": "#999"
+            },
+            "button": {
+                "text": "#fff",
+                "background": "#009688"
+            }
+            },
+            "theme": "classic"
+        })});
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6ZE82CNZB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-Q6ZE82CNZB');
+    </script>
+  
+    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
+  
+  
+    <title>T025 · Kinase similarity: Kinase pocket (KiSSim fingerprint) &#8212; TeachOpenCADD 0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/material.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="T026 · Kinase similarity: Interaction fingerprints" href="T026_kinase_similarity_ifp.html" />
+    <link rel="prev" title="T024 · Kinase similarity: Sequence" href="T024_kinase_similarity_sequence.html" />
+  
+    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
+  
+   
+
+  </head>
+  <body dir=ltr
+        data-md-color-primary=teal data-md-color-accent=cyan>
+  
+  <svg class="md-svg">
+    <defs data-children-count="0">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
+    </defs>
+  </svg>
+  
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#talktorials/T025_kinase_similarity_kissim" tabindex="1" class="md-skip"> Skip to content </a>
+  <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../index.html" title="TeachOpenCADD 0 documentation"
+           class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic">TeachOpenCADD</span>
+          <span class="md-header-nav__topic"> T025 · Kinase similarity: Kinase pocket (KiSSim fingerprint) </span>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="../search.html" method="get" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder="Search"
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    TeachOpenCADD
+  </div>
+</a>
+          </div>
+        </div>
+      
+      
+    </div>
+  </nav>
+</header>
+
+  
+  <div class="md-container">
+    
+    
+    
+  <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+      <ul class="md-tabs__list">
+            
+            <li class="md-tabs__item"><a href="../talktorials.html" class="md-tabs__link">Our talktorials</a></li>
+            
+            <li class="md-tabs__item"><a href="../installing.html" class="md-tabs__link">Run locally</a></li>
+            
+            <li class="md-tabs__item"><a href="../contribute.html" class="md-tabs__link">Contribute</a></li>
+          <li class="md-tabs__item"><a href="../all_talktorials.html" class="md-tabs__link">Complete list of talktorials</a></li>
+      </ul>
+    </div>
+  </nav>
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../index.html" title="TeachOpenCADD 0 documentation" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    <a href="../index.html"
+       title="TeachOpenCADD 0 documentation">TeachOpenCADD</a>
+  </label>
+    <div class="md-nav__source">
+      <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    TeachOpenCADD
+  </div>
+</a>
+    </div>
+  
+  
+
+  
+  <ul class="md-nav__list">
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Our talktorials</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#jcim-2019" class="md-nav__link">JCIM 2019</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#ligand-based-cheminformatics" class="md-nav__link">Ligand-based cheminformatics</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#structural-biology" class="md-nav__link">Structural biology</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#online-apis-servers" class="md-nav__link">Online APIs/servers</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#kinase-similarity" class="md-nav__link">Kinase similarity</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Run locally</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../installing.html" class="md-nav__link">Installing</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Contributors</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../contribute.html" class="md-nav__link">For contributors</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../api.html" class="md-nav__link">API Documentation</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">External resources</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../external_dependencies.html" class="md-nav__link">Packages and webservers used in TeachOpenCADD</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../external_tutorials_collections.html" class="md-nav__link">External tutorials and collections</a>
+      
+    
+    </li>
+  </ul>
+  
+
+</nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#talktorials-t025-kinase-similarity-kissim--page-root" class="md-nav__link">T025 · Kinase similarity: Kinase pocket (KiSSim fingerprint)</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
+        </li>
+        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
+        </li>
+        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Kinase-dataset" class="md-nav__link">Kinase dataset</a>
+        </li>
+        <li class="md-nav__item"><a href="#Kinase-similarity-descriptor:-Kinase-pockets-(KiSSim-fingerprint)" class="md-nav__link">Kinase similarity descriptor: Kinase pockets (KiSSim fingerprint)</a>
+        </li>
+        <li class="md-nav__item"><a href="#Fetching-KLIFS-data-with-opencadd.databases.klifs" class="md-nav__link">Fetching KLIFS data with <code class="docutils literal notranslate"><span class="pre">opencadd.databases.klifs</span></code></a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Define-the-kinases-of-interest" class="md-nav__link">Define the kinases of interest</a>
+        </li>
+        <li class="md-nav__item"><a href="#Retrieve-and-preprocess-data" class="md-nav__link">Retrieve and preprocess data</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Set-up-a-remote-KLIFS-session" class="md-nav__link">Set up a remote KLIFS session</a>
+        </li>
+        <li class="md-nav__item"><a href="#Fetch-all-structures-describing-these-kinases" class="md-nav__link">Fetch all structures describing these kinases</a>
+        </li>
+        <li class="md-nav__item"><a href="#Filter-structures" class="md-nav__link">Filter structures</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Show-kinase-coverage" class="md-nav__link">Show kinase coverage</a>
+        </li>
+        <li class="md-nav__item"><a href="#Load-KiSSim-fingerprints" class="md-nav__link">Load KiSSim fingerprints</a>
+        </li>
+        <li class="md-nav__item"><a href="#Compare-structures" class="md-nav__link">Compare structures</a>
+        </li>
+        <li class="md-nav__item"><a href="#Map-structure-to-kinase-distance-matrix" class="md-nav__link">Map structure to kinase distance matrix</a>
+        </li>
+        <li class="md-nav__item"><a href="#Save-kinase-distance-matrix" class="md-nav__link">Save kinase distance matrix</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
+        </li>
+        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T025_kinase_similarity_kissim.nblink.txt">Show Source</a> </li>
+
+<li id="searchbox" class="md-nav__item"></li>
+
+  </ul>
+</nav>
+              </div>
+            </div>
+          </div>
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<section id="T025-·-Kinase-similarity:-Kinase-pocket-(KiSSim-fingerprint)">
+<h1 id="talktorials-t025-kinase-similarity-kissim--page-root">T025 · Kinase similarity: Kinase pocket (KiSSim fingerprint)<a class="headerlink" href="#talktorials-t025-kinase-similarity-kissim--page-root" title="Permalink to this headline">¶</a></h1>
+<p>Authors:</p>
+<ul class="simple">
+<li><p>Dominique Sydow, 2021, <a class="reference external" href="https://volkamerlab.org/">Volkamer lab, Charité</a></p></li>
+<li><p>Talia B. Kimber, 2021, <a class="reference external" href="https://volkamerlab.org/">Volkamer lab, Charité</a></p></li>
+<li><p>Andrea Volkamer, 2021, <a class="reference external" href="https://volkamerlab.org/">Volkamer lab, Charité</a></p></li>
+</ul>
+<section id="Aim-of-this-talktorial">
+<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this headline">¶</a></h2>
+<p>We will assess the similarity between a set of kinases from a structural point of view using the <a class="reference external" href="https://kissim.readthedocs.io/en/latest/">KiSSim</a> fingerprint. This fingerprint describes the physicochemical and spatial properties in structurally resolved kinases.</p>
+<section id="Contents-in-Theory">
+<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Kinase dataset</p></li>
+<li><p>Kinase similarity descriptor: Kinase pockets (KiSSim fingerprint)</p></li>
+<li><p>Fetching KLIFS data with <code class="docutils literal notranslate"><span class="pre">opencadd.databases.klifs</span></code></p></li>
+</ul>
+</section>
+<section id="Contents-in-Practical">
+<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Define the kinases of interest</p></li>
+<li><p>Retrieve and preprocess data</p>
+<ul>
+<li><p>Set up a remote KLIFS session</p></li>
+<li><p>Fetch all structures describing these kinases</p></li>
+<li><p>Filter structures</p></li>
+</ul>
+</li>
+<li><p>Show kinase coverage</p></li>
+<li><p>Load KiSSim fingerprints</p></li>
+<li><p>Compare structures</p></li>
+<li><p>Map structure to kinase distance matrix</p></li>
+<li><p>Save kinase distance matrix</p></li>
+</ul>
+</section>
+<section id="References">
+<h3 id="References">References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Kinase dataset: <a class="reference external" href="https://www.mdpi.com/1420-3049/26/3/629">Molecules (2021), 26(3), 629</a></p></li>
+<li><p>Protein Data Bank</p>
+<ul>
+<li><p>PDB URL: <a class="reference external" href="http://www.rcsb.org/">http://www.rcsb.org/</a></p></li>
+<li><p>PDB database: <a class="reference external" href="https://doi.org/10.1107/S0907444902003451">Acta Cryst. (2002), D58, 899-907</a> and <a class="reference external" href="https://doi.org/10.1016/j.str.2012.01.010">Structure (2012), 20(3), 391-396</a></p></li>
+</ul>
+</li>
+<li><p>KLIFS</p>
+<ul>
+<li><p>KLIFS URL: <a class="reference external" href="https://klifs.net/">https://klifs.net/</a></p></li>
+<li><p>KLIFS database: <a class="reference external" href="https://doi.org/10.1093/nar/gkaa895">Nucleic Acid Res. (2020), 49(D1), D562-D569</a></p></li>
+<li><p>KLIFS binding site definition: <a class="reference external" href="https://doi.org/10.1021/jm400378w">J. Med. Chem. (2014), 57(2), 249-277</a></p></li>
+</ul>
+</li>
+<li><p>Binding site comparison reviews:</p>
+<ul>
+<li><p><a class="reference external" href="https://www.eurekaselect.com/67606/article/how-measure-similarity-between-protein-ligand-binding-sites">Curr. Comput. Aided Drug Des. (2008), 4, 209-20</a></p></li>
+<li><p><a class="reference external" href="https://pubs.acs.org/doi/10.1021/acs.jmedchem.6b00078">J. Med. Chem. (2016), 9, 4121-51</a></p></li>
+</ul>
+</li>
+<li><p>KiSSim: Kinase Structural Similarity</p>
+<ul>
+<li><p>GitHub repository: <a class="reference external" href="https://github.com/volkamerlab/kissim">https://github.com/volkamerlab/kissim</a></p></li>
+<li><p>Documentation: <a class="reference external" href="https://kissim.readthedocs.io">https://kissim.readthedocs.io</a></p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">opencadd</span></code>, a Python library for structural cheminformatics</p>
+<ul>
+<li><p>GitHub repository: <a class="reference external" href="https://github.com/volkamerlab/opencadd">https://github.com/volkamerlab/opencadd</a></p></li>
+<li><p>Documentation: <a class="reference external" href="https://opencadd.readthedocs.io">https://opencadd.readthedocs.io</a></p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="Theory">
+<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this headline">¶</a></h2>
+<section id="Kinase-dataset">
+<h3 id="Kinase-dataset">Kinase dataset<a class="headerlink" href="#Kinase-dataset" title="Permalink to this headline">¶</a></h3>
+<p>We use the kinase selection as defined in <strong>Talktorial T023</strong>.</p>
+</section>
+<section id="Kinase-similarity-descriptor:-Kinase-pockets-(KiSSim-fingerprint)">
+<h3 id="Kinase-similarity-descriptor:-Kinase-pockets-(KiSSim-fingerprint)">Kinase similarity descriptor: Kinase pockets (KiSSim fingerprint)<a class="headerlink" href="#Kinase-similarity-descriptor:-Kinase-pockets-(KiSSim-fingerprint)" title="Permalink to this headline">¶</a></h3>
+<p>Side effects often occur when a drug binds not only to its designated target (on-target) but also to other targets (off-targets) that share similar binding sites to form similar protein-ligand interaction patterns. Many binding site comparison tools have been proposed to predict similarities and potential off-targets (see <a class="reference external" href="https://www.eurekaselect.com/67606/article/how-measure-similarity-between-protein-ligand-binding-sites">Curr. Comput. Aided Drug Des. (2008), 4, 209-20</a> and <a class="reference external" href="https://pubs.acs.org/doi/10.1021/acs.jmedchem.6b00078">J. Med. Chem.
+(2016), 9, 4121-51</a>).</p>
+<p>Here we use the novel <a class="reference external" href="https://kissim.readthedocs.io/en/latest/">KiSSim</a> (<em>Ki</em>nase <em>S</em>tructure <em>Sim</em>ilarity) fingerprint, which is based on the KLIFS pocket definition and alignment of <span class="math notranslate nohighlight">\(85\)</span> pocket residues (see more details in <strong>Talktorial T023</strong>).</p>
+<p>The KiSSim fingerprint encodes each of the <span class="math notranslate nohighlight">\(85\)</span> residues in the KLIFS binding site with respect to physicochemical and spatial properties (Figure 1). Since all KLIFS pockets are aligned across the structurally covered kinome, we can compare the KiSSim fingerprints bit by bit. Physicochemical properties of each residue include pharmacophoric features, size, side chain orientation, and solvent exposure. Spatial properties describe the distance of each residue to defined important regions in
+the kinase pocket, for example the hinge region, which forms crucial hydrogen bonds to ligands, or the DFG region, whose conformation determines the activity state of the kinase. See more details on structural motifs in kinases in <strong>Talktorial T023</strong>.</p>
+<img alt="KiSSim fingerprint" src="https://raw.githubusercontent.com/volkamerlab/kissim/main/docs/_static/kissim_toc.png"/>
+<p><em>Figure 1:</em> The KiSSim fingerprint encodes physicochemical and spatial properties of a kinase binding site. Figure taken from: <a class="reference external" href="https://github.com/volkamerlab/kissim">https://github.com/volkamerlab/kissim</a></p>
+</section>
+<section id="Fetching-KLIFS-data-with-opencadd.databases.klifs">
+<h3 id="Fetching-KLIFS-data-with-opencadd.databases.klifs">Fetching KLIFS data with <code class="docutils literal notranslate"><span class="pre">opencadd.databases.klifs</span></code><a class="headerlink" href="#Fetching-KLIFS-data-with-opencadd.databases.klifs" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">opencadd</span></code> is a Python library for structural cheminformatics developed by the <a class="reference external" href="https://volkamerlab.org/">Volkamer lab</a> at the Charité in Berlin. This library is a growing collection of modules that help facilitate and standardize common tasks in structural bioinformatics and cheminformatics. Today, we will use the module <code class="docutils literal notranslate"><span class="pre">opencadd.databases.klifs</span></code>, which allows us to fetch the KLIFS structures as a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> DataFrame.</p>
+<ul class="simple">
+<li><p>GitHub repository: <a class="reference external" href="https://github.com/volkamerlab/opencadd">https://github.com/volkamerlab/opencadd</a></p></li>
+<li><p>Documentation: <a class="reference external" href="https://opencadd.readthedocs.io">https://opencadd.readthedocs.io</a></p></li>
+</ul>
+<p>For more information about this library and the KLIFS OpenAPI, please refer to <strong>Talktorial T012</strong>.</p>
+</section>
+</section>
+<section id="Practical">
+<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">pairwise</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">opencadd.databases.klifs</span> <span class="kn">import</span> <span class="n">setup_remote</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">HERE</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">_dh</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">DATA</span> <span class="o">=</span> <span class="n">HERE</span> <span class="o">/</span> <span class="s2">"data"</span>
+</pre></div>
+</div>
+</div>
+<section id="Define-the-kinases-of-interest">
+<h3 id="Define-the-kinases-of-interest">Define the kinases of interest<a class="headerlink" href="#Define-the-kinases-of-interest" title="Permalink to this headline">¶</a></h3>
+<p>Let’s load the kinase selection as defined in <strong>Talktorial T023</strong>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">kinase_selection_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">HERE</span> <span class="o">/</span> <span class="s2">"../T023_what_is_a_kinase/data/kinase_selection.csv"</span><span class="p">)</span>
+<span class="n">kinase_selection_df</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>kinase</th>
+<th>kinase_klifs</th>
+<th>uniprot_id</th>
+<th>group</th>
+<th>full_kinase_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>EGFR</td>
+<td>EGFR</td>
+<td>P00533</td>
+<td>TK</td>
+<td>Epidermal growth factor receptor</td>
+</tr>
+<tr>
+<th>1</th>
+<td>ErbB2</td>
+<td>ErbB2</td>
+<td>P04626</td>
+<td>TK</td>
+<td>Erythroblastic leukemia viral oncogene homolog 2</td>
+</tr>
+<tr>
+<th>2</th>
+<td>PI3K</td>
+<td>p110a</td>
+<td>P42336</td>
+<td>Atypical</td>
+<td>Phosphatidylinositol-3-kinase</td>
+</tr>
+<tr>
+<th>3</th>
+<td>VEGFR2</td>
+<td>KDR</td>
+<td>P35968</td>
+<td>TK</td>
+<td>Vascular endothelial growth factor receptor 2</td>
+</tr>
+<tr>
+<th>4</th>
+<td>BRAF</td>
+<td>BRAF</td>
+<td>P15056</td>
+<td>TKL</td>
+<td>Rapidly accelerated fibrosarcoma isoform B</td>
+</tr>
+<tr>
+<th>5</th>
+<td>CDK2</td>
+<td>CDK2</td>
+<td>P24941</td>
+<td>CMGC</td>
+<td>Cyclic-dependent kinase 2</td>
+</tr>
+<tr>
+<th>6</th>
+<td>LCK</td>
+<td>LCK</td>
+<td>P06239</td>
+<td>TK</td>
+<td>Lymphocyte-specific protein tyrosine kinase</td>
+</tr>
+<tr>
+<th>7</th>
+<td>MET</td>
+<td>MET</td>
+<td>P08581</td>
+<td>TK</td>
+<td>Mesenchymal-epithelial transition factor</td>
+</tr>
+<tr>
+<th>8</th>
+<td>p38a</td>
+<td>p38a</td>
+<td>Q16539</td>
+<td>CMGC</td>
+<td>p38 mitogen activated protein kinase alpha</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="Retrieve-and-preprocess-data">
+<h3 id="Retrieve-and-preprocess-data">Retrieve and preprocess data<a class="headerlink" href="#Retrieve-and-preprocess-data" title="Permalink to this headline">¶</a></h3>
+<p>Now, we query the KLIFS database using the <code class="docutils literal notranslate"><span class="pre">opencadd.databases.klifs</span></code> module to fetch available structures in KLIFS.</p>
+<section id="Set-up-a-remote-KLIFS-session">
+<h4 id="Set-up-a-remote-KLIFS-session">Set up a remote KLIFS session<a class="headerlink" href="#Set-up-a-remote-KLIFS-session" title="Permalink to this headline">¶</a></h4>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">opencadd.databases.klifs</span> <span class="kn">import</span> <span class="n">setup_remote</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">klifs_session</span> <span class="o">=</span> <span class="n">setup_remote</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Fetch-all-structures-describing-these-kinases">
+<h4 id="Fetch-all-structures-describing-these-kinases">Fetch all structures describing these kinases<a class="headerlink" href="#Fetch-all-structures-describing-these-kinases" title="Permalink to this headline">¶</a></h4>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Get list of kinase names</span>
+<span class="n">kinase_names</span> <span class="o">=</span> <span class="n">kinase_selection_df</span><span class="p">[</span><span class="s2">"kinase_klifs"</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+
+<span class="c1"># Get all available structures for these kinases</span>
+<span class="n">structures_df</span> <span class="o">=</span> <span class="n">klifs_session</span><span class="o">.</span><span class="n">structures</span><span class="o">.</span><span class="n">by_kinase_name</span><span class="p">(</span><span class="n">kinase_names</span><span class="o">=</span><span class="n">kinase_names</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Number of structures: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">structures_df</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Kinases:"</span><span class="p">,</span> <span class="o">*</span><span class="n">structures_df</span><span class="p">[</span><span class="s2">"kinase.klifs_name"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Number of structures: 2484
+Kinases: CDK2 p38a EGFR ErbB2 MET LCK KDR BRAF p110a
+</pre></div></div>
+</div>
+<p>Let’s have a look at what is stored in the structures’ DataFrame:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">structures_df</span><span class="o">.</span><span class="n">columns</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Index(['structure.klifs_id', 'structure.pdb_id', 'structure.alternate_model',
+       'structure.chain', 'species.klifs', 'kinase.klifs_id',
+       'kinase.klifs_name', 'kinase.names', 'kinase.family', 'kinase.group',
+       'structure.pocket', 'ligand.expo_id', 'ligand_allosteric.expo_id',
+       'ligand.klifs_id', 'ligand_allosteric.klifs_id', 'ligand.name',
+       'ligand_allosteric.name', 'structure.dfg', 'structure.ac_helix',
+       'structure.resolution', 'structure.qualityscore',
+       'structure.missing_residues', 'structure.missing_atoms',
+       'structure.rmsd1', 'structure.rmsd2', 'interaction.fingerprint',
+       'structure.front', 'structure.gate', 'structure.back', 'structure.fp_i',
+       'structure.fp_ii', 'structure.bp_i_a', 'structure.bp_i_b',
+       'structure.bp_ii_in', 'structure.bp_ii_a_in', 'structure.bp_ii_b_in',
+       'structure.bp_ii_out', 'structure.bp_ii_b', 'structure.bp_iii',
+       'structure.bp_iv', 'structure.bp_v', 'structure.grich_distance',
+       'structure.grich_angle', 'structure.grich_rotation',
+       'structure.filepath', 'structure.curation_flag'],
+      dtype='object')
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">structures_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>structure.klifs_id</th>
+<th>structure.pdb_id</th>
+<th>structure.alternate_model</th>
+<th>structure.chain</th>
+<th>species.klifs</th>
+<th>kinase.klifs_id</th>
+<th>kinase.klifs_name</th>
+<th>kinase.names</th>
+<th>kinase.family</th>
+<th>kinase.group</th>
+<th>...</th>
+<th>structure.bp_ii_out</th>
+<th>structure.bp_ii_b</th>
+<th>structure.bp_iii</th>
+<th>structure.bp_iv</th>
+<th>structure.bp_v</th>
+<th>structure.grich_distance</th>
+<th>structure.grich_angle</th>
+<th>structure.grich_rotation</th>
+<th>structure.filepath</th>
+<th>structure.curation_flag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>4221</td>
+<td>4eor</td>
+<td>A</td>
+<td>C</td>
+<td>Human</td>
+<td>198</td>
+<td>CDK2</td>
+<td>&lt;NA&gt;</td>
+<td>&lt;NA&gt;</td>
+<td>&lt;NA&gt;</td>
+<td>...</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>14.9071</td>
+<td>50.806301</td>
+<td>71.737297</td>
+<td>&lt;NA&gt;</td>
+<td>False</td>
+</tr>
+<tr>
+<th>1</th>
+<td>11794</td>
+<td>6inl</td>
+<td>-</td>
+<td>A</td>
+<td>Human</td>
+<td>198</td>
+<td>CDK2</td>
+<td>&lt;NA&gt;</td>
+<td>&lt;NA&gt;</td>
+<td>&lt;NA&gt;</td>
+<td>...</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>13.7758</td>
+<td>47.825100</td>
+<td>70.074600</td>
+<td>&lt;NA&gt;</td>
+<td>False</td>
+</tr>
+<tr>
+<th>2</th>
+<td>12008</td>
+<td>6jgm</td>
+<td>-</td>
+<td>A</td>
+<td>Human</td>
+<td>198</td>
+<td>CDK2</td>
+<td>&lt;NA&gt;</td>
+<td>&lt;NA&gt;</td>
+<td>&lt;NA&gt;</td>
+<td>...</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>13.3718</td>
+<td>46.579498</td>
+<td>67.647102</td>
+<td>&lt;NA&gt;</td>
+<td>False</td>
+</tr>
+<tr>
+<th>3</th>
+<td>4116</td>
+<td>1h27</td>
+<td>-</td>
+<td>A</td>
+<td>Human</td>
+<td>198</td>
+<td>CDK2</td>
+<td>&lt;NA&gt;</td>
+<td>&lt;NA&gt;</td>
+<td>&lt;NA&gt;</td>
+<td>...</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>17.3950</td>
+<td>59.113201</td>
+<td>78.272400</td>
+<td>&lt;NA&gt;</td>
+<td>False</td>
+</tr>
+<tr>
+<th>4</th>
+<td>11219</td>
+<td>6q4e</td>
+<td>C</td>
+<td>A</td>
+<td>Human</td>
+<td>198</td>
+<td>CDK2</td>
+<td>&lt;NA&gt;</td>
+<td>&lt;NA&gt;</td>
+<td>&lt;NA&gt;</td>
+<td>...</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>13.9936</td>
+<td>49.519501</td>
+<td>71.110497</td>
+<td>&lt;NA&gt;</td>
+<td>False</td>
+</tr>
+</tbody>
+</table>
+<p>5 rows × 46 columns</p>
+</div></div>
+</div>
+</section>
+<section id="Filter-structures">
+<h4 id="Filter-structures">Filter structures<a class="headerlink" href="#Filter-structures" title="Permalink to this headline">¶</a></h4>
+<p>We filter the structures by different criteria:</p>
+<ul class="simple">
+<li><p>Species: human</p></li>
+<li><p>Conformation: DFG-in (the active kinase conformation)</p></li>
+<li><p>Resolution: <span class="math notranslate nohighlight">\(\le 3\)</span> Angström</p></li>
+<li><p>Quality score*: <span class="math notranslate nohighlight">\(\ge 6\)</span></p></li>
+</ul>
+<p>* The KLIFS quality score takes into account the quality of the alignment, as well as the number of missing residues and atoms. A higher score indicates a better structure quality.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">structures_df</span> <span class="o">=</span> <span class="n">structures_df</span><span class="p">[</span>
+    <span class="p">(</span><span class="n">structures_df</span><span class="p">[</span><span class="s2">"species.klifs"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"Human"</span><span class="p">)</span>
+    <span class="o">&amp;</span> <span class="p">(</span><span class="n">structures_df</span><span class="p">[</span><span class="s2">"structure.dfg"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"in"</span><span class="p">)</span>
+    <span class="o">&amp;</span> <span class="p">(</span><span class="n">structures_df</span><span class="p">[</span><span class="s2">"structure.resolution"</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="o">&amp;</span> <span class="p">(</span><span class="n">structures_df</span><span class="p">[</span><span class="s2">"structure.qualityscore"</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">6</span><span class="p">)</span>
+<span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Number of structures: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">structures_df</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Kinases:"</span><span class="p">,</span> <span class="o">*</span><span class="n">structures_df</span><span class="p">[</span><span class="s2">"kinase.klifs_name"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Number of structures: 1632
+Kinases: CDK2 p38a EGFR ErbB2 MET LCK KDR BRAF p110a
+</pre></div></div>
+</div>
+<p>Save the structure KLIFS IDs for the next step.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">structure_klifs_ids</span> <span class="o">=</span> <span class="n">structures_df</span><span class="p">[</span><span class="s2">"structure.klifs_id"</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Number of structures: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">structure_klifs_ids</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Number of structures: 1632
+</pre></div></div>
+</div>
+<p>To make it easier for us to maintain the talktorials, we will now load a set of frozen structure KLIFS IDs (2021-08-23) and continue to work with those. If you would like to work with the latest KLIFS data, please skip the cell below (or change cell type from “Code” &gt; “Raw”).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Load frozen dataset</span>
+<span class="n">structure_klifs_ids</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"frozen_structure_klifs_ids.csv"</span><span class="p">)[</span>
+    <span class="s2">"structure.klifs_id"</span>
+<span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Number of structures: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">structure_klifs_ids</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Number of structures: 1620
+</pre></div></div>
+</div>
+</section>
+</section>
+<section id="Show-kinase-coverage">
+<h3 id="Show-kinase-coverage">Show kinase coverage<a class="headerlink" href="#Show-kinase-coverage" title="Permalink to this headline">¶</a></h3>
+<p>Let’s get the number of structures that describe our kinases (kinase coverage).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Use pandas' groupby method to count the number of structures (rows) per kinase</span>
+<span class="n">n_structures_per_kinase</span> <span class="o">=</span> <span class="n">structures_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"kinase.klifs_name"</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>
+<span class="n">n_structures_per_kinase</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+kinase.klifs_name
+ErbB2      4
+KDR        6
+LCK       32
+p110a     49
+BRAF      72
+MET       99
+p38a     151
+EGFR     369
+CDK2     850
+dtype: int64
+</pre></div></div>
+</div>
+<p>Let’s plot the results.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">n_structures_per_kinase</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">"barh"</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Number of structures"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Kinase name"</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">n_structures_per_kinase</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">),</span> <span class="n">va</span><span class="o">=</span><span class="s2">"center"</span><span class="p">)</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_T025_kinase_similarity_kissim_36_0.png" src="../_images/talktorials_T025_kinase_similarity_kissim_36_0.png"/>
+</div>
+</div>
+<p>We see that our dataset is highly imbalanced. While some kinases are structurally resolved very often, other kinases are not. We will have to keep this in mind when interpreting our results later.</p>
+</section>
+<section id="Load-KiSSim-fingerprints">
+<h3 id="Load-KiSSim-fingerprints">Load KiSSim fingerprints<a class="headerlink" href="#Load-KiSSim-fingerprints" title="Permalink to this headline">¶</a></h3>
+<p>We will use in this notebook pre-calculated KiSSim fingerprints for our kinase set. If you wanted to calculate the fingerprints yourself, you could use the following <code class="docutils literal notranslate"><span class="pre">kissim</span></code> API:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate fingerprints</span>
+<span class="kn">from</span> <span class="nn">kissim.api</span> <span class="kn">import</span> <span class="n">encode</span>
+<span class="n">kissim_fingerprints</span> <span class="o">=</span> <span class="n">encode</span><span class="p">(</span><span class="n">structure_klifs_ids</span><span class="p">,</span> <span class="n">n_cores</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Save fingerprints in csv file</span>
+<span class="n">structure_klifs_ids</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">kissim_fingerprints</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="n">kissim_fingerprints_array</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">fingerprint</span><span class="o">.</span><span class="n">values_array</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">structure_klifs_id</span><span class="p">,</span> <span class="n">fingerprint</span>
+    <span class="ow">in</span> <span class="n">kissim_fingerprints</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+<span class="p">]</span>
+<span class="n">kissim_fingerprints_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">kissim_fingerprints_array</span><span class="p">)</span>
+<span class="n">kissim_fingerprints_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">kissim_fingerprints_array</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">structure_klifs_ids</span><span class="p">)</span>
+<span class="n">kissim_fingerprints_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"kissim_fingerprints.csv"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Let’s load the pre-calculated KiSSim fingerprints!</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">kissim_fingerprints_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"kissim_fingerprints.csv"</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Matrix shape: </span><span class="si">{</span><span class="n">kissim_fingerprints_df</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Number of fingerprints: </span><span class="si">{</span><span class="n">kissim_fingerprints_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Number of fingerprint bits: </span><span class="si">{</span><span class="n">kissim_fingerprints_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Matrix shape: (1611, 1032)
+Number of fingerprints: 1611
+Number of fingerprint bits: 1032
+</pre></div></div>
+</div>
+<p>You might notice that we have slightly fewer fingerprints than structures. This can happen during the <code class="docutils literal notranslate"><span class="pre">kissim</span></code> fingerprint generation, if a structure cannot be encoded.</p>
+<p>Let’s have a look at the fingerprint DataFrame.</p>
+<ul class="simple">
+<li><p>Kinase structures are stored by KLIFS ID (index)</p></li>
+<li><p>Each kinase is represented by <span class="math notranslate nohighlight">\(1032\)</span> features, i.e. <span class="math notranslate nohighlight">\(85\)</span> residues * <span class="math notranslate nohighlight">\(8\)</span> physicochem. features + <span class="math notranslate nohighlight">\(85\)</span> residues * <span class="math notranslate nohighlight">\(4\)</span> distances + <span class="math notranslate nohighlight">\(12\)</span> moments</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">kissim_fingerprints_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>...</th>
+<th>1022</th>
+<th>1023</th>
+<th>1024</th>
+<th>1025</th>
+<th>1026</th>
+<th>1027</th>
+<th>1028</th>
+<th>1029</th>
+<th>1030</th>
+<th>1031</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>6285</th>
+<td>2.0</td>
+<td>0.0</td>
+<td>2.0</td>
+<td>-1.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>2.0</td>
+<td>3.0</td>
+<td>2.0</td>
+<td>1.0</td>
+<td>...</td>
+<td>13.150351</td>
+<td>11.958837</td>
+<td>4.717011</td>
+<td>4.843444</td>
+<td>4.655707</td>
+<td>3.577213</td>
+<td>2.771821</td>
+<td>4.302192</td>
+<td>3.583341</td>
+<td>2.066700</td>
+</tr>
+<tr>
+<th>10568</th>
+<td>2.0</td>
+<td>0.0</td>
+<td>2.0</td>
+<td>-1.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>2.0</td>
+<td>3.0</td>
+<td>2.0</td>
+<td>1.0</td>
+<td>...</td>
+<td>13.069152</td>
+<td>11.883944</td>
+<td>4.691527</td>
+<td>5.006221</td>
+<td>4.679352</td>
+<td>3.531177</td>
+<td>2.714736</td>
+<td>4.165350</td>
+<td>3.549843</td>
+<td>2.138838</td>
+</tr>
+<tr>
+<th>11187</th>
+<td>2.0</td>
+<td>0.0</td>
+<td>2.0</td>
+<td>-1.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>2.0</td>
+<td>3.0</td>
+<td>2.0</td>
+<td>1.0</td>
+<td>...</td>
+<td>13.297023</td>
+<td>11.991511</td>
+<td>4.590040</td>
+<td>5.141397</td>
+<td>4.699467</td>
+<td>3.625989</td>
+<td>2.549692</td>
+<td>4.442117</td>
+<td>3.699695</td>
+<td>2.261646</td>
+</tr>
+<tr>
+<th>4060</th>
+<td>2.0</td>
+<td>0.0</td>
+<td>2.0</td>
+<td>-1.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>2.0</td>
+<td>3.0</td>
+<td>2.0</td>
+<td>1.0</td>
+<td>...</td>
+<td>12.910837</td>
+<td>11.775556</td>
+<td>4.359330</td>
+<td>4.844833</td>
+<td>4.214195</td>
+<td>3.383812</td>
+<td>2.699580</td>
+<td>3.860920</td>
+<td>3.161863</td>
+<td>2.185979</td>
+</tr>
+<tr>
+<th>10566</th>
+<td>2.0</td>
+<td>0.0</td>
+<td>2.0</td>
+<td>-1.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>2.0</td>
+<td>3.0</td>
+<td>2.0</td>
+<td>1.0</td>
+<td>...</td>
+<td>13.196581</td>
+<td>12.115342</td>
+<td>4.701176</td>
+<td>4.690081</td>
+<td>4.683674</td>
+<td>3.633418</td>
+<td>2.489983</td>
+<td>3.972552</td>
+<td>3.692501</td>
+<td>0.759234</td>
+</tr>
+</tbody>
+</table>
+<p>5 rows × 1032 columns</p>
+</div></div>
+</div>
+</section>
+<section id="Compare-structures">
+<h3 id="Compare-structures">Compare structures<a class="headerlink" href="#Compare-structures" title="Permalink to this headline">¶</a></h3>
+<p>Let’s make a pairwise comparison of the KiSSim fingerprints. We use the <code class="docutils literal notranslate"><span class="pre">nan_euclidean_distances</span></code> method of <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>, which calculates the Euclidean distance between all pairwise vectors.</p>
+<p>If two vectors have NaN values (which can happen if residues are not resolved in a structure), the following procedure is applied:</p>
+<blockquote>
+<div><p>When calculating the distance between a pair of samples, this formulation ignores feature coordinates with a missing value in either sample and scales up the weight of the remaining coordinates.</p>
+</div></blockquote>
+<p>Please find more information in the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.nan_euclidean_distances.html">sklearn documentation</a>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">structure_distance_matrix_array</span> <span class="o">=</span> <span class="n">pairwise</span><span class="o">.</span><span class="n">nan_euclidean_distances</span><span class="p">(</span><span class="n">kissim_fingerprints_df</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Create DataFrame with structure KLIFS IDs as index/columns</span>
+<span class="n">structure_klifs_ids</span> <span class="o">=</span> <span class="n">kissim_fingerprints_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+<span class="n">structure_distance_matrix_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">structure_distance_matrix_array</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">structure_klifs_ids</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">structure_klifs_ids</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Structure distance matrix size: </span><span class="si">{</span><span class="n">structure_distance_matrix_df</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Show matrix subset:"</span><span class="p">)</span>
+<span class="n">structure_distance_matrix_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">5</span><span class="p">,</span> <span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Structure distance matrix size: (1611, 1611)
+Show matrix subset:
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>6285</th>
+<th>10568</th>
+<th>11187</th>
+<th>4060</th>
+<th>10566</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>6285</th>
+<td>0.000000</td>
+<td>13.256941</td>
+<td>14.001474</td>
+<td>26.391543</td>
+<td>14.307291</td>
+</tr>
+<tr>
+<th>10568</th>
+<td>13.256941</td>
+<td>0.000000</td>
+<td>10.379779</td>
+<td>27.882193</td>
+<td>16.833932</td>
+</tr>
+<tr>
+<th>11187</th>
+<td>14.001474</td>
+<td>10.379779</td>
+<td>0.000000</td>
+<td>30.962221</td>
+<td>18.338492</td>
+</tr>
+<tr>
+<th>4060</th>
+<td>26.391543</td>
+<td>27.882193</td>
+<td>30.962221</td>
+<td>0.000000</td>
+<td>28.905189</td>
+</tr>
+<tr>
+<th>10566</th>
+<td>14.307291</td>
+<td>16.833932</td>
+<td>18.338492</td>
+<td>28.905189</td>
+<td>0.000000</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="Map-structure-to-kinase-distance-matrix">
+<h3 id="Map-structure-to-kinase-distance-matrix">Map structure to kinase distance matrix<a class="headerlink" href="#Map-structure-to-kinase-distance-matrix" title="Permalink to this headline">¶</a></h3>
+<p>Note: So far we compared individual structures, but we want to compare kinases (which can be represented by several structures, as plotted above).</p>
+<p>First, as an intermediate step, we will use the structure distance matrix but — instead of labeling the data with structure KLIFS IDs — we use the corresponding kinase name.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Copy distance matrix to kinase matrix</span>
+<span class="n">kinase_distance_matrix_df</span> <span class="o">=</span> <span class="n">structure_distance_matrix_df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="c1"># Replace structure KLIFS IDs with the structures' kinase names</span>
+<span class="n">kinase_names</span> <span class="o">=</span> <span class="n">structures_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">"structure.klifs_id"</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+    <span class="n">structure_klifs_ids</span><span class="p">,</span> <span class="s2">"kinase.klifs_name"</span>
+<span class="p">]</span>
+<span class="n">kinase_distance_matrix_df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">kinase_names</span>
+<span class="n">kinase_distance_matrix_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">kinase_names</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Show matrix subset:"</span><span class="p">)</span>
+<span class="n">kinase_distance_matrix_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">5</span><span class="p">,</span> <span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Show matrix subset:
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>kinase.klifs_name</th>
+<th>CDK2</th>
+<th>CDK2</th>
+<th>CDK2</th>
+<th>CDK2</th>
+<th>CDK2</th>
+</tr>
+<tr>
+<th>kinase.klifs_name</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>CDK2</th>
+<td>0.000000</td>
+<td>13.256941</td>
+<td>14.001474</td>
+<td>26.391543</td>
+<td>14.307291</td>
+</tr>
+<tr>
+<th>CDK2</th>
+<td>13.256941</td>
+<td>0.000000</td>
+<td>10.379779</td>
+<td>27.882193</td>
+<td>16.833932</td>
+</tr>
+<tr>
+<th>CDK2</th>
+<td>14.001474</td>
+<td>10.379779</td>
+<td>0.000000</td>
+<td>30.962221</td>
+<td>18.338492</td>
+</tr>
+<tr>
+<th>CDK2</th>
+<td>26.391543</td>
+<td>27.882193</td>
+<td>30.962221</td>
+<td>0.000000</td>
+<td>28.905189</td>
+</tr>
+<tr>
+<th>CDK2</th>
+<td>14.307291</td>
+<td>16.833932</td>
+<td>18.338492</td>
+<td>28.905189</td>
+<td>0.000000</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>In this talktorial, we will consider per kinase pair the two structures that show the most similar pockets. Hence, we select the structure pair with the minimum distance as representative for a kinase pair.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># We unstack the matrix (each pairwise comparison in a single row)</span>
+<span class="c1"># We group by kinase names (level=[0, 1] ensures that the order of the kinases is ignored</span>
+<span class="c1"># We take the minimum value in each kinase pair group</span>
+<span class="c1"># We unstack the remaining data points</span>
+<span class="n">kinase_distance_matrix_df</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">kinase_distance_matrix_df</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="c1"># Cosmetics: Remove the index and column names</span>
+<span class="n">kinase_distance_matrix_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">kinase_distance_matrix_df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">"Structure matrix of shape </span><span class="si">{</span><span class="n">structure_distance_matrix_df</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2"> "</span>
+    <span class="sa">f</span><span class="s2">"reduced to kinase matrix of shape </span><span class="si">{</span><span class="n">kinase_distance_matrix_df</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">."</span>
+<span class="p">)</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Structure matrix of shape (1611, 1611) reduced to kinase matrix of shape (9, 9).
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Show matrix with background gradient</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">light_palette</span><span class="p">(</span><span class="s2">"green"</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">kinase_distance_matrix_df</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">background_gradient</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">"</span><span class="si">{:.3f}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<style type="text/css">
+#T_01361_row0_col0, #T_01361_row1_col1, #T_01361_row2_col2, #T_01361_row3_col3, #T_01361_row4_col4, #T_01361_row5_col5, #T_01361_row6_col6, #T_01361_row7_col7, #T_01361_row8_col8 {
+  background-color: #ebf3eb;
+  color: #000000;
+}
+#T_01361_row0_col1, #T_01361_row5_col4 {
+  background-color: #7dbd7d;
+  color: #000000;
+}
+#T_01361_row0_col2, #T_01361_row4_col1, #T_01361_row6_col0 {
+  background-color: #6cb56c;
+  color: #f1f1f1;
+}
+#T_01361_row0_col3, #T_01361_row2_col0, #T_01361_row4_col6 {
+  background-color: #71b771;
+  color: #f1f1f1;
+}
+#T_01361_row0_col4, #T_01361_row0_col6 {
+  background-color: #72b872;
+  color: #f1f1f1;
+}
+#T_01361_row0_col5 {
+  background-color: #69b369;
+  color: #f1f1f1;
+}
+#T_01361_row0_col7 {
+  background-color: #148a14;
+  color: #f1f1f1;
+}
+#T_01361_row0_col8 {
+  background-color: #66b266;
+  color: #f1f1f1;
+}
+#T_01361_row1_col0, #T_01361_row3_col2, #T_01361_row5_col2 {
+  background-color: #80bf80;
+  color: #000000;
+}
+#T_01361_row1_col2 {
+  background-color: #75b975;
+  color: #f1f1f1;
+}
+#T_01361_row1_col3 {
+  background-color: #73b873;
+  color: #f1f1f1;
+}
+#T_01361_row1_col4 {
+  background-color: #79bc79;
+  color: #000000;
+}
+#T_01361_row1_col5 {
+  background-color: #7fbe7f;
+  color: #000000;
+}
+#T_01361_row1_col6 {
+  background-color: #7ebe7e;
+  color: #000000;
+}
+#T_01361_row1_col7 {
+  background-color: #198c19;
+  color: #f1f1f1;
+}
+#T_01361_row1_col8 {
+  background-color: #74b974;
+  color: #f1f1f1;
+}
+#T_01361_row2_col1, #T_01361_row4_col5, #T_01361_row6_col5, #T_01361_row8_col4 {
+  background-color: #77ba77;
+  color: #f1f1f1;
+}
+#T_01361_row2_col3 {
+  background-color: #8ec58e;
+  color: #000000;
+}
+#T_01361_row2_col4 {
+  background-color: #88c388;
+  color: #000000;
+}
+#T_01361_row2_col5 {
+  background-color: #87c287;
+  color: #000000;
+}
+#T_01361_row2_col6 {
+  background-color: #83c083;
+  color: #000000;
+}
+#T_01361_row2_col7 {
+  background-color: #1d8e1d;
+  color: #f1f1f1;
+}
+#T_01361_row2_col8, #T_01361_row4_col3, #T_01361_row8_col0, #T_01361_row8_col5 {
+  background-color: #63b163;
+  color: #f1f1f1;
+}
+#T_01361_row3_col0 {
+  background-color: #65b265;
+  color: #f1f1f1;
+}
+#T_01361_row3_col1, #T_01361_row3_col6, #T_01361_row5_col0, #T_01361_row6_col8 {
+  background-color: #64b164;
+  color: #f1f1f1;
+}
+#T_01361_row3_col4, #T_01361_row5_col3 {
+  background-color: #62b062;
+  color: #f1f1f1;
+}
+#T_01361_row3_col5 {
+  background-color: #5bad5b;
+  color: #f1f1f1;
+}
+#T_01361_row3_col7, #T_01361_row7_col0, #T_01361_row7_col1, #T_01361_row7_col2, #T_01361_row7_col3, #T_01361_row7_col4, #T_01361_row7_col5, #T_01361_row7_col6, #T_01361_row7_col8 {
+  background-color: #008000;
+  color: #f1f1f1;
+}
+#T_01361_row3_col8 {
+  background-color: #55a955;
+  color: #f1f1f1;
+}
+#T_01361_row4_col0 {
+  background-color: #67b267;
+  color: #f1f1f1;
+}
+#T_01361_row4_col2 {
+  background-color: #7abc7a;
+  color: #000000;
+}
+#T_01361_row4_col7 {
+  background-color: #018001;
+  color: #f1f1f1;
+}
+#T_01361_row4_col8 {
+  background-color: #6fb76f;
+  color: #f1f1f1;
+}
+#T_01361_row5_col1 {
+  background-color: #78bb78;
+  color: #f1f1f1;
+}
+#T_01361_row5_col6, #T_01361_row6_col2 {
+  background-color: #78bb78;
+  color: #000000;
+}
+#T_01361_row5_col7 {
+  background-color: #0c860c;
+  color: #f1f1f1;
+}
+#T_01361_row5_col8 {
+  background-color: #61b061;
+  color: #f1f1f1;
+}
+#T_01361_row6_col1, #T_01361_row6_col4 {
+  background-color: #76ba76;
+  color: #f1f1f1;
+}
+#T_01361_row6_col3 {
+  background-color: #6bb46b;
+  color: #f1f1f1;
+}
+#T_01361_row6_col7 {
+  background-color: #0a850a;
+  color: #f1f1f1;
+}
+#T_01361_row8_col1 {
+  background-color: #6eb66e;
+  color: #f1f1f1;
+}
+#T_01361_row8_col2 {
+  background-color: #5aac5a;
+  color: #f1f1f1;
+}
+#T_01361_row8_col3 {
+  background-color: #5eae5e;
+  color: #f1f1f1;
+}
+#T_01361_row8_col6 {
+  background-color: #68b368;
+  color: #f1f1f1;
+}
+#T_01361_row8_col7 {
+  background-color: #108810;
+  color: #f1f1f1;
+}
+</style>
+<table id="T_01361_">
+<thead>
+<tr>
+<th class="blank level0"> </th>
+<th class="col_heading level0 col0">BRAF</th>
+<th class="col_heading level0 col1">CDK2</th>
+<th class="col_heading level0 col2">EGFR</th>
+<th class="col_heading level0 col3">ErbB2</th>
+<th class="col_heading level0 col4">KDR</th>
+<th class="col_heading level0 col5">LCK</th>
+<th class="col_heading level0 col6">MET</th>
+<th class="col_heading level0 col7">p110a</th>
+<th class="col_heading level0 col8">p38a</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="row_heading level0 row0" id="T_01361_level0_row0">BRAF</th>
+<td class="data row0 col0" id="T_01361_row0_col0">0.000</td>
+<td class="data row0 col1" id="T_01361_row0_col1">17.156</td>
+<td class="data row0 col2" id="T_01361_row0_col2">19.515</td>
+<td class="data row0 col3" id="T_01361_row0_col3">21.383</td>
+<td class="data row0 col4" id="T_01361_row0_col4">21.089</td>
+<td class="data row0 col5" id="T_01361_row0_col5">21.583</td>
+<td class="data row0 col6" id="T_01361_row0_col6">20.297</td>
+<td class="data row0 col7" id="T_01361_row0_col7">37.611</td>
+<td class="data row0 col8" id="T_01361_row0_col8">21.731</td>
+</tr>
+<tr>
+<th class="row_heading level0 row1" id="T_01361_level0_row1">CDK2</th>
+<td class="data row1 col0" id="T_01361_row1_col0">17.156</td>
+<td class="data row1 col1" id="T_01361_row1_col1">0.000</td>
+<td class="data row1 col2" id="T_01361_row1_col2">18.147</td>
+<td class="data row1 col3" id="T_01361_row1_col3">21.106</td>
+<td class="data row1 col4" id="T_01361_row1_col4">19.880</td>
+<td class="data row1 col5" id="T_01361_row1_col5">17.973</td>
+<td class="data row1 col6" id="T_01361_row1_col6">18.304</td>
+<td class="data row1 col7" id="T_01361_row1_col7">36.780</td>
+<td class="data row1 col8" id="T_01361_row1_col8">19.481</td>
+</tr>
+<tr>
+<th class="row_heading level0 row2" id="T_01361_level0_row2">EGFR</th>
+<td class="data row2 col0" id="T_01361_row2_col0">19.515</td>
+<td class="data row2 col1" id="T_01361_row2_col1">18.147</td>
+<td class="data row2 col2" id="T_01361_row2_col2">0.000</td>
+<td class="data row2 col3" id="T_01361_row2_col3">16.392</td>
+<td class="data row2 col4" id="T_01361_row2_col4">17.282</td>
+<td class="data row2 col5" id="T_01361_row2_col5">16.467</td>
+<td class="data row2 col6" id="T_01361_row2_col6">17.498</td>
+<td class="data row2 col7" id="T_01361_row2_col7">36.046</td>
+<td class="data row2 col8" id="T_01361_row2_col8">22.128</td>
+</tr>
+<tr>
+<th class="row_heading level0 row3" id="T_01361_level0_row3">ErbB2</th>
+<td class="data row3 col0" id="T_01361_row3_col0">21.383</td>
+<td class="data row3 col1" id="T_01361_row3_col1">21.106</td>
+<td class="data row3 col2" id="T_01361_row3_col2">16.392</td>
+<td class="data row3 col3" id="T_01361_row3_col3">0.000</td>
+<td class="data row3 col4" id="T_01361_row3_col4">23.851</td>
+<td class="data row3 col5" id="T_01361_row3_col5">23.881</td>
+<td class="data row3 col6" id="T_01361_row3_col6">22.563</td>
+<td class="data row3 col7" id="T_01361_row3_col7">41.277</td>
+<td class="data row3 col8" id="T_01361_row3_col8">24.682</td>
+</tr>
+<tr>
+<th class="row_heading level0 row4" id="T_01361_level0_row4">KDR</th>
+<td class="data row4 col0" id="T_01361_row4_col0">21.089</td>
+<td class="data row4 col1" id="T_01361_row4_col1">19.880</td>
+<td class="data row4 col2" id="T_01361_row4_col2">17.282</td>
+<td class="data row4 col3" id="T_01361_row4_col3">23.851</td>
+<td class="data row4 col4" id="T_01361_row4_col4">0.000</td>
+<td class="data row4 col5" id="T_01361_row4_col5">19.255</td>
+<td class="data row4 col6" id="T_01361_row4_col6">20.431</td>
+<td class="data row4 col7" id="T_01361_row4_col7">41.104</td>
+<td class="data row4 col8" id="T_01361_row4_col8">20.263</td>
+</tr>
+<tr>
+<th class="row_heading level0 row5" id="T_01361_level0_row5">LCK</th>
+<td class="data row5 col0" id="T_01361_row5_col0">21.583</td>
+<td class="data row5 col1" id="T_01361_row5_col1">17.973</td>
+<td class="data row5 col2" id="T_01361_row5_col2">16.467</td>
+<td class="data row5 col3" id="T_01361_row5_col3">23.881</td>
+<td class="data row5 col4" id="T_01361_row5_col4">19.255</td>
+<td class="data row5 col5" id="T_01361_row5_col5">0.000</td>
+<td class="data row5 col6" id="T_01361_row5_col6">19.221</td>
+<td class="data row5 col7" id="T_01361_row5_col7">39.022</td>
+<td class="data row5 col8" id="T_01361_row5_col8">22.457</td>
+</tr>
+<tr>
+<th class="row_heading level0 row6" id="T_01361_level0_row6">MET</th>
+<td class="data row6 col0" id="T_01361_row6_col0">20.297</td>
+<td class="data row6 col1" id="T_01361_row6_col1">18.304</td>
+<td class="data row6 col2" id="T_01361_row6_col2">17.498</td>
+<td class="data row6 col3" id="T_01361_row6_col3">22.563</td>
+<td class="data row6 col4" id="T_01361_row6_col4">20.431</td>
+<td class="data row6 col5" id="T_01361_row6_col5">19.221</td>
+<td class="data row6 col6" id="T_01361_row6_col6">0.000</td>
+<td class="data row6 col7" id="T_01361_row6_col7">39.414</td>
+<td class="data row6 col8" id="T_01361_row6_col8">21.983</td>
+</tr>
+<tr>
+<th class="row_heading level0 row7" id="T_01361_level0_row7">p110a</th>
+<td class="data row7 col0" id="T_01361_row7_col0">37.611</td>
+<td class="data row7 col1" id="T_01361_row7_col1">36.780</td>
+<td class="data row7 col2" id="T_01361_row7_col2">36.046</td>
+<td class="data row7 col3" id="T_01361_row7_col3">41.277</td>
+<td class="data row7 col4" id="T_01361_row7_col4">41.104</td>
+<td class="data row7 col5" id="T_01361_row7_col5">39.022</td>
+<td class="data row7 col6" id="T_01361_row7_col6">39.414</td>
+<td class="data row7 col7" id="T_01361_row7_col7">0.000</td>
+<td class="data row7 col8" id="T_01361_row7_col8">38.530</td>
+</tr>
+<tr>
+<th class="row_heading level0 row8" id="T_01361_level0_row8">p38a</th>
+<td class="data row8 col0" id="T_01361_row8_col0">21.731</td>
+<td class="data row8 col1" id="T_01361_row8_col1">19.481</td>
+<td class="data row8 col2" id="T_01361_row8_col2">22.128</td>
+<td class="data row8 col3" id="T_01361_row8_col3">24.682</td>
+<td class="data row8 col4" id="T_01361_row8_col4">20.263</td>
+<td class="data row8 col5" id="T_01361_row8_col5">22.457</td>
+<td class="data row8 col6" id="T_01361_row8_col6">21.983</td>
+<td class="data row8 col7" id="T_01361_row8_col7">38.530</td>
+<td class="data row8 col8" id="T_01361_row8_col8">0.000</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Note: Since this is a distance matrix, lighter colors indicate similarity, darker colors dissimilarity.</p>
+</section>
+<section id="Save-kinase-distance-matrix">
+<h3 id="Save-kinase-distance-matrix">Save kinase distance matrix<a class="headerlink" href="#Save-kinase-distance-matrix" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">kinase_distance_matrix_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"kinase_distance_matrix.csv"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="Discussion">
+<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this headline">¶</a></h2>
+<p>In this talktorial, we have assessed kinase similarity using the KiSSim fingerprints, which describe physicochemical and spatial properties of pockets in kinase structures. We have reduced a <em>structure</em> distance matrix to a <em>kinase</em> distance matrix by selecting for each <em>kinase pair</em> the corresponding closest <em>structure pair</em>.</p>
+<p>We have to keep two elements in mind:</p>
+<ul class="simple">
+<li><p>Pocket fingerprints like KiSSim encode the full pocket although some residues might be more important for ligand binding than others. As an alternative, one could instead use a subset of residues that have been shown to frequently interact with co-crystallized ligands.</p></li>
+<li><p>We only compare here the two closest structures per kinase pair, although we have — at least for kinases such as EGFR and CDK2 — much more structural data available. Aggregating multiple structures is a reasonable strategy but has two disadvantages:</p>
+<ul>
+<li><p>Some kinases have much higher coverage than others, leading to an imbalance in information content.</p></li>
+<li><p>Aggregated kinase fingerprints may cause too much averaging, making pairwise kinase comparison noisier.</p></li>
+</ul>
+</li>
+</ul>
+<p>The kinase distance matrix above will be reloaded in <strong>Talktorial T028</strong>, where we compare kinase similarities from different perspectives, including the pocket structure perspective we have talked about in this talktorial.</p>
+</section>
+<section id="Quiz">
+<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Can you think of reasons why it is important to include physicochemical <em>and</em> spatial properties in a fingerprint?</p></li>
+<li><p>Can you think of a reason why the side chain orientation and solvent exposure may be interesting features to consider in a fingerprint?</p></li>
+<li><p>Can you think of research questions for which you could make use of the structure distance matrix?</p></li>
+</ol>
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {}, "version_major": 2, "version_minor": 0}
+</script></section>
+</section>
+
+
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="md-footer">
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="T024_kinase_similarity_sequence.html" title="T024 · Kinase similarity: Sequence"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> Previous </span> T024 · Kinase similarity: Sequence </span>
+              </div>
+            </a>
+          
+          
+            <a href="T026_kinase_similarity_ifp.html" title="T026 · Kinase similarity: Interaction fingerprints"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> Next </span> T026 · Kinase similarity: Interaction fingerprints </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          
+        </a>
+        
+      </nav>
+    </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169; Copyright 2018-2021, Volkamer Lab. Project structure based on the Computational Molecular Science Python Cookiecutter version 1.1.
+              
+          </div>
+            Created using
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.3.1.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../_static/javascripts/application.js"></script>
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  </body>
+</html>

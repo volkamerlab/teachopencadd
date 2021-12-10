@@ -1,0 +1,3724 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta property="og:title" content="T024 · Kinase similarity: Sequence" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://projects.volkamerlab.org/teachopencadd/talktorials/T024_kinase_similarity_sequence.html" />
+  <meta property="og:description" content="Authors: Talia B. Kimber, 2021, Volkamer lab, Charité, Dominique Sydow, 2021, Volkamer lab, Charité, Andrea Volkamer, 2021, Volkamer lab, Charité. Aim of this talktorial: In this talktorial, we investigate sequence similarity for kinases of interest. KLIFS API is used to retrieve the 85 residues ..." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/volkamerlab/teachopencadd/master/docs/_static/images/TeachOpenCADD_topics.png" />
+  <meta property="og:image:alt" content="T024 · Kinase similarity: Sequence" />
+  
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
+
+    <style>
+      body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+    </style>
+  
+
+  <link rel="stylesheet" href="../_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="../_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#2196f3">
+  <script src="../_static/javascripts/modernizr.js"></script>
+  
+    <script async src="../_static/cookieconsent.min.js"></script>
+    <script>
+        window.addEventListener("load", function(){
+        window.cookieconsent.initialise({
+            "palette": {
+            "popup": {
+                "background": "#f0f0f0",
+                "text": "#999"
+            },
+            "button": {
+                "text": "#fff",
+                "background": "#009688"
+            }
+            },
+            "theme": "classic"
+        })});
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6ZE82CNZB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-Q6ZE82CNZB');
+    </script>
+  
+    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
+  
+  
+    <title>T024 · Kinase similarity: Sequence &#8212; TeachOpenCADD 0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/material.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="T025 · Kinase similarity: Kinase pocket (KiSSim fingerprint)" href="T025_kinase_similarity_kissim.html" />
+    <link rel="prev" title="T023 · What is a kinase?" href="T023_what_is_a_kinase.html" />
+  
+    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
+  
+   
+
+  </head>
+  <body dir=ltr
+        data-md-color-primary=teal data-md-color-accent=cyan>
+  
+  <svg class="md-svg">
+    <defs data-children-count="0">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
+    </defs>
+  </svg>
+  
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#talktorials/T024_kinase_similarity_sequence" tabindex="1" class="md-skip"> Skip to content </a>
+  <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../index.html" title="TeachOpenCADD 0 documentation"
+           class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic">TeachOpenCADD</span>
+          <span class="md-header-nav__topic"> T024 · Kinase similarity: Sequence </span>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="../search.html" method="get" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder="Search"
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    TeachOpenCADD
+  </div>
+</a>
+          </div>
+        </div>
+      
+      
+    </div>
+  </nav>
+</header>
+
+  
+  <div class="md-container">
+    
+    
+    
+  <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+      <ul class="md-tabs__list">
+            
+            <li class="md-tabs__item"><a href="../talktorials.html" class="md-tabs__link">Our talktorials</a></li>
+            
+            <li class="md-tabs__item"><a href="../installing.html" class="md-tabs__link">Run locally</a></li>
+            
+            <li class="md-tabs__item"><a href="../contribute.html" class="md-tabs__link">Contribute</a></li>
+          <li class="md-tabs__item"><a href="../all_talktorials.html" class="md-tabs__link">Complete list of talktorials</a></li>
+      </ul>
+    </div>
+  </nav>
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../index.html" title="TeachOpenCADD 0 documentation" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    <a href="../index.html"
+       title="TeachOpenCADD 0 documentation">TeachOpenCADD</a>
+  </label>
+    <div class="md-nav__source">
+      <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    TeachOpenCADD
+  </div>
+</a>
+    </div>
+  
+  
+
+  
+  <ul class="md-nav__list">
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Our talktorials</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#jcim-2019" class="md-nav__link">JCIM 2019</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#ligand-based-cheminformatics" class="md-nav__link">Ligand-based cheminformatics</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#structural-biology" class="md-nav__link">Structural biology</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#online-apis-servers" class="md-nav__link">Online APIs/servers</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#kinase-similarity" class="md-nav__link">Kinase similarity</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Run locally</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../installing.html" class="md-nav__link">Installing</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Contributors</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../contribute.html" class="md-nav__link">For contributors</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../api.html" class="md-nav__link">API Documentation</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">External resources</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../external_dependencies.html" class="md-nav__link">Packages and webservers used in TeachOpenCADD</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../external_tutorials_collections.html" class="md-nav__link">External tutorials and collections</a>
+      
+    
+    </li>
+  </ul>
+  
+
+</nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#talktorials-t024-kinase-similarity-sequence--page-root" class="md-nav__link">T024 · Kinase similarity: Sequence</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
+        </li>
+        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
+        </li>
+        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Kinase-dataset" class="md-nav__link">Kinase dataset</a>
+        </li>
+        <li class="md-nav__item"><a href="#Kinase-similarity-descriptor:-Sequence" class="md-nav__link">Kinase similarity descriptor: Sequence</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Identity-score" class="md-nav__link">Identity score</a>
+        </li>
+        <li class="md-nav__item"><a href="#Substitution-score" class="md-nav__link">Substitution score</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#From-similarity-matrix-to-distance-matrix" class="md-nav__link">From similarity matrix to distance matrix</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Define-the-kinases-of-interest" class="md-nav__link">Define the kinases of interest</a>
+        </li>
+        <li class="md-nav__item"><a href="#Retrieve-sequences-from-KLIFS" class="md-nav__link">Retrieve sequences from KLIFS</a>
+        </li>
+        <li class="md-nav__item"><a href="#Sequence-similarity" class="md-nav__link">Sequence similarity</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#id1" class="md-nav__link">Identity score</a>
+        </li>
+        <li class="md-nav__item"><a href="#id2" class="md-nav__link">Substitution score</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Kinase-similarity" class="md-nav__link">Kinase similarity</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Visualize-similarity-as-kinase-matrix" class="md-nav__link">Visualize similarity as kinase matrix</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Kinase-similarity-matrix:-Identity" class="md-nav__link">Kinase similarity matrix: Identity</a>
+        </li>
+        <li class="md-nav__item"><a href="#Kinase-similarity-matrix:-Substitution" class="md-nav__link">Kinase similarity matrix: Substitution</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Save-kinase-similarity-matrix" class="md-nav__link">Save kinase similarity matrix</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Kinase-distance-matrix" class="md-nav__link">Kinase distance matrix</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Save-kinase-distance-matrix" class="md-nav__link">Save kinase distance matrix</a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
+        </li>
+        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T024_kinase_similarity_sequence.nblink.txt">Show Source</a> </li>
+
+<li id="searchbox" class="md-nav__item"></li>
+
+  </ul>
+</nav>
+              </div>
+            </div>
+          </div>
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<section id="T024-·-Kinase-similarity:-Sequence">
+<h1 id="talktorials-t024-kinase-similarity-sequence--page-root">T024 · Kinase similarity: Sequence<a class="headerlink" href="#talktorials-t024-kinase-similarity-sequence--page-root" title="Permalink to this headline">¶</a></h1>
+<p>Authors:</p>
+<ul class="simple">
+<li><p>Talia B. Kimber, 2021, <a class="reference external" href="https://volkamerlab.org/">Volkamer lab, Charité</a></p></li>
+<li><p>Dominique Sydow, 2021, <a class="reference external" href="https://volkamerlab.org/">Volkamer lab, Charité</a></p></li>
+<li><p>Andrea Volkamer, 2021, <a class="reference external" href="https://volkamerlab.org/">Volkamer lab, Charité</a></p></li>
+</ul>
+<section id="Aim-of-this-talktorial">
+<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this headline">¶</a></h2>
+<p>In this talktorial, we investigate sequence similarity for kinases of interest. KLIFS API is used to retrieve the <span class="math notranslate nohighlight">\(85\)</span> residues of the pocket sequence for each kinase.</p>
+<p>Two similarity measures are implemented:</p>
+<ol class="arabic simple">
+<li><p>Sequence identity, i.e., the similarity which is based on character-wise discrepancy.</p></li>
+<li><p>Sequence similarity, i.e., the similarity which is based on a substitution matrix, thus, reflecting similarities between amino acids.</p></li>
+</ol>
+<section id="Contents-in-Theory">
+<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Kinase dataset</p></li>
+<li><p>Kinase similarity descriptor: Sequence</p>
+<ul>
+<li><p>Identity score</p></li>
+<li><p>Substitution score</p></li>
+</ul>
+</li>
+<li><p>From similarity matrix to distance matrix</p></li>
+</ul>
+</section>
+<section id="Contents-in-Practical">
+<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Define the kinases of interest</p></li>
+<li><p>Retrieve sequences from KLIFS</p></li>
+<li><p>Sequence similarity</p>
+<ul>
+<li><p>Identity score</p></li>
+<li><p>Substitution score</p></li>
+</ul>
+</li>
+<li><p>Kinase similarity</p>
+<ul>
+<li><p>Visualize similarity as kinase matrix</p></li>
+<li><p>Save kinase similarity matrix</p></li>
+</ul>
+</li>
+<li><p>Kinase distance matrix</p>
+<ul>
+<li><p>Save kinase distance matrix</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="References">
+<h3 id="References">References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Kinase dataset: <a class="reference external" href="https://www.mdpi.com/1420-3049/26/3/629">Molecules (2021), 26(3), 629</a></p></li>
+<li><p>KLIFS</p>
+<ul>
+<li><p>KLIFS URL: <a class="reference external" href="https://klifs.net/">https://klifs.net/</a></p></li>
+<li><p>KLIFS database: <a class="reference external" href="https://doi.org/10.1093/nar/gkaa895">Nucleic Acid Res. (2020), 49(D1), D562-D569</a></p></li>
+</ul>
+</li>
+<li><p>Sequence-based kinase clustering: Manning <em>et al.</em> <a class="reference external" href="https://doi.org/10.1126/science.1075762">Science (2002), 298(5600), 1912-1934</a></p></li>
+<li><p>Substitution matrix: <a class="reference external" href="https://doi.org/10.1073/pnas.89.22.10915">PNAS (1992), 89(22), 10915-10919</a></p></li>
+<li><p>Biotite</p>
+<ul>
+<li><p>Documentation: <a class="reference external" href="https://www.biotite-python.org/index.html">https://www.biotite-python.org/index.html</a></p></li>
+<li><p><a class="reference external" href="https://www.biotite-python.org/examples/gallery/sequence/blosum_dendrogram.html?highlight=blosum">Blosum matrix</a></p></li>
+</ul>
+</li>
+<li><p>Sequence logo: <a class="reference external" href="http://www.cbs.dtu.dk/biotools/Seq2Logo/">http://www.cbs.dtu.dk/biotools/Seq2Logo/</a></p></li>
+</ul>
+</section>
+</section>
+<section id="Theory">
+<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this headline">¶</a></h2>
+<section id="Kinase-dataset">
+<h3 id="Kinase-dataset">Kinase dataset<a class="headerlink" href="#Kinase-dataset" title="Permalink to this headline">¶</a></h3>
+<p>We use the kinase selection as defined in <strong>Talktorial T023</strong>.</p>
+</section>
+<section id="Kinase-similarity-descriptor:-Sequence">
+<h3 id="Kinase-similarity-descriptor:-Sequence">Kinase similarity descriptor: Sequence<a class="headerlink" href="#Kinase-similarity-descriptor:-Sequence" title="Permalink to this headline">¶</a></h3>
+<p>As mentioned in the previous talktorial, sequence is often used to assess kinase similarity (see the phylogenetic tree developed by Manning <em>et al.</em> <a class="reference external" href="https://doi.org/10.1126/science.1075762">Science (2002), 298(5600), 1912-1934</a>).</p>
+<p>In this talktorial, the KLIFS pocket sequence is used for two main reasons:</p>
+<ol class="arabic simple">
+<li><p>The sequence is of fixed length (it contains <span class="math notranslate nohighlight">\(85\)</span> residues), which makes computation for pairwise similarity between two sequences straightforward.</p></li>
+<li><p>The binding pocket is where the action takes place. Why consider the full kinase sequence when an <span class="math notranslate nohighlight">\(85\)</span> residues sequence contains most relevant information?</p></li>
+</ol>
+<img alt="sequence_logo" src="../_images/sequence_logo.png"/>
+<p><em>Figure 1:</em> The sequence logo shows amino acid binding motifs and sequence profiles such as amino acid depletion. For example, the sequence logo easily visualizes the conserved G-rich loop (position 4-9) and the DFG motif (position 81-83), see <strong>Talktorial T023</strong> for more details.</p>
+<p><strong>Note for reproducibility:</strong> The figure is generated using the Seq2Logo tool available at <a class="reference external" href="http://www.cbs.dtu.dk/biotools/Seq2Logo/">http://www.cbs.dtu.dk/biotools/Seq2Logo/</a>. The input is the <span class="math notranslate nohighlight">\(85\)</span> residues KLIFS binding pocket for the query kinases. All parameters are the the default ones. For the graphical layout, the entry <em>Stacks Per Line</em> is set to <span class="math notranslate nohighlight">\(85\)</span> and <em>Page size</em> to <span class="math notranslate nohighlight">\(1200 \times 480.\)</span></p>
+<p>We now describe two ways to compare pocket sequences.</p>
+<section id="Identity-score">
+<h4 id="Identity-score">Identity score<a class="headerlink" href="#Identity-score" title="Permalink to this headline">¶</a></h4>
+<p>A simple way of assessing the similarity between two sequences is to use the so-called identity score. First, a match vector is created: it checks whether for each position the characters from the two sequences are identical. If they are, the entry is set to <span class="math notranslate nohighlight">\(1,\)</span> and <span class="math notranslate nohighlight">\(0\)</span> otherwise.</p>
+<p>The identity score is computed by summing the elements in the match vector and normalizing the entry by the length of the sequence, which is <span class="math notranslate nohighlight">\(85\)</span> in the case of KLIFS pocket sequence.</p>
+<p>Let’s consider the identity matrix <span class="math notranslate nohighlight">\(I\)</span> below:</p>
+<table>
+<colgroup>
+<col style="width: 19%"/>
+<col style="width: 19%"/>
+<col style="width: 19%"/>
+<col style="width: 19%"/>
+<col style="width: 19%"/>
+<col style="width: 4%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>A</p></th>
+<th class="head"><p>C</p></th>
+<th class="head"><p>D</p></th>
+<th class="head"><p>E</p></th>
+<th class="head"><p>…</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>A</strong></p></td>
+<td><p><strong>1</strong></p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>C</strong></p></td>
+<td><p>0</p></td>
+<td><p><strong>1</strong></p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>D</strong></p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p><strong>1</strong></p></td>
+<td><p>0</p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>E</strong></p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p><strong>1</strong></p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-even"><td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+</tr>
+</tbody>
+</table>
+<p>and let <span class="math notranslate nohighlight">\(M = len(K_i) = len(K_j)\)</span> for two kinases <span class="math notranslate nohighlight">\(K_i\)</span> and <span class="math notranslate nohighlight">\(K_j\)</span>.</p>
+<p>We use the following as similarity between kinases <span class="math notranslate nohighlight">\(K_i\)</span> and <span class="math notranslate nohighlight">\(K_j\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\text{similarity}(K_i, K_j) = \frac{1}{M} \sum_{n=1}^{M} I (K_i[n], K_j[n]),\]</div>
+<p>where <span class="math notranslate nohighlight">\(K_i[n]\)</span> represents the amino acid at position <span class="math notranslate nohighlight">\(n\)</span> of the sequence of kinase <span class="math notranslate nohighlight">\(i\)</span>.</p>
+</section>
+<section id="Substitution-score">
+<h4 id="Substitution-score">Substitution score<a class="headerlink" href="#Substitution-score" title="Permalink to this headline">¶</a></h4>
+<p>Although the identity score is an easy measure of similarity, it does not take into account the rate at which an amino acid may change into another and treats all residues uniformly.</p>
+<p>The substitution score takes the changes of the amino acids over evolutionary time into account. It makes use of a substitution matrix, where each entry gives a score between two amino acids. In this talktorial, we use the BLOSUM substitution matrix <a class="reference external" href="https://doi.org/10.1073/pnas.89.22.10915">PNAS (1992), 89(22), 10915-10919</a>, implemented in <code class="docutils literal notranslate"><span class="pre">biotite</span></code>.</p>
+<p>The BLOSUM substitution matrix <span class="math notranslate nohighlight">\(SM\)</span> is defined as below (the full matrix will be displayed in the <em>Practical</em> part):</p>
+<table>
+<colgroup>
+<col style="width: 36%"/>
+<col style="width: 14%"/>
+<col style="width: 14%"/>
+<col style="width: 14%"/>
+<col style="width: 14%"/>
+<col style="width: 7%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>A</p></th>
+<th class="head"><p>C</p></th>
+<th class="head"><p>D</p></th>
+<th class="head"><p>E</p></th>
+<th class="head"><p>…</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>A</strong></p></td>
+<td><p>4</p></td>
+<td><p>0</p></td>
+<td><p>-2</p></td>
+<td><p>-1</p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>C</strong></p></td>
+<td><p>0</p></td>
+<td><p>9</p></td>
+<td><p>-3</p></td>
+<td><p>-4</p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>D</strong></p></td>
+<td><p>-2</p></td>
+<td><p>-3</p></td>
+<td><p>6</p></td>
+<td><p>2</p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>E</strong></p></td>
+<td><p>-1</p></td>
+<td><p>-4</p></td>
+<td><p>2</p></td>
+<td><p>5</p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-even"><td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+</tr>
+</tbody>
+</table>
+<p>The BLOSUM substitution matrix is symmetric, as shown in the practical part.</p>
+<p>For convenience, we will translate and rescale the matrix using the following:</p>
+<div class="math notranslate nohighlight">
+\[SM' = SM - min(SM),\]</div>
+<p>for translation, and</p>
+<p>for all <span class="math notranslate nohighlight">\(x, y\)</span></p>
+<div class="math notranslate nohighlight">
+\[SM''(x, y) = \frac{SM'[x,y]}{\sqrt{SM'[x,x]*SM'[y,y]}},\]</div>
+<p>for rescaling, such that</p>
+<div class="math notranslate nohighlight">
+\[SM''[x, x] = 1 \text{ for all } x,\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[SM''[x, y] \in [0, 1] \text{ for all } x,y.\]</div>
+<p>We use the following as similarity between kinases <span class="math notranslate nohighlight">\(K_i\)</span> and <span class="math notranslate nohighlight">\(K_j\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\text{similarity}(K_i, K_j) = \frac{1}{M} \sum_{n=1}^{M} SM''\big(K_i[n], K_j[n]\big),\]</div>
+<p>where <span class="math notranslate nohighlight">\(K_i[n]\)</span> represents the amino acid at position <span class="math notranslate nohighlight">\(n\)</span> of the sequence of kinase <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(M = len(K_i) = len(K_j)\)</span>.</p>
+</section>
+</section>
+<section id="From-similarity-matrix-to-distance-matrix">
+<h3 id="From-similarity-matrix-to-distance-matrix">From similarity matrix to distance matrix<a class="headerlink" href="#From-similarity-matrix-to-distance-matrix" title="Permalink to this headline">¶</a></h3>
+<p>In order to apply some clustering algorithm to assess the similarity between kinases, it is necessary to start with a distance matrix. A similarity matrix is not, by definition, a distance matrix. For example, the diagonal elements are not zero. For now, we map the similarity matrix <span class="math notranslate nohighlight">\(SM\)</span> to a distance matrix <span class="math notranslate nohighlight">\(DM\)</span> using</p>
+<div class="math notranslate nohighlight">
+\[DM = 1-SM.\]</div>
+<p>See <strong>Talktorial T028</strong> for more details.</p>
+</section>
+</section>
+<section id="Practical">
+<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">biotite.sequence.align</span> <span class="k">as</span> <span class="nn">align</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">HERE</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">_dh</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">DATA</span> <span class="o">=</span> <span class="n">HERE</span> <span class="o">/</span> <span class="s2">"data"</span>
+</pre></div>
+</div>
+</div>
+<section id="Define-the-kinases-of-interest">
+<h3 id="Define-the-kinases-of-interest">Define the kinases of interest<a class="headerlink" href="#Define-the-kinases-of-interest" title="Permalink to this headline">¶</a></h3>
+<p>Let’s load the kinase selection as defined in <strong>Talktorial T023</strong>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">kinase_selection_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="n">HERE</span>
+    <span class="o">/</span> <span class="s2">"../T023_what_is_a_kinase/</span><span class="se">\</span>
+<span class="s2">data/kinase_selection.csv"</span>
+<span class="p">)</span>
+<span class="n">kinase_selection_df</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>kinase</th>
+<th>kinase_klifs</th>
+<th>uniprot_id</th>
+<th>group</th>
+<th>full_kinase_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>EGFR</td>
+<td>EGFR</td>
+<td>P00533</td>
+<td>TK</td>
+<td>Epidermal growth factor receptor</td>
+</tr>
+<tr>
+<th>1</th>
+<td>ErbB2</td>
+<td>ErbB2</td>
+<td>P04626</td>
+<td>TK</td>
+<td>Erythroblastic leukemia viral oncogene homolog 2</td>
+</tr>
+<tr>
+<th>2</th>
+<td>PI3K</td>
+<td>p110a</td>
+<td>P42336</td>
+<td>Atypical</td>
+<td>Phosphatidylinositol-3-kinase</td>
+</tr>
+<tr>
+<th>3</th>
+<td>VEGFR2</td>
+<td>KDR</td>
+<td>P35968</td>
+<td>TK</td>
+<td>Vascular endothelial growth factor receptor 2</td>
+</tr>
+<tr>
+<th>4</th>
+<td>BRAF</td>
+<td>BRAF</td>
+<td>P15056</td>
+<td>TKL</td>
+<td>Rapidly accelerated fibrosarcoma isoform B</td>
+</tr>
+<tr>
+<th>5</th>
+<td>CDK2</td>
+<td>CDK2</td>
+<td>P24941</td>
+<td>CMGC</td>
+<td>Cyclic-dependent kinase 2</td>
+</tr>
+<tr>
+<th>6</th>
+<td>LCK</td>
+<td>LCK</td>
+<td>P06239</td>
+<td>TK</td>
+<td>Lymphocyte-specific protein tyrosine kinase</td>
+</tr>
+<tr>
+<th>7</th>
+<td>MET</td>
+<td>MET</td>
+<td>P08581</td>
+<td>TK</td>
+<td>Mesenchymal-epithelial transition factor</td>
+</tr>
+<tr>
+<th>8</th>
+<td>p38a</td>
+<td>p38a</td>
+<td>Q16539</td>
+<td>CMGC</td>
+<td>p38 mitogen activated protein kinase alpha</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>Let’s look at the sequence logo again.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">HERE</span> <span class="o">/</span> <span class="s2">"images/sequence_logo.png"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_T024_kinase_similarity_sequence_31_0.png" src="../_images/talktorials_T024_kinase_similarity_sequence_31_0.png"/>
+</div>
+</div>
+</section>
+<section id="Retrieve-sequences-from-KLIFS">
+<h3 id="Retrieve-sequences-from-KLIFS">Retrieve sequences from KLIFS<a class="headerlink" href="#Retrieve-sequences-from-KLIFS" title="Permalink to this headline">¶</a></h3>
+<p>We use the KLIFS API to retrieve the <span class="math notranslate nohighlight">\(85\)</span>-long pocket sequence for each kinase.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">klifs_pocket_sequence</span><span class="p">(</span><span class="n">klifs_kinase_name</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Retrieves the pocket sequence from KLIFS using the API.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    klifs_kinase_name : str</span>
+<span class="sd">        The KLIFS name of the kinase of interest.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    str :</span>
+<span class="sd">        The 85 residues pocket sequence from KLIFS,</span>
+<span class="sd">        if the kinase name is valid, None otherwise.</span>
+<span class="sd">    """</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">"https://klifs.net/api/kinase_ID?kinase_name=</span><span class="si">{</span><span class="n">klifs_kinase_name</span><span class="si">}</span><span class="s2">&amp;species=HUMAN"</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"pocket"</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"KLIFS failed for kinase </span><span class="si">{</span><span class="n">klifs_kinase_name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+<p>We create a dictionary made of the kinase name and its associated pocket sequence. This dictionary is used throughout this notebook.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">kinase_sequences_dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">kinase</span> <span class="ow">in</span> <span class="n">kinase_selection_df</span><span class="p">[</span><span class="s2">"kinase_klifs"</span><span class="p">]:</span>
+    <span class="n">kinase_sequences_dict</span><span class="p">[</span><span class="n">kinase</span><span class="p">]</span> <span class="o">=</span> <span class="n">klifs_pocket_sequence</span><span class="p">(</span><span class="n">kinase</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">sequence</span> <span class="ow">in</span> <span class="n">kinase_sequences_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">:</span><span class="s2">10</span><span class="si">}{</span><span class="n">sequence</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+EGFR      KVLGSGAFGTVYKVAIKELEILDEAYVMASVDPHVCRLLGIQLITQLMPFGCLLDYVREYLEDRRLVHRDLAARNVLVITDFGLA
+ErbB2     KVLGSGAFGTVYKVAIKVLEILDEAYVMAGVGPYVSRLLGIQLVTQLMPYGCLLDHVREYLEDVRLVHRDLAARNVLVITDFGLA
+p110a     CRIMSSAKRPLWLIIFKNGDLRQDMLTLQIIRLRMLPYGCLVGLIEVVRSHTIMQIQCKATFI--LGIGDRHNSNIMVHIDFGHF
+KDR       KPLGRGAFGQVIEVAVKMLALMSELKILIHIGLNVVNLLGAMVIVEFCKFGNLSTYLRSFLASRKCIHRDLAARNILLICDFGLA
+BRAF      QRIGSGSFGTVYKVAVKMLAFKNEVGVLRKTRVNILLFMGYAIVTQWCEGSSLYHHLHIYLHAKSIIHRDLKSNNIFLIGDFGLA
+CDK2      EKIGEGTYGVVYKVALKKITAIREISLLKELNPNIVKLLDVYLVFEFLH-QDLKKFMDAFCHSHRVLHRDLKPQNLLILADFGLA
+LCK       ERLGAGQFGEVWMVAVKSLAFLAEANLMKQLQQRLVRLYAVYIITEYMENGSLVDFLKTFIEERNYIHRDLRAANILVIADFGLA
+MET       EVIGRGHFGCVYHCAVKSLQFLTEGIIMKDFSPNVLSLLGILVVLPYMKHGDLRNFIRNYLASKKFVHRDLAARNCMLVADFGLA
+p38a      SPVGSGAYGSVCAVAVKKLRTYRELRLLKHMKENVIGLLDVYLVTHLMG-ADLNNIVKCYIHSADIIHRDLKPSNLAVILDFGLA
+</pre></div></div>
+</div>
+<p>As shown in the cell above, some sequences have missing residues, denoted by “-”.</p>
+</section>
+<section id="Sequence-similarity">
+<h3 id="Sequence-similarity">Sequence similarity<a class="headerlink" href="#Sequence-similarity" title="Permalink to this headline">¶</a></h3>
+<p>Given two kinases, we create functions which account for identity or substitution similarity, as described in the <em>Theory</em> part.</p>
+<section id="id1">
+<h4 id="id1">Identity score<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>We first define a function which compares element-wise characters in two sequences.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">identity_score</span><span class="p">(</span><span class="n">sequence1</span><span class="p">,</span> <span class="n">sequence2</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Computes the element-wise binary similarity between two sequences.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    sequence1 : np.array</span>
+<span class="sd">        An array of characters describing the first sequence.</span>
+<span class="sd">    sequence2 : np.array</span>
+<span class="sd">        An array of characters describing the second sequence.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.array</span>
+<span class="sd">        The bool array for each character.</span>
+<span class="sd">        1 if the elements are identical,</span>
+<span class="sd">        0 otherwise.</span>
+<span class="sd">    """</span>
+    <span class="c1"># True is the character is the same, False otherwise</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">compare_chararrays</span><span class="p">(</span><span class="n">sequence1</span><span class="p">,</span> <span class="n">sequence2</span><span class="p">,</span> <span class="n">cmp</span><span class="o">=</span><span class="s2">"=="</span><span class="p">,</span> <span class="n">rstrip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="id2">
+<h4 id="id2">Substitution score<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>We now define the function which is more specific to amino acids grouping and use the <code class="docutils literal notranslate"><span class="pre">biotite</span></code> library to retrieve the BLOSUM substitution matrix.</p>
+<p>The substitution matrix can be retrieve from <code class="docutils literal notranslate"><span class="pre">biotite</span></code> using the following command:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">substitution_matrix</span> <span class="o">=</span> <span class="n">align</span><span class="o">.</span><span class="n">SubstitutionMatrix</span><span class="o">.</span><span class="n">std_protein_matrix</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">substitution_matrix</span><span class="p">)</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+    A   C   D   E   F   G   H   I   K   L   M   N   P   Q   R   S   T   V   W   Y   B   Z   X   *
+A   4   0  -2  -1  -2   0  -2  -1  -1  -1  -1  -2  -1  -1  -1   1   0   0  -3  -2  -2  -1   0  -4
+C   0   9  -3  -4  -2  -3  -3  -1  -3  -1  -1  -3  -3  -3  -3  -1  -1  -1  -2  -2  -3  -3  -2  -4
+D  -2  -3   6   2  -3  -1  -1  -3  -1  -4  -3   1  -1   0  -2   0  -1  -3  -4  -3   4   1  -1  -4
+E  -1  -4   2   5  -3  -2   0  -3   1  -3  -2   0  -1   2   0   0  -1  -2  -3  -2   1   4  -1  -4
+F  -2  -2  -3  -3   6  -3  -1   0  -3   0   0  -3  -4  -3  -3  -2  -2  -1   1   3  -3  -3  -1  -4
+G   0  -3  -1  -2  -3   6  -2  -4  -2  -4  -3   0  -2  -2  -2   0  -2  -3  -2  -3  -1  -2  -1  -4
+H  -2  -3  -1   0  -1  -2   8  -3  -1  -3  -2   1  -2   0   0  -1  -2  -3  -2   2   0   0  -1  -4
+I  -1  -1  -3  -3   0  -4  -3   4  -3   2   1  -3  -3  -3  -3  -2  -1   3  -3  -1  -3  -3  -1  -4
+K  -1  -3  -1   1  -3  -2  -1  -3   5  -2  -1   0  -1   1   2   0  -1  -2  -3  -2   0   1  -1  -4
+L  -1  -1  -4  -3   0  -4  -3   2  -2   4   2  -3  -3  -2  -2  -2  -1   1  -2  -1  -4  -3  -1  -4
+M  -1  -1  -3  -2   0  -3  -2   1  -1   2   5  -2  -2   0  -1  -1  -1   1  -1  -1  -3  -1  -1  -4
+N  -2  -3   1   0  -3   0   1  -3   0  -3  -2   6  -2   0   0   1   0  -3  -4  -2   3   0  -1  -4
+P  -1  -3  -1  -1  -4  -2  -2  -3  -1  -3  -2  -2   7  -1  -2  -1  -1  -2  -4  -3  -2  -1  -2  -4
+Q  -1  -3   0   2  -3  -2   0  -3   1  -2   0   0  -1   5   1   0  -1  -2  -2  -1   0   3  -1  -4
+R  -1  -3  -2   0  -3  -2   0  -3   2  -2  -1   0  -2   1   5  -1  -1  -3  -3  -2  -1   0  -1  -4
+S   1  -1   0   0  -2   0  -1  -2   0  -2  -1   1  -1   0  -1   4   1  -2  -3  -2   0   0   0  -4
+T   0  -1  -1  -1  -2  -2  -2  -1  -1  -1  -1   0  -1  -1  -1   1   5   0  -2  -2  -1  -1   0  -4
+V   0  -1  -3  -2  -1  -3  -3   3  -2   1   1  -3  -2  -2  -3  -2   0   4  -3  -1  -3  -2  -1  -4
+W  -3  -2  -4  -3   1  -2  -2  -3  -3  -2  -1  -4  -4  -2  -3  -3  -2  -3  11   2  -4  -3  -2  -4
+Y  -2  -2  -3  -2   3  -3   2  -1  -2  -1  -1  -2  -3  -1  -2  -2  -2  -1   2   7  -3  -2  -1  -4
+B  -2  -3   4   1  -3  -1   0  -3   0  -4  -3   3  -2   0  -1   0  -1  -3  -4  -3   4   1  -1  -4
+Z  -1  -3   1   4  -3  -2   0  -3   1  -3  -1   0  -1   3   0   0  -1  -2  -3  -2   1   4  -1  -4
+X   0  -2  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -2  -1  -1   0   0  -1  -2  -1  -1  -1  -1  -4
+*  -4  -4  -4  -4  -4  -4  -4  -4  -4  -4  -4  -4  -4  -4  -4  -4  -4  -4  -4  -4  -4  -4  -4   1
+</pre></div></div>
+</div>
+<p>Check for symmetry:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">substitution_matrix</span><span class="o">.</span><span class="n">is_symmetric</span><span class="p">()</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+</pre></div></div>
+</div>
+<p>Let’s perform the translation-rescaling step we discussed in the <em>Theory</em> part.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">_translate_rescale_substitution_matrix</span><span class="p">(</span>
+    <span class="n">substitution_matrix</span><span class="o">=</span><span class="n">align</span><span class="o">.</span><span class="n">SubstitutionMatrix</span><span class="o">.</span><span class="n">std_protein_matrix</span><span class="p">(),</span>
+<span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Translate and rescale substitution matrix.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    substitution_matrix : biotite.sequence.align.SubstitutionMatrix</span>
+<span class="sd">        A substitution matrix specific to amino acids.</span>
+<span class="sd">        The default is align.SubstitutionMatrix.std_protein_matrix()</span>
+<span class="sd">        from biotite, which represents BLOSUM62.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pd.DataFrame</span>
+<span class="sd">        Translated and rescaled substitution matrix as DataFrame</span>
+<span class="sd">        (index/columns contain letters).</span>
+<span class="sd">    """</span>
+    <span class="c1"># Retrieve np.array from substitution matrix</span>
+    <span class="n">score_matrix</span> <span class="o">=</span> <span class="n">substitution_matrix</span><span class="o">.</span><span class="n">score_matrix</span><span class="p">()</span>
+
+    <span class="c1"># Translation of substitution matrix</span>
+    <span class="n">translated_matrix</span> <span class="o">=</span> <span class="n">score_matrix</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">score_matrix</span><span class="p">)</span>
+
+    <span class="c1"># Rescaling</span>
+    <span class="n">normalized_score_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">score_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">score_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">score_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+            <span class="n">normalized_score_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">translated_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+                <span class="n">translated_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">translated_matrix</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+            <span class="p">)</span>
+
+    <span class="c1"># Create DataFrame from matrix with letters as index/column names</span>
+    <span class="n">normalized_score_matrix</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="n">normalized_score_matrix</span><span class="p">,</span>
+        <span class="n">columns</span><span class="o">=</span><span class="n">substitution_matrix</span><span class="o">.</span><span class="n">get_alphabet1</span><span class="p">(),</span>
+        <span class="n">index</span><span class="o">=</span><span class="n">substitution_matrix</span><span class="o">.</span><span class="n">get_alphabet1</span><span class="p">(),</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Check for symmetry</span>
+    <span class="n">symmetric</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">normalized_score_matrix</span><span class="o">.</span><span class="n">values</span> <span class="o">==</span> <span class="n">normalized_score_matrix</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">symmetric</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Translated/rescaled matrix is not symmetric."</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">normalized_score_matrix</span>
+</pre></div>
+</div>
+</div>
+<p>Let’s take a look at the translated and rescaled version of the substitution matrix.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">_translate_rescale_substitution_matrix</span><span class="p">()</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">"</span><span class="si">{:.2f}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<style type="text/css">
+</style>
+<table id="T_464db_">
+<thead>
+<tr>
+<th class="blank level0"> </th>
+<th class="col_heading level0 col0">A</th>
+<th class="col_heading level0 col1">C</th>
+<th class="col_heading level0 col2">D</th>
+<th class="col_heading level0 col3">E</th>
+<th class="col_heading level0 col4">F</th>
+<th class="col_heading level0 col5">G</th>
+<th class="col_heading level0 col6">H</th>
+<th class="col_heading level0 col7">I</th>
+<th class="col_heading level0 col8">K</th>
+<th class="col_heading level0 col9">L</th>
+<th class="col_heading level0 col10">M</th>
+<th class="col_heading level0 col11">N</th>
+<th class="col_heading level0 col12">P</th>
+<th class="col_heading level0 col13">Q</th>
+<th class="col_heading level0 col14">R</th>
+<th class="col_heading level0 col15">S</th>
+<th class="col_heading level0 col16">T</th>
+<th class="col_heading level0 col17">V</th>
+<th class="col_heading level0 col18">W</th>
+<th class="col_heading level0 col19">Y</th>
+<th class="col_heading level0 col20">B</th>
+<th class="col_heading level0 col21">Z</th>
+<th class="col_heading level0 col22">X</th>
+<th class="col_heading level0 col23">*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="row_heading level0 row0" id="T_464db_level0_row0">A</th>
+<td class="data row0 col0" id="T_464db_row0_col0">1.00</td>
+<td class="data row0 col1" id="T_464db_row0_col1">0.39</td>
+<td class="data row0 col2" id="T_464db_row0_col2">0.22</td>
+<td class="data row0 col3" id="T_464db_row0_col3">0.35</td>
+<td class="data row0 col4" id="T_464db_row0_col4">0.22</td>
+<td class="data row0 col5" id="T_464db_row0_col5">0.45</td>
+<td class="data row0 col6" id="T_464db_row0_col6">0.20</td>
+<td class="data row0 col7" id="T_464db_row0_col7">0.38</td>
+<td class="data row0 col8" id="T_464db_row0_col8">0.35</td>
+<td class="data row0 col9" id="T_464db_row0_col9">0.38</td>
+<td class="data row0 col10" id="T_464db_row0_col10">0.35</td>
+<td class="data row0 col11" id="T_464db_row0_col11">0.22</td>
+<td class="data row0 col12" id="T_464db_row0_col12">0.32</td>
+<td class="data row0 col13" id="T_464db_row0_col13">0.35</td>
+<td class="data row0 col14" id="T_464db_row0_col14">0.35</td>
+<td class="data row0 col15" id="T_464db_row0_col15">0.62</td>
+<td class="data row0 col16" id="T_464db_row0_col16">0.47</td>
+<td class="data row0 col17" id="T_464db_row0_col17">0.50</td>
+<td class="data row0 col18" id="T_464db_row0_col18">0.09</td>
+<td class="data row0 col19" id="T_464db_row0_col19">0.21</td>
+<td class="data row0 col20" id="T_464db_row0_col20">0.25</td>
+<td class="data row0 col21" id="T_464db_row0_col21">0.38</td>
+<td class="data row0 col22" id="T_464db_row0_col22">0.82</td>
+<td class="data row0 col23" id="T_464db_row0_col23">0.00</td>
+</tr>
+<tr>
+<th class="row_heading level0 row1" id="T_464db_level0_row1">C</th>
+<td class="data row1 col0" id="T_464db_row1_col0">0.39</td>
+<td class="data row1 col1" id="T_464db_row1_col1">1.00</td>
+<td class="data row1 col2" id="T_464db_row1_col2">0.09</td>
+<td class="data row1 col3" id="T_464db_row1_col3">0.00</td>
+<td class="data row1 col4" id="T_464db_row1_col4">0.18</td>
+<td class="data row1 col5" id="T_464db_row1_col5">0.09</td>
+<td class="data row1 col6" id="T_464db_row1_col6">0.08</td>
+<td class="data row1 col7" id="T_464db_row1_col7">0.29</td>
+<td class="data row1 col8" id="T_464db_row1_col8">0.09</td>
+<td class="data row1 col9" id="T_464db_row1_col9">0.29</td>
+<td class="data row1 col10" id="T_464db_row1_col10">0.28</td>
+<td class="data row1 col11" id="T_464db_row1_col11">0.09</td>
+<td class="data row1 col12" id="T_464db_row1_col12">0.08</td>
+<td class="data row1 col13" id="T_464db_row1_col13">0.09</td>
+<td class="data row1 col14" id="T_464db_row1_col14">0.09</td>
+<td class="data row1 col15" id="T_464db_row1_col15">0.29</td>
+<td class="data row1 col16" id="T_464db_row1_col16">0.28</td>
+<td class="data row1 col17" id="T_464db_row1_col17">0.29</td>
+<td class="data row1 col18" id="T_464db_row1_col18">0.14</td>
+<td class="data row1 col19" id="T_464db_row1_col19">0.17</td>
+<td class="data row1 col20" id="T_464db_row1_col20">0.10</td>
+<td class="data row1 col21" id="T_464db_row1_col21">0.10</td>
+<td class="data row1 col22" id="T_464db_row1_col22">0.32</td>
+<td class="data row1 col23" id="T_464db_row1_col23">0.00</td>
+</tr>
+<tr>
+<th class="row_heading level0 row2" id="T_464db_level0_row2">D</th>
+<td class="data row2 col0" id="T_464db_row2_col0">0.22</td>
+<td class="data row2 col1" id="T_464db_row2_col1">0.09</td>
+<td class="data row2 col2" id="T_464db_row2_col2">1.00</td>
+<td class="data row2 col3" id="T_464db_row2_col3">0.63</td>
+<td class="data row2 col4" id="T_464db_row2_col4">0.10</td>
+<td class="data row2 col5" id="T_464db_row2_col5">0.30</td>
+<td class="data row2 col6" id="T_464db_row2_col6">0.27</td>
+<td class="data row2 col7" id="T_464db_row2_col7">0.11</td>
+<td class="data row2 col8" id="T_464db_row2_col8">0.32</td>
+<td class="data row2 col9" id="T_464db_row2_col9">0.00</td>
+<td class="data row2 col10" id="T_464db_row2_col10">0.11</td>
+<td class="data row2 col11" id="T_464db_row2_col11">0.50</td>
+<td class="data row2 col12" id="T_464db_row2_col12">0.29</td>
+<td class="data row2 col13" id="T_464db_row2_col13">0.42</td>
+<td class="data row2 col14" id="T_464db_row2_col14">0.21</td>
+<td class="data row2 col15" id="T_464db_row2_col15">0.45</td>
+<td class="data row2 col16" id="T_464db_row2_col16">0.32</td>
+<td class="data row2 col17" id="T_464db_row2_col17">0.11</td>
+<td class="data row2 col18" id="T_464db_row2_col18">0.00</td>
+<td class="data row2 col19" id="T_464db_row2_col19">0.10</td>
+<td class="data row2 col20" id="T_464db_row2_col20">0.89</td>
+<td class="data row2 col21" id="T_464db_row2_col21">0.56</td>
+<td class="data row2 col22" id="T_464db_row2_col22">0.55</td>
+<td class="data row2 col23" id="T_464db_row2_col23">0.00</td>
+</tr>
+<tr>
+<th class="row_heading level0 row3" id="T_464db_level0_row3">E</th>
+<td class="data row3 col0" id="T_464db_row3_col0">0.35</td>
+<td class="data row3 col1" id="T_464db_row3_col1">0.00</td>
+<td class="data row3 col2" id="T_464db_row3_col2">0.63</td>
+<td class="data row3 col3" id="T_464db_row3_col3">1.00</td>
+<td class="data row3 col4" id="T_464db_row3_col4">0.11</td>
+<td class="data row3 col5" id="T_464db_row3_col5">0.21</td>
+<td class="data row3 col6" id="T_464db_row3_col6">0.38</td>
+<td class="data row3 col7" id="T_464db_row3_col7">0.12</td>
+<td class="data row3 col8" id="T_464db_row3_col8">0.56</td>
+<td class="data row3 col9" id="T_464db_row3_col9">0.12</td>
+<td class="data row3 col10" id="T_464db_row3_col10">0.22</td>
+<td class="data row3 col11" id="T_464db_row3_col11">0.42</td>
+<td class="data row3 col12" id="T_464db_row3_col12">0.30</td>
+<td class="data row3 col13" id="T_464db_row3_col13">0.67</td>
+<td class="data row3 col14" id="T_464db_row3_col14">0.44</td>
+<td class="data row3 col15" id="T_464db_row3_col15">0.47</td>
+<td class="data row3 col16" id="T_464db_row3_col16">0.33</td>
+<td class="data row3 col17" id="T_464db_row3_col17">0.24</td>
+<td class="data row3 col18" id="T_464db_row3_col18">0.09</td>
+<td class="data row3 col19" id="T_464db_row3_col19">0.20</td>
+<td class="data row3 col20" id="T_464db_row3_col20">0.59</td>
+<td class="data row3 col21" id="T_464db_row3_col21">0.94</td>
+<td class="data row3 col22" id="T_464db_row3_col22">0.58</td>
+<td class="data row3 col23" id="T_464db_row3_col23">0.00</td>
+</tr>
+<tr>
+<th class="row_heading level0 row4" id="T_464db_level0_row4">F</th>
+<td class="data row4 col0" id="T_464db_row4_col0">0.22</td>
+<td class="data row4 col1" id="T_464db_row4_col1">0.18</td>
+<td class="data row4 col2" id="T_464db_row4_col2">0.10</td>
+<td class="data row4 col3" id="T_464db_row4_col3">0.11</td>
+<td class="data row4 col4" id="T_464db_row4_col4">1.00</td>
+<td class="data row4 col5" id="T_464db_row4_col5">0.10</td>
+<td class="data row4 col6" id="T_464db_row4_col6">0.27</td>
+<td class="data row4 col7" id="T_464db_row4_col7">0.45</td>
+<td class="data row4 col8" id="T_464db_row4_col8">0.11</td>
+<td class="data row4 col9" id="T_464db_row4_col9">0.45</td>
+<td class="data row4 col10" id="T_464db_row4_col10">0.42</td>
+<td class="data row4 col11" id="T_464db_row4_col11">0.10</td>
+<td class="data row4 col12" id="T_464db_row4_col12">0.00</td>
+<td class="data row4 col13" id="T_464db_row4_col13">0.11</td>
+<td class="data row4 col14" id="T_464db_row4_col14">0.11</td>
+<td class="data row4 col15" id="T_464db_row4_col15">0.22</td>
+<td class="data row4 col16" id="T_464db_row4_col16">0.21</td>
+<td class="data row4 col17" id="T_464db_row4_col17">0.34</td>
+<td class="data row4 col18" id="T_464db_row4_col18">0.41</td>
+<td class="data row4 col19" id="T_464db_row4_col19">0.67</td>
+<td class="data row4 col20" id="T_464db_row4_col20">0.11</td>
+<td class="data row4 col21" id="T_464db_row4_col21">0.11</td>
+<td class="data row4 col22" id="T_464db_row4_col22">0.55</td>
+<td class="data row4 col23" id="T_464db_row4_col23">0.00</td>
+</tr>
+<tr>
+<th class="row_heading level0 row5" id="T_464db_level0_row5">G</th>
+<td class="data row5 col0" id="T_464db_row5_col0">0.45</td>
+<td class="data row5 col1" id="T_464db_row5_col1">0.09</td>
+<td class="data row5 col2" id="T_464db_row5_col2">0.30</td>
+<td class="data row5 col3" id="T_464db_row5_col3">0.21</td>
+<td class="data row5 col4" id="T_464db_row5_col4">0.10</td>
+<td class="data row5 col5" id="T_464db_row5_col5">1.00</td>
+<td class="data row5 col6" id="T_464db_row5_col6">0.18</td>
+<td class="data row5 col7" id="T_464db_row5_col7">0.00</td>
+<td class="data row5 col8" id="T_464db_row5_col8">0.21</td>
+<td class="data row5 col9" id="T_464db_row5_col9">0.00</td>
+<td class="data row5 col10" id="T_464db_row5_col10">0.11</td>
+<td class="data row5 col11" id="T_464db_row5_col11">0.40</td>
+<td class="data row5 col12" id="T_464db_row5_col12">0.19</td>
+<td class="data row5 col13" id="T_464db_row5_col13">0.21</td>
+<td class="data row5 col14" id="T_464db_row5_col14">0.21</td>
+<td class="data row5 col15" id="T_464db_row5_col15">0.45</td>
+<td class="data row5 col16" id="T_464db_row5_col16">0.21</td>
+<td class="data row5 col17" id="T_464db_row5_col17">0.11</td>
+<td class="data row5 col18" id="T_464db_row5_col18">0.16</td>
+<td class="data row5 col19" id="T_464db_row5_col19">0.10</td>
+<td class="data row5 col20" id="T_464db_row5_col20">0.34</td>
+<td class="data row5 col21" id="T_464db_row5_col21">0.22</td>
+<td class="data row5 col22" id="T_464db_row5_col22">0.55</td>
+<td class="data row5 col23" id="T_464db_row5_col23">0.00</td>
+</tr>
+<tr>
+<th class="row_heading level0 row6" id="T_464db_level0_row6">H</th>
+<td class="data row6 col0" id="T_464db_row6_col0">0.20</td>
+<td class="data row6 col1" id="T_464db_row6_col1">0.08</td>
+<td class="data row6 col2" id="T_464db_row6_col2">0.27</td>
+<td class="data row6 col3" id="T_464db_row6_col3">0.38</td>
+<td class="data row6 col4" id="T_464db_row6_col4">0.27</td>
+<td class="data row6 col5" id="T_464db_row6_col5">0.18</td>
+<td class="data row6 col6" id="T_464db_row6_col6">1.00</td>
+<td class="data row6 col7" id="T_464db_row6_col7">0.10</td>
+<td class="data row6 col8" id="T_464db_row6_col8">0.29</td>
+<td class="data row6 col9" id="T_464db_row6_col9">0.10</td>
+<td class="data row6 col10" id="T_464db_row6_col10">0.19</td>
+<td class="data row6 col11" id="T_464db_row6_col11">0.46</td>
+<td class="data row6 col12" id="T_464db_row6_col12">0.17</td>
+<td class="data row6 col13" id="T_464db_row6_col13">0.38</td>
+<td class="data row6 col14" id="T_464db_row6_col14">0.38</td>
+<td class="data row6 col15" id="T_464db_row6_col15">0.31</td>
+<td class="data row6 col16" id="T_464db_row6_col16">0.19</td>
+<td class="data row6 col17" id="T_464db_row6_col17">0.10</td>
+<td class="data row6 col18" id="T_464db_row6_col18">0.15</td>
+<td class="data row6 col19" id="T_464db_row6_col19">0.52</td>
+<td class="data row6 col20" id="T_464db_row6_col20">0.41</td>
+<td class="data row6 col21" id="T_464db_row6_col21">0.41</td>
+<td class="data row6 col22" id="T_464db_row6_col22">0.50</td>
+<td class="data row6 col23" id="T_464db_row6_col23">0.00</td>
+</tr>
+<tr>
+<th class="row_heading level0 row7" id="T_464db_level0_row7">I</th>
+<td class="data row7 col0" id="T_464db_row7_col0">0.38</td>
+<td class="data row7 col1" id="T_464db_row7_col1">0.29</td>
+<td class="data row7 col2" id="T_464db_row7_col2">0.11</td>
+<td class="data row7 col3" id="T_464db_row7_col3">0.12</td>
+<td class="data row7 col4" id="T_464db_row7_col4">0.45</td>
+<td class="data row7 col5" id="T_464db_row7_col5">0.00</td>
+<td class="data row7 col6" id="T_464db_row7_col6">0.10</td>
+<td class="data row7 col7" id="T_464db_row7_col7">1.00</td>
+<td class="data row7 col8" id="T_464db_row7_col8">0.12</td>
+<td class="data row7 col9" id="T_464db_row7_col9">0.75</td>
+<td class="data row7 col10" id="T_464db_row7_col10">0.59</td>
+<td class="data row7 col11" id="T_464db_row7_col11">0.11</td>
+<td class="data row7 col12" id="T_464db_row7_col12">0.11</td>
+<td class="data row7 col13" id="T_464db_row7_col13">0.12</td>
+<td class="data row7 col14" id="T_464db_row7_col14">0.12</td>
+<td class="data row7 col15" id="T_464db_row7_col15">0.25</td>
+<td class="data row7 col16" id="T_464db_row7_col16">0.35</td>
+<td class="data row7 col17" id="T_464db_row7_col17">0.88</td>
+<td class="data row7 col18" id="T_464db_row7_col18">0.09</td>
+<td class="data row7 col19" id="T_464db_row7_col19">0.32</td>
+<td class="data row7 col20" id="T_464db_row7_col20">0.12</td>
+<td class="data row7 col21" id="T_464db_row7_col21">0.12</td>
+<td class="data row7 col22" id="T_464db_row7_col22">0.61</td>
+<td class="data row7 col23" id="T_464db_row7_col23">0.00</td>
+</tr>
+<tr>
+<th class="row_heading level0 row8" id="T_464db_level0_row8">K</th>
+<td class="data row8 col0" id="T_464db_row8_col0">0.35</td>
+<td class="data row8 col1" id="T_464db_row8_col1">0.09</td>
+<td class="data row8 col2" id="T_464db_row8_col2">0.32</td>
+<td class="data row8 col3" id="T_464db_row8_col3">0.56</td>
+<td class="data row8 col4" id="T_464db_row8_col4">0.11</td>
+<td class="data row8 col5" id="T_464db_row8_col5">0.21</td>
+<td class="data row8 col6" id="T_464db_row8_col6">0.29</td>
+<td class="data row8 col7" id="T_464db_row8_col7">0.12</td>
+<td class="data row8 col8" id="T_464db_row8_col8">1.00</td>
+<td class="data row8 col9" id="T_464db_row8_col9">0.24</td>
+<td class="data row8 col10" id="T_464db_row8_col10">0.33</td>
+<td class="data row8 col11" id="T_464db_row8_col11">0.42</td>
+<td class="data row8 col12" id="T_464db_row8_col12">0.30</td>
+<td class="data row8 col13" id="T_464db_row8_col13">0.56</td>
+<td class="data row8 col14" id="T_464db_row8_col14">0.67</td>
+<td class="data row8 col15" id="T_464db_row8_col15">0.47</td>
+<td class="data row8 col16" id="T_464db_row8_col16">0.33</td>
+<td class="data row8 col17" id="T_464db_row8_col17">0.24</td>
+<td class="data row8 col18" id="T_464db_row8_col18">0.09</td>
+<td class="data row8 col19" id="T_464db_row8_col19">0.20</td>
+<td class="data row8 col20" id="T_464db_row8_col20">0.47</td>
+<td class="data row8 col21" id="T_464db_row8_col21">0.59</td>
+<td class="data row8 col22" id="T_464db_row8_col22">0.58</td>
+<td class="data row8 col23" id="T_464db_row8_col23">0.00</td>
+</tr>
+<tr>
+<th class="row_heading level0 row9" id="T_464db_level0_row9">L</th>
+<td class="data row9 col0" id="T_464db_row9_col0">0.38</td>
+<td class="data row9 col1" id="T_464db_row9_col1">0.29</td>
+<td class="data row9 col2" id="T_464db_row9_col2">0.00</td>
+<td class="data row9 col3" id="T_464db_row9_col3">0.12</td>
+<td class="data row9 col4" id="T_464db_row9_col4">0.45</td>
+<td class="data row9 col5" id="T_464db_row9_col5">0.00</td>
+<td class="data row9 col6" id="T_464db_row9_col6">0.10</td>
+<td class="data row9 col7" id="T_464db_row9_col7">0.75</td>
+<td class="data row9 col8" id="T_464db_row9_col8">0.24</td>
+<td class="data row9 col9" id="T_464db_row9_col9">1.00</td>
+<td class="data row9 col10" id="T_464db_row9_col10">0.71</td>
+<td class="data row9 col11" id="T_464db_row9_col11">0.11</td>
+<td class="data row9 col12" id="T_464db_row9_col12">0.11</td>
+<td class="data row9 col13" id="T_464db_row9_col13">0.24</td>
+<td class="data row9 col14" id="T_464db_row9_col14">0.24</td>
+<td class="data row9 col15" id="T_464db_row9_col15">0.25</td>
+<td class="data row9 col16" id="T_464db_row9_col16">0.35</td>
+<td class="data row9 col17" id="T_464db_row9_col17">0.62</td>
+<td class="data row9 col18" id="T_464db_row9_col18">0.18</td>
+<td class="data row9 col19" id="T_464db_row9_col19">0.32</td>
+<td class="data row9 col20" id="T_464db_row9_col20">0.00</td>
+<td class="data row9 col21" id="T_464db_row9_col21">0.12</td>
+<td class="data row9 col22" id="T_464db_row9_col22">0.61</td>
+<td class="data row9 col23" id="T_464db_row9_col23">0.00</td>
+</tr>
+<tr>
+<th class="row_heading level0 row10" id="T_464db_level0_row10">M</th>
+<td class="data row10 col0" id="T_464db_row10_col0">0.35</td>
+<td class="data row10 col1" id="T_464db_row10_col1">0.28</td>
+<td class="data row10 col2" id="T_464db_row10_col2">0.11</td>
+<td class="data row10 col3" id="T_464db_row10_col3">0.22</td>
+<td class="data row10 col4" id="T_464db_row10_col4">0.42</td>
+<td class="data row10 col5" id="T_464db_row10_col5">0.11</td>
+<td class="data row10 col6" id="T_464db_row10_col6">0.19</td>
+<td class="data row10 col7" id="T_464db_row10_col7">0.59</td>
+<td class="data row10 col8" id="T_464db_row10_col8">0.33</td>
+<td class="data row10 col9" id="T_464db_row10_col9">0.71</td>
+<td class="data row10 col10" id="T_464db_row10_col10">1.00</td>
+<td class="data row10 col11" id="T_464db_row10_col11">0.21</td>
+<td class="data row10 col12" id="T_464db_row10_col12">0.20</td>
+<td class="data row10 col13" id="T_464db_row10_col13">0.44</td>
+<td class="data row10 col14" id="T_464db_row10_col14">0.33</td>
+<td class="data row10 col15" id="T_464db_row10_col15">0.35</td>
+<td class="data row10 col16" id="T_464db_row10_col16">0.33</td>
+<td class="data row10 col17" id="T_464db_row10_col17">0.59</td>
+<td class="data row10 col18" id="T_464db_row10_col18">0.26</td>
+<td class="data row10 col19" id="T_464db_row10_col19">0.30</td>
+<td class="data row10 col20" id="T_464db_row10_col20">0.12</td>
+<td class="data row10 col21" id="T_464db_row10_col21">0.35</td>
+<td class="data row10 col22" id="T_464db_row10_col22">0.58</td>
+<td class="data row10 col23" id="T_464db_row10_col23">0.00</td>
+</tr>
+<tr>
+<th class="row_heading level0 row11" id="T_464db_level0_row11">N</th>
+<td class="data row11 col0" id="T_464db_row11_col0">0.22</td>
+<td class="data row11 col1" id="T_464db_row11_col1">0.09</td>
+<td class="data row11 col2" id="T_464db_row11_col2">0.50</td>
+<td class="data row11 col3" id="T_464db_row11_col3">0.42</td>
+<td class="data row11 col4" id="T_464db_row11_col4">0.10</td>
+<td class="data row11 col5" id="T_464db_row11_col5">0.40</td>
+<td class="data row11 col6" id="T_464db_row11_col6">0.46</td>
+<td class="data row11 col7" id="T_464db_row11_col7">0.11</td>
+<td class="data row11 col8" id="T_464db_row11_col8">0.42</td>
+<td class="data row11 col9" id="T_464db_row11_col9">0.11</td>
+<td class="data row11 col10" id="T_464db_row11_col10">0.21</td>
+<td class="data row11 col11" id="T_464db_row11_col11">1.00</td>
+<td class="data row11 col12" id="T_464db_row11_col12">0.19</td>
+<td class="data row11 col13" id="T_464db_row11_col13">0.42</td>
+<td class="data row11 col14" id="T_464db_row11_col14">0.42</td>
+<td class="data row11 col15" id="T_464db_row11_col15">0.56</td>
+<td class="data row11 col16" id="T_464db_row11_col16">0.42</td>
+<td class="data row11 col17" id="T_464db_row11_col17">0.11</td>
+<td class="data row11 col18" id="T_464db_row11_col18">0.00</td>
+<td class="data row11 col19" id="T_464db_row11_col19">0.19</td>
+<td class="data row11 col20" id="T_464db_row11_col20">0.78</td>
+<td class="data row11 col21" id="T_464db_row11_col21">0.45</td>
+<td class="data row11 col22" id="T_464db_row11_col22">0.55</td>
+<td class="data row11 col23" id="T_464db_row11_col23">0.00</td>
+</tr>
+<tr>
+<th class="row_heading level0 row12" id="T_464db_level0_row12">P</th>
+<td class="data row12 col0" id="T_464db_row12_col0">0.32</td>
+<td class="data row12 col1" id="T_464db_row12_col1">0.08</td>
+<td class="data row12 col2" id="T_464db_row12_col2">0.29</td>
+<td class="data row12 col3" id="T_464db_row12_col3">0.30</td>
+<td class="data row12 col4" id="T_464db_row12_col4">0.00</td>
+<td class="data row12 col5" id="T_464db_row12_col5">0.19</td>
+<td class="data row12 col6" id="T_464db_row12_col6">0.17</td>
+<td class="data row12 col7" id="T_464db_row12_col7">0.11</td>
+<td class="data row12 col8" id="T_464db_row12_col8">0.30</td>
+<td class="data row12 col9" id="T_464db_row12_col9">0.11</td>
+<td class="data row12 col10" id="T_464db_row12_col10">0.20</td>
+<td class="data row12 col11" id="T_464db_row12_col11">0.19</td>
+<td class="data row12 col12" id="T_464db_row12_col12">1.00</td>
+<td class="data row12 col13" id="T_464db_row12_col13">0.30</td>
+<td class="data row12 col14" id="T_464db_row12_col14">0.20</td>
+<td class="data row12 col15" id="T_464db_row12_col15">0.32</td>
+<td class="data row12 col16" id="T_464db_row12_col16">0.30</td>
+<td class="data row12 col17" id="T_464db_row12_col17">0.21</td>
+<td class="data row12 col18" id="T_464db_row12_col18">0.00</td>
+<td class="data row12 col19" id="T_464db_row12_col19">0.09</td>
+<td class="data row12 col20" id="T_464db_row12_col20">0.21</td>
+<td class="data row12 col21" id="T_464db_row12_col21">0.32</td>
+<td class="data row12 col22" id="T_464db_row12_col22">0.35</td>
+<td class="data row12 col23" id="T_464db_row12_col23">0.00</td>
+</tr>
+<tr>
+<th class="row_heading level0 row13" id="T_464db_level0_row13">Q</th>
+<td class="data row13 col0" id="T_464db_row13_col0">0.35</td>
+<td class="data row13 col1" id="T_464db_row13_col1">0.09</td>
+<td class="data row13 col2" id="T_464db_row13_col2">0.42</td>
+<td class="data row13 col3" id="T_464db_row13_col3">0.67</td>
+<td class="data row13 col4" id="T_464db_row13_col4">0.11</td>
+<td class="data row13 col5" id="T_464db_row13_col5">0.21</td>
+<td class="data row13 col6" id="T_464db_row13_col6">0.38</td>
+<td class="data row13 col7" id="T_464db_row13_col7">0.12</td>
+<td class="data row13 col8" id="T_464db_row13_col8">0.56</td>
+<td class="data row13 col9" id="T_464db_row13_col9">0.24</td>
+<td class="data row13 col10" id="T_464db_row13_col10">0.44</td>
+<td class="data row13 col11" id="T_464db_row13_col11">0.42</td>
+<td class="data row13 col12" id="T_464db_row13_col12">0.30</td>
+<td class="data row13 col13" id="T_464db_row13_col13">1.00</td>
+<td class="data row13 col14" id="T_464db_row13_col14">0.56</td>
+<td class="data row13 col15" id="T_464db_row13_col15">0.47</td>
+<td class="data row13 col16" id="T_464db_row13_col16">0.33</td>
+<td class="data row13 col17" id="T_464db_row13_col17">0.24</td>
+<td class="data row13 col18" id="T_464db_row13_col18">0.17</td>
+<td class="data row13 col19" id="T_464db_row13_col19">0.30</td>
+<td class="data row13 col20" id="T_464db_row13_col20">0.47</td>
+<td class="data row13 col21" id="T_464db_row13_col21">0.82</td>
+<td class="data row13 col22" id="T_464db_row13_col22">0.58</td>
+<td class="data row13 col23" id="T_464db_row13_col23">0.00</td>
+</tr>
+<tr>
+<th class="row_heading level0 row14" id="T_464db_level0_row14">R</th>
+<td class="data row14 col0" id="T_464db_row14_col0">0.35</td>
+<td class="data row14 col1" id="T_464db_row14_col1">0.09</td>
+<td class="data row14 col2" id="T_464db_row14_col2">0.21</td>
+<td class="data row14 col3" id="T_464db_row14_col3">0.44</td>
+<td class="data row14 col4" id="T_464db_row14_col4">0.11</td>
+<td class="data row14 col5" id="T_464db_row14_col5">0.21</td>
+<td class="data row14 col6" id="T_464db_row14_col6">0.38</td>
+<td class="data row14 col7" id="T_464db_row14_col7">0.12</td>
+<td class="data row14 col8" id="T_464db_row14_col8">0.67</td>
+<td class="data row14 col9" id="T_464db_row14_col9">0.24</td>
+<td class="data row14 col10" id="T_464db_row14_col10">0.33</td>
+<td class="data row14 col11" id="T_464db_row14_col11">0.42</td>
+<td class="data row14 col12" id="T_464db_row14_col12">0.20</td>
+<td class="data row14 col13" id="T_464db_row14_col13">0.56</td>
+<td class="data row14 col14" id="T_464db_row14_col14">1.00</td>
+<td class="data row14 col15" id="T_464db_row14_col15">0.35</td>
+<td class="data row14 col16" id="T_464db_row14_col16">0.33</td>
+<td class="data row14 col17" id="T_464db_row14_col17">0.12</td>
+<td class="data row14 col18" id="T_464db_row14_col18">0.09</td>
+<td class="data row14 col19" id="T_464db_row14_col19">0.20</td>
+<td class="data row14 col20" id="T_464db_row14_col20">0.35</td>
+<td class="data row14 col21" id="T_464db_row14_col21">0.47</td>
+<td class="data row14 col22" id="T_464db_row14_col22">0.58</td>
+<td class="data row14 col23" id="T_464db_row14_col23">0.00</td>
+</tr>
+<tr>
+<th class="row_heading level0 row15" id="T_464db_level0_row15">S</th>
+<td class="data row15 col0" id="T_464db_row15_col0">0.62</td>
+<td class="data row15 col1" id="T_464db_row15_col1">0.29</td>
+<td class="data row15 col2" id="T_464db_row15_col2">0.45</td>
+<td class="data row15 col3" id="T_464db_row15_col3">0.47</td>
+<td class="data row15 col4" id="T_464db_row15_col4">0.22</td>
+<td class="data row15 col5" id="T_464db_row15_col5">0.45</td>
+<td class="data row15 col6" id="T_464db_row15_col6">0.31</td>
+<td class="data row15 col7" id="T_464db_row15_col7">0.25</td>
+<td class="data row15 col8" id="T_464db_row15_col8">0.47</td>
+<td class="data row15 col9" id="T_464db_row15_col9">0.25</td>
+<td class="data row15 col10" id="T_464db_row15_col10">0.35</td>
+<td class="data row15 col11" id="T_464db_row15_col11">0.56</td>
+<td class="data row15 col12" id="T_464db_row15_col12">0.32</td>
+<td class="data row15 col13" id="T_464db_row15_col13">0.47</td>
+<td class="data row15 col14" id="T_464db_row15_col14">0.35</td>
+<td class="data row15 col15" id="T_464db_row15_col15">1.00</td>
+<td class="data row15 col16" id="T_464db_row15_col16">0.59</td>
+<td class="data row15 col17" id="T_464db_row15_col17">0.25</td>
+<td class="data row15 col18" id="T_464db_row15_col18">0.09</td>
+<td class="data row15 col19" id="T_464db_row15_col19">0.21</td>
+<td class="data row15 col20" id="T_464db_row15_col20">0.50</td>
+<td class="data row15 col21" id="T_464db_row15_col21">0.50</td>
+<td class="data row15 col22" id="T_464db_row15_col22">0.82</td>
+<td class="data row15 col23" id="T_464db_row15_col23">0.00</td>
+</tr>
+<tr>
+<th class="row_heading level0 row16" id="T_464db_level0_row16">T</th>
+<td class="data row16 col0" id="T_464db_row16_col0">0.47</td>
+<td class="data row16 col1" id="T_464db_row16_col1">0.28</td>
+<td class="data row16 col2" id="T_464db_row16_col2">0.32</td>
+<td class="data row16 col3" id="T_464db_row16_col3">0.33</td>
+<td class="data row16 col4" id="T_464db_row16_col4">0.21</td>
+<td class="data row16 col5" id="T_464db_row16_col5">0.21</td>
+<td class="data row16 col6" id="T_464db_row16_col6">0.19</td>
+<td class="data row16 col7" id="T_464db_row16_col7">0.35</td>
+<td class="data row16 col8" id="T_464db_row16_col8">0.33</td>
+<td class="data row16 col9" id="T_464db_row16_col9">0.35</td>
+<td class="data row16 col10" id="T_464db_row16_col10">0.33</td>
+<td class="data row16 col11" id="T_464db_row16_col11">0.42</td>
+<td class="data row16 col12" id="T_464db_row16_col12">0.30</td>
+<td class="data row16 col13" id="T_464db_row16_col13">0.33</td>
+<td class="data row16 col14" id="T_464db_row16_col14">0.33</td>
+<td class="data row16 col15" id="T_464db_row16_col15">0.59</td>
+<td class="data row16 col16" id="T_464db_row16_col16">1.00</td>
+<td class="data row16 col17" id="T_464db_row16_col17">0.47</td>
+<td class="data row16 col18" id="T_464db_row16_col18">0.17</td>
+<td class="data row16 col19" id="T_464db_row16_col19">0.20</td>
+<td class="data row16 col20" id="T_464db_row16_col20">0.35</td>
+<td class="data row16 col21" id="T_464db_row16_col21">0.35</td>
+<td class="data row16 col22" id="T_464db_row16_col22">0.77</td>
+<td class="data row16 col23" id="T_464db_row16_col23">0.00</td>
+</tr>
+<tr>
+<th class="row_heading level0 row17" id="T_464db_level0_row17">V</th>
+<td class="data row17 col0" id="T_464db_row17_col0">0.50</td>
+<td class="data row17 col1" id="T_464db_row17_col1">0.29</td>
+<td class="data row17 col2" id="T_464db_row17_col2">0.11</td>
+<td class="data row17 col3" id="T_464db_row17_col3">0.24</td>
+<td class="data row17 col4" id="T_464db_row17_col4">0.34</td>
+<td class="data row17 col5" id="T_464db_row17_col5">0.11</td>
+<td class="data row17 col6" id="T_464db_row17_col6">0.10</td>
+<td class="data row17 col7" id="T_464db_row17_col7">0.88</td>
+<td class="data row17 col8" id="T_464db_row17_col8">0.24</td>
+<td class="data row17 col9" id="T_464db_row17_col9">0.62</td>
+<td class="data row17 col10" id="T_464db_row17_col10">0.59</td>
+<td class="data row17 col11" id="T_464db_row17_col11">0.11</td>
+<td class="data row17 col12" id="T_464db_row17_col12">0.21</td>
+<td class="data row17 col13" id="T_464db_row17_col13">0.24</td>
+<td class="data row17 col14" id="T_464db_row17_col14">0.12</td>
+<td class="data row17 col15" id="T_464db_row17_col15">0.25</td>
+<td class="data row17 col16" id="T_464db_row17_col16">0.47</td>
+<td class="data row17 col17" id="T_464db_row17_col17">1.00</td>
+<td class="data row17 col18" id="T_464db_row17_col18">0.09</td>
+<td class="data row17 col19" id="T_464db_row17_col19">0.32</td>
+<td class="data row17 col20" id="T_464db_row17_col20">0.12</td>
+<td class="data row17 col21" id="T_464db_row17_col21">0.25</td>
+<td class="data row17 col22" id="T_464db_row17_col22">0.61</td>
+<td class="data row17 col23" id="T_464db_row17_col23">0.00</td>
+</tr>
+<tr>
+<th class="row_heading level0 row18" id="T_464db_level0_row18">W</th>
+<td class="data row18 col0" id="T_464db_row18_col0">0.09</td>
+<td class="data row18 col1" id="T_464db_row18_col1">0.14</td>
+<td class="data row18 col2" id="T_464db_row18_col2">0.00</td>
+<td class="data row18 col3" id="T_464db_row18_col3">0.09</td>
+<td class="data row18 col4" id="T_464db_row18_col4">0.41</td>
+<td class="data row18 col5" id="T_464db_row18_col5">0.16</td>
+<td class="data row18 col6" id="T_464db_row18_col6">0.15</td>
+<td class="data row18 col7" id="T_464db_row18_col7">0.09</td>
+<td class="data row18 col8" id="T_464db_row18_col8">0.09</td>
+<td class="data row18 col9" id="T_464db_row18_col9">0.18</td>
+<td class="data row18 col10" id="T_464db_row18_col10">0.26</td>
+<td class="data row18 col11" id="T_464db_row18_col11">0.00</td>
+<td class="data row18 col12" id="T_464db_row18_col12">0.00</td>
+<td class="data row18 col13" id="T_464db_row18_col13">0.17</td>
+<td class="data row18 col14" id="T_464db_row18_col14">0.09</td>
+<td class="data row18 col15" id="T_464db_row18_col15">0.09</td>
+<td class="data row18 col16" id="T_464db_row18_col16">0.17</td>
+<td class="data row18 col17" id="T_464db_row18_col17">0.09</td>
+<td class="data row18 col18" id="T_464db_row18_col18">1.00</td>
+<td class="data row18 col19" id="T_464db_row18_col19">0.47</td>
+<td class="data row18 col20" id="T_464db_row18_col20">0.00</td>
+<td class="data row18 col21" id="T_464db_row18_col21">0.09</td>
+<td class="data row18 col22" id="T_464db_row18_col22">0.30</td>
+<td class="data row18 col23" id="T_464db_row18_col23">0.00</td>
+</tr>
+<tr>
+<th class="row_heading level0 row19" id="T_464db_level0_row19">Y</th>
+<td class="data row19 col0" id="T_464db_row19_col0">0.21</td>
+<td class="data row19 col1" id="T_464db_row19_col1">0.17</td>
+<td class="data row19 col2" id="T_464db_row19_col2">0.10</td>
+<td class="data row19 col3" id="T_464db_row19_col3">0.20</td>
+<td class="data row19 col4" id="T_464db_row19_col4">0.67</td>
+<td class="data row19 col5" id="T_464db_row19_col5">0.10</td>
+<td class="data row19 col6" id="T_464db_row19_col6">0.52</td>
+<td class="data row19 col7" id="T_464db_row19_col7">0.32</td>
+<td class="data row19 col8" id="T_464db_row19_col8">0.20</td>
+<td class="data row19 col9" id="T_464db_row19_col9">0.32</td>
+<td class="data row19 col10" id="T_464db_row19_col10">0.30</td>
+<td class="data row19 col11" id="T_464db_row19_col11">0.19</td>
+<td class="data row19 col12" id="T_464db_row19_col12">0.09</td>
+<td class="data row19 col13" id="T_464db_row19_col13">0.30</td>
+<td class="data row19 col14" id="T_464db_row19_col14">0.20</td>
+<td class="data row19 col15" id="T_464db_row19_col15">0.21</td>
+<td class="data row19 col16" id="T_464db_row19_col16">0.20</td>
+<td class="data row19 col17" id="T_464db_row19_col17">0.32</td>
+<td class="data row19 col18" id="T_464db_row19_col18">0.47</td>
+<td class="data row19 col19" id="T_464db_row19_col19">1.00</td>
+<td class="data row19 col20" id="T_464db_row19_col20">0.11</td>
+<td class="data row19 col21" id="T_464db_row19_col21">0.21</td>
+<td class="data row19 col22" id="T_464db_row19_col22">0.52</td>
+<td class="data row19 col23" id="T_464db_row19_col23">0.00</td>
+</tr>
+<tr>
+<th class="row_heading level0 row20" id="T_464db_level0_row20">B</th>
+<td class="data row20 col0" id="T_464db_row20_col0">0.25</td>
+<td class="data row20 col1" id="T_464db_row20_col1">0.10</td>
+<td class="data row20 col2" id="T_464db_row20_col2">0.89</td>
+<td class="data row20 col3" id="T_464db_row20_col3">0.59</td>
+<td class="data row20 col4" id="T_464db_row20_col4">0.11</td>
+<td class="data row20 col5" id="T_464db_row20_col5">0.34</td>
+<td class="data row20 col6" id="T_464db_row20_col6">0.41</td>
+<td class="data row20 col7" id="T_464db_row20_col7">0.12</td>
+<td class="data row20 col8" id="T_464db_row20_col8">0.47</td>
+<td class="data row20 col9" id="T_464db_row20_col9">0.00</td>
+<td class="data row20 col10" id="T_464db_row20_col10">0.12</td>
+<td class="data row20 col11" id="T_464db_row20_col11">0.78</td>
+<td class="data row20 col12" id="T_464db_row20_col12">0.21</td>
+<td class="data row20 col13" id="T_464db_row20_col13">0.47</td>
+<td class="data row20 col14" id="T_464db_row20_col14">0.35</td>
+<td class="data row20 col15" id="T_464db_row20_col15">0.50</td>
+<td class="data row20 col16" id="T_464db_row20_col16">0.35</td>
+<td class="data row20 col17" id="T_464db_row20_col17">0.12</td>
+<td class="data row20 col18" id="T_464db_row20_col18">0.00</td>
+<td class="data row20 col19" id="T_464db_row20_col19">0.11</td>
+<td class="data row20 col20" id="T_464db_row20_col20">1.00</td>
+<td class="data row20 col21" id="T_464db_row20_col21">0.62</td>
+<td class="data row20 col22" id="T_464db_row20_col22">0.61</td>
+<td class="data row20 col23" id="T_464db_row20_col23">0.00</td>
+</tr>
+<tr>
+<th class="row_heading level0 row21" id="T_464db_level0_row21">Z</th>
+<td class="data row21 col0" id="T_464db_row21_col0">0.38</td>
+<td class="data row21 col1" id="T_464db_row21_col1">0.10</td>
+<td class="data row21 col2" id="T_464db_row21_col2">0.56</td>
+<td class="data row21 col3" id="T_464db_row21_col3">0.94</td>
+<td class="data row21 col4" id="T_464db_row21_col4">0.11</td>
+<td class="data row21 col5" id="T_464db_row21_col5">0.22</td>
+<td class="data row21 col6" id="T_464db_row21_col6">0.41</td>
+<td class="data row21 col7" id="T_464db_row21_col7">0.12</td>
+<td class="data row21 col8" id="T_464db_row21_col8">0.59</td>
+<td class="data row21 col9" id="T_464db_row21_col9">0.12</td>
+<td class="data row21 col10" id="T_464db_row21_col10">0.35</td>
+<td class="data row21 col11" id="T_464db_row21_col11">0.45</td>
+<td class="data row21 col12" id="T_464db_row21_col12">0.32</td>
+<td class="data row21 col13" id="T_464db_row21_col13">0.82</td>
+<td class="data row21 col14" id="T_464db_row21_col14">0.47</td>
+<td class="data row21 col15" id="T_464db_row21_col15">0.50</td>
+<td class="data row21 col16" id="T_464db_row21_col16">0.35</td>
+<td class="data row21 col17" id="T_464db_row21_col17">0.25</td>
+<td class="data row21 col18" id="T_464db_row21_col18">0.09</td>
+<td class="data row21 col19" id="T_464db_row21_col19">0.21</td>
+<td class="data row21 col20" id="T_464db_row21_col20">0.62</td>
+<td class="data row21 col21" id="T_464db_row21_col21">1.00</td>
+<td class="data row21 col22" id="T_464db_row21_col22">0.61</td>
+<td class="data row21 col23" id="T_464db_row21_col23">0.00</td>
+</tr>
+<tr>
+<th class="row_heading level0 row22" id="T_464db_level0_row22">X</th>
+<td class="data row22 col0" id="T_464db_row22_col0">0.82</td>
+<td class="data row22 col1" id="T_464db_row22_col1">0.32</td>
+<td class="data row22 col2" id="T_464db_row22_col2">0.55</td>
+<td class="data row22 col3" id="T_464db_row22_col3">0.58</td>
+<td class="data row22 col4" id="T_464db_row22_col4">0.55</td>
+<td class="data row22 col5" id="T_464db_row22_col5">0.55</td>
+<td class="data row22 col6" id="T_464db_row22_col6">0.50</td>
+<td class="data row22 col7" id="T_464db_row22_col7">0.61</td>
+<td class="data row22 col8" id="T_464db_row22_col8">0.58</td>
+<td class="data row22 col9" id="T_464db_row22_col9">0.61</td>
+<td class="data row22 col10" id="T_464db_row22_col10">0.58</td>
+<td class="data row22 col11" id="T_464db_row22_col11">0.55</td>
+<td class="data row22 col12" id="T_464db_row22_col12">0.35</td>
+<td class="data row22 col13" id="T_464db_row22_col13">0.58</td>
+<td class="data row22 col14" id="T_464db_row22_col14">0.58</td>
+<td class="data row22 col15" id="T_464db_row22_col15">0.82</td>
+<td class="data row22 col16" id="T_464db_row22_col16">0.77</td>
+<td class="data row22 col17" id="T_464db_row22_col17">0.61</td>
+<td class="data row22 col18" id="T_464db_row22_col18">0.30</td>
+<td class="data row22 col19" id="T_464db_row22_col19">0.52</td>
+<td class="data row22 col20" id="T_464db_row22_col20">0.61</td>
+<td class="data row22 col21" id="T_464db_row22_col21">0.61</td>
+<td class="data row22 col22" id="T_464db_row22_col22">1.00</td>
+<td class="data row22 col23" id="T_464db_row22_col23">0.00</td>
+</tr>
+<tr>
+<th class="row_heading level0 row23" id="T_464db_level0_row23">*</th>
+<td class="data row23 col0" id="T_464db_row23_col0">0.00</td>
+<td class="data row23 col1" id="T_464db_row23_col1">0.00</td>
+<td class="data row23 col2" id="T_464db_row23_col2">0.00</td>
+<td class="data row23 col3" id="T_464db_row23_col3">0.00</td>
+<td class="data row23 col4" id="T_464db_row23_col4">0.00</td>
+<td class="data row23 col5" id="T_464db_row23_col5">0.00</td>
+<td class="data row23 col6" id="T_464db_row23_col6">0.00</td>
+<td class="data row23 col7" id="T_464db_row23_col7">0.00</td>
+<td class="data row23 col8" id="T_464db_row23_col8">0.00</td>
+<td class="data row23 col9" id="T_464db_row23_col9">0.00</td>
+<td class="data row23 col10" id="T_464db_row23_col10">0.00</td>
+<td class="data row23 col11" id="T_464db_row23_col11">0.00</td>
+<td class="data row23 col12" id="T_464db_row23_col12">0.00</td>
+<td class="data row23 col13" id="T_464db_row23_col13">0.00</td>
+<td class="data row23 col14" id="T_464db_row23_col14">0.00</td>
+<td class="data row23 col15" id="T_464db_row23_col15">0.00</td>
+<td class="data row23 col16" id="T_464db_row23_col16">0.00</td>
+<td class="data row23 col17" id="T_464db_row23_col17">0.00</td>
+<td class="data row23 col18" id="T_464db_row23_col18">0.00</td>
+<td class="data row23 col19" id="T_464db_row23_col19">0.00</td>
+<td class="data row23 col20" id="T_464db_row23_col20">0.00</td>
+<td class="data row23 col21" id="T_464db_row23_col21">0.00</td>
+<td class="data row23 col22" id="T_464db_row23_col22">0.00</td>
+<td class="data row23 col23" id="T_464db_row23_col23">1.00</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Let’s define a function that calculates the substitution scores between two sequences (will make use of the previously defined function).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">substitution_score</span><span class="p">(</span>
+    <span class="n">sequence1</span><span class="p">,</span> <span class="n">sequence2</span><span class="p">,</span> <span class="n">substitution_matrix</span><span class="o">=</span><span class="n">align</span><span class="o">.</span><span class="n">SubstitutionMatrix</span><span class="o">.</span><span class="n">std_protein_matrix</span><span class="p">()</span>
+<span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Retrieve the match score given the substitution matrix.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    sequence1 : np.array</span>
+<span class="sd">        An array of characters describing the first sequence.</span>
+<span class="sd">    sequence2 : np.array</span>
+<span class="sd">        An array of characters describing the second sequence.</span>
+<span class="sd">    substitution_matrix : biotite.sequence.align.SubstitutionMatrix</span>
+<span class="sd">        A substitution matrix specific to amino acids.</span>
+<span class="sd">        The default is align.SubstitutionMatrix.std_protein_matrix()</span>
+<span class="sd">        from biotite, which represents BLOSUM62.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.array</span>
+<span class="sd">        The vector of match score</span>
+<span class="sd">        using the normalized substitution matrix.</span>
+<span class="sd">    """</span>
+    <span class="n">substitution_matrix_df</span> <span class="o">=</span> <span class="n">_translate_rescale_substitution_matrix</span><span class="p">(</span><span class="n">substitution_matrix</span><span class="p">)</span>
+
+    <span class="n">match_score_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sequence1</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">character_seq1</span><span class="p">,</span> <span class="n">character_seq2</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">sequence1</span><span class="p">,</span> <span class="n">sequence2</span><span class="p">)):</span>
+        <span class="n">match_score_array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">substitution_matrix_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">character_seq1</span><span class="p">,</span> <span class="n">character_seq2</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">match_score_array</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="Kinase-similarity">
+<h3 id="Kinase-similarity">Kinase similarity<a class="headerlink" href="#Kinase-similarity" title="Permalink to this headline">¶</a></h3>
+<p>Given two kinases, we create a function which computes the sequence similarity between them using one of the two measures, the identity or the substitution.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">sequence_similarity</span><span class="p">(</span><span class="n">sequence_1</span><span class="p">,</span> <span class="n">sequence_2</span><span class="p">,</span> <span class="n">type_</span><span class="o">=</span><span class="s2">"identity"</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Compares two sequences using a given metric.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    sequence_1, sequence_2 : str</span>
+<span class="sd">        The two sequences of strings for comparison.</span>
+
+<span class="sd">    type_ : str</span>
+<span class="sd">        The type of metric to compute the similarity.</span>
+<span class="sd">        The default is `identity`.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float :</span>
+<span class="sd">        The similarity between the pocket sequences of the two kinases.</span>
+<span class="sd">    """</span>
+
+    <span class="c1"># Replace possible unavailable residue</span>
+    <span class="c1"># noted in KLIFS with "-"</span>
+    <span class="c1"># by the symbol "*" for biotite</span>
+    <span class="n">sequence_1</span> <span class="o">=</span> <span class="n">sequence_1</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"-"</span><span class="p">,</span> <span class="s2">"*"</span><span class="p">)</span>
+    <span class="n">sequence_2</span> <span class="o">=</span> <span class="n">sequence_2</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"-"</span><span class="p">,</span> <span class="s2">"*"</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence_1</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence_1</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Mismatch in sequence lengths."</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">seq_array1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">sequence_1</span><span class="p">))</span>
+        <span class="n">seq_array2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">sequence_2</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">type_</span> <span class="o">==</span> <span class="s2">"identity"</span><span class="p">:</span>
+            <span class="n">is_match_array</span> <span class="o">=</span> <span class="n">identity_score</span><span class="p">(</span><span class="n">seq_array1</span><span class="p">,</span> <span class="n">seq_array2</span><span class="p">)</span>
+            <span class="n">similarity_normed</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">is_match_array</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence_1</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">type_</span> <span class="o">==</span> <span class="s2">"substitution"</span><span class="p">:</span>
+            <span class="n">match_score_array</span> <span class="o">=</span> <span class="n">substitution_score</span><span class="p">(</span><span class="n">seq_array1</span><span class="p">,</span> <span class="n">seq_array2</span><span class="p">)</span>
+            <span class="n">similarity_normed</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">match_score_array</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence_1</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Type </span><span class="si">{</span><span class="n">type_</span><span class="si">}</span><span class="s2"> not defined."</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">similarity_normed</span>
+</pre></div>
+</div>
+</div>
+<p>Let’s look at the sequence similarity between EGFR and MET:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"The sequences are:</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"EGFR"</span><span class="p">,</span> <span class="s2">"MET"</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">key</span><span class="si">:</span><span class="s2">5s</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">kinase_sequences_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The sequences are:
+
+EGFR : KVLGSGAFGTVYKVAIKELEILDEAYVMASVDPHVCRLLGIQLITQLMPFGCLLDYVREYLEDRRLVHRDLAARNVLVITDFGLA
+MET  : EVIGRGHFGCVYHCAVKSLQFLTEGIIMKDFSPNVLSLLGILVVLPYMKHGDLRNFIRNYLASKKFVHRDLAARNCMLVADFGLA
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">egfr_met_seq_similarity</span> <span class="o">=</span> <span class="n">sequence_similarity</span><span class="p">(</span>
+    <span class="n">kinase_sequences_dict</span><span class="p">[</span><span class="s2">"EGFR"</span><span class="p">],</span> <span class="n">kinase_sequences_dict</span><span class="p">[</span><span class="s2">"MET"</span><span class="p">],</span> <span class="s2">"identity"</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">"Pocket sequence similarity between EGFR and MET kinases: "</span>
+    <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">egfr_met_seq_similarity</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> using identity."</span>
+<span class="p">)</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Pocket sequence similarity between EGFR and MET kinases: 0.46 using identity.
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">egfr_met_seq_similarity</span> <span class="o">=</span> <span class="n">sequence_similarity</span><span class="p">(</span>
+    <span class="n">kinase_sequences_dict</span><span class="p">[</span><span class="s2">"EGFR"</span><span class="p">],</span> <span class="n">kinase_sequences_dict</span><span class="p">[</span><span class="s2">"MET"</span><span class="p">],</span> <span class="s2">"substitution"</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">"Pocket sequence similarity between EGFR and MET kinases: "</span>
+    <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">egfr_met_seq_similarity</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> using substitution."</span>
+<span class="p">)</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Pocket sequence similarity between EGFR and MET kinases: 0.71 using substitution.
+</pre></div></div>
+</div>
+<p>We can also look at self-similarity:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">egfr_seq_similarity</span> <span class="o">=</span> <span class="n">sequence_similarity</span><span class="p">(</span>
+    <span class="n">kinase_sequences_dict</span><span class="p">[</span><span class="s2">"EGFR"</span><span class="p">],</span> <span class="n">kinase_sequences_dict</span><span class="p">[</span><span class="s2">"EGFR"</span><span class="p">],</span> <span class="n">type_</span><span class="o">=</span><span class="s2">"identity"</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">"Pocket sequence similarity between EGFR itself: "</span>
+    <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">egfr_seq_similarity</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> using identity."</span>
+<span class="p">)</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Pocket sequence similarity between EGFR itself: 1.00 using identity.
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">egfr_seq_similarity</span> <span class="o">=</span> <span class="n">sequence_similarity</span><span class="p">(</span>
+    <span class="n">kinase_sequences_dict</span><span class="p">[</span><span class="s2">"EGFR"</span><span class="p">],</span> <span class="n">kinase_sequences_dict</span><span class="p">[</span><span class="s2">"EGFR"</span><span class="p">],</span> <span class="n">type_</span><span class="o">=</span><span class="s2">"substitution"</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">"Pocket sequence similarity between EGFR itself: "</span>
+    <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">egfr_seq_similarity</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> using substitution."</span>
+<span class="p">)</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Pocket sequence similarity between EGFR itself: 1.00 using substitution.
+</pre></div></div>
+</div>
+<p>As expected, the similarity between a kinase and itself leads to the highest possible score:</p>
+<section id="Visualize-similarity-as-kinase-matrix">
+<h4 id="Visualize-similarity-as-kinase-matrix">Visualize similarity as kinase matrix<a class="headerlink" href="#Visualize-similarity-as-kinase-matrix" title="Permalink to this headline">¶</a></h4>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">pairwise_kinase_similarities</span><span class="p">(</span><span class="n">kinase_sequence_dictionary</span><span class="p">,</span> <span class="n">similarity_measure</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Calculate pairwise similarities between a set of kinases.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    kinase_sequence_dictionary : dict</span>
+<span class="sd">        A dictionary containing the kinase name as key</span>
+<span class="sd">        and the kinase sequence as value.</span>
+<span class="sd">    similarity_measure : str</span>
+<span class="sd">        Select similarity measure: "identity" or "substitution".</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pd.DataFrame</span>
+<span class="sd">        All-against-all similarities between input kinases.</span>
+<span class="sd">    """</span>
+    <span class="c1"># Initialize matrix with 0</span>
+    <span class="n">kinase_similarity_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span>
+        <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">kinase_sequence_dictionary</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">kinase_sequence_dictionary</span><span class="p">))</span>
+    <span class="p">)</span>
+    <span class="c1"># Iterate over matrix and fill with similarity values</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">kinase_sequence1</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">kinase_sequence_dictionary</span><span class="o">.</span><span class="n">values</span><span class="p">()):</span>
+        <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">kinase_sequence2</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">kinase_sequence_dictionary</span><span class="o">.</span><span class="n">values</span><span class="p">()):</span>
+            <span class="n">kinase_similarity_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">sequence_similarity</span><span class="p">(</span>
+                <span class="n">kinase_sequence1</span><span class="p">,</span> <span class="n">kinase_sequence2</span><span class="p">,</span> <span class="n">similarity_measure</span>
+            <span class="p">)</span>
+
+    <span class="c1"># Cast matrix to DataFrame</span>
+    <span class="n">kinase_similarity_matrix_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="n">data</span><span class="o">=</span><span class="n">kinase_similarity_matrix</span><span class="p">,</span>
+        <span class="n">index</span><span class="o">=</span><span class="n">kinase_sequences_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span>
+        <span class="n">columns</span><span class="o">=</span><span class="n">kinase_sequences_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span>
+    <span class="p">)</span>
+    <span class="n">kinase_similarity_matrix_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">kinase_similarity_matrix_df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="c1"># Check for symmetry</span>
+    <span class="n">symmetric</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">kinase_similarity_matrix_df</span><span class="o">.</span><span class="n">values</span> <span class="o">==</span> <span class="n">kinase_similarity_matrix_df</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">symmetric</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Matrix is not symmetric."</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">kinase_similarity_matrix_df</span>
+</pre></div>
+</div>
+</div>
+<p>We visualize the similarity matrices using identity and substitution:</p>
+<section id="Kinase-similarity-matrix:-Identity">
+<h5 id="Kinase-similarity-matrix:-Identity">Kinase similarity matrix: Identity<a class="headerlink" href="#Kinase-similarity-matrix:-Identity" title="Permalink to this headline">¶</a></h5>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">kinase_similarity_matrix_identity_df</span> <span class="o">=</span> <span class="n">pairwise_kinase_similarities</span><span class="p">(</span>
+    <span class="n">kinase_sequences_dict</span><span class="p">,</span> <span class="n">similarity_measure</span><span class="o">=</span><span class="s2">"identity"</span>
+<span class="p">)</span>
+<span class="n">kinase_similarity_matrix_identity_df</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>EGFR</th>
+<th>ErbB2</th>
+<th>p110a</th>
+<th>KDR</th>
+<th>BRAF</th>
+<th>CDK2</th>
+<th>LCK</th>
+<th>MET</th>
+<th>p38a</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>EGFR</th>
+<td>1.000000</td>
+<td>0.894118</td>
+<td>0.117647</td>
+<td>0.470588</td>
+<td>0.376471</td>
+<td>0.317647</td>
+<td>0.447059</td>
+<td>0.458824</td>
+<td>0.388235</td>
+</tr>
+<tr>
+<th>ErbB2</th>
+<td>0.894118</td>
+<td>1.000000</td>
+<td>0.117647</td>
+<td>0.435294</td>
+<td>0.400000</td>
+<td>0.329412</td>
+<td>0.423529</td>
+<td>0.470588</td>
+<td>0.400000</td>
+</tr>
+<tr>
+<th>p110a</th>
+<td>0.117647</td>
+<td>0.117647</td>
+<td>1.000000</td>
+<td>0.152941</td>
+<td>0.152941</td>
+<td>0.105882</td>
+<td>0.141176</td>
+<td>0.105882</td>
+<td>0.141176</td>
+</tr>
+<tr>
+<th>KDR</th>
+<td>0.470588</td>
+<td>0.435294</td>
+<td>0.152941</td>
+<td>1.000000</td>
+<td>0.400000</td>
+<td>0.341176</td>
+<td>0.435294</td>
+<td>0.470588</td>
+<td>0.388235</td>
+</tr>
+<tr>
+<th>BRAF</th>
+<td>0.376471</td>
+<td>0.400000</td>
+<td>0.152941</td>
+<td>0.400000</td>
+<td>1.000000</td>
+<td>0.329412</td>
+<td>0.388235</td>
+<td>0.376471</td>
+<td>0.376471</td>
+</tr>
+<tr>
+<th>CDK2</th>
+<td>0.317647</td>
+<td>0.329412</td>
+<td>0.105882</td>
+<td>0.341176</td>
+<td>0.329412</td>
+<td>1.000000</td>
+<td>0.376471</td>
+<td>0.364706</td>
+<td>0.470588</td>
+</tr>
+<tr>
+<th>LCK</th>
+<td>0.447059</td>
+<td>0.423529</td>
+<td>0.141176</td>
+<td>0.435294</td>
+<td>0.388235</td>
+<td>0.376471</td>
+<td>1.000000</td>
+<td>0.400000</td>
+<td>0.388235</td>
+</tr>
+<tr>
+<th>MET</th>
+<td>0.458824</td>
+<td>0.470588</td>
+<td>0.105882</td>
+<td>0.470588</td>
+<td>0.376471</td>
+<td>0.364706</td>
+<td>0.400000</td>
+<td>1.000000</td>
+<td>0.364706</td>
+</tr>
+<tr>
+<th>p38a</th>
+<td>0.388235</td>
+<td>0.400000</td>
+<td>0.141176</td>
+<td>0.388235</td>
+<td>0.376471</td>
+<td>0.470588</td>
+<td>0.388235</td>
+<td>0.364706</td>
+<td>1.000000</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Show matrix with background gradient</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">light_palette</span><span class="p">(</span><span class="s2">"green"</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">kinase_similarity_matrix_identity_df</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">background_gradient</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">"</span><span class="si">{:.3f}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<style type="text/css">
+#T_1a72b_row0_col0, #T_1a72b_row1_col1, #T_1a72b_row2_col2, #T_1a72b_row3_col3, #T_1a72b_row4_col4, #T_1a72b_row5_col5, #T_1a72b_row6_col6, #T_1a72b_row7_col7, #T_1a72b_row8_col8 {
+  background-color: #008000;
+  color: #f1f1f1;
+}
+#T_1a72b_row0_col1, #T_1a72b_row1_col0 {
+  background-color: #1c8e1c;
+  color: #f1f1f1;
+}
+#T_1a72b_row0_col2, #T_1a72b_row1_col2 {
+  background-color: #e8f2e8;
+  color: #000000;
+}
+#T_1a72b_row0_col3, #T_1a72b_row7_col3 {
+  background-color: #92c892;
+  color: #000000;
+}
+#T_1a72b_row0_col4, #T_1a72b_row3_col5, #T_1a72b_row7_col4, #T_1a72b_row8_col4 {
+  background-color: #add5ad;
+  color: #000000;
+}
+#T_1a72b_row0_col5 {
+  background-color: #b3d8b3;
+  color: #000000;
+}
+#T_1a72b_row0_col6 {
+  background-color: #97ca97;
+  color: #000000;
+}
+#T_1a72b_row0_col7 {
+  background-color: #8ec58e;
+  color: #000000;
+}
+#T_1a72b_row0_col8, #T_1a72b_row3_col8, #T_1a72b_row4_col6, #T_1a72b_row6_col8, #T_1a72b_row8_col6 {
+  background-color: #a7d2a7;
+  color: #000000;
+}
+#T_1a72b_row1_col3, #T_1a72b_row6_col3 {
+  background-color: #9ccd9c;
+  color: #000000;
+}
+#T_1a72b_row1_col4, #T_1a72b_row3_col4, #T_1a72b_row4_col3, #T_1a72b_row5_col7, #T_1a72b_row7_col5, #T_1a72b_row8_col7 {
+  background-color: #a6d2a6;
+  color: #000000;
+}
+#T_1a72b_row1_col5, #T_1a72b_row4_col5 {
+  background-color: #b1d7b1;
+  color: #000000;
+}
+#T_1a72b_row1_col6, #T_1a72b_row6_col7 {
+  background-color: #9dcd9d;
+  color: #000000;
+}
+#T_1a72b_row1_col7, #T_1a72b_row3_col7, #T_1a72b_row8_col5 {
+  background-color: #8bc48b;
+  color: #000000;
+}
+#T_1a72b_row1_col8, #T_1a72b_row4_col7, #T_1a72b_row6_col5, #T_1a72b_row7_col6 {
+  background-color: #a4d0a4;
+  color: #000000;
+}
+#T_1a72b_row2_col0, #T_1a72b_row2_col1, #T_1a72b_row2_col3, #T_1a72b_row2_col4, #T_1a72b_row2_col5, #T_1a72b_row2_col6, #T_1a72b_row2_col7, #T_1a72b_row2_col8, #T_1a72b_row5_col2, #T_1a72b_row7_col2 {
+  background-color: #ebf3eb;
+  color: #000000;
+}
+#T_1a72b_row3_col0, #T_1a72b_row7_col1 {
+  background-color: #8dc58d;
+  color: #000000;
+}
+#T_1a72b_row3_col1 {
+  background-color: #96c996;
+  color: #000000;
+}
+#T_1a72b_row3_col2, #T_1a72b_row4_col2 {
+  background-color: #dfeddf;
+  color: #000000;
+}
+#T_1a72b_row3_col6 {
+  background-color: #9bcc9b;
+  color: #000000;
+}
+#T_1a72b_row4_col0 {
+  background-color: #a6d1a6;
+  color: #000000;
+}
+#T_1a72b_row4_col1, #T_1a72b_row8_col1 {
+  background-color: #a0cea0;
+  color: #000000;
+}
+#T_1a72b_row4_col8, #T_1a72b_row5_col6 {
+  background-color: #aad3aa;
+  color: #000000;
+}
+#T_1a72b_row5_col0 {
+  background-color: #b5d9b5;
+  color: #000000;
+}
+#T_1a72b_row5_col1 {
+  background-color: #b2d7b2;
+  color: #000000;
+}
+#T_1a72b_row5_col3 {
+  background-color: #b7dab7;
+  color: #000000;
+}
+#T_1a72b_row5_col4 {
+  background-color: #badbba;
+  color: #000000;
+}
+#T_1a72b_row5_col8, #T_1a72b_row7_col0 {
+  background-color: #90c790;
+  color: #000000;
+}
+#T_1a72b_row6_col0 {
+  background-color: #93c893;
+  color: #000000;
+}
+#T_1a72b_row6_col1 {
+  background-color: #9acb9a;
+  color: #000000;
+}
+#T_1a72b_row6_col2, #T_1a72b_row8_col2 {
+  background-color: #e1eee1;
+  color: #000000;
+}
+#T_1a72b_row6_col4, #T_1a72b_row8_col3 {
+  background-color: #a9d3a9;
+  color: #000000;
+}
+#T_1a72b_row7_col8 {
+  background-color: #aed5ae;
+  color: #000000;
+}
+#T_1a72b_row8_col0 {
+  background-color: #a3d0a3;
+  color: #000000;
+}
+</style>
+<table id="T_1a72b_">
+<thead>
+<tr>
+<th class="blank level0"> </th>
+<th class="col_heading level0 col0">EGFR</th>
+<th class="col_heading level0 col1">ErbB2</th>
+<th class="col_heading level0 col2">p110a</th>
+<th class="col_heading level0 col3">KDR</th>
+<th class="col_heading level0 col4">BRAF</th>
+<th class="col_heading level0 col5">CDK2</th>
+<th class="col_heading level0 col6">LCK</th>
+<th class="col_heading level0 col7">MET</th>
+<th class="col_heading level0 col8">p38a</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="row_heading level0 row0" id="T_1a72b_level0_row0">EGFR</th>
+<td class="data row0 col0" id="T_1a72b_row0_col0">1.000</td>
+<td class="data row0 col1" id="T_1a72b_row0_col1">0.894</td>
+<td class="data row0 col2" id="T_1a72b_row0_col2">0.118</td>
+<td class="data row0 col3" id="T_1a72b_row0_col3">0.471</td>
+<td class="data row0 col4" id="T_1a72b_row0_col4">0.376</td>
+<td class="data row0 col5" id="T_1a72b_row0_col5">0.318</td>
+<td class="data row0 col6" id="T_1a72b_row0_col6">0.447</td>
+<td class="data row0 col7" id="T_1a72b_row0_col7">0.459</td>
+<td class="data row0 col8" id="T_1a72b_row0_col8">0.388</td>
+</tr>
+<tr>
+<th class="row_heading level0 row1" id="T_1a72b_level0_row1">ErbB2</th>
+<td class="data row1 col0" id="T_1a72b_row1_col0">0.894</td>
+<td class="data row1 col1" id="T_1a72b_row1_col1">1.000</td>
+<td class="data row1 col2" id="T_1a72b_row1_col2">0.118</td>
+<td class="data row1 col3" id="T_1a72b_row1_col3">0.435</td>
+<td class="data row1 col4" id="T_1a72b_row1_col4">0.400</td>
+<td class="data row1 col5" id="T_1a72b_row1_col5">0.329</td>
+<td class="data row1 col6" id="T_1a72b_row1_col6">0.424</td>
+<td class="data row1 col7" id="T_1a72b_row1_col7">0.471</td>
+<td class="data row1 col8" id="T_1a72b_row1_col8">0.400</td>
+</tr>
+<tr>
+<th class="row_heading level0 row2" id="T_1a72b_level0_row2">p110a</th>
+<td class="data row2 col0" id="T_1a72b_row2_col0">0.118</td>
+<td class="data row2 col1" id="T_1a72b_row2_col1">0.118</td>
+<td class="data row2 col2" id="T_1a72b_row2_col2">1.000</td>
+<td class="data row2 col3" id="T_1a72b_row2_col3">0.153</td>
+<td class="data row2 col4" id="T_1a72b_row2_col4">0.153</td>
+<td class="data row2 col5" id="T_1a72b_row2_col5">0.106</td>
+<td class="data row2 col6" id="T_1a72b_row2_col6">0.141</td>
+<td class="data row2 col7" id="T_1a72b_row2_col7">0.106</td>
+<td class="data row2 col8" id="T_1a72b_row2_col8">0.141</td>
+</tr>
+<tr>
+<th class="row_heading level0 row3" id="T_1a72b_level0_row3">KDR</th>
+<td class="data row3 col0" id="T_1a72b_row3_col0">0.471</td>
+<td class="data row3 col1" id="T_1a72b_row3_col1">0.435</td>
+<td class="data row3 col2" id="T_1a72b_row3_col2">0.153</td>
+<td class="data row3 col3" id="T_1a72b_row3_col3">1.000</td>
+<td class="data row3 col4" id="T_1a72b_row3_col4">0.400</td>
+<td class="data row3 col5" id="T_1a72b_row3_col5">0.341</td>
+<td class="data row3 col6" id="T_1a72b_row3_col6">0.435</td>
+<td class="data row3 col7" id="T_1a72b_row3_col7">0.471</td>
+<td class="data row3 col8" id="T_1a72b_row3_col8">0.388</td>
+</tr>
+<tr>
+<th class="row_heading level0 row4" id="T_1a72b_level0_row4">BRAF</th>
+<td class="data row4 col0" id="T_1a72b_row4_col0">0.376</td>
+<td class="data row4 col1" id="T_1a72b_row4_col1">0.400</td>
+<td class="data row4 col2" id="T_1a72b_row4_col2">0.153</td>
+<td class="data row4 col3" id="T_1a72b_row4_col3">0.400</td>
+<td class="data row4 col4" id="T_1a72b_row4_col4">1.000</td>
+<td class="data row4 col5" id="T_1a72b_row4_col5">0.329</td>
+<td class="data row4 col6" id="T_1a72b_row4_col6">0.388</td>
+<td class="data row4 col7" id="T_1a72b_row4_col7">0.376</td>
+<td class="data row4 col8" id="T_1a72b_row4_col8">0.376</td>
+</tr>
+<tr>
+<th class="row_heading level0 row5" id="T_1a72b_level0_row5">CDK2</th>
+<td class="data row5 col0" id="T_1a72b_row5_col0">0.318</td>
+<td class="data row5 col1" id="T_1a72b_row5_col1">0.329</td>
+<td class="data row5 col2" id="T_1a72b_row5_col2">0.106</td>
+<td class="data row5 col3" id="T_1a72b_row5_col3">0.341</td>
+<td class="data row5 col4" id="T_1a72b_row5_col4">0.329</td>
+<td class="data row5 col5" id="T_1a72b_row5_col5">1.000</td>
+<td class="data row5 col6" id="T_1a72b_row5_col6">0.376</td>
+<td class="data row5 col7" id="T_1a72b_row5_col7">0.365</td>
+<td class="data row5 col8" id="T_1a72b_row5_col8">0.471</td>
+</tr>
+<tr>
+<th class="row_heading level0 row6" id="T_1a72b_level0_row6">LCK</th>
+<td class="data row6 col0" id="T_1a72b_row6_col0">0.447</td>
+<td class="data row6 col1" id="T_1a72b_row6_col1">0.424</td>
+<td class="data row6 col2" id="T_1a72b_row6_col2">0.141</td>
+<td class="data row6 col3" id="T_1a72b_row6_col3">0.435</td>
+<td class="data row6 col4" id="T_1a72b_row6_col4">0.388</td>
+<td class="data row6 col5" id="T_1a72b_row6_col5">0.376</td>
+<td class="data row6 col6" id="T_1a72b_row6_col6">1.000</td>
+<td class="data row6 col7" id="T_1a72b_row6_col7">0.400</td>
+<td class="data row6 col8" id="T_1a72b_row6_col8">0.388</td>
+</tr>
+<tr>
+<th class="row_heading level0 row7" id="T_1a72b_level0_row7">MET</th>
+<td class="data row7 col0" id="T_1a72b_row7_col0">0.459</td>
+<td class="data row7 col1" id="T_1a72b_row7_col1">0.471</td>
+<td class="data row7 col2" id="T_1a72b_row7_col2">0.106</td>
+<td class="data row7 col3" id="T_1a72b_row7_col3">0.471</td>
+<td class="data row7 col4" id="T_1a72b_row7_col4">0.376</td>
+<td class="data row7 col5" id="T_1a72b_row7_col5">0.365</td>
+<td class="data row7 col6" id="T_1a72b_row7_col6">0.400</td>
+<td class="data row7 col7" id="T_1a72b_row7_col7">1.000</td>
+<td class="data row7 col8" id="T_1a72b_row7_col8">0.365</td>
+</tr>
+<tr>
+<th class="row_heading level0 row8" id="T_1a72b_level0_row8">p38a</th>
+<td class="data row8 col0" id="T_1a72b_row8_col0">0.388</td>
+<td class="data row8 col1" id="T_1a72b_row8_col1">0.400</td>
+<td class="data row8 col2" id="T_1a72b_row8_col2">0.141</td>
+<td class="data row8 col3" id="T_1a72b_row8_col3">0.388</td>
+<td class="data row8 col4" id="T_1a72b_row8_col4">0.376</td>
+<td class="data row8 col5" id="T_1a72b_row8_col5">0.471</td>
+<td class="data row8 col6" id="T_1a72b_row8_col6">0.388</td>
+<td class="data row8 col7" id="T_1a72b_row8_col7">0.365</td>
+<td class="data row8 col8" id="T_1a72b_row8_col8">1.000</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</section>
+<section id="Kinase-similarity-matrix:-Substitution">
+<h5 id="Kinase-similarity-matrix:-Substitution">Kinase similarity matrix: Substitution<a class="headerlink" href="#Kinase-similarity-matrix:-Substitution" title="Permalink to this headline">¶</a></h5>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">kinase_similarity_matrix_substitution_df</span> <span class="o">=</span> <span class="n">pairwise_kinase_similarities</span><span class="p">(</span>
+    <span class="n">kinase_sequences_dict</span><span class="p">,</span> <span class="n">similarity_measure</span><span class="o">=</span><span class="s2">"substitution"</span>
+<span class="p">)</span>
+<span class="n">kinase_similarity_matrix_substitution_df</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>EGFR</th>
+<th>ErbB2</th>
+<th>p110a</th>
+<th>KDR</th>
+<th>BRAF</th>
+<th>CDK2</th>
+<th>LCK</th>
+<th>MET</th>
+<th>p38a</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>EGFR</th>
+<td>1.000000</td>
+<td>0.940963</td>
+<td>0.427062</td>
+<td>0.716047</td>
+<td>0.655028</td>
+<td>0.648447</td>
+<td>0.711321</td>
+<td>0.711258</td>
+<td>0.644644</td>
+</tr>
+<tr>
+<th>ErbB2</th>
+<td>0.940963</td>
+<td>1.000000</td>
+<td>0.413638</td>
+<td>0.702118</td>
+<td>0.654600</td>
+<td>0.630308</td>
+<td>0.685075</td>
+<td>0.697967</td>
+<td>0.635173</td>
+</tr>
+<tr>
+<th>p110a</th>
+<td>0.427062</td>
+<td>0.413638</td>
+<td>1.000000</td>
+<td>0.422705</td>
+<td>0.436459</td>
+<td>0.423994</td>
+<td>0.451336</td>
+<td>0.393699</td>
+<td>0.431194</td>
+</tr>
+<tr>
+<th>KDR</th>
+<td>0.716047</td>
+<td>0.702118</td>
+<td>0.422705</td>
+<td>1.000000</td>
+<td>0.671268</td>
+<td>0.653379</td>
+<td>0.687648</td>
+<td>0.713806</td>
+<td>0.653444</td>
+</tr>
+<tr>
+<th>BRAF</th>
+<td>0.655028</td>
+<td>0.654600</td>
+<td>0.436459</td>
+<td>0.671268</td>
+<td>1.000000</td>
+<td>0.646755</td>
+<td>0.672933</td>
+<td>0.638158</td>
+<td>0.637912</td>
+</tr>
+<tr>
+<th>CDK2</th>
+<td>0.648447</td>
+<td>0.630308</td>
+<td>0.423994</td>
+<td>0.653379</td>
+<td>0.646755</td>
+<td>1.000000</td>
+<td>0.681253</td>
+<td>0.656025</td>
+<td>0.723093</td>
+</tr>
+<tr>
+<th>LCK</th>
+<td>0.711321</td>
+<td>0.685075</td>
+<td>0.451336</td>
+<td>0.687648</td>
+<td>0.672933</td>
+<td>0.681253</td>
+<td>1.000000</td>
+<td>0.690879</td>
+<td>0.662581</td>
+</tr>
+<tr>
+<th>MET</th>
+<td>0.711258</td>
+<td>0.697967</td>
+<td>0.393699</td>
+<td>0.713806</td>
+<td>0.638158</td>
+<td>0.656025</td>
+<td>0.690879</td>
+<td>1.000000</td>
+<td>0.629355</td>
+</tr>
+<tr>
+<th>p38a</th>
+<td>0.644644</td>
+<td>0.635173</td>
+<td>0.431194</td>
+<td>0.653444</td>
+<td>0.637912</td>
+<td>0.723093</td>
+<td>0.662581</td>
+<td>0.629355</td>
+<td>1.000000</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Show matrix with background gradient</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">light_palette</span><span class="p">(</span><span class="s2">"green"</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">kinase_similarity_matrix_substitution_df</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">background_gradient</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">"</span><span class="si">{:.3f}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<style type="text/css">
+#T_32cd0_row0_col0, #T_32cd0_row1_col1, #T_32cd0_row2_col2, #T_32cd0_row3_col3, #T_32cd0_row4_col4, #T_32cd0_row5_col5, #T_32cd0_row6_col6, #T_32cd0_row7_col7, #T_32cd0_row8_col8 {
+  background-color: #008000;
+  color: #f1f1f1;
+}
+#T_32cd0_row0_col1 {
+  background-color: #178b17;
+  color: #f1f1f1;
+}
+#T_32cd0_row0_col2 {
+  background-color: #deedde;
+  color: #000000;
+}
+#T_32cd0_row0_col3 {
+  background-color: #73b873;
+  color: #f1f1f1;
+}
+#T_32cd0_row0_col4, #T_32cd0_row0_col5, #T_32cd0_row1_col4, #T_32cd0_row3_col8, #T_32cd0_row4_col5, #T_32cd0_row8_col7 {
+  background-color: #8fc68f;
+  color: #000000;
+}
+#T_32cd0_row0_col6 {
+  background-color: #7bbc7b;
+  color: #000000;
+}
+#T_32cd0_row0_col7 {
+  background-color: #6fb76f;
+  color: #f1f1f1;
+}
+#T_32cd0_row0_col8, #T_32cd0_row8_col1 {
+  background-color: #92c892;
+  color: #000000;
+}
+#T_32cd0_row1_col0 {
+  background-color: #188c18;
+  color: #f1f1f1;
+}
+#T_32cd0_row1_col2 {
+  background-color: #e3efe3;
+  color: #000000;
+}
+#T_32cd0_row1_col3 {
+  background-color: #79bc79;
+  color: #000000;
+}
+#T_32cd0_row1_col5, #T_32cd0_row1_col8, #T_32cd0_row7_col4, #T_32cd0_row8_col4 {
+  background-color: #97ca97;
+  color: #000000;
+}
+#T_32cd0_row1_col6 {
+  background-color: #86c286;
+  color: #000000;
+}
+#T_32cd0_row1_col7 {
+  background-color: #75b975;
+  color: #f1f1f1;
+}
+#T_32cd0_row2_col0, #T_32cd0_row2_col1, #T_32cd0_row2_col3, #T_32cd0_row2_col4, #T_32cd0_row2_col5, #T_32cd0_row2_col6, #T_32cd0_row2_col7, #T_32cd0_row2_col8, #T_32cd0_row7_col2 {
+  background-color: #ebf3eb;
+  color: #000000;
+}
+#T_32cd0_row3_col0, #T_32cd0_row7_col3 {
+  background-color: #74b974;
+  color: #f1f1f1;
+}
+#T_32cd0_row3_col1, #T_32cd0_row6_col7 {
+  background-color: #78bb78;
+  color: #f1f1f1;
+}
+#T_32cd0_row3_col2, #T_32cd0_row5_col2 {
+  background-color: #e0eedf;
+  color: #000000;
+}
+#T_32cd0_row3_col4 {
+  background-color: #89c389;
+  color: #000000;
+}
+#T_32cd0_row3_col5, #T_32cd0_row4_col0 {
+  background-color: #8ec58e;
+  color: #000000;
+}
+#T_32cd0_row3_col6, #T_32cd0_row4_col3, #T_32cd0_row5_col7 {
+  background-color: #85c185;
+  color: #000000;
+}
+#T_32cd0_row3_col7 {
+  background-color: #6eb66e;
+  color: #f1f1f1;
+}
+#T_32cd0_row4_col1 {
+  background-color: #8ac48a;
+  color: #000000;
+}
+#T_32cd0_row4_col2 {
+  background-color: #daebda;
+  color: #000000;
+}
+#T_32cd0_row4_col6, #T_32cd0_row4_col7, #T_32cd0_row7_col5 {
+  background-color: #8cc58c;
+  color: #000000;
+}
+#T_32cd0_row4_col8 {
+  background-color: #95c995;
+  color: #000000;
+}
+#T_32cd0_row5_col0, #T_32cd0_row8_col6 {
+  background-color: #90c790;
+  color: #000000;
+}
+#T_32cd0_row5_col1 {
+  background-color: #94c994;
+  color: #000000;
+}
+#T_32cd0_row5_col3, #T_32cd0_row8_col3 {
+  background-color: #8dc58d;
+  color: #000000;
+}
+#T_32cd0_row5_col4 {
+  background-color: #93c893;
+  color: #000000;
+}
+#T_32cd0_row5_col6, #T_32cd0_row6_col4 {
+  background-color: #88c388;
+  color: #000000;
+}
+#T_32cd0_row5_col8 {
+  background-color: #72b872;
+  color: #f1f1f1;
+}
+#T_32cd0_row6_col0 {
+  background-color: #76ba76;
+  color: #f1f1f1;
+}
+#T_32cd0_row6_col1 {
+  background-color: #7ebe7e;
+  color: #000000;
+}
+#T_32cd0_row6_col2 {
+  background-color: #d4e8d4;
+  color: #000000;
+}
+#T_32cd0_row6_col3 {
+  background-color: #7fbe7f;
+  color: #000000;
+}
+#T_32cd0_row6_col5 {
+  background-color: #82c082;
+  color: #000000;
+}
+#T_32cd0_row6_col8 {
+  background-color: #8bc48b;
+  color: #000000;
+}
+#T_32cd0_row7_col0 {
+  background-color: #77ba77;
+  color: #f1f1f1;
+}
+#T_32cd0_row7_col1 {
+  background-color: #78bb78;
+  color: #000000;
+}
+#T_32cd0_row7_col6 {
+  background-color: #84c184;
+  color: #000000;
+}
+#T_32cd0_row7_col8 {
+  background-color: #99cb99;
+  color: #000000;
+}
+#T_32cd0_row8_col0 {
+  background-color: #91c791;
+  color: #000000;
+}
+#T_32cd0_row8_col2 {
+  background-color: #ddecdd;
+  color: #000000;
+}
+#T_32cd0_row8_col5 {
+  background-color: #71b771;
+  color: #f1f1f1;
+}
+</style>
+<table id="T_32cd0_">
+<thead>
+<tr>
+<th class="blank level0"> </th>
+<th class="col_heading level0 col0">EGFR</th>
+<th class="col_heading level0 col1">ErbB2</th>
+<th class="col_heading level0 col2">p110a</th>
+<th class="col_heading level0 col3">KDR</th>
+<th class="col_heading level0 col4">BRAF</th>
+<th class="col_heading level0 col5">CDK2</th>
+<th class="col_heading level0 col6">LCK</th>
+<th class="col_heading level0 col7">MET</th>
+<th class="col_heading level0 col8">p38a</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="row_heading level0 row0" id="T_32cd0_level0_row0">EGFR</th>
+<td class="data row0 col0" id="T_32cd0_row0_col0">1.000</td>
+<td class="data row0 col1" id="T_32cd0_row0_col1">0.941</td>
+<td class="data row0 col2" id="T_32cd0_row0_col2">0.427</td>
+<td class="data row0 col3" id="T_32cd0_row0_col3">0.716</td>
+<td class="data row0 col4" id="T_32cd0_row0_col4">0.655</td>
+<td class="data row0 col5" id="T_32cd0_row0_col5">0.648</td>
+<td class="data row0 col6" id="T_32cd0_row0_col6">0.711</td>
+<td class="data row0 col7" id="T_32cd0_row0_col7">0.711</td>
+<td class="data row0 col8" id="T_32cd0_row0_col8">0.645</td>
+</tr>
+<tr>
+<th class="row_heading level0 row1" id="T_32cd0_level0_row1">ErbB2</th>
+<td class="data row1 col0" id="T_32cd0_row1_col0">0.941</td>
+<td class="data row1 col1" id="T_32cd0_row1_col1">1.000</td>
+<td class="data row1 col2" id="T_32cd0_row1_col2">0.414</td>
+<td class="data row1 col3" id="T_32cd0_row1_col3">0.702</td>
+<td class="data row1 col4" id="T_32cd0_row1_col4">0.655</td>
+<td class="data row1 col5" id="T_32cd0_row1_col5">0.630</td>
+<td class="data row1 col6" id="T_32cd0_row1_col6">0.685</td>
+<td class="data row1 col7" id="T_32cd0_row1_col7">0.698</td>
+<td class="data row1 col8" id="T_32cd0_row1_col8">0.635</td>
+</tr>
+<tr>
+<th class="row_heading level0 row2" id="T_32cd0_level0_row2">p110a</th>
+<td class="data row2 col0" id="T_32cd0_row2_col0">0.427</td>
+<td class="data row2 col1" id="T_32cd0_row2_col1">0.414</td>
+<td class="data row2 col2" id="T_32cd0_row2_col2">1.000</td>
+<td class="data row2 col3" id="T_32cd0_row2_col3">0.423</td>
+<td class="data row2 col4" id="T_32cd0_row2_col4">0.436</td>
+<td class="data row2 col5" id="T_32cd0_row2_col5">0.424</td>
+<td class="data row2 col6" id="T_32cd0_row2_col6">0.451</td>
+<td class="data row2 col7" id="T_32cd0_row2_col7">0.394</td>
+<td class="data row2 col8" id="T_32cd0_row2_col8">0.431</td>
+</tr>
+<tr>
+<th class="row_heading level0 row3" id="T_32cd0_level0_row3">KDR</th>
+<td class="data row3 col0" id="T_32cd0_row3_col0">0.716</td>
+<td class="data row3 col1" id="T_32cd0_row3_col1">0.702</td>
+<td class="data row3 col2" id="T_32cd0_row3_col2">0.423</td>
+<td class="data row3 col3" id="T_32cd0_row3_col3">1.000</td>
+<td class="data row3 col4" id="T_32cd0_row3_col4">0.671</td>
+<td class="data row3 col5" id="T_32cd0_row3_col5">0.653</td>
+<td class="data row3 col6" id="T_32cd0_row3_col6">0.688</td>
+<td class="data row3 col7" id="T_32cd0_row3_col7">0.714</td>
+<td class="data row3 col8" id="T_32cd0_row3_col8">0.653</td>
+</tr>
+<tr>
+<th class="row_heading level0 row4" id="T_32cd0_level0_row4">BRAF</th>
+<td class="data row4 col0" id="T_32cd0_row4_col0">0.655</td>
+<td class="data row4 col1" id="T_32cd0_row4_col1">0.655</td>
+<td class="data row4 col2" id="T_32cd0_row4_col2">0.436</td>
+<td class="data row4 col3" id="T_32cd0_row4_col3">0.671</td>
+<td class="data row4 col4" id="T_32cd0_row4_col4">1.000</td>
+<td class="data row4 col5" id="T_32cd0_row4_col5">0.647</td>
+<td class="data row4 col6" id="T_32cd0_row4_col6">0.673</td>
+<td class="data row4 col7" id="T_32cd0_row4_col7">0.638</td>
+<td class="data row4 col8" id="T_32cd0_row4_col8">0.638</td>
+</tr>
+<tr>
+<th class="row_heading level0 row5" id="T_32cd0_level0_row5">CDK2</th>
+<td class="data row5 col0" id="T_32cd0_row5_col0">0.648</td>
+<td class="data row5 col1" id="T_32cd0_row5_col1">0.630</td>
+<td class="data row5 col2" id="T_32cd0_row5_col2">0.424</td>
+<td class="data row5 col3" id="T_32cd0_row5_col3">0.653</td>
+<td class="data row5 col4" id="T_32cd0_row5_col4">0.647</td>
+<td class="data row5 col5" id="T_32cd0_row5_col5">1.000</td>
+<td class="data row5 col6" id="T_32cd0_row5_col6">0.681</td>
+<td class="data row5 col7" id="T_32cd0_row5_col7">0.656</td>
+<td class="data row5 col8" id="T_32cd0_row5_col8">0.723</td>
+</tr>
+<tr>
+<th class="row_heading level0 row6" id="T_32cd0_level0_row6">LCK</th>
+<td class="data row6 col0" id="T_32cd0_row6_col0">0.711</td>
+<td class="data row6 col1" id="T_32cd0_row6_col1">0.685</td>
+<td class="data row6 col2" id="T_32cd0_row6_col2">0.451</td>
+<td class="data row6 col3" id="T_32cd0_row6_col3">0.688</td>
+<td class="data row6 col4" id="T_32cd0_row6_col4">0.673</td>
+<td class="data row6 col5" id="T_32cd0_row6_col5">0.681</td>
+<td class="data row6 col6" id="T_32cd0_row6_col6">1.000</td>
+<td class="data row6 col7" id="T_32cd0_row6_col7">0.691</td>
+<td class="data row6 col8" id="T_32cd0_row6_col8">0.663</td>
+</tr>
+<tr>
+<th class="row_heading level0 row7" id="T_32cd0_level0_row7">MET</th>
+<td class="data row7 col0" id="T_32cd0_row7_col0">0.711</td>
+<td class="data row7 col1" id="T_32cd0_row7_col1">0.698</td>
+<td class="data row7 col2" id="T_32cd0_row7_col2">0.394</td>
+<td class="data row7 col3" id="T_32cd0_row7_col3">0.714</td>
+<td class="data row7 col4" id="T_32cd0_row7_col4">0.638</td>
+<td class="data row7 col5" id="T_32cd0_row7_col5">0.656</td>
+<td class="data row7 col6" id="T_32cd0_row7_col6">0.691</td>
+<td class="data row7 col7" id="T_32cd0_row7_col7">1.000</td>
+<td class="data row7 col8" id="T_32cd0_row7_col8">0.629</td>
+</tr>
+<tr>
+<th class="row_heading level0 row8" id="T_32cd0_level0_row8">p38a</th>
+<td class="data row8 col0" id="T_32cd0_row8_col0">0.645</td>
+<td class="data row8 col1" id="T_32cd0_row8_col1">0.635</td>
+<td class="data row8 col2" id="T_32cd0_row8_col2">0.431</td>
+<td class="data row8 col3" id="T_32cd0_row8_col3">0.653</td>
+<td class="data row8 col4" id="T_32cd0_row8_col4">0.638</td>
+<td class="data row8 col5" id="T_32cd0_row8_col5">0.723</td>
+<td class="data row8 col6" id="T_32cd0_row8_col6">0.663</td>
+<td class="data row8 col7" id="T_32cd0_row8_col7">0.629</td>
+<td class="data row8 col8" id="T_32cd0_row8_col8">1.000</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>When we compare the matrices calculated based on the identity and substitution score, the overall pattern is similar, while the values are generally higher using the substitution score.</p>
+<p><em>Note</em>: For all downstream analysis, we will only consider the kinase similarity matrix calculated based on the substitution matrix.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">kinase_similarity_matrix_df</span> <span class="o">=</span> <span class="n">kinase_similarity_matrix_substitution_df</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="Save-kinase-similarity-matrix">
+<h4 id="Save-kinase-similarity-matrix">Save kinase similarity matrix<a class="headerlink" href="#Save-kinase-similarity-matrix" title="Permalink to this headline">¶</a></h4>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">file_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"kinase_similarity_matrix.csv"</span>
+<span class="n">kinase_similarity_matrix_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="n">file_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="Kinase-distance-matrix">
+<h3 id="Kinase-distance-matrix">Kinase distance matrix<a class="headerlink" href="#Kinase-distance-matrix" title="Permalink to this headline">¶</a></h3>
+<p>Since all entries are between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(1\)</span>, the similarity matrix <span class="math notranslate nohighlight">\(SM\)</span> is mapped to a distance matrix:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">"The values of the similarity matrix lie between: "</span>
+    <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">kinase_similarity_matrix_df</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span>
+    <span class="sa">f</span><span class="s2">" and </span><span class="si">{</span><span class="n">kinase_similarity_matrix_df</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span>
+<span class="p">)</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The values of the similarity matrix lie between: 0.39 and 1.00
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">kinase_distance_matrix_df</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">kinase_similarity_matrix_df</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">kinase_distance_matrix_df</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">background_gradient</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">"</span><span class="si">{:.3f}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<style type="text/css">
+#T_1cfc3_row0_col0, #T_1cfc3_row1_col1, #T_1cfc3_row2_col2, #T_1cfc3_row3_col3, #T_1cfc3_row4_col4, #T_1cfc3_row5_col5, #T_1cfc3_row6_col6, #T_1cfc3_row7_col7, #T_1cfc3_row8_col8 {
+  background-color: #ebf3eb;
+  color: #000000;
+}
+#T_1cfc3_row0_col1 {
+  background-color: #d4e8d4;
+  color: #000000;
+}
+#T_1cfc3_row0_col2 {
+  background-color: #0d860d;
+  color: #f1f1f1;
+}
+#T_1cfc3_row0_col3 {
+  background-color: #78bb78;
+  color: #f1f1f1;
+}
+#T_1cfc3_row0_col4, #T_1cfc3_row0_col5, #T_1cfc3_row1_col4, #T_1cfc3_row4_col5, #T_1cfc3_row8_col7 {
+  background-color: #5bad5b;
+  color: #f1f1f1;
+}
+#T_1cfc3_row0_col6 {
+  background-color: #6fb76f;
+  color: #f1f1f1;
+}
+#T_1cfc3_row0_col7 {
+  background-color: #7bbc7b;
+  color: #000000;
+}
+#T_1cfc3_row0_col8, #T_1cfc3_row8_col1 {
+  background-color: #58ab58;
+  color: #f1f1f1;
+}
+#T_1cfc3_row1_col0 {
+  background-color: #d3e7d3;
+  color: #000000;
+}
+#T_1cfc3_row1_col2 {
+  background-color: #078407;
+  color: #f1f1f1;
+}
+#T_1cfc3_row1_col3 {
+  background-color: #71b771;
+  color: #f1f1f1;
+}
+#T_1cfc3_row1_col5, #T_1cfc3_row1_col8, #T_1cfc3_row7_col4, #T_1cfc3_row8_col4 {
+  background-color: #54a954;
+  color: #f1f1f1;
+}
+#T_1cfc3_row1_col6 {
+  background-color: #64b164;
+  color: #f1f1f1;
+}
+#T_1cfc3_row1_col7 {
+  background-color: #76ba76;
+  color: #f1f1f1;
+}
+#T_1cfc3_row2_col0, #T_1cfc3_row2_col1, #T_1cfc3_row2_col3, #T_1cfc3_row2_col4, #T_1cfc3_row2_col5, #T_1cfc3_row2_col6, #T_1cfc3_row2_col7, #T_1cfc3_row2_col8, #T_1cfc3_row7_col2 {
+  background-color: #008000;
+  color: #f1f1f1;
+}
+#T_1cfc3_row3_col0, #T_1cfc3_row7_col3 {
+  background-color: #77ba77;
+  color: #f1f1f1;
+}
+#T_1cfc3_row3_col1, #T_1cfc3_row6_col7 {
+  background-color: #73b873;
+  color: #f1f1f1;
+}
+#T_1cfc3_row3_col2, #T_1cfc3_row5_col2 {
+  background-color: #0b850b;
+  color: #f1f1f1;
+}
+#T_1cfc3_row3_col4 {
+  background-color: #61b061;
+  color: #f1f1f1;
+}
+#T_1cfc3_row3_col5, #T_1cfc3_row4_col0 {
+  background-color: #5dae5d;
+  color: #f1f1f1;
+}
+#T_1cfc3_row3_col6, #T_1cfc3_row4_col3, #T_1cfc3_row5_col7 {
+  background-color: #65b265;
+  color: #f1f1f1;
+}
+#T_1cfc3_row3_col7 {
+  background-color: #7cbd7c;
+  color: #000000;
+}
+#T_1cfc3_row3_col8 {
+  background-color: #5cad5c;
+  color: #f1f1f1;
+}
+#T_1cfc3_row4_col1 {
+  background-color: #61af61;
+  color: #f1f1f1;
+}
+#T_1cfc3_row4_col2 {
+  background-color: #118811;
+  color: #f1f1f1;
+}
+#T_1cfc3_row4_col6, #T_1cfc3_row4_col7, #T_1cfc3_row7_col5 {
+  background-color: #5fae5f;
+  color: #f1f1f1;
+}
+#T_1cfc3_row4_col8, #T_1cfc3_row5_col1 {
+  background-color: #56aa56;
+  color: #f1f1f1;
+}
+#T_1cfc3_row5_col0, #T_1cfc3_row8_col6 {
+  background-color: #5aac5a;
+  color: #f1f1f1;
+}
+#T_1cfc3_row5_col3, #T_1cfc3_row8_col3 {
+  background-color: #5eae5e;
+  color: #f1f1f1;
+}
+#T_1cfc3_row5_col4 {
+  background-color: #57ab57;
+  color: #f1f1f1;
+}
+#T_1cfc3_row5_col6, #T_1cfc3_row6_col4 {
+  background-color: #62b062;
+  color: #f1f1f1;
+}
+#T_1cfc3_row5_col8 {
+  background-color: #78bb78;
+  color: #000000;
+}
+#T_1cfc3_row6_col0 {
+  background-color: #75b975;
+  color: #f1f1f1;
+}
+#T_1cfc3_row6_col1 {
+  background-color: #6db56d;
+  color: #f1f1f1;
+}
+#T_1cfc3_row6_col2 {
+  background-color: #168b16;
+  color: #f1f1f1;
+}
+#T_1cfc3_row6_col3 {
+  background-color: #6cb56c;
+  color: #f1f1f1;
+}
+#T_1cfc3_row6_col5 {
+  background-color: #69b369;
+  color: #f1f1f1;
+}
+#T_1cfc3_row6_col8 {
+  background-color: #60af60;
+  color: #f1f1f1;
+}
+#T_1cfc3_row7_col0 {
+  background-color: #74b974;
+  color: #f1f1f1;
+}
+#T_1cfc3_row7_col1 {
+  background-color: #72b872;
+  color: #f1f1f1;
+}
+#T_1cfc3_row7_col6 {
+  background-color: #66b266;
+  color: #f1f1f1;
+}
+#T_1cfc3_row7_col8 {
+  background-color: #52a852;
+  color: #f1f1f1;
+}
+#T_1cfc3_row8_col0 {
+  background-color: #59ac59;
+  color: #f1f1f1;
+}
+#T_1cfc3_row8_col2 {
+  background-color: #0e870e;
+  color: #f1f1f1;
+}
+#T_1cfc3_row8_col5 {
+  background-color: #79bc79;
+  color: #000000;
+}
+</style>
+<table id="T_1cfc3_">
+<thead>
+<tr>
+<th class="blank level0"> </th>
+<th class="col_heading level0 col0">EGFR</th>
+<th class="col_heading level0 col1">ErbB2</th>
+<th class="col_heading level0 col2">p110a</th>
+<th class="col_heading level0 col3">KDR</th>
+<th class="col_heading level0 col4">BRAF</th>
+<th class="col_heading level0 col5">CDK2</th>
+<th class="col_heading level0 col6">LCK</th>
+<th class="col_heading level0 col7">MET</th>
+<th class="col_heading level0 col8">p38a</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="row_heading level0 row0" id="T_1cfc3_level0_row0">EGFR</th>
+<td class="data row0 col0" id="T_1cfc3_row0_col0">0.000</td>
+<td class="data row0 col1" id="T_1cfc3_row0_col1">0.059</td>
+<td class="data row0 col2" id="T_1cfc3_row0_col2">0.573</td>
+<td class="data row0 col3" id="T_1cfc3_row0_col3">0.284</td>
+<td class="data row0 col4" id="T_1cfc3_row0_col4">0.345</td>
+<td class="data row0 col5" id="T_1cfc3_row0_col5">0.352</td>
+<td class="data row0 col6" id="T_1cfc3_row0_col6">0.289</td>
+<td class="data row0 col7" id="T_1cfc3_row0_col7">0.289</td>
+<td class="data row0 col8" id="T_1cfc3_row0_col8">0.355</td>
+</tr>
+<tr>
+<th class="row_heading level0 row1" id="T_1cfc3_level0_row1">ErbB2</th>
+<td class="data row1 col0" id="T_1cfc3_row1_col0">0.059</td>
+<td class="data row1 col1" id="T_1cfc3_row1_col1">0.000</td>
+<td class="data row1 col2" id="T_1cfc3_row1_col2">0.586</td>
+<td class="data row1 col3" id="T_1cfc3_row1_col3">0.298</td>
+<td class="data row1 col4" id="T_1cfc3_row1_col4">0.345</td>
+<td class="data row1 col5" id="T_1cfc3_row1_col5">0.370</td>
+<td class="data row1 col6" id="T_1cfc3_row1_col6">0.315</td>
+<td class="data row1 col7" id="T_1cfc3_row1_col7">0.302</td>
+<td class="data row1 col8" id="T_1cfc3_row1_col8">0.365</td>
+</tr>
+<tr>
+<th class="row_heading level0 row2" id="T_1cfc3_level0_row2">p110a</th>
+<td class="data row2 col0" id="T_1cfc3_row2_col0">0.573</td>
+<td class="data row2 col1" id="T_1cfc3_row2_col1">0.586</td>
+<td class="data row2 col2" id="T_1cfc3_row2_col2">0.000</td>
+<td class="data row2 col3" id="T_1cfc3_row2_col3">0.577</td>
+<td class="data row2 col4" id="T_1cfc3_row2_col4">0.564</td>
+<td class="data row2 col5" id="T_1cfc3_row2_col5">0.576</td>
+<td class="data row2 col6" id="T_1cfc3_row2_col6">0.549</td>
+<td class="data row2 col7" id="T_1cfc3_row2_col7">0.606</td>
+<td class="data row2 col8" id="T_1cfc3_row2_col8">0.569</td>
+</tr>
+<tr>
+<th class="row_heading level0 row3" id="T_1cfc3_level0_row3">KDR</th>
+<td class="data row3 col0" id="T_1cfc3_row3_col0">0.284</td>
+<td class="data row3 col1" id="T_1cfc3_row3_col1">0.298</td>
+<td class="data row3 col2" id="T_1cfc3_row3_col2">0.577</td>
+<td class="data row3 col3" id="T_1cfc3_row3_col3">0.000</td>
+<td class="data row3 col4" id="T_1cfc3_row3_col4">0.329</td>
+<td class="data row3 col5" id="T_1cfc3_row3_col5">0.347</td>
+<td class="data row3 col6" id="T_1cfc3_row3_col6">0.312</td>
+<td class="data row3 col7" id="T_1cfc3_row3_col7">0.286</td>
+<td class="data row3 col8" id="T_1cfc3_row3_col8">0.347</td>
+</tr>
+<tr>
+<th class="row_heading level0 row4" id="T_1cfc3_level0_row4">BRAF</th>
+<td class="data row4 col0" id="T_1cfc3_row4_col0">0.345</td>
+<td class="data row4 col1" id="T_1cfc3_row4_col1">0.345</td>
+<td class="data row4 col2" id="T_1cfc3_row4_col2">0.564</td>
+<td class="data row4 col3" id="T_1cfc3_row4_col3">0.329</td>
+<td class="data row4 col4" id="T_1cfc3_row4_col4">0.000</td>
+<td class="data row4 col5" id="T_1cfc3_row4_col5">0.353</td>
+<td class="data row4 col6" id="T_1cfc3_row4_col6">0.327</td>
+<td class="data row4 col7" id="T_1cfc3_row4_col7">0.362</td>
+<td class="data row4 col8" id="T_1cfc3_row4_col8">0.362</td>
+</tr>
+<tr>
+<th class="row_heading level0 row5" id="T_1cfc3_level0_row5">CDK2</th>
+<td class="data row5 col0" id="T_1cfc3_row5_col0">0.352</td>
+<td class="data row5 col1" id="T_1cfc3_row5_col1">0.370</td>
+<td class="data row5 col2" id="T_1cfc3_row5_col2">0.576</td>
+<td class="data row5 col3" id="T_1cfc3_row5_col3">0.347</td>
+<td class="data row5 col4" id="T_1cfc3_row5_col4">0.353</td>
+<td class="data row5 col5" id="T_1cfc3_row5_col5">0.000</td>
+<td class="data row5 col6" id="T_1cfc3_row5_col6">0.319</td>
+<td class="data row5 col7" id="T_1cfc3_row5_col7">0.344</td>
+<td class="data row5 col8" id="T_1cfc3_row5_col8">0.277</td>
+</tr>
+<tr>
+<th class="row_heading level0 row6" id="T_1cfc3_level0_row6">LCK</th>
+<td class="data row6 col0" id="T_1cfc3_row6_col0">0.289</td>
+<td class="data row6 col1" id="T_1cfc3_row6_col1">0.315</td>
+<td class="data row6 col2" id="T_1cfc3_row6_col2">0.549</td>
+<td class="data row6 col3" id="T_1cfc3_row6_col3">0.312</td>
+<td class="data row6 col4" id="T_1cfc3_row6_col4">0.327</td>
+<td class="data row6 col5" id="T_1cfc3_row6_col5">0.319</td>
+<td class="data row6 col6" id="T_1cfc3_row6_col6">0.000</td>
+<td class="data row6 col7" id="T_1cfc3_row6_col7">0.309</td>
+<td class="data row6 col8" id="T_1cfc3_row6_col8">0.337</td>
+</tr>
+<tr>
+<th class="row_heading level0 row7" id="T_1cfc3_level0_row7">MET</th>
+<td class="data row7 col0" id="T_1cfc3_row7_col0">0.289</td>
+<td class="data row7 col1" id="T_1cfc3_row7_col1">0.302</td>
+<td class="data row7 col2" id="T_1cfc3_row7_col2">0.606</td>
+<td class="data row7 col3" id="T_1cfc3_row7_col3">0.286</td>
+<td class="data row7 col4" id="T_1cfc3_row7_col4">0.362</td>
+<td class="data row7 col5" id="T_1cfc3_row7_col5">0.344</td>
+<td class="data row7 col6" id="T_1cfc3_row7_col6">0.309</td>
+<td class="data row7 col7" id="T_1cfc3_row7_col7">0.000</td>
+<td class="data row7 col8" id="T_1cfc3_row7_col8">0.371</td>
+</tr>
+<tr>
+<th class="row_heading level0 row8" id="T_1cfc3_level0_row8">p38a</th>
+<td class="data row8 col0" id="T_1cfc3_row8_col0">0.355</td>
+<td class="data row8 col1" id="T_1cfc3_row8_col1">0.365</td>
+<td class="data row8 col2" id="T_1cfc3_row8_col2">0.569</td>
+<td class="data row8 col3" id="T_1cfc3_row8_col3">0.347</td>
+<td class="data row8 col4" id="T_1cfc3_row8_col4">0.362</td>
+<td class="data row8 col5" id="T_1cfc3_row8_col5">0.277</td>
+<td class="data row8 col6" id="T_1cfc3_row8_col6">0.337</td>
+<td class="data row8 col7" id="T_1cfc3_row8_col7">0.371</td>
+<td class="data row8 col8" id="T_1cfc3_row8_col8">0.000</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<section id="Save-kinase-distance-matrix">
+<h4 id="Save-kinase-distance-matrix">Save kinase distance matrix<a class="headerlink" href="#Save-kinase-distance-matrix" title="Permalink to this headline">¶</a></h4>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">file_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"kinase_distance_matrix.csv"</span>
+<span class="n">kinase_distance_matrix_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="n">file_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="Discussion">
+<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this headline">¶</a></h2>
+<p>In this talktorial, we investigate how sequences can be used to measure similarity between kinases. The focus is set on the pocket sequence, which is retrieved from KLIFS. Sequence similarity can be assessed using two scores: 1. the identity, which treats all amino acids uniformly, and 2. the substitution, which takes into account the rate of change of residues over evolutionary time.</p>
+<p>The kinase similarity matrix above will be reloaded in <strong>Talktorial T028</strong>, where we compare kinase similarities from different perspectives, including the pocket sequence perspective we have talked about in this talktorial.</p>
+</section>
+<section id="Quiz">
+<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Should the full kinase sequence be used instead of the pocket sequence?</p></li>
+<li><p>How does the similarity using identity behave with respect to mutations?</p></li>
+<li><p>How does similarity using identity compare to similarity using substitution?</p></li>
+</ol>
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {}, "version_major": 2, "version_minor": 0}
+</script></section>
+</section>
+
+
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="md-footer">
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="T023_what_is_a_kinase.html" title="T023 · What is a kinase?"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> Previous </span> T023 · What is a kinase? </span>
+              </div>
+            </a>
+          
+          
+            <a href="T025_kinase_similarity_kissim.html" title="T025 · Kinase similarity: Kinase pocket (KiSSim fingerprint)"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> Next </span> T025 · Kinase similarity: Kinase pocket (KiSSim fingerprint) </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          
+        </a>
+        
+      </nav>
+    </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169; Copyright 2018-2021, Volkamer Lab. Project structure based on the Computational Molecular Science Python Cookiecutter version 1.1.
+              
+          </div>
+            Created using
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.3.1.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../_static/javascripts/application.js"></script>
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  </body>
+</html>

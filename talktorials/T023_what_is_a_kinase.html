@@ -1,0 +1,1285 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta property="og:title" content="T023 · What is a kinase?" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://projects.volkamerlab.org/teachopencadd/talktorials/T023_what_is_a_kinase.html" />
+  <meta property="og:description" content="Authors: Dominique Sydow, 2021, Volkamer lab, Charité, Talia B. Kimber, 2021, Volkamer lab, Charité, Andrea Volkamer, 2021, Volkamer lab, Charité. Aim of this talktorial: In this talktorial, we will talk about kinases: why are they important in life and drug design, what do they look like, and wh..." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/volkamerlab/teachopencadd/master/docs/_static/images/TeachOpenCADD_topics.png" />
+  <meta property="og:image:alt" content="T023 · What is a kinase?" />
+  
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
+
+    <style>
+      body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+    </style>
+  
+
+  <link rel="stylesheet" href="../_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="../_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#2196f3">
+  <script src="../_static/javascripts/modernizr.js"></script>
+  
+    <script async src="../_static/cookieconsent.min.js"></script>
+    <script>
+        window.addEventListener("load", function(){
+        window.cookieconsent.initialise({
+            "palette": {
+            "popup": {
+                "background": "#f0f0f0",
+                "text": "#999"
+            },
+            "button": {
+                "text": "#fff",
+                "background": "#009688"
+            }
+            },
+            "theme": "classic"
+        })});
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6ZE82CNZB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-Q6ZE82CNZB');
+    </script>
+  
+    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
+  
+  
+    <title>T023 · What is a kinase? &#8212; TeachOpenCADD 0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/material.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="T024 · Kinase similarity: Sequence" href="T024_kinase_similarity_sequence.html" />
+    <link rel="prev" title="T022 · Ligand-based screening: neural networks" href="T022_ligand_based_screening_neural_network.html" />
+  
+    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
+  
+   
+
+  </head>
+  <body dir=ltr
+        data-md-color-primary=teal data-md-color-accent=cyan>
+  
+  <svg class="md-svg">
+    <defs data-children-count="0">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
+    </defs>
+  </svg>
+  
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#talktorials/T023_what_is_a_kinase" tabindex="1" class="md-skip"> Skip to content </a>
+  <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../index.html" title="TeachOpenCADD 0 documentation"
+           class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic">TeachOpenCADD</span>
+          <span class="md-header-nav__topic"> T023 · What is a kinase? </span>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="../search.html" method="get" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder="Search"
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    TeachOpenCADD
+  </div>
+</a>
+          </div>
+        </div>
+      
+      
+    </div>
+  </nav>
+</header>
+
+  
+  <div class="md-container">
+    
+    
+    
+  <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+      <ul class="md-tabs__list">
+            
+            <li class="md-tabs__item"><a href="../talktorials.html" class="md-tabs__link">Our talktorials</a></li>
+            
+            <li class="md-tabs__item"><a href="../installing.html" class="md-tabs__link">Run locally</a></li>
+            
+            <li class="md-tabs__item"><a href="../contribute.html" class="md-tabs__link">Contribute</a></li>
+          <li class="md-tabs__item"><a href="../all_talktorials.html" class="md-tabs__link">Complete list of talktorials</a></li>
+      </ul>
+    </div>
+  </nav>
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../index.html" title="TeachOpenCADD 0 documentation" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    <a href="../index.html"
+       title="TeachOpenCADD 0 documentation">TeachOpenCADD</a>
+  </label>
+    <div class="md-nav__source">
+      <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    TeachOpenCADD
+  </div>
+</a>
+    </div>
+  
+  
+
+  
+  <ul class="md-nav__list">
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Our talktorials</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#jcim-2019" class="md-nav__link">JCIM 2019</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#ligand-based-cheminformatics" class="md-nav__link">Ligand-based cheminformatics</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#structural-biology" class="md-nav__link">Structural biology</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#online-apis-servers" class="md-nav__link">Online APIs/servers</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#kinase-similarity" class="md-nav__link">Kinase similarity</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Run locally</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../installing.html" class="md-nav__link">Installing</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Contributors</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../contribute.html" class="md-nav__link">For contributors</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../api.html" class="md-nav__link">API Documentation</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">External resources</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../external_dependencies.html" class="md-nav__link">Packages and webservers used in TeachOpenCADD</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../external_tutorials_collections.html" class="md-nav__link">External tutorials and collections</a>
+      
+    
+    </li>
+  </ul>
+  
+
+</nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#talktorials-t023-what-is-a-kinase--page-root" class="md-nav__link">T023 · What is a kinase?</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
+        </li>
+        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
+        </li>
+        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Kinases-in-a-nutshell" class="md-nav__link">Kinases in a nutshell</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#The-human-kinome" class="md-nav__link">The human kinome</a>
+        </li>
+        <li class="md-nav__item"><a href="#Kinase-structures-and-important-motifs" class="md-nav__link">Kinase structures and important motifs</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Kinase-resources" class="md-nav__link">Kinase resources</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Kinase-structures-and-related-information:-KLIFS" class="md-nav__link">Kinase structures and related information: KLIFS</a>
+        </li>
+        <li class="md-nav__item"><a href="#Bioactivity-data" class="md-nav__link">Bioactivity data</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Kinase-similarity:-Off-targets-and-promiscuous-binding" class="md-nav__link">Kinase similarity: Off-targets and promiscuous binding</a>
+        </li>
+        <li class="md-nav__item"><a href="#Kinase-dataset-compilation" class="md-nav__link">Kinase dataset compilation</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Define-the-kinases-of-interest" class="md-nav__link">Define the kinases of interest</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Appendix" class="md-nav__link">Appendix</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#KinMap-data" class="md-nav__link">KinMap data</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Number-of-PDB-structures-per-kinase" class="md-nav__link">Number of PDB structures per kinase</a>
+        </li>
+        <li class="md-nav__item"><a href="#Number-of-ChEMBL-bioactivities-per-kinase" class="md-nav__link">Number of ChEMBL bioactivities per kinase</a>
+        </li>
+        <li class="md-nav__item"><a href="#Erlotinib-profiling-data-from-Karaman-et-al.-dataset" class="md-nav__link">Erlotinib profiling data from Karaman <em>et al.</em> dataset</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Kinase-structure-visualization-with-opencadd" class="md-nav__link">Kinase structure visualization with <code class="docutils literal notranslate"><span class="pre">opencadd</span></code></a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T023_what_is_a_kinase.nblink.txt">Show Source</a> </li>
+
+<li id="searchbox" class="md-nav__item"></li>
+
+  </ul>
+</nav>
+              </div>
+            </div>
+          </div>
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<section id="T023-·-What-is-a-kinase?">
+<h1 id="talktorials-t023-what-is-a-kinase--page-root">T023 · What is a kinase?<a class="headerlink" href="#talktorials-t023-what-is-a-kinase--page-root" title="Permalink to this headline">¶</a></h1>
+<p>Authors:</p>
+<ul class="simple">
+<li><p>Dominique Sydow, 2021, <a class="reference external" href="https://volkamerlab.org/">Volkamer lab, Charité</a></p></li>
+<li><p>Talia B. Kimber, 2021, <a class="reference external" href="https://volkamerlab.org/">Volkamer lab, Charité</a></p></li>
+<li><p>Andrea Volkamer, 2021, <a class="reference external" href="https://volkamerlab.org/">Volkamer lab, Charité</a></p></li>
+</ul>
+<section id="Aim-of-this-talktorial">
+<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this headline">¶</a></h2>
+<p>In this talktorial, we will talk about kinases: why are they important in life and drug design, what do they look like, and what data resources are available? Finally, we select a set of kinases which will be analyzed in the forthcoming talktorials <strong>T024</strong>-<strong>T028</strong> with respect to their similarity, the goal being to gain insight into potential off-target effects.</p>
+<section id="Contents-in-Theory">
+<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Kinases in a nutshell</p>
+<ul>
+<li><p>The human kinome</p></li>
+<li><p>Kinase structures and important motifs</p></li>
+</ul>
+</li>
+<li><p>Kinase resources</p>
+<ul>
+<li><p>Kinase structures and related information</p></li>
+<li><p>Bioactivity data</p></li>
+</ul>
+</li>
+<li><p>Kinase similarity: Off-targets and promiscuous binding</p></li>
+<li><p>Kinase dataset compilation</p></li>
+</ul>
+</section>
+<section id="Contents-in-Practical">
+<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Define the kinases of interest</p></li>
+</ul>
+</section>
+<section id="References">
+<h3 id="References">References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Kinases as drug targets: <a class="reference external" href="https://doi.org/10.1038/s41573-021-00195-4">Nat. Rev. Drug Discov. (2021), 20(7), 551-569</a></p></li>
+<li><p>Sequence-based kinase clustering: Manning et al. <a class="reference external" href="https://doi.org/10.1126/science.1075762">Science (2002), 298(5600), 1912-1934</a></p></li>
+<li><p>KinMap:</p>
+<ul>
+<li><p>Paper: <a class="reference external" href="https://dx.doi.org/10.1186%2Fs12859-016-1433-7">BMC Bioinformatics (2017), 18, 16</a></p></li>
+<li><p>Website: <a class="reference external" href="http://www.kinhub.org/kinmap/">http://www.kinhub.org/kinmap/</a></p></li>
+</ul>
+</li>
+<li><p>KLIFS</p>
+<ul>
+<li><p>KLIFS URL: <a class="reference external" href="https://klifs.net/">https://klifs.net/</a></p></li>
+<li><p>KLIFS database: <a class="reference external" href="https://doi.org/10.1093/nar/gkaa895">Nucleic Acid Res. (2020), 49(D1), D562-D569</a></p></li>
+<li><p>KLIFS binding site definition: <a class="reference external" href="https://doi.org/10.1021/jm400378w">J. Med. Chem. (2014), 57(2), 249-277</a></p></li>
+</ul>
+</li>
+<li><p>Bioactivity data</p>
+<ul>
+<li><p>Karaman et al. dataset: <a class="reference external" href="https://doi.org/10.1038/nbt1358">Nature Biotechnology (2008), 26, 127-132</a></p></li>
+<li><p>Davis et al. dataset: <a class="reference external" href="https://doi.org/10.1038/nbt.1990">Nature Biotechnology (2011), 29, 1046-1051</a></p></li>
+<li><p>KIBA dataset: <a class="reference external" href="https://doi.org/10.1021/ci400709d">J. Chem. Inf. Model. (2014), 54(3), 753-743</a></p></li>
+<li><p>PKIS dataset: <a class="reference external" href="https://doi.org/10.1371/journal.pone.0181585">PLOS ONE (2017), 12, 1-20</a></p></li>
+</ul>
+</li>
+<li><p>Kinase selection: <a class="reference external" href="https://www.mdpi.com/1420-3049/26/3/629">Molecules (2021), 26(3), 629</a></p></li>
+</ul>
+</section>
+</section>
+<section id="Theory">
+<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this headline">¶</a></h2>
+<section id="Kinases-in-a-nutshell">
+<h3 id="Kinases-in-a-nutshell">Kinases in a nutshell<a class="headerlink" href="#Kinases-in-a-nutshell" title="Permalink to this headline">¶</a></h3>
+<p>Kinases are established drug targets to combat cancer and inflammatory diseases (<a class="reference external" href="https://doi.org/10.1038/s41573-021-00195-4">Nat. Rev. Drug Discov. (2021), 20(7), 551-569</a>). They are involved in most aspects of cell life by phosphorylating, and thereby activating, either themselves or other proteins. They are among the most frequently mutated proteins in tumors.</p>
+<p>As of September 2021, <span class="math notranslate nohighlight">\(5782\)</span> X-ray structures of human kinases have been resolved (see the <a class="reference external" href="https://klifs.net/">KLIFS</a> database) and <span class="math notranslate nohighlight">\(67\)</span> FDA-approved small molecule protein kinase inhibitors are on the market (see <a class="reference external" href="http://www.brimr.org/PKI/PKIs.htm">the list</a> compiled by the Blue Ridge Institute for Medical Research). Most of the approved drugs bind in the ATP-binding pocket and intermediate surroundings.</p>
+<p>Despite of decades of kinase research, there are still many open challenges:</p>
+<ul class="simple">
+<li><p>A large fraction of the kinome is un-/underexplored.</p></li>
+<li><p>Many kinase inhibitors are promiscuous binders causing off-target effects or enabling polypharmacology.</p></li>
+<li><p>There are occurrences of drug resistance due to mutations.</p></li>
+</ul>
+<section id="The-human-kinome">
+<h4 id="The-human-kinome">The human kinome<a class="headerlink" href="#The-human-kinome" title="Permalink to this headline">¶</a></h4>
+<p>The human kinome consists of over <span class="math notranslate nohighlight">\(500\)</span> protein kinases, but this number may vary depending on the data resource (see <a class="reference external" href="https://github.com/openkinome/kinodata/blob/master/human-kinases/human_kinases.ipynb">overview on Kinodata</a>).</p>
+<p>As reported in <a class="reference external" href="https://doi.org/10.1126/science.1075762">Science (2002), 298(5600), 1912-1934</a>, Manning <em>et al.</em> clustered the human protein kinases based on their sequence similarity into eight major groups (AGC, CAMK, CK1, CMGC, RGC, STE, TK, TKL) and one “Other” group for unassigned kinases, as well as atypical kinases. The kinase clustering is visualized as the Manning kinome tree. The kinase resource <a class="reference external" href="http://www.kinhub.org/kinmap/">KinMap</a> enables mapping of kinase data onto that
+tree, e.g. the number of X-ray structures per kinase as shown in Figure 1.</p>
+<img alt="Manning tree with number of structures per kinase (KinMap)" src="../_images/kinmap_n_structures_per_kinase.png"/>
+<p><em>Figure 1:</em> Number of PDB structures per kinase mapped onto the Manning kinome tree using <a class="reference external" href="http://www.kinhub.org/kinmap/">KinMap</a>. Check the appendix on how to generate this KinMap tree.</p>
+</section>
+<section id="Kinase-structures-and-important-motifs">
+<h4 id="Kinase-structures-and-important-motifs">Kinase structures and important motifs<a class="headerlink" href="#Kinase-structures-and-important-motifs" title="Permalink to this headline">¶</a></h4>
+<p>Kinase sequences and structures are highly conserved. Important regions in the kinase pocket include (see Figure 2):</p>
+<ul class="simple">
+<li><p>Hinge region: Forms key hydrogen bonds to ligands.</p></li>
+<li><p>DFG motif: Flips between phenylalanine (F) and aspartate (D), driving the active and inactive state.</p></li>
+<li><p>αC-helix: Forms in the αC-in conformation a salt bridge between highly conserved lysine (K) and glutamine (Q).</p></li>
+<li><p>Glycine-rich (G-rich) loop: Stabilizes ATP binding.</p></li>
+</ul>
+<img alt="Kinase structure with key motifs" src="../_images/T023_kinase_structure.png"/>
+<p><em>Figure 2:</em> Kinase structure with important key motifs: Hinge region, DFG motif, αC-helix, and G-rich loop. The example structure shown here represents CDK2, PDB ID: <a class="reference external" href="https://www.rcsb.org/structure/1fin">1FIN</a>. Check the appendix on how to generate this visualization with <code class="docutils literal notranslate"><span class="pre">opencadd</span></code>.</p>
+</section>
+</section>
+<section id="Kinase-resources">
+<h3 id="Kinase-resources">Kinase resources<a class="headerlink" href="#Kinase-resources" title="Permalink to this headline">¶</a></h3>
+<p>The focus on this protein family has led to a plethora of freely available data on compounds, bioactivity, and structures that are being used for computational drug development (<a class="reference external" href="https://doi.org/10.1016/bs.armc.2017.08.001">Annual Reports in Medicinal Chemistry 50 (2017): 197-236</a>).</p>
+<section id="Kinase-structures-and-related-information:-KLIFS">
+<h4 id="Kinase-structures-and-related-information:-KLIFS">Kinase structures and related information: KLIFS<a class="headerlink" href="#Kinase-structures-and-related-information:-KLIFS" title="Permalink to this headline">¶</a></h4>
+<p>The KLIFS database (<a class="reference external" href="https://doi.org/10.1093/nar/gkaa895">Nucleic Acid Res. (2020), 49(D1), D562-D569</a>, <a class="reference external" href="https://doi.org/10.1021/jm400378w">J. Med. Chem. (2014), 57(2), 249-277</a>) fetches all kinase structures deposited in the structural database PDB (<a class="reference external" href="https://doi.org/10.1107/S0907444902003451">Acta Cryst. (2002), D58, 899-907</a>, <a class="reference external" href="https://doi.org/10.1016/j.str.2012.01.010">Structure (2012), 20(3), 391-396</a>) and processes them as follows: All multi-chain structures in the PDB are split
+into monomers and aligned to each other with a special focus on a pre-defined binding site of <span class="math notranslate nohighlight">\(85\)</span> residues (Figure 1). For example, this means that the conserved gatekeeper (GK) residue at KLIFS position <span class="math notranslate nohighlight">\(45\)</span> can be easily queried for any of the over <span class="math notranslate nohighlight">\(10,000\)</span> monomeric kinase structures in KLIFS.</p>
+<img alt="KLIFS binding site" src="https://klifs.net/images/faq/colors.png"/>
+<p><em>Figure 1:</em> Kinase binding site residues as defined by KLIFS. Figure and description taken from: <a class="reference external" href="https://doi.org/10.1021/jm400378w">J. Med. Chem. (2014), 57(2), 249-277</a>.</p>
+<p>Each structure, kinase, and ligand in KLIFS is associated with an identifier (we will use those at times in the downstream talktorials):</p>
+<ul class="simple">
+<li><p>Structure KLIFS ID</p></li>
+<li><p>Kinase KLIFS ID</p></li>
+<li><p>Ligand KLIFS ID</p></li>
+</ul>
+<p>KLIFS contains not only kinase structures and their pocket definitions (used in <strong>Talktorials T024 and T025</strong>) but also a lot of structure-, kinase-, and/or ligand-associated data:</p>
+<ul class="simple">
+<li><p>Interaction fingerprints (used in <strong>Talktorial T026</strong>)</p></li>
+<li><p>Structure conformations</p></li>
+<li><p>Bioactivity data from ChEMBL</p></li>
+<li><p>Approved drugs</p></li>
+<li><p>Subpocket coverage by co-crystallized ligands</p></li>
+</ul>
+</section>
+<section id="Bioactivity-data">
+<h4 id="Bioactivity-data">Bioactivity data<a class="headerlink" href="#Bioactivity-data" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference external" href="https://www.ebi.ac.uk/chembl/">ChEMBL</a> is a well-known bioactivity database, which releases updated versions every now and then. In September 2021, there are over two million compounds and <span class="math notranslate nohighlight">\(14,000\)</span> targets that are stored. In ChEMBL29, there are over <span class="math notranslate nohighlight">\(160,000\)</span> measurements on kinases (see Figure 3).</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">kinodata</span></code> GitHub repository: <a class="reference external" href="https://github.com/openkinome/kinodata">https://github.com/openkinome/kinodata</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">kinodata</span></code> ChEMBL29 release: <a class="reference external" href="https://github.com/openkinome/kinodata/releases/tag/v0.3">https://github.com/openkinome/kinodata/releases/tag/v0.3</a> (<code class="docutils literal notranslate"><span class="pre">activities-chembl29_v0.3.zip</span></code>)</p></li>
+</ul>
+<p>As with other data types, the coverage of bioactivity data is highly unbalanced among the human kinases, depending on how much research is spent on certain kinases (Figure 3).</p>
+<img alt="Manning tree with number of ChEMBL activities per kinase (KinMap)" src="../_images/kinmap_n_activities_per_kinase.png"/>
+<p><em>Figure 3:</em> Number of ChEMBL29 bioactivities per kinase mapped onto the Manning kinome tree using KinMap. Check the appendix on how to generate this KinMap tree.</p>
+<p>However, ChEMBL is not the only available bioactivity database. Below is an non-exhaustive list of available kinase profiling data sets.</p>
+<ul class="simple">
+<li><p>Karaman <em>et al.</em> dataset</p>
+<ul>
+<li><p>Paper: <a class="reference external" href="https://doi.org/10.1038/nbt1358">Nature Biotechnology (2008), 26, 127-132</a></p></li>
+<li><p>Data: <a class="reference external" href="http://kinhub.org/js/Davis_profiling.js">KinMap data (JSON)</a></p></li>
+</ul>
+</li>
+<li><p>Davis <em>et al.</em> dataset</p>
+<ul>
+<li><p>Paper: <a class="reference external" href="https://doi.org/10.1038/nbt.1990">Nature Biotechnology (2011), 29, 1046-1051</a></p></li>
+<li><p>Data: <a class="reference external" href="http://kinhub.org/js/Karaman_profiling.js">KinMap data (JSON)</a></p></li>
+</ul>
+</li>
+<li><p>KIBA dataset</p>
+<ul>
+<li><p>Paper: <a class="reference external" href="https://doi.org/10.1021/ci400709d">J. Chem. Inf. Model. (2014), 54(3), 753-743</a></p></li>
+<li><p>Data: <a class="reference external" href="https://ndownloader.figstatic.com/files/3950161">SI data (XLSX)</a></p></li>
+</ul>
+</li>
+<li><p>PKIS dataset</p>
+<ul>
+<li><p>Paper: <a class="reference external" href="https://doi.org/10.1371/journal.pone.0181585">PLOS ONE (2017), 12, 1-20</a></p></li>
+<li><p>Data: <a class="reference external" href="https://doi.org/10.1371/journal.pone.0181585.s004">SI data (XLSX)</a></p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="Kinase-similarity:-Off-targets-and-promiscuous-binding">
+<h3 id="Kinase-similarity:-Off-targets-and-promiscuous-binding">Kinase similarity: Off-targets and promiscuous binding<a class="headerlink" href="#Kinase-similarity:-Off-targets-and-promiscuous-binding" title="Permalink to this headline">¶</a></h3>
+<p>As described before, kinases are highly conserved, especially in their binding site. This high similarity is a challenge in drug design because ligands may form similar binding modes not only with their designated target (on-target) but also with other targets (off-targets). Such promiscuous binding can cause mild to severe side effects.</p>
+<p>Predicting these side effects is non-trivial since some off-targets are not obvious. For example, the EGFR inhibitor Erlotinib shows affinities to other kinases in the highly sequentially-similar TK kinase group. However, it also strongly affects the off-targets GAK, LOK, and SLK, which are in more remote kinase groups (Figure 4).</p>
+<img alt="Erlotinib profiling data from Karaman dataset (KinMap)" src="../_images/kinmap_erlotinib_karaman.png"/>
+<p><em>Figure 4:</em> Profiling data for EGFR inhibitor Erlobinib from the Karaman <em>et al.</em> dataset (<a class="reference external" href="https://doi.org/10.1038/nbt1358">Nature Biotechnology (2008), 26, 127-132</a>) mapped onto the Manning kinome tree using <a class="reference external" href="http://www.kinhub.org/kinmap/">KinMap</a>. Check the appendix of this notebook on how to generate this figure.</p>
+<p>In the following four talktorials, namely <strong>Talktorials T024-027</strong>, we will assess kinase similarity from different perspectives, which we compare with each other in <strong>Talktorial T028</strong>:</p>
+<ul class="simple">
+<li><p><strong>Talktorial T024</strong>: Kinase similarity based on KLIFS pocket sequence</p></li>
+<li><p><strong>Talktorial T025</strong>: Kinase similarity based on KiSSim pocket structure</p></li>
+<li><p><strong>Talktorial T026</strong>: Kinase similarity based on KLIFS interaction fingerprint</p></li>
+<li><p><strong>Talktorial T027</strong>: Kinase similarity based on ligand promiscuity (ChEMBL bioactivity data)</p></li>
+<li><p><strong>Talktorial T028</strong>: Compare kinase similarity measures from <strong>Talktorials T024-T027</strong></p></li>
+</ul>
+</section>
+<section id="Kinase-dataset-compilation">
+<h3 id="Kinase-dataset-compilation">Kinase dataset compilation<a class="headerlink" href="#Kinase-dataset-compilation" title="Permalink to this headline">¶</a></h3>
+<p>In the course of the kinase similarity talktorials (<strong>Talktorials T024-T028</strong>), we will use nine kinases from a study published in <a class="reference external" href="https://www.mdpi.com/1420-3049/26/3/629">Molecules (2021), 26(3), 629</a>, which were selected for the following reasons:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Profile 1 combined <strong>EGFR</strong> and <strong>ErbB2</strong> as targets and <strong>BRAF</strong> as a (general) anti-target.</p></li>
+<li><p>Out of similar considerations, Profile 2 consisted of EGFR and <strong>PI3K</strong> as targets and BRAF as anti-target. This profile is expected to be more challenging as PI3K is an atypical kinase and thus less similar to EGFR than for example ErbB2 used in Profile 1.</p></li>
+<li><p>Profile 3, comprised of EGFR and <strong>VEGFR2</strong> as targets and BRAF as anti-target, was contrasted with the hit rate that we found with a standard docking against the single target VEGFR2 (Profile 4).</p></li>
+<li><p>To broaden the comparison and obtain an estimate for the promiscuity of each compound, the kinases <strong>CDK2</strong>, <strong>LCK</strong>, <strong>MET</strong> and <strong>p38α</strong> were included in the experimental assay panel and the structure-based bioinformatics comparison as commonly used anti-targets.</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="Practical">
+<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">HERE</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">_dh</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">DATA</span> <span class="o">=</span> <span class="n">HERE</span> <span class="o">/</span> <span class="s2">"data"</span>
+</pre></div>
+</div>
+</div>
+<section id="Define-the-kinases-of-interest">
+<h3 id="Define-the-kinases-of-interest">Define the kinases of interest<a class="headerlink" href="#Define-the-kinases-of-interest" title="Permalink to this headline">¶</a></h3>
+<p>We have collected information about these nine kinases in the CSV file <code class="docutils literal notranslate"><span class="pre">kinase_selection.csv</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">kinase</span></code>: Kinase name as used in <a class="reference external" href="https://www.mdpi.com/1420-3049/26/3/629">Molecules (2021), 26(3), 629</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">kinase_klifs</span></code>: Kinase name as used in the KLIFS database</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uniprot_id</span></code>: Kinase UniProt ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group</span></code>: Kinase group as defined by Manning <em>et al.</em> <a class="reference external" href="https://doi.org/10.1126/science.1075762">Science (2002), 298(5600), 1912-1934</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">full_kinase_name</span></code>: Full kinase name as used in <a class="reference external" href="https://www.mdpi.com/1420-3049/26/3/629">Molecules (2021), 26(3), 629</a></p></li>
+</ul>
+<p><em>Note</em>: You can run the kinase similarity <strong>Talktorials T024-T028</strong> with your own set of kinases. To do so, please update the CSV file with your kinases; the only mandatory columns are <code class="docutils literal notranslate"><span class="pre">kinase_klifs</span></code> and <code class="docutils literal notranslate"><span class="pre">uniprot_id</span></code>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">kinase_selection_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"kinase_selection.csv"</span><span class="p">)</span>
+<span class="n">kinase_selection_df</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>kinase</th>
+<th>kinase_klifs</th>
+<th>uniprot_id</th>
+<th>group</th>
+<th>full_kinase_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>EGFR</td>
+<td>EGFR</td>
+<td>P00533</td>
+<td>TK</td>
+<td>Epidermal growth factor receptor</td>
+</tr>
+<tr>
+<th>1</th>
+<td>ErbB2</td>
+<td>ErbB2</td>
+<td>P04626</td>
+<td>TK</td>
+<td>Erythroblastic leukemia viral oncogene homolog 2</td>
+</tr>
+<tr>
+<th>2</th>
+<td>PI3K</td>
+<td>p110a</td>
+<td>P42336</td>
+<td>Atypical</td>
+<td>Phosphatidylinositol-3-kinase</td>
+</tr>
+<tr>
+<th>3</th>
+<td>VEGFR2</td>
+<td>KDR</td>
+<td>P35968</td>
+<td>TK</td>
+<td>Vascular endothelial growth factor receptor 2</td>
+</tr>
+<tr>
+<th>4</th>
+<td>BRAF</td>
+<td>BRAF</td>
+<td>P15056</td>
+<td>TKL</td>
+<td>Rapidly accelerated fibrosarcoma isoform B</td>
+</tr>
+<tr>
+<th>5</th>
+<td>CDK2</td>
+<td>CDK2</td>
+<td>P24941</td>
+<td>CMGC</td>
+<td>Cyclic-dependent kinase 2</td>
+</tr>
+<tr>
+<th>6</th>
+<td>LCK</td>
+<td>LCK</td>
+<td>P06239</td>
+<td>TK</td>
+<td>Lymphocyte-specific protein tyrosine kinase</td>
+</tr>
+<tr>
+<th>7</th>
+<td>MET</td>
+<td>MET</td>
+<td>P08581</td>
+<td>TK</td>
+<td>Mesenchymal-epithelial transition factor</td>
+</tr>
+<tr>
+<th>8</th>
+<td>p38a</td>
+<td>p38a</td>
+<td>Q16539</td>
+<td>CMGC</td>
+<td>p38 mitogen activated protein kinase alpha</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>We will load this dataset in all downstream talktorials to assess kinase similarity from different perspectives.</p>
+</section>
+</section>
+<section id="Appendix">
+<h2 id="Appendix">Appendix<a class="headerlink" href="#Appendix" title="Permalink to this headline">¶</a></h2>
+<section id="KinMap-data">
+<h3 id="KinMap-data">KinMap data<a class="headerlink" href="#KinMap-data" title="Permalink to this headline">¶</a></h3>
+<p>There are some KinMap trees shown in this notebook. The code below generates the KinMap CSV files to be uploaded to KinMap: <a class="reference external" href="http://www.kinhub.org/kinmap">http://www.kinhub.org/kinmap</a>.</p>
+<p><em>Note</em>: PNG downloads do not seem to work anymore, thus download as SVG and convert to PNG in your terminal (Linux) via <code class="docutils literal notranslate"><span class="pre">convert</span> <span class="pre">-density</span> <span class="pre">25</span> <span class="pre">my_kinmap_figure.svg</span> <span class="pre">my_kinmap_figure.png</span></code> (SVG cannot be included in Jupyter notebooks out-of-the-box).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">format_for_kinmap</span><span class="p">(</span><span class="n">kinase_names</span><span class="p">,</span> <span class="n">kinase_values</span><span class="p">,</span> <span class="n">size_min</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">size_max</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Given kinase names and some associated values, generates a KinMap data file</span>
+<span class="sd">    that will display values as circles of size [`size_min`, `size_max`].</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    kinase_names : list of str</span>
+<span class="sd">        Kinase names.</span>
+<span class="sd">    kinase_values : list of float</span>
+<span class="sd">        Some associated values, such as the number of bioactivites.</span>
+<span class="sd">    size_min : int</span>
+<span class="sd">        Minimum circle size on KinMap tree (minimum input value will be scaled to `size_min`).</span>
+<span class="sd">    size_max : int</span>
+<span class="sd">        Maximum circle size on KinMap tree (maximum input value will be scaled to `size_min`).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pandas.DataFrame</span>
+<span class="sd">        KinMap data with columns `xName` (kinase name), `size` (circle size for KinMap tree).</span>
+<span class="sd">    """</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"xName"</span><span class="p">:</span> <span class="n">kinase_names</span><span class="p">,</span> <span class="s2">"values"</span><span class="p">:</span> <span class="n">kinase_values</span><span class="p">})</span>
+    <span class="n">min_</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"values"</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+    <span class="n">max_</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"values"</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="n">data</span><span class="p">[</span><span class="s2">"size"</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"values"</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+        <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">min_</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">max_</span> <span class="o">-</span> <span class="n">min_</span><span class="p">)</span> <span class="o">*</span> <span class="n">size_max</span><span class="p">)</span> <span class="o">+</span> <span class="n">size_min</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span><span class="p">[[</span><span class="s2">"xName"</span><span class="p">,</span> <span class="s2">"size"</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<section id="Number-of-PDB-structures-per-kinase">
+<h4 id="Number-of-PDB-structures-per-kinase">Number of PDB structures per kinase<a class="headerlink" href="#Number-of-PDB-structures-per-kinase" title="Permalink to this headline">¶</a></h4>
+<p>Generate the number of structures per kinase in the KinMap format to be mapped onto the kinome tree.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">opencadd.databases.klifs</span> <span class="kn">import</span> <span class="n">setup_remote</span>
+
+<span class="n">klifs</span> <span class="o">=</span> <span class="n">setup_remote</span><span class="p">()</span>
+<span class="n">structures_df</span> <span class="o">=</span> <span class="n">klifs</span><span class="o">.</span><span class="n">structures</span><span class="o">.</span><span class="n">all_structures</span><span class="p">()</span>
+
+<span class="c1"># Get number of structures per kinase</span>
+<span class="n">n_structures_per_kinase</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">structures_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">"structure.pdb_id"</span><span class="p">,</span> <span class="s2">"kinase.klifs_name"</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">first</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"kinase.klifs_name"</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">size</span><span class="p">()</span>
+<span class="p">)</span>
+
+<span class="c1"># Save in KinMap format</span>
+<span class="n">kinmap_n_structures_per_kinase</span> <span class="o">=</span> <span class="n">format_for_kinmap</span><span class="p">(</span>
+    <span class="n">n_structures_per_kinase</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">n_structures_per_kinase</span><span class="o">.</span><span class="n">values</span>
+<span class="p">)</span>
+<span class="n">kinmap_n_structures_per_kinase</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"kinmap_n_structures_per_kinase.csv"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="c1"># Some kinases will not be resolved in KinMap and will be simply dropped</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Number-of-ChEMBL-bioactivities-per-kinase">
+<h4 id="Number-of-ChEMBL-bioactivities-per-kinase">Number of ChEMBL bioactivities per kinase<a class="headerlink" href="#Number-of-ChEMBL-bioactivities-per-kinase" title="Permalink to this headline">¶</a></h4>
+<p>Generate the number of ChEMBL bioactivities per kinase in the KinMap format to be mapped onto the kinome tree.</p>
+<p><em>Note</em>: The cell below takes a few seconds to execute.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">opencadd.databases.klifs</span> <span class="kn">import</span> <span class="n">setup_remote</span>
+
+<span class="c1"># Get bioactivity data</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s2">"https://github.com/openkinome/kinodata/releases/download/v0.3/activities-chembl29_v0.3.zip"</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">"activities.standard_type"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"pIC50"</span><span class="p">]</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="c1"># Get kinase data</span>
+<span class="n">klifs</span> <span class="o">=</span> <span class="n">setup_remote</span><span class="p">()</span>
+<span class="n">kinases_df</span> <span class="o">=</span> <span class="n">klifs</span><span class="o">.</span><span class="n">kinases</span><span class="o">.</span><span class="n">all_kinases</span><span class="p">()</span>
+<span class="n">kinases_df</span> <span class="o">=</span> <span class="n">kinases_df</span><span class="p">[</span><span class="n">kinases_df</span><span class="p">[</span><span class="s2">"kinase.uniprot"</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"0"</span><span class="p">]</span>
+<span class="c1"># Some UniProt IDs have several names in KLIFS, keep only first</span>
+<span class="n">kinases_df</span> <span class="o">=</span> <span class="n">kinases_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"kinase.uniprot"</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+
+<span class="c1"># Map UniProt ID &gt; kinase KLIFS name</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">kinases_df</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s2">"UniprotID"</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s2">"kinase.uniprot"</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">"left"</span><span class="p">)</span>
+
+<span class="c1"># Get number of activities per kinase</span>
+<span class="n">n_activities_per_kinase</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"kinase.klifs_name"</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+
+<span class="c1"># Save in KinMap format</span>
+<span class="n">kinmap_n_activities_per_kinase</span> <span class="o">=</span> <span class="n">format_for_kinmap</span><span class="p">(</span>
+    <span class="n">n_activities_per_kinase</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">n_activities_per_kinase</span><span class="o">.</span><span class="n">values</span>
+<span class="p">)</span>
+<span class="n">kinmap_n_activities_per_kinase</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"kinmap_n_activities_per_kinase.csv"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="c1"># Some kinases will not be resolved in KinMap and will be simply dropped</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Erlotinib-profiling-data-from-Karaman-et-al.-dataset">
+<h4 id="Erlotinib-profiling-data-from-Karaman-et-al.-dataset">Erlotinib profiling data from Karaman <em>et al.</em> dataset<a class="headerlink" href="#Erlotinib-profiling-data-from-Karaman-et-al.-dataset" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Go to <a class="reference external" href="http://www.kinhub.org/kinmap/">http://www.kinhub.org/kinmap/</a></p></li>
+<li><p>Select “Data Source”: Profiling</p></li>
+<li><p>Select “Data type”: Karaman et al., 2018</p></li>
+<li><p>Select “Karaman et al., 2018”: Erlotinib</p></li>
+<li><p>Click “Add source”</p></li>
+<li><p>Click “Apply”</p></li>
+</ul>
+</section>
+</section>
+<section id="Kinase-structure-visualization-with-opencadd">
+<h3 id="Kinase-structure-visualization-with-opencadd">Kinase structure visualization with <code class="docutils literal notranslate"><span class="pre">opencadd</span></code><a class="headerlink" href="#Kinase-structure-visualization-with-opencadd" title="Permalink to this headline">¶</a></h3>
+<p>We are using as an example the ATP-bound CDK2 structure with the KLIFS ID <a class="reference external" href="https://klifs.net/details.php?structure_id=4367">4367</a>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">opencadd.structure.pocket</span> <span class="kn">import</span> <span class="n">PocketKlifs</span><span class="p">,</span> <span class="n">PocketViewer</span>
+
+<span class="c1"># Get structure and pocket</span>
+<span class="n">pocket</span> <span class="o">=</span> <span class="n">PocketKlifs</span><span class="o">.</span><span class="n">from_structure_klifs_id</span><span class="p">(</span><span class="mi">4367</span><span class="p">)</span>
+
+<span class="c1"># Show pocket</span>
+<span class="n">viewer</span> <span class="o">=</span> <span class="n">PocketViewer</span><span class="p">()</span>
+<span class="n">viewer</span><span class="o">.</span><span class="n">add_pocket</span><span class="p">(</span><span class="n">pocket</span><span class="p">,</span> <span class="n">ligand_expo_id</span><span class="o">=</span><span class="s2">"ATP"</span><span class="p">,</span> <span class="n">show_pocket_center</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">viewer</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">add_ball_and_stick</span><span class="p">(</span><span class="n">selection</span><span class="o">=</span><span class="s2">"ATP"</span><span class="p">)</span>
+<span class="n">viewer</span><span class="o">.</span><span class="n">viewer</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "035844e0cdf24bedb2d914734b9800e2", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "342dcb48952b4aa192e9befc6f7ba5a3", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">viewer</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">render_image</span><span class="p">(</span><span class="n">trim</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">viewer</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">_display_image</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_T023_what_is_a_kinase_41_0.png" src="../_images/talktorials_T023_what_is_a_kinase_41_0.png"/>
+</div>
+</div>
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {}, "version_major": 2, "version_minor": 0}
+</script></section>
+</section>
+</section>
+
+
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="md-footer">
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="T022_ligand_based_screening_neural_network.html" title="T022 · Ligand-based screening: neural networks"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> Previous </span> T022 · Ligand-based screening: neural networks </span>
+              </div>
+            </a>
+          
+          
+            <a href="T024_kinase_similarity_sequence.html" title="T024 · Kinase similarity: Sequence"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> Next </span> T024 · Kinase similarity: Sequence </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          
+        </a>
+        
+      </nav>
+    </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169; Copyright 2018-2021, Volkamer Lab. Project structure based on the Computational Molecular Science Python Cookiecutter version 1.1.
+              
+          </div>
+            Created using
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.3.1.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../_static/javascripts/application.js"></script>
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  </body>
+</html>
