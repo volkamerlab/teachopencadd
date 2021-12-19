@@ -6,6 +6,8 @@ Installing
     We are assuming you have a working ``mamba`` installation in your computer. 
     If this is not the case, please refer to their `official documentation <https://mamba.readthedocs.io/en/latest/installation.html#mamba>`_. 
 
+    If you installed ``mamba`` into an existing ``conda`` installation, also make sure that the ``conda-forge`` channel is configured by running ``conda config --add channels conda-forge``. 
+
 
 Install from the conda package
 ------------------------------
