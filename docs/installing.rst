@@ -15,10 +15,10 @@ Install from the conda package
 1. Create a new conda environment for TeachOpenCADD::
 
     # Linux / MacOS
-    mamba install teachopencadd
+    mamba create -n teachopencadd teachopencadd
 
     # Windows
-    mamba install teachopencadd -c conda-forge -c defaults
+    mamba create -n teachopencadd teachopencadd -c conda-forge -c defaults
 
 2. Activate the new environment::
 
@@ -31,9 +31,10 @@ Install from the conda package
 Install from the latest development snapshot
 --------------------------------------------
 
-1. Create a new conda environment::
+1. Create a new conda environment and activate it::
 
     mamba env create -f https://raw.githubusercontent.com/volkamerlab/TeachOpenCADD/master/devtools/test_env.yml
+    conda activate teachopencadd
 
 2. Download a zipfile of the repository using `this link <https://github.com/volkamerlab/teachopencadd/archive/master.zip>`_.
 3. Unzip to your location of choice.
