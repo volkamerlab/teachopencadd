@@ -29,9 +29,10 @@ Install from the conda package
 Install from the latest development snapshot
 --------------------------------------------
 
-1. Create a new conda environment::
+1. Create a new conda environment and activate it::
 
     mamba env create -f https://raw.githubusercontent.com/volkamerlab/TeachOpenCADD/master/devtools/test_env.yml
+    conda activate teachopencadd
 
 2. Download a zipfile of the repository using `this link <https://github.com/volkamerlab/teachopencadd/archive/master.zip>`_.
 3. Unzip to your location of choice.
