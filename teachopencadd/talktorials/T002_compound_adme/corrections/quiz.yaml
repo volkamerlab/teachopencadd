@@ -1,0 +1,126 @@
+theoric-quiz:
+  type: Quiz
+  exoname: quiz-theoric
+  shuffle: false
+  max_attempts: 2
+  max_grade: 3
+  questions:
+    - question-01
+    - question-02
+    - question-03
+
+question-01:
+  type: QuizQuestion
+  score: 1
+  question:
+    text: "ADME stand for: "
+  options:
+    - text: "Adsorption, Distribution, Metabolism, and Excretion"
+    - text: "Adsorption, Desorption, Metabolism, and Elimination"
+    - text: "Absorption, Distribution, Metabolism, and Excretion"
+      correct: true
+
+question-02:
+  type: QuizQuestion
+  score: 1
+  question:
+    text: "About the rules of lipinski"
+  options:
+    - text: "These rules are used to design molecules for all the routes of drug administration"
+    - text: "Following Lipinski's rules, a molecule should weight <= 500 Daltons, have 10 hydrogen bond acceptors maximum, have <= 5 hydrogen bond donnors, have a LogP of 5 at most"
+      correct: true
+    - text: "a molecule must comply with all the rules to be concidered orally compatible"
+
+
+question-03:
+  type: QuizQuestion
+  score: 1
+  question:
+    text: "About LogP"
+  options:
+    - text: "It is the propanol-water coefficient"
+    - text: "It is also called the partition coefficient"
+      correct: true
+    - text: "It describes how hydrophobic is a molecule"
+      correct: true
+
+##########################################################################
+
+code-quiz:
+  type: Quiz
+  exoname: quiz-code
+  shuffle: false
+  max_attempts: 2
+  max_grade: 3
+  questions:
+    - question-04
+    - question-05
+    - question-06
+
+question-04:
+  type: QuizQuestion
+  score: 1
+  question:
+    text: "Which following code is used to obtain a molecule object from a smiles"
+  options:
+    - text: |
+        from rdkit.Chem import MolFromSmiles
+        smiles.MolFromSmiles
+      type: CodeOption
+    - text: |
+        from rdkit.Chem import MolFromSmiles
+        smiles.MolFromSmiles()
+      type: CodeOption
+    - text: |
+        from rdkit.Chem import MolFromSmiles
+        MolFromSmiles(smiles)
+      type: CodeOption
+      correct: true
+
+question-05:
+  type: QuizQuestion
+  score: 1
+  question:
+    text: "How do we calculate the molecular weight descriptor from a molecule object"
+  options:
+    - text: |
+        from rdkit.Chem.Descriptors import ExactMolWt
+        molecule_object.ExactMolWt()
+      type: CodeOption
+    - text: |
+        from rdkit.Chem import Descriptors
+        Descriptors.ExactMolWt(molecule_object)
+      type: CodeOption
+      correct: true
+    - text: |
+        from rdkit.Chem.Descriptors import ExactMolWt
+        ExactMolWt(molecule_object)
+      type: CodeOption
+      correct: true
+
+question-06:
+  type: QuizQuestion
+  score: 1
+  question:
+    text: |
+        Is the following code valid ?
+        The goal is to access and display (all or a part of) the data from a dictionnary
+  options:
+    - text: |
+        dict = {"molecule_name" : "smiles"}
+        for mol_name, smi in dict.items():
+            print(mol_name,smi)
+      type: CodeOption
+      correct: true
+    - text: |
+        dict = {"molecule_name" : "smiles"}
+        for smi in dict.values():
+            print(smi)
+      type: CodeOption
+      correct: true
+    - text: |
+        dict = {"molecule_name" : "smiles"}
+        for mol_name in dict.keys():
+            print(mol_name)
+      type: CodeOption
+      correct: true
