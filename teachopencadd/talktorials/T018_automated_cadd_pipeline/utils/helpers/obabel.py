@@ -45,10 +45,10 @@ def optimize_structure_for_docking(
         The structure object is optimized in place.
     """
 
-    if add_hydrogens:
-        pybel_structure_object.addh()
     if protonate_for_pH:
         pybel_structure_object.OBMol.CorrectForPH(protonate_for_pH)
+    if add_hydrogens:
+        pybel_structure_object.addh()
     if generate_3d_structure:
         pybel_structure_object.make3D(forcefield="mmff94s", steps=10000)
     if calculate_partial_charges:

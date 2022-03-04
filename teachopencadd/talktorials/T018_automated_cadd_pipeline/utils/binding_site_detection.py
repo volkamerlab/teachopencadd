@@ -50,7 +50,7 @@ class BindingSiteDetection:
         # call the function
         definition_method(protein_obj, binding_site_specs_obj, binding_site_output_path)
 
-    def compute_by_coordinates(self, protein_obj, binding_site_specs_obj):
+    def compute_by_coordinates(self, protein_obj, binding_site_specs_obj, binding_site_output_path=None):
         """
         Extract the binding site coordinates specified in input specifications. 
         The function is called when binding site definition method is `coordinates`.
