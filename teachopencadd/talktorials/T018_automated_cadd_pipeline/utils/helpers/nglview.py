@@ -133,7 +133,7 @@ def docking(
 
     # Create viewer widget
     viewer = nv.NGLWidget(height="860px")
-    
+
     protein_filepath = Path(protein_filepath)
     with open(protein_filepath) as f:
         viewer.add_component(f, ext=protein_filepath.suffix.strip("."))
@@ -273,7 +273,7 @@ def interactions(
     )
 
     protein_filepath = Path(protein_filepath)
-    
+
     # This is the event handler - action taken when the user clicks on the selection box
     # We need to define it here so it can "see" the viewer variable
     def _on_selection_change(change):
@@ -284,7 +284,7 @@ def interactions(
 
             # NGL Viewer
             app.center = viewer = nv.NGLWidget(height="860px", default=True, gui=True)
-            
+
             with open(protein_filepath) as f:
                 prot_component = viewer.add_component(
                     f, ext=protein_filepath.suffix.strip("."), default_representation=False
@@ -298,8 +298,10 @@ def interactions(
                 showBackground=True,
                 backgroundColor="black",
             )
-            
-            list_docking_poses_filepaths[change["new"]] = Path(list_docking_poses_filepaths[change["new"]])
+
+            list_docking_poses_filepaths[change["new"]] = Path(
+                list_docking_poses_filepaths[change["new"]]
+            )
             with open(list_docking_poses_filepaths[change["new"]]) as f:
                 lig_component = viewer.add_component(
                     f, ext=list_docking_poses_filepaths[change["new"]].suffix.strip(".")
@@ -312,6 +314,17 @@ def interactions(
 
             # Add interactions
             interactions = list_docking_poses_plip_dicts[change["new"]]
+            # TODO interactions should be a dict
+            # Under Python 3.9 this dict is embedded in a list
+            # Temporary workaround: Get dict out of that list
+            if isinstance(interactions, list):
+                if len(interactions) == 1:
+                    interactions = interactions[0]
+                else:
+                    raise ValueError(
+                        f"Contact TeachOpenCADD maintainers "
+                        f"to check the temporary workaround on the interactions dict/list."
+                    )
 
             interacting_residues = []
 
