@@ -2,7 +2,9 @@
 
 Developed in the CADD seminar 2020, Volkamer Lab, Charité/FU Berlin 
 
-Authors :
+**Note:** This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
+
+Authors:
 
 - Sakshi Misra, CADD seminar 2020, Charité/FU Berlin
 - Talia B. Kimber, 2020, [Volkamer lab](https://volkamerlab.org), Charité

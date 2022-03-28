@@ -1,5 +1,7 @@
 # T005 · Compound clustering
 
+**Note:** This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
+
 Authors:
 
 - Gizem Spriewald, CADD Seminar, 2017, Charité/FU Berlin

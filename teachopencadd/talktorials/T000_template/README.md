@@ -14,6 +14,8 @@
 
 # T000 · Talktorial topic title
 
+**Note:** This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
+
 Authors:
 
 - First and last name, year(s) of contribution, lab, institution

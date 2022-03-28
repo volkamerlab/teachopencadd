@@ -1,5 +1,7 @@
 # T007 · Ligand-based screening: machine learning
 
+**Note:** This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
+
 Authors:
 
 * Jan Philipp Albrecht, CADD seminar 2018, Charité/FU Berlin

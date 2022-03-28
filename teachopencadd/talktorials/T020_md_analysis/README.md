@@ -1,5 +1,7 @@
 # T020 · Analyzing molecular dynamics simulations
 
+**Note:** This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
+
 Authors:
 
 - Mareike Leja, 2020/21, Internship at [Volkamer Lab, Charité](https://volkamerlab.org/) 

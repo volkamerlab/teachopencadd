@@ -1,5 +1,7 @@
 # T017 · Advanced NGLview usage
 
+**Note:** This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
+
 Authors:
 
 - Jaime Rodríguez-Guerra, 2021, [Volkamer lab, Charité](https://volkamerlab.org/)
