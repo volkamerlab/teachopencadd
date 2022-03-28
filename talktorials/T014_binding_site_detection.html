@@ -6,12 +6,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-  <meta property="og:title" content="T014 · Binding site detection" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://projects.volkamerlab.org/teachopencadd/talktorials/T014_binding_site_detection.html" />
-  <meta property="og:description" content="Authors: Adapted from Abishek Laxmanan Ravi Shankar, 2019, internship at Volkamer lab, Andrea Volkamer, 2020/21, Volkamer lab, Charité, Dominique Sydow, 2020/21, Volkamer lab, Charité. Aim of this talktorial: The binding site of a protein is the key to its function. In this talktorial, we introdu..." />
-  <meta property="og:image" content="https://raw.githubusercontent.com/volkamerlab/teachopencadd/master/docs/_static/images/TeachOpenCADD_topics.png" />
-  <meta property="og:image:alt" content="T014 · Binding site detection" />
+<meta property="og:title" content="T014 · Binding site detection" />
+  
+<meta property="og:type" content="website" />
+  
+<meta property="og:url" content="https://projects.volkamerlab.org/teachopencadd/talktorials/T014_binding_site_detection.html" />
+  
+<meta property="og:description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Adapted from Abishek Laxmanan Ravi Shankar, 2019, internship at Volkamer lab, Andrea Volkamer, 2020/21, Volka..." />
+  
+<meta property="og:image" content="https://raw.githubusercontent.com/volkamerlab/teachopencadd/master/docs/_static/images/TeachOpenCADD_topics.png" />
+  
+<meta property="og:image:alt" content="T014 · Binding site detection" />
   
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -94,9 +99,9 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="T015 · Protein ligand docking" href="T015_protein_ligand_docking.html" />
@@ -256,56 +261,285 @@
     
     
       <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="T001_query_chembl.html" class="md-nav__link">T001 · Compound data acquisition (ChEMBL)</a>
       
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T002_compound_adme.html" class="md-nav__link">T002 · Molecular filtering: ADME and lead-likeness criteria</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T003_compound_unwanted_substructures.html" class="md-nav__link">T003 · Molecular filtering: unwanted substructures</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T004_compound_similarity.html" class="md-nav__link">T004 · Ligand-based screening: compound similarity</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T005_compound_clustering.html" class="md-nav__link">T005 · Compound clustering</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T006_compound_maximum_common_substructures.html" class="md-nav__link">T006 · Maximum common substructure</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T007_compound_activity_machine_learning.html" class="md-nav__link">T007 · Ligand-based screening: machine learning</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T008_query_pdb.html" class="md-nav__link">T008 · Protein data acquisition: Protein Data Bank (PDB)</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T009_compound_ensemble_pharmacophores.html" class="md-nav__link">T009 · Ligand-based pharmacophores</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T010_binding_site_comparison.html" class="md-nav__link">T010 · Binding site similarity and off-target prediction</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T011_query_online_api_webservices.html" class="md-nav__link">T011 · Querying online API webservices</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T012_query_klifs.html" class="md-nav__link">T012 · Data acquisition from KLIFS</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T013_query_pubchem.html" class="md-nav__link">T013 · Data acquisition from PubChem</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <label class="md-nav__link md-nav__link--active" for="__toc"> T014 · Binding site detection </label>
+    
+      <a href="#" class="md-nav__link md-nav__link--active">T014 · Binding site detection</a>
+      
+        
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#talktorials-t014-binding-site-detection--page-root" class="md-nav__link">T014 · Binding site detection</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
+        </li>
+        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
+        </li>
+        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Protein-binding-sites" class="md-nav__link">Protein binding sites</a>
+        </li>
+        <li class="md-nav__item"><a href="#Binding-site-detection" class="md-nav__link">Binding site detection</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Methods-overview" class="md-nav__link">Methods overview</a>
+        </li>
+        <li class="md-nav__item"><a href="#DoGSiteScorer" class="md-nav__link">DoGSiteScorer</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Comparison-to-KLIFS-pocket" class="md-nav__link">Comparison to KLIFS pocket</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Binding-site-detection-using-DoGSiteScorer" class="md-nav__link">Binding site detection using DoGSiteScorer</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Job-submission-for-structure-of-interest" class="md-nav__link">Job submission for structure of interest</a>
+        </li>
+        <li class="md-nav__item"><a href="#Get-DoGSiteScorer-pocket-metadata" class="md-nav__link">Get DoGSiteScorer pocket metadata</a>
+        </li>
+        <li class="md-nav__item"><a href="#Pick-the-most-suitable-pocket" class="md-nav__link">Pick the most suitable pocket</a>
+        </li>
+        <li class="md-nav__item"><a href="#Get-binding-site-file-content" class="md-nav__link">Get binding site file content</a>
+        </li>
+        <li class="md-nav__item"><a href="#Investigate-detected-pocket" class="md-nav__link">Investigate detected pocket</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Comparison-between-DoGSiteScorer-and-KLIFS-pocket" class="md-nav__link">Comparison between DoGSiteScorer and KLIFS pocket</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Get-DoGSiteScorer-pocket-residues" class="md-nav__link">Get DoGSiteScorer pocket residues</a>
+        </li>
+        <li class="md-nav__item"><a href="#Get-KLIFS-pocket-residues" class="md-nav__link">Get KLIFS pocket residues</a>
+        </li>
+        <li class="md-nav__item"><a href="#Overlap-of-pocket-residues" class="md-nav__link">Overlap of pocket residues</a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
+        </li>
+        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T014_binding_site_detection.nblink.txt">Show Source</a> </li>
+
+  </ul>
+</nav>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T015_protein_ligand_docking.html" class="md-nav__link">T015 · Protein ligand docking</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T016_protein_ligand_interactions.html" class="md-nav__link">T016 · Protein-ligand interactions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T017_advanced_nglview_usage.html" class="md-nav__link">T017 · Advanced NGLview usage</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T018_automated_cadd_pipeline.html" class="md-nav__link">T018 · Automated pipeline for lead optimization</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T019_md_simulation.html" class="md-nav__link">T019 · Molecular dynamics simulation</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T020_md_analysis.html" class="md-nav__link">T020 · Analyzing molecular dynamics simulations</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T021_one_hot_encoding.html" class="md-nav__link">T021 · One-Hot Encoding</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T022_ligand_based_screening_neural_network.html" class="md-nav__link">T022 · Ligand-based screening: neural networks</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T023_what_is_a_kinase.html" class="md-nav__link">T023 · What is a kinase?</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T024_kinase_similarity_sequence.html" class="md-nav__link">T024 · Kinase similarity: Sequence</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T025_kinase_similarity_kissim.html" class="md-nav__link">T025 · Kinase similarity: Kinase pocket (KiSSim fingerprint)</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T026_kinase_similarity_ifp.html" class="md-nav__link">T026 · Kinase similarity: Interaction fingerprints</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T027_kinase_similarity_ligand_profile.html" class="md-nav__link">T027 · Kinase similarity: Ligand profile</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T028_kinase_similarity_compare_perspectives.html" class="md-nav__link">T028 · Kinase similarity: Compare different perspectives</a>
+      
+    
+    </li></ul>
     
     </li>
     <li class="md-nav__item">
     
     
       <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html#edition-2019-jcim" class="md-nav__link">Edition 2019 - JCIM</a>
       
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html#edition-2021" class="md-nav__link">Edition 2021</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html#ligand-based-cheminformatics" class="md-nav__link">Ligand-based cheminformatics</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html#structural-biology" class="md-nav__link">Structural biology</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html#online-apis-servers" class="md-nav__link">Online APIs/servers</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html#kinase-similarity" class="md-nav__link">Kinase similarity</a>
-      
-    
-    </li></ul>
     
     </li>
     <li class="md-nav__item">
@@ -658,7 +892,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
+.prompt .copybtn {
     display: none;
 }
 
@@ -698,6 +932,7 @@ div.rendered_html tbody tr:hover {
 </style>
 <section id="T014-·-Binding-site-detection">
 <h1 id="talktorials-t014-binding-site-detection--page-root">T014 · Binding site detection<a class="headerlink" href="#talktorials-t014-binding-site-detection--page-root" title="Permalink to this headline">¶</a></h1>
+<p><strong>Note:</strong> This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.</p>
 <p>Authors:</p>
 <ul class="simple">
 <li><p>Adapted from Abishek Laxmanan Ravi Shankar, 2019, internship at Volkamer lab</p></li>
@@ -816,8 +1051,7 @@ binding site of all known kinases to 85 residues, defined via an elaborated mult
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">io</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">io</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">gzip</span>
@@ -846,8 +1080,7 @@ binding site of all known kinases to 85 residues, defined via an elaborated mult
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">HERE</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">_dh</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HERE</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">_dh</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">DATA</span> <span class="o">=</span> <span class="n">HERE</span> <span class="o">/</span> <span class="s2">"data"</span>
 <span class="n">DATATMP</span> <span class="o">=</span> <span class="n">DATA</span> <span class="o">/</span> <span class="s2">"_tmp"</span>
 <span class="n">DATATMP</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -861,8 +1094,7 @@ binding site of all known kinases to 85 residues, defined via an elaborated mult
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">submit_dogsitescorer_job_with_pdbid</span><span class="p">(</span><span class="n">pdb_code</span><span class="p">,</span> <span class="n">chain_id</span><span class="p">,</span> <span class="n">ligand</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">submit_dogsitescorer_job_with_pdbid</span><span class="p">(</span><span class="n">pdb_code</span><span class="p">,</span> <span class="n">chain_id</span><span class="p">,</span> <span class="n">ligand</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Submit PDB ID to DoGSiteScorer webserver using their API and get back URL for job location.</span>
 
@@ -915,8 +1147,7 @@ binding site of all known kinases to 85 residues, defined via an elaborated mult
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">pdb_id</span> <span class="o">=</span> <span class="s2">"3w32"</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pdb_id</span> <span class="o">=</span> <span class="s2">"3w32"</span>
 <span class="n">chain_id</span> <span class="o">=</span> <span class="s2">"A"</span>
 <span class="c1"># Ligand id manually looked-up from DoGSiteScorer within proteins.plus</span>
 <span class="c1"># Note that it is generally composed of [pdb_lig_id]_[chain_id]_[pdb_residue_id]</span>
@@ -929,8 +1160,7 @@ binding site of all known kinases to 85 residues, defined via an elaborated mult
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">job_location</span> <span class="o">=</span> <span class="n">submit_dogsitescorer_job_with_pdbid</span><span class="p">(</span><span class="n">pdb_id</span><span class="p">,</span> <span class="n">chain_id</span><span class="p">,</span> <span class="n">ligand_id</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">job_location</span> <span class="o">=</span> <span class="n">submit_dogsitescorer_job_with_pdbid</span><span class="p">(</span><span class="n">pdb_id</span><span class="p">,</span> <span class="n">chain_id</span><span class="p">,</span> <span class="n">ligand_id</span><span class="p">)</span>
 <span class="n">job_location</span>
 </pre></div>
 </div>
@@ -952,8 +1182,7 @@ binding site of all known kinases to 85 residues, defined via an elaborated mult
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">get_dogsitescorer_metadata</span><span class="p">(</span><span class="n">job_location</span><span class="p">,</span> <span class="n">attempts</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_dogsitescorer_metadata</span><span class="p">(</span><span class="n">job_location</span><span class="p">,</span> <span class="n">attempts</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Get results from a DoGSiteScorer query, i.e., the binding sites which are found over the protein surface,</span>
 <span class="sd">    in the form of a table with the details about all detected pockets.</span>
@@ -1002,8 +1231,7 @@ binding site of all known kinases to 85 residues, defined via an elaborated mult
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">metadata</span> <span class="o">=</span> <span class="n">get_dogsitescorer_metadata</span><span class="p">(</span><span class="n">job_location</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metadata</span> <span class="o">=</span> <span class="n">get_dogsitescorer_metadata</span><span class="p">(</span><span class="n">job_location</span><span class="p">)</span>
 <span class="n">metadata</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1417,8 +1645,7 @@ Querying for job at URL https://proteins.plus/api/dogsite_rest/TJMQAsXaco7EjH7Jy
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span>
     <span class="p">[</span>
         <span class="s2">"lig_cov"</span><span class="p">,</span>
         <span class="s2">"poc_cov"</span><span class="p">,</span>
@@ -1445,8 +1672,7 @@ Querying for job at URL https://proteins.plus/api/dogsite_rest/TJMQAsXaco7EjH7Jy
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">metadata</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">"lig_cov"</span><span class="p">,</span> <span class="s2">"poc_cov"</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metadata</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">"lig_cov"</span><span class="p">,</span> <span class="s2">"poc_cov"</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="c1"># NBVAL_CHECK_OUTPUT</span>
 </pre></div>
 </div>
@@ -1610,8 +1836,7 @@ Querying for job at URL https://proteins.plus/api/dogsite_rest/TJMQAsXaco7EjH7Jy
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">select_best_pocket</span><span class="p">(</span><span class="n">metadata</span><span class="p">,</span> <span class="n">sorted_by</span><span class="o">=</span><span class="s2">"drugScore"</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">select_best_pocket</span><span class="p">(</span><span class="n">metadata</span><span class="p">,</span> <span class="n">sorted_by</span><span class="o">=</span><span class="s2">"drugScore"</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    This function uses the defined sorting parameter to identify</span>
 <span class="sd">    the best pocket among the obtained pockets.</span>
@@ -1650,8 +1875,7 @@ Querying for job at URL https://proteins.plus/api/dogsite_rest/TJMQAsXaco7EjH7Jy
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">best_pocket_id</span> <span class="o">=</span> <span class="n">select_best_pocket</span><span class="p">(</span><span class="n">metadata</span><span class="p">,</span> <span class="p">[</span><span class="s2">"lig_cov"</span><span class="p">,</span> <span class="s2">"poc_cov"</span><span class="p">])</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">best_pocket_id</span> <span class="o">=</span> <span class="n">select_best_pocket</span><span class="p">(</span><span class="n">metadata</span><span class="p">,</span> <span class="p">[</span><span class="s2">"lig_cov"</span><span class="p">,</span> <span class="s2">"poc_cov"</span><span class="p">])</span>
 <span class="n">best_pocket_id</span>
 <span class="c1"># NBVAL_CHECK_OUTPUT</span>
 </pre></div>
@@ -1689,8 +1913,7 @@ Querying for job at URL https://proteins.plus/api/dogsite_rest/TJMQAsXaco7EjH7Jy
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">get_url_for_pockets</span><span class="p">(</span><span class="n">job_location</span><span class="p">,</span> <span class="n">file_type</span><span class="o">=</span><span class="s2">"pdb"</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_url_for_pockets</span><span class="p">(</span><span class="n">job_location</span><span class="p">,</span> <span class="n">file_type</span><span class="o">=</span><span class="s2">"pdb"</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Get all pocket file locations for a finished DoGSiteScorer job</span>
 <span class="sd">    for a selected file type (pdb/ccp4).</span>
@@ -1726,8 +1949,7 @@ Querying for job at URL https://proteins.plus/api/dogsite_rest/TJMQAsXaco7EjH7Jy
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">get_selected_pocket_location</span><span class="p">(</span><span class="n">job_location</span><span class="p">,</span> <span class="n">best_pocket</span><span class="p">,</span> <span class="n">file_type</span><span class="o">=</span><span class="s2">"pdb"</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_selected_pocket_location</span><span class="p">(</span><span class="n">job_location</span><span class="p">,</span> <span class="n">best_pocket</span><span class="p">,</span> <span class="n">file_type</span><span class="o">=</span><span class="s2">"pdb"</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Get the selected binding site file location.</span>
 
@@ -1774,8 +1996,7 @@ Querying for job at URL https://proteins.plus/api/dogsite_rest/TJMQAsXaco7EjH7Jy
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">selected_pocket_residues_url</span> <span class="o">=</span> <span class="n">get_selected_pocket_location</span><span class="p">(</span><span class="n">job_location</span><span class="p">,</span> <span class="n">best_pocket_id</span><span class="p">,</span> <span class="s2">"pdb"</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selected_pocket_residues_url</span> <span class="o">=</span> <span class="n">get_selected_pocket_location</span><span class="p">(</span><span class="n">job_location</span><span class="p">,</span> <span class="n">best_pocket_id</span><span class="p">,</span> <span class="s2">"pdb"</span><span class="p">)</span>
 <span class="n">selected_pocket_residues_url</span>
 </pre></div>
 </div>
@@ -1798,8 +2019,7 @@ Querying for job at URL https://proteins.plus/api/dogsite_rest/TJMQAsXaco7EjH7Jy
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">metadata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">best_pocket_id</span><span class="p">]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metadata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">best_pocket_id</span><span class="p">]</span>
 <span class="c1"># NBVAL_CHECK_OUTPUT</span>
 </pre></div>
 </div>
@@ -1834,8 +2054,7 @@ Name: P_0_0, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">selected_pocket_volume_url</span> <span class="o">=</span> <span class="n">get_selected_pocket_location</span><span class="p">(</span><span class="n">job_location</span><span class="p">,</span> <span class="n">best_pocket_id</span><span class="p">,</span> <span class="s2">"ccp4"</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selected_pocket_volume_url</span> <span class="o">=</span> <span class="n">get_selected_pocket_location</span><span class="p">(</span><span class="n">job_location</span><span class="p">,</span> <span class="n">best_pocket_id</span><span class="p">,</span> <span class="s2">"ccp4"</span><span class="p">)</span>
 <span class="n">selected_pocket_volume_url</span>
 </pre></div>
 </div>
@@ -1859,8 +2078,7 @@ Name: P_0_0, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">selected_pocket_volume_url</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">selected_pocket_volume_url</span><span class="p">)</span>
 <span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
 <span class="c1"># Decompress response content and wrap it in a file-like object</span>
 <span class="n">memfile</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">gzip</span><span class="o">.</span><span class="n">decompress</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">))</span>
@@ -1872,8 +2090,7 @@ Name: P_0_0, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">viewer</span> <span class="o">=</span> <span class="n">nglview</span><span class="o">.</span><span class="n">show_pdbid</span><span class="p">(</span><span class="n">pdb_id</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">viewer</span> <span class="o">=</span> <span class="n">nglview</span><span class="o">.</span><span class="n">show_pdbid</span><span class="p">(</span><span class="n">pdb_id</span><span class="p">)</span>
 <span class="c1"># Since we are passing bytes with no path or extension</span>
 <span class="c1"># we need to tell nglview what kind of data this is: ccp4</span>
 <span class="n">viewer</span><span class="o">.</span><span class="n">add_component</span><span class="p">(</span><span class="n">memfile</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s2">"ccp4"</span><span class="p">)</span>
@@ -1892,8 +2109,7 @@ Name: P_0_0, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">viewer</span><span class="o">.</span><span class="n">render_image</span><span class="p">(</span><span class="n">trim</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">viewer</span><span class="o">.</span><span class="n">render_image</span><span class="p">(</span><span class="n">trim</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -1901,8 +2117,7 @@ Name: P_0_0, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">viewer</span><span class="o">.</span><span class="n">_display_image</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">viewer</span><span class="o">.</span><span class="n">_display_image</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1926,8 +2141,7 @@ Name: P_0_0, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">get_pocket_residues</span><span class="p">(</span><span class="n">pocket_url</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_pocket_residues</span><span class="p">(</span><span class="n">pocket_url</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Gets residue IDs and names of a specified pocket (via URL).</span>
 
@@ -1966,8 +2180,7 @@ Name: P_0_0, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">dogsite_pocket_residues_df</span> <span class="o">=</span> <span class="n">get_pocket_residues</span><span class="p">(</span><span class="n">selected_pocket_residues_url</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dogsite_pocket_residues_df</span> <span class="o">=</span> <span class="n">get_pocket_residues</span><span class="p">(</span><span class="n">selected_pocket_residues_url</span><span class="p">)</span>
 <span class="n">dogsite_pocket_residues_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="c1"># NBVAL_CHECK_OUTPUT</span>
 </pre></div>
@@ -2036,8 +2249,7 @@ Name: P_0_0, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Show protein structure as cartoon</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show protein structure as cartoon</span>
 <span class="n">viewer</span> <span class="o">=</span> <span class="n">nglview</span><span class="o">.</span><span class="n">show_pdbid</span><span class="p">(</span><span class="n">pdb_id</span><span class="p">)</span>
 <span class="c1"># Select pocket residues</span>
 <span class="n">selection</span> <span class="o">=</span> <span class="p">(</span>
@@ -2062,8 +2274,7 @@ Name: P_0_0, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">viewer</span><span class="o">.</span><span class="n">render_image</span><span class="p">(</span><span class="n">trim</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">viewer</span><span class="o">.</span><span class="n">render_image</span><span class="p">(</span><span class="n">trim</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -2071,8 +2282,7 @@ Name: P_0_0, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">viewer</span><span class="o">.</span><span class="n">_display_image</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">viewer</span><span class="o">.</span><span class="n">_display_image</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -2093,8 +2303,7 @@ Name: P_0_0, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">session</span> <span class="o">=</span> <span class="n">setup_remote</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">session</span> <span class="o">=</span> <span class="n">setup_remote</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -2102,8 +2311,7 @@ Name: P_0_0, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Get first structure KLIFS ID associated with PDB ID</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get first structure KLIFS ID associated with PDB ID</span>
 <span class="n">structures</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">structures</span><span class="o">.</span><span class="n">by_structure_pdb_id</span><span class="p">(</span><span class="n">pdb_id</span><span class="p">)</span>
 <span class="n">structure_klifs_id</span> <span class="o">=</span> <span class="n">structures</span><span class="p">[</span><span class="s2">"structure.klifs_id"</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
@@ -2113,8 +2321,7 @@ Name: P_0_0, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Get the structure's pocket</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the structure's pocket</span>
 <span class="n">klifs_pocket_df</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">pockets</span><span class="o">.</span><span class="n">by_structure_klifs_id</span><span class="p">(</span><span class="n">structure_klifs_id</span><span class="p">)</span>
 <span class="c1"># Residue ID: Cast string to int</span>
 <span class="n">klifs_pocket_df</span> <span class="o">=</span> <span class="n">klifs_pocket_df</span><span class="o">.</span><span class="n">astype</span><span class="p">({</span><span class="s2">"residue.id"</span><span class="p">:</span> <span class="nb">int</span><span class="p">})</span>
@@ -2205,8 +2412,7 @@ Name: P_0_0, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Get DoGSiteScorer pocket residues as list</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get DoGSiteScorer pocket residues as list</span>
 <span class="n">dogsite_pocket_residues</span> <span class="o">=</span> <span class="n">dogsite_pocket_residues_df</span><span class="p">[</span><span class="s2">"residue_number"</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span>
     <span class="sa">f</span><span class="s2">"DoGSiteScorer pocket </span><span class="si">{</span><span class="n">best_pocket_id</span><span class="si">}</span><span class="s2"> with </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">dogsite_pocket_residues</span><span class="p">)</span><span class="si">}</span><span class="s2"> residues detected."</span>
@@ -2230,8 +2436,7 @@ KLIFS pocket with 85 residues detected.
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">overlap</span> <span class="o">=</span> <span class="nb">set</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">dogsite_pocket_residues</span><span class="p">),</span> <span class="nb">set</span><span class="p">(</span><span class="n">klifs_pocket_residues</span><span class="p">))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">overlap</span> <span class="o">=</span> <span class="nb">set</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">dogsite_pocket_residues</span><span class="p">),</span> <span class="nb">set</span><span class="p">(</span><span class="n">klifs_pocket_residues</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Overlap between the two residue sets: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">overlap</span><span class="p">)</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
 <span class="c1"># NBVAL_CHECK_OUTPUT</span>
 </pre></div>
@@ -2250,8 +2455,7 @@ Overlap between the two residue sets: 27.
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Residue overlap between the two methods using </span><span class="si">{</span><span class="n">best_pocket_id</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Residue overlap between the two methods using </span><span class="si">{</span><span class="n">best_pocket_id</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
 <span class="n">venn2</span><span class="p">(</span>
     <span class="p">[</span><span class="nb">set</span><span class="p">(</span><span class="n">dogsite_pocket_residues</span><span class="p">),</span> <span class="nb">set</span><span class="p">(</span><span class="n">klifs_pocket_residues</span><span class="p">)],</span>
     <span class="n">set_labels</span><span class="o">=</span><span class="p">(</span><span class="s2">"DoGSiteScorer"</span><span class="p">,</span> <span class="s2">"KLIFS"</span><span class="p">),</span>
@@ -2280,8 +2484,7 @@ Residue overlap between the two methods using P_0_0.
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Get info for largest DoGSiteScorer pocket P_0</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get info for largest DoGSiteScorer pocket P_0</span>
 <span class="n">new_pocket_id</span> <span class="o">=</span> <span class="s2">"P_0"</span>
 <span class="n">dogsite_pocket_residues_df_p0</span> <span class="o">=</span> <span class="n">get_pocket_residues</span><span class="p">(</span>
     <span class="n">get_selected_pocket_location</span><span class="p">(</span><span class="n">job_location</span><span class="p">,</span> <span class="n">new_pocket_id</span><span class="p">)</span>
@@ -2304,8 +2507,7 @@ DoGSiteScorer pocket P_0 with 62 detected.
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Residue overlap between the two methods using </span><span class="si">{</span><span class="n">new_pocket_id</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Residue overlap between the two methods using </span><span class="si">{</span><span class="n">new_pocket_id</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
 <span class="n">venn2</span><span class="p">(</span>
     <span class="p">[</span><span class="nb">set</span><span class="p">(</span><span class="n">dogsite_pocket_residues_p0</span><span class="p">),</span> <span class="nb">set</span><span class="p">(</span><span class="n">klifs_pocket_residues</span><span class="p">)],</span>
     <span class="n">set_labels</span><span class="o">=</span><span class="p">(</span><span class="s2">"DoGSiteScorer"</span><span class="p">,</span> <span class="s2">"KLIFS"</span><span class="p">),</span>
@@ -2392,11 +2594,11 @@ Residue overlap between the two methods using P_0.
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2018-2021, Volkamer Lab. Project structure based on the Computational Molecular Science Python Cookiecutter version 1.1.
+              &#169; Copyright 2018-2022, Volkamer Lab. Project structure based on the Computational Molecular Science Python Cookiecutter version 1.1.
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
