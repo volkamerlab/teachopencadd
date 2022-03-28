@@ -1,5 +1,7 @@
 # T002 · Molecular filtering: ADME and lead-likeness criteria
 
+**Note:** This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
+
 Authors:
 
 - Michele Wichmann, CADD seminars 2017, Charité/FU Berlin

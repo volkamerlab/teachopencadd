@@ -1,5 +1,7 @@
 # T014 · Binding site detection
 
+**Note:** This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
+
 Authors:
 
 * Adapted from Abishek Laxmanan Ravi Shankar, 2019, internship at Volkamer lab

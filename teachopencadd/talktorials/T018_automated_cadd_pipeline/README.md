@@ -1,5 +1,7 @@
 # T018 · Automated pipeline for lead optimization
 
+**Note:** This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
+
 Authors:
 
 - Armin Ariamajd, 2021, CADD seminar 2021, Charité/Freie Universität Berlin

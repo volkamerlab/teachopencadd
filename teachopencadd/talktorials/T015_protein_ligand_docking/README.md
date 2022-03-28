@@ -1,5 +1,7 @@
 # T015 · Protein ligand docking
 
+**Note:** This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
+
 Authors:
 
 - Jaime Rodríguez-Guerra, 2019-20, [Volkamer lab, Charité](https://volkamerlab.org/)  

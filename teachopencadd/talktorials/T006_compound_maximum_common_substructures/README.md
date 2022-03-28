@@ -1,5 +1,7 @@
 # T006 · Maximum common substructure
 
+**Note:** This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
+
 Authors:
 
 - Oliver Nagel, CADD Seminars, 2017, Charité/FU Berlin

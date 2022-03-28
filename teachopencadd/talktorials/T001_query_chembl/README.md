@@ -1,5 +1,7 @@
 # T001 · Compound data acquisition (ChEMBL)
 
+**Note:** This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
+
 Authors:
 
 - Svetlana Leng, CADD seminar 2017, Volkamer lab, Charité/FU Berlin 

@@ -1,5 +1,7 @@
 # T026 · Kinase similarity: Interaction fingerprints
 
+**Note:** This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
+
 Authors:
 
 - Dominique Sydow, 2021, [Volkamer lab, Charité](https://volkamerlab.org/)

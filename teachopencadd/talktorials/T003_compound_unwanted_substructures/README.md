@@ -1,5 +1,7 @@
 # T003 · Molecular filtering: unwanted substructures
 
+**Note:** This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
+
 Authors:
 
 - Maximilian Driller, CADD seminar, 2017, Charité/FU Berlin

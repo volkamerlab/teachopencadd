@@ -1,5 +1,7 @@
 # T004 · Ligand-based screening: compound similarity
 
+**Note:** This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
+
 Authors:
 
 - Andrea Morger, 2017-2020, [Volkamer lab](https://volkamerlab.org/), Charité

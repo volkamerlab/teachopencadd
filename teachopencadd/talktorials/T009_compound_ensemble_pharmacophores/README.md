@@ -1,5 +1,7 @@
 # T009 · Ligand-based pharmacophores
 
+**Note:** This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
+
 Authors:
 
 - Pratik Dhakal, CADD seminar, 2017, Charité/FU Berlin

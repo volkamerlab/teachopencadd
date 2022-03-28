@@ -1,5 +1,7 @@
 # T012 · Data acquisition from KLIFS
 
+**Note:** This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
+
 Authors:
 
 - Dominique Sydow, 2019-2020, [Volkamer lab, Charité](https://volkamerlab.org/)

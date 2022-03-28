@@ -1,5 +1,7 @@
 # T019 · Molecular dynamics simulation
 
+**Note:** This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
+
 Authors:
 
 - Pietro Gerletti, CADD seminar 2020, Charité/FU Berlin
