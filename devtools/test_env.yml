@@ -48,6 +48,8 @@ dependencies:
   - pytest-cov
   - nbval
   - shyaml
+  # Workaround for https://github.com/sphinx-doc/sphinx/issues/10289
+  - jinja2==3.0.3
   ## Docs
   - sphinx
   - sphinx-material

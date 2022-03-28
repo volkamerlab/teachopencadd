@@ -23,6 +23,7 @@ jobs:
       - uses: conda-incubator/setup-miniconda@v2
         with:
           python-version: "3.7"
+          mamba-version: "*"
           activate-environment: teachopencadd
           channel-priority: true
           environment-file: devtools/test_env.yml
@@ -51,7 +52,7 @@ jobs:
         run: |
           cd docs
           make clean
-          SPHINXOPTS="-j2 -W -T --keep-going" make html
+          SPHINXOPTS="-j2 -T --keep-going" make html
           # Extra UGLY patch to fix PDF IFrame on T005
           cp talktorials/images/*.pdf _build/html/_images/
           sed -i 's|src="images/butina_full.pdf"|src="../_images/butina_full.pdf"|g' \
