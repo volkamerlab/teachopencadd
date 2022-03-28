@@ -47,9 +47,10 @@ For each topic, an interactive Jupyter Notebook is offered, using open source pa
 
 ## Get started
 
+<!-- markdown-link-check-disable -->
 [![GH Actions Docs](https://github.com/volkamerlab/teachopencadd/workflows/Docs/badge.svg)](https://projects.volkamerlab.org/teachopencadd/)
-<!-- markdown-link-check-disable-next-line -->
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/volkamerlab/TeachOpenCADD/master)
+<!-- markdown-link-check-enable -->
 
 If you can't wait and just want to read through the materials, please go to the read-only version [here](https://projects.volkamerlab.org/teachopencadd/talktorials.html).
 
