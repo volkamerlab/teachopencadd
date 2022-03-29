@@ -13,6 +13,7 @@ dependencies:
   - numpy
   - scikit-learn
   - tensorflow>=2.0
+  - h5py<3.0.0
   - seaborn
   - matplotlib-venn
   # Remove jsonschema once this issue is fixed: https://github.com/Yelp/bravado/issues/478
@@ -27,7 +28,7 @@ dependencies:
   - pypdb
   - biopython<=1.77
   - biopandas
-  - rdkit<=2021.09.2
+  - rdkit
   - openbabel
   - opencadd
   - biotite
@@ -59,6 +60,8 @@ dependencies:
   - sphinx-copybutton
   - sphinx-gallery
   - autodocsumm
+  ## temporary fix for rdkit on MacOS
+  - fontconfig==2.13.1
   - pip:
       - black-nb
       - nbsphinx-link
