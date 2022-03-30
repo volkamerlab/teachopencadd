@@ -61,6 +61,8 @@ dependencies:
   - autodocsumm
   ## temporary fix for rdkit on MacOS
   - fontconfig==2.13.1
+  ## try as fix for dead kernel on MacOS Python 3.7
+  - h5py<3.0.0
   - pip:
       - black-nb
       - nbsphinx-link
