@@ -73,7 +73,7 @@ jobs:
       - name: Run tests
         shell: bash -l {0}
         run: |
-          PYTEST_ARGS="--nbval-lax --current-env --dist loadfile -n auto"
+          PYTEST_ARGS="--nbval-lax --current-env --dist loadscope -n auto"
           if [ "$RUNNER_OS" != "Windows" ]; then
             pytest $PYTEST_ARGS teachopencadd/talktorials/T*/talktorial.ipynb
           else
