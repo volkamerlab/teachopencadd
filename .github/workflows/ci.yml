@@ -10,8 +10,8 @@ on:
       - "master"
       - "maintenance/.+"
   schedule:
-    # Run a cron job once daily, weekdays only
-    - cron: "0 3 * * 1-5"
+    # Run a cron job once weekly on Monday
+    - cron: "0 3 * * 1"
 
 jobs:
   test:
