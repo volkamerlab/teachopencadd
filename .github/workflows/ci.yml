@@ -75,9 +75,9 @@ jobs:
         run: |
           PYTEST_ARGS="-v --nbval-lax --current-env --dist loadscope -n auto"
           if [ "$RUNNER_OS" != "Windows" ]; then
-            pytest $PYTEST_ARGS teachopencadd/talktorials/T*/talktorial.ipynb --ignore-glob=teachopencadd/talktorials/T018*
+            pytest $PYTEST_ARGS teachopencadd/talktorials/T*/talktorial.ipynb -k 'not T018'
           else
-            pytest $PYTEST_ARGS teachopencadd/talktorials/ --ignore-glob=teachopencadd/talktorials/T018* --ignore-glob=teachopencadd/talktorials/T019*
+            pytest $PYTEST_ARGS teachopencadd/talktorials/ -k 'not T018 and not T019'
           fi
 
   format:
