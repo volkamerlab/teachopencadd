@@ -59,6 +59,8 @@ dependencies:
   - sphinx-copybutton
   - sphinx-gallery
   - autodocsumm
+  ## temporary fix for rdkit on MacOS, https://github.com/conda-forge/fontconfig-feedstock/issues/54
+  - fontconfig==2.13.1
   - pip:
       - black-nb
       - nbsphinx-link
