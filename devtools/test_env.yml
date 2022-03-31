@@ -3,7 +3,7 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - python>=3.8
+  - python>=3.7
   - pip
   - jupyter
   - jupyterlab>=3
@@ -59,8 +59,6 @@ dependencies:
   - sphinx-copybutton
   - sphinx-gallery
   - autodocsumm
-  ## temporary fix for rdkit on MacOS
-  - fontconfig==2.13.1
   - pip:
       - black-nb
       - nbsphinx-link

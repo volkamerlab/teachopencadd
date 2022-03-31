@@ -22,17 +22,13 @@ jobs:
       matrix:
         cfg:
           - os: ubuntu-latest
-            python-version: "3.8"
+            python-version: "3.7"
           - os: ubuntu-latest
             python-version: "3.9"
           - os: macos-latest
-            python-version: "3.8"
-          - os: macos-latest
-            python-version: "3.9"
+            python-version: "3.7"
           - os: windows-latest
-            python-version: "3.8"
-          - os: windows-latest
-            python-version: "3.9"
+            python-version: "3.7"
 
     env:
       PYVER: ${{ matrix.cfg.python-version }}
@@ -79,9 +75,9 @@ jobs:
         run: |
           PYTEST_ARGS="--nbval-lax --current-env --dist loadscope -n auto"
           if [ "$RUNNER_OS" != "Windows" ]; then
-            pytest $PYTEST_ARGS teachopencadd/talktorials/T*/talktorial.ipynb
+            pytest $PYTEST_ARGS teachopencadd/talktorials/T*/talktorial.ipynb --ignore-glob=teachopencadd/talktorials/T018*
           else
-            pytest $PYTEST_ARGS teachopencadd/talktorials/ --ignore-glob=teachopencadd/talktorials/T019*
+            pytest $PYTEST_ARGS teachopencadd/talktorials/ --ignore-glob=teachopencadd/talktorials/T018* --ignore-glob=teachopencadd/talktorials/T019*
           fi
 
   format:
