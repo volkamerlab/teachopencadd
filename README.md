@@ -111,6 +111,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0
 If you make use of the TeachOpenCADD material in scientific publications, please cite our respective articles:
 
 - [TeachOpenCADD Jupyter Notebooks: Talktorials T001-T010](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x)
+<!-- markdown-link-check-disable-next-line -->
 - [TeachOpenCADD KNIME workflows](https://pubs.acs.org/doi/10.1021/acs.jcim.9b00662)
 <!-- markdown-link-check-disable-next-line -->
 - [How to use the TeachOpenCADD material for teaching?](https://pubs.acs.org/doi/abs/10.1021/bk-2021-1387.ch010)
