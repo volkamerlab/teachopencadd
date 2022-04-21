@@ -62,6 +62,7 @@ If you'd like to execute the provided notebooks, we offer two possibilities:
 
 ## TeachOpenCADD KNIME workflows
 
+<!-- markdown-link-check-disable-next-line -->
 [![DOI](https://img.shields.io/badge/DOI-10.1021%2Facs.jcim.9b00662-blue.svg)](https://pubs.acs.org/doi/10.1021/acs.jcim.9b00662)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3626897.svg)](https://doi.org/10.5281/zenodo.3626897)
 [![KNIME Hub](https://img.shields.io/badge/KNIME%20Hub-TeachOpenCADD--KNIME-yellow.svg)](https://hub.knime.com/volkamerlab/spaces/Public/latest/TeachOpenCADD/TeachOpenCADD)
@@ -110,7 +111,9 @@ To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0
 If you make use of the TeachOpenCADD material in scientific publications, please cite our respective articles:
 
 - [TeachOpenCADD Jupyter Notebooks: Talktorials T001-T010](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x)
+<!-- markdown-link-check-disable-next-line -->
 - [TeachOpenCADD KNIME workflows](https://pubs.acs.org/doi/10.1021/acs.jcim.9b00662)
+<!-- markdown-link-check-disable-next-line -->
 - [How to use the TeachOpenCADD material for teaching?](https://pubs.acs.org/doi/abs/10.1021/bk-2021-1387.ch010)
 
 It will help measure the impact of the TeachOpenCADD platform and future funding!
