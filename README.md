@@ -32,6 +32,7 @@ For each topic, an interactive Jupyter Notebook is offered, using open source pa
 > If you use TeachOpenCADD in a publication,
 > please [cite](https://github.com/volkamerlab/TeachOpenCADD/blob/master/README.md#citation) us!
 > If you use TeachOpenCADD in class, please include a link back to our repository.
+<!-- markdown-link-check-disable-next-line -->
 > In any case, please [star](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars)
 > (and tell your students to star) those repositories you consider useful for your learning/teaching activities.
 
