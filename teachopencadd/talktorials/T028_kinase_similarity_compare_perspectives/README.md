@@ -31,7 +31,7 @@ We will compare different perspectives on kinase similarity, which were discusse
 * Load kinase similarity and distance matrices
 * Distance matrix conditions
 * Visualize similarity for example perspective
-  * Visualize kinase distance matrix as heatmap
+  * Visualize kinase similarity matrix as heatmap
   * Visualize similarity as dendrogram
 * Visualize similarities from the four different perspectives
   * Preprocess distance matrices
