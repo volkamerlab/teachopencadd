@@ -29,7 +29,7 @@ We will assess the similarity between a set of kinases from a structural point o
     * Fetch all structures describing these kinases
     * Filter structures
 * Show kinase coverage
-* Load KiSSim fingerprints
+* Calculate KiSSim fingerprints
 * Compare structures
 * Map structure to kinase distance matrix
 * Save kinase distance matrix
