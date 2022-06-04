@@ -192,7 +192,7 @@ It will help measure the impact of the TeachOpenCADD platform and future funding
 - Web services clients:
   [`pypdb`](https://github.com/williamgilpin/pypdb),
   [`chembl_webresource_client`](https://github.com/chembl/chembl_webresource_client),
-  [`requests`](https://docs.python-requests.org/en/master/),
+  [`requests`](https://requests.readthedocs.io/en/latest/),
   [`bravado`](https://bravado.readthedocs.io/en/stable/),
   [`beautifulsoup4`](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
 - Utilities:

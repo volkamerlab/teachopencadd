@@ -5,10 +5,12 @@ on:
     branches:
       - "master"
       - "maintenance/.+"
+      - "livecoms-review"
   pull_request:
     branches:
       - "master"
       - "maintenance/.+"
+      - "livecoms-review"
   schedule:
     # Run a cron job once weekly on Monday
     - cron: "0 3 * * 1"
