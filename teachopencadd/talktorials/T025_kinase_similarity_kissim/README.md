@@ -13,6 +13,8 @@ Authors:
 
 We will assess the similarity between a set of kinases from a structural point of view using the [KiSSim](https://kissim.readthedocs.io/en/latest/) fingerprint. This fingerprint describes the physicochemical and spatial properties in structurally resolved kinases.
 
+_Note_: We focus on similarities between orthosteric kinase binding sites; similarities to allosteric binding sites are not covered.
+
 
 ### Contents in *Theory*
 
