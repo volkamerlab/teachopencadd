@@ -13,6 +13,8 @@ Authors:
 
 We will assess the similarity between a set of kinases based on detected protein-ligand interactions in available complex structures. The [KLIFS](https://klifs.net/) interaction fingerprint (IFP), which describes the interactions seen in a structurally resolved kinase-ligand complex, will be used in this exercise.  
 
+_Note_: We focus on similarities between orthosteric kinase binding sites; similarities to allosteric binding sites are not covered.
+
 
 ### Contents in *Theory*
 
