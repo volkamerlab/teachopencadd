@@ -1,0 +1,4 @@
+variable,default_value,description
+DEMO,1,"Run the notebooks exactly as displayed online (default: 1) or set to 0 and run your own kinase set (as defined in `kinase_selection.csv`)"
+N_STRUCTURES_PER_KINASE,-1,"Run structure-based notebooks on all structures per kinase (default: -1) or a subset of structures (replace -1 with e.g. 3)"
+N_CORES,1,"Run T025 on one (default: 1) or more cores"

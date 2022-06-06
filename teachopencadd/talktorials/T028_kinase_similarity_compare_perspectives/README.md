@@ -18,6 +18,8 @@ We will compare different perspectives on kinase similarity, which were discusse
 * **Talktorial T026**: Kinase-ligand interaction profiles (KLIFS IFPs based on KLIFS pocket residues)
 * **Talktorial T027**: Ligand profiling data (using ChEMBL29 bioactivity data)
 
+_Note_: We focus only on similarities between orthosteric kinase binding sites; similarities to allosteric binding sites are not covered (T027 is an exception since the profiling data does not distinguish between binding sites).
+
 
 ### Contents in *Theory*
 
@@ -31,7 +33,7 @@ We will compare different perspectives on kinase similarity, which were discusse
 * Load kinase similarity and distance matrices
 * Distance matrix conditions
 * Visualize similarity for example perspective
-  * Visualize kinase distance matrix as heatmap
+  * Visualize kinase similarity matrix as heatmap
   * Visualize similarity as dendrogram
 * Visualize similarities from the four different perspectives
   * Preprocess distance matrices

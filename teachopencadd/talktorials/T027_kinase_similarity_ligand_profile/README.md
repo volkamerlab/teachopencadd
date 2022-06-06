@@ -11,7 +11,7 @@ Authors:
 
 ## Aim of this talktorial
 
-The aim of this talktorial is to investigate kinase similarity through ligand profiling data. In the context of drug design, the following assumption is often made: if a compound was tested active on two different kinases, it is suspected that these two kinases may have some degree of similarity. We will use this assumption in this talktorial. The concept of kinase promiscuity is also covered.
+The aim of this talktorial is to investigate kinase similarity through ligand profiling data (ChEMBL29). In the context of drug design, the following assumption is often made: if a compound was tested active on two different kinases, it is suspected that these two kinases may have some degree of similarity. We will use this assumption in this talktorial. The concept of kinase promiscuity is also covered.
 
 
 ### Contents in *Theory*

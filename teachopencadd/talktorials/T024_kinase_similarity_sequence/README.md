@@ -17,6 +17,8 @@ Two similarity measures are implemented:
 
    1. Sequence identity, i.e., the similarity which is based on character-wise discrepancy.
    2. Sequence similarity, i.e., the similarity which is based on a substitution matrix, thus, reflecting similarities between amino acids.
+   
+_Note_: We focus on similarities between orthosteric kinase binding sites; similarities to allosteric binding sites are not covered.
 
 
 ### Contents in *Theory*
