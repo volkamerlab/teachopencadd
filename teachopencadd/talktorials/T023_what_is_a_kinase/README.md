@@ -12,7 +12,7 @@ Authors:
 ## Aim of this talktorial
 
 In this talktorial, we will talk about kinases: why are they important in life and drug design, what do they look like, and what data resources are available?
-Finally, we select a set of kinases which will be analyzed in the forthcoming talktorials **T024**-**T028** with respect to their similarity w.r.t. their orthosteric binding sites, the goal being to gain insight into potential off-target effects.
+Finally, we select a set of kinases which will be analyzed in the forthcoming talktorials **T024**-**T028** with respect to their similarity, the goal being to gain insight into potential off-target effects.
 
 
 ### Contents in *Theory*

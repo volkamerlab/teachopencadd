@@ -18,7 +18,7 @@ We will compare different perspectives on kinase similarity, which were discusse
 * **Talktorial T026**: Kinase-ligand interaction profiles (KLIFS IFPs based on KLIFS pocket residues)
 * **Talktorial T027**: Ligand profiling data (using ChEMBL29 bioactivity data)
 
-_Note_: We focus on similarities between orthosteric kinase binding sites; similarities to allosteric binding sites are not covered.
+_Note_: We focus only on similarities between orthosteric kinase binding sites; similarities to allosteric binding sites are not covered (T027 is an exception since the profiling data does not distinguish between binding sites).
 
 
 ### Contents in *Theory*
