@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
 <meta property="og:title" content="T001 · Compound data acquisition (ChEMBL)" />
   
@@ -95,6 +95,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -261,311 +262,56 @@
     
     
       <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> T001 · Compound data acquisition (ChEMBL) </label>
-    
-      <a href="#" class="md-nav__link md-nav__link--active">T001 · Compound data acquisition (ChEMBL)</a>
       
-        
-<nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#talktorials-t001-query-chembl--page-root" class="md-nav__link">T001 · Compound data acquisition (ChEMBL)</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
-        </li>
-        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
-        </li>
-        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#ChEMBL-database" class="md-nav__link">ChEMBL database</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#ChEMBL-web-services" class="md-nav__link">ChEMBL web services</a>
-        </li>
-        <li class="md-nav__item"><a href="#ChEMBL-webresource-client" class="md-nav__link">ChEMBL webresource client</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Compound-activity-measures" class="md-nav__link">Compound activity measures</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#IC50-measure" class="md-nav__link">IC50 measure</a>
-        </li>
-        <li class="md-nav__item"><a href="#pIC50-value" class="md-nav__link">pIC50 value</a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Connect-to-ChEMBL-database" class="md-nav__link">Connect to ChEMBL database</a>
-        </li>
-        <li class="md-nav__item"><a href="#Get-target-data-(EGFR-kinase)" class="md-nav__link">Get target data (EGFR kinase)</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Fetch-target-data-from-ChEMBL" class="md-nav__link">Fetch target data from ChEMBL</a>
-        </li>
-        <li class="md-nav__item"><a href="#Download-target-data-from-ChEMBL" class="md-nav__link">Download target data from ChEMBL</a>
-        </li>
-        <li class="md-nav__item"><a href="#Select-target-(target-ChEMBL-ID)" class="md-nav__link">Select target (target ChEMBL ID)</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Get-bioactivity-data" class="md-nav__link">Get bioactivity data</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Fetch-bioactivity-data-for-the-target-from-ChEMBL" class="md-nav__link">Fetch bioactivity data for the target from ChEMBL</a>
-        </li>
-        <li class="md-nav__item"><a href="#Download-bioactivity-data-from-ChEMBL" class="md-nav__link">Download bioactivity data from ChEMBL</a>
-        </li>
-        <li class="md-nav__item"><a href="#Preprocess-and-filter-bioactivity-data" class="md-nav__link">Preprocess and filter bioactivity data</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Get-compound-data" class="md-nav__link">Get compound data</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Fetch-compound-data-from-ChEMBL" class="md-nav__link">Fetch compound data from ChEMBL</a>
-        </li>
-        <li class="md-nav__item"><a href="#Download-compound-data-from-ChEMBL" class="md-nav__link">Download compound data from ChEMBL</a>
-        </li>
-        <li class="md-nav__item"><a href="#Preprocess-and-filter-compound-data" class="md-nav__link">Preprocess and filter compound data</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Output-(bioactivity-compound)-data" class="md-nav__link">Output (bioactivity-compound) data</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Merge-both-datasets" class="md-nav__link">Merge both datasets</a>
-        </li>
-        <li class="md-nav__item"><a href="#Add-pIC50-values" class="md-nav__link">Add pIC50 values</a>
-        </li>
-        <li class="md-nav__item"><a href="#Draw-compound-data" class="md-nav__link">Draw compound data</a>
-        </li>
-        <li class="md-nav__item"><a href="#Freeze-output-data-to-ChEMBL-27" class="md-nav__link">Freeze output data to ChEMBL 27</a>
-        </li>
-        <li class="md-nav__item"><a href="#Write-output-data-to-file" class="md-nav__link">Write output data to file</a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
-        </li>
-        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
-        </li></ul>
-            </nav>
-        </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T001_query_chembl.nblink.txt">Show Source</a> </li>
-
-  </ul>
-</nav>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T002_compound_adme.html" class="md-nav__link">T002 · Molecular filtering: ADME and lead-likeness criteria</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T003_compound_unwanted_substructures.html" class="md-nav__link">T003 · Molecular filtering: unwanted substructures</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T004_compound_similarity.html" class="md-nav__link">T004 · Ligand-based screening: compound similarity</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T005_compound_clustering.html" class="md-nav__link">T005 · Compound clustering</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T006_compound_maximum_common_substructures.html" class="md-nav__link">T006 · Maximum common substructure</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T007_compound_activity_machine_learning.html" class="md-nav__link">T007 · Ligand-based screening: machine learning</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T008_query_pdb.html" class="md-nav__link">T008 · Protein data acquisition: Protein Data Bank (PDB)</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T009_compound_ensemble_pharmacophores.html" class="md-nav__link">T009 · Ligand-based pharmacophores</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T010_binding_site_comparison.html" class="md-nav__link">T010 · Binding site similarity and off-target prediction</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T011_query_online_api_webservices.html" class="md-nav__link">T011 · Querying online API webservices</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T012_query_klifs.html" class="md-nav__link">T012 · Data acquisition from KLIFS</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T013_query_pubchem.html" class="md-nav__link">T013 · Data acquisition from PubChem</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T014_binding_site_detection.html" class="md-nav__link">T014 · Binding site detection</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T015_protein_ligand_docking.html" class="md-nav__link">T015 · Protein ligand docking</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T016_protein_ligand_interactions.html" class="md-nav__link">T016 · Protein-ligand interactions</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T017_advanced_nglview_usage.html" class="md-nav__link">T017 · Advanced NGLview usage</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T018_automated_cadd_pipeline.html" class="md-nav__link">T018 · Automated pipeline for lead optimization</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T019_md_simulation.html" class="md-nav__link">T019 · Molecular dynamics simulation</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T020_md_analysis.html" class="md-nav__link">T020 · Analyzing molecular dynamics simulations</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T021_one_hot_encoding.html" class="md-nav__link">T021 · One-Hot Encoding</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T022_ligand_based_screening_neural_network.html" class="md-nav__link">T022 · Ligand-based screening: neural networks</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T023_what_is_a_kinase.html" class="md-nav__link">T023 · What is a kinase?</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T024_kinase_similarity_sequence.html" class="md-nav__link">T024 · Kinase similarity: Sequence</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T025_kinase_similarity_kissim.html" class="md-nav__link">T025 · Kinase similarity: Kinase pocket (KiSSim fingerprint)</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T026_kinase_similarity_ifp.html" class="md-nav__link">T026 · Kinase similarity: Interaction fingerprints</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T027_kinase_similarity_ligand_profile.html" class="md-nav__link">T027 · Kinase similarity: Ligand profile</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T028_kinase_similarity_compare_perspectives.html" class="md-nav__link">T028 · Kinase similarity: Compare different perspectives</a>
-      
-    
-    </li></ul>
     
     </li>
     <li class="md-nav__item">
     
     
       <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#edition-2019-jcim" class="md-nav__link">Edition 2019 - JCIM</a>
       
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#edition-2021" class="md-nav__link">Edition 2021</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#ligand-based-cheminformatics" class="md-nav__link">Ligand-based cheminformatics</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#structural-biology" class="md-nav__link">Structural biology</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#online-apis-servers" class="md-nav__link">Online APIs/servers</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#kinase-similarity" class="md-nav__link">Kinase similarity</a>
+      
+    
+    </li></ul>
     
     </li>
     <li class="md-nav__item">
@@ -949,6 +695,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* Some additional styling taken form the Jupyter notebook CSS */
+.jp-RenderedHTMLCommon table,
 div.rendered_html table {
   border: none;
   border-collapse: collapse;
@@ -957,10 +704,14 @@ div.rendered_html table {
   font-size: 12px;
   table-layout: fixed;
 }
+.jp-RenderedHTMLCommon thead,
 div.rendered_html thead {
   border-bottom: 1px solid black;
   vertical-align: bottom;
 }
+.jp-RenderedHTMLCommon tr,
+.jp-RenderedHTMLCommon th,
+.jp-RenderedHTMLCommon td,
 div.rendered_html tr,
 div.rendered_html th,
 div.rendered_html td {
@@ -972,18 +723,21 @@ div.rendered_html td {
   max-width: none;
   border: none;
 }
+.jp-RenderedHTMLCommon th,
 div.rendered_html th {
   font-weight: bold;
 }
+.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
 div.rendered_html tbody tr:nth-child(odd) {
   background: #f5f5f5;
 }
+.jp-RenderedHTMLCommon tbody tr:hover,
 div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
 </style>
 <section id="T001-·-Compound-data-acquisition-(ChEMBL)">
-<h1 id="talktorials-t001-query-chembl--page-root">T001 · Compound data acquisition (ChEMBL)<a class="headerlink" href="#talktorials-t001-query-chembl--page-root" title="Permalink to this headline">¶</a></h1>
+<h1 id="talktorials-t001-query-chembl--page-root">T001 · Compound data acquisition (ChEMBL)<a class="headerlink" href="#talktorials-t001-query-chembl--page-root" title="Permalink to this heading">¶</a></h1>
 <p><strong>Note:</strong> This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.</p>
 <p>Authors:</p>
 <ul class="simple">
@@ -995,11 +749,11 @@ div.rendered_html tbody tr:hover {
 </ul>
 <p><strong>Talktorial T001</strong>: This talktorial is part of the TeachOpenCADD pipeline described in the <a class="reference external" href="https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x">first TeachOpenCADD paper</a>, comprising of talktorials T001-T010.</p>
 <section id="Aim-of-this-talktorial">
-<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this headline">¶</a></h2>
+<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this heading">¶</a></h2>
 <p>In this notebook, we will learn more about the ChEMBL database and how to extract data from ChEMBL, i.e. (compound, activity data) pairs for a target of interest. These data sets can be used for many cheminformatics tasks, such as similarity search, clustering or machine learning.</p>
 <p>Our work here will include finding compounds which were tested against a certain target and filtering available bioactivity data.</p>
 <section id="Contents-in-Theory">
-<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Permalink to this headline">¶</a></h3>
+<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>ChEMBL database</p>
 <ul>
@@ -1016,7 +770,7 @@ div.rendered_html tbody tr:hover {
 </ul>
 </section>
 <section id="Contents-in-Practical">
-<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Permalink to this headline">¶</a></h3>
+<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Permalink to this heading">¶</a></h3>
 <p><strong>Goal: Get a list of compounds with bioactivity data for a given target</strong></p>
 <ul class="simple">
 <li><p>Connect to ChEMBL database</p></li>
@@ -1049,7 +803,7 @@ div.rendered_html tbody tr:hover {
 </ul>
 </section>
 <section id="References">
-<h3 id="References">References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h3>
+<h3 id="References">References<a class="headerlink" href="#References" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>ChEMBL bioactivity database: <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5210557/">Gaulton et al., Nucleic Acids Res. (2017), 45(Database issue), D945–D954</a></p></li>
 <li><p>ChEMBL web services: <a class="reference external" href="https://academic.oup.com/nar/article/43/W1/W612/2467881">Davies et al., Nucleic Acids Res. (2015), 43, 612-620</a></p></li>
@@ -1062,9 +816,9 @@ div.rendered_html tbody tr:hover {
 </section>
 </section>
 <section id="Theory">
-<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this headline">¶</a></h2>
+<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this heading">¶</a></h2>
 <section id="ChEMBL-database">
-<h3 id="ChEMBL-database">ChEMBL database<a class="headerlink" href="#ChEMBL-database" title="Permalink to this headline">¶</a></h3>
+<h3 id="ChEMBL-database">ChEMBL database<a class="headerlink" href="#ChEMBL-database" title="Permalink to this heading">¶</a></h3>
 <blockquote>
 <div><p>“ChEMBL is a manually curated database of bioactive molecules with drug-like properties. It brings together chemical, bioactivity and genomic data to aid the translation of genomic information into effective new drugs.” (<a class="reference external" href="https://www.ebi.ac.uk/chembl/">ChEMBL website</a>)</p>
 </div></blockquote>
@@ -1081,7 +835,7 @@ div.rendered_html tbody tr:hover {
 <li><p>ChEMBL data can be accessed via a <a class="reference external" href="https://www.ebi.ac.uk/chembl/">web-interface</a>, the <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pubmed/24413672">EBI-RDF platform</a> and the <a class="reference external" href="https://github.com/chembl/chembl_webresource_client">ChEMBL webrescource client</a></p></li>
 </ul>
 <section id="ChEMBL-web-services">
-<h4 id="ChEMBL-web-services">ChEMBL web services<a class="headerlink" href="#ChEMBL-web-services" title="Permalink to this headline">¶</a></h4>
+<h4 id="ChEMBL-web-services">ChEMBL web services<a class="headerlink" href="#ChEMBL-web-services" title="Permalink to this heading">¶</a></h4>
 <ul class="simple">
 <li><p>RESTful web service</p></li>
 <li><p>ChEMBL web service version 2.x resource schema:</p></li>
@@ -1091,7 +845,7 @@ div.rendered_html tbody tr:hover {
 representation of a <code class="docutils literal notranslate"><span class="pre">Molecule</span></code>.” Figure and description taken from: <a class="reference external" href="https://academic.oup.com/nar/article/43/W1/W612/2467881">Nucleic Acids Res. (2015), 43, 612-620</a>.</p>
 </section>
 <section id="ChEMBL-webresource-client">
-<h4 id="ChEMBL-webresource-client">ChEMBL webresource client<a class="headerlink" href="#ChEMBL-webresource-client" title="Permalink to this headline">¶</a></h4>
+<h4 id="ChEMBL-webresource-client">ChEMBL webresource client<a class="headerlink" href="#ChEMBL-webresource-client" title="Permalink to this heading">¶</a></h4>
 <ul class="simple">
 <li><p>Python client library for accessing ChEMBL data</p></li>
 <li><p>Handles interaction with the HTTPS protocol</p></li>
@@ -1100,9 +854,9 @@ representation of a <code class="docutils literal notranslate"><span class="pre"
 </section>
 </section>
 <section id="Compound-activity-measures">
-<h3 id="Compound-activity-measures">Compound activity measures<a class="headerlink" href="#Compound-activity-measures" title="Permalink to this headline">¶</a></h3>
+<h3 id="Compound-activity-measures">Compound activity measures<a class="headerlink" href="#Compound-activity-measures" title="Permalink to this heading">¶</a></h3>
 <section id="IC50-measure">
-<h4 id="IC50-measure">IC50 measure<a class="headerlink" href="#IC50-measure" title="Permalink to this headline">¶</a></h4>
+<h4 id="IC50-measure">IC50 measure<a class="headerlink" href="#IC50-measure" title="Permalink to this heading">¶</a></h4>
 <ul class="simple">
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/IC50">Half maximal inhibitory concentration</a></p></li>
 <li><p>Indicates how much of a particular drug or other substance is needed to inhibit a given biological process by half</p></li>
@@ -1112,7 +866,7 @@ representation of a <code class="docutils literal notranslate"><span class="pre"
 under <a class="reference external" href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>.</p>
 </section>
 <section id="pIC50-value">
-<h4 id="pIC50-value">pIC50 value<a class="headerlink" href="#pIC50-value" title="Permalink to this headline">¶</a></h4>
+<h4 id="pIC50-value">pIC50 value<a class="headerlink" href="#pIC50-value" title="Permalink to this heading">¶</a></h4>
 <ul class="simple">
 <li><p>To facilitate the comparison of IC50 values, which have a large value range and are given in different units (M, nM, …), often pIC50 values are used</p></li>
 <li><p>The pIC50 is the negative log of the IC50 value when converted to molar units: $ pIC_{50} = -log_{10}(IC_{50}) $, where $ IC_{50}$ is specified in units of M</p></li>
@@ -1125,10 +879,10 @@ under <a class="reference external" href="https://creativecommons.org/licenses/b
 </section>
 </section>
 <section id="Practical">
-<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this headline">¶</a></h2>
+<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this heading">¶</a></h2>
 <p>In the following, we want to download all molecules that have been tested against our target of interest, the <strong>epidermal growth factor receptor</strong> (<a class="reference external" href="https://www.uniprot.org/uniprot/P00533">EGFR</a>) kinase.</p>
 <section id="Connect-to-ChEMBL-database">
-<h3 id="Connect-to-ChEMBL-database">Connect to ChEMBL database<a class="headerlink" href="#Connect-to-ChEMBL-database" title="Permalink to this headline">¶</a></h3>
+<h3 id="Connect-to-ChEMBL-database">Connect to ChEMBL database<a class="headerlink" href="#Connect-to-ChEMBL-database" title="Permalink to this heading">¶</a></h3>
 <p>First, the ChEMBL webresource client as well as other Python libraries are imported.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -1186,7 +940,7 @@ chembl_webresource_client.query_set.QuerySet
 </div>
 </section>
 <section id="Get-target-data-(EGFR-kinase)">
-<h3 id="Get-target-data-(EGFR-kinase)">Get target data (EGFR kinase)<a class="headerlink" href="#Get-target-data-(EGFR-kinase)" title="Permalink to this headline">¶</a></h3>
+<h3 id="Get-target-data-(EGFR-kinase)">Get target data (EGFR kinase)<a class="headerlink" href="#Get-target-data-(EGFR-kinase)" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Get UniProt ID of the target of interest (EGFR kinase: <a class="reference external" href="http://www.uniprot.org/uniprot/P00533">P00533</a>) from <a class="reference external" href="https://www.uniprot.org/">UniProt website</a></p></li>
 <li><p>Use UniProt ID to get target information</p></li>
@@ -1201,7 +955,7 @@ chembl_webresource_client.query_set.QuerySet
 </div>
 </div>
 <section id="Fetch-target-data-from-ChEMBL">
-<h4 id="Fetch-target-data-from-ChEMBL">Fetch target data from ChEMBL<a class="headerlink" href="#Fetch-target-data-from-ChEMBL" title="Permalink to this headline">¶</a></h4>
+<h4 id="Fetch-target-data-from-ChEMBL">Fetch target data from ChEMBL<a class="headerlink" href="#Fetch-target-data-from-ChEMBL" title="Permalink to this heading">¶</a></h4>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
@@ -1224,7 +978,7 @@ The type of the targets is "&lt;class 'chembl_webresource_client.query_set.Query
 </div>
 </section>
 <section id="Download-target-data-from-ChEMBL">
-<h4 id="Download-target-data-from-ChEMBL">Download target data from ChEMBL<a class="headerlink" href="#Download-target-data-from-ChEMBL" title="Permalink to this headline">¶</a></h4>
+<h4 id="Download-target-data-from-ChEMBL">Download target data from ChEMBL<a class="headerlink" href="#Download-target-data-from-ChEMBL" title="Permalink to this heading">¶</a></h4>
 <p>The results of the query are stored in <code class="docutils literal notranslate"><span class="pre">targets</span></code>, a <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code>, i.e. the results are not fetched from ChEMBL until we ask for it (here using <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame.from_records</span></code>).</p>
 <p>More information about the <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code> datatype:</p>
 <blockquote>
@@ -1331,7 +1085,7 @@ The type of the targets is "&lt;class 'chembl_webresource_client.query_set.Query
 </div>
 </section>
 <section id="Select-target-(target-ChEMBL-ID)">
-<h4 id="Select-target-(target-ChEMBL-ID)">Select target (target ChEMBL ID)<a class="headerlink" href="#Select-target-(target-ChEMBL-ID)" title="Permalink to this headline">¶</a></h4>
+<h4 id="Select-target-(target-ChEMBL-ID)">Select target (target ChEMBL ID)<a class="headerlink" href="#Select-target-(target-ChEMBL-ID)" title="Permalink to this heading">¶</a></h4>
 <p>After checking the entries, we select the first entry as our target of interest:</p>
 <p><code class="docutils literal notranslate"><span class="pre">CHEMBL203</span></code>: It is a single protein and represents the human Epidermal growth factor receptor (EGFR, also named erbB1)</p>
 <div class="nbinput docutils container">
@@ -1378,10 +1132,10 @@ The target ChEMBL ID is CHEMBL203
 </section>
 </section>
 <section id="Get-bioactivity-data">
-<h3 id="Get-bioactivity-data">Get bioactivity data<a class="headerlink" href="#Get-bioactivity-data" title="Permalink to this headline">¶</a></h3>
+<h3 id="Get-bioactivity-data">Get bioactivity data<a class="headerlink" href="#Get-bioactivity-data" title="Permalink to this heading">¶</a></h3>
 <p>Now, we want to query bioactivity data for the target of interest.</p>
 <section id="Fetch-bioactivity-data-for-the-target-from-ChEMBL">
-<h4 id="Fetch-bioactivity-data-for-the-target-from-ChEMBL">Fetch bioactivity data for the target from ChEMBL<a class="headerlink" href="#Fetch-bioactivity-data-for-the-target-from-ChEMBL" title="Permalink to this headline">¶</a></h4>
+<h4 id="Fetch-bioactivity-data-for-the-target-from-ChEMBL">Fetch bioactivity data for the target from ChEMBL<a class="headerlink" href="#Fetch-bioactivity-data-for-the-target-from-ChEMBL" title="Permalink to this heading">¶</a></h4>
 <p>In this step, we fetch the bioactivity data and filter it to only consider</p>
 <ul class="simple">
 <li><p>human proteins,</p></li>
@@ -1462,7 +1216,7 @@ Length and type of first element: 13, &lt;class 'dict'&gt;
 </div>
 </section>
 <section id="Download-bioactivity-data-from-ChEMBL">
-<h4 id="Download-bioactivity-data-from-ChEMBL">Download bioactivity data from ChEMBL<a class="headerlink" href="#Download-bioactivity-data-from-ChEMBL" title="Permalink to this headline">¶</a></h4>
+<h4 id="Download-bioactivity-data-from-ChEMBL">Download bioactivity data from ChEMBL<a class="headerlink" href="#Download-bioactivity-data-from-ChEMBL" title="Permalink to this heading">¶</a></h4>
 <p>Finally, we download the <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code> in the form of a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
 <blockquote>
 <div><p><strong>Note</strong>: This step should not take more than 2 minutes, if so try to rerun all cells starting from <em>“Fetch bioactivity data for the target from ChEMBL”</em> or read this message below:</p>
@@ -1758,7 +1512,7 @@ array(['uM', 'nM', 'pM', 'M', "10'3 uM", "10'1 ug/ml", 'ug ml-1',
 </div>
 </section>
 <section id="Preprocess-and-filter-bioactivity-data">
-<h4 id="Preprocess-and-filter-bioactivity-data">Preprocess and filter bioactivity data<a class="headerlink" href="#Preprocess-and-filter-bioactivity-data" title="Permalink to this headline">¶</a></h4>
+<h4 id="Preprocess-and-filter-bioactivity-data">Preprocess and filter bioactivity data<a class="headerlink" href="#Preprocess-and-filter-bioactivity-data" title="Permalink to this heading">¶</a></h4>
 <ol class="arabic simple">
 <li><p>Convert <code class="docutils literal notranslate"><span class="pre">standard_value</span></code>’s datatype from <code class="docutils literal notranslate"><span class="pre">object</span></code> to <code class="docutils literal notranslate"><span class="pre">float</span></code></p></li>
 <li><p>Delete entries with missing values</p></li>
@@ -2186,11 +1940,11 @@ DataFrame shape: (6059, 11)
 </section>
 </section>
 <section id="Get-compound-data">
-<h3 id="Get-compound-data">Get compound data<a class="headerlink" href="#Get-compound-data" title="Permalink to this headline">¶</a></h3>
+<h3 id="Get-compound-data">Get compound data<a class="headerlink" href="#Get-compound-data" title="Permalink to this heading">¶</a></h3>
 <p>We have a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> containing all molecules tested against EGFR (with the respective measured bioactivity).</p>
 <p>Now, we want to get the molecular structures of the molecules that are linked to respective bioactivity ChEMBL IDs.</p>
 <section id="Fetch-compound-data-from-ChEMBL">
-<h4 id="Fetch-compound-data-from-ChEMBL">Fetch compound data from ChEMBL<a class="headerlink" href="#Fetch-compound-data-from-ChEMBL" title="Permalink to this headline">¶</a></h4>
+<h4 id="Fetch-compound-data-from-ChEMBL">Fetch compound data from ChEMBL<a class="headerlink" href="#Fetch-compound-data-from-ChEMBL" title="Permalink to this heading">¶</a></h4>
 <p>Let’s have a look at the compounds from ChEMBL which we have defined bioactivity data for: We fetch compound ChEMBL IDs and structures for the compounds linked to our filtered bioactivity data.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
@@ -2204,7 +1958,7 @@ DataFrame shape: (6059, 11)
 </div>
 </section>
 <section id="Download-compound-data-from-ChEMBL">
-<h4 id="Download-compound-data-from-ChEMBL">Download compound data from ChEMBL<a class="headerlink" href="#Download-compound-data-from-ChEMBL" title="Permalink to this headline">¶</a></h4>
+<h4 id="Download-compound-data-from-ChEMBL">Download compound data from ChEMBL<a class="headerlink" href="#Download-compound-data-from-ChEMBL" title="Permalink to this heading">¶</a></h4>
 <p>Again, we want to export the <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code> object into a <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>. Given the data volume, <strong>this can take some time.</strong> For that reason, we will first obtain the list of records through <code class="docutils literal notranslate"><span class="pre">tqdm</span></code>, so we get a nice progress bar and some ETAs. We can then pass the list of compounds to the DataFrame.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
@@ -2306,7 +2060,7 @@ DataFrame shape: (6059, 2)
 </div>
 </section>
 <section id="Preprocess-and-filter-compound-data">
-<h4 id="Preprocess-and-filter-compound-data">Preprocess and filter compound data<a class="headerlink" href="#Preprocess-and-filter-compound-data" title="Permalink to this headline">¶</a></h4>
+<h4 id="Preprocess-and-filter-compound-data">Preprocess and filter compound data<a class="headerlink" href="#Preprocess-and-filter-compound-data" title="Permalink to this heading">¶</a></h4>
 <ol class="arabic simple">
 <li><p>Remove entries with missing entries</p></li>
 <li><p>Delete duplicate molecules (by molecule_chembl_id)</p></li>
@@ -2414,7 +2168,7 @@ DataFrame shape: (6052, 2)
 </section>
 </section>
 <section id="Output-(bioactivity-compound)-data">
-<h3 id="Output-(bioactivity-compound)-data">Output (bioactivity-compound) data<a class="headerlink" href="#Output-(bioactivity-compound)-data" title="Permalink to this headline">¶</a></h3>
+<h3 id="Output-(bioactivity-compound)-data">Output (bioactivity-compound) data<a class="headerlink" href="#Output-(bioactivity-compound)-data" title="Permalink to this heading">¶</a></h3>
 <p><strong>Summary of compound and bioactivity data</strong></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
@@ -2472,7 +2226,7 @@ Index(['molecule_chembl_id', 'smiles'], dtype='object')
 </pre></div></div>
 </div>
 <section id="Merge-both-datasets">
-<h4 id="Merge-both-datasets">Merge both datasets<a class="headerlink" href="#Merge-both-datasets" title="Permalink to this headline">¶</a></h4>
+<h4 id="Merge-both-datasets">Merge both datasets<a class="headerlink" href="#Merge-both-datasets" title="Permalink to this heading">¶</a></h4>
 <p>Merge values of interest from <code class="docutils literal notranslate"><span class="pre">bioactivities_df</span></code> and <code class="docutils literal notranslate"><span class="pre">compounds_df</span></code> in an <code class="docutils literal notranslate"><span class="pre">output_df</span></code> based on the compounds’ ChEMBL IDs (<code class="docutils literal notranslate"><span class="pre">molecule_chembl_id</span></code>), keeping the following columns:</p>
 <ul class="simple">
 <li><p>ChEMBL IDs: <code class="docutils literal notranslate"><span class="pre">molecule_chembl_id</span></code></p></li>
@@ -2641,7 +2395,7 @@ dtype: object
 </div>
 </section>
 <section id="Add-pIC50-values">
-<h4 id="Add-pIC50-values">Add pIC50 values<a class="headerlink" href="#Add-pIC50-values" title="Permalink to this headline">¶</a></h4>
+<h4 id="Add-pIC50-values">Add pIC50 values<a class="headerlink" href="#Add-pIC50-values" title="Permalink to this heading">¶</a></h4>
 <p>As you can see the low IC50 values are difficult to read (values are distributed over multiple scales), which is why we convert the IC50 values to pIC50.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
@@ -2747,7 +2501,7 @@ dtype: object
 </div>
 </section>
 <section id="Draw-compound-data">
-<h4 id="Draw-compound-data">Draw compound data<a class="headerlink" href="#Draw-compound-data" title="Permalink to this headline">¶</a></h4>
+<h4 id="Draw-compound-data">Draw compound data<a class="headerlink" href="#Draw-compound-data" title="Permalink to this heading">¶</a></h4>
 <p>Let’s have a look at our collected data set.</p>
 <p>First, we plot the pIC50 value distribution</p>
 <div class="nbinput docutils container">
@@ -2884,7 +2638,7 @@ DataFrame shape: (6052, 5)
 </div>
 </section>
 <section id="Freeze-output-data-to-ChEMBL-27">
-<h4 id="Freeze-output-data-to-ChEMBL-27">Freeze output data to ChEMBL 27<a class="headerlink" href="#Freeze-output-data-to-ChEMBL-27" title="Permalink to this headline">¶</a></h4>
+<h4 id="Freeze-output-data-to-ChEMBL-27">Freeze output data to ChEMBL 27<a class="headerlink" href="#Freeze-output-data-to-ChEMBL-27" title="Permalink to this heading">¶</a></h4>
 <p>This is a technical step: Usually, we would continue to work with the dataset that we just created (latest dataset).</p>
 <p>However, here on the TeachOpenCADD platform, we prefer to freeze the dataset to a certain ChEMBL releases (i.e. <a class="reference external" href="http://doi.org/10.6019/CHEMBL.database.27">ChEMBL 27</a>), so that this talktorial and other talktorials downstream in our CADD pipeline do not change in the future (helping us to maintain the talktorials).</p>
 <div class="alert alert-block alert-info"><p>Note: If you prefer to run this notebook on the latest dataset or if you want to use it for another target, please comment the cell below.</p>
@@ -2994,7 +2748,7 @@ DataFrame shape: (5568, 5)
 </div>
 </section>
 <section id="Write-output-data-to-file">
-<h4 id="Write-output-data-to-file">Write output data to file<a class="headerlink" href="#Write-output-data-to-file" title="Permalink to this headline">¶</a></h4>
+<h4 id="Write-output-data-to-file">Write output data to file<a class="headerlink" href="#Write-output-data-to-file" title="Permalink to this heading">¶</a></h4>
 <p>We want to use this bioactivity-compound dataset in the following talktorials, thus we save the data as <code class="docutils literal notranslate"><span class="pre">csv</span></code> file. Note that it is advisable to drop the molecule column (which only contains an image of the molecules) when saving the data.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
@@ -3101,13 +2855,13 @@ DataFrame shape: (5568, 5)
 </section>
 </section>
 <section id="Discussion">
-<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this headline">¶</a></h2>
+<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this heading">¶</a></h2>
 <p>In this tutorial, we collected bioactivity data for our target of interest from the ChEMBL database. We filtered the data set in order to only contain molecules with measured IC50 bioactivity values.</p>
 <p>Be aware that ChEMBL data originates from various sources. Compound data has been generated in different labs by different people all over the world. Therefore, we have to be cautious with the predictions we make using this data set. It is always important to consider the source of the data and consistency of data production assays when interpreting the results and determining how much confidence we have in our predictions.</p>
 <p>In the next tutorials, we will filter our acquired data by Lipinski’s rule of five and by unwanted substructures. Another important step would be to <em>clean</em> the molecular data. As this is not shown in any of our talktorials (yet), we would like to refer to the <a class="reference external" href="https://github.com/flatkinson/standardiser">Standardiser library</a> or <a class="reference external" href="https://molvs.readthedocs.io/en/latest/">MolVS</a> as useful tools for this task.</p>
 </section>
 <section id="Quiz">
-<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Permalink to this headline">¶</a></h2>
+<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>We have downloaded in this talktorial molecules and bioactivity data from ChEMBL. What else is the ChEMBL database useful for?</p></li>
 <li><p>What is the difference between IC50 and EC50?</p></li>
@@ -3165,7 +2919,7 @@ DataFrame shape: (5568, 5)
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 5.0.1.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

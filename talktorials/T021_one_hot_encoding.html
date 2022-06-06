@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
 <meta property="og:title" content="T021 · One-Hot Encoding" />
   
@@ -95,6 +95,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -261,327 +262,56 @@
     
     
       <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="T001_query_chembl.html" class="md-nav__link">T001 · Compound data acquisition (ChEMBL)</a>
       
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T002_compound_adme.html" class="md-nav__link">T002 · Molecular filtering: ADME and lead-likeness criteria</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T003_compound_unwanted_substructures.html" class="md-nav__link">T003 · Molecular filtering: unwanted substructures</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T004_compound_similarity.html" class="md-nav__link">T004 · Ligand-based screening: compound similarity</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T005_compound_clustering.html" class="md-nav__link">T005 · Compound clustering</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T006_compound_maximum_common_substructures.html" class="md-nav__link">T006 · Maximum common substructure</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T007_compound_activity_machine_learning.html" class="md-nav__link">T007 · Ligand-based screening: machine learning</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T008_query_pdb.html" class="md-nav__link">T008 · Protein data acquisition: Protein Data Bank (PDB)</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T009_compound_ensemble_pharmacophores.html" class="md-nav__link">T009 · Ligand-based pharmacophores</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T010_binding_site_comparison.html" class="md-nav__link">T010 · Binding site similarity and off-target prediction</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T011_query_online_api_webservices.html" class="md-nav__link">T011 · Querying online API webservices</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T012_query_klifs.html" class="md-nav__link">T012 · Data acquisition from KLIFS</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T013_query_pubchem.html" class="md-nav__link">T013 · Data acquisition from PubChem</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T014_binding_site_detection.html" class="md-nav__link">T014 · Binding site detection</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T015_protein_ligand_docking.html" class="md-nav__link">T015 · Protein ligand docking</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T016_protein_ligand_interactions.html" class="md-nav__link">T016 · Protein-ligand interactions</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T017_advanced_nglview_usage.html" class="md-nav__link">T017 · Advanced NGLview usage</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T018_automated_cadd_pipeline.html" class="md-nav__link">T018 · Automated pipeline for lead optimization</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T019_md_simulation.html" class="md-nav__link">T019 · Molecular dynamics simulation</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T020_md_analysis.html" class="md-nav__link">T020 · Analyzing molecular dynamics simulations</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> T021 · One-Hot Encoding </label>
-    
-      <a href="#" class="md-nav__link md-nav__link--active">T021 · One-Hot Encoding</a>
-      
-        
-<nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#talktorials-t021-one-hot-encoding--page-root" class="md-nav__link">T021 · One-Hot Encoding</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
-        </li>
-        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
-        </li>
-        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Molecular-data-and-representation" class="md-nav__link">Molecular data and representation</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#ChEMBL-database" class="md-nav__link">ChEMBL database</a>
-        </li>
-        <li class="md-nav__item"><a href="#SMILES-structures-and-rules" class="md-nav__link">SMILES structures and rules</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#What-is-categorical-data?" class="md-nav__link">What is categorical data?</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#What-is-the-problem-with-categorical-data?" class="md-nav__link">What is the problem with categorical data?</a>
-        </li>
-        <li class="md-nav__item"><a href="#How-to-convert-categorical-data-to-numerical-data?" class="md-nav__link">How to convert categorical data to numerical data?</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#The-One-Hot-Encoding-(OHE)-concept" class="md-nav__link">The <em>One-Hot Encoding</em> (OHE) concept</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Why-using-one-hot-encoding?" class="md-nav__link">Why using one-hot encoding?</a>
-        </li>
-        <li class="md-nav__item"><a href="#Example-of-one-hot-encoding" class="md-nav__link">Example of one-hot encoding</a>
-        </li>
-        <li class="md-nav__item"><a href="#Advantages-and-disadvantages-of-one-hot-encoding" class="md-nav__link">Advantages and disadvantages of one-hot encoding</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Similar:-Integer-or-label-encoding" class="md-nav__link">Similar: Integer or label encoding</a>
-        </li>
-        <li class="md-nav__item"><a href="#What-is-padding?" class="md-nav__link">What is <em>padding</em>?</a>
-        </li>
-        <li class="md-nav__item"><a href="#Further-readings" class="md-nav__link">Further readings</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Import-necessary-packages" class="md-nav__link">Import necessary packages</a>
-        </li>
-        <li class="md-nav__item"><a href="#Read-the-input-data" class="md-nav__link">Read the input data</a>
-        </li>
-        <li class="md-nav__item"><a href="#Process-the-data" class="md-nav__link">Process the data</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Double-digit-replacement" class="md-nav__link">Double digit replacement</a>
-        </li>
-        <li class="md-nav__item"><a href="#Compute-longest-(&amp;-shortest)-SMILES" class="md-nav__link">Compute longest (& shortest) SMILES</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Python-one-hot-encoding-implementation" class="md-nav__link">Python one-hot encoding implementation</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#One-hot-encode-(padding=True)" class="md-nav__link">One-hot encode (padding=True)</a>
-        </li>
-        <li class="md-nav__item"><a href="#Visualization" class="md-nav__link">Visualization</a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
-        </li>
-        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
-        </li>
-        <li class="md-nav__item"><a href="#Supplementary-material" class="md-nav__link">Supplementary material</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Scikit-learn-implementation-of-one-hot-encoding" class="md-nav__link">Scikit-learn implementation of one-hot encoding</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Without-padding-(unequal-dimension)" class="md-nav__link">Without padding (unequal dimension)</a>
-        </li>
-        <li class="md-nav__item"><a href="#With-padding-(equal-dimension)" class="md-nav__link">With padding (equal dimension)</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Padding-after-one-hot-encoding-is-performed" class="md-nav__link">Padding after one-hot encoding is performed</a>
-        </li>
-        <li class="md-nav__item"><a href="#Padding-before-one-hot-encoding-is-performed" class="md-nav__link">Padding before one-hot encoding is performed</a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Keras-implementation-of-one-hot-encoding" class="md-nav__link">Keras implementation of one-hot encoding</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#id1" class="md-nav__link">Without padding (unequal dimension)</a>
-        </li>
-        <li class="md-nav__item"><a href="#id2" class="md-nav__link">With padding (equal dimension)</a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T021_one_hot_encoding.nblink.txt">Show Source</a> </li>
-
-  </ul>
-</nav>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T022_ligand_based_screening_neural_network.html" class="md-nav__link">T022 · Ligand-based screening: neural networks</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T023_what_is_a_kinase.html" class="md-nav__link">T023 · What is a kinase?</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T024_kinase_similarity_sequence.html" class="md-nav__link">T024 · Kinase similarity: Sequence</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T025_kinase_similarity_kissim.html" class="md-nav__link">T025 · Kinase similarity: Kinase pocket (KiSSim fingerprint)</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T026_kinase_similarity_ifp.html" class="md-nav__link">T026 · Kinase similarity: Interaction fingerprints</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T027_kinase_similarity_ligand_profile.html" class="md-nav__link">T027 · Kinase similarity: Ligand profile</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T028_kinase_similarity_compare_perspectives.html" class="md-nav__link">T028 · Kinase similarity: Compare different perspectives</a>
-      
-    
-    </li></ul>
     
     </li>
     <li class="md-nav__item">
     
     
       <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#edition-2019-jcim" class="md-nav__link">Edition 2019 - JCIM</a>
       
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#edition-2021" class="md-nav__link">Edition 2021</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#ligand-based-cheminformatics" class="md-nav__link">Ligand-based cheminformatics</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#structural-biology" class="md-nav__link">Structural biology</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#online-apis-servers" class="md-nav__link">Online APIs/servers</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#kinase-similarity" class="md-nav__link">Kinase similarity</a>
+      
+    
+    </li></ul>
     
     </li>
     <li class="md-nav__item">
@@ -981,6 +711,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* Some additional styling taken form the Jupyter notebook CSS */
+.jp-RenderedHTMLCommon table,
 div.rendered_html table {
   border: none;
   border-collapse: collapse;
@@ -989,10 +720,14 @@ div.rendered_html table {
   font-size: 12px;
   table-layout: fixed;
 }
+.jp-RenderedHTMLCommon thead,
 div.rendered_html thead {
   border-bottom: 1px solid black;
   vertical-align: bottom;
 }
+.jp-RenderedHTMLCommon tr,
+.jp-RenderedHTMLCommon th,
+.jp-RenderedHTMLCommon td,
 div.rendered_html tr,
 div.rendered_html th,
 div.rendered_html td {
@@ -1004,18 +739,21 @@ div.rendered_html td {
   max-width: none;
   border: none;
 }
+.jp-RenderedHTMLCommon th,
 div.rendered_html th {
   font-weight: bold;
 }
+.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
 div.rendered_html tbody tr:nth-child(odd) {
   background: #f5f5f5;
 }
+.jp-RenderedHTMLCommon tbody tr:hover,
 div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
 </style>
 <section id="T021-·-One-Hot-Encoding">
-<h1 id="talktorials-t021-one-hot-encoding--page-root">T021 · One-Hot Encoding<a class="headerlink" href="#talktorials-t021-one-hot-encoding--page-root" title="Permalink to this headline">¶</a></h1>
+<h1 id="talktorials-t021-one-hot-encoding--page-root">T021 · One-Hot Encoding<a class="headerlink" href="#talktorials-t021-one-hot-encoding--page-root" title="Permalink to this heading">¶</a></h1>
 <p>Developed in the CADD seminar 2020, Volkamer Lab, Charité/FU Berlin</p>
 <p><strong>Note:</strong> This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.</p>
 <p>Authors:</p>
@@ -1026,10 +764,10 @@ div.rendered_html tbody tr:hover {
 <li><p>Andrea Volkamer, 2020, <a class="reference external" href="https://volkamerlab.org">Volkamer lab</a>, Charité</p></li>
 </ul>
 <section id="Aim-of-this-talktorial">
-<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this headline">¶</a></h2>
+<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this heading">¶</a></h2>
 <p>The aim of the talktorial is to perform one-hot encoding of SMILES structures on a subset of the ChEMBL data set to gain a deeper understanding on the one-hot encoding concept and why it is useful as a pre-processing step in various machine learning algorithms.</p>
 <section id="Contents-in-Theory">
-<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Permalink to this headline">¶</a></h3>
+<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Molecular data and representation</p>
 <ul>
@@ -1056,7 +794,7 @@ div.rendered_html tbody tr:hover {
 </ul>
 </section>
 <section id="Contents-in-Practical">
-<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Permalink to this headline">¶</a></h3>
+<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Import necessary packages</p></li>
 <li><p>Read the input data</p></li>
@@ -1087,7 +825,7 @@ div.rendered_html tbody tr:hover {
 </section>
 </section>
 <section id="References">
-<h2 id="References">References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h2>
+<h2 id="References">References<a class="headerlink" href="#References" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Theoretical background:</p>
 <ul>
@@ -1116,11 +854,11 @@ div.rendered_html tbody tr:hover {
 </ul>
 </section>
 <section id="Theory">
-<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this headline">¶</a></h2>
+<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this heading">¶</a></h2>
 <section id="Molecular-data-and-representation">
-<h3 id="Molecular-data-and-representation">Molecular data and representation<a class="headerlink" href="#Molecular-data-and-representation" title="Permalink to this headline">¶</a></h3>
+<h3 id="Molecular-data-and-representation">Molecular data and representation<a class="headerlink" href="#Molecular-data-and-representation" title="Permalink to this heading">¶</a></h3>
 <section id="ChEMBL-database">
-<h4 id="ChEMBL-database">ChEMBL database<a class="headerlink" href="#ChEMBL-database" title="Permalink to this headline">¶</a></h4>
+<h4 id="ChEMBL-database">ChEMBL database<a class="headerlink" href="#ChEMBL-database" title="Permalink to this heading">¶</a></h4>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.ebi.ac.uk/chembl/">ChEMBL</a> is an open large-scale bioactivity database, containing molecules with drug-like properties.</p></li>
 <li><p>The recent release (version 25) contains information extracted from more than <span class="math notranslate nohighlight">\(72,000\)</span> documents. In total, there are now more than <span class="math notranslate nohighlight">\(1.8\)</span> million compounds and <span class="math notranslate nohighlight">\(15\)</span> million bioactivity data points available.</p></li>
@@ -1128,7 +866,7 @@ div.rendered_html tbody tr:hover {
 </ul>
 </section>
 <section id="SMILES-structures-and-rules">
-<h4 id="SMILES-structures-and-rules">SMILES structures and rules<a class="headerlink" href="#SMILES-structures-and-rules" title="Permalink to this headline">¶</a></h4>
+<h4 id="SMILES-structures-and-rules">SMILES structures and rules<a class="headerlink" href="#SMILES-structures-and-rules" title="Permalink to this heading">¶</a></h4>
 <ul class="simple">
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system">SMILES</a> (Simplified Molecular Input Line Entry System) notation is a chemical notation that allows a user to represent a chemical structure of a molecule in a linear way that can be read by the computer (see “Modern Aspects of the Smiles Rearrangement” (2017), <a class="reference external" href="https://doi.org/10.1002/chem.201700353">Chemistry A European Journal, Volume23, Issue38, 8992-9008</a> for further information).</p></li>
 <li><p>It contains a sequence of letters, numbers and characters that specify a molecule’s atoms, their connectivity, bond order and chirality.</p></li>
@@ -1144,7 +882,7 @@ div.rendered_html tbody tr:hover {
 </section>
 </section>
 <section id="What-is-categorical-data?">
-<h3 id="What-is-categorical-data?">What is categorical data?<a class="headerlink" href="#What-is-categorical-data?" title="Permalink to this headline">¶</a></h3>
+<h3 id="What-is-categorical-data?">What is categorical data?<a class="headerlink" href="#What-is-categorical-data?" title="Permalink to this heading">¶</a></h3>
 <p>Categorical data are variables that contain labels rather than numeric values. Some examples include:</p>
 <ul class="simple">
 <li><p>A “pet” variable with the values: “dog” and “cat”.</p></li>
@@ -1152,45 +890,45 @@ div.rendered_html tbody tr:hover {
 <li><p>A “place” variable with the values: “first”, “second” and “third”.</p></li>
 </ul>
 <section id="What-is-the-problem-with-categorical-data?">
-<h4 id="What-is-the-problem-with-categorical-data?">What is the problem with categorical data?<a class="headerlink" href="#What-is-the-problem-with-categorical-data?" title="Permalink to this headline">¶</a></h4>
+<h4 id="What-is-the-problem-with-categorical-data?">What is the problem with categorical data?<a class="headerlink" href="#What-is-the-problem-with-categorical-data?" title="Permalink to this heading">¶</a></h4>
 <p>Machine learning consists of mathematical operations translated to a computer via low-level programming languages. Computers are brilliant when dealing with numbers. So we must somehow convert our input data to numbers. There are many machine learning algorithms which cannot operate on categorical data directly. Thus, categorical data must be converted to a numerical form, that all input and output variables are numeric (see
 <a class="reference external" href="https://www.analyticsvidhya.com/blog/2020/03/one-hot-encoding-vs-label-encoding-using-scikit-learn/">Blogpost</a>: Alakh Sethi, <em>One-Hot Encoding vs. Label Encoding using Scikit-Learn</em> , Analytics Vidya, accessed March 6th, 2020 for further information).</p>
 <img alt="Computer data" src="../_images/computer_data.jpeg"/>
 <p><em>Figure 1</em>: Displays the categorical encoding required for computers to understand the input. The figure comes from this <a class="reference external" href="https://www.analyticsvidhya.com/blog/2020/03/one-hot-encoding-vs-label-encoding-using-scikit-learn/">blogpost</a>.</p>
 </section>
 <section id="How-to-convert-categorical-data-to-numerical-data?">
-<h4 id="How-to-convert-categorical-data-to-numerical-data?">How to convert categorical data to numerical data?<a class="headerlink" href="#How-to-convert-categorical-data-to-numerical-data?" title="Permalink to this headline">¶</a></h4>
+<h4 id="How-to-convert-categorical-data-to-numerical-data?">How to convert categorical data to numerical data?<a class="headerlink" href="#How-to-convert-categorical-data-to-numerical-data?" title="Permalink to this heading">¶</a></h4>
 <p>There are many ways to convert categorical values into numerical values. Each approach has its own positive and negative impact on the feature set. Hereby, two main methods will be the focus: <em>One-hot</em> encoding and <em>Label</em> encoding. Both of these encoders are part of the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html">scikit-learn</a> library (one of the most widely used Python libraries) and are used to convert text or categorical data into numerical
 data which the model expects and and can work with.</p>
 </section>
 </section>
 <section id="The-One-Hot-Encoding-(OHE)-concept">
-<h3 id="The-One-Hot-Encoding-(OHE)-concept">The <em>One-Hot Encoding</em> (OHE) concept<a class="headerlink" href="#The-One-Hot-Encoding-(OHE)-concept" title="Permalink to this headline">¶</a></h3>
+<h3 id="The-One-Hot-Encoding-(OHE)-concept">The <em>One-Hot Encoding</em> (OHE) concept<a class="headerlink" href="#The-One-Hot-Encoding-(OHE)-concept" title="Permalink to this heading">¶</a></h3>
 <p>The one-hot encoding is a vector representation where all the elements of the vector are set to <code class="docutils literal notranslate"><span class="pre">0</span></code> except one, which has <code class="docutils literal notranslate"><span class="pre">1</span></code> as its value. For example, <code class="docutils literal notranslate"><span class="pre">[0</span> <span class="pre">0</span> <span class="pre">0</span> <span class="pre">1</span> <span class="pre">0</span> <span class="pre">0]</span></code> is a one-hot vector. Simply put, one-hot encoding, also known as binary encoding, is a binary representation of categorical variables as binary vectors.</p>
 <p>The figure shown below helps us gain an overall idea of the one-hot encoding concept.</p>
 <img alt="One Hot encoding" src="../_images/OneHotEncoding.png"/>
 <p><em>Figure 2</em> : Displays the one-hot encoding of the toluene molecule. Figure taken from the article <a class="reference external" href="https://doi.org/10.1186/s12859-018-2523-5">BMC Bioinformatics. (2018), 19,526</a>, more information can be found there.</p>
 <p>Let us take a deeper look into the concept with the help of a simple example that will describe the basic concept of one-hot encoding, why it is useful and how one can approach it.</p>
 <section id="Why-using-one-hot-encoding?">
-<h4 id="Why-using-one-hot-encoding?">Why using one-hot encoding?<a class="headerlink" href="#Why-using-one-hot-encoding?" title="Permalink to this headline">¶</a></h4>
+<h4 id="Why-using-one-hot-encoding?">Why using one-hot encoding?<a class="headerlink" href="#Why-using-one-hot-encoding?" title="Permalink to this heading">¶</a></h4>
 <p>One-hot encoding allows the representation of categorical data to be more expressive. It is difficult for many machine learning algorithms to work with categorical data directly that’s why the label values which are categorical must be converted into numbers first as a preprocessing step. This is required for both input and output variables that are categorical.</p>
 <p>We could also use an <em>integer encoding</em> directly. This may work for problems where there is a natural ordinal relationship between the categories, and in turn the integer values, such as labels for temperature “cold”, “warm”, and “hot”. There may be problems when there is no ordinal relationship and allowing the representation to lean on any such relationship by using integer encoding might be not useful to solve the problem. An example might be the labels “dog” and “cat”.</p>
 </section>
 <section id="Example-of-one-hot-encoding">
-<h4 id="Example-of-one-hot-encoding">Example of one-hot encoding<a class="headerlink" href="#Example-of-one-hot-encoding" title="Permalink to this headline">¶</a></h4>
+<h4 id="Example-of-one-hot-encoding">Example of one-hot encoding<a class="headerlink" href="#Example-of-one-hot-encoding" title="Permalink to this heading">¶</a></h4>
 <p>Let us take a look at a very simple example to understand this concept. Assume we have the “color” variable which has three labels <code class="docutils literal notranslate"><span class="pre">red</span></code> , <code class="docutils literal notranslate"><span class="pre">blue</span></code> and <code class="docutils literal notranslate"><span class="pre">green</span></code>. All these labels must be converted into numeric form in order to work with our machine learning algorithm. This can be done by creating three new columns having all three labels and use <code class="docutils literal notranslate"><span class="pre">1</span></code> for the color of the respective label and <code class="docutils literal notranslate"><span class="pre">0</span></code> for the other colors as shown in Figure 4.</p>
 <img alt="One Hot Encoding" src="../_images/OneHotEncoding_eg.png"/>
 <p><em>Figure 3</em> : The visual demonstration of one-hot encoding done on the variable “color”. Figure taken from the article: “<em>Building a One Hot Encoding Layer with TensorFlow</em>”, George Novack, <a class="reference external" href="https://towardsdatascience.com/building-a-one-hot-encoding-layer-with-tensorflow-f907d686bf39">towardsdatascience</a>, more details can be found there.</p>
 </section>
 <section id="Advantages-and-disadvantages-of-one-hot-encoding">
-<h4 id="Advantages-and-disadvantages-of-one-hot-encoding">Advantages and disadvantages of one-hot encoding<a class="headerlink" href="#Advantages-and-disadvantages-of-one-hot-encoding" title="Permalink to this headline">¶</a></h4>
+<h4 id="Advantages-and-disadvantages-of-one-hot-encoding">Advantages and disadvantages of one-hot encoding<a class="headerlink" href="#Advantages-and-disadvantages-of-one-hot-encoding" title="Permalink to this heading">¶</a></h4>
 <p><strong>Advantages</strong> - If the cardinality (the number of categories) of the categorical features is low (relative to the amount of data), one-hot encoding will work best. - One-hot encoding has the advantage that the result is binary rather than ordinal and that everything sits in an orthogonal vector space.</p>
 <p><strong>Disadvantages</strong> - Increase in dimensionality, after adding several columns based on categorical variables which may result in an increase in the computational cost. - There is a high chance of multi-collinearity due to dummy variables (unique category added as a feature) which can affect the performance of the model. - One-hot encoding can result in increasing the <a class="reference external" href="https://en.wikipedia.org/wiki/Sparse_matrix">sparsity</a> of a data set (a sparse matrix is a matrix in which most of the elements
 are zero).</p>
 </section>
 </section>
 <section id="Similar:-Integer-or-label-encoding">
-<h3 id="Similar:-Integer-or-label-encoding">Similar: Integer or label encoding<a class="headerlink" href="#Similar:-Integer-or-label-encoding" title="Permalink to this headline">¶</a></h3>
+<h3 id="Similar:-Integer-or-label-encoding">Similar: Integer or label encoding<a class="headerlink" href="#Similar:-Integer-or-label-encoding" title="Permalink to this heading">¶</a></h3>
 <p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html">Label Encoding</a>, or integer encoding, is a popular encoding technique for handling categorical variables and is easily reversible. In this technique, each label is assigned a unique integer based on alphabetical ordering, so that machines can work with it properly. Machine learning algorithms can then decide in a better way on how labels must be operated on. It is an important preprocessing step for
 structured data sets in supervised learning.</p>
 <p><strong>Example of integer encoding</strong></p>
@@ -1201,7 +939,7 @@ structured data sets in supervised learning.</p>
 <p>There is not much difference between these two encoding techniques, it mainly depends on the type of data and model used. For example, if we have categorical features which are not ordinal (dog or cat) then we can use one-hot encoding. Label encoding works best with ordinal data like <code class="docutils literal notranslate"><span class="pre">good=0,</span> <span class="pre">better=1,</span> <span class="pre">best=2</span></code>. Also when there are many categorical variables then it might be good to choose label encoding just to avoid high memory consumption and sparsity.</p>
 </section>
 <section id="What-is-padding?">
-<h3 id="What-is-padding?">What is <em>padding</em>?<a class="headerlink" href="#What-is-padding?" title="Permalink to this headline">¶</a></h3>
+<h3 id="What-is-padding?">What is <em>padding</em>?<a class="headerlink" href="#What-is-padding?" title="Permalink to this heading">¶</a></h3>
 <p>Padding is used to add zeros to the resulted one-hot encoded matrix. There are different types of padding, we chose to performed zero padding in here. For more details, please refer to this <a class="reference external" href="https://www.machinecurve.com/index.php/2020/02/07/what-is-padding-in-a-neural-network/#:~:text=Padding%20avoids%20the%20loss%20of%20spatial%20dimensions,-Sometimes%2C%20however%2C%20you&amp;text=You%20need%20the%20output%20images,in%20order%20to%20generate%20them.">Blogpost</a>.</p>
 <p><strong>Why is it performed?</strong></p>
 <p>Padding is performed to make the dimensions of the matrix equal - or to preserve the height and the width - and to not have to worry too much about tensor dimensions when used as an input for the deep learning models.</p>
@@ -1214,7 +952,7 @@ structured data sets in supervised learning.</p>
 </ul>
 </section>
 <section id="Further-readings">
-<h3 id="Further-readings">Further readings<a class="headerlink" href="#Further-readings" title="Permalink to this headline">¶</a></h3>
+<h3 id="Further-readings">Further readings<a class="headerlink" href="#Further-readings" title="Permalink to this heading">¶</a></h3>
 <p>This section lists some resources for further reading:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.quora.com/What-is-one-hot-encoding-and-when-is-it-used-in-data-science">What is one-hot encoding and when is it used in data science?</a></p></li>
@@ -1225,9 +963,9 @@ structured data sets in supervised learning.</p>
 </section>
 </section>
 <section id="Practical">
-<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this headline">¶</a></h2>
+<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this heading">¶</a></h2>
 <section id="Import-necessary-packages">
-<h3 id="Import-necessary-packages">Import necessary packages<a class="headerlink" href="#Import-necessary-packages" title="Permalink to this headline">¶</a></h3>
+<h3 id="Import-necessary-packages">Import necessary packages<a class="headerlink" href="#Import-necessary-packages" title="Permalink to this heading">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -1263,7 +1001,7 @@ structured data sets in supervised learning.</p>
 </div>
 </section>
 <section id="Read-the-input-data">
-<h3 id="Read-the-input-data">Read the input data<a class="headerlink" href="#Read-the-input-data" title="Permalink to this headline">¶</a></h3>
+<h3 id="Read-the-input-data">Read the input data<a class="headerlink" href="#Read-the-input-data" title="Permalink to this heading">¶</a></h3>
 <p>Using the Pandas library, we first load the subset of the ChEMBL data set and draw the molecules using the <code class="docutils literal notranslate"><span class="pre">rdkit.draw</span></code> function. We then preprocess the data and apply our <code class="docutils literal notranslate"><span class="pre">one-hot</span> <span class="pre">encoding</span></code> python implementation.</p>
 <p>Let’s load the data and quickly analyze its column values and check if there are any missing values:</p>
 <div class="nbinput docutils container">
@@ -1412,7 +1150,7 @@ memory usage: 152.7+ KB
 </div>
 </section>
 <section id="Process-the-data">
-<h3 id="Process-the-data">Process the data<a class="headerlink" href="#Process-the-data" title="Permalink to this headline">¶</a></h3>
+<h3 id="Process-the-data">Process the data<a class="headerlink" href="#Process-the-data" title="Permalink to this heading">¶</a></h3>
 <p>SMILES preprocessing: Since in SMILES representation, atoms can be described by one or two characters (depending on the periodic element they represent) while the machine will read the input position-wise, we convert the SMILES in a chemical-aware representation.</p>
 <ul class="simple">
 <li><p>First, we search for all unique characters present in the current data set, which allows us to remove the characters which are not present in the current data.</p></li>
@@ -1423,7 +1161,7 @@ memory usage: 152.7+ KB
 <li><p>SMILES strings have unequal dimension since their string length differ. For machine learning application, having equal dimension throughout the data set is required. In order to achieve this, we can first search for the SMILES string with the maximum length (e.g. <a class="reference external" href="https://www.geeksforgeeks.org/python-string-length-len/">len()</a> method) and pass it as an argument in our function for all the strings.</p></li>
 </ul>
 <section id="Double-digit-replacement">
-<h4 id="Double-digit-replacement">Double digit replacement<a class="headerlink" href="#Double-digit-replacement" title="Permalink to this headline">¶</a></h4>
+<h4 id="Double-digit-replacement">Double digit replacement<a class="headerlink" href="#Double-digit-replacement" title="Permalink to this heading">¶</a></h4>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
@@ -1776,7 +1514,7 @@ All unique characters found in the preprocessed data set:
 </div>
 </section>
 <section id="Compute-longest-(&amp;-shortest)-SMILES">
-<h4 id="Compute-longest-(&amp;-shortest)-SMILES">Compute longest (&amp; shortest) SMILES<a class="headerlink" href="#Compute-longest-(&amp;-shortest)-SMILES" title="Permalink to this headline">¶</a></h4>
+<h4 id="Compute-longest-(&amp;-shortest)-SMILES">Compute longest (&amp; shortest) SMILES<a class="headerlink" href="#Compute-longest-(&amp;-shortest)-SMILES" title="Permalink to this heading">¶</a></h4>
 <p>Here, we compute the length and the indices in the data frame of the longest and shortest SMILES, which we will use later in the sections for visualization purpose.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
@@ -1828,9 +1566,9 @@ Contains 12 characters, index in dataframe: 3428.
 </section>
 </section>
 <section id="Python-one-hot-encoding-implementation">
-<h3 id="Python-one-hot-encoding-implementation">Python one-hot encoding implementation<a class="headerlink" href="#Python-one-hot-encoding-implementation" title="Permalink to this headline">¶</a></h3>
+<h3 id="Python-one-hot-encoding-implementation">Python one-hot encoding implementation<a class="headerlink" href="#Python-one-hot-encoding-implementation" title="Permalink to this heading">¶</a></h3>
 <section id="One-hot-encode-(padding=True)">
-<h4 id="One-hot-encode-(padding=True)">One-hot encode (padding=True)<a class="headerlink" href="#One-hot-encode-(padding=True)" title="Permalink to this headline">¶</a></h4>
+<h4 id="One-hot-encode-(padding=True)">One-hot encode (padding=True)<a class="headerlink" href="#One-hot-encode-(padding=True)" title="Permalink to this heading">¶</a></h4>
 <p>We define a function <code class="docutils literal notranslate"><span class="pre">smiles_encoder</span></code> that takes SMILES, the maximum length of the SMILES string (<code class="docutils literal notranslate"><span class="pre">max_len</span></code>) for padding and the list of unique characters (<code class="docutils literal notranslate"><span class="pre">unique_char</span></code>) present in the <code class="docutils literal notranslate"><span class="pre">processed_canonical_smiles</span></code> column; and returns the one-hot encoded matrix of fixed shape.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
@@ -1942,7 +1680,7 @@ Contains 12 characters, index in dataframe: 3428.
 </div>
 </section>
 <section id="Visualization">
-<h4 id="Visualization">Visualization<a class="headerlink" href="#Visualization" title="Permalink to this headline">¶</a></h4>
+<h4 id="Visualization">Visualization<a class="headerlink" href="#Visualization" title="Permalink to this heading">¶</a></h4>
 <p>Matplotlib is a plotting library for the python programming language and Pyplot is a state-based interface to a matplotlib module which provides a MATLAB-like interface. The <a class="reference external" href="https://matplotlib.org/3.2.1/api/_as_gen/matplotlib.pyplot.imshow.html">imshow</a> function in the pyplot module of the matplotlib library is used to display data as an image i.e. on a 2D space.</p>
 <p>We now visualize our one-hot encoded matrix using <code class="docutils literal notranslate"><span class="pre">imshow</span></code> by defining the <code class="docutils literal notranslate"><span class="pre">one_hot_matrix_plot</span></code> function as shown below.</p>
 <div class="nbinput nblast docutils container">
@@ -2135,7 +1873,7 @@ First 3 rows of the ohe matrix, representing the characters ['n', 'B', '3']
 </section>
 </section>
 <section id="Discussion">
-<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this headline">¶</a></h2>
+<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this heading">¶</a></h2>
 <p>In the fields of computer aided drug discovery and development, machine learning techniques have been used for the development of novel drug candidates. The methods for designing drug targets and novel drug discovery now oftenly combine machine learning and deep learning algorithms to enhance the efficiency, efficacy, and quality of developed outputs.</p>
 <p>But to work with any machine learning or deep learning algorithms, the input data should be in machine readable format. In computed-aided drug design, we mainly deal with the categorical or textual data where we work with drug molecules which are represented in SMILES string format, therefore we have to convert these categorical data to a numerical format.</p>
 <p><strong>One-hot encoding</strong> is one of the popular and efficient encoding technique which converts the data to a numerical format. It can be used an important preprocessing steps before applying any machine learning or deep learning algorithms.</p>
@@ -2153,7 +1891,7 @@ to the one-hot encoding format, then we will see vectors such as <span class="ma
 </ul>
 </section>
 <section id="Quiz">
-<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Permalink to this headline">¶</a></h2>
+<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Why is it required to have equal dimensions of the one-hot encoded matrix?</p></li>
 <li><p>Is there any other way to pre-process the data?</p></li>
@@ -2161,14 +1899,14 @@ to the one-hot encoding format, then we will see vectors such as <span class="ma
 </ul>
 </section>
 <section id="Supplementary-material">
-<h2 id="Supplementary-material">Supplementary material<a class="headerlink" href="#Supplementary-material" title="Permalink to this headline">¶</a></h2>
+<h2 id="Supplementary-material">Supplementary material<a class="headerlink" href="#Supplementary-material" title="Permalink to this heading">¶</a></h2>
 <p>If you are interested in other implementations of one-hot encoding, please keep reading this section. This includes:</p>
 <ul class="simple">
 <li><p>Exploring <strong>scikit-learn</strong> and <strong>keras</strong> implementations of one-hot encoding.</p></li>
 <li><p>Performing <strong>padding</strong> before and after one-hot encoding.</p></li>
 </ul>
 <section id="Scikit-learn-implementation-of-one-hot-encoding">
-<h3 id="Scikit-learn-implementation-of-one-hot-encoding">Scikit-learn implementation of one-hot encoding<a class="headerlink" href="#Scikit-learn-implementation-of-one-hot-encoding" title="Permalink to this headline">¶</a></h3>
+<h3 id="Scikit-learn-implementation-of-one-hot-encoding">Scikit-learn implementation of one-hot encoding<a class="headerlink" href="#Scikit-learn-implementation-of-one-hot-encoding" title="Permalink to this heading">¶</a></h3>
 <p>Before implementing one-hot encoding using scikit-learn, we have defined the functions named</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">later_padding</span></code>, which adds horizontal and vertical padding to the given matrix,</p></li>
@@ -2312,7 +2050,7 @@ to the one-hot encoding format, then we will see vectors such as <span class="ma
 </div>
 </div>
 <section id="Without-padding-(unequal-dimension)">
-<h4 id="Without-padding-(unequal-dimension)">Without padding (unequal dimension)<a class="headerlink" href="#Without-padding-(unequal-dimension)" title="Permalink to this headline">¶</a></h4>
+<h4 id="Without-padding-(unequal-dimension)">Without padding (unequal dimension)<a class="headerlink" href="#Without-padding-(unequal-dimension)" title="Permalink to this heading">¶</a></h4>
 <p>We can use the <code class="docutils literal notranslate"><span class="pre">sklearn_one_hot_encoded_matrix</span></code> function defined above to create the one-hot encoded matrix without padding. This will create matrices with unequal dimensions, because it will first label encode all the characters present in the SMILES strings (individually) and then one-hot encode them.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
@@ -2417,10 +2155,10 @@ Associated canonical SMILES:  N([C@H](C)c1ccccc1)c1ncnc2oc(-c3ccccc3)cc12
 </div>
 </section>
 <section id="With-padding-(equal-dimension)">
-<h4 id="With-padding-(equal-dimension)">With padding (equal dimension)<a class="headerlink" href="#With-padding-(equal-dimension)" title="Permalink to this headline">¶</a></h4>
+<h4 id="With-padding-(equal-dimension)">With padding (equal dimension)<a class="headerlink" href="#With-padding-(equal-dimension)" title="Permalink to this heading">¶</a></h4>
 <p>Padding can either be done before or after one-hot encoding is performed on the SMILES strings, meaning after we label encode the SMILES characters. We discuss both scenarios in the next sections.</p>
 <section id="Padding-after-one-hot-encoding-is-performed">
-<h5 id="Padding-after-one-hot-encoding-is-performed">Padding after one-hot encoding is performed<a class="headerlink" href="#Padding-after-one-hot-encoding-is-performed" title="Permalink to this headline">¶</a></h5>
+<h5 id="Padding-after-one-hot-encoding-is-performed">Padding after one-hot encoding is performed<a class="headerlink" href="#Padding-after-one-hot-encoding-is-performed" title="Permalink to this heading">¶</a></h5>
 <p>We simply pass <strong>True</strong> to the <code class="docutils literal notranslate"><span class="pre">islaterpadding</span></code> boolean parameter to the <code class="docutils literal notranslate"><span class="pre">sklearn_one_hot_encoded_matrix</span></code> function as shown below to pad the matrix after one-hot encoding is performed,</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
@@ -2528,7 +2266,7 @@ Associated canonical SMILES:  O(C)c1c(C(=Cc2c3c(N)nc(N)nc3oc2)CCCC)cccc1
 </div>
 </section>
 <section id="Padding-before-one-hot-encoding-is-performed">
-<h5 id="Padding-before-one-hot-encoding-is-performed">Padding before one-hot encoding is performed<a class="headerlink" href="#Padding-before-one-hot-encoding-is-performed" title="Permalink to this headline">¶</a></h5>
+<h5 id="Padding-before-one-hot-encoding-is-performed">Padding before one-hot encoding is performed<a class="headerlink" href="#Padding-before-one-hot-encoding-is-performed" title="Permalink to this heading">¶</a></h5>
 <p>In this case, padding is performed before OHE - but after integer encoding - the list of SMILES characters by passing <strong>True</strong> to the <code class="docutils literal notranslate"><span class="pre">initial_padding</span></code> boolean parameter to the <code class="docutils literal notranslate"><span class="pre">sklearn_one_hot_encoded_matrix</span></code> function.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
@@ -2642,7 +2380,7 @@ Associated canonical SMILES:  O(C)c1c(C(=Cc2c3c(N)nc(N)nc3oc2)CCCC)cccc1
 </section>
 </section>
 <section id="Keras-implementation-of-one-hot-encoding">
-<h3 id="Keras-implementation-of-one-hot-encoding">Keras implementation of one-hot encoding<a class="headerlink" href="#Keras-implementation-of-one-hot-encoding" title="Permalink to this headline">¶</a></h3>
+<h3 id="Keras-implementation-of-one-hot-encoding">Keras implementation of one-hot encoding<a class="headerlink" href="#Keras-implementation-of-one-hot-encoding" title="Permalink to this heading">¶</a></h3>
 <p>Keras is also a very powerful and intensively used library, especially employed in deep learning tasks. There may be a case where we have sequences or strings that are already integer encoded, then we can use the function called <a class="reference external" href="https://keras.io/api/utils/">to_categorical()</a>, provided by the keras library, to one-hot encode integer data directly, otherwise we can use <a class="reference external" href="https://keras.io/api/preprocessing/text/">Tokenizer</a> to first integer encode the string data and then use the
 <code class="docutils literal notranslate"><span class="pre">to_categorical</span></code> function to one-hot encode the data.</p>
 <div class="nbinput nblast docutils container">
@@ -2695,7 +2433,7 @@ Associated canonical SMILES:  O(C)c1c(C(=Cc2c3c(N)nc(N)nc3oc2)CCCC)cccc1
 <li><p>OHE with later padding by passing <code class="docutils literal notranslate"><span class="pre">True</span></code> to the boolean parameter <code class="docutils literal notranslate"><span class="pre">islaterpadding</span></code> in the <code class="docutils literal notranslate"><span class="pre">keras_one_hot_encoded_matrix</span></code> function.</p></li>
 </ul>
 <section id="id1">
-<h4 id="id1">Without padding (unequal dimension)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<h4 id="id1">Without padding (unequal dimension)<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h4>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
@@ -2807,7 +2545,7 @@ Associated canonical SMILES:  N([C@H](C)c1ccccc1)c1ncnc2oc(-c3ccccc3)cc12
 </div>
 </section>
 <section id="id2">
-<h4 id="id2">With padding (equal dimension)<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<h4 id="id2">With padding (equal dimension)<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h4>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
@@ -2974,7 +2712,7 @@ Associated canonical SMILES:  O(C)c1c(C(=Cc2c3c(N)nc(N)nc3oc2)CCCC)cccc1
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 5.0.1.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

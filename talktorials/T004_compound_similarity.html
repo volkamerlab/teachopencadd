@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
 <meta property="og:title" content="T004 · Ligand-based screening: compound similarity" />
   
@@ -95,6 +95,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -261,313 +262,56 @@
     
     
       <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="T001_query_chembl.html" class="md-nav__link">T001 · Compound data acquisition (ChEMBL)</a>
       
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T002_compound_adme.html" class="md-nav__link">T002 · Molecular filtering: ADME and lead-likeness criteria</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T003_compound_unwanted_substructures.html" class="md-nav__link">T003 · Molecular filtering: unwanted substructures</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> T004 · Ligand-based screening: compound similarity </label>
-    
-      <a href="#" class="md-nav__link md-nav__link--active">T004 · Ligand-based screening: compound similarity</a>
-      
-        
-<nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#talktorials-t004-compound-similarity--page-root" class="md-nav__link">T004 · Ligand-based screening: compound similarity</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
-        </li>
-        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
-        </li>
-        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Molecular-similarity" class="md-nav__link">Molecular similarity</a>
-        </li>
-        <li class="md-nav__item"><a href="#Molecular-descriptors" class="md-nav__link">Molecular descriptors</a>
-        </li>
-        <li class="md-nav__item"><a href="#Molecular-fingerprints" class="md-nav__link">Molecular fingerprints</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Substructure-based-fingerprints" class="md-nav__link">Substructure-based fingerprints</a>
-        </li>
-        <li class="md-nav__item"><a href="#MACCS-fingerprints" class="md-nav__link">MACCS fingerprints</a>
-        </li>
-        <li class="md-nav__item"><a href="#Morgan-fingerprints-and-circular-fingerprints" class="md-nav__link">Morgan fingerprints and circular fingerprints</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Molecular-similarity-measures" class="md-nav__link">Molecular similarity measures</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Tanimoto-coefficient" class="md-nav__link">Tanimoto coefficient</a>
-        </li>
-        <li class="md-nav__item"><a href="#Dice-coefficient" class="md-nav__link">Dice coefficient</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Virtual-screening" class="md-nav__link">Virtual screening</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Virtual-screening-using-similarity-search" class="md-nav__link">Virtual screening using similarity search</a>
-        </li>
-        <li class="md-nav__item"><a href="#Enrichment-plots" class="md-nav__link">Enrichment plots</a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Import-and-draw-molecules" class="md-nav__link">Import and draw molecules</a>
-        </li>
-        <li class="md-nav__item"><a href="#Calculate-molecular-descriptors" class="md-nav__link">Calculate molecular descriptors</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#1D-molecular-descriptors:-Molecular-weight" class="md-nav__link">1D molecular descriptors: Molecular weight</a>
-        </li>
-        <li class="md-nav__item"><a href="#2D-molecular-descriptors:-MACCS-fingerprint" class="md-nav__link">2D molecular descriptors: MACCS fingerprint</a>
-        </li>
-        <li class="md-nav__item"><a href="#2D-molecular-descriptors:-Morgan-fingerprint" class="md-nav__link">2D molecular descriptors: Morgan fingerprint</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Calculate-molecular-similarity" class="md-nav__link">Calculate molecular similarity</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#MACCS-fingerprints:-Tanimoto-similarity-and-Dice-similarity" class="md-nav__link">MACCS fingerprints: Tanimoto similarity and Dice similarity</a>
-        </li>
-        <li class="md-nav__item"><a href="#Morgan-fingerprints:-Tanimoto-similarity-and-Dice-similarity" class="md-nav__link">Morgan fingerprints: Tanimoto similarity and Dice similarity</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#id1" class="md-nav__link">Virtual screening using similarity search</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Compare-query-molecule-to-all-molecules-in-the-data-set" class="md-nav__link">Compare query molecule to all molecules in the data set</a>
-        </li>
-        <li class="md-nav__item"><a href="#Distribution-of-similarity-values" class="md-nav__link">Distribution of similarity values</a>
-        </li>
-        <li class="md-nav__item"><a href="#Visualize-most-similar-molecules" class="md-nav__link">Visualize most similar molecules</a>
-        </li>
-        <li class="md-nav__item"><a href="#Generate-enrichment-plots" class="md-nav__link">Generate enrichment plots</a>
-        </li>
-        <li class="md-nav__item"><a href="#Calculate-enrichment-factors" class="md-nav__link">Calculate enrichment factors</a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
-        </li>
-        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
-        </li></ul>
-            </nav>
-        </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T004_compound_similarity.nblink.txt">Show Source</a> </li>
-
-  </ul>
-</nav>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T005_compound_clustering.html" class="md-nav__link">T005 · Compound clustering</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T006_compound_maximum_common_substructures.html" class="md-nav__link">T006 · Maximum common substructure</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T007_compound_activity_machine_learning.html" class="md-nav__link">T007 · Ligand-based screening: machine learning</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T008_query_pdb.html" class="md-nav__link">T008 · Protein data acquisition: Protein Data Bank (PDB)</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T009_compound_ensemble_pharmacophores.html" class="md-nav__link">T009 · Ligand-based pharmacophores</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T010_binding_site_comparison.html" class="md-nav__link">T010 · Binding site similarity and off-target prediction</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T011_query_online_api_webservices.html" class="md-nav__link">T011 · Querying online API webservices</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T012_query_klifs.html" class="md-nav__link">T012 · Data acquisition from KLIFS</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T013_query_pubchem.html" class="md-nav__link">T013 · Data acquisition from PubChem</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T014_binding_site_detection.html" class="md-nav__link">T014 · Binding site detection</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T015_protein_ligand_docking.html" class="md-nav__link">T015 · Protein ligand docking</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T016_protein_ligand_interactions.html" class="md-nav__link">T016 · Protein-ligand interactions</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T017_advanced_nglview_usage.html" class="md-nav__link">T017 · Advanced NGLview usage</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T018_automated_cadd_pipeline.html" class="md-nav__link">T018 · Automated pipeline for lead optimization</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T019_md_simulation.html" class="md-nav__link">T019 · Molecular dynamics simulation</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T020_md_analysis.html" class="md-nav__link">T020 · Analyzing molecular dynamics simulations</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T021_one_hot_encoding.html" class="md-nav__link">T021 · One-Hot Encoding</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T022_ligand_based_screening_neural_network.html" class="md-nav__link">T022 · Ligand-based screening: neural networks</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T023_what_is_a_kinase.html" class="md-nav__link">T023 · What is a kinase?</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T024_kinase_similarity_sequence.html" class="md-nav__link">T024 · Kinase similarity: Sequence</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T025_kinase_similarity_kissim.html" class="md-nav__link">T025 · Kinase similarity: Kinase pocket (KiSSim fingerprint)</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T026_kinase_similarity_ifp.html" class="md-nav__link">T026 · Kinase similarity: Interaction fingerprints</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T027_kinase_similarity_ligand_profile.html" class="md-nav__link">T027 · Kinase similarity: Ligand profile</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T028_kinase_similarity_compare_perspectives.html" class="md-nav__link">T028 · Kinase similarity: Compare different perspectives</a>
-      
-    
-    </li></ul>
     
     </li>
     <li class="md-nav__item">
     
     
       <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#edition-2019-jcim" class="md-nav__link">Edition 2019 - JCIM</a>
       
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#edition-2021" class="md-nav__link">Edition 2021</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#ligand-based-cheminformatics" class="md-nav__link">Ligand-based cheminformatics</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#structural-biology" class="md-nav__link">Structural biology</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#online-apis-servers" class="md-nav__link">Online APIs/servers</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#kinase-similarity" class="md-nav__link">Kinase similarity</a>
+      
+    
+    </li></ul>
     
     </li>
     <li class="md-nav__item">
@@ -953,6 +697,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* Some additional styling taken form the Jupyter notebook CSS */
+.jp-RenderedHTMLCommon table,
 div.rendered_html table {
   border: none;
   border-collapse: collapse;
@@ -961,10 +706,14 @@ div.rendered_html table {
   font-size: 12px;
   table-layout: fixed;
 }
+.jp-RenderedHTMLCommon thead,
 div.rendered_html thead {
   border-bottom: 1px solid black;
   vertical-align: bottom;
 }
+.jp-RenderedHTMLCommon tr,
+.jp-RenderedHTMLCommon th,
+.jp-RenderedHTMLCommon td,
 div.rendered_html tr,
 div.rendered_html th,
 div.rendered_html td {
@@ -976,18 +725,21 @@ div.rendered_html td {
   max-width: none;
   border: none;
 }
+.jp-RenderedHTMLCommon th,
 div.rendered_html th {
   font-weight: bold;
 }
+.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
 div.rendered_html tbody tr:nth-child(odd) {
   background: #f5f5f5;
 }
+.jp-RenderedHTMLCommon tbody tr:hover,
 div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
 </style>
 <section id="T004-·-Ligand-based-screening:-compound-similarity">
-<h1 id="talktorials-t004-compound-similarity--page-root">T004 · Ligand-based screening: compound similarity<a class="headerlink" href="#talktorials-t004-compound-similarity--page-root" title="Permalink to this headline">¶</a></h1>
+<h1 id="talktorials-t004-compound-similarity--page-root">T004 · Ligand-based screening: compound similarity<a class="headerlink" href="#talktorials-t004-compound-similarity--page-root" title="Permalink to this heading">¶</a></h1>
 <p><strong>Note:</strong> This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.</p>
 <p>Authors:</p>
 <ul class="simple">
@@ -998,10 +750,10 @@ div.rendered_html tbody tr:hover {
 </ul>
 <p><strong>Talktorial T004</strong>: This talktorial is part of the TeachOpenCADD pipeline described in the <a class="reference external" href="https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x">first TeachOpenCADD paper</a>, comprising of <strong>talktorials T001-T010</strong>.</p>
 <section id="Aim-of-this-talktorial">
-<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this headline">¶</a></h2>
+<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this heading">¶</a></h2>
 <p>In this talktorial, we get familiar with different approaches to encode (descriptors, fingerprints) and compare (similarity measures) molecules. Furthermore, we perform a virtual screening in the form of a similarity search for the EGFR inhibitor Gefitinib against our dataset of EGFR-tested molecules from the ChEMBL database filtered by Lipinski’s rule of five (see <strong>Talktorial T002</strong>).</p>
 <section id="Contents-in-Theory">
-<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Permalink to this headline">¶</a></h3>
+<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Molecular similarity</p></li>
 <li><p>Molecular descriptors</p></li>
@@ -1027,7 +779,7 @@ div.rendered_html tbody tr:hover {
 </ul>
 </section>
 <section id="Contents-in-Practical">
-<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Permalink to this headline">¶</a></h3>
+<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Import and draw molecules</p></li>
 <li><p>Calculate molecular descriptors</p>
@@ -1055,7 +807,7 @@ div.rendered_html tbody tr:hover {
 </ul>
 </section>
 <section id="References">
-<h3 id="References">References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h3>
+<h3 id="References">References<a class="headerlink" href="#References" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Review on “Molecular similarity in medicinal chemistry” (<a class="reference external" href="http://pubs.acs.org/doi/abs/10.1021/jm401411z">J. Med. Chem. (2014), 57, 3186-3204</a>)</p></li>
 <li><p><a class="reference external" href="http://www.rdkit.org/docs/GettingStartedInPython.html#morgan-fingerprints-circular-fingerprints">Morgan fingerprints</a> with <code class="docutils literal notranslate"><span class="pre">rdkit</span></code></p></li>
@@ -1068,14 +820,14 @@ div.rendered_html tbody tr:hover {
 </section>
 </section>
 <section id="Theory">
-<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this headline">¶</a></h2>
+<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this heading">¶</a></h2>
 <section id="Molecular-similarity">
-<h3 id="Molecular-similarity">Molecular similarity<a class="headerlink" href="#Molecular-similarity" title="Permalink to this headline">¶</a></h3>
+<h3 id="Molecular-similarity">Molecular similarity<a class="headerlink" href="#Molecular-similarity" title="Permalink to this heading">¶</a></h3>
 <p>Molecular similarity is a well known and often used concept in chemical informatics. Comparing molecules and their properties can be used in many different ways and help us to identify new molecules with desired properties and biological activity.</p>
 <p>The similar property principle (SPP) as well as the structure-activity relationship (SAR) approaches are based on the assumption that structurally similar molecules have similar properties and, thus, similar biological activity. In this context, virtual screening follows this idea to search for similar molecules in given a set of molecules with known binding affinity and to propose those as potentially new active molecules.</p>
 </section>
 <section id="Molecular-descriptors">
-<h3 id="Molecular-descriptors">Molecular descriptors<a class="headerlink" href="#Molecular-descriptors" title="Permalink to this headline">¶</a></h3>
+<h3 id="Molecular-descriptors">Molecular descriptors<a class="headerlink" href="#Molecular-descriptors" title="Permalink to this heading">¶</a></h3>
 <p>Similarity can be assessed in many different ways depending on the application (see <a class="reference external" href="http://pubs.acs.org/doi/abs/10.1021/jm401411z">J. Med. Chem. (2014), 57, 3186-3204</a>):</p>
 <ul class="simple">
 <li><p>1D molecular descriptor: Solubility, logP, molecular weight, melting point.</p>
@@ -1105,20 +857,20 @@ div.rendered_html tbody tr:hover {
 <p>In the following, we focus on the definition of 2D molecular descriptors. Due to their, mostly, uniqueness per molecule, these descriptors are also called fingerprints.</p>
 </section>
 <section id="Molecular-fingerprints">
-<h3 id="Molecular-fingerprints">Molecular fingerprints<a class="headerlink" href="#Molecular-fingerprints" title="Permalink to this headline">¶</a></h3>
+<h3 id="Molecular-fingerprints">Molecular fingerprints<a class="headerlink" href="#Molecular-fingerprints" title="Permalink to this heading">¶</a></h3>
 <section id="Substructure-based-fingerprints">
-<h4 id="Substructure-based-fingerprints">Substructure-based fingerprints<a class="headerlink" href="#Substructure-based-fingerprints" title="Permalink to this headline">¶</a></h4>
+<h4 id="Substructure-based-fingerprints">Substructure-based fingerprints<a class="headerlink" href="#Substructure-based-fingerprints" title="Permalink to this heading">¶</a></h4>
 <p>Molecular fingerprints are a computational representation of molecules that encode chemical and molecular features in the form of bitstrings, bitvectors or arrays. Each bit corresponds to a predefined molecular feature or environment, where “1” represents the presence and “0” the absence of a feature. Note that some implementations are count-based. Thus, they count how often a specific feature is present.</p>
 <p>There are multiple ways to design fingerprints. Here, we introduce MACCS keys and Morgan fingerprint as two commonly used 2D fingerprints. As can be seen in the <code class="docutils literal notranslate"><span class="pre">rdkit</span></code> documentation on <a class="reference external" href="https://www.rdkit.org/docs/GettingStartedInPython.html#list-of-available-fingerprints">fingerprints</a>, <code class="docutils literal notranslate"><span class="pre">rdkit</span></code> also offers multiple alternate fingerprints.</p>
 </section>
 <section id="MACCS-fingerprints">
-<h4 id="MACCS-fingerprints">MACCS fingerprints<a class="headerlink" href="#MACCS-fingerprints" title="Permalink to this headline">¶</a></h4>
+<h4 id="MACCS-fingerprints">MACCS fingerprints<a class="headerlink" href="#MACCS-fingerprints" title="Permalink to this heading">¶</a></h4>
 <p>Molecular ACCess System (MACCS) fingerprints, also termed MACCS structural keys, consist of 166 predefined structural fragments. Each position queries the presence or absence of one particular structural fragment or key. The individual keys were empirically defined by medicinal chemists and are simple to use and interpret (<code class="docutils literal notranslate"><span class="pre">rdkit</span></code> documentation on <a class="reference external" href="http://rdkit.org/Python_Docs/rdkit.Chem.MACCSkeys-module.html">MACCS keys</a>).</p>
 <img alt="Figure 1" src="../_images/maccs_fp.png"/>
 <p><em>Figure 1</em>: Illustration of MACCS fingerprint (figure by Andrea Morger).</p>
 </section>
 <section id="Morgan-fingerprints-and-circular-fingerprints">
-<h4 id="Morgan-fingerprints-and-circular-fingerprints">Morgan fingerprints and circular fingerprints<a class="headerlink" href="#Morgan-fingerprints-and-circular-fingerprints" title="Permalink to this headline">¶</a></h4>
+<h4 id="Morgan-fingerprints-and-circular-fingerprints">Morgan fingerprints and circular fingerprints<a class="headerlink" href="#Morgan-fingerprints-and-circular-fingerprints" title="Permalink to this heading">¶</a></h4>
 <p>This family of fingerprints is based on the Morgan algorithm. The bits correspond to the circular environments of each atom in a molecule. The number of neighboring bonds and atoms to consider is set by the radius. Also the length of the bit string can be defined, a longer bit string will be modded to the desired length. Therefore, the Morgan fingerprint is not limited to a certain number of bits. More about the <a class="reference external" href="http://www.rdkit.org/docs/GettingStartedInPython.html#morgan-fingerprints-circular-fingerprints">Morgan
 fingerprint</a> can be found in the <code class="docutils literal notranslate"><span class="pre">rdkit</span></code> documentation. Extended connectivity fingerprints (ECFP) are also commonly used fingerprints that are derived using a variant of the Morgan algorithm, see <a class="reference external" href="https://pubs.acs.org/doi/abs/10.1021/ci100050t">J. Chem. Inf. Model. (2010), 50,742-754</a> for further information.</p>
 <img alt="Figure 2" src="../_images/morgan_fp.png"/>
@@ -1126,10 +878,10 @@ fingerprint</a> can be found in the <code class="docutils literal notranslate"><
 </section>
 </section>
 <section id="Molecular-similarity-measures">
-<h3 id="Molecular-similarity-measures">Molecular similarity measures<a class="headerlink" href="#Molecular-similarity-measures" title="Permalink to this headline">¶</a></h3>
+<h3 id="Molecular-similarity-measures">Molecular similarity measures<a class="headerlink" href="#Molecular-similarity-measures" title="Permalink to this heading">¶</a></h3>
 <p>Once the descriptors/fingerprints are calculated, they can be compared to assess the similarity between two molecules. Molecular similarity can be quantified with a number of different similarity coefficients, two common similarity measures are the Tanimoto and Dice index (<a class="reference external" href="http://pubs.acs.org/doi/abs/10.1021/jm401411z">J. Med. Chem. (2014), 57, 3186-3204</a>).</p>
 <section id="Tanimoto-coefficient">
-<h4 id="Tanimoto-coefficient">Tanimoto coefficient<a class="headerlink" href="#Tanimoto-coefficient" title="Permalink to this headline">¶</a></h4>
+<h4 id="Tanimoto-coefficient">Tanimoto coefficient<a class="headerlink" href="#Tanimoto-coefficient" title="Permalink to this heading">¶</a></h4>
 <div class="math notranslate nohighlight">
 \[T _{c}(A,B) = \frac{c}{a+b-c}\]</div>
 <ul class="simple">
@@ -1139,7 +891,7 @@ fingerprint</a> can be found in the <code class="docutils literal notranslate"><
 </ul>
 </section>
 <section id="Dice-coefficient">
-<h4 id="Dice-coefficient">Dice coefficient<a class="headerlink" href="#Dice-coefficient" title="Permalink to this headline">¶</a></h4>
+<h4 id="Dice-coefficient">Dice coefficient<a class="headerlink" href="#Dice-coefficient" title="Permalink to this heading">¶</a></h4>
 <div class="math notranslate nohighlight">
 \[D_{c}(A,B) = \frac{c}{\frac{1}{2}(a+b)}\]</div>
 <ul class="simple">
@@ -1153,11 +905,11 @@ fingerprint</a> can be found in the <code class="docutils literal notranslate"><
 </section>
 </section>
 <section id="Virtual-screening">
-<h3 id="Virtual-screening">Virtual screening<a class="headerlink" href="#Virtual-screening" title="Permalink to this headline">¶</a></h3>
+<h3 id="Virtual-screening">Virtual screening<a class="headerlink" href="#Virtual-screening" title="Permalink to this heading">¶</a></h3>
 <p>The challenge in early stages of drug discovery is to narrow down a set of small molecules (molecules) from the large existing chemical space that are potentially binding to the target under investigation. Note that this chemical space is vast: Small molecules can be made of 1020 combinations of chemical moieties (<a class="reference external" href="https://www.ncbi.nlm.nih.gov/pubmed/23019491">ACS Chem. Neurosci. (2012), 19, 649-57</a>).</p>
 <p>Since experimental high-throughput screening (HTS) for the activity of all those small molecules against the target of interest is cost and time intensive, computer-aided methods are invoked to propose a focused list of small molecules to be tested. This process is called virtual (high-throughput) screening: a large library of small molecules is filtered by rules and/or patterns, in order to identify those small molecules that are most likely to bind a target under investigation.</p>
 <section id="Virtual-screening-using-similarity-search">
-<h4 id="Virtual-screening-using-similarity-search">Virtual screening using similarity search<a class="headerlink" href="#Virtual-screening-using-similarity-search" title="Permalink to this headline">¶</a></h4>
+<h4 id="Virtual-screening-using-similarity-search">Virtual screening using similarity search<a class="headerlink" href="#Virtual-screening-using-similarity-search" title="Permalink to this heading">¶</a></h4>
 <p>Comparing a set of novel molecules against a (or several) known active molecule(s) to find the most similar ones can be used as a simple way of virtual screening. Given the similar property principle, we can assume that the most similar molecules, e.g. to a known inhibitor, also have similar effects. Requirements for a similarity search are the following (as discussed in detail above):</p>
 <ul class="simple">
 <li><p>A representation that encodes chemical/molecular features</p></li>
@@ -1167,7 +919,7 @@ fingerprint</a> can be found in the <code class="docutils literal notranslate"><
 <p>A similarity search can be performed by calculating the similarity between one molecule and all molecules in a specific dataset. Ranking the molecules of the dataset by their similarity coefficient yields the most similar molecules at the top.</p>
 </section>
 <section id="Enrichment-plots">
-<h4 id="Enrichment-plots">Enrichment plots<a class="headerlink" href="#Enrichment-plots" title="Permalink to this headline">¶</a></h4>
+<h4 id="Enrichment-plots">Enrichment plots<a class="headerlink" href="#Enrichment-plots" title="Permalink to this heading">¶</a></h4>
 <p>Enrichment plots are used to validate virtual screening results, which display the ratio of active molecules detected in the top x% of the ranked list, i.e.:</p>
 <ul class="simple">
 <li><p>the ratio of top-ranked molecules (x-axis) from the whole dataset vs.</p></li>
@@ -1179,11 +931,11 @@ fingerprint</a> can be found in the <code class="docutils literal notranslate"><
 </section>
 </section>
 <section id="Practical">
-<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this headline">¶</a></h2>
+<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this heading">¶</a></h2>
 <p>In the first part of this practical section, we will use <code class="docutils literal notranslate"><span class="pre">rdkit</span></code> to encode molecules (molecular fingerprints) and compare them in order to calculate their similarity (molecular similarity measures), as discussed in the theory section above.</p>
 <p>In the second part, we will use these encoding and comparison techniques to conduct a similarity search (virtual screening): We use the known EGFR inhibitor Gefitinib as query and search for similar molecules in our data set of molecules tested on EGFR, which we collected from the ChEMBL database in <strong>Talktorial T001</strong> and filtered by Lipinski’s rule of five in <strong>Talktorial T002</strong>.</p>
 <section id="Import-and-draw-molecules">
-<h3 id="Import-and-draw-molecules">Import and draw molecules<a class="headerlink" href="#Import-and-draw-molecules" title="Permalink to this headline">¶</a></h3>
+<h3 id="Import-and-draw-molecules">Import and draw molecules<a class="headerlink" href="#Import-and-draw-molecules" title="Permalink to this heading">¶</a></h3>
 <p>First, we define and draw eight example molecules, which we will encode and compare later on. The molecules in SMILES format are converted to <code class="docutils literal notranslate"><span class="pre">rdkit</span></code> molecule objects and visualized with the <code class="docutils literal notranslate"><span class="pre">Draw</span></code> module in <code class="docutils literal notranslate"><span class="pre">rdkit</span></code>.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -1325,10 +1077,10 @@ fingerprint</a> can be found in the <code class="docutils literal notranslate"><
 </div>
 </section>
 <section id="Calculate-molecular-descriptors">
-<h3 id="Calculate-molecular-descriptors">Calculate molecular descriptors<a class="headerlink" href="#Calculate-molecular-descriptors" title="Permalink to this headline">¶</a></h3>
+<h3 id="Calculate-molecular-descriptors">Calculate molecular descriptors<a class="headerlink" href="#Calculate-molecular-descriptors" title="Permalink to this heading">¶</a></h3>
 <p>We extract and generate 1D and 2D molecular descriptors to compare our molecules. For 2D descriptors, different types of fingerprints are generated to be used later for the calculation of the molecular similarity.</p>
 <section id="1D-molecular-descriptors:-Molecular-weight">
-<h4 id="1D-molecular-descriptors:-Molecular-weight">1D molecular descriptors: Molecular weight<a class="headerlink" href="#1D-molecular-descriptors:-Molecular-weight" title="Permalink to this headline">¶</a></h4>
+<h4 id="1D-molecular-descriptors:-Molecular-weight">1D molecular descriptors: Molecular weight<a class="headerlink" href="#1D-molecular-descriptors:-Molecular-weight" title="Permalink to this heading">¶</a></h4>
 <p>We calculate the molecular weight of our example structures.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
@@ -1463,7 +1215,7 @@ fingerprint</a> can be found in the <code class="docutils literal notranslate"><
 <p>In order to account for more detailed properties of a molecule, we now take a look at 2D molecular descriptors.</p>
 </section>
 <section id="2D-molecular-descriptors:-MACCS-fingerprint">
-<h4 id="2D-molecular-descriptors:-MACCS-fingerprint">2D molecular descriptors: MACCS fingerprint<a class="headerlink" href="#2D-molecular-descriptors:-MACCS-fingerprint" title="Permalink to this headline">¶</a></h4>
+<h4 id="2D-molecular-descriptors:-MACCS-fingerprint">2D molecular descriptors: MACCS fingerprint<a class="headerlink" href="#2D-molecular-descriptors:-MACCS-fingerprint" title="Permalink to this heading">¶</a></h4>
 <p><strong>Example molecule</strong>: Let’s use an example molecule from our <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
@@ -1521,7 +1273,7 @@ fingerprint</a> can be found in the <code class="docutils literal notranslate"><
 </div>
 </section>
 <section id="2D-molecular-descriptors:-Morgan-fingerprint">
-<h4 id="2D-molecular-descriptors:-Morgan-fingerprint">2D molecular descriptors: Morgan fingerprint<a class="headerlink" href="#2D-molecular-descriptors:-Morgan-fingerprint" title="Permalink to this headline">¶</a></h4>
+<h4 id="2D-molecular-descriptors:-Morgan-fingerprint">2D molecular descriptors: Morgan fingerprint<a class="headerlink" href="#2D-molecular-descriptors:-Morgan-fingerprint" title="Permalink to this heading">¶</a></h4>
 <p>We can also calculate the circular Morgan fingerprints with <code class="docutils literal notranslate"><span class="pre">rdkit</span></code>. The Morgan fingerprint can be calculated either as int or bit vector. By default the radius is 2 and the vector is 2048 long.</p>
 <p><strong>Example molecule</strong>: Let’s use again with our example molecule.</p>
 <p>Generate the Morgan fingerprint <em>as int vector</em>.</p>
@@ -1612,7 +1364,7 @@ Print top 400 fingerprint bits:
 </section>
 </section>
 <section id="Calculate-molecular-similarity">
-<h3 id="Calculate-molecular-similarity">Calculate molecular similarity<a class="headerlink" href="#Calculate-molecular-similarity" title="Permalink to this headline">¶</a></h3>
+<h3 id="Calculate-molecular-similarity">Calculate molecular similarity<a class="headerlink" href="#Calculate-molecular-similarity" title="Permalink to this heading">¶</a></h3>
 <p>In the following, we will apply two similarity measures, i.e. <strong>Tanimoto</strong> and <strong>Dice</strong>, to our two fingerprint types, i.e. <strong>MACCS</strong> and <strong>Morgan</strong> fingerprints.</p>
 <p><strong>Example molecule pair</strong>: Compare two MACCS fingerprints with the Tanimoto similarity.</p>
 <div class="nbinput nblast docutils container">
@@ -1669,7 +1421,7 @@ Print top 400 fingerprint bits:
 </div>
 <p>In the following, we want to compare a query molecule with our molecule list. Therefore, we use <code class="docutils literal notranslate"><span class="pre">BulkTanimotoSimilarity</span></code> and <code class="docutils literal notranslate"><span class="pre">BulkDiceSimilarity</span></code> from <code class="docutils literal notranslate"><span class="pre">rdkit</span></code> that calculate the similarity of a query fingerprint with a list of fingerprints, based on a similarity measure. We will investigate all combinations of MACCS/Morgan fingerprint comparisons based on the Tanimoto/Dice similarity measure.</p>
 <section id="MACCS-fingerprints:-Tanimoto-similarity-and-Dice-similarity">
-<h4 id="MACCS-fingerprints:-Tanimoto-similarity-and-Dice-similarity">MACCS fingerprints: Tanimoto similarity and Dice similarity<a class="headerlink" href="#MACCS-fingerprints:-Tanimoto-similarity-and-Dice-similarity" title="Permalink to this headline">¶</a></h4>
+<h4 id="MACCS-fingerprints:-Tanimoto-similarity-and-Dice-similarity">MACCS fingerprints: Tanimoto similarity and Dice similarity<a class="headerlink" href="#MACCS-fingerprints:-Tanimoto-similarity-and-Dice-similarity" title="Permalink to this heading">¶</a></h4>
 <p>Add the Tanimoto and Dice similarities between MACCS fingerprints to the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
@@ -1831,7 +1583,7 @@ Print top 400 fingerprint bits:
 <p>With MACCS fingerprints, Tetracycline is the most similar molecule (high score), followed by Amoxicilline. In contrast to the 1D descriptor molecular weight, the linear molecule Glycol dilaurate is recognized as dissimilar (last rank).</p>
 </section>
 <section id="Morgan-fingerprints:-Tanimoto-similarity-and-Dice-similarity">
-<h4 id="Morgan-fingerprints:-Tanimoto-similarity-and-Dice-similarity">Morgan fingerprints: Tanimoto similarity and Dice similarity<a class="headerlink" href="#Morgan-fingerprints:-Tanimoto-similarity-and-Dice-similarity" title="Permalink to this headline">¶</a></h4>
+<h4 id="Morgan-fingerprints:-Tanimoto-similarity-and-Dice-similarity">Morgan fingerprints: Tanimoto similarity and Dice similarity<a class="headerlink" href="#Morgan-fingerprints:-Tanimoto-similarity-and-Dice-similarity" title="Permalink to this heading">¶</a></h4>
 <p>Add the Tanimoto and Dice similarities between the Morgan fingerprints to the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
@@ -1999,11 +1751,11 @@ Print top 400 fingerprint bits:
 </section>
 </section>
 <section id="id1">
-<h3 id="id1">Virtual screening using similarity search<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3 id="id1">Virtual screening using similarity search<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
 <p>Now that we have learned how to calculate fingerprints and the similarity between them, we can apply this knowledge to a similarity search of a query molecule against a full data set of molecules.</p>
 <p>We use the known EGFR inhibitor Gefitinib as query and search for similar molecules in our data set of molecules tested on EGFR, which we collected from the ChEMBL database in <strong>Talktorial T001</strong> and filtered by Lipinski’s rule of five in <strong>Talktorial T002</strong>.</p>
 <section id="Compare-query-molecule-to-all-molecules-in-the-data-set">
-<h4 id="Compare-query-molecule-to-all-molecules-in-the-data-set">Compare query molecule to all molecules in the data set<a class="headerlink" href="#Compare-query-molecule-to-all-molecules-in-the-data-set" title="Permalink to this headline">¶</a></h4>
+<h4 id="Compare-query-molecule-to-all-molecules-in-the-data-set">Compare query molecule to all molecules in the data set<a class="headerlink" href="#Compare-query-molecule-to-all-molecules-in-the-data-set" title="Permalink to this heading">¶</a></h4>
 <p>We import molecules from a <em>csv</em> file containing the filtered EGFR-tested molecules from the ChEMBL database as provided by <strong>Talktorial T002</strong>. Given one query molecule (here Gefitinib), we screen that data set for similar molecules.</p>
 <p><strong>Dataset</strong>: Import data from the <em>csv</em> file containing molecules in the SMILES format.</p>
 <div class="nbinput docutils container">
@@ -2323,7 +2075,7 @@ Number of molecules in dataset: 4635
 </div>
 </section>
 <section id="Distribution-of-similarity-values">
-<h4 id="Distribution-of-similarity-values">Distribution of similarity values<a class="headerlink" href="#Distribution-of-similarity-values" title="Permalink to this headline">¶</a></h4>
+<h4 id="Distribution-of-similarity-values">Distribution of similarity values<a class="headerlink" href="#Distribution-of-similarity-values" title="Permalink to this heading">¶</a></h4>
 <p>As mentioned in the theory section, compared for the same fingerprint (e.g. MACCS fingerprints), Tanimoto similarity values are lower than Dice similarity values. Also, comparing two different fingerprints (e.g. MACCS and Morgan fingerprints), the similarity measure values (e.g. Tanimotot similarity) vary.</p>
 <p>We can have a look at the distributions by plotting histograms.</p>
 <p>First, we can plot distribution of Tanimoto similarity of MACCS fingerprints.</p>
@@ -2380,7 +2132,7 @@ Number of molecules in dataset: 4635
 <p>Similarity distributions are important to interpret similarity values, e.g. a value of 0.6 needs to be evaluated differently for MACCS or Morgan fingerprints, as well as Tanimoto or Dice similarities.</p>
 </section>
 <section id="Visualize-most-similar-molecules">
-<h4 id="Visualize-most-similar-molecules">Visualize most similar molecules<a class="headerlink" href="#Visualize-most-similar-molecules" title="Permalink to this headline">¶</a></h4>
+<h4 id="Visualize-most-similar-molecules">Visualize most similar molecules<a class="headerlink" href="#Visualize-most-similar-molecules" title="Permalink to this heading">¶</a></h4>
 <p>We visually inspect the structure of Gefitinib in comparison to the most similar molecules in our ranking, including the information about their bioactivity (pIC50 derived from the ChEMBL database in <strong>Talktorial T001</strong>).</p>
 <p>Here, we sort the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> by the Tanimoto similarity based on Morgan fingerprints.</p>
 <div class="nbinput docutils container">
@@ -2495,7 +2247,7 @@ Number of molecules in dataset: 4635
 <p>We now check how well the similarity search is able to distinguish between active and inactive molecules based on our dataset. Therefore, we use the bioactivity values, which we collected from ChEMBL for each molecule (bioactivity against EGFR) in <strong>Talktorial T001</strong>.</p>
 </section>
 <section id="Generate-enrichment-plots">
-<h4 id="Generate-enrichment-plots">Generate enrichment plots<a class="headerlink" href="#Generate-enrichment-plots" title="Permalink to this headline">¶</a></h4>
+<h4 id="Generate-enrichment-plots">Generate enrichment plots<a class="headerlink" href="#Generate-enrichment-plots" title="Permalink to this heading">¶</a></h4>
 <p>In order to validate our virtual screening and see the ratio of detected active molecules, we generate an enrichment plot.</p>
 <p><strong>Enrichment plots</strong> show</p>
 <ul class="simple">
@@ -2802,7 +2554,7 @@ Number of molecules in dataset: 4635
 <p>The enrichment plots show a slightly better performance for fingerprint comparison based on Morgan fingerprints than based on MACCS fingerprints.</p>
 </section>
 <section id="Calculate-enrichment-factors">
-<h4 id="Calculate-enrichment-factors">Calculate enrichment factors<a class="headerlink" href="#Calculate-enrichment-factors" title="Permalink to this headline">¶</a></h4>
+<h4 id="Calculate-enrichment-factors">Calculate enrichment factors<a class="headerlink" href="#Calculate-enrichment-factors" title="Permalink to this heading">¶</a></h4>
 <p>The (experimental) <strong>enrichment factor (EF)</strong> is used to access a methods success by a single number rather than a plot. The idea is to determine the percentage of active molecules in the top x% (e.g. 5%) of ranked molecules, as defined by the following helper function.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
@@ -2958,12 +2710,12 @@ Optimal EF for 5% of ranked dataset: 8.8%
 </section>
 </section>
 <section id="Discussion">
-<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this headline">¶</a></h2>
+<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this heading">¶</a></h2>
 <p>We have learned how to use fingerprints and similarity measures to compare a query molecule with a dataset of molecules and rank the molecule by similarity. This approach is an example for virtual screening of molecules. Enrichment plots and enrichment factors can be used to assess the performance.</p>
 <p>A drawback of a similarity search with molecular fingerprints is that it is based on molecular similarity and thus does not yield any novel structures. Another challenge when working with molecular similarity are so-called activity cliffs, i.e. a small change in a functional group of a molecule may initiate a jump in bioactivity.</p>
 </section>
 <section id="Quiz">
-<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Permalink to this headline">¶</a></h2>
+<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>What could be a starting point to circumvent activity cliffs?</p></li>
 <li><p>What are the advantages and disadvantages of MACCS and Morgan fingerprints compared to each other fingerprints?</p></li>
@@ -3021,7 +2773,7 @@ Optimal EF for 5% of ranked dataset: 8.8%
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 5.0.1.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

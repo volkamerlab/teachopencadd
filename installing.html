@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
 <meta property="og:title" content="Installing" />
   
@@ -95,6 +95,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -390,7 +391,7 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="installing">
-<h1 id="installing--page-root">Installing<a class="headerlink" href="#installing--page-root" title="Permalink to this headline">¶</a></h1>
+<h1 id="installing--page-root">Installing<a class="headerlink" href="#installing--page-root" title="Permalink to this heading">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>We are assuming you have a working <code class="docutils literal notranslate"><span class="pre">mamba</span></code> installation in your computer.
@@ -398,7 +399,7 @@ If this is not the case, please refer to their <a class="reference external" hre
 <p>If you installed <code class="docutils literal notranslate"><span class="pre">mamba</span></code> into an existing <code class="docutils literal notranslate"><span class="pre">conda</span></code> installation, also make sure that the <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> channel is configured by running <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">config</span> <span class="pre">--add</span> <span class="pre">channels</span> <span class="pre">conda-forge</span></code>.</p>
 </div>
 <section id="install-from-the-conda-package">
-<h2 id="install-from-the-conda-package">Install from the conda package<a class="headerlink" href="#install-from-the-conda-package" title="Permalink to this headline">¶</a></h2>
+<h2 id="install-from-the-conda-package">Install from the conda package<a class="headerlink" href="#install-from-the-conda-package" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic">
 <li><p>Create a new conda environment for TeachOpenCADD:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Linux / MacOS
@@ -419,7 +420,7 @@ mamba create -n teachopencadd teachopencadd -c conda-forge -c defaults
 </ol>
 </section>
 <section id="install-from-the-latest-development-snapshot">
-<h2 id="install-from-the-latest-development-snapshot">Install from the latest development snapshot<a class="headerlink" href="#install-from-the-latest-development-snapshot" title="Permalink to this headline">¶</a></h2>
+<h2 id="install-from-the-latest-development-snapshot">Install from the latest development snapshot<a class="headerlink" href="#install-from-the-latest-development-snapshot" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic">
 <li><p>Create a new conda environment and activate it:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mamba env create -f https://raw.githubusercontent.com/volkamerlab/TeachOpenCADD/master/devtools/test_env.yml
@@ -500,7 +501,7 @@ jupyter lab
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 5.0.1.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

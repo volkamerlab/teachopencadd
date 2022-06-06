@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
 <meta property="og:title" content="T022 · Ligand-based screening: neural networks" />
   
@@ -95,6 +95,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -261,295 +262,56 @@
     
     
       <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="T001_query_chembl.html" class="md-nav__link">T001 · Compound data acquisition (ChEMBL)</a>
       
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T002_compound_adme.html" class="md-nav__link">T002 · Molecular filtering: ADME and lead-likeness criteria</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T003_compound_unwanted_substructures.html" class="md-nav__link">T003 · Molecular filtering: unwanted substructures</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T004_compound_similarity.html" class="md-nav__link">T004 · Ligand-based screening: compound similarity</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T005_compound_clustering.html" class="md-nav__link">T005 · Compound clustering</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T006_compound_maximum_common_substructures.html" class="md-nav__link">T006 · Maximum common substructure</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T007_compound_activity_machine_learning.html" class="md-nav__link">T007 · Ligand-based screening: machine learning</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T008_query_pdb.html" class="md-nav__link">T008 · Protein data acquisition: Protein Data Bank (PDB)</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T009_compound_ensemble_pharmacophores.html" class="md-nav__link">T009 · Ligand-based pharmacophores</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T010_binding_site_comparison.html" class="md-nav__link">T010 · Binding site similarity and off-target prediction</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T011_query_online_api_webservices.html" class="md-nav__link">T011 · Querying online API webservices</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T012_query_klifs.html" class="md-nav__link">T012 · Data acquisition from KLIFS</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T013_query_pubchem.html" class="md-nav__link">T013 · Data acquisition from PubChem</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T014_binding_site_detection.html" class="md-nav__link">T014 · Binding site detection</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T015_protein_ligand_docking.html" class="md-nav__link">T015 · Protein ligand docking</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T016_protein_ligand_interactions.html" class="md-nav__link">T016 · Protein-ligand interactions</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T017_advanced_nglview_usage.html" class="md-nav__link">T017 · Advanced NGLview usage</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T018_automated_cadd_pipeline.html" class="md-nav__link">T018 · Automated pipeline for lead optimization</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T019_md_simulation.html" class="md-nav__link">T019 · Molecular dynamics simulation</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T020_md_analysis.html" class="md-nav__link">T020 · Analyzing molecular dynamics simulations</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T021_one_hot_encoding.html" class="md-nav__link">T021 · One-Hot Encoding</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> T022 · Ligand-based screening: neural networks </label>
-    
-      <a href="#" class="md-nav__link md-nav__link--active">T022 · Ligand-based screening: neural networks</a>
-      
-        
-<nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#talktorials-t022-ligand-based-screening-neural-network--page-root" class="md-nav__link">T022 · Ligand-based screening: neural networks</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
-        </li>
-        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
-        </li>
-        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Biological-background" class="md-nav__link">Biological background</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#EGFR-kinase" class="md-nav__link">EGFR kinase</a>
-        </li>
-        <li class="md-nav__item"><a href="#Compound-activity-measures" class="md-nav__link">Compound activity measures</a>
-        </li>
-        <li class="md-nav__item"><a href="#Molecule-encoding" class="md-nav__link">Molecule encoding</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Neural-networks" class="md-nav__link">Neural networks</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#What-is-a-neural-network?" class="md-nav__link">What is a neural network?</a>
-        </li>
-        <li class="md-nav__item"><a href="#Activation-function" class="md-nav__link">Activation function</a>
-        </li>
-        <li class="md-nav__item"><a href="#Loss-function" class="md-nav__link">Loss function</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Training-a-neural-network" class="md-nav__link">Training a neural network</a>
-        </li>
-        <li class="md-nav__item"><a href="#Keras-workflow" class="md-nav__link">Keras workflow</a>
-        </li>
-        <li class="md-nav__item"><a href="#Advantages-and-applications-of-neural-networks" class="md-nav__link">Advantages and applications of neural networks</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Data-preparation" class="md-nav__link">Data preparation</a>
-        </li>
-        <li class="md-nav__item"><a href="#Define-neural-network" class="md-nav__link">Define neural network</a>
-        </li>
-        <li class="md-nav__item"><a href="#Train-the-model" class="md-nav__link">Train the model</a>
-        </li>
-        <li class="md-nav__item"><a href="#Evaluation-&amp;-prediction-on-test-set" class="md-nav__link">Evaluation & prediction on test set</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Scatter-plot" class="md-nav__link">Scatter plot</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Prediction-on-external/unlabeled-data" class="md-nav__link">Prediction on external/unlabeled data</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Select-the-top-3-compounds" class="md-nav__link">Select the top 3 compounds</a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
-        </li>
-        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
-        </li>
-        <li class="md-nav__item"><a href="#Supplementary-section" class="md-nav__link">Supplementary section</a>
-        </li></ul>
-            </nav>
-        </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T022_ligand_based_screening_neural_network.nblink.txt">Show Source</a> </li>
-
-  </ul>
-</nav>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T023_what_is_a_kinase.html" class="md-nav__link">T023 · What is a kinase?</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T024_kinase_similarity_sequence.html" class="md-nav__link">T024 · Kinase similarity: Sequence</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T025_kinase_similarity_kissim.html" class="md-nav__link">T025 · Kinase similarity: Kinase pocket (KiSSim fingerprint)</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T026_kinase_similarity_ifp.html" class="md-nav__link">T026 · Kinase similarity: Interaction fingerprints</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T027_kinase_similarity_ligand_profile.html" class="md-nav__link">T027 · Kinase similarity: Ligand profile</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T028_kinase_similarity_compare_perspectives.html" class="md-nav__link">T028 · Kinase similarity: Compare different perspectives</a>
-      
-    
-    </li></ul>
     
     </li>
     <li class="md-nav__item">
     
     
       <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#edition-2019-jcim" class="md-nav__link">Edition 2019 - JCIM</a>
       
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#edition-2021" class="md-nav__link">Edition 2021</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#ligand-based-cheminformatics" class="md-nav__link">Ligand-based cheminformatics</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#structural-biology" class="md-nav__link">Structural biology</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#online-apis-servers" class="md-nav__link">Online APIs/servers</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#kinase-similarity" class="md-nav__link">Kinase similarity</a>
+      
+    
+    </li></ul>
     
     </li>
     <li class="md-nav__item">
@@ -917,6 +679,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* Some additional styling taken form the Jupyter notebook CSS */
+.jp-RenderedHTMLCommon table,
 div.rendered_html table {
   border: none;
   border-collapse: collapse;
@@ -925,10 +688,14 @@ div.rendered_html table {
   font-size: 12px;
   table-layout: fixed;
 }
+.jp-RenderedHTMLCommon thead,
 div.rendered_html thead {
   border-bottom: 1px solid black;
   vertical-align: bottom;
 }
+.jp-RenderedHTMLCommon tr,
+.jp-RenderedHTMLCommon th,
+.jp-RenderedHTMLCommon td,
 div.rendered_html tr,
 div.rendered_html th,
 div.rendered_html td {
@@ -940,18 +707,21 @@ div.rendered_html td {
   max-width: none;
   border: none;
 }
+.jp-RenderedHTMLCommon th,
 div.rendered_html th {
   font-weight: bold;
 }
+.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
 div.rendered_html tbody tr:nth-child(odd) {
   background: #f5f5f5;
 }
+.jp-RenderedHTMLCommon tbody tr:hover,
 div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
 </style>
 <section id="T022-·-Ligand-based-screening:-neural-networks">
-<h1 id="talktorials-t022-ligand-based-screening-neural-network--page-root">T022 · Ligand-based screening: neural networks<a class="headerlink" href="#talktorials-t022-ligand-based-screening-neural-network--page-root" title="Permalink to this headline">¶</a></h1>
+<h1 id="talktorials-t022-ligand-based-screening-neural-network--page-root">T022 · Ligand-based screening: neural networks<a class="headerlink" href="#talktorials-t022-ligand-based-screening-neural-network--page-root" title="Permalink to this heading">¶</a></h1>
 <p>Developed in the CADD seminar 2020, Volkamer Lab, Charité/FU Berlin</p>
 <p><strong>Note:</strong> This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.</p>
 <p>Authors:</p>
@@ -962,11 +732,11 @@ div.rendered_html tbody tr:hover {
 <li><p>Andrea Volkamer, 2021, <a class="reference external" href="https://volkamerlab.org">Volkamer lab</a>, Charité</p></li>
 </ul>
 <section id="Aim-of-this-talktorial">
-<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this headline">¶</a></h2>
+<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this heading">¶</a></h2>
 <p>In recent years, the use of machine learning, and deep learning, in pharmaceutical research has shown promising results in addressing diverse problems in drug discovery. In this talktorial, we get familiar with the basics of neural networks. We will learn how to build a simple two layer neural network and train it on a subset of ChEMBL data in order to predict the pIC50 values of compounds against EGFR, the target of interest. Furthermore, we select three compounds from an external, unlabeled
 data set that are predicted to be the most active against that kinase.</p>
 <section id="Contents-in-Theory">
-<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Permalink to this headline">¶</a></h3>
+<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Biological background</p>
 <ul>
@@ -988,7 +758,7 @@ data set that are predicted to be the most active against that kinase.</p>
 </ul>
 </section>
 <section id="Contents-in-Practical">
-<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Permalink to this headline">¶</a></h3>
+<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Data preparation</p></li>
 <li><p>Define neural network</p></li>
@@ -1006,7 +776,7 @@ data set that are predicted to be the most active against that kinase.</p>
 </ul>
 </section>
 <section id="References">
-<h3 id="References">References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h3>
+<h3 id="References">References<a class="headerlink" href="#References" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Theoretical background:</p>
 <ul>
@@ -1040,11 +810,11 @@ data set that are predicted to be the most active against that kinase.</p>
 </section>
 </section>
 <section id="Theory">
-<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this headline">¶</a></h2>
+<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this heading">¶</a></h2>
 <section id="Biological-background">
-<h3 id="Biological-background">Biological background<a class="headerlink" href="#Biological-background" title="Permalink to this headline">¶</a></h3>
+<h3 id="Biological-background">Biological background<a class="headerlink" href="#Biological-background" title="Permalink to this heading">¶</a></h3>
 <section id="EGFR-kinase">
-<h4 id="EGFR-kinase">EGFR kinase<a class="headerlink" href="#EGFR-kinase" title="Permalink to this headline">¶</a></h4>
+<h4 id="EGFR-kinase">EGFR kinase<a class="headerlink" href="#EGFR-kinase" title="Permalink to this heading">¶</a></h4>
 <ul class="simple">
 <li><p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Epidermal_growth_factor_receptor">Epidermal Growth Factor Receptor (EGFR)</a> is a transmembrane protein/receptor present on the cell membrane. It is a member of the ErbB family of receptors.</p></li>
 <li><p>EGFR plays an important role in controlling normal cell growth, apoptosis and other cellular functions.</p></li>
@@ -1053,23 +823,23 @@ data set that are predicted to be the most active against that kinase.</p>
 </ul>
 </section>
 <section id="Compound-activity-measures">
-<h4 id="Compound-activity-measures">Compound activity measures<a class="headerlink" href="#Compound-activity-measures" title="Permalink to this headline">¶</a></h4>
+<h4 id="Compound-activity-measures">Compound activity measures<a class="headerlink" href="#Compound-activity-measures" title="Permalink to this heading">¶</a></h4>
 <ul class="simple">
 <li><p><strong>IC50</strong> is the half maximal inhibitory concentration of a drug which indicates how much of a drug is needed to inhibit a biological process by half.</p></li>
 <li><p><strong>pIC50</strong> is the negative logarithm of the IC50 value. It is more easily interpretable than IC50 values and a common measure for potency of compounds (see <strong>Talktorial T001</strong> for further details).</p></li>
 </ul>
 </section>
 <section id="Molecule-encoding">
-<h4 id="Molecule-encoding">Molecule encoding<a class="headerlink" href="#Molecule-encoding" title="Permalink to this headline">¶</a></h4>
+<h4 id="Molecule-encoding">Molecule encoding<a class="headerlink" href="#Molecule-encoding" title="Permalink to this heading">¶</a></h4>
 <p>For machine learning algorithms, molecules need to be converted into a machine readable format, e.g. a list of features. In this notebook, molecular fingerprints are used.</p>
 <p>Molecular fingerprints encode chemical structures and molecular features in a bit string, where at each position “1” represents the presence and “0” represents the absence of a feature. One of the common fingerprints used are <strong>M</strong>olecular <strong>ACC</strong>ess <strong>S</strong>ystem fingerprints <a class="reference external" href="https://docs.eyesopen.com/toolkits/python/graphsimtk/fingerprint.html#maccs">(MACCS Keys)</a> which are 166 bits structural key descriptors in which each bit is associated with a
 <a class="reference external" href="https://docs.eyesopen.com/toolkits/python/oechemtk/glossary.html#term-smarts">SMARTS</a> pattern encoding a specific substructure (see <strong>Talktorial T004</strong> for further details).</p>
 </section>
 </section>
 <section id="Neural-networks">
-<h3 id="Neural-networks">Neural networks<a class="headerlink" href="#Neural-networks" title="Permalink to this headline">¶</a></h3>
+<h3 id="Neural-networks">Neural networks<a class="headerlink" href="#Neural-networks" title="Permalink to this heading">¶</a></h3>
 <section id="What-is-a-neural-network?">
-<h4 id="What-is-a-neural-network?">What is a neural network?<a class="headerlink" href="#What-is-a-neural-network?" title="Permalink to this headline">¶</a></h4>
+<h4 id="What-is-a-neural-network?">What is a neural network?<a class="headerlink" href="#What-is-a-neural-network?" title="Permalink to this heading">¶</a></h4>
 <p>Neural networks, also known as artificial neural networks (ANNs), are a subset of machine learning algorithms. The structure and the name of the neural network is inspired by the human brain, mimicking the way that biological neurons transfer signals to one another.</p>
 <img alt="Basic structure" src="../_images/basic_structure.png"/>
 <p><em>Figure 1:</em> The figure shows the basic structure of an artificial neural network. It is taken from the blogpost: “<em>Designing Your Neural Networks</em>”, Lavanya Shukla, <a class="reference external" href="https://towardsdatascience.com/designing-your-neural-networks-a5e4617027ed">towardsdatascience</a>.</p>
@@ -1109,7 +879,7 @@ data set that are predicted to be the most active against that kinase.</p>
 <p>The weights and biases in a neural network are referred to as <em>learnable parameters</em>. They are tuned when training the model to obtain a good performance.</p>
 </section>
 <section id="Activation-function">
-<h4 id="Activation-function">Activation function<a class="headerlink" href="#Activation-function" title="Permalink to this headline">¶</a></h4>
+<h4 id="Activation-function">Activation function<a class="headerlink" href="#Activation-function" title="Permalink to this heading">¶</a></h4>
 <p><strong>What is an activation function?</strong></p>
 <p>An <a class="reference external" href="https://en.wikipedia.org/wiki/Activation_function">activation function</a> regulates the amount of information passed through a neural network. This function is applied to each neuron and determines whether the neuron should be activated or not. It works as a “gate” between the input feeding the current neuron and its output going to the next layer as shown in the figure below.</p>
 <img alt="Activation" src="../_images/activation.png"/>
@@ -1137,7 +907,7 @@ data set that are predicted to be the most active against that kinase.</p>
 </ul>
 </section>
 <section id="Loss-function">
-<h4 id="Loss-function">Loss function<a class="headerlink" href="#Loss-function" title="Permalink to this headline">¶</a></h4>
+<h4 id="Loss-function">Loss function<a class="headerlink" href="#Loss-function" title="Permalink to this heading">¶</a></h4>
 <p>When training a neural network, the aim is to optimize the prediction error, i.e. the difference between the true value and the value predicted by the model. The prediction error can be written as a function, known as the objective function, cost function, or <strong>loss function</strong>. The goal is therefore to minimize the loss function, in other words, to find local minima. The loss function is one of the important components in training a neural network. For more details on loss functions, please
 refer to the blogpost: <a class="reference external" href="https://machinelearningmastery.com/loss-and-loss-functions-for-training-deep-learning-neural-networks/">Loss and Loss Functions for Training Deep Learning Neural Networks</a>. Two commonly used loss functions in regression tasks are</p>
 <ol class="arabic simple">
@@ -1147,7 +917,7 @@ refer to the blogpost: <a class="reference external" href="https://machinelearni
 </section>
 </section>
 <section id="Training-a-neural-network">
-<h3 id="Training-a-neural-network">Training a neural network<a class="headerlink" href="#Training-a-neural-network" title="Permalink to this headline">¶</a></h3>
+<h3 id="Training-a-neural-network">Training a neural network<a class="headerlink" href="#Training-a-neural-network" title="Permalink to this heading">¶</a></h3>
 <p>When starting with a neural network, the parameters, i.e. the weights and biases, are randomly initialized. The inputs are then fed into the network and produce an output. However, the corresponding output will most likely be very different from the true value. In other words, the prediction error will be very poor: the loss function is far from being minimal. Therefore, the initial parameters have to be optimized to obtain better predictions.</p>
 <p>To this end, we need to minimize the loss function. An efficient way to find such a minimum is to use the <a class="reference external" href="https://en.wikipedia.org/wiki/Gradient_descent#:~:text=Gradient%20descent%20is%20a%20first,the%20direction%20of%20steepest%20descent.">gradient descent</a> algorithm. This optimization scheme is iterative and uses both the derivative of the loss function (or gradient in the multivariate case) and a learning rate. The main idea behind the algorithm is to follow the steepest direction of the
 function, obtained with the gradient and managing the length of each step with the learning rate. The latter is often referred to as a hyperparameter, which can be tuned using cross-validation (more details in future talktorials).</p>
@@ -1157,7 +927,7 @@ function, obtained with the gradient and managing the length of each step with t
 <p>If the data set used is very large, computing the gradient of the loss function can be very expensive. A way to solve this issue is to use instead a sample, or mini-batch, of the training data at a time, known as <a class="reference external" href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent">Stochastic Gradient Descent (SGD)</a> or <em>Mini-Batch Stochastic Gradient Descent</em>.</p>
 </section>
 <section id="Keras-workflow">
-<h3 id="Keras-workflow">Keras workflow<a class="headerlink" href="#Keras-workflow" title="Permalink to this headline">¶</a></h3>
+<h3 id="Keras-workflow">Keras workflow<a class="headerlink" href="#Keras-workflow" title="Permalink to this heading">¶</a></h3>
 <p><a class="reference external" href="https://keras.io/getting_started/">Keras</a> is an open-source library for machine learning and more specifically neural networks. Its API runs on top of the very well-known <a class="reference external" href="https://www.tensorflow.org/">tensorflow</a> deep learning platform.</p>
 <p>Below, we present a common workflow for training a neural network with <a class="reference external" href="https://keras.io/getting_started/">keras</a>.</p>
 <ul class="simple">
@@ -1175,7 +945,7 @@ version of gradient descent and has shown to give good results in a wide range o
 </ul>
 </section>
 <section id="Advantages-and-applications-of-neural-networks">
-<h3 id="Advantages-and-applications-of-neural-networks">Advantages and applications of neural networks<a class="headerlink" href="#Advantages-and-applications-of-neural-networks" title="Permalink to this headline">¶</a></h3>
+<h3 id="Advantages-and-applications-of-neural-networks">Advantages and applications of neural networks<a class="headerlink" href="#Advantages-and-applications-of-neural-networks" title="Permalink to this heading">¶</a></h3>
 <p><strong>Advantages of a neural network</strong></p>
 <ul class="simple">
 <li><p><strong>Organic learning</strong>: Neural networks have the ability to learn by extracting the important features present in the input data.</p></li>
@@ -1195,7 +965,7 @@ version of gradient descent and has shown to give good results in a wide range o
 </section>
 </section>
 <section id="Practical">
-<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this headline">¶</a></h2>
+<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this heading">¶</a></h2>
 <p>The first step is to import all the necessary libraries.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -1236,7 +1006,7 @@ version of gradient descent and has shown to give good results in a wide range o
 </div>
 </div>
 <section id="Data-preparation">
-<h3 id="Data-preparation">Data preparation<a class="headerlink" href="#Data-preparation" title="Permalink to this headline">¶</a></h3>
+<h3 id="Data-preparation">Data preparation<a class="headerlink" href="#Data-preparation" title="Permalink to this heading">¶</a></h3>
 <p>Let’s load the data which is a subset of ChEMBL for EGFR. The important columns in the dataframe are:</p>
 <ul class="simple">
 <li><p>CHEMBL-ID</p></li>
@@ -1580,7 +1350,7 @@ Shape of test data: (1172,)
 </div>
 </section>
 <section id="Define-neural-network">
-<h3 id="Define-neural-network">Define neural network<a class="headerlink" href="#Define-neural-network" title="Permalink to this headline">¶</a></h3>
+<h3 id="Define-neural-network">Define neural network<a class="headerlink" href="#Define-neural-network" title="Permalink to this heading">¶</a></h3>
 <p>A keras model is defined by specifying the number of neurons in the hidden layers and the activation function as arguments. For our purpose, we define a model with <em>two hidden layers</em>. We use ReLU in the hidden layers and a linear function on the output layer, since the aim is to predict pIC50 values. Finally, we compile the model using the <em>mean squared error</em> as a loss argument and <em>adam</em> as an optimizer.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
@@ -1622,7 +1392,7 @@ Shape of test data: (1172,)
 </div>
 </section>
 <section id="Train-the-model">
-<h3 id="Train-the-model">Train the model<a class="headerlink" href="#Train-the-model" title="Permalink to this headline">¶</a></h3>
+<h3 id="Train-the-model">Train the model<a class="headerlink" href="#Train-the-model" title="Permalink to this heading">¶</a></h3>
 <p>We try different mini-batch sizes and plot the respective losses.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
@@ -1718,7 +1488,7 @@ Shape of test data: (1172,)
 </div>
 </section>
 <section id="Evaluation-&amp;-prediction-on-test-set">
-<h3 id="Evaluation-&amp;-prediction-on-test-set">Evaluation &amp; prediction on test set<a class="headerlink" href="#Evaluation-&amp;-prediction-on-test-set" title="Permalink to this headline">¶</a></h3>
+<h3 id="Evaluation-&amp;-prediction-on-test-set">Evaluation &amp; prediction on test set<a class="headerlink" href="#Evaluation-&amp;-prediction-on-test-set" title="Permalink to this heading">¶</a></h3>
 <p>The <a class="reference external" href="https://keras.io/api/models/model_training_apis/#evaluate-method">evaluate()</a> method is used to check the performance of our model. It reports the <strong>loss</strong> (which is the mse in our case) as well as evaluation metrics (which are the <strong>mse</strong> and <strong>mae</strong>).</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
@@ -1771,7 +1541,7 @@ Evaluate the model on the test data
 </pre></div></div>
 </div>
 <section id="Scatter-plot">
-<h4 id="Scatter-plot">Scatter plot<a class="headerlink" href="#Scatter-plot" title="Permalink to this headline">¶</a></h4>
+<h4 id="Scatter-plot">Scatter plot<a class="headerlink" href="#Scatter-plot" title="Permalink to this heading">¶</a></h4>
 <p>To visualize the predictions, we plot the predicted vs. the true pIC50 values on the test set.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
@@ -1804,7 +1574,7 @@ Evaluate the model on the test data
 </section>
 </section>
 <section id="Prediction-on-external/unlabeled-data">
-<h3 id="Prediction-on-external/unlabeled-data">Prediction on external/unlabeled data<a class="headerlink" href="#Prediction-on-external/unlabeled-data" title="Permalink to this headline">¶</a></h3>
+<h3 id="Prediction-on-external/unlabeled-data">Prediction on external/unlabeled data<a class="headerlink" href="#Prediction-on-external/unlabeled-data" title="Permalink to this heading">¶</a></h3>
 <p>We use the trained neural network to predict the pIC50 values on the unlabeled compounds from the <code class="docutils literal notranslate"><span class="pre">test.csv</span></code>file.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
@@ -2026,7 +1796,7 @@ Shape of dataframe :  (60, 2)
 </div>
 </div>
 <section id="Select-the-top-3-compounds">
-<h4 id="Select-the-top-3-compounds">Select the top 3 compounds<a class="headerlink" href="#Select-the-top-3-compounds" title="Permalink to this headline">¶</a></h4>
+<h4 id="Select-the-top-3-compounds">Select the top 3 compounds<a class="headerlink" href="#Select-the-top-3-compounds" title="Permalink to this heading">¶</a></h4>
 <p>We select the 3 compounds with the highest predicted pIC50 values, which could be further investigated as potential EGRF inhibitors.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
@@ -2117,7 +1887,7 @@ Shape of dataframe :  (60, 2)
 </section>
 </section>
 <section id="Discussion">
-<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this headline">¶</a></h2>
+<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this heading">¶</a></h2>
 <p>From above we can see that there are some similarities between the three molecules. For example, they contain an aniline and pyrimidine group, as well as several aromatic carbon rings.</p>
 <img alt="Drug similarity" src="../_images/drugs_similarity.png"/>
 <p><em>Figure 5:</em> Representing similarities between selected top three drug molecules.</p>
@@ -2126,7 +1896,7 @@ Shape of dataframe :  (60, 2)
 <p>However, this model has some disadvantages: it highly depends on the chemical space of the training data, the parameter tuning as well as variable initialization which might affect the final results. Such a model neither provides information about the side effects of compounds nor their potential toxicity.</p>
 </section>
 <section id="Quiz">
-<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Permalink to this headline">¶</a></h2>
+<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>What other hyperparameters can be tuned to get better performance results?</p></li>
 <li><p>What other activation functions and metrics can be used while defining the model?</p></li>
@@ -2135,7 +1905,7 @@ Shape of dataframe :  (60, 2)
 </section>
 <hr class="docutils"/>
 <section id="Supplementary-section">
-<h2 id="Supplementary-section">Supplementary section<a class="headerlink" href="#Supplementary-section" title="Permalink to this headline">¶</a></h2>
+<h2 id="Supplementary-section">Supplementary section<a class="headerlink" href="#Supplementary-section" title="Permalink to this heading">¶</a></h2>
 <details><summary><p>If you are interested in more details, please keep reading this section. We define other activation and forward propagation functions to get a better understanding of the underlying concepts.</p>
 </summary><p><strong>Activation functions</strong></p>
 <p>Let’s discuss some other activation functions and define them using python.</p>
@@ -2464,7 +2234,7 @@ Shape of dataframe :  (60, 2)
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 5.0.1.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

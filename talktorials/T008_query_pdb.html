@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
 <meta property="og:title" content="T008 · Protein data acquisition: Protein Data Bank (PDB)" />
   
@@ -95,6 +95,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -261,279 +262,56 @@
     
     
       <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="T001_query_chembl.html" class="md-nav__link">T001 · Compound data acquisition (ChEMBL)</a>
       
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T002_compound_adme.html" class="md-nav__link">T002 · Molecular filtering: ADME and lead-likeness criteria</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T003_compound_unwanted_substructures.html" class="md-nav__link">T003 · Molecular filtering: unwanted substructures</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T004_compound_similarity.html" class="md-nav__link">T004 · Ligand-based screening: compound similarity</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T005_compound_clustering.html" class="md-nav__link">T005 · Compound clustering</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T006_compound_maximum_common_substructures.html" class="md-nav__link">T006 · Maximum common substructure</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T007_compound_activity_machine_learning.html" class="md-nav__link">T007 · Ligand-based screening: machine learning</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> T008 · Protein data acquisition: Protein Data Bank (PDB) </label>
-    
-      <a href="#" class="md-nav__link md-nav__link--active">T008 · Protein data acquisition: Protein Data Bank (PDB)</a>
-      
-        
-<nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#talktorials-t008-query-pdb--page-root" class="md-nav__link">T008 · Protein data acquisition: Protein Data Bank (PDB)</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in Theory</a>
-        </li>
-        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in Practical</a>
-        </li>
-        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Protein-Data-Bank-(PDB)" class="md-nav__link">Protein Data Bank (PDB)</a>
-        </li>
-        <li class="md-nav__item"><a href="#Query-the-PDB-using-the-Python-packages-biotite-and-pypdb" class="md-nav__link">Query the PDB using the Python packages <code class="docutils literal notranslate"><span class="pre">biotite</span></code> and <code class="docutils literal notranslate"><span class="pre">pypdb</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Select-a-query-protein" class="md-nav__link">Select a query protein</a>
-        </li>
-        <li class="md-nav__item"><a href="#Get-the-number-of-PDB-entries-for-a-query-protein" class="md-nav__link">Get the number of PDB entries for a query protein</a>
-        </li>
-        <li class="md-nav__item"><a href="#Find-PDB-entries-fullfilling-certain-conditions" class="md-nav__link">Find PDB entries fullfilling certain conditions</a>
-        </li>
-        <li class="md-nav__item"><a href="#Select-PDB-entries-with-the-hightest-resolution" class="md-nav__link">Select PDB entries with the hightest resolution</a>
-        </li>
-        <li class="md-nav__item"><a href="#Get-metadata-of-ligands-from-top-structures" class="md-nav__link">Get metadata of ligands from top structures</a>
-        </li>
-        <li class="md-nav__item"><a href="#Draw-top-ligand-molecules" class="md-nav__link">Draw top ligand molecules</a>
-        </li>
-        <li class="md-nav__item"><a href="#Create-protein-ligand-ID-pairs" class="md-nav__link">Create protein-ligand ID pairs</a>
-        </li>
-        <li class="md-nav__item"><a href="#Align-PDB-structures-and-extract-ligands" class="md-nav__link">Align PDB structures and extract ligands</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Get-the-PDB-structure-files" class="md-nav__link">Get the PDB structure files</a>
-        </li>
-        <li class="md-nav__item"><a href="#Extract-protein-and-ligand" class="md-nav__link">Extract protein and ligand</a>
-        </li>
-        <li class="md-nav__item"><a href="#Align-proteins" class="md-nav__link">Align proteins</a>
-        </li>
-        <li class="md-nav__item"><a href="#Extract-ligands" class="md-nav__link">Extract ligands</a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
-        </li>
-        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
-        </li></ul>
-            </nav>
-        </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T008_query_pdb.nblink.txt">Show Source</a> </li>
-
-  </ul>
-</nav>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T009_compound_ensemble_pharmacophores.html" class="md-nav__link">T009 · Ligand-based pharmacophores</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T010_binding_site_comparison.html" class="md-nav__link">T010 · Binding site similarity and off-target prediction</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T011_query_online_api_webservices.html" class="md-nav__link">T011 · Querying online API webservices</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T012_query_klifs.html" class="md-nav__link">T012 · Data acquisition from KLIFS</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T013_query_pubchem.html" class="md-nav__link">T013 · Data acquisition from PubChem</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T014_binding_site_detection.html" class="md-nav__link">T014 · Binding site detection</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T015_protein_ligand_docking.html" class="md-nav__link">T015 · Protein ligand docking</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T016_protein_ligand_interactions.html" class="md-nav__link">T016 · Protein-ligand interactions</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T017_advanced_nglview_usage.html" class="md-nav__link">T017 · Advanced NGLview usage</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T018_automated_cadd_pipeline.html" class="md-nav__link">T018 · Automated pipeline for lead optimization</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T019_md_simulation.html" class="md-nav__link">T019 · Molecular dynamics simulation</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T020_md_analysis.html" class="md-nav__link">T020 · Analyzing molecular dynamics simulations</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T021_one_hot_encoding.html" class="md-nav__link">T021 · One-Hot Encoding</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T022_ligand_based_screening_neural_network.html" class="md-nav__link">T022 · Ligand-based screening: neural networks</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T023_what_is_a_kinase.html" class="md-nav__link">T023 · What is a kinase?</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T024_kinase_similarity_sequence.html" class="md-nav__link">T024 · Kinase similarity: Sequence</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T025_kinase_similarity_kissim.html" class="md-nav__link">T025 · Kinase similarity: Kinase pocket (KiSSim fingerprint)</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T026_kinase_similarity_ifp.html" class="md-nav__link">T026 · Kinase similarity: Interaction fingerprints</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T027_kinase_similarity_ligand_profile.html" class="md-nav__link">T027 · Kinase similarity: Ligand profile</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T028_kinase_similarity_compare_perspectives.html" class="md-nav__link">T028 · Kinase similarity: Compare different perspectives</a>
-      
-    
-    </li></ul>
     
     </li>
     <li class="md-nav__item">
     
     
       <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#edition-2019-jcim" class="md-nav__link">Edition 2019 - JCIM</a>
       
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#edition-2021" class="md-nav__link">Edition 2021</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#ligand-based-cheminformatics" class="md-nav__link">Ligand-based cheminformatics</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#structural-biology" class="md-nav__link">Structural biology</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#online-apis-servers" class="md-nav__link">Online APIs/servers</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#kinase-similarity" class="md-nav__link">Kinase similarity</a>
+      
+    
+    </li></ul>
     
     </li>
     <li class="md-nav__item">
@@ -885,6 +663,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* Some additional styling taken form the Jupyter notebook CSS */
+.jp-RenderedHTMLCommon table,
 div.rendered_html table {
   border: none;
   border-collapse: collapse;
@@ -893,10 +672,14 @@ div.rendered_html table {
   font-size: 12px;
   table-layout: fixed;
 }
+.jp-RenderedHTMLCommon thead,
 div.rendered_html thead {
   border-bottom: 1px solid black;
   vertical-align: bottom;
 }
+.jp-RenderedHTMLCommon tr,
+.jp-RenderedHTMLCommon th,
+.jp-RenderedHTMLCommon td,
 div.rendered_html tr,
 div.rendered_html th,
 div.rendered_html td {
@@ -908,18 +691,21 @@ div.rendered_html td {
   max-width: none;
   border: none;
 }
+.jp-RenderedHTMLCommon th,
 div.rendered_html th {
   font-weight: bold;
 }
+.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
 div.rendered_html tbody tr:nth-child(odd) {
   background: #f5f5f5;
 }
+.jp-RenderedHTMLCommon tbody tr:hover,
 div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
 </style>
 <section id="T008-·-Protein-data-acquisition:-Protein-Data-Bank-(PDB)">
-<h1 id="talktorials-t008-query-pdb--page-root">T008 · Protein data acquisition: Protein Data Bank (PDB)<a class="headerlink" href="#talktorials-t008-query-pdb--page-root" title="Permalink to this headline">¶</a></h1>
+<h1 id="talktorials-t008-query-pdb--page-root">T008 · Protein data acquisition: Protein Data Bank (PDB)<a class="headerlink" href="#talktorials-t008-query-pdb--page-root" title="Permalink to this heading">¶</a></h1>
 <p><strong>Note:</strong> This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.</p>
 <p>Authors:</p>
 <ul class="simple">
@@ -930,17 +716,17 @@ div.rendered_html tbody tr:hover {
 </ul>
 <p><strong>Talktorial T008</strong>: This talktorial is part of the TeachOpenCADD pipeline described in the first TeachOpenCADD publication (<a class="reference external" href="https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x">J. Cheminform. (2019), 11, 1-7</a>), comprising of talktorials T001-T010.</p>
 <section id="Aim-of-this-talktorial">
-<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this headline">¶</a></h2>
+<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this heading">¶</a></h2>
 <p>In this talktorial, we conduct the groundwork for the next talktorial where we will generate a ligand-based ensemble pharmacophore for EGFR. Therefore, we (i) fetch all PDB IDs for EGFR from the PDB database that fullfil certain criteria (e.g. ligand-bound structures with high resolution), (ii) retrieve protein-ligand structures with the best structural quality, (iii) align all structures, and (iv) extract and save the ligands to be used in the next talktorial.</p>
 <section id="Contents-in-Theory">
-<h3 id="Contents-in-Theory">Contents in Theory<a class="headerlink" href="#Contents-in-Theory" title="Permalink to this headline">¶</a></h3>
+<h3 id="Contents-in-Theory">Contents in Theory<a class="headerlink" href="#Contents-in-Theory" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Protein Data Bank (PDB)</p></li>
 <li><p>Query the PDB using the Python packages <code class="docutils literal notranslate"><span class="pre">biotite</span></code> and <code class="docutils literal notranslate"><span class="pre">pypdb</span></code></p></li>
 </ul>
 </section>
 <section id="Contents-in-Practical">
-<h3 id="Contents-in-Practical">Contents in Practical<a class="headerlink" href="#Contents-in-Practical" title="Permalink to this headline">¶</a></h3>
+<h3 id="Contents-in-Practical">Contents in Practical<a class="headerlink" href="#Contents-in-Practical" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Select a query protein</p></li>
 <li><p>Get the number of PDB entries for a query protein</p></li>
@@ -953,7 +739,7 @@ div.rendered_html tbody tr:hover {
 </ul>
 </section>
 <section id="References">
-<h3 id="References">References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h3>
+<h3 id="References">References<a class="headerlink" href="#References" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Protein Data Bank (<a class="reference external" href="http://www.rcsb.org/">PDB website</a>)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">pypdb</span></code> Python package (<a class="reference external" href="https://academic.oup.com/bioinformatics/article-lookup/doi/10.1093/bioinformatics/btv543">Bioinformatics (2016), 1, 159-60</a>; <a class="reference external" href="http://www.wgilpin.com/pypdb_docs/html/">documentation</a>)</p></li>
@@ -963,9 +749,9 @@ div.rendered_html tbody tr:hover {
 </section>
 </section>
 <section id="Theory">
-<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this headline">¶</a></h2>
+<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this heading">¶</a></h2>
 <section id="Protein-Data-Bank-(PDB)">
-<h3 id="Protein-Data-Bank-(PDB)">Protein Data Bank (PDB)<a class="headerlink" href="#Protein-Data-Bank-(PDB)" title="Permalink to this headline">¶</a></h3>
+<h3 id="Protein-Data-Bank-(PDB)">Protein Data Bank (PDB)<a class="headerlink" href="#Protein-Data-Bank-(PDB)" title="Permalink to this heading">¶</a></h3>
 <p>The RCSB Protein Data Bank (PDB) is a comprehensive structural biology information database and a key resource in areas of structural biology, such as structural genomics and drug design (<a class="reference external" href="http://www.rcsb.org/">PDB website</a>).</p>
 <p>Structural data is generated from structural determination methods such as X-ray crystallography (most common method), nuclear magnetic resonance (NMR), and cryo electron microscopy (cryo-EM). For each entry, the database contains (i) the 3D coordinates of the atoms and the bonds connecting these atoms for proteins, ligand, cofactors, water molecules, and ions, as well as (ii) meta information on the structural data such as the PDB ID, the authors, the deposition date, the structural
 determination method used, and the structural resolution. The structural resolution is a measure of the collected data quality and has the unit Å (Angstrom); the lower the value, the higher the quality of the structure.</p>
@@ -974,7 +760,7 @@ determination method used, and the structural resolution. The structural resolut
 <p><em>Figure 1</em>: The protein structure (in gray) with an interacting ligand (in green) is shown for an example epidermal growth factor receptor (EGFR) with the PDB ID 3UG5.</p>
 </section>
 <section id="Query-the-PDB-using-the-Python-packages-biotite-and-pypdb">
-<h3 id="Query-the-PDB-using-the-Python-packages-biotite-and-pypdb">Query the PDB using the Python packages <code class="docutils literal notranslate"><span class="pre">biotite</span></code> and <code class="docutils literal notranslate"><span class="pre">pypdb</span></code><a class="headerlink" href="#Query-the-PDB-using-the-Python-packages-biotite-and-pypdb" title="Permalink to this headline">¶</a></h3>
+<h3 id="Query-the-PDB-using-the-Python-packages-biotite-and-pypdb">Query the PDB using the Python packages <code class="docutils literal notranslate"><span class="pre">biotite</span></code> and <code class="docutils literal notranslate"><span class="pre">pypdb</span></code><a class="headerlink" href="#Query-the-PDB-using-the-Python-packages-biotite-and-pypdb" title="Permalink to this heading">¶</a></h3>
 <p>Each structure in the PDB database is linked to many different fields to hold meta information. Check out the complete list of available fields for <a class="reference external" href="https://search.rcsb.org/chemical-search-attributes.html">chemicals</a>/<a class="reference external" href="https://search.rcsb.org/structure-search-attributes.html">structures</a> and supported operators on the RCSB website. The Python package <code class="docutils literal notranslate"><span class="pre">biotite</span></code> provides the convenient module <code class="docutils literal notranslate"><span class="pre">databases.rcsb</span></code> (see
 <a class="reference external" href="https://www.biotite-python.org/apidoc/biotite.database.rcsb.html">docs</a>), which allows us to query one (<code class="docutils literal notranslate"><span class="pre">FieldQuery</span></code>, see <a class="reference external" href="https://www.biotite-python.org/apidoc/biotite.database.rcsb.FieldQuery.html#biotite.database.rcsb.FieldQuery">docs</a>) or more (<code class="docutils literal notranslate"><span class="pre">CompositeQuery</span></code>, see <a class="reference external" href="https://www.biotite-python.org/apidoc/biotite.database.rcsb.CompositeQuery.html#biotite.database.rcsb.CompositeQuery">docs</a>) of these fields to retrieve a count (<code class="docutils literal notranslate"><span class="pre">count</span></code>) or list (<code class="docutils literal notranslate"><span class="pre">search</span></code>) of PDB IDs that
 match our criteria.</p>
@@ -983,7 +769,7 @@ match our criteria.</p>
 </section>
 </section>
 <section id="Practical">
-<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this headline">¶</a></h2>
+<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this heading">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -1052,7 +838,7 @@ match our criteria.</p>
 </div>
 </div>
 <section id="Select-a-query-protein">
-<h3 id="Select-a-query-protein">Select a query protein<a class="headerlink" href="#Select-a-query-protein" title="Permalink to this headline">¶</a></h3>
+<h3 id="Select-a-query-protein">Select a query protein<a class="headerlink" href="#Select-a-query-protein" title="Permalink to this heading">¶</a></h3>
 <p>We use EGFR as query protein for this talktorial. The UniProt ID of EGFR is <code class="docutils literal notranslate"><span class="pre">P00533</span></code>, which will be used in the following to query the PDB database.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
@@ -1064,7 +850,7 @@ match our criteria.</p>
 </div>
 </section>
 <section id="Get-the-number-of-PDB-entries-for-a-query-protein">
-<h3 id="Get-the-number-of-PDB-entries-for-a-query-protein">Get the number of PDB entries for a query protein<a class="headerlink" href="#Get-the-number-of-PDB-entries-for-a-query-protein" title="Permalink to this headline">¶</a></h3>
+<h3 id="Get-the-number-of-PDB-entries-for-a-query-protein">Get the number of PDB entries for a query protein<a class="headerlink" href="#Get-the-number-of-PDB-entries-for-a-query-protein" title="Permalink to this heading">¶</a></h3>
 <p>How many structures are available in the PDB for EGFR (at the time this notebook was last run)?</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
@@ -1138,7 +924,7 @@ Number of structures on 2021-9-2: 227
 </div>
 </section>
 <section id="Find-PDB-entries-fullfilling-certain-conditions">
-<h3 id="Find-PDB-entries-fullfilling-certain-conditions">Find PDB entries fullfilling certain conditions<a class="headerlink" href="#Find-PDB-entries-fullfilling-certain-conditions" title="Permalink to this headline">¶</a></h3>
+<h3 id="Find-PDB-entries-fullfilling-certain-conditions">Find PDB entries fullfilling certain conditions<a class="headerlink" href="#Find-PDB-entries-fullfilling-certain-conditions" title="Permalink to this heading">¶</a></h3>
 <p>We will search for PDB IDs describing structures in the PDB that fulfill the following criteria:</p>
 <ul class="simple">
 <li><p><strong>Structures for UniProt ID P00533</strong>: This is our target of interest, EGFR!</p></li>
@@ -1150,11 +936,6 @@ Number of structures on 2021-9-2: 227
 </ul>
 <p>We make use of the <code class="docutils literal notranslate"><span class="pre">biotite</span></code> package again to query for PDB IDs based on the following combined queries:</p>
 <table>
-<colgroup>
-<col style="width: 33%"/>
-<col style="width: 33%"/>
-<col style="width: 33%"/>
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Field</p></th>
 <th class="head"><p>Operator</p></th>
@@ -1302,7 +1083,7 @@ Selected PDB IDs:
 </div>
 </section>
 <section id="Select-PDB-entries-with-the-hightest-resolution">
-<h3 id="Select-PDB-entries-with-the-hightest-resolution">Select PDB entries with the hightest resolution<a class="headerlink" href="#Select-PDB-entries-with-the-hightest-resolution" title="Permalink to this headline">¶</a></h3>
+<h3 id="Select-PDB-entries-with-the-hightest-resolution">Select PDB entries with the hightest resolution<a class="headerlink" href="#Select-PDB-entries-with-the-hightest-resolution" title="Permalink to this heading">¶</a></h3>
 <p>So far we have used certain search criteria to find PDB entries of interest.</p>
 <p>At the moment, we cannot access the structures’ resolution directly via <code class="docutils literal notranslate"><span class="pre">biotite</span></code>; with <code class="docutils literal notranslate"><span class="pre">biotite</span></code> we can only check if the resolution fullfils a certain condition. Instead we download the full metadata for our selected PDB IDs. To this end, we use from the <code class="docutils literal notranslate"><span class="pre">pypdb</span></code> package the method <code class="docutils literal notranslate"><span class="pre">describe_pdb</span></code>. Each structure’s metadata is returned as a dictionary.</p>
 <p>Note: we only fetch meta information on PDB structures here, we do not fetch the structures (3D coordinates), yet.</p>
@@ -1574,7 +1355,7 @@ rcsb_id
 </div>
 </section>
 <section id="Get-metadata-of-ligands-from-top-structures">
-<h3 id="Get-metadata-of-ligands-from-top-structures">Get metadata of ligands from top structures<a class="headerlink" href="#Get-metadata-of-ligands-from-top-structures" title="Permalink to this headline">¶</a></h3>
+<h3 id="Get-metadata-of-ligands-from-top-structures">Get metadata of ligands from top structures<a class="headerlink" href="#Get-metadata-of-ligands-from-top-structures" title="Permalink to this heading">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
@@ -1806,7 +1587,7 @@ Selected PDB IDs (frozen set): ['5UG9', '5HG8', '5UG8', '5UGC']
 </div>
 </section>
 <section id="Draw-top-ligand-molecules">
-<h3 id="Draw-top-ligand-molecules">Draw top ligand molecules<a class="headerlink" href="#Draw-top-ligand-molecules" title="Permalink to this headline">¶</a></h3>
+<h3 id="Draw-top-ligand-molecules">Draw top ligand molecules<a class="headerlink" href="#Draw-top-ligand-molecules" title="Permalink to this heading">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
@@ -1830,7 +1611,7 @@ Selected PDB IDs (frozen set): ['5UG9', '5HG8', '5UG8', '5UGC']
 </div>
 </section>
 <section id="Create-protein-ligand-ID-pairs">
-<h3 id="Create-protein-ligand-ID-pairs">Create protein-ligand ID pairs<a class="headerlink" href="#Create-protein-ligand-ID-pairs" title="Permalink to this headline">¶</a></h3>
+<h3 id="Create-protein-ligand-ID-pairs">Create protein-ligand ID pairs<a class="headerlink" href="#Create-protein-ligand-ID-pairs" title="Permalink to this heading">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
@@ -1855,11 +1636,11 @@ OrderedDict([('5UG9', '8AM'),
 </div>
 </section>
 <section id="Align-PDB-structures-and-extract-ligands">
-<h3 id="Align-PDB-structures-and-extract-ligands">Align PDB structures and extract ligands<a class="headerlink" href="#Align-PDB-structures-and-extract-ligands" title="Permalink to this headline">¶</a></h3>
+<h3 id="Align-PDB-structures-and-extract-ligands">Align PDB structures and extract ligands<a class="headerlink" href="#Align-PDB-structures-and-extract-ligands" title="Permalink to this heading">¶</a></h3>
 <p>Since we want to build ligand-based ensemble pharmacophores in the next talktorial, it is necessary to align all structures to each other in 3D.</p>
 <p>We will use the Python package <code class="docutils literal notranslate"><span class="pre">opencadd</span></code> (<a class="reference external" href="https://github.com/volkamerlab/opencadd">repository</a>), which includes a 3D superposition subpackage to guide the structural alignment of the proteins. The approach is based on superposition guided by sequence alignment of provided matched residues. There are other methods in the package, but this simple one will be enough for the task at hand.</p>
 <section id="Get-the-PDB-structure-files">
-<h4 id="Get-the-PDB-structure-files">Get the PDB structure files<a class="headerlink" href="#Get-the-PDB-structure-files" title="Permalink to this headline">¶</a></h4>
+<h4 id="Get-the-PDB-structure-files">Get the PDB structure files<a class="headerlink" href="#Get-the-PDB-structure-files" title="Permalink to this heading">¶</a></h4>
 <p>We now fetch the PDB structure files, i.e. 3D coordinates of the protein, ligand (and if available other atomic or molecular entities such as cofactors, water molecules, and ions) from the PDB using <code class="docutils literal notranslate"><span class="pre">opencadd.structure.superposition</span></code>.</p>
 <p>Available file formats are <em>pdb</em> and <em>cif</em>, which store the 3D coordinations of atoms of the protein (and ligand, cofactors, water molecules, and ions) as well as information on bonds between atoms. Here, we work with <em>pdb</em> files.</p>
 <div class="nbinput docutils container">
@@ -1886,7 +1667,7 @@ OrderedDict([('5UG9', '8AM'),
 </div>
 </section>
 <section id="Extract-protein-and-ligand">
-<h4 id="Extract-protein-and-ligand">Extract protein and ligand<a class="headerlink" href="#Extract-protein-and-ligand" title="Permalink to this headline">¶</a></h4>
+<h4 id="Extract-protein-and-ligand">Extract protein and ligand<a class="headerlink" href="#Extract-protein-and-ligand" title="Permalink to this heading">¶</a></h4>
 <p>Extract protein and ligand from the structure in order to remove solvent and other artifacts of crystallography.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
@@ -1924,7 +1705,7 @@ OrderedDict([('5UG9', '8AM'),
 </div>
 </section>
 <section id="Align-proteins">
-<h4 id="Align-proteins">Align proteins<a class="headerlink" href="#Align-proteins" title="Permalink to this headline">¶</a></h4>
+<h4 id="Align-proteins">Align proteins<a class="headerlink" href="#Align-proteins" title="Permalink to this heading">¶</a></h4>
 <p>Align complexes (based on protein atoms).</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
@@ -1978,7 +1759,7 @@ OrderedDict([('5UG9', '8AM'),
 </div>
 </section>
 <section id="Extract-ligands">
-<h4 id="Extract-ligands">Extract ligands<a class="headerlink" href="#Extract-ligands" title="Permalink to this headline">¶</a></h4>
+<h4 id="Extract-ligands">Extract ligands<a class="headerlink" href="#Extract-ligands" title="Permalink to this heading">¶</a></h4>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
@@ -2081,14 +1862,14 @@ OrderedDict([('5UG9', '8AM'),
 </section>
 </section>
 <section id="Discussion">
-<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this headline">¶</a></h2>
+<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this heading">¶</a></h2>
 <p>In this talktorial, we learned how to retrieve protein and ligand meta information and structural information from the PDB. We retained only X-ray structures for EGFR and filtered our data by resolution and ligand availability. Ultimately, we aimed for an aligned set of ligands to be used in the next talktorial for the generation of ligand-based ensemble pharmacophores.</p>
 <p>In order to enrich information about ligands for pharmacophore modeling, it is advisable to not only filter by PDB structure resolution, but also to check for ligand diversity (see <strong>Talktorial T005</strong> on molecule clustering by similarity) and to check for ligand activity (i.e. to include only potent ligands).</p>
 <p>On a technical note: We saw that the different bits of information deposited in the PDB (structural metadata, coordinates, ligand metadata) cannot be accessed at the moment from a single Python package but taking together <code class="docutils literal notranslate"><span class="pre">biotite</span></code> and <code class="docutils literal notranslate"><span class="pre">pypdb</span></code> - and a bit of web scraping to extract ligand information - we were able to collect all the pieces of information that we needed. Given that the PDB only <a class="reference external" href="https://www4.rcsb.org/news?year=2020&amp;article=5eb18ccfd62245129947212a&amp;feature=true">recently changed completely to a new API (Nov
 2020)</a>, related open source Python packages might offer more functionalities in the future after having had the time to catch up.</p>
 </section>
 <section id="Quiz">
-<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Permalink to this headline">¶</a></h2>
+<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Summarize the kind of data that the Protein Data Bank contains.</p></li>
 <li><p>Explain what the resolution of a structure stands for and how and why we filter for it in this talktorial.</p></li>
@@ -2146,7 +1927,7 @@ OrderedDict([('5UG9', '8AM'),
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 5.0.1.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

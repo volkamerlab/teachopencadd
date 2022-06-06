@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
 <meta property="og:title" content="T019 · Molecular dynamics simulation" />
   
@@ -95,6 +95,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -261,295 +262,56 @@
     
     
       <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="T001_query_chembl.html" class="md-nav__link">T001 · Compound data acquisition (ChEMBL)</a>
       
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T002_compound_adme.html" class="md-nav__link">T002 · Molecular filtering: ADME and lead-likeness criteria</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T003_compound_unwanted_substructures.html" class="md-nav__link">T003 · Molecular filtering: unwanted substructures</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T004_compound_similarity.html" class="md-nav__link">T004 · Ligand-based screening: compound similarity</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T005_compound_clustering.html" class="md-nav__link">T005 · Compound clustering</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T006_compound_maximum_common_substructures.html" class="md-nav__link">T006 · Maximum common substructure</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T007_compound_activity_machine_learning.html" class="md-nav__link">T007 · Ligand-based screening: machine learning</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T008_query_pdb.html" class="md-nav__link">T008 · Protein data acquisition: Protein Data Bank (PDB)</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T009_compound_ensemble_pharmacophores.html" class="md-nav__link">T009 · Ligand-based pharmacophores</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T010_binding_site_comparison.html" class="md-nav__link">T010 · Binding site similarity and off-target prediction</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T011_query_online_api_webservices.html" class="md-nav__link">T011 · Querying online API webservices</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T012_query_klifs.html" class="md-nav__link">T012 · Data acquisition from KLIFS</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T013_query_pubchem.html" class="md-nav__link">T013 · Data acquisition from PubChem</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T014_binding_site_detection.html" class="md-nav__link">T014 · Binding site detection</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T015_protein_ligand_docking.html" class="md-nav__link">T015 · Protein ligand docking</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T016_protein_ligand_interactions.html" class="md-nav__link">T016 · Protein-ligand interactions</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T017_advanced_nglview_usage.html" class="md-nav__link">T017 · Advanced NGLview usage</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T018_automated_cadd_pipeline.html" class="md-nav__link">T018 · Automated pipeline for lead optimization</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> T019 · Molecular dynamics simulation </label>
-    
-      <a href="#" class="md-nav__link md-nav__link--active">T019 · Molecular dynamics simulation</a>
-      
-        
-<nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#talktorials-t019-md-simulation--page-root" class="md-nav__link">T019 · Molecular dynamics simulation</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
-        </li>
-        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
-        </li>
-        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Molecular-dynamics" class="md-nav__link">Molecular dynamics</a>
-        </li>
-        <li class="md-nav__item"><a href="#Force-fields" class="md-nav__link">Force fields</a>
-        </li>
-        <li class="md-nav__item"><a href="#Boundary-conditions" class="md-nav__link">Boundary conditions</a>
-        </li>
-        <li class="md-nav__item"><a href="#MD-simulations-and-drug-design" class="md-nav__link">MD simulations and drug design</a>
-        </li>
-        <li class="md-nav__item"><a href="#EGFR-kinase" class="md-nav__link">EGFR kinase</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Installation-on-Google-Colab" class="md-nav__link">Installation on Google Colab</a>
-        </li>
-        <li class="md-nav__item"><a href="#Adjust-environment-for-local-installations-running-on-Linux-or-MacOS" class="md-nav__link">Adjust environment for local installations running on Linux or MacOS</a>
-        </li>
-        <li class="md-nav__item"><a href="#Import-dependencies" class="md-nav__link">Import dependencies</a>
-        </li>
-        <li class="md-nav__item"><a href="#Download-PDB-file" class="md-nav__link">Download PDB file</a>
-        </li>
-        <li class="md-nav__item"><a href="#Prepare-the-protein-ligand-complex" class="md-nav__link">Prepare the protein ligand complex</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Protein-preparation" class="md-nav__link">Protein preparation</a>
-        </li>
-        <li class="md-nav__item"><a href="#Prepare-ligand" class="md-nav__link">Prepare ligand</a>
-        </li>
-        <li class="md-nav__item"><a href="#Merge-protein-and-ligand" class="md-nav__link">Merge protein and ligand</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#MD-simulation-set-up" class="md-nav__link">MD simulation set up</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Force-field" class="md-nav__link">Force field</a>
-        </li>
-        <li class="md-nav__item"><a href="#System" class="md-nav__link">System</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Perform-the-MD-simulation" class="md-nav__link">Perform the MD simulation</a>
-        </li>
-        <li class="md-nav__item"><a href="#Download-results" class="md-nav__link">Download results</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
-        </li>
-        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
-        </li>
-        <li class="md-nav__item"><a href="#Further-reading" class="md-nav__link">Further reading</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Enhanced-sampling-methods" class="md-nav__link">Enhanced sampling methods</a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T019_md_simulation.nblink.txt">Show Source</a> </li>
-
-  </ul>
-</nav>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T020_md_analysis.html" class="md-nav__link">T020 · Analyzing molecular dynamics simulations</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T021_one_hot_encoding.html" class="md-nav__link">T021 · One-Hot Encoding</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T022_ligand_based_screening_neural_network.html" class="md-nav__link">T022 · Ligand-based screening: neural networks</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T023_what_is_a_kinase.html" class="md-nav__link">T023 · What is a kinase?</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T024_kinase_similarity_sequence.html" class="md-nav__link">T024 · Kinase similarity: Sequence</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T025_kinase_similarity_kissim.html" class="md-nav__link">T025 · Kinase similarity: Kinase pocket (KiSSim fingerprint)</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T026_kinase_similarity_ifp.html" class="md-nav__link">T026 · Kinase similarity: Interaction fingerprints</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T027_kinase_similarity_ligand_profile.html" class="md-nav__link">T027 · Kinase similarity: Ligand profile</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T028_kinase_similarity_compare_perspectives.html" class="md-nav__link">T028 · Kinase similarity: Compare different perspectives</a>
-      
-    
-    </li></ul>
     
     </li>
     <li class="md-nav__item">
     
     
       <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#edition-2019-jcim" class="md-nav__link">Edition 2019 - JCIM</a>
       
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#edition-2021" class="md-nav__link">Edition 2021</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#ligand-based-cheminformatics" class="md-nav__link">Ligand-based cheminformatics</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#structural-biology" class="md-nav__link">Structural biology</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#online-apis-servers" class="md-nav__link">Online APIs/servers</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#kinase-similarity" class="md-nav__link">Kinase similarity</a>
+      
+    
+    </li></ul>
     
     </li>
     <li class="md-nav__item">
@@ -917,6 +679,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* Some additional styling taken form the Jupyter notebook CSS */
+.jp-RenderedHTMLCommon table,
 div.rendered_html table {
   border: none;
   border-collapse: collapse;
@@ -925,10 +688,14 @@ div.rendered_html table {
   font-size: 12px;
   table-layout: fixed;
 }
+.jp-RenderedHTMLCommon thead,
 div.rendered_html thead {
   border-bottom: 1px solid black;
   vertical-align: bottom;
 }
+.jp-RenderedHTMLCommon tr,
+.jp-RenderedHTMLCommon th,
+.jp-RenderedHTMLCommon td,
 div.rendered_html tr,
 div.rendered_html th,
 div.rendered_html td {
@@ -940,18 +707,21 @@ div.rendered_html td {
   max-width: none;
   border: none;
 }
+.jp-RenderedHTMLCommon th,
 div.rendered_html th {
   font-weight: bold;
 }
+.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
 div.rendered_html tbody tr:nth-child(odd) {
   background: #f5f5f5;
 }
+.jp-RenderedHTMLCommon tbody tr:hover,
 div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
 </style>
 <section id="T019-·-Molecular-dynamics-simulation">
-<h1 id="talktorials-t019-md-simulation--page-root">T019 · Molecular dynamics simulation<a class="headerlink" href="#talktorials-t019-md-simulation--page-root" title="Permalink to this headline">¶</a></h1>
+<h1 id="talktorials-t019-md-simulation--page-root">T019 · Molecular dynamics simulation<a class="headerlink" href="#talktorials-t019-md-simulation--page-root" title="Permalink to this heading">¶</a></h1>
 <p><strong>Note:</strong> This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.</p>
 <p>Authors:</p>
 <ul class="simple">
@@ -965,10 +735,10 @@ div.rendered_html tbody tr:hover {
 <p>This talktorial was designed to be used with <a class="reference external" href="https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/1bd7cb0c9f6379aebc0c1a0b1c7413685910cffa/teachopencadd/talktorials/019_md_simulation/talktorial.ipynb">Google Colab</a>. It is also possible to use it on a local computer. However, performing the molecular dynamics simulation may take a considerably long time if no GPU is available.</p>
 <p>Also, note that this talktorial <strong>will not run on Windows</strong> for the time being (check progress in <a class="reference external" href="https://github.com/volkamerlab/teachopencadd/issues/136">this issue</a>).</p>
 <section id="Aim-of-this-talktorial">
-<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this headline">¶</a></h2>
+<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this heading">¶</a></h2>
 <p>In this talktorial, we will learn why molecular dynamics (MD) simulations are important for drug design and which steps are necessary to perform an MD simulation of a protein in complex with a ligand. The kinase EGFR will serve as sample system for simulation.</p>
 <section id="Contents-in-Theory">
-<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Permalink to this headline">¶</a></h3>
+<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Molecular dynamics</p></li>
 <li><p>Force fields</p></li>
@@ -978,7 +748,7 @@ div.rendered_html tbody tr:hover {
 </ul>
 </section>
 <section id="Contents-in-Practical">
-<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Permalink to this headline">¶</a></h3>
+<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Installation on Google Colab</p></li>
 <li><p>Adjust environment for local installations running on Linux or MacOS</p></li>
@@ -1002,7 +772,7 @@ div.rendered_html tbody tr:hover {
 </ul>
 </section>
 <section id="References">
-<h3 id="References">References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h3>
+<h3 id="References">References<a class="headerlink" href="#References" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Review on the impact of MD simulations in drug discovery (<a class="reference external" href="https://doi.org/10.1021/acs.jmedchem.5b01684">J Med Chem (2016), 59(9), 4035‐4061</a>)</p></li>
 <li><p>Review on the physics behind MD simulations and best practices (<a class="reference external" href="https://doi.org/10.33011/livecoms.1.1.5957">Living J Comp Mol Sci (2019), 1(1), 5957</a>)</p></li>
@@ -1016,9 +786,9 @@ div.rendered_html tbody tr:hover {
 </section>
 </section>
 <section id="Theory">
-<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this headline">¶</a></h2>
+<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this heading">¶</a></h2>
 <section id="Molecular-dynamics">
-<h3 id="Molecular-dynamics">Molecular dynamics<a class="headerlink" href="#Molecular-dynamics" title="Permalink to this headline">¶</a></h3>
+<h3 id="Molecular-dynamics">Molecular dynamics<a class="headerlink" href="#Molecular-dynamics" title="Permalink to this heading">¶</a></h3>
 <p>Molecular dynamics is a computational method analyzing the movements and interactions of atoms and molecules of a defined system. The method stems from theoretical physics, where it was developed in the 1950s (Alder and Wainwright in <a class="reference external" href="https://doi.org/10.1063/1.1730376">J Chem Phys (1959), 31(2), 459</a>), although the ideas behind it can be dated much earlier:</p>
 <blockquote>
 <div><p>An intelligence which could, at any moment, comprehend all the forces by which nature is animated and the respective positions of the beings of which it is composed, and moreover, if this intelligence were far-reaching enough to subject these data to analysis, it would encompass in that formula both the movements of the largest bodies in the universe and those of the lightest atom: to it nothing would be uncertain, and the future, as well as the past, would be present to its eyes. The human
@@ -1031,7 +801,7 @@ functions, called force fields, which provide an approximate description of all 
 <p><strong>Figure 1</strong>: Molecular dynamics simulation of the rotation of a supramolecule composed of three molecules in a confined nanoscopic pore (Palma et al. via <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=34866205">Wikimedia</a>).</p>
 </section>
 <section id="Force-fields">
-<h3 id="Force-fields">Force fields<a class="headerlink" href="#Force-fields" title="Permalink to this headline">¶</a></h3>
+<h3 id="Force-fields">Force fields<a class="headerlink" href="#Force-fields" title="Permalink to this heading">¶</a></h3>
 <p>Force fields describe the forces between atoms within and between molecules. They are parametric equations with components for different forces (bond stretching, van-der-Waals and more). The parameter values are usually derived experimentally and change for each MD scenario, depending on the molecules involved and the simulation settings. The result is a mathematical description of the energy landscape of the system, in which the forces acting on each particle result from the gradient of the
 potential energy with respect to the coordinates of the atoms.</p>
 <p>Several force fields are available, each with its own characteristics (<a class="reference external" href="https://doi.org/10.1021/acs.jcim.8b00042">J Chem Inf Model (2018), 58(3), 565-578</a>). In this notebook, we will use a member of the AMBER force field family, which are widely used for MD simulations of proteins. Their functional form is:</p>
@@ -1046,20 +816,20 @@ not allow polarization, nor do they consider how a local charge influences its s
 <p><strong>Figure 2</strong>: Components of a molecular mechanics force field (Edboas via <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=4194424">Wikimedia</a>).</p>
 </section>
 <section id="Boundary-conditions">
-<h3 id="Boundary-conditions">Boundary conditions<a class="headerlink" href="#Boundary-conditions" title="Permalink to this headline">¶</a></h3>
+<h3 id="Boundary-conditions">Boundary conditions<a class="headerlink" href="#Boundary-conditions" title="Permalink to this heading">¶</a></h3>
 <p>Often, molecular systems are simulated in a box filled with solvent such as water. These boxes are of finite size, which results in problems for molecules at or near the box boundaries. With which molecules should those interact? Periodic boundary conditions can avoid such boundary artifacts by simulating a theoretically infinite system. Molecules at one boundary of the box thereby interact with molecules at the boundary on the other side of the box. This mimics a situation, in which the
 simulation box is surrounded by replicas of itself. When visualizing such MD simulations, one can often observe that particles leave the box at one side (Fig. 3). However, they re-appear at the same time on the other side of the box with the same velocity. For simulations under periodic boundary conditions, it is recommended to use a simulation box large enough, so that the simulated macromolecule does not come into contact with neighboring images of itself.</p>
 <img alt="MD_water.gif" src="https://github.com/volkamerlab/teachopencadd/raw/d1ded86bb2c82ef088cc5145d0bcb997f6eab7dd/teachopencadd/talktorials/018_md_simulation/images/MD_water.gif"/>
 <p><strong>Figure 3</strong>: Molecular dynamics simulation of water molecules with periodic boundary conditions (Kmckiern via <a class="reference external" href="https://commons.wikimedia.org/wiki/File:MD_water.gif">Wikimedia</a>).</p>
 </section>
 <section id="MD-simulations-and-drug-design">
-<h3 id="MD-simulations-and-drug-design">MD simulations and drug design<a class="headerlink" href="#MD-simulations-and-drug-design" title="Permalink to this headline">¶</a></h3>
+<h3 id="MD-simulations-and-drug-design">MD simulations and drug design<a class="headerlink" href="#MD-simulations-and-drug-design" title="Permalink to this heading">¶</a></h3>
 <p>MD simulations give valuable insights into the highly dynamic process of ligand binding to their target. When a ligand (or a drug) approaches a macromolecule (protein) in solution, it encounters a structure in constant motion. Also, ligands may induce conformational changes in the macromolecule that can best accommodate the small molecule. Such conformations may not be discovered with static methods. Accordingly, binding sites that are not observed in static ligand-free structures, but can be
 discovered with MD simulations, are sometimes called <em>cryptic binding sites</em> (<a class="reference external" href="https://doi.org/10.1021/acs.jmedchem.5b01684">J Med Chem (2016), 59(9), 4035‐4061</a>). The identification of such binding sites with MD simulation can kickstart new drug discovery campaigns. Later in the drug discovery process, MD simulations can also be used to estimate the quality of computationally identified small molecules before performing more costly and time-intensive <em>in vitro</em> tests. Altogether, MD
 simulations pose a valuable asset in computational drug design.</p>
 </section>
 <section id="EGFR-kinase">
-<h3 id="EGFR-kinase">EGFR kinase<a class="headerlink" href="#EGFR-kinase" title="Permalink to this headline">¶</a></h3>
+<h3 id="EGFR-kinase">EGFR kinase<a class="headerlink" href="#EGFR-kinase" title="Permalink to this heading">¶</a></h3>
 <p>The <strong>E</strong>pidermal <strong>G</strong>rowth <strong>F</strong>actor <strong>R</strong>eceptor (EGFR) is an important drug target with implications in cancer and inflammation (<a class="reference external" href="https://en.wikipedia.org/wiki/Epidermal_growth_factor_receptor">Wikipedia</a>). It is a transmembrane protein with an extracellular receptor domain and an intracellular kinase domain. The binding of the endogenous ligand epidermal growth factor results in activation of the kinase domain via dimerization and autophosphorylation. The activated kinase domain
 can then phosphorylate downstream signaling proteins triggering DNA synthesis and cell proliferation (<a class="reference external" href="https://dx.doi.org/10.3390%2Fcancers9050052">Cancers (Basel) (2017), 9(5), 52</a>). Inhibition of this kinase is the underlying mechanism of action of several already approved cancer drugs (<a class="reference external" href="https://go.drugbank.com/bio_entities/BE0000767">DrugBank</a>). In this talktorial, we use the PDB structure <strong>3POZ</strong> of this kinase, which is in complex with the small molecule inhibitor <strong>03P</strong>, to
 perform an MD simulation (<a class="reference external" href="https://www.rcsb.org/structure/3poz">PDB: 3POZ</a>).</p>
@@ -1068,10 +838,10 @@ perform an MD simulation (<a class="reference external" href="https://www.rcsb.o
 </section>
 </section>
 <section id="Practical">
-<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this headline">¶</a></h2>
+<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this heading">¶</a></h2>
 <p>We will now proceed to perform an MD simulation using the molecular dynamics engine <a class="reference external" href="https://github.com/openmm/openmm">OpenMM</a>, a high performance toolkit for molecular simulation. It is open source and can be used as application or library. We will use it as Python library.</p>
 <section id="Installation-on-Google-Colab">
-<h3 id="Installation-on-Google-Colab">Installation on Google Colab<a class="headerlink" href="#Installation-on-Google-Colab" title="Permalink to this headline">¶</a></h3>
+<h3 id="Installation-on-Google-Colab">Installation on Google Colab<a class="headerlink" href="#Installation-on-Google-Colab" title="Permalink to this heading">¶</a></h3>
 <p>The following code cells will install all required packages, if you are working on <a class="reference external" href="https://colab.research.google.com/notebooks/intro.ipynb">Google Colab</a>. Installing the <a class="reference external" href="https://github.com/jaimergp/condacolab">condacolab</a> package will restart the kernel, which is intended. This notebook can also be used on a local computer but requires considerable computing power.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -1113,7 +883,7 @@ perform an MD simulation (<a class="reference external" href="https://www.rcsb.o
 </div>
 </section>
 <section id="Adjust-environment-for-local-installations-running-on-Linux-or-MacOS">
-<h3 id="Adjust-environment-for-local-installations-running-on-Linux-or-MacOS">Adjust environment for local installations running on Linux or MacOS<a class="headerlink" href="#Adjust-environment-for-local-installations-running-on-Linux-or-MacOS" title="Permalink to this headline">¶</a></h3>
+<h3 id="Adjust-environment-for-local-installations-running-on-Linux-or-MacOS">Adjust environment for local installations running on Linux or MacOS<a class="headerlink" href="#Adjust-environment-for-local-installations-running-on-Linux-or-MacOS" title="Permalink to this heading">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -1134,7 +904,7 @@ Collecting package metadata (current_repodata.json): ...working... ^C
 </div>
 </section>
 <section id="Import-dependencies">
-<h3 id="Import-dependencies">Import dependencies<a class="headerlink" href="#Import-dependencies" title="Permalink to this headline">¶</a></h3>
+<h3 id="Import-dependencies">Import dependencies<a class="headerlink" href="#Import-dependencies" title="Permalink to this heading">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -1179,7 +949,7 @@ Warning: Unable to load toolkit 'OpenEye Toolkit'. The Open Force Field Toolkit 
 </div>
 </section>
 <section id="Download-PDB-file">
-<h3 id="Download-PDB-file">Download PDB file<a class="headerlink" href="#Download-PDB-file" title="Permalink to this headline">¶</a></h3>
+<h3 id="Download-PDB-file">Download PDB file<a class="headerlink" href="#Download-PDB-file" title="Permalink to this heading">¶</a></h3>
 <p>The Protein Data Bank (<a class="reference external" href="https://www.rcsb.org/">PDB</a>) allows for easy downloading of files via url.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
@@ -1205,9 +975,9 @@ Warning: Unable to load toolkit 'OpenEye Toolkit'. The Open Force Field Toolkit 
 </div>
 </section>
 <section id="Prepare-the-protein-ligand-complex">
-<h3 id="Prepare-the-protein-ligand-complex">Prepare the protein ligand complex<a class="headerlink" href="#Prepare-the-protein-ligand-complex" title="Permalink to this headline">¶</a></h3>
+<h3 id="Prepare-the-protein-ligand-complex">Prepare the protein ligand complex<a class="headerlink" href="#Prepare-the-protein-ligand-complex" title="Permalink to this heading">¶</a></h3>
 <section id="Protein-preparation">
-<h4 id="Protein-preparation">Protein preparation<a class="headerlink" href="#Protein-preparation" title="Permalink to this headline">¶</a></h4>
+<h4 id="Protein-preparation">Protein preparation<a class="headerlink" href="#Protein-preparation" title="Permalink to this heading">¶</a></h4>
 <p>A crucial part for successful simulation is a correct and complete system. Crystallographic structures retrieved from the Protein Data Bank often miss atoms, mainly hydrogens, and may contain non-standard residues. In this talktorial, we will use the Python package <a class="reference external" href="https://github.com/openmm/pdbfixer">PDBFixer</a> to prepare the protein structure. However, co-crystallized ligands are not handled well by <a class="reference external" href="https://github.com/openmm/pdbfixer">PDBFixer</a> and will thus be prepared separately.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
@@ -1274,7 +1044,7 @@ Warning: Unable to load toolkit 'OpenEye Toolkit'. The Open Force Field Toolkit 
 </div>
 </section>
 <section id="Prepare-ligand">
-<h4 id="Prepare-ligand">Prepare ligand<a class="headerlink" href="#Prepare-ligand" title="Permalink to this headline">¶</a></h4>
+<h4 id="Prepare-ligand">Prepare ligand<a class="headerlink" href="#Prepare-ligand" title="Permalink to this heading">¶</a></h4>
 <p>After preparing the protein, we turn our attention to the ligand. Again, we need to add hydrogens, but also need to make sure the bond orders are correctly assigned, since some PDB entries may contain errors. We use the Python package <a class="reference external" href="https://github.com/rdkit/rdkit">RDKit</a>, an open source cheminformatics library. We will provide the correct protonation state and bond orders to <a class="reference external" href="https://github.com/rdkit/rdkit">RDKit</a> via a SMILES string. Uncharged isomeric SMILES strings for each
 co-crystallized ligand can be found in their respective <a class="reference external" href="https://www.rcsb.org">PDB</a> entry. The ligand of PDB entry <a class="reference external" href="https://www.rcsb.org/structure/3poz">3POZ</a> has the name <a class="reference external" href="https://www.rcsb.org/ligand/03P">03P</a>. If a ligand is likely to bind in its charged form or as a specific tautomer, such characteristics need to be incorporated into the SMILES string.</p>
 <div class="nbinput nblast docutils container">
@@ -1355,7 +1125,7 @@ co-crystallized ligand can be found in their respective <a class="reference exte
 </div>
 </section>
 <section id="Merge-protein-and-ligand">
-<h4 id="Merge-protein-and-ligand">Merge protein and ligand<a class="headerlink" href="#Merge-protein-and-ligand" title="Permalink to this headline">¶</a></h4>
+<h4 id="Merge-protein-and-ligand">Merge protein and ligand<a class="headerlink" href="#Merge-protein-and-ligand" title="Permalink to this heading">¶</a></h4>
 <p>In the next step, we want to merge the prepared protein and ligand structures using the Python package <a class="reference external" href="https://github.com/mdtraj/mdtraj">MDTraj</a>. <a class="reference external" href="https://github.com/mdtraj/mdtraj">MDTraj</a> can handle the prepared protein, which is currently a <a class="reference external" href="https://github.com/openmm/pdbfixer">PDBFixer</a> molecule, a format that has a topology and atom positions similar to and usually interchangeable with <a class="reference external" href="http://docs.openmm.org/latest/userguide/application.html#model-building-and-editing">OpenMM
 Modeller</a> topologies and positions. For the ligand however, we need to do several conversions, since it is currently an <a class="reference external" href="https://github.com/rdkit/rdkit">RDKit</a> molecule.</p>
 <div class="nbinput nblast docutils container">
@@ -1483,10 +1253,10 @@ Complex topology has 5561 atoms.
 </section>
 </section>
 <section id="MD-simulation-set-up">
-<h3 id="MD-simulation-set-up">MD simulation set up<a class="headerlink" href="#MD-simulation-set-up" title="Permalink to this headline">¶</a></h3>
+<h3 id="MD-simulation-set-up">MD simulation set up<a class="headerlink" href="#MD-simulation-set-up" title="Permalink to this heading">¶</a></h3>
 <p>We can now use the prepared complex to set up the MD simulation.</p>
 <section id="Force-field">
-<h4 id="Force-field">Force field<a class="headerlink" href="#Force-field" title="Permalink to this headline">¶</a></h4>
+<h4 id="Force-field">Force field<a class="headerlink" href="#Force-field" title="Permalink to this heading">¶</a></h4>
 <p>Common force fields like AMBER have parameters for amino acids, nucleic acids, water and ions and usually offer several options to choose from depending on your aim. We use the <code class="docutils literal notranslate"><span class="pre">amber14-all.xml</span></code> force field file, which is shipped with OpenMM and includes parameters for proteins, DNA, RNA and lipids. For solvation we use the standard three-site <a class="reference external" href="https://en.wikipedia.org/wiki/Water_model">water model</a> <a class="reference external" href="https://aip.scitation.org/doi/10.1063/1.445869">TIP3P</a>.</p>
 <p>Parameters for ligands however are not included. To generate these parameters, we can use the <strong>G</strong>eneral <strong>A</strong>MBER <strong>F</strong>orce<strong>F</strong>ield (<a class="reference external" href="http://ambermd.org/antechamber/gaff.html">GAFF</a>), which is implemented in the Python package <a class="reference external" href="https://github.com/openmm/openmmforcefields">OpenMM Forcefields</a>. The following function generates a force field object holding standard AMBER parameters and additionally includes parameters for a small molecule if required.</p>
 <div class="nbinput nblast docutils container">
@@ -1535,7 +1305,7 @@ Complex topology has 5561 atoms.
 </div>
 </section>
 <section id="System">
-<h4 id="System">System<a class="headerlink" href="#System" title="Permalink to this headline">¶</a></h4>
+<h4 id="System">System<a class="headerlink" href="#System" title="Permalink to this heading">¶</a></h4>
 <p>With our configured force field we can now use the <a class="reference external" href="http://docs.openmm.org/latest/userguide/application.html#model-building-and-editing">OpenMM Modeller</a> class to create the MD environment, a simulation box which contains the complex and is filled with a solvent. The standard solvent is water with a specified amount of ions. The size of the box can be determined in various ways. We define it with a padding, which results in a cubic box with dimensions dependent on the largest dimension of the
 complex.</p>
 <blockquote>
@@ -1568,7 +1338,7 @@ Langevin equations. A list of all different kinds of integrators can be found in
 </section>
 </section>
 <section id="Perform-the-MD-simulation">
-<h3 id="Perform-the-MD-simulation">Perform the MD simulation<a class="headerlink" href="#Perform-the-MD-simulation" title="Permalink to this headline">¶</a></h3>
+<h3 id="Perform-the-MD-simulation">Perform the MD simulation<a class="headerlink" href="#Perform-the-MD-simulation" title="Permalink to this heading">¶</a></h3>
 <p>Now that everything is set up, we can perform the simulation. We need to set starting positions and minimize the energy of the system to get a low energy starting configuration, which is important to decrease the chance of simulation failures due to severe atom clashes. The energy minimized system is saved.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
@@ -1671,7 +1441,7 @@ True
 </div>
 </section>
 <section id="Download-results">
-<h3 id="Download-results">Download results<a class="headerlink" href="#Download-results" title="Permalink to this headline">¶</a></h3>
+<h3 id="Download-results">Download results<a class="headerlink" href="#Download-results" title="Permalink to this heading">¶</a></h3>
 <p>You can execute the following cell if you are working on Google Colab to download the MD simulation results.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
@@ -1686,7 +1456,7 @@ True
 </section>
 </section>
 <section id="Discussion">
-<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this headline">¶</a></h2>
+<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">We have successfully performed an MD simulation of a protein ligand complex. However, we simulated only a considerably short time to keep the execution time of the talktorial short. To address critical questions in drug design, longer simulations are often required.</div>
 <div class="line">MD simulations are still too computationally costly to be useful for this purpose. Thus, so-called enhanced sampling methods were developed, that aim to accelerate the conformational sampling. Some of the most common methods are discussed in the <strong>Further reading</strong> section below.</div>
@@ -1696,7 +1466,7 @@ very welcome!</div>
 </div>
 </section>
 <section id="Quiz">
-<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Permalink to this headline">¶</a></h2>
+<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Which inter- and intramolecular forces are being considered in the AMBER force field? Can you think of any forces not taken into account?</p></li>
 <li><p>Would you expect to see the exact same simulation results when running the notebook twice with the same parameters?</p></li>
@@ -1704,9 +1474,9 @@ very welcome!</div>
 </ul>
 </section>
 <section id="Further-reading">
-<h2 id="Further-reading">Further reading<a class="headerlink" href="#Further-reading" title="Permalink to this headline">¶</a></h2>
+<h2 id="Further-reading">Further reading<a class="headerlink" href="#Further-reading" title="Permalink to this heading">¶</a></h2>
 <section id="Enhanced-sampling-methods">
-<h3 id="Enhanced-sampling-methods">Enhanced sampling methods<a class="headerlink" href="#Enhanced-sampling-methods" title="Permalink to this headline">¶</a></h3>
+<h3 id="Enhanced-sampling-methods">Enhanced sampling methods<a class="headerlink" href="#Enhanced-sampling-methods" title="Permalink to this heading">¶</a></h3>
 <p>In theory, unbiased MD simulations should be capable of simulating binding and unbinding events of a drug molecule and its macromolecular target. However, the timescale of binding and unbinding events lies in the millisecond to second range. Enhanced sampling methods aim to accelerate the conformational sampling (<a class="reference external" href="https://doi.org/10.1021/acs.jmedchem.5b01684">J Med Chem. 2016, 59(9), 4035-61</a>).</p>
 <p>One of these is <strong>Free energy perturbation (FEP)</strong> (also called alchemical free energy calculation), which computes the free energy difference when going from a state A to another state B. It is often employed in lead optimization to evaluate small modification at the ligand, that may boost the binding affinity for the desired target. The ligand from state A is thereby gradually transformed into the ligand of state B by simulating several intermediate (“alchemical”) states
 (<a class="reference external" href="http://www.alchemistry.org/wiki/Main_Page">alchemistry</a>).</p>
@@ -1765,7 +1535,7 @@ very welcome!</div>
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 5.0.1.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

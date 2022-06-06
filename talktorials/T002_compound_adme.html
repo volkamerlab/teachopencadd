@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
 <meta property="og:title" content="T002 · Molecular filtering: ADME and lead-likeness criteria" />
   
@@ -95,6 +95,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -261,273 +262,56 @@
     
     
       <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="T001_query_chembl.html" class="md-nav__link">T001 · Compound data acquisition (ChEMBL)</a>
       
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> T002 · Molecular filtering: ADME and lead-likeness criteria </label>
-    
-      <a href="#" class="md-nav__link md-nav__link--active">T002 · Molecular filtering: ADME and lead-likeness criteria</a>
-      
-        
-<nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#talktorials-t002-compound-adme--page-root" class="md-nav__link">T002 · Molecular filtering: ADME and lead-likeness criteria</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
-        </li>
-        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
-        </li>
-        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#ADME---absorption,-distribution,-metabolism,-and-excretion" class="md-nav__link">ADME - absorption, distribution, metabolism, and excretion</a>
-        </li>
-        <li class="md-nav__item"><a href="#Lead-likeness-and-Lipinski’s-rule-of-five-(Ro5)" class="md-nav__link">Lead-likeness and Lipinski’s rule of five (Ro5)</a>
-        </li>
-        <li class="md-nav__item"><a href="#Radar-charts-in-the-context-of-lead-likeness" class="md-nav__link">Radar charts in the context of lead-likeness</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Define-and-visualize-example-molecules" class="md-nav__link">Define and visualize example molecules</a>
-        </li>
-        <li class="md-nav__item"><a href="#Calculate-and-plot-molecular-properties-for-Ro5" class="md-nav__link">Calculate and plot molecular properties for Ro5</a>
-        </li>
-        <li class="md-nav__item"><a href="#Investigate-compliance-with-Ro5" class="md-nav__link">Investigate compliance with Ro5</a>
-        </li>
-        <li class="md-nav__item"><a href="#Apply-Ro5-to-the-EGFR-dataset" class="md-nav__link">Apply Ro5 to the EGFR dataset</a>
-        </li>
-        <li class="md-nav__item"><a href="#Visualize-Ro5-properties-(radar-plot)" class="md-nav__link">Visualize Ro5 properties (radar plot)</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Calculate-statistics-on-Ro5-properties" class="md-nav__link">Calculate statistics on Ro5 properties</a>
-        </li>
-        <li class="md-nav__item"><a href="#Define-helper-functions-to-prepare-data-for-radar-plotting" class="md-nav__link">Define helper functions to prepare data for radar plotting</a>
-        </li>
-        <li class="md-nav__item"><a href="#Generate-radar-plots,-finally!" class="md-nav__link">Generate radar plots, finally!</a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
-        </li>
-        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
-        </li></ul>
-            </nav>
-        </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T002_compound_adme.nblink.txt">Show Source</a> </li>
-
-  </ul>
-</nav>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T003_compound_unwanted_substructures.html" class="md-nav__link">T003 · Molecular filtering: unwanted substructures</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T004_compound_similarity.html" class="md-nav__link">T004 · Ligand-based screening: compound similarity</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T005_compound_clustering.html" class="md-nav__link">T005 · Compound clustering</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T006_compound_maximum_common_substructures.html" class="md-nav__link">T006 · Maximum common substructure</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T007_compound_activity_machine_learning.html" class="md-nav__link">T007 · Ligand-based screening: machine learning</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T008_query_pdb.html" class="md-nav__link">T008 · Protein data acquisition: Protein Data Bank (PDB)</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T009_compound_ensemble_pharmacophores.html" class="md-nav__link">T009 · Ligand-based pharmacophores</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T010_binding_site_comparison.html" class="md-nav__link">T010 · Binding site similarity and off-target prediction</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T011_query_online_api_webservices.html" class="md-nav__link">T011 · Querying online API webservices</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T012_query_klifs.html" class="md-nav__link">T012 · Data acquisition from KLIFS</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T013_query_pubchem.html" class="md-nav__link">T013 · Data acquisition from PubChem</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T014_binding_site_detection.html" class="md-nav__link">T014 · Binding site detection</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T015_protein_ligand_docking.html" class="md-nav__link">T015 · Protein ligand docking</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T016_protein_ligand_interactions.html" class="md-nav__link">T016 · Protein-ligand interactions</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T017_advanced_nglview_usage.html" class="md-nav__link">T017 · Advanced NGLview usage</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T018_automated_cadd_pipeline.html" class="md-nav__link">T018 · Automated pipeline for lead optimization</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T019_md_simulation.html" class="md-nav__link">T019 · Molecular dynamics simulation</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T020_md_analysis.html" class="md-nav__link">T020 · Analyzing molecular dynamics simulations</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T021_one_hot_encoding.html" class="md-nav__link">T021 · One-Hot Encoding</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T022_ligand_based_screening_neural_network.html" class="md-nav__link">T022 · Ligand-based screening: neural networks</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T023_what_is_a_kinase.html" class="md-nav__link">T023 · What is a kinase?</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T024_kinase_similarity_sequence.html" class="md-nav__link">T024 · Kinase similarity: Sequence</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T025_kinase_similarity_kissim.html" class="md-nav__link">T025 · Kinase similarity: Kinase pocket (KiSSim fingerprint)</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T026_kinase_similarity_ifp.html" class="md-nav__link">T026 · Kinase similarity: Interaction fingerprints</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T027_kinase_similarity_ligand_profile.html" class="md-nav__link">T027 · Kinase similarity: Ligand profile</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T028_kinase_similarity_compare_perspectives.html" class="md-nav__link">T028 · Kinase similarity: Compare different perspectives</a>
-      
-    
-    </li></ul>
     
     </li>
     <li class="md-nav__item">
     
     
       <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#edition-2019-jcim" class="md-nav__link">Edition 2019 - JCIM</a>
       
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#edition-2021" class="md-nav__link">Edition 2021</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#ligand-based-cheminformatics" class="md-nav__link">Ligand-based cheminformatics</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#structural-biology" class="md-nav__link">Structural biology</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#online-apis-servers" class="md-nav__link">Online APIs/servers</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#kinase-similarity" class="md-nav__link">Kinase similarity</a>
+      
+    
+    </li></ul>
     
     </li>
     <li class="md-nav__item">
@@ -873,6 +657,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* Some additional styling taken form the Jupyter notebook CSS */
+.jp-RenderedHTMLCommon table,
 div.rendered_html table {
   border: none;
   border-collapse: collapse;
@@ -881,10 +666,14 @@ div.rendered_html table {
   font-size: 12px;
   table-layout: fixed;
 }
+.jp-RenderedHTMLCommon thead,
 div.rendered_html thead {
   border-bottom: 1px solid black;
   vertical-align: bottom;
 }
+.jp-RenderedHTMLCommon tr,
+.jp-RenderedHTMLCommon th,
+.jp-RenderedHTMLCommon td,
 div.rendered_html tr,
 div.rendered_html th,
 div.rendered_html td {
@@ -896,18 +685,21 @@ div.rendered_html td {
   max-width: none;
   border: none;
 }
+.jp-RenderedHTMLCommon th,
 div.rendered_html th {
   font-weight: bold;
 }
+.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
 div.rendered_html tbody tr:nth-child(odd) {
   background: #f5f5f5;
 }
+.jp-RenderedHTMLCommon tbody tr:hover,
 div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
 </style>
 <section id="T002-·-Molecular-filtering:-ADME-and-lead-likeness-criteria">
-<h1 id="talktorials-t002-compound-adme--page-root">T002 · Molecular filtering: ADME and lead-likeness criteria<a class="headerlink" href="#talktorials-t002-compound-adme--page-root" title="Permalink to this headline">¶</a></h1>
+<h1 id="talktorials-t002-compound-adme--page-root">T002 · Molecular filtering: ADME and lead-likeness criteria<a class="headerlink" href="#talktorials-t002-compound-adme--page-root" title="Permalink to this heading">¶</a></h1>
 <p><strong>Note:</strong> This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.</p>
 <p>Authors:</p>
 <ul class="simple">
@@ -918,10 +710,10 @@ div.rendered_html tbody tr:hover {
 </ul>
 <p><strong>Talktorial T002</strong>: This talktorial is part of the TeachOpenCADD pipeline described in the <a class="reference external" href="https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x">first TeachOpenCADD paper</a>, comprising of talktorials T001-T010.</p>
 <section id="Aim-of-this-talktorial">
-<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this headline">¶</a></h2>
+<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this heading">¶</a></h2>
 <p>In the context of drug design, it is important to filter candidate molecules by e.g. their physicochemical properties. In this talktorial, the compounds acquired from ChEMBL (<strong>Talktorial T001</strong>) will be filtered by Lipinsik’s rule of five to keep only orally bioavailable compounds.</p>
 <section id="Contents-in-Theory">
-<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Permalink to this headline">¶</a></h3>
+<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>ADME - absorption, distribution, metabolism, and excretion</p></li>
 <li><p>Lead-likeness and Lipinski’s rule of five (Ro5)</p></li>
@@ -929,7 +721,7 @@ div.rendered_html tbody tr:hover {
 </ul>
 </section>
 <section id="Contents-in-Practical">
-<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Permalink to this headline">¶</a></h3>
+<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Define and visualize example molecules</p></li>
 <li><p>Calculate and plot molecular properties for Ro5</p></li>
@@ -939,7 +731,7 @@ div.rendered_html tbody tr:hover {
 </ul>
 </section>
 <section id="References">
-<h3 id="References">References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h3>
+<h3 id="References">References<a class="headerlink" href="#References" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>ADME criteria (<a class="reference external" href="https://en.wikipedia.org/wiki/ADME">Wikipedia</a> and <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3025274/">Mol Pharm. (2010), 7(5), 1388-1405</a>)</p></li>
 <li><p><a class="reference external" href="https://www.nature.com/articles/srep42717">SwissADME</a> webserver</p></li>
@@ -951,11 +743,11 @@ div.rendered_html tbody tr:hover {
 </section>
 </section>
 <section id="Theory">
-<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this headline">¶</a></h2>
+<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this heading">¶</a></h2>
 <p>In a virtual screening, we aim to predict whether a compound might bind to and interact with a specific target. However, if we want to identify a new drug, it is also important that this compound reaches the target and is eventually removed from the body in a favorable way. Therefore, we should also consider whether a compound is actually taken up into the body and whether it is able to cross certain barriers in order to reach its target. Is it metabolically stable and how will it be excreted
 once it is not acting at the target anymore? These processes are investigated in the field of pharmacokinetics. In contrast to pharmacodynamics (<em>“What does the drug do to our body?”</em>), pharmacokinetics deals with the question <em>“What happens to the drug in our body?”</em>.</p>
 <section id="ADME---absorption,-distribution,-metabolism,-and-excretion">
-<h3 id="ADME---absorption,-distribution,-metabolism,-and-excretion">ADME - absorption, distribution, metabolism, and excretion<a class="headerlink" href="#ADME---absorption,-distribution,-metabolism,-and-excretion" title="Permalink to this headline">¶</a></h3>
+<h3 id="ADME---absorption,-distribution,-metabolism,-and-excretion">ADME - absorption, distribution, metabolism, and excretion<a class="headerlink" href="#ADME---absorption,-distribution,-metabolism,-and-excretion" title="Permalink to this heading">¶</a></h3>
 <p>Pharmacokinetics are mainly divided into four steps: Absorption, Distribution, Metabolism, and Excretion. These are summarized as ADME. Often, ADME also includes Toxicology and is thus referred to as ADMET or ADMETox. Below, the ADME steps are discussed in more detail (<a class="reference external" href="https://en.wikipedia.org/wiki/ADME">Wikipedia</a> and <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3025274/">Mol Pharm. (2010), 7(5), 1388-1405</a>).</p>
 <p><strong>Absorption</strong>: The amount and the time of drug-uptake into the body depends on multiple factors which can vary between individuals and their conditions as well as on the properties of the substance. Factors such as (poor) compound solubility, gastric emptying time, intestinal transit time, chemical (in-)stability in the stomach, and (in-)ability to permeate the intestinal wall can all influence the extent to which a drug is absorbed after e.g. oral administration, inhalation, or contact to
 skin.</p>
@@ -966,7 +758,7 @@ skin.</p>
 <p><em>Figure 1</em>: ADME processes in the human body (figure taken from <a class="reference external" href="https://openclipart.org/">Openclipart</a> and adapted).</p>
 </section>
 <section id="Lead-likeness-and-Lipinski’s-rule-of-five-(Ro5)">
-<h3 id="Lead-likeness-and-Lipinski’s-rule-of-five-(Ro5)">Lead-likeness and Lipinski’s rule of five (Ro5)<a class="headerlink" href="#Lead-likeness-and-Lipinski’s-rule-of-five-(Ro5)" title="Permalink to this headline">¶</a></h3>
+<h3 id="Lead-likeness-and-Lipinski’s-rule-of-five-(Ro5)">Lead-likeness and Lipinski’s rule of five (Ro5)<a class="headerlink" href="#Lead-likeness-and-Lipinski’s-rule-of-five-(Ro5)" title="Permalink to this heading">¶</a></h3>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Lead_compound">Lead compounds</a> are developmental drug candidates with promising properties. They are used as starting structures and modified with the aim to develop effective drugs. Besides bioactivity (<em>compound binds to the target of interest</em>), also favorable ADME properties are important criteria for the design of efficient drugs.</p>
 <p>The bioavailability of a compound is an important ADME property. Lipinski’s rule of five (Ro5, <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0169409X96004231">Adv. Drug Deliv. Rev. (1997), 23, 3-25</a>) was introduced to estimate the bioavailability of a compound solely based on its chemical structure. The Ro5 states that poor absorption or permeation of a compound is more probable if the chemical structure violates more than one of the following rules:</p>
 <ul class="simple">
@@ -983,7 +775,7 @@ skin.</p>
 </ul>
 </section>
 <section id="Radar-charts-in-the-context-of-lead-likeness">
-<h3 id="Radar-charts-in-the-context-of-lead-likeness">Radar charts in the context of lead-likeness<a class="headerlink" href="#Radar-charts-in-the-context-of-lead-likeness" title="Permalink to this headline">¶</a></h3>
+<h3 id="Radar-charts-in-the-context-of-lead-likeness">Radar charts in the context of lead-likeness<a class="headerlink" href="#Radar-charts-in-the-context-of-lead-likeness" title="Permalink to this heading">¶</a></h3>
 <p>Molecular properties, such as the Ro5 properties, can be visualized in multiple ways (e.g. craig plots, flower plots, or golden triangle) to support the interpretation by medicinal chemists (<a class="reference external" href="https://www.ncbi.nlm.nih.gov/pubmed/21074634">Drug. Discov. Today (2011), 16(1-2), 65-72</a>).</p>
 <p>Due to their appearance, <a class="reference external" href="https://en.wikipedia.org/wiki/Radar_chart">radar charts</a> are sometimes also called “spider” or “cobweb” plots. They are arranged circularly in 360 degrees and have one axis, starting in the center, for each condition. The values for each parameter are plotted on the axis and connected with a line. A shaded area can indicate the region where the parameters meet the conditions.</p>
 <img alt="Radar plot for physicochemical properties" src="../_images/radarplot.png"/>
@@ -991,7 +783,7 @@ skin.</p>
 </section>
 </section>
 <section id="Practical">
-<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this headline">¶</a></h2>
+<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this heading">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -1020,7 +812,7 @@ skin.</p>
 </div>
 </div>
 <section id="Define-and-visualize-example-molecules">
-<h3 id="Define-and-visualize-example-molecules">Define and visualize example molecules<a class="headerlink" href="#Define-and-visualize-example-molecules" title="Permalink to this headline">¶</a></h3>
+<h3 id="Define-and-visualize-example-molecules">Define and visualize example molecules<a class="headerlink" href="#Define-and-visualize-example-molecules" title="Permalink to this heading">¶</a></h3>
 <p>Before working with the whole dataset retrieved from ChEMBL, we pick four example compounds to investigate their chemical properties. We draw four example molecules from their SMILES.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
@@ -1106,7 +898,7 @@ skin.</p>
 </div>
 </section>
 <section id="Calculate-and-plot-molecular-properties-for-Ro5">
-<h3 id="Calculate-and-plot-molecular-properties-for-Ro5">Calculate and plot molecular properties for Ro5<a class="headerlink" href="#Calculate-and-plot-molecular-properties-for-Ro5" title="Permalink to this headline">¶</a></h3>
+<h3 id="Calculate-and-plot-molecular-properties-for-Ro5">Calculate and plot molecular properties for Ro5<a class="headerlink" href="#Calculate-and-plot-molecular-properties-for-Ro5" title="Permalink to this heading">¶</a></h3>
 <ol class="arabic simple">
 <li><p>Calculate molecular weight, number of hydrogen bond acceptors and donors, and logP using some of the <a class="reference external" href="http://www.rdkit.org/docs/GettingStartedInPython.html#descriptor-calculation">descriptors</a> available in <code class="docutils literal notranslate"><span class="pre">rdkit</span></code>.</p></li>
 </ol>
@@ -1333,7 +1125,7 @@ skin.</p>
 <p>In the bar chart, we compared the Ro5 properties for four example molecules with different properties. In the next steps, we will investigate for each compound whether it violates the Ro5.</p>
 </section>
 <section id="Investigate-compliance-with-Ro5">
-<h3 id="Investigate-compliance-with-Ro5">Investigate compliance with Ro5<a class="headerlink" href="#Investigate-compliance-with-Ro5" title="Permalink to this headline">¶</a></h3>
+<h3 id="Investigate-compliance-with-Ro5">Investigate compliance with Ro5<a class="headerlink" href="#Investigate-compliance-with-Ro5" title="Permalink to this heading">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
@@ -1395,7 +1187,7 @@ Ro5 fulfilled for cannabidiol: True
 <p>According to the Ro5, cyclosporin and betacarotene are estimated to have poor bioavailability. However, since all of them are approved drugs, they are good examples of how the Ro5 can be used as an alert but should not necessarily be used as a filter.</p>
 </section>
 <section id="Apply-Ro5-to-the-EGFR-dataset">
-<h3 id="Apply-Ro5-to-the-EGFR-dataset">Apply Ro5 to the EGFR dataset<a class="headerlink" href="#Apply-Ro5-to-the-EGFR-dataset" title="Permalink to this headline">¶</a></h3>
+<h3 id="Apply-Ro5-to-the-EGFR-dataset">Apply Ro5 to the EGFR dataset<a class="headerlink" href="#Apply-Ro5-to-the-EGFR-dataset" title="Permalink to this heading">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">calculate_ro5_properties</span></code> function can be applied to the EGFR dataset for Ro5-compliant compounds.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
@@ -1835,9 +1627,9 @@ Ro5 fulfilled for cannabidiol: True
 </div>
 </section>
 <section id="Visualize-Ro5-properties-(radar-plot)">
-<h3 id="Visualize-Ro5-properties-(radar-plot)">Visualize Ro5 properties (radar plot)<a class="headerlink" href="#Visualize-Ro5-properties-(radar-plot)" title="Permalink to this headline">¶</a></h3>
+<h3 id="Visualize-Ro5-properties-(radar-plot)">Visualize Ro5 properties (radar plot)<a class="headerlink" href="#Visualize-Ro5-properties-(radar-plot)" title="Permalink to this heading">¶</a></h3>
 <section id="Calculate-statistics-on-Ro5-properties">
-<h4 id="Calculate-statistics-on-Ro5-properties">Calculate statistics on Ro5 properties<a class="headerlink" href="#Calculate-statistics-on-Ro5-properties" title="Permalink to this headline">¶</a></h4>
+<h4 id="Calculate-statistics-on-Ro5-properties">Calculate statistics on Ro5 properties<a class="headerlink" href="#Calculate-statistics-on-Ro5-properties" title="Permalink to this heading">¶</a></h4>
 <p>Define a helper function to calculate the mean and standard deviation for an input DataFrame.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
@@ -1998,7 +1790,7 @@ Ro5 fulfilled for cannabidiol: True
 </div>
 </section>
 <section id="Define-helper-functions-to-prepare-data-for-radar-plotting">
-<h4 id="Define-helper-functions-to-prepare-data-for-radar-plotting">Define helper functions to prepare data for radar plotting<a class="headerlink" href="#Define-helper-functions-to-prepare-data-for-radar-plotting" title="Permalink to this headline">¶</a></h4>
+<h4 id="Define-helper-functions-to-prepare-data-for-radar-plotting">Define helper functions to prepare data for radar plotting<a class="headerlink" href="#Define-helper-functions-to-prepare-data-for-radar-plotting" title="Permalink to this heading">¶</a></h4>
 <p>In the following, we will define a few helper functions that are only used for radar plotting.</p>
 <p><strong>Prepare y values</strong>: The properties used for the Ro5 criteria are of different magnitudes. The MWT has a <strong>threshold of 500</strong>, whereas the number of HBAs and HBDs and the LogP have <strong>thresholds of only 10, 5, and 5</strong>, respectively. In order to visualize these different scales most simplistically, we will scale all property values to a <strong>scaled threshold of 5</strong>:</p>
 <p><code class="docutils literal notranslate"><span class="pre">scaled</span> <span class="pre">property</span> <span class="pre">value</span></code> = <code class="docutils literal notranslate"><span class="pre">property</span> <span class="pre">value</span></code> / <code class="docutils literal notranslate"><span class="pre">property</span> <span class="pre">threshold</span></code> * <code class="docutils literal notranslate"><span class="pre">scaled</span> <span class="pre">property</span> <span class="pre">threshold</span></code></p>
@@ -2058,7 +1850,7 @@ Ro5 fulfilled for cannabidiol: True
 <p>Both functions will be used as helper functions in the radar plotting function, which is defined next.</p>
 </section>
 <section id="Generate-radar-plots,-finally!">
-<h4 id="Generate-radar-plots,-finally!">Generate radar plots, finally!<a class="headerlink" href="#Generate-radar-plots,-finally!" title="Permalink to this headline">¶</a></h4>
+<h4 id="Generate-radar-plots,-finally!">Generate radar plots, finally!<a class="headerlink" href="#Generate-radar-plots,-finally!" title="Permalink to this heading">¶</a></h4>
 <p>Now, we define a function that visualizes the compounds’ chemical properties in the form of a radar chart. We followed <a class="reference external" href="https://stackoverflow.com/questions/42227409/tutorial-for-python-radar-chart-plot">these instructions on stackoverflow</a>.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
@@ -2234,12 +2026,12 @@ Ro5 fulfilled for cannabidiol: True
 </section>
 </section>
 <section id="Discussion">
-<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this headline">¶</a></h2>
+<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this heading">¶</a></h2>
 <p>In this talktorial, we have learned about Lipinski’s Ro5 as a measure to estimate a compound’s oral bioavailability and we have applied the rule on a dataset using <code class="docutils literal notranslate"><span class="pre">rdkit</span></code>. Note that drugs can also be administered via alternative routes, i.e. inhalation, skin penetration and injection.</p>
 <p>In this talktorial, we have looked at only one of many more ADME properties. Webservers such as <a class="reference external" href="https://www.nature.com/articles/srep42717">SwissADME</a> give a more comprehensive view on compound properties.</p>
 </section>
 <section id="Quiz">
-<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Permalink to this headline">¶</a></h2>
+<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>In what way can the chemical properties described by the Ro5 affect ADME?</p></li>
 <li><p>Find or design a molecule which violates three or four rules.</p></li>
@@ -2297,7 +2089,7 @@ Ro5 fulfilled for cannabidiol: True
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 5.0.1.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

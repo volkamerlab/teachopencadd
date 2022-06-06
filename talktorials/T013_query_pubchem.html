@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
 <meta property="og:title" content="T013 · Data acquisition from PubChem" />
   
@@ -95,6 +95,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -261,277 +262,56 @@
     
     
       <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="T001_query_chembl.html" class="md-nav__link">T001 · Compound data acquisition (ChEMBL)</a>
       
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T002_compound_adme.html" class="md-nav__link">T002 · Molecular filtering: ADME and lead-likeness criteria</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T003_compound_unwanted_substructures.html" class="md-nav__link">T003 · Molecular filtering: unwanted substructures</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T004_compound_similarity.html" class="md-nav__link">T004 · Ligand-based screening: compound similarity</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T005_compound_clustering.html" class="md-nav__link">T005 · Compound clustering</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T006_compound_maximum_common_substructures.html" class="md-nav__link">T006 · Maximum common substructure</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T007_compound_activity_machine_learning.html" class="md-nav__link">T007 · Ligand-based screening: machine learning</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T008_query_pdb.html" class="md-nav__link">T008 · Protein data acquisition: Protein Data Bank (PDB)</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T009_compound_ensemble_pharmacophores.html" class="md-nav__link">T009 · Ligand-based pharmacophores</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T010_binding_site_comparison.html" class="md-nav__link">T010 · Binding site similarity and off-target prediction</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T011_query_online_api_webservices.html" class="md-nav__link">T011 · Querying online API webservices</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T012_query_klifs.html" class="md-nav__link">T012 · Data acquisition from KLIFS</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> T013 · Data acquisition from PubChem </label>
-    
-      <a href="#" class="md-nav__link md-nav__link--active">T013 · Data acquisition from PubChem</a>
-      
-        
-<nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#talktorials-t013-query-pubchem--page-root" class="md-nav__link">T013 · Data acquisition from PubChem</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
-        </li>
-        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
-        </li>
-        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#PubChem" class="md-nav__link">PubChem</a>
-        </li>
-        <li class="md-nav__item"><a href="#Programmatic-access-to-PubChem" class="md-nav__link">Programmatic access to PubChem</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Simple-examples-for-the-PubChem-API" class="md-nav__link">Simple examples for the PubChem API</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#How-to-get-the-PubChem-CID-for-a-compound" class="md-nav__link">How to get the PubChem CID for a compound</a>
-        </li>
-        <li class="md-nav__item"><a href="#Retrieve-molecular-properties-based-on-a-PubChem-CID" class="md-nav__link">Retrieve molecular properties based on a PubChem CID</a>
-        </li>
-        <li class="md-nav__item"><a href="#Depict-a-compound-with-PubChem" class="md-nav__link">Depict a compound with PubChem</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Query-PubChem-for-similar-compounds" class="md-nav__link">Query PubChem for similar compounds</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#1.-Determine-a-query-compound" class="md-nav__link">1. Determine a query compound</a>
-        </li>
-        <li class="md-nav__item"><a href="#2.-Create-task-and-get-the-job-key" class="md-nav__link">2. Create task and get the job key</a>
-        </li>
-        <li class="md-nav__item"><a href="#3.-Download-results-when-job-finished" class="md-nav__link">3. Download results when job finished</a>
-        </li>
-        <li class="md-nav__item"><a href="#4.-Get-canonical-SMILES-for-resulting-molecules" class="md-nav__link">4. Get canonical SMILES for resulting molecules</a>
-        </li>
-        <li class="md-nav__item"><a href="#5.-Show-the-results" class="md-nav__link">5. Show the results</a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
-        </li>
-        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
-        </li></ul>
-            </nav>
-        </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T013_query_pubchem.nblink.txt">Show Source</a> </li>
-
-  </ul>
-</nav>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T014_binding_site_detection.html" class="md-nav__link">T014 · Binding site detection</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T015_protein_ligand_docking.html" class="md-nav__link">T015 · Protein ligand docking</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T016_protein_ligand_interactions.html" class="md-nav__link">T016 · Protein-ligand interactions</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T017_advanced_nglview_usage.html" class="md-nav__link">T017 · Advanced NGLview usage</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T018_automated_cadd_pipeline.html" class="md-nav__link">T018 · Automated pipeline for lead optimization</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T019_md_simulation.html" class="md-nav__link">T019 · Molecular dynamics simulation</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T020_md_analysis.html" class="md-nav__link">T020 · Analyzing molecular dynamics simulations</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T021_one_hot_encoding.html" class="md-nav__link">T021 · One-Hot Encoding</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T022_ligand_based_screening_neural_network.html" class="md-nav__link">T022 · Ligand-based screening: neural networks</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T023_what_is_a_kinase.html" class="md-nav__link">T023 · What is a kinase?</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T024_kinase_similarity_sequence.html" class="md-nav__link">T024 · Kinase similarity: Sequence</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T025_kinase_similarity_kissim.html" class="md-nav__link">T025 · Kinase similarity: Kinase pocket (KiSSim fingerprint)</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T026_kinase_similarity_ifp.html" class="md-nav__link">T026 · Kinase similarity: Interaction fingerprints</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T027_kinase_similarity_ligand_profile.html" class="md-nav__link">T027 · Kinase similarity: Ligand profile</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T028_kinase_similarity_compare_perspectives.html" class="md-nav__link">T028 · Kinase similarity: Compare different perspectives</a>
-      
-    
-    </li></ul>
     
     </li>
     <li class="md-nav__item">
     
     
       <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#edition-2019-jcim" class="md-nav__link">Edition 2019 - JCIM</a>
       
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#edition-2021" class="md-nav__link">Edition 2021</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#ligand-based-cheminformatics" class="md-nav__link">Ligand-based cheminformatics</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#structural-biology" class="md-nav__link">Structural biology</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#online-apis-servers" class="md-nav__link">Online APIs/servers</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#kinase-similarity" class="md-nav__link">Kinase similarity</a>
+      
+    
+    </li></ul>
     
     </li>
     <li class="md-nav__item">
@@ -881,6 +661,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* Some additional styling taken form the Jupyter notebook CSS */
+.jp-RenderedHTMLCommon table,
 div.rendered_html table {
   border: none;
   border-collapse: collapse;
@@ -889,10 +670,14 @@ div.rendered_html table {
   font-size: 12px;
   table-layout: fixed;
 }
+.jp-RenderedHTMLCommon thead,
 div.rendered_html thead {
   border-bottom: 1px solid black;
   vertical-align: bottom;
 }
+.jp-RenderedHTMLCommon tr,
+.jp-RenderedHTMLCommon th,
+.jp-RenderedHTMLCommon td,
 div.rendered_html tr,
 div.rendered_html th,
 div.rendered_html td {
@@ -904,18 +689,21 @@ div.rendered_html td {
   max-width: none;
   border: none;
 }
+.jp-RenderedHTMLCommon th,
 div.rendered_html th {
   font-weight: bold;
 }
+.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
 div.rendered_html tbody tr:nth-child(odd) {
   background: #f5f5f5;
 }
+.jp-RenderedHTMLCommon tbody tr:hover,
 div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
 </style>
 <section id="T013-·-Data-acquisition-from-PubChem">
-<h1 id="talktorials-t013-query-pubchem--page-root">T013 · Data acquisition from PubChem<a class="headerlink" href="#talktorials-t013-query-pubchem--page-root" title="Permalink to this headline">¶</a></h1>
+<h1 id="talktorials-t013-query-pubchem--page-root">T013 · Data acquisition from PubChem<a class="headerlink" href="#talktorials-t013-query-pubchem--page-root" title="Permalink to this heading">¶</a></h1>
 <p><strong>Note:</strong> This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.</p>
 <p>Authors:</p>
 <ul class="simple">
@@ -924,17 +712,17 @@ div.rendered_html tbody tr:hover {
 <li><p>Yonghui Chen, 2019-2020, <a class="reference external" href="https://volkamerlab.org/">Volkamer lab, Charité</a></p></li>
 </ul>
 <section id="Aim-of-this-talktorial">
-<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this headline">¶</a></h2>
+<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this heading">¶</a></h2>
 <p>In this notebook, you will learn how to search for compounds similar to an input SMILES in <a class="reference external" href="https://pubchem.ncbi.nlm.nih.gov/">PubChem</a> with the API web service.</p>
 <section id="Contents-in-Theory">
-<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Permalink to this headline">¶</a></h3>
+<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>PubChem</p></li>
 <li><p>Programmatic access to PubChem</p></li>
 </ul>
 </section>
 <section id="Contents-in-Practical">
-<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Permalink to this headline">¶</a></h3>
+<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Simple examples for the PubChem API</p>
 <ul>
@@ -956,7 +744,7 @@ div.rendered_html tbody tr:hover {
 </section>
 </section>
 <section id="References">
-<h2 id="References">References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h2>
+<h2 id="References">References<a class="headerlink" href="#References" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Literature:</p>
 <ul>
@@ -975,16 +763,16 @@ div.rendered_html tbody tr:hover {
 </ul>
 </section>
 <section id="Theory">
-<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this headline">¶</a></h2>
+<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this heading">¶</a></h2>
 <section id="PubChem">
-<h3 id="PubChem">PubChem<a class="headerlink" href="#PubChem" title="Permalink to this headline">¶</a></h3>
+<h3 id="PubChem">PubChem<a class="headerlink" href="#PubChem" title="Permalink to this heading">¶</a></h3>
 <p><a class="reference external" href="https://pubchem.ncbi.nlm.nih.gov/">PubChem</a> is an open database containing chemical molecules and their measured activities against biological assays, maintained by the <a class="reference external" href="https://www.ncbi.nlm.nih.gov/">National Center for Biotechnology Information (NCBI)</a>, part of <a class="reference external" href="https://www.nih.gov/">National Institutes of Health (NIH)</a>. It is the world’s largest freely available database of chemical information, collected from more than 770 data sources. There are three dynamically growing primary
 subdatabases, i.e., substances, compounds, and bioassay databases. As of August 2020, PubChem contains over 110 million unique chemical structures and over 270 million bioactivities (<a class="reference external" href="https://academic.oup.com/nar/article/49/D1/D1388/5957164">Nucleic Acids Res.(2021), 49, D1388–D1395</a>).</p>
 <p>These compounds can be queried using a broad range of properties including chemical structure, name, fragments, chemical formula, molecular weight, XlogP, hydrogen bond donor and acceptor count, etc. There is no doubt that PubChem has become a key chemical information resource for scientists, students, and the general public.</p>
 <p>Every data from PubChem is free to access through both the web interface and a programmatic interface. Here, we are going to learn how to use the API of PubChem to do some cool things.</p>
 </section>
 <section id="Programmatic-access-to-PubChem">
-<h3 id="Programmatic-access-to-PubChem">Programmatic access to PubChem<a class="headerlink" href="#Programmatic-access-to-PubChem" title="Permalink to this headline">¶</a></h3>
+<h3 id="Programmatic-access-to-PubChem">Programmatic access to PubChem<a class="headerlink" href="#Programmatic-access-to-PubChem" title="Permalink to this heading">¶</a></h3>
 <p>For some reasons, mainly historical, PubChem provides several ways of programmatic access to the open data.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://pubchemdocs.ncbi.nlm.nih.gov/pug-rest">PUG-REST</a> is a Representational State Transfer (REST)-style version of the PUG (Power User Gateway) web service, with both the syntax of the HTTP requests and the available functions. It can also provide convenient access to information on PubChem records which are not reachable with other PUG services.</p></li>
@@ -998,7 +786,7 @@ subdatabases, i.e., substances, compounds, and bioassay databases. As of August 
 </section>
 </section>
 <section id="Practical">
-<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this headline">¶</a></h2>
+<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this heading">¶</a></h2>
 <p>In this section, we will discuss how to search PubChem based on a given query molecule using the PUG-REST access.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -1027,10 +815,10 @@ subdatabases, i.e., substances, compounds, and bioassay databases. As of August 
 </div>
 </div>
 <section id="Simple-examples-for-the-PubChem-API">
-<h3 id="Simple-examples-for-the-PubChem-API">Simple examples for the PubChem API<a class="headerlink" href="#Simple-examples-for-the-PubChem-API" title="Permalink to this headline">¶</a></h3>
+<h3 id="Simple-examples-for-the-PubChem-API">Simple examples for the PubChem API<a class="headerlink" href="#Simple-examples-for-the-PubChem-API" title="Permalink to this heading">¶</a></h3>
 <p>Before querying PubChem for similar compounds, we provide some simple examples to show how to use the PubChem API. For more detail about the PubChem API, see <a class="reference external" href="https://pubchemdocs.ncbi.nlm.nih.gov/pug-rest-tutorial">PUG-REST tutorial</a>.</p>
 <section id="How-to-get-the-PubChem-CID-for-a-compound">
-<h4 id="How-to-get-the-PubChem-CID-for-a-compound">How to get the PubChem CID for a compound<a class="headerlink" href="#How-to-get-the-PubChem-CID-for-a-compound" title="Permalink to this headline">¶</a></h4>
+<h4 id="How-to-get-the-PubChem-CID-for-a-compound">How to get the PubChem CID for a compound<a class="headerlink" href="#How-to-get-the-PubChem-CID-for-a-compound" title="Permalink to this heading">¶</a></h4>
 <p>For example, we will search for the PubChem Compound Identification (CID) for Aspirin by name.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
@@ -1064,7 +852,7 @@ PubChem CID for aspirin is:
 </div>
 </section>
 <section id="Retrieve-molecular-properties-based-on-a-PubChem-CID">
-<h4 id="Retrieve-molecular-properties-based-on-a-PubChem-CID">Retrieve molecular properties based on a PubChem CID<a class="headerlink" href="#Retrieve-molecular-properties-based-on-a-PubChem-CID" title="Permalink to this headline">¶</a></h4>
+<h4 id="Retrieve-molecular-properties-based-on-a-PubChem-CID">Retrieve molecular properties based on a PubChem CID<a class="headerlink" href="#Retrieve-molecular-properties-based-on-a-PubChem-CID" title="Permalink to this heading">¶</a></h4>
 <p>We can get interesting properties for a compound through its PubChem CID, such as molecular weight, pKd, logP, etc. Here, we will search for the molecular weight for Aspirin.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
@@ -1097,7 +885,7 @@ Molecular weight for aspirin is:
 </div>
 </section>
 <section id="Depict-a-compound-with-PubChem">
-<h4 id="Depict-a-compound-with-PubChem">Depict a compound with PubChem<a class="headerlink" href="#Depict-a-compound-with-PubChem" title="Permalink to this headline">¶</a></h4>
+<h4 id="Depict-a-compound-with-PubChem">Depict a compound with PubChem<a class="headerlink" href="#Depict-a-compound-with-PubChem" title="Permalink to this heading">¶</a></h4>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -1130,7 +918,7 @@ Molecular weight for aspirin is:
 </section>
 </section>
 <section id="Query-PubChem-for-similar-compounds">
-<h3 id="Query-PubChem-for-similar-compounds">Query PubChem for similar compounds<a class="headerlink" href="#Query-PubChem-for-similar-compounds" title="Permalink to this headline">¶</a></h3>
+<h3 id="Query-PubChem-for-similar-compounds">Query PubChem for similar compounds<a class="headerlink" href="#Query-PubChem-for-similar-compounds" title="Permalink to this heading">¶</a></h3>
 <p>Use a <code class="docutils literal notranslate"><span class="pre">SMILES</span></code> string of a query compound to search for similar compounds in PubChem.</p>
 <blockquote>
 <div><p>Tip: You can check <strong>Talktorial T001</strong> to see how to do a similar operation with the ChEMBL database.</p>
@@ -1138,7 +926,7 @@ Molecular weight for aspirin is:
 <p>We define a function to query the PubChem service for similar compounds to the given one. The Tanimoto-based similarity between (2D) PubChem fingerprint will be calculated here. You can see <a class="reference external" href="https://jcheminf.biomedcentral.com/articles/10.1186/s13321-016-0163-1">this paper</a> for more details about similarity evaluation in PubChem, and the <a class="reference external" href="https://ftp.ncbi.nlm.nih.gov/pubchem/specifications/pubchem_fingerprints.pdf">PubChem fingerprint specification</a> for the details about PubChem
 fingerprint.</p>
 <section id="1.-Determine-a-query-compound">
-<h4 id="1.-Determine-a-query-compound">1. Determine a query compound<a class="headerlink" href="#1.-Determine-a-query-compound" title="Permalink to this headline">¶</a></h4>
+<h4 id="1.-Determine-a-query-compound">1. Determine a query compound<a class="headerlink" href="#1.-Determine-a-query-compound" title="Permalink to this heading">¶</a></h4>
 <p>In the following steps, we will search compounds similar to Gefitinib, an inhibitor for EGFR, from the PubChem service. You can also choose another compound which you are interested in.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
@@ -1168,7 +956,7 @@ The structure of Gefitinib:
 </div>
 </section>
 <section id="2.-Create-task-and-get-the-job-key">
-<h4 id="2.-Create-task-and-get-the-job-key">2. Create task and get the job key<a class="headerlink" href="#2.-Create-task-and-get-the-job-key" title="Permalink to this headline">¶</a></h4>
+<h4 id="2.-Create-task-and-get-the-job-key">2. Create task and get the job key<a class="headerlink" href="#2.-Create-task-and-get-the-job-key" title="Permalink to this heading">¶</a></h4>
 <p>Input the canonical <code class="docutils literal notranslate"><span class="pre">SMILES</span></code> string for the given compound to create a new task, so we obtain a job key here. Note that this asynchronous API will not return the data immediately. In this case, the callback will be provided only when the requested resource is ready, which can be checked by the job key. So asynchronous requests are useful to work around certain slower operations.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
@@ -1211,7 +999,7 @@ The structure of Gefitinib:
 </div>
 </section>
 <section id="3.-Download-results-when-job-finished">
-<h4 id="3.-Download-results-when-job-finished">3. Download results when job finished<a class="headerlink" href="#3.-Download-results-when-job-finished" title="Permalink to this headline">¶</a></h4>
+<h4 id="3.-Download-results-when-job-finished">3. Download results when job finished<a class="headerlink" href="#3.-Download-results-when-job-finished" title="Permalink to this heading">¶</a></h4>
 <p>Check if the job finished within the time limit. The standard time limit in PubChem is 30 seconds (we can reset it). It means that if a request is not completed within the time limit, a timeout error will be returned. So, just wait patiently for the callback.</p>
 <p>Then download results - PubChem CIDs in this case - when the job is finished.</p>
 <div class="nbinput nblast docutils container">
@@ -1270,7 +1058,7 @@ Querying for job 4176789509392053309 at URL https://pubchem.ncbi.nlm.nih.gov/res
 </div>
 </section>
 <section id="4.-Get-canonical-SMILES-for-resulting-molecules">
-<h4 id="4.-Get-canonical-SMILES-for-resulting-molecules">4. Get canonical SMILES for resulting molecules<a class="headerlink" href="#4.-Get-canonical-SMILES-for-resulting-molecules" title="Permalink to this headline">¶</a></h4>
+<h4 id="4.-Get-canonical-SMILES-for-resulting-molecules">4. Get canonical SMILES for resulting molecules<a class="headerlink" href="#4.-Get-canonical-SMILES-for-resulting-molecules" title="Permalink to this heading">¶</a></h4>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
@@ -1380,7 +1168,7 @@ Querying for job 4176789509392053309 at URL https://pubchem.ncbi.nlm.nih.gov/res
 </div>
 </section>
 <section id="5.-Show-the-results">
-<h4 id="5.-Show-the-results">5. Show the results<a class="headerlink" href="#5.-Show-the-results" title="Permalink to this headline">¶</a></h4>
+<h4 id="5.-Show-the-results">5. Show the results<a class="headerlink" href="#5.-Show-the-results" title="Permalink to this heading">¶</a></h4>
 <p>Show the compounds with images using RDKit’s drawing functions.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
@@ -1455,11 +1243,11 @@ The results of querying similar compounds for Gefitinib:
 </section>
 </section>
 <section id="Discussion">
-<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this headline">¶</a></h2>
+<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this heading">¶</a></h2>
 <p>In this notebook, you have learned how to access and search similar compounds from the PubChem database via the PUG-REST programmatic access. Is it convenient? PUG-REST can do more than that. See <a class="reference external" href="https://pubchemdocs.ncbi.nlm.nih.gov/pug-rest-tutorial">PUG-REST</a> to get more power!</p>
 </section>
 <section id="Quiz">
-<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Permalink to this headline">¶</a></h2>
+<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Can you make the similarity search more strict?</p></li>
 <li><p>Is any of the proposed candidates already an approved inhibitor? (Hint: You can <em>scrape</em> <a class="reference external" href="http://www.icoa.fr/pkidb/">PKIDB</a> and check against the list of SMILES, also see <strong>Talktorial T011</strong>)</p></li>
@@ -1517,7 +1305,7 @@ The results of querying similar compounds for Gefitinib:
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 5.0.1.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

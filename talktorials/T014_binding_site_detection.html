@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
 <meta property="og:title" content="T014 · Binding site detection" />
   
@@ -95,6 +95,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -261,285 +262,56 @@
     
     
       <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="T001_query_chembl.html" class="md-nav__link">T001 · Compound data acquisition (ChEMBL)</a>
       
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T002_compound_adme.html" class="md-nav__link">T002 · Molecular filtering: ADME and lead-likeness criteria</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T003_compound_unwanted_substructures.html" class="md-nav__link">T003 · Molecular filtering: unwanted substructures</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T004_compound_similarity.html" class="md-nav__link">T004 · Ligand-based screening: compound similarity</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T005_compound_clustering.html" class="md-nav__link">T005 · Compound clustering</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T006_compound_maximum_common_substructures.html" class="md-nav__link">T006 · Maximum common substructure</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T007_compound_activity_machine_learning.html" class="md-nav__link">T007 · Ligand-based screening: machine learning</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T008_query_pdb.html" class="md-nav__link">T008 · Protein data acquisition: Protein Data Bank (PDB)</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T009_compound_ensemble_pharmacophores.html" class="md-nav__link">T009 · Ligand-based pharmacophores</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T010_binding_site_comparison.html" class="md-nav__link">T010 · Binding site similarity and off-target prediction</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T011_query_online_api_webservices.html" class="md-nav__link">T011 · Querying online API webservices</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T012_query_klifs.html" class="md-nav__link">T012 · Data acquisition from KLIFS</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T013_query_pubchem.html" class="md-nav__link">T013 · Data acquisition from PubChem</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> T014 · Binding site detection </label>
-    
-      <a href="#" class="md-nav__link md-nav__link--active">T014 · Binding site detection</a>
-      
-        
-<nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#talktorials-t014-binding-site-detection--page-root" class="md-nav__link">T014 · Binding site detection</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
-        </li>
-        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
-        </li>
-        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Protein-binding-sites" class="md-nav__link">Protein binding sites</a>
-        </li>
-        <li class="md-nav__item"><a href="#Binding-site-detection" class="md-nav__link">Binding site detection</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Methods-overview" class="md-nav__link">Methods overview</a>
-        </li>
-        <li class="md-nav__item"><a href="#DoGSiteScorer" class="md-nav__link">DoGSiteScorer</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Comparison-to-KLIFS-pocket" class="md-nav__link">Comparison to KLIFS pocket</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Binding-site-detection-using-DoGSiteScorer" class="md-nav__link">Binding site detection using DoGSiteScorer</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Job-submission-for-structure-of-interest" class="md-nav__link">Job submission for structure of interest</a>
-        </li>
-        <li class="md-nav__item"><a href="#Get-DoGSiteScorer-pocket-metadata" class="md-nav__link">Get DoGSiteScorer pocket metadata</a>
-        </li>
-        <li class="md-nav__item"><a href="#Pick-the-most-suitable-pocket" class="md-nav__link">Pick the most suitable pocket</a>
-        </li>
-        <li class="md-nav__item"><a href="#Get-binding-site-file-content" class="md-nav__link">Get binding site file content</a>
-        </li>
-        <li class="md-nav__item"><a href="#Investigate-detected-pocket" class="md-nav__link">Investigate detected pocket</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Comparison-between-DoGSiteScorer-and-KLIFS-pocket" class="md-nav__link">Comparison between DoGSiteScorer and KLIFS pocket</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Get-DoGSiteScorer-pocket-residues" class="md-nav__link">Get DoGSiteScorer pocket residues</a>
-        </li>
-        <li class="md-nav__item"><a href="#Get-KLIFS-pocket-residues" class="md-nav__link">Get KLIFS pocket residues</a>
-        </li>
-        <li class="md-nav__item"><a href="#Overlap-of-pocket-residues" class="md-nav__link">Overlap of pocket residues</a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
-        </li>
-        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
-        </li></ul>
-            </nav>
-        </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T014_binding_site_detection.nblink.txt">Show Source</a> </li>
-
-  </ul>
-</nav>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T015_protein_ligand_docking.html" class="md-nav__link">T015 · Protein ligand docking</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T016_protein_ligand_interactions.html" class="md-nav__link">T016 · Protein-ligand interactions</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T017_advanced_nglview_usage.html" class="md-nav__link">T017 · Advanced NGLview usage</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T018_automated_cadd_pipeline.html" class="md-nav__link">T018 · Automated pipeline for lead optimization</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T019_md_simulation.html" class="md-nav__link">T019 · Molecular dynamics simulation</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T020_md_analysis.html" class="md-nav__link">T020 · Analyzing molecular dynamics simulations</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T021_one_hot_encoding.html" class="md-nav__link">T021 · One-Hot Encoding</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T022_ligand_based_screening_neural_network.html" class="md-nav__link">T022 · Ligand-based screening: neural networks</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T023_what_is_a_kinase.html" class="md-nav__link">T023 · What is a kinase?</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T024_kinase_similarity_sequence.html" class="md-nav__link">T024 · Kinase similarity: Sequence</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T025_kinase_similarity_kissim.html" class="md-nav__link">T025 · Kinase similarity: Kinase pocket (KiSSim fingerprint)</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T026_kinase_similarity_ifp.html" class="md-nav__link">T026 · Kinase similarity: Interaction fingerprints</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T027_kinase_similarity_ligand_profile.html" class="md-nav__link">T027 · Kinase similarity: Ligand profile</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T028_kinase_similarity_compare_perspectives.html" class="md-nav__link">T028 · Kinase similarity: Compare different perspectives</a>
-      
-    
-    </li></ul>
     
     </li>
     <li class="md-nav__item">
     
     
       <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#edition-2019-jcim" class="md-nav__link">Edition 2019 - JCIM</a>
       
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#edition-2021" class="md-nav__link">Edition 2021</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#ligand-based-cheminformatics" class="md-nav__link">Ligand-based cheminformatics</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#structural-biology" class="md-nav__link">Structural biology</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#online-apis-servers" class="md-nav__link">Online APIs/servers</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#kinase-similarity" class="md-nav__link">Kinase similarity</a>
+      
+    
+    </li></ul>
     
     </li>
     <li class="md-nav__item">
@@ -897,6 +669,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* Some additional styling taken form the Jupyter notebook CSS */
+.jp-RenderedHTMLCommon table,
 div.rendered_html table {
   border: none;
   border-collapse: collapse;
@@ -905,10 +678,14 @@ div.rendered_html table {
   font-size: 12px;
   table-layout: fixed;
 }
+.jp-RenderedHTMLCommon thead,
 div.rendered_html thead {
   border-bottom: 1px solid black;
   vertical-align: bottom;
 }
+.jp-RenderedHTMLCommon tr,
+.jp-RenderedHTMLCommon th,
+.jp-RenderedHTMLCommon td,
 div.rendered_html tr,
 div.rendered_html th,
 div.rendered_html td {
@@ -920,18 +697,21 @@ div.rendered_html td {
   max-width: none;
   border: none;
 }
+.jp-RenderedHTMLCommon th,
 div.rendered_html th {
   font-weight: bold;
 }
+.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
 div.rendered_html tbody tr:nth-child(odd) {
   background: #f5f5f5;
 }
+.jp-RenderedHTMLCommon tbody tr:hover,
 div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
 </style>
 <section id="T014-·-Binding-site-detection">
-<h1 id="talktorials-t014-binding-site-detection--page-root">T014 · Binding site detection<a class="headerlink" href="#talktorials-t014-binding-site-detection--page-root" title="Permalink to this headline">¶</a></h1>
+<h1 id="talktorials-t014-binding-site-detection--page-root">T014 · Binding site detection<a class="headerlink" href="#talktorials-t014-binding-site-detection--page-root" title="Permalink to this heading">¶</a></h1>
 <p><strong>Note:</strong> This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.</p>
 <p>Authors:</p>
 <ul class="simple">
@@ -940,10 +720,10 @@ div.rendered_html tbody tr:hover {
 <li><p>Dominique Sydow, 2020/21, <a class="reference external" href="https://volkamerlab.org/">Volkamer lab, Charité</a></p></li>
 </ul>
 <section id="Aim-of-this-talktorial">
-<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this headline">¶</a></h2>
+<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this heading">¶</a></h2>
 <p>The binding site of a protein is the key to its function. In this talktorial, we introduce the concepts of computational binding site detection tools using DoGSiteScorer from the <a class="reference external" href="https://proteins.plus/">protein.plus</a> web server, exemplified on an EGFR structure. Additionally, we compare the results to the pre-defined KLIFS binding site by calculating the percentage of residues in accordance between the two sets.</p>
 <section id="Contents-in-Theory">
-<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Permalink to this headline">¶</a></h3>
+<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Protein binding sites</p></li>
 <li><p>Binding site detection</p>
@@ -956,7 +736,7 @@ div.rendered_html tbody tr:hover {
 </ul>
 </section>
 <section id="Contents-in-Practical">
-<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Permalink to this headline">¶</a></h3>
+<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Binding site detection using DoGSiteScorer</p>
 <ul>
@@ -977,7 +757,7 @@ div.rendered_html tbody tr:hover {
 </ul>
 </section>
 <section id="References">
-<h3 id="References">References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h3>
+<h3 id="References">References<a class="headerlink" href="#References" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Prediction, Analysis, and Comparison of Active Sites <a class="reference external" href="https://doi.org/10.1002/9783527806539.ch6g">Volkamer et al., (2018)</a>, book chapter in Applied Chemoinformatics: Achievements and Future Opportunities, Wiley</p></li>
 <li><p>DoGSiteScorer, <a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/22148551/">Volkamer et al., J.Chem.Inf.Model, (2012), 52(2):360-372</a></p></li>
@@ -987,9 +767,9 @@ div.rendered_html tbody tr:hover {
 </section>
 </section>
 <section id="Theory">
-<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this headline">¶</a></h2>
+<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this heading">¶</a></h2>
 <section id="Protein-binding-sites">
-<h3 id="Protein-binding-sites">Protein binding sites<a class="headerlink" href="#Protein-binding-sites" title="Permalink to this headline">¶</a></h3>
+<h3 id="Protein-binding-sites">Protein binding sites<a class="headerlink" href="#Protein-binding-sites" title="Permalink to this heading">¶</a></h3>
 <p>Most biological processes are guided through (non-)reversible binding of molecules. Given a therapeutic target associated to a specific disease, knowing its binding site(s), i.e. the key to the proteins function, is of utmost importance for designing new drugs.</p>
 <p>Depending on the given data, e.g., no protein-ligand complex structure (x-ray) is available or one is interested in allosteric sites, binding site detection algorithms come into play. Binding sites, or in the case of enzymes rather called active sites, are cavities in 3-dimensional space, mostly on the surface of a protein structure, that serve as binding (docking) regions for ligands, peptides, or proteins. To interact with each other, the two binding partners need to be complementary
 concerning shape and physico-chemical properties (<em>key and look</em> principle).</p>
@@ -997,9 +777,9 @@ concerning shape and physico-chemical properties (<em>key and look</em> principl
 <p><em>Figure 1:</em> Example of a detected binding site for EGFR kinase (PDB: <a class="reference external" href="https://www.rcsb.org/structure/3W32">3w32</a>) using DoGSiteScorer from <a class="reference external" href="https://proteins.plus">proteins.plus</a>. Protein shown as blue cartoon, ligand as sticks (carbons in gray) and binding site as violet cloud (largest subpocket SP_0_0 shown).</p>
 </section>
 <section id="Binding-site-detection">
-<h3 id="Binding-site-detection">Binding site detection<a class="headerlink" href="#Binding-site-detection" title="Permalink to this headline">¶</a></h3>
+<h3 id="Binding-site-detection">Binding site detection<a class="headerlink" href="#Binding-site-detection" title="Permalink to this heading">¶</a></h3>
 <section id="Methods-overview">
-<h4 id="Methods-overview">Methods overview<a class="headerlink" href="#Methods-overview" title="Permalink to this headline">¶</a></h4>
+<h4 id="Methods-overview">Methods overview<a class="headerlink" href="#Methods-overview" title="Permalink to this heading">¶</a></h4>
 <p>If ligand information is available, i.e., a protein-ligand complex, the protein residues surrounding the ligand can simply be defined as pocket (e.g. using all protein residues within a predefined radius of the ligand atoms such as 6 Å). If the ligand is absent, prediction tools can be used for <em>in silico</em> pocket detection. These methods can be grouped on the one hand in geometry- and energy-based methods as well as on the other hand in grid-based and grid-free approaches, as outlined in Figure
 2. Note that in recent years, more and more machine or deep learning based methods have been developed (see e.g. <a class="reference external" href="https://doi.org/10.1093/bioinformatics/btx350">DeepSite</a> by Jiménez <em>et al.</em>, Bioinformatics, 2017, 33(19), 3036–3042).</p>
 <img alt="Binding site detection methods" src="../_images/Figure2_DetectionMethods_scale05.png"/>
@@ -1017,7 +797,7 @@ discarded. Finally, grid points fulfilling this cut-off are merged to pockets.</
 </ul>
 </section>
 <section id="DoGSiteScorer">
-<h4 id="DoGSiteScorer">DoGSiteScorer<a class="headerlink" href="#DoGSiteScorer" title="Permalink to this headline">¶</a></h4>
+<h4 id="DoGSiteScorer">DoGSiteScorer<a class="headerlink" href="#DoGSiteScorer" title="Permalink to this heading">¶</a></h4>
 <p>In this talktorial, we will use the DoGSiteScorer functionality, available within <a class="reference external" href="https://proteins.plus/">protein.plus</a>, to detect and score the pockets of a protein of interest. Thus, the algorithm will be explained in a bit more detail (see Figure 3 for a visual explanation).</p>
 <ul>
 <li><p><em>Pocket detection</em>: DoGSiteScorer incorporates a <strong>geometric</strong> and <strong>grid-based</strong> algorithm to detect pockets. The protein is embedded in a Cartesian grid, and each grid point is labeled as either 0 (free) or 1 (occupied), depending on if it lies within any protein atom’s van der Waals radius. Then, an edge-detection algorithm from image processing, a <strong>Difference of Gaussian filter</strong> (thus the name DoGSite) is invoked to identify protrusion on the protein surface (i.e. the positions on a
@@ -1036,7 +816,7 @@ data set (NR) DD. The DD consists of 1069 targets and each target was assigned t
 </section>
 </section>
 <section id="Comparison-to-KLIFS-pocket">
-<h3 id="Comparison-to-KLIFS-pocket">Comparison to KLIFS pocket<a class="headerlink" href="#Comparison-to-KLIFS-pocket" title="Permalink to this headline">¶</a></h3>
+<h3 id="Comparison-to-KLIFS-pocket">Comparison to KLIFS pocket<a class="headerlink" href="#Comparison-to-KLIFS-pocket" title="Permalink to this heading">¶</a></h3>
 <p>Once we obtain the binding site of interest from DoGSiteScorer, we can compare the results with any other method in order to validate it. Here, we compare it with the KLIFS binding pocket definition for our target kinase structure using the KLIFS API (see <strong>Talktorial T012</strong> for more detail).</p>
 <p><strong>KLIFS pocket definition</strong> in a nutshell: The <a class="reference external" href="https://klifs.net/">KLIFS</a> (Kinase-Ligand Interaction Fingerprints and Structures) database is a structural repository of information on over 3600 human and mouse kinase structures. The curated KLIFS data allows systematic analyses of all kinase structures and binding sites, bound ligands and protein-ligand interactions. KLIFS comes with a nomenclature of typical structural motifs within kinases (such as DFG-in/out, hinge region, …) and maps the
 binding site of all known kinases to 85 residues, defined via an elaborated multiple sequence alignment. It is possible to compare the interaction patterns of kinase-inhibitors to each other to, for example, identify crucial interactions determining kinase-inhibitor selectivity.</p>
@@ -1044,7 +824,7 @@ binding site of all known kinases to 85 residues, defined via an elaborated mult
 </section>
 </section>
 <section id="Practical">
-<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this headline">¶</a></h2>
+<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this heading">¶</a></h2>
 <p>In this practical part, we will introduce how to query the <a class="reference external" href="https://proteins.plus">proteins.plus</a> server for binding site detection using DoGSiteScorer for our protein of interest.</p>
 <p>Import all necessary libraries.</p>
 <div class="nbinput docutils container">
@@ -1088,7 +868,7 @@ binding site of all known kinases to 85 residues, defined via an elaborated mult
 </div>
 </div>
 <section id="Binding-site-detection-using-DoGSiteScorer">
-<h3 id="Binding-site-detection-using-DoGSiteScorer">Binding site detection using DoGSiteScorer<a class="headerlink" href="#Binding-site-detection-using-DoGSiteScorer" title="Permalink to this headline">¶</a></h3>
+<h3 id="Binding-site-detection-using-DoGSiteScorer">Binding site detection using DoGSiteScorer<a class="headerlink" href="#Binding-site-detection-using-DoGSiteScorer" title="Permalink to this heading">¶</a></h3>
 <p>We first define a function to query the server for a protein of interest. Infos on the REST API can be found <a class="reference external" href="https://proteins.plus/help/dogsite_rest">here</a>.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
@@ -1141,7 +921,7 @@ binding site of all known kinases to 85 residues, defined via an elaborated mult
 </div>
 </div>
 <section id="Job-submission-for-structure-of-interest">
-<h4 id="Job-submission-for-structure-of-interest">Job submission for structure of interest<a class="headerlink" href="#Job-submission-for-structure-of-interest" title="Permalink to this headline">¶</a></h4>
+<h4 id="Job-submission-for-structure-of-interest">Job submission for structure of interest<a class="headerlink" href="#Job-submission-for-structure-of-interest" title="Permalink to this heading">¶</a></h4>
 <p>Define the protein of interest. As an example, we chose an EGFR kinase structure, more details can be found in the respective PDB entry: <a class="reference external" href="https://www.rcsb.org/structure/3W32">3w32</a>.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
@@ -1176,7 +956,7 @@ binding site of all known kinases to 85 residues, defined via an elaborated mult
 </div>
 </section>
 <section id="Get-DoGSiteScorer-pocket-metadata">
-<h4 id="Get-DoGSiteScorer-pocket-metadata">Get DoGSiteScorer pocket metadata<a class="headerlink" href="#Get-DoGSiteScorer-pocket-metadata" title="Permalink to this headline">¶</a></h4>
+<h4 id="Get-DoGSiteScorer-pocket-metadata">Get DoGSiteScorer pocket metadata<a class="headerlink" href="#Get-DoGSiteScorer-pocket-metadata" title="Permalink to this heading">¶</a></h4>
 <p>We now define a function that collects all data returned by the server and stores them in a pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
@@ -1638,7 +1418,7 @@ Querying for job at URL https://proteins.plus/api/dogsite_rest/TJMQAsXaco7EjH7Jy
 <p><strong>Note</strong>: We selected to have pockets and subpockets returned from the algorithm, e.g. pocket <code class="docutils literal notranslate"><span class="pre">P_0</span></code> contains subpockets <code class="docutils literal notranslate"><span class="pre">P_0_0</span></code> to <code class="docutils literal notranslate"><span class="pre">P_0_5</span></code>. Depending on your research question you might prefer to work with the pockets - mostly if you are more interested in the general location (e.g. for docking) - or the subpockets, which give a more granular description.</p>
 </section>
 <section id="Pick-the-most-suitable-pocket">
-<h4 id="Pick-the-most-suitable-pocket">Pick the most suitable pocket<a class="headerlink" href="#Pick-the-most-suitable-pocket" title="Permalink to this headline">¶</a></h4>
+<h4 id="Pick-the-most-suitable-pocket">Pick the most suitable pocket<a class="headerlink" href="#Pick-the-most-suitable-pocket" title="Permalink to this heading">¶</a></h4>
 <p>The pockets are initially sorted by the volume of the respective pocket. We want to have a deeper look at the pocket that contains the ligand (see ligand coverage column <code class="docutils literal notranslate"><span class="pre">lig_cov</span></code>) and which is covered by the ligand the most (pocket coverage <code class="docutils literal notranslate"><span class="pre">poc_cov</span></code>).</p>
 <p>For clarity, we drop a few columns first from the dataframe.</p>
 <div class="nbinput nblast docutils container">
@@ -1892,7 +1672,7 @@ Querying for job at URL https://proteins.plus/api/dogsite_rest/TJMQAsXaco7EjH7Jy
 </div>
 </section>
 <section id="Get-binding-site-file-content">
-<h4 id="Get-binding-site-file-content">Get binding site file content<a class="headerlink" href="#Get-binding-site-file-content" title="Permalink to this headline">¶</a></h4>
+<h4 id="Get-binding-site-file-content">Get binding site file content<a class="headerlink" href="#Get-binding-site-file-content" title="Permalink to this heading">¶</a></h4>
 <p>We define two helper functions to first get the URL for all pocket pdb or ccp4 files, respectively. Then, we only process the files further for our pocket of interest.</p>
 <p>Note that DoGSiteScorer returns two structural (3D) file formats per pocket:</p>
 <ul class="simple">
@@ -2012,7 +1792,7 @@ Querying for job at URL https://proteins.plus/api/dogsite_rest/TJMQAsXaco7EjH7Jy
 </div>
 </section>
 <section id="Investigate-detected-pocket">
-<h4 id="Investigate-detected-pocket">Investigate detected pocket<a class="headerlink" href="#Investigate-detected-pocket" title="Permalink to this headline">¶</a></h4>
+<h4 id="Investigate-detected-pocket">Investigate detected pocket<a class="headerlink" href="#Investigate-detected-pocket" title="Permalink to this heading">¶</a></h4>
 <p><strong>Pocket descriptors</strong></p>
 <p>The algorithm returns information on all calculated descriptors for the respective pocket.</p>
 <div class="nbinput docutils container">
@@ -2133,9 +1913,9 @@ Name: P_0_0, dtype: object
 </section>
 </section>
 <section id="Comparison-between-DoGSiteScorer-and-KLIFS-pocket">
-<h3 id="Comparison-between-DoGSiteScorer-and-KLIFS-pocket">Comparison between DoGSiteScorer and KLIFS pocket<a class="headerlink" href="#Comparison-between-DoGSiteScorer-and-KLIFS-pocket" title="Permalink to this headline">¶</a></h3>
+<h3 id="Comparison-between-DoGSiteScorer-and-KLIFS-pocket">Comparison between DoGSiteScorer and KLIFS pocket<a class="headerlink" href="#Comparison-between-DoGSiteScorer-and-KLIFS-pocket" title="Permalink to this heading">¶</a></h3>
 <section id="Get-DoGSiteScorer-pocket-residues">
-<h4 id="Get-DoGSiteScorer-pocket-residues">Get DoGSiteScorer pocket residues<a class="headerlink" href="#Get-DoGSiteScorer-pocket-residues" title="Permalink to this headline">¶</a></h4>
+<h4 id="Get-DoGSiteScorer-pocket-residues">Get DoGSiteScorer pocket residues<a class="headerlink" href="#Get-DoGSiteScorer-pocket-residues" title="Permalink to this heading">¶</a></h4>
 <p>Since we want to compare the automatically predicted pocket with the manually assigned KLIFS pocket, we need to identify the pocket residues.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
@@ -2296,7 +2076,7 @@ Name: P_0_0, dtype: object
 </div>
 </section>
 <section id="Get-KLIFS-pocket-residues">
-<h4 id="Get-KLIFS-pocket-residues">Get KLIFS pocket residues<a class="headerlink" href="#Get-KLIFS-pocket-residues" title="Permalink to this headline">¶</a></h4>
+<h4 id="Get-KLIFS-pocket-residues">Get KLIFS pocket residues<a class="headerlink" href="#Get-KLIFS-pocket-residues" title="Permalink to this heading">¶</a></h4>
 <p>We are using the <code class="docutils literal notranslate"><span class="pre">opencadd.databases.klifs</span></code> module to extract the binding site residues (PDB residue numbering) as defined in the KLIFS database.</p>
 <p>Please refer to <strong>Talktorial T012</strong> for detailed information about KLIFS and the <code class="docutils literal notranslate"><span class="pre">opencadd.databases.klifs</span></code> module usage.</p>
 <div class="nbinput nblast docutils container">
@@ -2407,7 +2187,7 @@ Name: P_0_0, dtype: object
 </div>
 </section>
 <section id="Overlap-of-pocket-residues">
-<h4 id="Overlap-of-pocket-residues">Overlap of pocket residues<a class="headerlink" href="#Overlap-of-pocket-residues" title="Permalink to this headline">¶</a></h4>
+<h4 id="Overlap-of-pocket-residues">Overlap of pocket residues<a class="headerlink" href="#Overlap-of-pocket-residues" title="Permalink to this heading">¶</a></h4>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
@@ -2535,12 +2315,12 @@ Residue overlap between the two methods using P_0.
 </section>
 </section>
 <section id="Discussion">
-<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this headline">¶</a></h2>
+<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this heading">¶</a></h2>
 <p>We introduced the idea of binding site detection algorithms using DoGSiteScorer, which can be queried through the <a class="reference external" href="https://proteins.plus">proteins.plus</a> server. Besides investigating into the main (known) binding site, as exemplified above, one can use other predicted pockets to initiate drug design campaigns against a novel, e.g. allosteric or less explored, pocket.</p>
 <p>Potential shortcomings: Such algorithms detect the pockets based on a given protein structure (x-ray). If another structure of the same protein is available, applying the algorithm to that structure might lead to (slightly) different pockets due to e.g. conformational changes induced by the bound ligand. Also differences between apo and holo structures do affect the predictions.</p>
 </section>
 <section id="Quiz">
-<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Permalink to this headline">¶</a></h2>
+<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>What techniques can be invoked to automatically detect pockets on the protein surface?</p></li>
 <li><p>What are advantages and disadvantages of automatic binding site detection algorithms?</p></li>
@@ -2598,7 +2378,7 @@ Residue overlap between the two methods using P_0.
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 5.0.1.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
