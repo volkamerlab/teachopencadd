@@ -109,41 +109,73 @@ To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0
 
 ## Citation
 
-If you make use of the TeachOpenCADD material in scientific publications, please cite our respective articles:
+If you make use of the TeachOpenCADD material in scientific publications, please cite our respective articles. It will help measure the impact of the TeachOpenCADD platform and future funding, thank you!
 
-- [TeachOpenCADD Jupyter Notebooks: Talktorials T001-T010](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x)
-<!-- markdown-link-check-disable-next-line -->
-- [TeachOpenCADD KNIME workflows](https://pubs.acs.org/doi/10.1021/acs.jcim.9b00662)
-<!-- markdown-link-check-disable-next-line -->
-- [How to use the TeachOpenCADD material for teaching?](https://pubs.acs.org/doi/abs/10.1021/bk-2021-1387.ch010)
+### TeachOpenCADD Jupyter notebooks
 
-It will help measure the impact of the TeachOpenCADD platform and future funding!
+TeachOpenCADD Jupyter notebooks' main citation: Talktorials T001-T022 ([paper](https://academic.oup.com/nar/advance-article/doi/10.1093/nar/gkac267/6582172))
+
+```
+@article{TeachOpenCADD2022,
+    author = {Sydow, Dominique and Rodríguez-Guerra, Jaime and Kimber, Talia B and Schaller, David and Taylor, Corey J and Chen, Yonghui and Leja, Mareike and Misra, Sakshi and Wichmann, Michele and Ariamajd, Armin and Volkamer, Andrea},
+    title = {TeachOpenCADD 2022: open source and FAIR Python pipelines to assist in structural bioinformatics and cheminformatics research},
+    journal = {Nucleic Acids Research},
+    year = {2022},
+    doi = {10.1093/nar/gkac267},
+}
+```
+
+TeachOpenCADD Jupyter notebooks' original citation: Talktorials T001-T010 ([paper](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x))
+
+```
+@article{TeachOpenCADDKinaseEdition,
+    author = {Kimber, Talia B and Sydow, Dominique and Volkamer, Andrea},
+    title = {{Kinase similarity assessment pipeline for off-target prediction [v1.0]}},
+    journal = {Living Journal of Computational Molecular Science},
+    year = {2022},
+    doi = {10.1186/s13321-019-0351-x},
+}
+```
+
+<!-- markdown-link-check-disable-next-line -->
+TeachOpenCADD Jupyter notebooks on kinase similarities: Talktorials T023-T028 ([paper](https://doi.org/10.33011/livecoms.3.1.1599))
 
 ```
 @article{TeachOpenCADD2019,
     author = {Sydow, Dominique and Morger, Andrea and Driller, Maximilian and Volkamer, Andrea},
     title = {{TeachOpenCADD: a teaching platform for computer-aided drug design using open source packages and data}},
-    doi = {10.1186/s13321-019-0351-x},
-    url = {https://doi.org/10.1186/s13321-019-0351-x},
-    journal = {J. Cheminform.},
+    journal = {Journal of Cheminformatics},
+    year = {2019},
     volume = {11},
     number = {1},
     pages = {29},
-    year = {2019}
+    doi = {10.1186/s13321-019-0351-x},
 }
+```
 
+### TeachOpenCADD-KNIME
+
+<!-- markdown-link-check-disable-next-line -->
+TeachOpenCADD KNIME workflows ([paper](https://pubs.acs.org/doi/10.1021/acs.jcim.9b00662))
+
+```
 @article{TeachOpenCADDKNIME2019,
     author = {Sydow, Dominique and Wichmann, Michele and Rodríguez-Guerra, Jaime and Goldmann, Daria and Landrum, Gregory and Volkamer, Andrea},
     title = {{TeachOpenCADD-KNIME: A Teaching Platform for Computer-Aided Drug Design Using KNIME Workflows}},
-    doi = {10.1021/acs.jcim.9b00662},
-    url = {https://doi.org/10.1021/acs.jcim.9b00662},
     journal = {Journal of Chemical Information and Modeling},
+    year = {2019},
     volume = {59},
     number = {10},
     pages = {4083-4086},
-    year = {2019}
+    doi = {10.1021/acs.jcim.9b00662},
 }
+```
 
+### Teaching
+<!-- markdown-link-check-disable-next-line -->
+How to use the TeachOpenCADD material for teaching ([chapter](https://pubs.acs.org/doi/abs/10.1021/bk-2021-1387.ch010))
+
+```
 @inbook{doi:10.1021/bk-2021-1387.ch010,
     author = {Sydow, Dominique and Rodríguez-Guerra, Jaime and Volkamer, Andrea},
     title = {Teaching Computer-Aided Drug Design Using TeachOpenCADD},
@@ -151,7 +183,6 @@ It will help measure the impact of the TeachOpenCADD platform and future funding
     chapter = {10},
     pages = {135-158},
     doi = {10.1021/bk-2021-1387.ch010},
-    URL = {https://pubs.acs.org/doi/abs/10.1021/bk-2021-1387.ch010},
 }
 ```
 
