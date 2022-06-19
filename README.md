@@ -128,19 +128,6 @@ TeachOpenCADD Jupyter notebooks' main citation: Talktorials T001-T022 ([paper](h
 TeachOpenCADD Jupyter notebooks' original citation: Talktorials T001-T010 ([paper](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x))
 
 ```
-@article{TeachOpenCADDKinaseEdition,
-    author = {Kimber, Talia B and Sydow, Dominique and Volkamer, Andrea},
-    title = {{Kinase similarity assessment pipeline for off-target prediction [v1.0]}},
-    journal = {Living Journal of Computational Molecular Science},
-    year = {2022},
-    doi = {10.1186/s13321-019-0351-x},
-}
-```
-
-<!-- markdown-link-check-disable-next-line -->
-TeachOpenCADD Jupyter notebooks on kinase similarities: Talktorials T023-T028 ([paper](https://doi.org/10.33011/livecoms.3.1.1599))
-
-```
 @article{TeachOpenCADD2019,
     author = {Sydow, Dominique and Morger, Andrea and Driller, Maximilian and Volkamer, Andrea},
     title = {{TeachOpenCADD: a teaching platform for computer-aided drug design using open source packages and data}},
@@ -149,6 +136,19 @@ TeachOpenCADD Jupyter notebooks on kinase similarities: Talktorials T023-T028 ([
     volume = {11},
     number = {1},
     pages = {29},
+    doi = {10.1186/s13321-019-0351-x},
+}
+```
+
+<!-- markdown-link-check-disable-next-line -->
+TeachOpenCADD Jupyter notebooks on kinase similarities: Talktorials T023-T028 ([paper](https://doi.org/10.33011/livecoms.3.1.1599))
+
+```
+@article{TeachOpenCADDKinaseEdition,
+    author = {Kimber, Talia B and Sydow, Dominique and Volkamer, Andrea},
+    title = {{Kinase similarity assessment pipeline for off-target prediction [v1.0]}},
+    journal = {Living Journal of Computational Molecular Science},
+    year = {2022},
     doi = {10.1186/s13321-019-0351-x},
 }
 ```
