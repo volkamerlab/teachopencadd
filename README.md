@@ -14,14 +14,14 @@ A teaching platform for computer-aided drug design (CADD) using open source pack
 [![Anaconda-Server Badge](https://anaconda.org/conda-forge/teachopencadd/badges/installer/conda.svg)](https://anaconda.org/conda-forge/teachopencadd)
 
 
-> 🌟 Check out our new major [**TeachOpenCADD release 2021.12.0**](https://github.com/volkamerlab/teachopencadd/releases/tag/2021.12.0)!
+> 🌟 Check out our new major [**TeachOpenCADD release 2021.12.0**](https://github.com/volkamerlab/teachopencadd/releases/tag/2021.12.0) &mdash; accompanying paper is out in [NAR](https://doi.org/10.1093/nar/gkac267)!
 >
 > - We refactored all published talktorials (T001-T010) to apply best practices to our code!
 > - We doubled the amount of TeachOpenCADD talktorials, extending our collection by topics from structure-based drug design, database queries, 3D visualization, and deep learning!
 > - We proudly present our brand new [TeachOpenCADD website](https://projects.volkamerlab.org/teachopencadd/)!
 > - All talktorials are tested with our continous integration to always keep them up-to-date!
 
-> 🌟 New kinase release [**TeachOpenCADD 2021.12.1**](https://github.com/volkamerlab/teachopencadd/releases/tag/2021.12.1)!
+> 🌟 New kinase similarity release [**TeachOpenCADD 2021.12.2**](https://github.com/volkamerlab/teachopencadd/releases/tag/2021.12.2) &mdash; accompanying is out in [LiveCoMS](https://doi.org/10.33011/livecoms.3.1.1599)!
 
 Open source programming packages for cheminformatics and structural bioinformatics are powerful tools to build modular, reproducible, and reusable pipelines for computer-aided drug design (CADD). While documentation for such tools is available, only few freely accessible examples teach underlying concepts focused on CADD applications, addressing especially users new to the field.
 
