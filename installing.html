@@ -12,7 +12,7 @@
   
 <meta property="og:url" content="https://projects.volkamerlab.org/teachopencadd/installing.html" />
   
-<meta property="og:description" content="Install from the conda package: Create a new conda environment for TeachOpenCADD:, Activate the new environment:, Run teachopencadd -h to test that it works., Run teachopencadd start . to set up a new workspace.. Install from the latest development snapshot: Create a new conda environment and act..." />
+<meta property="og:description" content="Install from the conda package: Create a new conda environment for TeachOpenCADD:, Activate the new environment:, Run teachopencadd -h to test that it works., Run teachopencadd start . to set up a new workspace with the TeachOpenCADD material. Follow the instructions printed in your terminal to o..." />
   
 <meta property="og:image" content="https://raw.githubusercontent.com/volkamerlab/teachopencadd/master/docs/_static/images/TeachOpenCADD_topics.png" />
   
@@ -407,6 +407,9 @@ mamba create -n teachopencadd teachopencadd
 
 # Windows
 mamba create -n teachopencadd teachopencadd -c conda-forge -c defaults
+
+# When using a MacBook Air 12.4 with an M1 chip (2020)
+CONDA_SUBDIR=osx-64 mamba create -n teachopencadd teachopencadd
 </pre></div>
 </div>
 </li>
@@ -416,8 +419,10 @@ mamba create -n teachopencadd teachopencadd -c conda-forge -c defaults
 </div>
 </li>
 <li><p>Run <code class="docutils literal notranslate"><span class="pre">teachopencadd</span> <span class="pre">-h</span></code> to test that it works.</p></li>
-<li><p>Run <code class="docutils literal notranslate"><span class="pre">teachopencadd</span> <span class="pre">start</span> <span class="pre">.</span></code> to set up a new workspace.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">teachopencadd</span> <span class="pre">start</span> <span class="pre">.</span></code> to set up a new workspace with the TeachOpenCADD material. Follow the instructions printed in your terminal to open the material (Jupyter notebooks) with Jupyter Lab.
+In this example command, you are setting up your workspace in the current directory <code class="docutils literal notranslate"><span class="pre">.</span></code>; you can use any other path.</p></li>
 </ol>
+<p>You can always return to your TeachOpenCADD material with <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span> <span class="pre">/path/to/your/teachopencadd/workspace</span></code>.</p>
 </section>
 <section id="install-from-the-latest-development-snapshot">
 <h2 id="install-from-the-latest-development-snapshot">Install from the latest development snapshot<a class="headerlink" href="#install-from-the-latest-development-snapshot" title="Permalink to this heading">¶</a></h2>
