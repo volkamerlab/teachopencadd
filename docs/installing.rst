@@ -20,12 +20,18 @@ Install from the conda package
     # Windows
     mamba create -n teachopencadd teachopencadd -c conda-forge -c defaults
 
+    # When using a MacBook Air 12.4 with an M1 chip (2020)
+    CONDA_SUBDIR=osx-64 mamba create -n teachopencadd teachopencadd
+
 2. Activate the new environment::
 
     conda activate teachopencadd
 
 3. Run ``teachopencadd -h`` to test that it works.
-4. Run ``teachopencadd start .`` to set up a new workspace.
+4. Run ``teachopencadd start .`` to set up a new workspace with the TeachOpenCADD material. Follow the instructions printed in your terminal to open the material (Jupyter notebooks) with Jupyter Lab.
+   In this example command, you are setting up your workspace in the current directory ``.``; you can use any other path.
+
+You can always return to your TeachOpenCADD material with ``jupyter lab /path/to/your/teachopencadd/workspace``.
 
 
 Install from the latest development snapshot
