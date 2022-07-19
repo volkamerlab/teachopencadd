@@ -28,7 +28,7 @@ Install from the conda package
     conda activate teachopencadd
 
 3. Run ``teachopencadd -h`` to test that it works.
-4. Run ``teachopencadd start .`` to set up a new workspace with the TeachOpenCADD material and follow the instructions printed in your terminal.
+4. Run ``teachopencadd start .`` to set up a new workspace with the TeachOpenCADD material. Follow the instructions printed in your terminal to open the material (Jupyter notebooks) with Jupyter Lab.
    In this example command, you are setting up your workspace in the current directory ``.``; you can use any other path.
 
 You can always return to your TeachOpenCADD material with ``jupyter lab /path/to/your/teachopencadd/workspace``.
