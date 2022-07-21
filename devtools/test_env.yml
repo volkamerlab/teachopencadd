@@ -3,7 +3,7 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - python>=3.7
+  - python>=3.8
   - pip
   - jupyter
   - jupyterlab>=3
@@ -31,7 +31,7 @@ dependencies:
   - rdkit==2021.09.5
   - openbabel
   - opencadd
-  - biotite
+  - biotite>=0.34.0
   - smina
   - mdanalysis>=1.0.0
   - mdtraj
