@@ -41,6 +41,8 @@ jobs:
         with:
           python-version: ${{ matrix.cfg.python-version }}
           mamba-version: "*"
+          # Uncomment next line if you are running the tests locally via https://github.com/nektos/act
+          #miniconda-version: "latest"
           activate-environment: teachopencadd
           channel-priority: true
           environment-file: devtools/test_env.yml
