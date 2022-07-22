@@ -3,7 +3,7 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - python>=3.7
+  - python>=3.8
   - pip
   - jupyter
   - jupyterlab>=3
@@ -13,7 +13,7 @@ dependencies:
   - numpy
   - scikit-learn
   - tensorflow>=2.0
-  - h5py<3.0.0
+  - h5py
   - seaborn
   - matplotlib-venn
   # Remove jsonschema once this issue is fixed: https://github.com/Yelp/bravado/issues/478
@@ -31,7 +31,7 @@ dependencies:
   - rdkit==2021.09.5
   - openbabel
   - opencadd
-  - biotite
+  - biotite>=0.34.0
   - smina
   - mdanalysis>=1.0.0
   - mdtraj
