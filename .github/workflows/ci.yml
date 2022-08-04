@@ -76,7 +76,7 @@ jobs:
         shell: bash -l {0}
         run: |
           PYTEST_ARGS="--nbval-lax --current-env --dist loadscope --numprocesses 2"
-          pytest $PYTEST_ARGS teachopencadd/talktorials/T029_query_gtopdb/talktorial.ipynb
+          pytest $PYTEST_ARGS teachopencadd/talktorials/T030_query_gtopdb/talktorial.ipynb
           #if [ "$RUNNER_OS" != "Windows" ]; then
           #  pytest $PYTEST_ARGS teachopencadd/talktorials/T*/talktorial.ipynb
           #else
