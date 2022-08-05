@@ -76,12 +76,11 @@ jobs:
         shell: bash -l {0}
         run: |
           PYTEST_ARGS="--nbval-lax --current-env --dist loadscope --numprocesses 2"
-          pytest $PYTEST_ARGS teachopencadd/talktorials/T008_query_pdb/talktorial.ipynb
-          # if [ "$RUNNER_OS" != "Windows" ]; then
-          #   pytest $PYTEST_ARGS teachopencadd/talktorials/T*/talktorial.ipynb
-          # else
-          #   pytest $PYTEST_ARGS teachopencadd/talktorials/ --ignore=teachopencadd/talktorials/T008_md_simulation/talktorial.ipynb --ignore=teachopencadd/talktorials/T019_md_simulation/talktorial.ipynb
-          # fi
+          if [ "$RUNNER_OS" != "Windows" ]; then
+            pytest $PYTEST_ARGS teachopencadd/talktorials/T*/talktorial.ipynb
+          else
+            pytest $PYTEST_ARGS teachopencadd/talktorials/ --ignore=teachopencadd/talktorials/T008_md_simulation/talktorial.ipynb --ignore=teachopencadd/talktorials/T019_md_simulation/talktorial.ipynb
+          fi
 
   format:
     name: Black
