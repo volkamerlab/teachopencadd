@@ -82,13 +82,17 @@ If you wish to get started first with a Python programming introduction before d
 - [MolSSI Education Resources](http://education.molssi.org/resources.html) by [The Molecular Sciences Software Institute](https://molssi.org/): Collection of tutorials on Python programming basics and data analysis but also more advanced material on software development and computational molecular science
 - [Core lessons](https://software-carpentry.org/lessons/) by the [Software Carpentry](https://software-carpentry.org/): Introduction to Python, Git, command line interfaces and more
 
-### Cheminformatics resources collections
+### Cheminformatics resources
 
 The following resources are collections of interesting cheminformatics-related training material, blogs, and books.
 
 - [Curated list of resources from the RDKit UGM 2020](https://github.com/rdkit/UGM_2020/blob/master/info/curated_list_of_resources.md)
 - [A Highly Opinionated List of Open Source Cheminformatics Resources](https://github.com/PatWalters/resources/blob/main/cheminformatics_resources.md) by Pat Walters
 - [Awesome Cheminformatics](https://github.com/hsiaoyi0504/awesome-cheminformatics#resources) by Yi Hsiao
+
+### Structural bioinformatics resources
+
+- [Education & Tutorials of the Bonvin Lab](https://www.bonvinlab.org/education/molmod_online/)
 
 ## Contact
 
