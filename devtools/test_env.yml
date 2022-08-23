@@ -8,7 +8,8 @@ dependencies:
   - jupyter
   - jupyterlab>=3
   - nglview>=3
-  - ipywidgets>=7.5
+  # https://github.com/volkamerlab/teachopencadd/issues/262
+  - ipywidgets<8
   # Explicitly add numpy because of https://github.com/volkamerlab/teachopencadd/issues/150
   - numpy
   - scikit-learn
