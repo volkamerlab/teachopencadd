@@ -28,7 +28,7 @@ jobs:
           - os: macos-latest
             python-version: "3.8"
           - os: windows-latest
-            python-version: "3.9"
+            python-version: "3.8"
 
     env:
       PYVER: ${{ matrix.cfg.python-version }}
