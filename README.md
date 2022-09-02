@@ -2,7 +2,7 @@
 A teaching platform for computer-aided drug design (CADD) using open source packages and data.
 
 ![TOC](https://img.shields.io/badge/Project-TeachOpenCADD-pink)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2600909.svg)](https://doi.org/10.5281/zenodo.2600909)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1486226.svg)](https://doi.org/10.5281/zenodo.1486226)
 
 <!-- markdown-link-check-disable-next-line -->
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/volkamerlab/TeachOpenCADD/master)
