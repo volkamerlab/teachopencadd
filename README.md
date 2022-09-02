@@ -2,7 +2,6 @@
 A teaching platform for computer-aided drug design (CADD) using open source packages and data.
 
 ![TOC](https://img.shields.io/badge/Project-TeachOpenCADD-pink)
-[![DOI](https://img.shields.io/badge/DOI-10.1186%2Fs13321--019--0351--x-blue.svg)](https://doi.org/10.1186/s13321-019-0351-x)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2600909.svg)](https://doi.org/10.5281/zenodo.2600909)
 
 <!-- markdown-link-check-disable-next-line -->
@@ -13,21 +12,11 @@ A teaching platform for computer-aided drug design (CADD) using open source pack
 [![GH Actions Docs](https://github.com/volkamerlab/teachopencadd/workflows/Docs/badge.svg)](https://projects.volkamerlab.org/teachopencadd/)
 [![Anaconda-Server Badge](https://anaconda.org/conda-forge/teachopencadd/badges/installer/conda.svg)](https://anaconda.org/conda-forge/teachopencadd)
 
-
-> 🌟 Check out our new major [**TeachOpenCADD release 2021.12.0**](https://github.com/volkamerlab/teachopencadd/releases/tag/2021.12.0) &mdash; accompanying paper is out in [NAR](https://doi.org/10.1093/nar/gkac267)!
->
-> - We refactored all published talktorials (T001-T010) to apply best practices to our code!
-> - We doubled the amount of TeachOpenCADD talktorials, extending our collection by topics from structure-based drug design, database queries, 3D visualization, and deep learning!
-> - We proudly present our brand new [TeachOpenCADD website](https://projects.volkamerlab.org/teachopencadd/)!
-> - All talktorials are tested with our continous integration to always keep them up-to-date!
-
-> 🌟 New kinase similarity release [**TeachOpenCADD 2021.12.2**](https://github.com/volkamerlab/teachopencadd/releases/tag/2021.12.2) &mdash; accompanying is out in [LiveCoMS](https://doi.org/10.33011/livecoms.3.1.1599)!
-
 Open source programming packages for cheminformatics and structural bioinformatics are powerful tools to build modular, reproducible, and reusable pipelines for computer-aided drug design (CADD). While documentation for such tools is available, only few freely accessible examples teach underlying concepts focused on CADD applications, addressing especially users new to the field.
 
 TeachOpenCADD is a teaching platform developed by students for students, which provides teaching material for central CADD topics. Since we cover both the theoretical as well as practical aspect of these topics, the platform addresses students and researchers with a biological/chemical as well as a computational background.
 
-For each topic, an interactive Jupyter Notebook is offered, using open source packages such as the Python packages `rdkit`, `pypdb`, `biopandas`, `nglview`, and `mdanalysis` (find the full list [here](https://github.com/volkamerlab/teachopencadd#external-resources)). Topics are continuously expanded and open for contributions from the community. Beyond their teaching purpose, the TeachOpenCADD material can serve as starting point for users’ project-directed modifications and extensions.
+Each topic is covered in an interactive Jupyter Notebook, using open source packages such as the Python packages `rdkit`, `pypdb`, `biopandas`, `nglview`, and `mdanalysis` (find the full list [here](https://github.com/volkamerlab/teachopencadd#external-resources)). Topics are continuously expanded and open for contributions from the community. Beyond their teaching purpose, the TeachOpenCADD material can serve as starting point for users’ project-directed modifications and extensions.
 
 > If you use TeachOpenCADD in a publication,
 > please [cite](https://github.com/volkamerlab/TeachOpenCADD/blob/master/README.md#citation) us!
