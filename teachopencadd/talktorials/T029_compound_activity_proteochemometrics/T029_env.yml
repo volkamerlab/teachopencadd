@@ -1,0 +1,22 @@
+name: teachopencadd_t029
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python>=3.8
+  - pip
+  - jupyter
+  - jupyterlab>=3
+  - nglview>=3
+  - pandas
+  - numpy
+  - biopython<=1.77
+  - rdkit==2021.09.5
+  - scikit-learn
+  - scipy
+  - seaborn
+  # Dependencies for PCM and papyrus scripts
+  - mordred
+  - pip:
+      - prodec
+      - https://github.com/OlivierBeq/Papyrus-scripts/tarball/master
