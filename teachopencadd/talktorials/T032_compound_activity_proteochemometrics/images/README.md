@@ -4,5 +4,5 @@
 
 This folder stores images used in the Jupyter notebook.
 - `PCM_model_text-01.png`
-- `papyrus_workflow.svg`
+- `papyrus_workflow.png`
 - `splitting_methods.png`
