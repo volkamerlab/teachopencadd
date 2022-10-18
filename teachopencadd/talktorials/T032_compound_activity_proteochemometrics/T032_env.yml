@@ -1,4 +1,4 @@
-name: teachopencadd_t029
+name: teachopencadd_t032
 channels:
   - conda-forge
   - defaults
@@ -18,7 +18,9 @@ dependencies:
   # Dependencies for PCM and papyrus scripts
   - mordred
   - pip:
+      - https://github.com/OlivierBeq/Papyrus-scripts/tarball/master
       - prodec
       - rich-msa
-      - wget
-      - https://github.com/OlivierBeq/Papyrus-scripts/tarball/master
+      # Dependency for ClustalO webservice (also conda installable via -c bioconda)
+      - xmltramp2
+
