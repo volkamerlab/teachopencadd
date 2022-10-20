@@ -24,7 +24,7 @@ While activity data is very abundant for some protein targets, there are still a
 
 * Proteochemometrics (PCM)
     * Machine learning principles: regression
-        * Splitting methods
+        * Data splitting methods
         * Regression evaluation metrics
         * ML algorithm: Random Forest
     * Applications of PCM in drug discovery
