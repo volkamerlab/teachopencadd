@@ -17,12 +17,11 @@ While activity data is very abundant for some protein targets, there are still a
 
 ### Contents in *Theory*
 
-* Data preparation
-    * Papyrus dataset
-    * Molecule encoding: molecular descriptors
-    * Protein encoding: protein descriptors
-
-* Proteochemometrics (PCM)
+* Proteochemometrics (PCM) modelling
+    * Data preparation
+        * Papyrus dataset
+        * Molecule encoding: molecular descriptors
+        * Protein encoding: protein descriptors
     * Machine learning principles: regression
         * Data splitting methods
         * Regression evaluation metrics
