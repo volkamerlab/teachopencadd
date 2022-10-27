@@ -55,3 +55,15 @@ This PR template is suitable for adding new talktorials and extending existing t
   HERE = Path(_dh[-1])
   DATA = HERE / "data"
   ```
+
+## Website
+We present our talktorials on our TeachOpenCADD website (https://projects.volkamerlab.org/teachopencadd/), so we have to check as well if the Jupyter notebook renders nicely there.
+
+* [ ] If this PR adds a new talktorial, please follow these steps:
+  * [ ] Add your talktorial to the complete list of talktorials [here](https://github.com/volkamerlab/teachopencadd/blob/master/docs/all_talktorials.rst) (at the end).
+  * [ ] Add your talktorial to one or multiple of the collections [here](https://github.com/volkamerlab/teachopencadd/blob/master/docs/talktorials.rst). Or propose a new collection section in your PR.
+  * [ ] Please complile the website following the instructions [here](https://github.com/volkamerlab/teachopencadd/tree/master/docs).
+* [ ] Check the rendering of the talktorial of this PR.
+* [ ] Is your talktorial listed [in the talktorial list](https://projects.volkamerlab.org/teachopencadd/all_talktorials.html)?
+* [ ] Is your talktorial listed [in the talktorial collections](https://projects.volkamerlab.org/teachopencadd/talktorials.html)?
+  * [ ] Add a picture for your talktorial in the collection view by following [these instructions](https://github.com/volkamerlab/teachopencadd/discussions/185). 
