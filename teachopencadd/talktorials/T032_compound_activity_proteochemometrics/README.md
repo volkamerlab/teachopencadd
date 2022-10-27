@@ -12,21 +12,21 @@ Authors:
 
 ## Aim of this talktorial
 
-While activity data is very abundant for some protein targets, there are still a number of underexplored proteins where the use of machine learning (ML) for activity prediction is very difficult due to the lack of data. This issue can be solved leveraging similarities and differences between proteins. In this talktorial, we use Proteochemometrics modelling (PCM) to enrich our activity models with protein data to predict the activity of novel compounds against the four adenosine receptor isoforms (A1, A2A, A2B, A3).
+While activity data is very abundant for some protein targets, there are still a number of underexplored proteins where the use of machine learning (ML) for activity prediction is very difficult due to the lack of data. This issue can be solved leveraging similarities and differences between proteins. In this talktorial, we use Proteochemometrics modeling (PCM) to enrich our activity models with protein data to predict the activity of novel compounds against the four adenosine receptor isoforms (A1, A2A, A2B, A3).
 
 
 ### Contents in *Theory*
 
-* Proteochemometrics (PCM) modelling
-    * Data preparation
-        * Papyrus dataset
-        * Molecule encoding: molecular descriptors
-        * Protein encoding: protein descriptors
-    * Machine learning principles: regression
-        * Data splitting methods
-        * Regression evaluation metrics
-        * ML algorithm: Random Forest
-    * Applications of PCM in drug discovery
+* Proteochemometrics (PCM) modeling
+* Data preparation
+    * Papyrus dataset
+    * Molecule encoding: molecular descriptors
+    * Protein encoding: protein descriptors
+* Machine learning principles: regression
+    * Data splitting methods
+    * Regression evaluation metrics
+    * ML algorithm: Random Forest
+* Applications of PCM in drug discovery
 
 
 ### Contents in *Practical*
@@ -37,7 +37,7 @@ While activity data is very abundant for some protein targets, there are still a
     * Align target sequences
     * Calculate protein descriptors
     * Calculate compound descriptors
-* Proteochemometrics modelling
+* Proteochemometrics modeling
     * Helper functions
         * Preprocessing
     * Model training and validation
@@ -48,10 +48,10 @@ While activity data is very abundant for some protein targets, there are still a
 
 ### References
 
-* Papyrus scripts [github](https://github.com/OlivierBeq/Papyrus-scripts)
+* Papyrus scripts [GitHub](https://github.com/OlivierBeq/Papyrus-scripts)
 * Papyrus dataset preprint: [<i>ChemRvix</i> (2021)](https://chemrxiv.org/engage/chemrxiv/article-details/617aa2467a002162403d71f0)
 * Molecular descriptors (Modred): [<i>J. Cheminf.</i>, 10, (2018)](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-018-0258-y)
-* Protein descriptors (ProDEC) [github](https://github.com/OlivierBeq/ProDEC)
+* Protein descriptors (ProDEC) [GitHub](https://github.com/OlivierBeq/ProDEC)
 * Regression metrics [(Scikit learn)](https://scikit-learn.org/stable/modules/model_evaluation.html#regression-metrics)
 * XGBoost [Documentation](https://xgboost.readthedocs.io/en/stable/index.html)
 * Proteochemometrics review: [<i>Drug Discov.</i> (2019), <b>32</b>, 89-98](https://www.sciencedirect.com/science/article/pii/S1740674920300111?via%3Dihub)
