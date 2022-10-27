@@ -63,6 +63,7 @@ The basis for computer-aided drug discovery
    talktorials/T013_query_pubchem.nblink
    talktorials/T021_one_hot_encoding.nblink
    talktorials/T022_ligand_based_screening_neural_network.nblink
+   talktorials/T032_compound_activity_proteochemometrics.nblink
 
 Structural biology
 ------------------
