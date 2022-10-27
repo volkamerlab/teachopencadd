@@ -104,6 +104,7 @@ parser.add_option('--sequence', type=str, help=('Three or more sequences to be a
 parser.add_option('-h', '--help', action='store_true', help='Show this help message and exit.')
 parser.add_option('--email', help='E-mail address.')
 parser.add_option('--title', help='Job title.')
+parser.add_option('--outdir', help='Relative directory for results.')
 parser.add_option('--outfile', help='File name for results.')
 parser.add_option('--outformat', help='Output format for results.')
 parser.add_option('--asyncjob', action='store_true', help='Asynchronous mode.')
@@ -388,6 +389,10 @@ def getResult(jobId):
         else:
             filename = (jobId + u'.' + unicode(resultType[u'identifier']) +
                         u'.' + unicode(resultType[u'fileSuffix']))
+        if options.outdir:
+            filepath = os.path.join(options.outdir, filename)
+        else:
+            filepath = filename
         # Write a result file
 
         outformat_parm = str(options.outformat).split(',')
@@ -410,16 +415,16 @@ def getResult(jobId):
                     fmode = 'w'
 
                 try:
-                    fh = open(filename, fmode)
+                    fh = open(filepath, fmode)
                     fh.write(result)
                     fh.close()
                 except TypeError:
                     fh.close()
-                    fh = open(filename, "wb")
+                    fh = open(filepath, "wb")
                     fh.write(result)
                     fh.close()
                 if outputLevel > 0:
-                    print("Creating result file: " + filename)
+                    print("Creating result file: " + filepath)
     printDebugMessage(u'getResult', u'End', 1)
 
 
