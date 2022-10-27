@@ -66,11 +66,11 @@ jobs:
           conda info --all
           conda list
 
-      - name: Test CLI
-        shell: bash -l {0}
-        run: |
-          teachopencadd -h
-          pytest -v --cov=${PACKAGE} --cov-report=xml --color=yes ${PACKAGE}/tests/
+      # - name: Test CLI
+      #   shell: bash -l {0}
+      #   run: |
+      #     teachopencadd -h
+      #     pytest -v --cov=${PACKAGE} --cov-report=xml --color=yes ${PACKAGE}/tests/
 
       - name: Run tests
         shell: bash -l {0}
