@@ -4,19 +4,17 @@
 
 Authors:
 
-- Marina Gorostiola González, 2022, Computational Drug Discovery, Drug Discovery & Safety Leiden University (The Netherlands)
+- Marina Gorostiola González, 2022, [Computational Drug Discovery](https://www.universiteitleiden.nl/en/science/drug-research/drug-discovery-and-safety/computational-drug-discovery), Drug Discovery & Safety Leiden University (The Netherlands)
 - Olivier J.M. Béquignon, 2022, Computational Drug Discovery, Drug Discovery & Safety Leiden University (The Netherlands)
 - Willem Jespers, 2022, Computational Drug Discovery, Drug Discovery & Safety Leiden University (The Netherlands)
 
 
-
 ## Aim of this talktorial
 
-While activity data is very abundant for some protein targets, there are still a number of underexplored proteins where the use of machine learning (ML) for activity prediction is very difficult due to the lack of data. This issue can be solved leveraging similarities and differences between proteins. In this talktorial, we use Proteochemometrics modelling (PCM) to enrich our activity models with protein data to predict the activity of novel compounds against the four adenosine receptor isoforms (A1, A2A, A2B, A3).
+While activity data is very abundant for some protein targets, there are still a number of underexplored proteins where the use of machine learning (ML) for activity prediction is very difficult due to the lack of data. This issue can be partially solved leveraging similarities and differences between proteins. In this talktorial, we use proteochemometrics (PCM) modelling to enrich our activity models with protein data to predict the activity of novel compounds against the four [adenosine receptor](https://journals.physiology.org/doi/full/10.1152/physrev.00049.2017) isoforms (A1, A2A, A2B, A3).
 
 
 ### Contents in *Theory*
-
 * Proteochemometrics (PCM) modelling
     * Data preparation
         * Papyrus dataset
@@ -55,3 +53,5 @@ While activity data is very abundant for some protein targets, there are still a
 * Regression metrics [(Scikit learn)](https://scikit-learn.org/stable/modules/model_evaluation.html#regression-metrics)
 * XGBoost [Documentation](https://xgboost.readthedocs.io/en/stable/index.html)
 * Proteochemometrics review: [<i>Drug Discov.</i> (2019), <b>32</b>, 89-98](https://www.sciencedirect.com/science/article/pii/S1740674920300111?via%3Dihub)
+
+
