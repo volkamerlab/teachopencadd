@@ -71,7 +71,7 @@ jobs:
         run: |
           PYTEST_ARGS="--nbval-lax --current-env --dist loadscope --numprocesses 2"
           # Get a list of changed talktorials
-          changed_talktorials=$(git diff HEAD~1..HEAD~2 --name-only "teachopencadd/talktorials/T*/talktorial.ipynb")
+          changed_talktorials=$(git diff HEAD~1..HEAD~2 --name-only -- "teachopencadd/talktorials/T*/talktorial.ipynb")
           # Run test on changed talktorials
           for changed_talktorial in $changed_talktorials; do
             if [ "$RUNNER_OS" != "Windows" ]; then
@@ -92,7 +92,7 @@ jobs:
       - name: Run black-nb
         run: |
           # Get a list of changed talktorials
-          changed_talktorials=$(git diff HEAD~1..HEAD~2 --name-only "teachopencadd/talktorials/T*/talktorial.ipynb")
+          changed_talktorials=$(git diff HEAD~1..HEAD~2 --name-only -- "teachopencadd/talktorials/T*/talktorial.ipynb")
           # Run black on changed talktorials
           for changed_talktorial in $changed_talktorials; do
             black-nb -l 99 --check $changed_talktorial
@@ -109,7 +109,7 @@ jobs:
       - name: Check READMEs are up-to-date
         run: |
           # Get a list of changed talktorials
-          changed_talktorials=$(git diff HEAD~1..HEAD~2 --name-only "teachopencadd/talktorials/T*/talktorial.ipynb")
+          changed_talktorials=$(git diff HEAD~1..HEAD~2 --name-only -- "teachopencadd/talktorials/T*/talktorial.ipynb")
           # Run README generation on changed talktorials
           for changed_talktorial in $changed_talktorials; do
             python devtools/regenerate_readmes.py --output README.md $changed_talktorial
