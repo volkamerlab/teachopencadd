@@ -13,37 +13,39 @@ dependencies:
   # Explicitly add numpy because of https://github.com/volkamerlab/teachopencadd/issues/150
   - numpy
   - scikit-learn
+  - scipy
   # API changed after v2.6, see https://github.com/volkamerlab/teachopencadd/issues/265
-  - tensorflow<=2.6
+  #- tensorflow<=2.6
   - seaborn
-  - matplotlib-venn
+  #- matplotlib-venn
   # Remove jsonschema once this issue is fixed: https://github.com/Yelp/bravado/issues/478
   - jsonschema<4.0.0
-  - bravado
-  - requests
-  - requests-cache
+  #- bravado
+  #- requests
+  #- requests-cache
   - redo
-  - suds-community
-  - beautifulsoup4
-  - chembl_webresource_client
-  - pypdb
+  #- suds-community
+  #- beautifulsoup4
+  #- chembl_webresource_client
+  #- pypdb
   - biopython<=1.77
-  - biopandas
+  #- biopandas
   - rdkit==2021.09.5
-  - openbabel
-  - opencadd
-  - biotite>=0.34.0
-  - smina
-  - mdanalysis>=1.0.0
-  - mdtraj
-  - plip
-  - openmm
+  #- openbabel
+  #- opencadd
+  #- biotite>=0.34.0
+  #- smina
+  #- mdanalysis>=1.0.0
+  #- mdtraj
+  #- plip
+  #- openmm
   # depends on openff-toolkit->ambertools -> not available on Windows yet!
   # - openmmforcefields
-  - pdbfixer
-  - tqdm
-  - lxml
-  - kissim
+  #- pdbfixer
+  #- tqdm
+  #- lxml
+  #- kissim
+  - mordred
   ## CI tests
   # Workaround for https://github.com/computationalmodelling/nbval/issues/153
   - pytest 5.*
@@ -68,5 +70,11 @@ dependencies:
       - black-nb
       - nbsphinx-link
       - sphinxext-opengraph
+      # T032 - we might move some of this to conda-forge
+      - https://github.com/OlivierBeq/Papyrus-scripts/tarball/master
+      - prodec
+      - rich-msa
+      # Dependency for ClustalO webservice (also conda installable via -c bioconda)
+      - xmltramp2
       # TeachOpenCADD itself
       - ../
