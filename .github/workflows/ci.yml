@@ -45,7 +45,7 @@ jobs:
           #miniconda-version: "latest"
           activate-environment: teachopencadd
           channel-priority: true
-          environment-file: teachopencadd/talktorials/T032_compound_activity_proteochemometrics/T032_env.yml
+          environment-file: devtools/test_env.yml
           auto-activate-base: false
 
       - name: Additional info about the build
@@ -66,11 +66,11 @@ jobs:
           conda info --all
           conda list
 
-      # - name: Test CLI
-      #   shell: bash -l {0}
-      #   run: |
-      #     teachopencadd -h
-      #     pytest -v --cov=${PACKAGE} --cov-report=xml --color=yes ${PACKAGE}/tests/
+      - name: Test CLI
+        shell: bash -l {0}
+        run: |
+          teachopencadd -h
+          pytest -v --cov=${PACKAGE} --cov-report=xml --color=yes ${PACKAGE}/tests/
 
       - name: Run tests
         shell: bash -l {0}
