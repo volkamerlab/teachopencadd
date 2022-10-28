@@ -1,17 +1,13 @@
-name: CI
+name: CI (changed talktorials)
 
 on:
   push:
     branches:
       - "master"
-      - "maintenance/.+"
+      - "dev"
   pull_request:
     branches:
-      - "master"
-      - "maintenance/.+"
-  schedule:
-    # Run a cron job once weekly on Monday
-    - cron: "0 3 * * 1"
+      - "dev"
 
 jobs:
   test:
@@ -41,8 +37,6 @@ jobs:
         with:
           python-version: ${{ matrix.cfg.python-version }}
           mamba-version: "*"
-          # Uncomment next line if you are running the tests locally via https://github.com/nektos/act
-          #miniconda-version: "latest"
           activate-environment: teachopencadd
           channel-priority: true
           environment-file: devtools/test_env.yml
@@ -76,11 +70,16 @@ jobs:
         shell: bash -l {0}
         run: |
           PYTEST_ARGS="--nbval-lax --current-env --dist loadscope --numprocesses 2"
-          if [ "$RUNNER_OS" != "Windows" ]; then
-            pytest $PYTEST_ARGS teachopencadd/talktorials/T*/talktorial.ipynb
-          else
-            pytest $PYTEST_ARGS teachopencadd/talktorials/ --ignore=teachopencadd/talktorials/T008_md_simulation/talktorial.ipynb --ignore=teachopencadd/talktorials/T019_md_simulation/talktorial.ipynb
-          fi
+          # Get a list of changed talktorials
+          changed_talktorials=$(git diff HEAD~1..HEAD~2 --name-only "teachopencadd/talktorials/T*/talktorial.ipynb")
+          # Run test on changed talktorials
+          for changed_talktorial in $changed_talktorials; do
+            if [ "$RUNNER_OS" != "Windows" ]; then
+              pytest $PYTEST_ARGS $changed_talktorial
+            else
+              pytest $PYTEST_ARGS $changed_talktorial --ignore=teachopencadd/talktorials/T008_md_simulation/talktorial.ipynb --ignore=teachopencadd/talktorials/T019_md_simulation/talktorial.ipynb
+            fi
+          done
 
   format:
     name: Black
@@ -92,7 +91,12 @@ jobs:
         run: python -m pip install black-nb shyaml
       - name: Run black-nb
         run: |
-          black-nb -l 99 --check teachopencadd/talktorials/T*/talktorial.ipynb
+          # Get a list of changed talktorials
+          changed_talktorials=$(git diff HEAD~1..HEAD~2 --name-only "teachopencadd/talktorials/T*/talktorial.ipynb")
+          # Run black on changed talktorials
+          for changed_talktorial in $changed_talktorials; do
+            black-nb -l 99 --check $changed_talktorial
+          done
 
   readmes:
     name: READMEs
@@ -104,8 +108,11 @@ jobs:
         run: python -m pip install nbformat shyaml
       - name: Check READMEs are up-to-date
         run: |
-          for path in teachopencadd/talktorials/T*/talktorial.ipynb; do
-            python devtools/regenerate_readmes.py --output README.md $path
+          # Get a list of changed talktorials
+          changed_talktorials=$(git diff HEAD~1..HEAD~2 --name-only "teachopencadd/talktorials/T*/talktorial.ipynb")
+          # Run README generation on changed talktorials
+          for changed_talktorial in $changed_talktorials; do
+            python devtools/regenerate_readmes.py --output README.md $changed_talktorial
           done
           # If the script above introduced changes (it shouldn't!), git diff will have output and an error code
           git diff --exit-code
