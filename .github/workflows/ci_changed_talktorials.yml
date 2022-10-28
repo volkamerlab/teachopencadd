@@ -44,6 +44,10 @@ jobs:
           environment-file: devtools/test_env.yml
           auto-activate-base: false
 
+      - uses: jitterbit/get-changed-files@v1
+        with:
+          format: "ipynb"
+
       - name: Additional info about the build
         shell: bash
         run: |
@@ -72,10 +76,7 @@ jobs:
         shell: bash -l {0}
         run: |
           PYTEST_ARGS="--nbval-lax --current-env --dist loadscope --numprocesses 2"
-          # Get a list of changed talktorials
-          changed_talktorials=$(git diff HEAD~1..62e48936 --name-only -- "teachopencadd/talktorials/T*/talktorial.ipynb")
-          # Run test on changed talktorials
-          for changed_talktorial in $changed_talktorials; do
+          for changed_talktorial in ${{ steps.files.outputs.all }}; do
             if [ "$RUNNER_OS" != "Windows" ]; then
               pytest $PYTEST_ARGS $changed_talktorial
             else
