@@ -95,6 +95,7 @@ jobs:
         run: |
           # Get a list of changed talktorials
           changed_talktorials=$(git diff HEAD~1..HEAD~2 --name-only -- "teachopencadd/talktorials/T*/talktorial.ipynb")
+          echo $changed_talktorials
           # Run black on changed talktorials
           for changed_talktorial in $changed_talktorials; do
             black-nb -l 99 --check $changed_talktorial
