@@ -62,6 +62,7 @@ We present our talktorials on our TeachOpenCADD website (https://projects.volkam
 * [ ] If this PR adds a new talktorial, please follow these steps:
   * [ ] Add your talktorial to the complete list of talktorials [here](https://github.com/volkamerlab/teachopencadd/blob/master/docs/all_talktorials.rst) (at the end).
   * [ ] Add your talktorial to one or multiple of the collections [here](https://github.com/volkamerlab/teachopencadd/blob/master/docs/talktorials.rst). Or propose a new collection section in your PR.
+  * [ ] Add your talktorial's `nblink` file by running `python generate_nblinks.py` from within the directory `teachopencadd/docs/talktorials`.
   * [ ] Please complile the website following the instructions [here](https://github.com/volkamerlab/teachopencadd/tree/master/docs).
 * [ ] Check the rendering of the talktorial of this PR.
 * [ ] Is your talktorial listed [in the talktorial list](https://projects.volkamerlab.org/teachopencadd/all_talktorials.html)?
