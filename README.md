@@ -10,7 +10,7 @@ A teaching platform for computer-aided drug design (CADD) using open source pack
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/volkamerlab/teachopencadd)
 [![GH Actions CI ](https://github.com/volkamerlab/teachopencadd/workflows/CI/badge.svg)](https://github.com/volkamerlab/teachopencadd/actions?query=branch%3Amaster+workflow%3ACI)
 [![GH Actions Docs](https://github.com/volkamerlab/teachopencadd/workflows/Docs/badge.svg)](https://projects.volkamerlab.org/teachopencadd/)
-[![Anaconda-Server Badge](https://anaconda.org/conda-forge/teachopencadd/badges/installer/conda.svg)](https://anaconda.org/conda-forge/teachopencadd)
+[![Conda Version](https://img.shields.io/conda/vn/conda-forge/teachopencadd.svg)](https://anaconda.org/conda-forge/teachopencadd)
 
 Open source programming packages for cheminformatics and structural bioinformatics are powerful tools to build modular, reproducible, and reusable pipelines for computer-aided drug design (CADD). While documentation for such tools is available, only few freely accessible examples teach underlying concepts focused on CADD applications, addressing especially users new to the field.
 
