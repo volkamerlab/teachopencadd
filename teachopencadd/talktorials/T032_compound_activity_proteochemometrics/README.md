@@ -37,7 +37,7 @@ While activity data is very abundant for some protein targets, there are still a
     * Calculate compound descriptors
 * Proteochemometrics modeling
     * Helper functions
-        * Preprocessing
+    * Preprocessing
     * Model training and validation
         * Random split PCM model
         * Random split QSAR models
@@ -47,11 +47,11 @@ While activity data is very abundant for some protein targets, there are still a
 ### References
 
 * Papyrus scripts [GitHub](https://github.com/OlivierBeq/Papyrus-scripts)
-* Papyrus dataset preprint: [<i>ChemRvix</i> (2021)](https://chemrxiv.org/engage/chemrxiv/article-details/617aa2467a002162403d71f0)
-* Molecular descriptors (Modred): [<i>J. Cheminf.</i>, 10, (2018)](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-018-0258-y)
+* Papyrus dataset preprint: [*ChemRvix* (2021)](https://chemrxiv.org/engage/chemrxiv/article-details/617aa2467a002162403d71f0)
+* Molecular descriptors (Modred): [*J. Cheminf.*, 10, (2018)](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-018-0258-y)
 * Protein descriptors (ProDEC) [GitHub](https://github.com/OlivierBeq/ProDEC)
 * Regression metrics [(Scikit learn)](https://scikit-learn.org/stable/modules/model_evaluation.html#regression-metrics)
 * XGBoost [Documentation](https://xgboost.readthedocs.io/en/stable/index.html)
-* Proteochemometrics review: [<i>Drug Discov.</i> (2019), <b>32</b>, 89-98](https://www.sciencedirect.com/science/article/pii/S1740674920300111?via%3Dihub)
+* Proteochemometrics review: [*Drug Discov.* (2019), **32**, 89-98](https://www.sciencedirect.com/science/article/pii/S1740674920300111?via%3Dihub)
 
 
