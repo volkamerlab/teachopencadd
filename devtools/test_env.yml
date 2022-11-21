@@ -70,11 +70,14 @@ dependencies:
       - black-nb
       - nbsphinx-link
       - sphinxext-opengraph
-      # T032 - we might move some of this to conda-forge
-      - https://github.com/OlivierBeq/Papyrus-scripts/tarball/master
-      - prodec
-      - rich-msa
-      # Dependency for ClustalO webservice (also conda installable via -c bioconda)
-      - xmltramp2
       # TeachOpenCADD itself
       - ../
+
+      # T032
+      # The following pip packages are currently installed in the notebook itself because they are only used there, thereby avoiding the addition of more dependencies to our already quite large environment file.
+      # Follow this discussion on how we try to simplify our environment setup in the future: https://github.com/volkamerlab/teachopencadd/discussions/277
+      # - https://github.com/OlivierBeq/Papyrus-scripts/tarball/master
+      # - prodec
+      # - rich-msa
+      # Dependency for ClustalO webservice (also conda installable via -c bioconda)
+      # - xmltramp2
