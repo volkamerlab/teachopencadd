@@ -130,6 +130,7 @@ html_theme_options = {
         {"href": "talktorials", "internal": True, "title": "Our talktorials"},
         {"href": "installing", "internal": True, "title": "Run locally"},
         {"href": "contribute", "internal": True, "title": "Contribute"},
+        {"href": "jupyter_tutorial", "internal": True, "title": "How to Use Jupyter Notebook"}
         # {
         #     "href": "https://squidfunk.github.io/mkdocs-material/",
         #     "internal": False,
