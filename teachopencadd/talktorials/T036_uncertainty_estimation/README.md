@@ -1,25 +1,10 @@
-<div class="alert alert-block alert-info">
-
-<b>Thank you for contributing to TeachOpenCADD!</b>
-
-</div>
-
-
-<div class="alert alert-block alert-info">
-
-<b>Set up your PR</b>: Please check out our <a href="https://github.com/volkamerlab/teachopencadd/issues/41">issue</a> on how to set up a PR for new talktorials, including standard checks and TODOs.
-
-</div>
-
-
-# T000 · Talktorial topic title
+# T036 · Uncertainty estimation
 
 **Note:** This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
 
 Authors:
 
-- First and last name, year(s) of contribution, lab, institution
-- First and last name, year(s) of contribution, lab, institution
+- Michael Backenköhler, 2022, [Volkamer lab](https://volkarmerlab.org), Saarland University
 
 
 *The examples used in this talktorial template are taken from [__Talktorial T001__](https://github.com/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T001_query_chembl/talktorial.ipynb) and [__Talktorial T002__](https://github.com/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb).*

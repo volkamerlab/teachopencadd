@@ -44,6 +44,35 @@ def neural_network_model(layer_sizes):
     return model
 
 
+def create_and_fit_model(x_train, y_train, x_test, y_test, layers=[512, 128, 64], **kwargs):
+    """
+    Create and fit an instance of a feed-forward neural network (see Talktorial 022).
+    
+    Parameters
+    ----------
+    layers: List[int]
+        The width of hidden layers in the feed-forward neural net.
+    
+    **kwargs
+        The keyword arguments are passed to the `model.fit` function.
+    
+    Returns
+    -------
+    Sequential
+        A fitted feed-forward NN.
+    """
+    model = neural_network_model(layers)
+    # Fit model on x_train, y_train data
+    history = model.fit(
+        np.array(list((x_train))).astype(float),
+        y_train,
+        validation_data=(np.array(list((x_test))).astype(float), y_test),
+        **kwargs,
+    )
+    
+    return model
+
+
 def smiles_to_fp(smiles, method="maccs", n_bits=2048):
     """
     Encode a molecule from a SMILES string into a fingerprint.
@@ -101,6 +130,7 @@ def load_chembl_egfr_data(data_dir, **kwargs):
     df = pd.read_csv(data_dir, index_col=0)
     df = df.reset_index(drop=True)
     # Keep necessary columns
+    df = df[df["units"] == "nM"]
     chembl_df = df[["canonical_smiles", "pIC50"]]
     chembl_df["fingerprints_df"] = chembl_df["canonical_smiles"].apply(smiles_to_fp, **kwargs)
     return chembl_df
