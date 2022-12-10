@@ -16,8 +16,9 @@ If you wish to get started first with a Python programming introduction before d
 .. _jupyter_tutorial:
 Jupyter notebook tutorials
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
-- `The cheat sheet for Jupyter Notebook.<https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Jupyter_Notebook_Cheat_Sheet.pdf>`_
-- `How to Use Jupyter Notebook: A Beginner's Tutorial<https://www.dataquest.io/blog/jupyter-notebook-tutorial/>`_
+
+- `The cheat sheet for Jupyter Notebook. <https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Jupyter_Notebook_Cheat_Sheet.pdf>`_
+- `How to Use Jupyter Notebook: A Beginner's Tutorial <https://www.dataquest.io/blog/jupyter-notebook-tutorial/>`_
 
 Cheminformatics
 ~~~~~~~~~~~~~~~
