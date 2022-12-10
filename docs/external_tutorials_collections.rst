@@ -13,6 +13,11 @@ If you wish to get started first with a Python programming introduction before d
 - `Core lessons <https://software-carpentry.org/lessons/>`_ by the `Software Carpentry <https://software-carpentry.org/>`_: Introduction to Python, Git, command line interfaces and more
 - `Best practices for Python, Git and Jupyter <https://zenodo.org/record/4630714>`_, a slide deck used in the introduction of our CADD Block course 2021, part of the Master's degree in Bioinformatics curriculum at the Freie Universität (FU) Berlin.
 
+Jupyter notebook tutorials
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+- `The cheat sheet for Jupyter Notebook.<https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Jupyter_Notebook_Cheat_Sheet.pdf>`_
+- `How to Use Jupyter Notebook: A Beginner's Tutorial<https://www.dataquest.io/blog/jupyter-notebook-tutorial/>`_
+
 
 Cheminformatics
 ~~~~~~~~~~~~~~~
