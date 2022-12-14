@@ -4,10 +4,14 @@ on:
   push:
     branches:
       - "master"
+      # to be removed after merge
+      - "DL_edition"
       - "maintenance/.+"
   pull_request:
     branches:
       - "master"
+      # to be removed after merge
+      - "DL_edition"
       - "maintenance/.+"
   schedule:
     # Run a cron job once weekly on Monday
