@@ -1,5 +1,6 @@
 import os.path
 import urllib.request
+from typing import Callable
 
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -143,7 +144,7 @@ def download_proteins(kiba_filepath, structure_folder):
             flags.append(True)
             continue
         try:
-            urllib.request.urlretrieve("https://files.rcsb.org/download/" + pdb_id + ".pdb", structure_folder + uniprot_id)
+            urllib.request.urlretrieve("https://files.rcsb.org/download/" + pdb_id + ".pdb", structure_folder + uniprot_id + ".pdb")
             print(f"\rDownload {pdb_id} -> {uniprot_id}", end="")
             flags.append(True)
         except:
@@ -155,12 +156,13 @@ def download_proteins(kiba_filepath, structure_folder):
     print("Preprocessing proteins finished")
 
 
-def process_interactions(kiba_filepath, inter_filepath):
+def process_interactions(kiba_filepath, inter_filepath, threshold_fn: Callable):
     print("Preprocessing interactions")
     inter_count = 0
     with open(kiba_filepath, "r") as data, open(inter_filepath, "w") as inter:
         print("UniProt_ID", "ChEMBL_ID", "Y", sep="\t", file=inter)
         uniprot_ids = []
+        values = []
         for i, line in enumerate(data.readlines()):
             if i == 0:
                 uniprot_ids = line.strip().split("\t")[1:]
@@ -170,7 +172,13 @@ def process_interactions(kiba_filepath, inter_filepath):
                 for val, p_id in zip(parts[1:], uniprot_ids):
                     if len(val) > 0:
                         inter_count += 1
-                        print(p_id, ligand, str(float(val.replace(",", "."))), sep="\t", file=inter)
+                        values.append(float(val.replace(",", ".")))
+                        print(p_id, ligand, threshold_fn(float(val.replace(",", "."))), sep="\t", file=inter)
+    values = np.array(values)
+    plt.hist(values, log=True)
+    plt.show()
+    print(np.mean(values))
+    print(np.average(values))
     print(f"Finally, KiBA comprises {inter_count} interactions.")
     print("Preprocessing interactions finished")
 
@@ -185,7 +193,7 @@ def kiba_preprocessing(
     filter_data(kiba_init_filepath, database + "tables/kiba.tsv")
     download_ligands(database + "tables/kiba.tsv", database + "tables/ligands.tsv")
     download_proteins(database + "tables/kiba.tsv", database + "proteins/")
-    process_interactions(database + "tables/kiba.tsv", database + "tables/inter.tsv")
+    process_interactions(database + "tables/kiba.tsv", database + "tables/inter.tsv", lambda x: "1" if x < 3.6122 else "0")
 
 
 kiba_preprocessing()
