@@ -14,6 +14,7 @@ If you wish to get started first with a Python programming introduction before d
 - `Best practices for Python, Git and Jupyter <https://zenodo.org/record/4630714>`_, a slide deck used in the introduction of our CADD Block course 2021, part of the Master's degree in Bioinformatics curriculum at the Freie Universität (FU) Berlin.
 
 .. _jupyter_tutorial:
+
 Jupyter notebook tutorials
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
