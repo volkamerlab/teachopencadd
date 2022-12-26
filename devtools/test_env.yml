@@ -17,6 +17,7 @@ dependencies:
   - tensorflow<=2.6
   - seaborn
   - matplotlib-venn
+  - mols2grid # Add mols2grid support to display dataframes as paginated tables
   # Remove jsonschema once this issue is fixed: https://github.com/Yelp/bravado/issues/478
   - jsonschema<4.0.0
   - bravado
