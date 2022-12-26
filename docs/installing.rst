@@ -32,7 +32,7 @@ Install from the conda package
    In this example command, you are setting up your workspace in the current directory ``.``; you can use any other path.
 
 You can always return to your TeachOpenCADD material with ``jupyter lab /path/to/your/teachopencadd/workspace``.
-
+If you need an introduction to Jupyter notebooks, please check :ref:`here<jupyter_tutorial>` 
 
 Install from the latest development snapshot
 --------------------------------------------
