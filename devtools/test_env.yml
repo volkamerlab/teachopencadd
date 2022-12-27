@@ -1,4 +1,4 @@
-﻿name: teachopencadd
+name: teachopencadd
 channels:
   - conda-forge
   - defaults
@@ -10,8 +10,6 @@ dependencies:
   - nglview>=3
   # https://github.com/volkamerlab/teachopencadd/issues/262
   - ipywidgets<8
-  # Explicitly add numpy because of https://github.com/volkamerlab/teachopencadd/issues/150
-  - numpy
   - scikit-learn
   # API changed after v2.6, see https://github.com/volkamerlab/teachopencadd/issues/265
   - tensorflow<=2.6
