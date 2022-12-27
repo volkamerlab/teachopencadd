@@ -21,7 +21,6 @@ You are welcome to contribute to the project either by requesting new topics, pr
 getting involved in the development!
 
 - Engage with the maintainers and other TeachOpenCADD users in our `GitHub Discussions forum <https://github.com/volkamerlab/teachopencadd/discussions>`_!
-- Send us your ideas for new talktorials via `this form <http://contribute.volkamerlab.org/>`_!
 - Submit new talktorials (see `Submitting new talktorials`_).
 - Update existing talktorials by fixing bugs or extending the content (see `Updating talktorials`_).
 - Help us maintain TeachOpenCADD (see `Maintaining talktorials`_).

@@ -265,4 +265,4 @@ and/or by helping in any other way (see [GitHub contributors](https://github.com
 
 You are welcome to contribute to the project either by requesting new topics,
 proposing ideas or getting involved in the development!
-Please, use [this form](http://contribute.volkamerlab.org/) to let us know!
+Check out our [contributor guide](https://projects.volkamerlab.org/teachopencadd/contribute.html#contribute) for more information!
