@@ -4,11 +4,11 @@ on:
   push:
     branches:
       - "master"
-      - "maintenance/.+"
+      - "base-ci-env-fix"
   pull_request:
     branches:
       - "master"
-      - "maintenance/.+"
+      - "base-ci-env-fix"
   schedule:
     # Run a cron job once weekly on Monday
     - cron: "0 3 * * 1"
@@ -76,10 +76,11 @@ jobs:
         shell: bash -l {0}
         run: |
           PYTEST_ARGS="--nbval-lax --current-env --dist loadscope --numprocesses 2"
+          PYTEST_IGNORE="--ignore=teachopencadd/talktorials/T021_one_hot_encoding/talktorial.ipynb --ignore=teachopencadd/talktorials/T022_ligand_based_screening_neural_network/talktorial.ipynb"
           if [ "$RUNNER_OS" != "Windows" ]; then
-            pytest $PYTEST_ARGS teachopencadd/talktorials/T*/talktorial.ipynb
+            pytest $PYTEST_ARGS teachopencadd/talktorials/T*/talktorial.ipynb $PYTEST_IGNORE
           else
-            pytest $PYTEST_ARGS teachopencadd/talktorials/ --ignore=teachopencadd/talktorials/T008_md_simulation/talktorial.ipynb --ignore=teachopencadd/talktorials/T019_md_simulation/talktorial.ipynb
+            pytest $PYTEST_ARGS teachopencadd/talktorials/ --ignore=teachopencadd/talktorials/T019_md_simulation/talktorial.ipynb $PYTEST_IGNORE
           fi
 
   format:
