@@ -91,7 +91,6 @@ Please contact us if you have questions or suggestions!
 
 - If you have questions regarding our Jupyter Notebooks, please [open an issue](https://github.com/volkamerlab/teachopencadd/issues) on our GitHub repository.
 - If you have ideas for new topics, please fill out our questionnaire: [contribute.volkamerlab.org](http://contribute.volkamerlab.org)
-- For all other requests, please send us an email: teachopencadd@charite.de
 
 We are looking forward to hearing from you!
 
