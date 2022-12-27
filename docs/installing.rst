@@ -20,7 +20,7 @@ Install from the conda package
     # Windows
     mamba create -n teachopencadd teachopencadd -c conda-forge -c defaults
 
-    # When using a MacBook Air 12.4 with an M1 chip (2020)
+    # When using a MacBook Air 12.4 with an M1 chip you may need:
     CONDA_SUBDIR=osx-64 mamba create -n teachopencadd teachopencadd
 
 2. Activate the new environment::
@@ -40,6 +40,11 @@ Install from the latest development snapshot
 1. Create a new conda environment and activate it::
 
     mamba env create -f https://raw.githubusercontent.com/volkamerlab/TeachOpenCADD/master/devtools/test_env.yml
+    conda activate teachopencadd
+   
+   Note: If you are working on MacOS with an M1 chip and the above command is not working, e.g. "The environment can't be solved, aborting the operation", prefix the command with ``CONDA_SUBDIR=osx-64`` and try again::
+    
+    CONDA_SUBDIR=osx-64 mamba env create -f https://raw.githubusercontent.com/volkamerlab/TeachOpenCADD/master/devtools/test_env.yml
     conda activate teachopencadd
 
 2. Download a zipfile of the repository using `this link <https://github.com/volkamerlab/teachopencadd/archive/master.zip>`_.
