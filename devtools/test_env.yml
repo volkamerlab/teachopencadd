@@ -10,6 +10,9 @@ dependencies:
   - nglview>=3
   # https://github.com/volkamerlab/teachopencadd/issues/262
   - ipywidgets<8
+  # New numpy version too young
+  - numpy<1.24
+  - tensorflow
   - scikit-learn
   - seaborn
   - matplotlib-venn
