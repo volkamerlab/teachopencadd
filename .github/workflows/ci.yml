@@ -75,11 +75,20 @@ jobs:
         shell: bash -l {0}
         run: |
           PYTEST_ARGS="--nbval-lax --current-env --dist loadscope --numprocesses 2"
-          PYTEST_IGNORE="--ignore=teachopencadd/talktorials/T021_one_hot_encoding/talktorial.ipynb --ignore=teachopencadd/talktorials/T022_ligand_based_screening_neural_network/talktorial.ipynb"
+
+          # Ignored notebooks
+          PYTEST_IGNORE_T019_Windows="--ignore=teachopencadd/talktorials/T019_md_simulation/talktorial.ipynb"
+
+          # Temporarily ignored notebooks
+          PYTEST_IGNORE_T008="--ignore=teachopencadd/talktorials/T008_query_pdb/talktorial.ipynb"
+          PYTEST_IGNORE_T021="--ignore=teachopencadd/talktorials/T021_one_hot_encoding/talktorial.ipynb"
+          PYTEST_IGNORE_T022="--ignore=teachopencadd/talktorials/T022_ligand_based_screening_neural_network/talktorial.ipynb"
+
           if [ "$RUNNER_OS" != "Windows" ]; then
-            pytest $PYTEST_ARGS teachopencadd/talktorials/T*/talktorial.ipynb $PYTEST_IGNORE
+            pytest $PYTEST_ARGS teachopencadd/talktorials/T*/talktorial.ipynb $PYTEST_IGNORE_T008 $PYTEST_IGNORE_T021 $PYTEST_IGNORE_T022
+
           else
-            pytest $PYTEST_ARGS teachopencadd/talktorials/ --ignore=teachopencadd/talktorials/T019_md_simulation/talktorial.ipynb $PYTEST_IGNORE
+            pytest $PYTEST_ARGS teachopencadd/talktorials/ $PYTEST_IGNORE_T019_Windows $PYTEST_IGNORE_T008  $PYTEST_IGNORE_T021 $PYTEST_IGNORE_T022
           fi
 
   format:
