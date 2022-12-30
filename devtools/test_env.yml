@@ -36,7 +36,8 @@ dependencies:
   - mdtraj
   - plip
   - openmm
-  # depends on openff-toolkit->ambertools -> not available on Windows yet!
+  # depends on openff-toolkit -> ambertools -> not available on Windows yet!
+  # we install openmmforcefields in T019 under Linux and MacOS
   # - openmmforcefields
   - pdbfixer
   - tqdm
