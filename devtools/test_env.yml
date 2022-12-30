@@ -10,7 +10,8 @@ dependencies:
   - nglview>=3
   # https://github.com/volkamerlab/teachopencadd/issues/262
   - ipywidgets<8
-  # New numpy version too young
+  # New numpy version 1.2.4 too young, e.g. caused
+  # https://github.com/volkamerlab/teachopencadd/issues/299
   - numpy<1.24
   - tensorflow
   - scikit-learn
