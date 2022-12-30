@@ -77,15 +77,15 @@ jobs:
           PYTEST_ARGS="--nbval-lax --current-env --dist loadscope --numprocesses 2"
 
           # Ignored notebooks
-          PYTEST_IGNORE_T019_Windows="--ignore=teachopencadd/talktorials/T019_md_simulation/talktorial.ipynb"
+          PYTEST_IGNORE_T019="--ignore=teachopencadd/talktorials/T019_md_simulation/talktorial.ipynb"
 
           # Temporarily ignored notebooks
           PYTEST_IGNORE_T008="--ignore=teachopencadd/talktorials/T008_query_pdb/talktorial.ipynb"
 
           if [ "$RUNNER_OS" != "Windows" ]; then
-            pytest $PYTEST_ARGS teachopencadd/talktorials/T*/talktorial.ipynb $PYTEST_IGNORE_T008
+            pytest $PYTEST_ARGS teachopencadd/talktorials/ $PYTEST_IGNORE_T008
           else
-            pytest $PYTEST_ARGS teachopencadd/talktorials/ $PYTEST_IGNORE_T019_Windows $PYTEST_IGNORE_T008
+            pytest $PYTEST_ARGS teachopencadd/talktorials/ $PYTEST_IGNORE_T008 $PYTEST_IGNORE_T019
           fi
 
   format:
