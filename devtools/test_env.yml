@@ -13,8 +13,9 @@ dependencies:
   # New numpy version 1.2.4 too young, e.g. caused
   # https://github.com/volkamerlab/teachopencadd/issues/299
   - numpy<1.24
-  - tensorflow
   - scikit-learn
+  # API changed after v2.6, see https://github.com/volkamerlab/teachopencadd/issues/265
+  - tensorflow<=2.6
   - seaborn
   - matplotlib-venn
   - bravado
