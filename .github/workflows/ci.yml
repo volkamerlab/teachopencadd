@@ -84,9 +84,8 @@ jobs:
 
           if [ "$RUNNER_OS" != "Windows" ]; then
             pytest $PYTEST_ARGS teachopencadd/talktorials/T*/talktorial.ipynb $PYTEST_IGNORE_T008
-
           else
-            #pytest $PYTEST_ARGS teachopencadd/talktorials/ $PYTEST_IGNORE_T019_Windows $PYTEST_IGNORE_T008
+            pytest $PYTEST_ARGS teachopencadd/talktorials/ $PYTEST_IGNORE_T019_Windows $PYTEST_IGNORE_T008
           fi
 
   format:
