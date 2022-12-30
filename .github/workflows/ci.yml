@@ -82,11 +82,13 @@ jobs:
           # Temporarily ignored notebooks
           PYTEST_IGNORE_T008="--ignore=teachopencadd/talktorials/T008_query_pdb/talktorial.ipynb"
 
-          if [ "$RUNNER_OS" != "Windows" ]; then
-            pytest $PYTEST_ARGS teachopencadd/talktorials/ $PYTEST_IGNORE_T008
-          else
-            pytest $PYTEST_ARGS teachopencadd/talktorials/ $PYTEST_IGNORE_T008 $PYTEST_IGNORE_T019
-          fi
+          pytest $PYTEST_ARGS teachopencadd/talktorials/T019_md_simulation/talktorial.ipynb
+
+          # if [ "$RUNNER_OS" != "Windows" ]; then
+          #   pytest $PYTEST_ARGS teachopencadd/talktorials/ $PYTEST_IGNORE_T008
+          # else
+          #   pytest $PYTEST_ARGS teachopencadd/talktorials/ $PYTEST_IGNORE_T008 $PYTEST_IGNORE_T019
+          # fi
 
   format:
     name: Black
