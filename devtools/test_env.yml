@@ -8,7 +8,7 @@ dependencies:
   - jupyter
   - jupyterlab>=3
   - nglview>=3
-  # https://github.com/volkamerlab/teachopencadd/issues/262
+  # Workaround for nglview, see https://github.com/volkamerlab/teachopencadd/issues/262
   - ipywidgets<8
   # New numpy version 1.2.4 too young, e.g. caused
   # https://github.com/volkamerlab/teachopencadd/issues/299
@@ -62,8 +62,6 @@ dependencies:
   - sphinx-copybutton
   - sphinx-gallery
   - autodocsumm
-  ## temporary fix for rdkit on MacOS
-  #- fontconfig==2.13.1
   - pip:
       - black-nb
       - nbsphinx-link
