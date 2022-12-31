@@ -38,8 +38,7 @@ dependencies:
   - mdtraj
   - plip
   - openmm
-  # depends on openff-toolkit -> ambertools -> not available on Windows yet!
-  # we install openmmforcefields in T019 under Linux and MacOS
+  # Dependency not included, see https://github.com/volkamerlab/teachopencadd/issues/313
   # - openmmforcefields
   - pdbfixer
   - tqdm
