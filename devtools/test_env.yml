@@ -6,6 +6,8 @@ dependencies:
   - python>=3.8
   - pip
   - jupyterlab>=3
+  # Workaround for jupyterlab, see https://github.com/volkamerlab/teachopencadd/issues/310
+  - jsonschema>=4.3.0
   - nglview>=3
   # Workaround for nglview, see https://github.com/volkamerlab/teachopencadd/issues/262
   - ipywidgets<8
