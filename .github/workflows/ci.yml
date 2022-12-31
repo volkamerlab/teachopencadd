@@ -83,7 +83,8 @@ jobs:
           PYTEST_IGNORE_T008="--ignore=teachopencadd/talktorials/T008_query_pdb/talktorial.ipynb"
 
           if [ "$RUNNER_OS" != "Windows" ]; then
-            pytest $PYTEST_ARGS teachopencadd/talktorials/ $PYTEST_IGNORE_T008
+            # Temporarily ignore T019
+            pytest $PYTEST_ARGS teachopencadd/talktorials/ $PYTEST_IGNORE_T008 $PYTEST_IGNORE_T019
           else
             pytest $PYTEST_ARGS teachopencadd/talktorials/ $PYTEST_IGNORE_T008 $PYTEST_IGNORE_T019
           fi
