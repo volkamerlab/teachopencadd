@@ -89,9 +89,6 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
@@ -895,7 +892,11 @@ perform an MD simulation (<a class="reference external" href="https://www.rcsb.o
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">on_colab</span> <span class="ow">and</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span><span class="o">.</span><span class="n">startswith</span><span class="p">((</span><span class="s2">"linux"</span><span class="p">,</span> <span class="s2">"darwin"</span><span class="p">)):</span>
-    <span class="o">!</span>conda install -q -y -c conda-forge openmmforcefields
+    <span class="o">!</span>mamba install -q -y -c conda-forge openmmforcefields
+    <span class="c1"># Notes:</span>
+    <span class="c1"># - If you do not have mamba installed, install it or use conda instead</span>
+    <span class="c1"># - Under MacOS with an M1 chip you may need to use</span>
+    <span class="c1">#   CONDA_SUBDIR=osx-64 in front of the above command</span>
 </pre></div>
 </div>
 </div>
@@ -925,9 +926,9 @@ Collecting package metadata (current_repodata.json): ...working... ^C
 <span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">AllChem</span>
 <span class="kn">import</span> <span class="nn">mdtraj</span> <span class="k">as</span> <span class="nn">md</span>
 <span class="kn">import</span> <span class="nn">pdbfixer</span>
-<span class="kn">import</span> <span class="nn">simtk.openmm</span> <span class="k">as</span> <span class="nn">mm</span>
-<span class="kn">import</span> <span class="nn">simtk.openmm.app</span> <span class="k">as</span> <span class="nn">app</span>
-<span class="kn">from</span> <span class="nn">simtk.openmm</span> <span class="kn">import</span> <span class="n">unit</span>
+<span class="kn">import</span> <span class="nn">openmm</span> <span class="k">as</span> <span class="nn">mm</span>
+<span class="kn">import</span> <span class="nn">openmm.app</span> <span class="k">as</span> <span class="nn">app</span>
+<span class="kn">from</span> <span class="nn">openmm</span> <span class="kn">import</span> <span class="n">unit</span>
 <span class="kn">from</span> <span class="nn">openff.toolkit.topology</span> <span class="kn">import</span> <span class="n">Molecule</span><span class="p">,</span> <span class="n">Topology</span>
 <span class="kn">from</span> <span class="nn">openmmforcefields.generators</span> <span class="kn">import</span> <span class="n">GAFFTemplateGenerator</span>
 </pre></div>
@@ -1175,10 +1176,9 @@ Modeller</a> topologies and positions. For the ligand however, we need to do sev
     <span class="n">mol_topology</span> <span class="o">=</span> <span class="n">off_mol_topology</span><span class="o">.</span><span class="n">to_openmm</span><span class="p">()</span>
     <span class="n">mol_positions</span> <span class="o">=</span> <span class="n">off_mol</span><span class="o">.</span><span class="n">conformers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
-    <span class="c1"># convert units from Ångström to Nanometers</span>
-    <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">mol_positions</span><span class="p">:</span>
-        <span class="n">coords</span> <span class="o">=</span> <span class="n">atom</span> <span class="o">/</span> <span class="n">atom</span><span class="o">.</span><span class="n">unit</span>
-        <span class="n">atom</span> <span class="o">=</span> <span class="p">(</span><span class="n">coords</span> <span class="o">/</span> <span class="mf">10.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">unit</span><span class="o">.</span><span class="n">nanometers</span>  <span class="c1"># since openmm works in nm</span>
+    <span class="c1"># convert units from Ångström to nanometers</span>
+    <span class="c1"># since OpenMM works in nm</span>
+    <span class="n">mol_positions</span> <span class="o">=</span> <span class="n">mol_positions</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">"nanometers"</span><span class="p">)</span>
 
     <span class="c1"># combine topology and positions in modeller object</span>
     <span class="n">omm_mol</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">Modeller</span><span class="p">(</span><span class="n">mol_topology</span><span class="p">,</span> <span class="n">mol_positions</span><span class="p">)</span>
@@ -1540,7 +1540,7 @@ very welcome!</div>
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 6.0.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
