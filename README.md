@@ -66,12 +66,14 @@ If you prefer to work in the context of a graphical interface, talktorials T001-
 
 ## About TeachOpenCADD
 
+Coming soon.
+<!---
 - [Contact](https://projects.volkamerlab.org/teachopencadd/contact.html)
 - [Acknowledgments](https://projects.volkamerlab.org/teachopencadd/acknowledgments.html)
 - [Citation](https://projects.volkamerlab.org/teachopencadd/citation.html)
 - [License](https://projects.volkamerlab.org/teachopencadd/license.html)
 - [Funding](https://projects.volkamerlab.org/teachopencadd/funding.html)
-
+--->
 
 
 ## External resources
