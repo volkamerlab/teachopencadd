@@ -44,7 +44,7 @@ Table of contents
 
 .. toctree::
    :maxdepth: 1
-   :caption: Contributors
+   :caption: Development
 
    contribute
    api
