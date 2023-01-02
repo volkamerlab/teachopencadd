@@ -13,6 +13,9 @@ TeachOpenCADD Jupyter notebooks' main citation for `talktorials T001-T022 (paper
         title = {TeachOpenCADD 2022: open source and FAIR Python pipelines to assist in structural bioinformatics and cheminformatics research},
         journal = {Nucleic Acids Research},
         year = {2022},
+        volume = {50},
+        number = {W1},
+        pages = {W753–W760},
         doi = {10.1093/nar/gkac267},
     }
 
@@ -36,6 +39,9 @@ TeachOpenCADD Jupyter notebooks on kinase similarities spanning `talktorials T02
         title = {{Kinase similarity assessment pipeline for off-target prediction [v1.0]}},
         journal = {Living Journal of Computational Molecular Science},
         year = {2022},
+        volume = {3},
+        number = {1},
+        pages = {1599},
         doi = {10.1186/s13321-019-0351-x},
     }
 
