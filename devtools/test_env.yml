@@ -1,54 +1,53 @@
-﻿name: teachopencadd
+name: teachopencadd
 channels:
   - conda-forge
   - defaults
 dependencies:
   - python>=3.8
   - pip
-  - jupyter
   - jupyterlab>=3
+  # Workaround for jupyterlab, see https://github.com/volkamerlab/teachopencadd/issues/310
+  - jsonschema>=4.3.0
   - nglview>=3
-  # https://github.com/volkamerlab/teachopencadd/issues/262
+  # Workaround for nglview, see https://github.com/volkamerlab/teachopencadd/issues/262
   - ipywidgets<8
-  # Explicitly add numpy because of https://github.com/volkamerlab/teachopencadd/issues/150
-  - numpy
+  # New numpy version 1.2.4 too young, e.g. caused
+  # https://github.com/volkamerlab/teachopencadd/issues/299
+  - numpy<1.24
   - scikit-learn
   - scipy
   # API changed after v2.6, see https://github.com/volkamerlab/teachopencadd/issues/265
-  #- tensorflow<=2.6
+  - tensorflow<=2.6
   - seaborn
-  #- matplotlib-venn
-  # Remove jsonschema once this issue is fixed: https://github.com/Yelp/bravado/issues/478
-  - jsonschema<4.0.0
-  #- bravado
-  #- requests
-  #- requests-cache
+  - matplotlib-venn
+  - bravado
+  - requests
+  - requests-cache
   - redo
-  #- suds-community
-  #- beautifulsoup4
-  #- chembl_webresource_client
-  #- pypdb
+  - suds-community
+  - beautifulsoup4
+  - chembl_webresource_client
+  - pypdb
   - biopython<=1.77
-  #- biopandas
+  - biopandas
   - rdkit==2021.09.5
-  #- openbabel
-  #- opencadd
-  #- biotite>=0.34.0
-  #- smina
-  #- mdanalysis>=1.0.0
-  #- mdtraj
-  #- plip
-  #- openmm
-  # depends on openff-toolkit->ambertools -> not available on Windows yet!
+  - openbabel
+  - opencadd
+  - biotite>=0.34.0
+  - smina
+  - mdanalysis>=1.0.0
+  - mdtraj
+  - plip
+  - openmm
+  # Dependency not included, see https://github.com/volkamerlab/teachopencadd/issues/313
   # - openmmforcefields
-  #- pdbfixer
-  #- tqdm
-  #- lxml
-  #- kissim
+  - pdbfixer
+  - tqdm
+  - lxml
+  - kissim
   - mordred
   ## CI tests
-  # Workaround for https://github.com/computationalmodelling/nbval/issues/153
-  - pytest 5.*
+  - pytest
   - pytest-xdist
   - pytest-cov
   - nbval
@@ -64,8 +63,6 @@ dependencies:
   - sphinx-copybutton
   - sphinx-gallery
   - autodocsumm
-  ## temporary fix for rdkit on MacOS
-  - fontconfig==2.13.1
   - pip:
       - black-nb
       - nbsphinx-link
