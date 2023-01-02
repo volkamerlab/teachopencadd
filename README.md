@@ -16,11 +16,13 @@ A teaching platform for computer-aided drug design (CADD) using open source pack
 ![GitHub closed pr](https://img.shields.io/github/issues-pr-closed-raw/volkamerlab/teachopencadd) ![GitHub open pr](https://img.shields.io/github/issues-pr-raw/volkamerlab/teachopencadd) ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/volkamerlab/teachopencadd) ![GitHub open issues](https://img.shields.io/github/issues/volkamerlab/teachopencadd)
 
 > If you use TeachOpenCADD in a publication,
-> please [cite](https://projects.volkamerlab.org/teachopencadd/citation.html) us!
+> please [cite](https://projects.volkamerlab.org/teachopencadd) us!
 > If you use TeachOpenCADD in class, please include a link back to our repository.
 <!-- markdown-link-check-disable-next-line -->
 > In any case, please [star](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars)
 > (and tell your students to star) those repositories you consider useful for your learning/teaching activities.
+
+<!---https://projects.volkamerlab.org/teachopencadd/citation.html--->
 
 ## Description
 
