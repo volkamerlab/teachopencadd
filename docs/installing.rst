@@ -8,6 +8,9 @@ Installing
 
     If you installed ``mamba`` into an existing ``conda`` installation, also make sure that the ``conda-forge`` channel is configured by running ``conda config --add channels conda-forge``. 
 
+    If you prefer to work with ``conda``, please use ``conda`` in place of ``mamba`` in the instructions below. 
+    Please note that the TeachOpenCADD setup with ``conda`` takes much longer than with ``mamba``.
+
 
 Install from the conda package
 ------------------------------
