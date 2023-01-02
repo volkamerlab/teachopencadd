@@ -1,6 +1,9 @@
 Packages and webservers used in TeachOpenCADD
 =============================================
 
+TeachOpenCADD uses several external packages and webservers as listed below. 
+If we are using your resource and forgot to add it here, please let us know, thank you!
+
 Python packages
 ---------------
 
@@ -76,5 +79,3 @@ Databases and webservers
 - KLIFS: https://klifs.net/
 - PubMed: https://pubchem.ncbi.nlm.nih.gov/
 - ProteinsPlus: https://proteins.plus/
-
-If we are using your resource and forgot to add it here, please contact us so that we can rectify this, thank you!
