@@ -90,6 +90,12 @@ jobs:
             pytest $PYTEST_ARGS teachopencadd/talktorials/ $PYTEST_IGNORE_T008 $PYTEST_IGNORE_T019 $PYTEST_IGNORE_T032
           fi
 
+      - name: Environment Information (after T032 installation)
+        shell: bash -l {0}
+        run: |
+          conda info --all
+          conda list
+
   format:
     name: Black
     runs-on: ubuntu-latest
