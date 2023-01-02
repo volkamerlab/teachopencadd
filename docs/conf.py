@@ -129,7 +129,9 @@ html_theme_options = {
     "nav_links": [
         {"href": "talktorials", "internal": True, "title": "Our talktorials"},
         {"href": "installing", "internal": True, "title": "Run locally"},
-        {"href": "contribute", "internal": True, "title": "Contribute"},
+        {"href": "contribute", "internal": True, "title": "Development"},
+        {"href": "contact", "internal": True, "title": "Contact"},
+        {"href": "citation", "internal": True, "title": "Citation"},
         # {
         #     "href": "https://squidfunk.github.io/mkdocs-material/",
         #     "internal": False,
