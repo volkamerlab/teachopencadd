@@ -12,6 +12,7 @@ If you wish to get started first with a Python programming introduction before d
 - `MolSSI Education Resources <http://education.molssi.org/resources.html>`_ by `The Molecular Sciences Software Institute <https://molssi.org/>`_: Collection of tutorials on Python programming basics and data analysis but also more advanced material on software development and computational molecular science
 - `Core lessons <https://software-carpentry.org/lessons/>`_ by the `Software Carpentry <https://software-carpentry.org/>`_: Introduction to Python, Git, command line interfaces and more
 - `Best practices for Python, Git and Jupyter <https://zenodo.org/record/4630714>`_, a slide deck used in the introduction of our CADD Block course 2021, part of the Master's degree in Bioinformatics curriculum at the Freie Universität (FU) Berlin.
+- `5 Minutes of Fame <https://github.com/czodrowskilab/5minfame>`_ by the Czodrowski Lab are short sessions on Python-centric scientific and teachnological news
 
 .. _jupyter_tutorial:
 
