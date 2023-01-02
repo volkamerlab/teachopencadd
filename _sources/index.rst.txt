@@ -44,10 +44,20 @@ Table of contents
 
 .. toctree::
    :maxdepth: 1
-   :caption: Contributors
+   :caption: Development
 
    contribute
    api
+
+.. toctree::
+   :maxdepth: 1
+   :caption: About TeachOpenCADD
+
+   contact
+   acknowledgments
+   citation
+   license
+   funding
 
 .. toctree::
    :maxdepth: 1
@@ -55,22 +65,3 @@ Table of contents
 
    external_dependencies
    external_tutorials_collections
-
-
-Citation
---------
-
-If you make use of the TeachOpenCADD material in scientific publications,
-please cite our respective articles as summarized `here <https://github.com/volkamerlab/teachopencadd#citation>`_.
-
-Funding
--------
-
-Volkamer Lab's projects are supported by several public funding sources
-(for more info see our `webpage <https://volkamerlab.org/>`_).
-
-
-License
--------
-
-This work is licensed under the `Attribution 4.0 International (CC BY 4.0) <http://creativecommons.org/licenses/by/4.0/>`_.
