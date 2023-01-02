@@ -53,6 +53,7 @@ Table of contents
    :maxdepth: 1
    :caption: About TeachOpenCADD
 
+   contact
    acknowledgments
    citation
    license
