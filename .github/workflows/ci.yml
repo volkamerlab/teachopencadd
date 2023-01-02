@@ -4,11 +4,9 @@ on:
   push:
     branches:
       - "master"
-      - "maintenance/.+"
   pull_request:
     branches:
       - "master"
-      - "maintenance/.+"
   schedule:
     # Run a cron job once weekly on Monday
     - cron: "0 3 * * 1"
@@ -76,12 +74,19 @@ jobs:
         shell: bash -l {0}
         run: |
           PYTEST_ARGS="--nbval-lax --current-env --dist loadscope --numprocesses 2"
-          pytest $PYTEST_ARGS teachopencadd/talktorials/T032_compound_activity_proteochemometrics/talktorial.ipynb
-          # if [ "$RUNNER_OS" != "Windows" ]; then
-          #   pytest $PYTEST_ARGS teachopencadd/talktorials/T*/talktorial.ipynb
-          # else
-          #   pytest $PYTEST_ARGS teachopencadd/talktorials/ --ignore=teachopencadd/talktorials/T008_md_simulation/talktorial.ipynb --ignore=teachopencadd/talktorials/T019_md_simulation/talktorial.ipynb
-          # fi
+
+          # Ignore T019 under Windows, see https://github.com/volkamerlab/teachopencadd/issues/313
+          PYTEST_IGNORE_T019="--ignore=teachopencadd/talktorials/T019_md_simulation/talktorial.ipynb"
+
+          # Temporarily ignored notebooks, see https://github.com/volkamerlab/teachopencadd/issues/303
+          PYTEST_IGNORE_T008="--ignore=teachopencadd/talktorials/T008_query_pdb/talktorial.ipynb"
+
+          if [ "$RUNNER_OS" != "Windows" ]; then
+            # Temporarily ignore T019
+            pytest $PYTEST_ARGS teachopencadd/talktorials/ $PYTEST_IGNORE_T008 $PYTEST_IGNORE_T019
+          else
+            pytest $PYTEST_ARGS teachopencadd/talktorials/ $PYTEST_IGNORE_T008 $PYTEST_IGNORE_T019
+          fi
 
   format:
     name: Black
