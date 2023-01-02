@@ -8,6 +8,9 @@ Installing
 
     If you installed ``mamba`` into an existing ``conda`` installation, also make sure that the ``conda-forge`` channel is configured by running ``conda config --add channels conda-forge``. 
 
+    If you prefer to work with ``conda``, please use ``conda`` in place of ``mamba`` in the instructions below. 
+    Please note that the TeachOpenCADD setup with ``conda`` takes much longer than with ``mamba``.
+
 
 Install from the conda package
 ------------------------------
@@ -20,7 +23,7 @@ Install from the conda package
     # Windows
     mamba create -n teachopencadd teachopencadd -c conda-forge -c defaults
 
-    # When using a MacBook Air 12.4 with an M1 chip (2020)
+    # When using a MacBook Air 12.4 with an M1 chip you may need:
     CONDA_SUBDIR=osx-64 mamba create -n teachopencadd teachopencadd
 
 2. Activate the new environment::
@@ -32,7 +35,7 @@ Install from the conda package
    In this example command, you are setting up your workspace in the current directory ``.``; you can use any other path.
 
 You can always return to your TeachOpenCADD material with ``jupyter lab /path/to/your/teachopencadd/workspace``.
-
+If you need an introduction to Jupyter notebooks, please check out the suggested resources :ref:`here<jupyter_tutorial>`.
 
 Install from the latest development snapshot
 --------------------------------------------
@@ -40,6 +43,11 @@ Install from the latest development snapshot
 1. Create a new conda environment and activate it::
 
     mamba env create -f https://raw.githubusercontent.com/volkamerlab/TeachOpenCADD/master/devtools/test_env.yml
+    conda activate teachopencadd
+   
+   Note: If you are working on MacOS with an M1 chip and the above command is not working, e.g. "The environment can't be solved, aborting the operation", prefix the command with ``CONDA_SUBDIR=osx-64`` and try again::
+    
+    CONDA_SUBDIR=osx-64 mamba env create -f https://raw.githubusercontent.com/volkamerlab/TeachOpenCADD/master/devtools/test_env.yml
     conda activate teachopencadd
 
 2. Download a zipfile of the repository using `this link <https://github.com/volkamerlab/teachopencadd/archive/master.zip>`_.

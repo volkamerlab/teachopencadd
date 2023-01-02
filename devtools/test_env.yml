@@ -1,4 +1,4 @@
-﻿name: teachopencadd
+name: teachopencadd
 channels:
   - conda-forge
   - defaults
@@ -7,20 +7,20 @@ dependencies:
   - pyg::pyg==2.2.0
   - python>=3.8
   - pip
-  - jupyter
   - jupyterlab>=3
+  # Workaround for jupyterlab, see https://github.com/volkamerlab/teachopencadd/issues/310
+  - jsonschema>=4.3.0
   - nglview>=3
-  # https://github.com/volkamerlab/teachopencadd/issues/262
+  # Workaround for nglview, see https://github.com/volkamerlab/teachopencadd/issues/262
   - ipywidgets<8
-  # Explicitly add numpy because of https://github.com/volkamerlab/teachopencadd/issues/150
-  - numpy
+  # New numpy version 1.2.4 too young, e.g. caused
+  # https://github.com/volkamerlab/teachopencadd/issues/299
+  - numpy<1.24
   - scikit-learn
   # API changed after v2.6, see https://github.com/volkamerlab/teachopencadd/issues/265
   - tensorflow<=2.6
   - seaborn
   - matplotlib-venn
-  # Remove jsonschema once this issue is fixed: https://github.com/Yelp/bravado/issues/478
-  - jsonschema<4.0.0
   - bravado
   - requests
   - requests-cache
@@ -40,15 +40,14 @@ dependencies:
   - mdtraj
   - plip
   - openmm
-  # depends on openff-toolkit->ambertools -> not available on Windows yet!
+  # Dependency not included, see https://github.com/volkamerlab/teachopencadd/issues/313
   # - openmmforcefields
   - pdbfixer
   - tqdm
   - lxml
   - kissim
   ## CI tests
-  # Workaround for https://github.com/computationalmodelling/nbval/issues/153
-  - pytest 5.*
+  - pytest
   - pytest-xdist
   - pytest-cov
   - nbval
@@ -64,8 +63,6 @@ dependencies:
   - sphinx-copybutton
   - sphinx-gallery
   - autodocsumm
-  ## temporary fix for rdkit on MacOS
-  - fontconfig==2.13.1
   - pip:
       - black-nb
       - nbsphinx-link
