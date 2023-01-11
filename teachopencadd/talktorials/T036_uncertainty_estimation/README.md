@@ -1,18 +1,4 @@
-<div class="alert alert-block alert-info">
-
-<b>Thank you for contributing to TeachOpenCADD!</b>
-
-</div>
-
-
-<div class="alert alert-block alert-info">
-
-<b>Set up your PR</b>: Please check out our <a href="https://github.com/volkamerlab/teachopencadd/issues/41">issue</a> on how to set up a PR for new talktorials, including standard checks and TODOs.
-
-</div>
-
-
-# T000 · Talktorial topic title
+# T036 · Uncertainty estimation
 
 **Note:** This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
 
@@ -24,10 +10,10 @@ Authors:
 *The predictive setting (and the model calss) used in this talktorial is adapted from [__Talktorial T022__](https://github.com/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T022_ligand_based_screening_neural_network/talktorial.ipynb).*
 
 
-
 ## Aim of this talktorial
 
 Researchers often focus on prediction quality alone. However, in the application of a predictive model, researchers are also interested in how certain they can be in a specific prediction. Estimating and providing such information is the goal of uncertainty estimation. In this talktorial, we discuss some common methodologies and showcase ensemble methods in practice.
+
 
 ### Contents in *Theory*
 
@@ -40,7 +26,6 @@ Researchers often focus on prediction quality alone. However, in the application
 
 
 ### Contents in *Practical*
-
 * Data
 * Model
     * Training
@@ -55,7 +40,6 @@ Researchers often focus on prediction quality alone. However, in the application
 
 
 ### References
-
 * [Gawlikowski, Jakob, et al. "A survey of uncertainty in deep neural networks." _arXiv preprint_ (2021), arXiv:__2107.03342__](https://arxiv.org/abs/2107.03342)
 * [Scalia, Gabriele, et al. "Evaluating scalable uncertainty estimation methods for deep learning-based molecular property prediction." _Journal of chemical information and modeling_ __60.6__ (2020): 2697-2717](https://pubs.acs.org/doi/pdf/10.1021/acs.jcim.9b00975)
 * [__Talktorial T022__](https://github.com/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T022_ligand_based_screening_neural_network/talktorial.ipynb)
