@@ -196,4 +196,4 @@ def kiba_preprocessing(
     process_interactions(database + "tables/kiba.tsv", database + "tables/inter.tsv", lambda x: "1" if x < 3.6122 else "0")
 
 
-kiba_preprocessing()
+# kiba_preprocessing()
