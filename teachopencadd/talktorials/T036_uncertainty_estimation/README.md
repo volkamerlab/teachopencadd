@@ -1,4 +1,18 @@
-# T036 · Uncertainty estimation
+<div class="alert alert-block alert-info">
+
+<b>Thank you for contributing to TeachOpenCADD!</b>
+
+</div>
+
+
+<div class="alert alert-block alert-info">
+
+<b>Set up your PR</b>: Please check out our <a href="https://github.com/volkamerlab/teachopencadd/issues/41">issue</a> on how to set up a PR for new talktorials, including standard checks and TODOs.
+
+</div>
+
+
+# T000 · Talktorial topic title
 
 **Note:** This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
 
@@ -7,59 +21,41 @@ Authors:
 - Michael Backenköhler, 2022, [Volkamer lab](https://volkarmerlab.org), Saarland University
 
 
-*The examples used in this talktorial template are taken from [__Talktorial T001__](https://github.com/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T001_query_chembl/talktorial.ipynb) and [__Talktorial T002__](https://github.com/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb).*
+*The predictive setting (and the model calss) used in this talktorial is adapted from [__Talktorial T022__](https://github.com/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T022_ligand_based_screening_neural_network/talktorial.ipynb).*
 
-
-<div class="alert alert-block alert-info">
-
-<b>Cross-referencing talktorials</b>: If you want to cross-reference to existing talktorials in your notebook, please use the following formatting: <b>Talktorial T000</b>.
-
-</div>
 
 
 ## Aim of this talktorial
 
-Add a short summary of this talktorial's content.
-
+Researchers often focus on prediction quality alone. However, in the application of a predictive model, researchers are also interested in how certain they can be in a specific prediction. Estimating and providing such information is the goal of uncertainty estimation. In this talktorial, we discuss some common methodologies and showcase ensemble methods in practice.
 
 ### Contents in *Theory*
 
-_Add Table of Contents (TOC) for Theory section._
-
-* ChEMBL database
-* Compound activity measures
-
-
-<div class="alert alert-block alert-info">
-
-<b>Sync TOC with section titles</b>: These points should refer to the headlines of your <i>Theory</i> section.
-
-</div>
+* Why a model can't and shouldn't be certain
+* Calibration
+* Methods overview
+    * Single deterministic methods
+    * Ensemble methods
+    * Test-time data augmentation
 
 
 ### Contents in *Practical*
 
-_Add Table of Contents (TOC) for Practical section._
-
-* Connect to ChEMBL database
-* Load and draw molecules
-
-
-<div class="alert alert-block alert-info">
-
-<b>Sync TOC with section titles</b>: These points should refer to the headlines of your <i>Practical</i> section.
-
-</div>
+* Data
+* Model
+    * Training
+    * Evaluation
+* Ensembles - Training a model multiple times
+    * Coverage of confidence intervals
+    * Calibration
+    * Ranking-based evaluation
+* Bagging ensemble - Training a model with varying data
+    * Ranking-based evaluation
+* Test-time data augmentation
 
 
 ### References
 
-* Paper 
-* Tutorial links
-* Other useful resources
-
-*We suggest the following citation style:*
-* Keyword describing resource: <i>Journal</i> (year), <b>volume</b>, pages (link to resource) 
-
-*Example:*
-* ChEMBL web services: [<i>Nucleic Acids Res.</i> (2015), <b>43</b>, 612-620](https://academic.oup.com/nar/article/43/W1/W612/2467881) 
+* [Gawlikowski, Jakob, et al. "A survey of uncertainty in deep neural networks." _arXiv preprint_ (2021), arXiv:__2107.03342__](https://arxiv.org/abs/2107.03342)
+* [Scalia, Gabriele, et al. "Evaluating scalable uncertainty estimation methods for deep learning-based molecular property prediction." _Journal of chemical information and modeling_ __60.6__ (2020): 2697-2717](https://pubs.acs.org/doi/pdf/10.1021/acs.jcim.9b00975)
+* [__Talktorial T022__](https://github.com/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T022_ligand_based_screening_neural_network/talktorial.ipynb)
