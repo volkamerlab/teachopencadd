@@ -3,7 +3,6 @@ import urllib.request
 from typing import Callable
 
 import pandas as pd
-import matplotlib.pyplot as plt
 import numpy as np
 import biotite.database.rcsb as rcsb
 import pypdb
@@ -16,19 +15,11 @@ def filter_data(kiba_init_filepath, kiba_filter_filepath):
     print("KiBA originally contains {} ligands and {} proteins.".format(*df.shape))
 
     row_vals = np.array([row.isna().sum() for index, row in df.iterrows()])
-    plt.hist(row_vals, log=True)
-    plt.title("Rows")
-    # plt.show()
-    plt.clf()
 
     df = df.drop(df[row_vals > 200].index)
     print("KiBA after dropping sparse rows contains {} ligands and {} proteins.".format(*df.shape))
 
     col_vals2 = np.array([df[column].isna().sum() for column in df.columns])
-    plt.hist(col_vals2, log=True)
-    plt.title("Columns")
-    # plt.show()
-    plt.clf()
 
     df = df.loc[:, col_vals2 < 10]
     print("KiBA finally contains {} ligands and {} proteins.".format(*df.shape))
@@ -62,7 +53,6 @@ def download_ligands(kiba_filepath, ligand_filepath):
     print("Preprocessing ligands finished")
 
 
-# @redo.retriable(attempts=10, sleeptime=2)
 def describe_one_pdb_id(pdb_id):
     """Fetch meta information from PDB."""
     described = pypdb.describe_pdb(pdb_id)
@@ -174,11 +164,6 @@ def process_interactions(kiba_filepath, inter_filepath, threshold_fn: Callable):
                         inter_count += 1
                         values.append(float(val.replace(",", ".")))
                         print(p_id, ligand, threshold_fn(float(val.replace(",", "."))), sep="\t", file=inter)
-    values = np.array(values)
-    plt.hist(values, log=True)
-    plt.show()
-    print(np.mean(values))
-    print(np.average(values))
     print(f"Finally, KiBA comprises {inter_count} interactions.")
     print("Preprocessing interactions finished")
 
@@ -196,4 +181,9 @@ def kiba_preprocessing(
     process_interactions(database + "tables/kiba.tsv", database + "tables/inter.tsv", lambda x: "1" if x < 3.6122 else "0")
 
 
-# kiba_preprocessing()
+def main():
+    kiba_preprocessing()
+
+
+if __name__ == '__main__':
+    main()
