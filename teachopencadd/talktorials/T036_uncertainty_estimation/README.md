@@ -7,7 +7,7 @@ Authors:
 - Michael Backenköhler, 2022, [Volkamer lab](https://volkarmerlab.org), Saarland University
 
 
-*The predictive setting (and the model calss) used in this talktorial is adapted from [__Talktorial T022__](https://github.com/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T022_ligand_based_screening_neural_network/talktorial.ipynb).*
+*The predictive setting (and the model class) used in this talktorial is adapted from [__Talktorial T022__](https://github.com/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T022_ligand_based_screening_neural_network/talktorial.ipynb).*
 
 
 ## Aim of this talktorial
