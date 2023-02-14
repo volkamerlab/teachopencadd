@@ -11,7 +11,7 @@ from chembl_webresource_client.new_client import new_client
 
 
 def filter_data(kiba_init_filepath, kiba_filter_filepath):
-    df = pd.read_csv(kiba_init_filepath, sep="\t")
+    df = pd.read_csv(kiba_init_filepath, sep="\t", low_memory=False)
     print("KiBA originally contains {} ligands and {} proteins.".format(*df.shape))
 
     row_vals = np.array([row.isna().sum() for index, row in df.iterrows()])
