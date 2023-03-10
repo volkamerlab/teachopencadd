@@ -1,4 +1,5 @@
 import os.path
+from os.path import join as pj
 import urllib.request
 from typing import Callable
 
@@ -168,22 +169,14 @@ def process_interactions(kiba_filepath, inter_filepath, threshold_fn: Callable):
     print("Preprocessing interactions finished")
 
 
-def kiba_preprocessing(
-        kiba_init_filepath: str = "data/kiba/KIBA.csv",
-        database: str = "data/resources/"
-):
-    os.makedirs(os.path.join(database, "tables"), exist_ok=True)
-    os.makedirs(os.path.join(database, "proteins"), exist_ok=True)
+def kiba_preprocessing(kiba_init_filepath, database):
+    kiba_init_filepath = str(kiba_init_filepath)
+    database = str(database)
 
-    filter_data(kiba_init_filepath, database + "tables/kiba.tsv")
-    download_ligands(database + "tables/kiba.tsv", database + "tables/ligands.tsv")
-    download_proteins(database + "tables/kiba.tsv", database + "proteins/")
-    process_interactions(database + "tables/kiba.tsv", database + "tables/inter.tsv", lambda x: "1" if x < 3.6122 else "0")
+    os.makedirs(pj(database, "tables"), exist_ok=True)
+    os.makedirs(pj(database, "proteins"), exist_ok=True)
 
-
-def main():
-    kiba_preprocessing()
-
-
-if __name__ == '__main__':
-    main()
+    filter_data(kiba_init_filepath, pj(database, "tables", "kiba.tsv"))
+    download_ligands(pj(database, "tables", "kiba.tsv"), pj(database, "tables", "ligands.tsv"))
+    download_proteins(pj(database, "tables", "kiba.tsv"), pj(database, "proteins"))
+    process_interactions(pj(database, "tables", "kiba.tsv"), pj(database, "tables", "inter.tsv"), lambda x: "1" if x < 3.6122 else "0")
