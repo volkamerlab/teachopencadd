@@ -12,7 +12,7 @@ Authors:
 
 ## Aim of this talktorial
 
-Researchers often focus on prediction quality alone. However, in the application of a predictive model, researchers are also interested in how certain they can be in a specific prediction. Estimating and providing such information is the goal of uncertainty estimation. In this talktorial, we discuss some common methodologies and showcase ensemble methods in practice.
+Researchers often focus on prediction quality alone. However,when applying a predictive model, researchers are also interested in how certain they can be in a specific prediction. Estimating and providing such information is the goal of uncertainty estimation. In this talktorial, we discuss some common methodologies and showcase ensemble methods in practice.
 
 
 ### Contents in *Theory*
