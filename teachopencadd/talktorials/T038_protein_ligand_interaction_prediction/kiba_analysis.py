@@ -135,7 +135,7 @@ def download_proteins(kiba_filepath, structure_folder):
             flags.append(True)
             continue
         try:
-            urllib.request.urlretrieve("https://files.rcsb.org/download/" + pdb_id + ".pdb", structure_folder + uniprot_id + ".pdb")
+            urllib.request.urlretrieve("https://files.rcsb.org/download/" + pdb_id + ".pdb", structure_folder + "/" + uniprot_id + ".pdb")
             print(f"\rDownload {pdb_id} -> {uniprot_id}", end="")
             flags.append(True)
         except:
