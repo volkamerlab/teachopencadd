@@ -6,9 +6,11 @@ Authors:
 
 - Joschka Groß, 2022, Chair for Modelling and Simulation, Saarland University
 
+
 ## Aim of this talktorial
 
 This talktorial is supposed to serve as an introduction to machine learning on point cloud representations of molecules with 3D conformer information, i.e., molecular graphs that are embedded into euclidean space (see **Talktorial 033**). You will learn why euclidean equivariance and invariance are important properties of neural networks (NNs) that take point clouds as input and learn how to implement and train such NNs. In addition to discussing them in theory, this notebook also aims to demonstrate the shortcomings of plain graph neural networks (GNNs) when working with point clouds practically.
+
 
 ### Contents in *Theory*
 
@@ -17,6 +19,7 @@ This talktorial is supposed to serve as an introduction to machine learning on p
 * Equivariance and invariance in euclidean space and why we care
 * How to construct $\text{E}(n)$-invariant and equivariant models
 * The QM9 dataset
+
 
 ### Contents in *Practical*
 
@@ -35,6 +38,7 @@ This talktorial is supposed to serve as an introduction to machine learning on p
   * Training the EGNN
   * Training the plain GNN
   * Comparative evaluation
+
 
 ### References
 
