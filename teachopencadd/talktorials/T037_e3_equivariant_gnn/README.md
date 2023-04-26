@@ -1,80 +1,50 @@
-<div class="alert alert-block alert-info">
-
-<b>Thank you for contributing to TeachOpenCADD!</b>
-
-</div>
-
-
-<div class="alert alert-block alert-info">
-
-<b>Set up your PR</b>: Please check out our <a href="https://github.com/volkamerlab/teachopencadd/issues/41">issue</a> on how to set up a PR for new talktorials, including standard checks and TODOs.
-
-</div>
-
-
-# T000 · Talktorial topic title
+# T037 · An introduction to $\text{E}(3)$-invariant graph neural networks
 
 **Note:** This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
 
 Authors:
 
-- First and last name, year(s) of contribution, lab, institution
-- First and last name, year(s) of contribution, lab, institution
-
-
-*The examples used in this talktorial template are taken from [__Talktorial T001__](https://github.com/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T001_query_chembl/talktorial.ipynb) and [__Talktorial T002__](https://github.com/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb).*
-
-
-<div class="alert alert-block alert-info">
-
-<b>Cross-referencing talktorials</b>: If you want to cross-reference to existing talktorials in your notebook, please use the following formatting: <b>Talktorial T000</b>.
-
-</div>
-
+- Joschka Groß, 2022, Chair for Modelling and Simulation, Saarland University
 
 ## Aim of this talktorial
 
-Add a short summary of this talktorial's content.
-
+This talktorial is supposed to serve as an introduction to machine learning on point cloud representations of molecules with 3D conformer information, i.e., molecular graphs that are embedded into euclidean space (see **Talktorial 033**). You will learn why euclidean equivariance and invariance are important properties of neural networks (NNs) that take point clouds as input and learn how to implement and train such NNs. In addition to discussing them in theory, this notebook also aims to demonstrate the shortcomings of plain graph neural networks (GNNs) when working with point clouds practically.
 
 ### Contents in *Theory*
 
-_Add Table of Contents (TOC) for Theory section._
-
-* ChEMBL database
-* Compound activity measures
-
-
-<div class="alert alert-block alert-info">
-
-<b>Sync TOC with section titles</b>: These points should refer to the headlines of your <i>Theory</i> section.
-
-</div>
-
+* Why 3D coordinates?
+* Representing molecules as point clouds
+* Equivariance and invariance in euclidean space and why we care
+* How to construct $\text{E}(n)$-invariant and equivariant models
+* The QM9 dataset
 
 ### Contents in *Practical*
 
-_Add Table of Contents (TOC) for Practical section._
-
-* Connect to ChEMBL database
-* Load and draw molecules
-
-
-<div class="alert alert-block alert-info">
-
-<b>Sync TOC with section titles</b>: These points should refer to the headlines of your <i>Practical</i> section.
-
-</div>
-
+* Visualization of point clouds
+* Set up and inspect the QM9 dataset
+  * Preprocessing
+  * Atomic number distribution and point cloud size
+  * Data split, distribution of regression target electronic spatial extent
+* Model implementation
+  * Plain "naive euclidean" GNN
+  * Demo: Plain GNNs are not E(3)-invariant
+  * EGNN model
+  * Demo: Our EGNN is E(3)-invariant
+* Training and evaluation
+  * Setup
+  * Training the EGNN
+  * Training the plain GNN
+  * Comparative evaluation
 
 ### References
 
-* Paper 
-* Tutorial links
-* Other useful resources
+#### Theoretical
+* **Quantum chemistry structures and properties of 134k molecules (QM9)**: [<i>Scientific data</i> (2014)](https://www.nature.com/articles/sdata201422/?ref=https://githubhelp.com)
+* **MoleculeNet: a benchmark for molecular machine learning**: [<i>Chem. Sci.</i>, 2018, <b>9</b>, 513-530](https://pubs.rsc.org/en/content/articlehtml/2018/sc/c7sc02664a)
+* **$\text{E}(n)$ Equivariant Graph Neural Networks**: [<i>International conference on machine learning</i> (2021), <b>139</b>, 99323-9332](https://proceedings.mlr.press/v139/satorras21a.html)
+* **SE(3)-transformers: 3D roto-translation equivariant attention networks**: [<i>Advances in Neural Information Processing Systems</i> (2021), <b>33</b>, 1970-1981](https://proceedings.neurips.cc/paper/2020/file/15231a7ce4ba789d13b722cc5c955834-Paper.pdf)
+* **TorchMD-NET: Equivariant Transformers for Neural Network based Molecular Potentials**: [<i>arXiv preprint (2022)</i>](https://arxiv.org/abs/2202.02541)
+* **DiffDock**: [<i> arXiv preprint</i> (2022)](https://arxiv.org/abs/2210.01776)
 
-*We suggest the following citation style:*
-* Keyword describing resource: <i>Journal</i> (year), <b>volume</b>, pages (link to resource) 
-
-*Example:*
-* ChEMBL web services: [<i>Nucleic Acids Res.</i> (2015), <b>43</b>, 612-620](https://academic.oup.com/nar/article/43/W1/W612/2467881) 
+#### Practical
+* [Pytorch Geometric QM9 version](https://pytorch-geometric.readthedocs.io/en/latest/modules/datasets.html#torch_geometric.datasets.QM9)
