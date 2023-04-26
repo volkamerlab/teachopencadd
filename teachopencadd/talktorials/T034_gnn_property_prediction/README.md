@@ -12,7 +12,6 @@ Authors:
 In this tutorial, we will first explain the basic concepts of graph neural networks (GNNs) and present two different GNN architectures. We apply our neural networks to the `QM9` dataset, which is a dataset containing small molecules. With this dataset, we want to predict molecular properties. We demonstrate how to train and evaluate GNNs step by step using PyTorch Geometric.
 
 
-
 ### Contents in *Theory*
 
 * GNN Tasks
