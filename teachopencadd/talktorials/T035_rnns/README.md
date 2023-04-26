@@ -7,14 +7,6 @@ Authors:
 - Azat Tagirdzhanov, 2022, Saarland University
 
 
-### Review
-- maybe add some application of RNNs in drug discovery
-- you could mention some advantages and disadvantages of RNNs
-- add some code comments the training function
-- add more text in the evaluation, explain the plots a little etc
-- how long does your code run? Does it make sense to pretrain it and load it for the results?
-
-
 ## Aim of this talktorial
 
 Molecular representation by a SMILES string paved the way for applying natural language processing techniques to a broad range of molecule related tasks. In this talktorial we will dive deeper into one of these techinques: recurrent neural networks (RNNs). First, we will describe different RNN architectures and then apply them to a regression task using the QM9 dataset.
@@ -44,8 +36,8 @@ Molecular representation by a SMILES string paved the way for applying natural l
 #### Talktorials
 * [__Talktorial T021__](https://github.com/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T021_one_hot_encoding/talktorial.ipynb): One-Hot Encoding
 * [__Talktorial T022__](https://github.com/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T022_ligand_based_screening_neural_network/talktorial.ipynb): Ligand-based screening: neural networks
-* [__Talktorial T033__](todo)(**todo**)
-* [__Talktorial T034__](todo)(**todo**)
+* __Talktorial T033__: Molecular Representations
+* __Talktorial T034__: GNN based property prediction
 
 
 #### Theoretical background
