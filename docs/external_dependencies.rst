@@ -13,7 +13,7 @@ Python packages
   - ``openbabel``: https://openbabel.org/
   - ``mdanalysis``: https://www.mdanalysis.org/
   - ``biopython``: https://biopython.org/
-  - ``biopandas``: http://rasbt.github.io/biopandas/
+  - ``biopandas``: https://biopandas.github.io/biopandas/
   - ``opencadd``: https://opencadd.readthedocs.io/en/latest/
   - ``plip``: https://github.com/pharmai/plip
   - ``openff``: https://github.com/openforcefield/openff-toolkit
