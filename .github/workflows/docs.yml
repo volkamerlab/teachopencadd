@@ -74,6 +74,8 @@ jobs:
             -s "ftp://*" \
             -s "https://machinelearningmastery.com/*" \
             -s "https://www.schrodinger.com/training/videos/*" \
+            -s "/*.mp4" \
+            
 
       - name: Check 404s (README)
         uses: gaurav-nelson/github-action-markdown-link-check@v1
