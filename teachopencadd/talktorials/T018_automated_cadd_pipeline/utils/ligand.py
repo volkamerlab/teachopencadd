@@ -7,6 +7,7 @@ from pathlib import Path
 
 import pandas as pd  # for creating dataframes and handling data
 from rdkit.Chem import PandasTools # for displaying structures inside Pandas DataFrame
+PandasTools.RenderImagesInAllDataFrames(True)
 
 from .helpers import pubchem, rdkit
 
