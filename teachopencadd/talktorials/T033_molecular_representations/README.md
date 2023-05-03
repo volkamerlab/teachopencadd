@@ -1,11 +1,8 @@
-# Feedback formatting:
-
-
 # T033 · Molecular representations
 
 **Note:** This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
 
-**<span style="color:red">Important</span>:** Currently, this talkturial uses Datamol which has to be installed using `conda install -c conda-forge datamol`.
+**<span style="color:red">Important</span>:** Currently, this talktorial uses Datamol which has to be installed using `conda install -c conda-forge datamol`.
 
 
 Authors:
@@ -47,8 +44,8 @@ Specifically, we learn about molecular representations and find that representin
   * [A review of molecular representation in the age of machine learning](https://wires.onlinelibrary.wiley.com/doi/full/10.1002/wcms.1603)
   * [Point-based molecular representation learning from conformers](https://openreview.net/pdf?id=pjePBJjlBby)
   * [Learning 3D Representations of Molecular Chirality with Invariance to Bond Rotations](https://openreview.net/pdf?id=hm2tNDdgaFK)
-* Talkturials: 
+* Talktorials:
   * [T008 - Protein data acquisition: Protein Data Bank (PDB)](https://github.com/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T008_query_pdb/talktorial.ipynb)
   * [T017 - Advanced NGLview usage](https://github.com/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T017_advanced_nglview_usage/talktorial.ipynb)
-  * Deep learning talkturials T033 to T038
+  * Deep learning talktorials T033 to T038
 * [Tutorial on chirality](https://chem.libretexts.org/Bookshelves/Organic_Chemistry/Map%3A_Organic_Chemistry_(Vollhardt_and_Schore)/05._Stereoisomers/5.1%3A_Chiral__Molecules)
