@@ -75,6 +75,9 @@ jobs:
             -s "https://machinelearningmastery.com/*" \
             -s "https://www.schrodinger.com/training/videos/*" \
             -s "/*.mp4" \
+            -s "/*.pdf" \
+            -s "/*.png" \
+            -s "https://www.icoa.fr/pkidb/index.html" \
             
 
       - name: Check 404s (README)
