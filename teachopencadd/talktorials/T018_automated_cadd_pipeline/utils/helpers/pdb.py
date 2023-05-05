@@ -27,7 +27,7 @@ def read_pdb_file_content(input_type, input_value):
         Content of the PDB file as a single string.
     """
     if input_type == "pdb_code":
-        pdb_file_content = pypdb.get_pdb_file(input_value)
+        pdb_file_content = pypdb.clients.pdb.pdb_client.get_pdb_file(input_value)
     elif input_type == "pdb_filepath":
         with open(input_value) as f:
             pdb_file_content = f.read()
@@ -52,7 +52,7 @@ def fetch_and_save_pdb_file(pdb_code, output_filepath):
     pathlib.Path
         The full path of the saved PDB file.
     """
-    pdb_file_content = pypdb.get_pdb_file(pdb_code)
+    pdb_file_content = pypdb.clients.pdb.pdb_client.get_pdb_file(pdb_code)
     full_filepath = Path(output_filepath).with_suffix(".pdb")
     with open(full_filepath, "w") as f:
         f.write(pdb_file_content)

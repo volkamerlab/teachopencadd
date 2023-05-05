@@ -47,7 +47,7 @@ def protein(input_type, input_value, output_image_filename=None):
     """
 
     if input_type == "pdb_code":
-        viewer = nv.show_pdbid(input_value, height="600px")
+        viewer = nv.show_pdbid(input_value)
     else:
         with open(input_value) as f:
             viewer = nv.show_file(f, ext=input_type, height="600px", default_representation=False)
