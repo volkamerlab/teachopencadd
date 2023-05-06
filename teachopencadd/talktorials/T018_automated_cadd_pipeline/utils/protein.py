@@ -59,7 +59,7 @@ class Protein:
                 identifier_value, Path(protein_output_path) / identifier_value
             )
         
-        self.file_content = pdb.read_pdb_file_content(identifier_type.value, identifier_value)
+        self.file_content = pdb.read_pdb_file_content("pdb_filepath", self.pdb_filepath)
 
         dict_of_dataframes = pdb.load_pdb_file_as_dataframe(self.file_content)
         for key, value in dict_of_dataframes.items():
