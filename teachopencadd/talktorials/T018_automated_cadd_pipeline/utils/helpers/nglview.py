@@ -282,7 +282,7 @@ def interactions(
                 app.center.close()
 
             # NGL Viewer
-            app.center = viewer = nv.NGLWidget(default=True, gui=True)
+            app.center = viewer = nv.NGLWidget()
 
             with open(protein_filepath) as f:
                 prot_component = viewer.add_component(
