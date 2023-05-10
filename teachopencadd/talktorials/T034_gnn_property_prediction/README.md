@@ -1,4 +1,4 @@
-# GNN based property prediction
+# GNN-based property prediction
 
 
 **Note**: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.

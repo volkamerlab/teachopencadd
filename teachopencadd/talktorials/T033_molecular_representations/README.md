@@ -23,7 +23,7 @@ Specifically, we learn about molecular representations and find that representin
 
 * What is a molecule?
 * Molecular representations
-* Molecular representations for humans
+* Molecular Representations for Humans
 * Computer-age molecular representations
 
 
@@ -41,7 +41,7 @@ Specifically, we learn about molecular representations and find that representin
   * [AlphaFold Protein Structure Database](https://alphafold.ebi.ac.uk/)
 * Papers: 
   * [Molecular representations in AI-driven drug discovery: a review and practical guide](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-020-00460-5#:~:text=Traditionally%2C%20molecules%20are%20represented%20as,of%20chemical%20structures%20in%20cheminformatics.)
-  * [A review of molecular representation in the age of machine learning](https://wires.onlinelibrary.wiley.com/doi/full/10.1002/wcms.1603)
+  * [A Review of molecular representation in the Age of Machine Learning](https://wires.onlinelibrary.wiley.com/doi/full/10.1002/wcms.1603)
   * [Point-based molecular representation learning from conformers](https://openreview.net/pdf?id=pjePBJjlBby)
   * [Learning 3D Representations of Molecular Chirality with Invariance to Bond Rotations](https://openreview.net/pdf?id=hm2tNDdgaFK)
 * Talktorials:
