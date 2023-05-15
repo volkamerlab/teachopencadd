@@ -81,12 +81,9 @@ class Ligand:
         return f"<Ligand CID: {self.cid}>"
 
     def __call__(self):
-        df = pd.DataFrame(columns=["smiles"])
-        df.loc[1] = self.smiles
-        PandasTools.AddMoleculeColumnToFrame(df, smilesCol="smiles")
-        romol = df.loc[1, "ROMol"]
-
-        return pd.concat({romol: self.dataframe}, names=["Structure"])
+        df = pd.DataFrame({"Value": [self.rdkit_obj]}, index=[""])
+        df.index.name = "Property"
+        return pd.concat([df, self.dataframe])
 
     def remove_counterion(self):
         """

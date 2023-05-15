@@ -72,6 +72,13 @@ jobs:
             -s "http[s]://doi.org/*" \
             -s "http[s]://pubs.acs.org/*" \
             -s "ftp://*" \
+            -s "https://machinelearningmastery.com/*" \
+            -s "https://www.schrodinger.com/training/videos/*" \
+            -s "/*.mp4" \
+            -s "/*.pdf" \
+            -s "/*.png" \
+            -s "https://www.icoa.fr/pkidb/index.html" \
+            
 
       - name: Check 404s (README)
         uses: gaurav-nelson/github-action-markdown-link-check@v1

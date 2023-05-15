@@ -61,7 +61,7 @@ In this talktorial, we use known EGFR ligands, which were selected and aligned i
 * IUPAC pharmacophore definition 
 ([<i>Pure & Appl. Chem</i> (1998), <b>70</b>, 1129-43](https://www.degruyter.com/view/journals/pac/70/5/article-p1129.xml))
 * 3D pharmacophores in LigandScout 
-([<i>J. Chem. Inf. Model.</i> (2005), <b>45</b>, 160-9](http://pubs.acs.org/doi/pdf/10.1021/ci049885e))
+([<i>J. Chem. Inf. Model.</i> (2005), <b>45</b>, 160-9](https://pubs.acs.org/doi/10.1021/ci049885e))
 * Book chapter: Pharmacophore Perception and Applications 
 ([Applied Chemoinformatics, Wiley-VCH Verlag GmbH & Co. KGaA, Weinheim, (2018), **1**, 259-82](https://onlinelibrary.wiley.com/doi/10.1002/9783527806539.ch6f))
 * Book chapter: Structure-Based Virtual Screening ([Applied Chemoinformatics, Wiley-VCH Verlag GmbH & Co. KGaA, Weinheim, (2018), **1**, 313-31](https://onlinelibrary.wiley.com/doi/10.1002/9783527806539.ch6h)).
