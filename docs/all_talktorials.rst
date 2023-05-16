@@ -34,3 +34,4 @@ This is the complete list of talktorials available for online reading. Take into
    talktorials/T026_kinase_similarity_ifp.nblink
    talktorials/T027_kinase_similarity_ligand_profile.nblink
    talktorials/T028_kinase_similarity_compare_perspectives.nblink
+   talktorials/T032_compound_activity_proteochemometrics.nblink

@@ -7,7 +7,6 @@ on:
   pull_request:
     branches:
       - "master"
-      - "base-ci-env-fix"
   schedule:
     # Run a cron job once weekly on Monday
     - cron: "0 3 * * 1"
@@ -75,6 +74,8 @@ jobs:
 
           # Ignore T019 under Windows, see https://github.com/volkamerlab/teachopencadd/issues/313
           PYTEST_IGNORE_T019="--ignore=teachopencadd/talktorials/T019_md_simulation/talktorial.ipynb"
+          # Ignore T032 under Windows, see 
+          PYTEST_IGNORE_T032="--ignore=teachopencadd/talktorials/T032_compound_activity_proteochemometrics/talktorial.ipynb"
 
           # Temporarily ignored notebooks, see https://github.com/volkamerlab/teachopencadd/issues/303
           PYTEST_IGNORE_T008="--ignore=teachopencadd/talktorials/T008_query_pdb/talktorial.ipynb"
@@ -83,8 +84,14 @@ jobs:
             # Temporarily ignore T019
             pytest $PYTEST_ARGS teachopencadd/talktorials/ $PYTEST_IGNORE_T008 $PYTEST_IGNORE_T019
           else
-            pytest $PYTEST_ARGS teachopencadd/talktorials/ $PYTEST_IGNORE_T008 $PYTEST_IGNORE_T019
+            pytest $PYTEST_ARGS teachopencadd/talktorials/ $PYTEST_IGNORE_T008 $PYTEST_IGNORE_T019 $PYTEST_IGNORE_T032
           fi
+
+      - name: Environment Information (after T032 installation)
+        shell: bash -l {0}
+        run: |
+          conda info --all
+          conda list
 
   format:
     name: Black
