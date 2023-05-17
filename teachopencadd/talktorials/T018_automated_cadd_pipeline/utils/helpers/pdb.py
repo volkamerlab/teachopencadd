@@ -3,9 +3,10 @@ Contains all the necessary functions for handling protein data by processing PDB
 """
 
 from pathlib import Path  # for creating folders and handling local paths
+import warnings
 
-import pypdb  # for communicating with the RCSB Protein Data Bank (PDB) to fetch PDB files
 from biopandas.pdb import PandasPdb  # for working with PDB files
+import pypdb  # for communicating with the RCSB Protein Data Bank (PDB) to fetch PDB files
 from opencadd.structure.core import Structure  # for manipulating PDB files
 
 
@@ -27,7 +28,7 @@ def read_pdb_file_content(input_type, input_value):
         Content of the PDB file as a single string.
     """
     if input_type == "pdb_code":
-        pdb_file_content = pypdb.get_pdb_file(input_value)
+        pdb_file_content = pypdb.clients.pdb.pdb_client.get_pdb_file(input_value)
     elif input_type == "pdb_filepath":
         with open(input_value) as f:
             pdb_file_content = f.read()
@@ -52,7 +53,7 @@ def fetch_and_save_pdb_file(pdb_code, output_filepath):
     pathlib.Path
         The full path of the saved PDB file.
     """
-    pdb_file_content = pypdb.get_pdb_file(pdb_code)
+    pdb_file_content = pypdb.clients.pdb.pdb_client.get_pdb_file(pdb_code)
     full_filepath = Path(output_filepath).with_suffix(".pdb")
     with open(full_filepath, "w") as f:
         f.write(pdb_file_content)
@@ -84,7 +85,9 @@ def extract_molecule_from_pdb_file(molecule_name, input_filepath, output_filepat
     molecule_name = f"resname {molecule_name}" if molecule_name != "protein" else molecule_name
     extracted_structure = pdb_structure.select_atoms(molecule_name)
     if output_filepath is not None:
-        extracted_structure.write(Path(output_filepath).with_suffix(".pdb"))
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            extracted_structure.write(Path(output_filepath).with_suffix(".pdb"))
     return extracted_structure
 
 
