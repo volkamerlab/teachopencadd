@@ -18,14 +18,14 @@ __Talktorial T001__: This talktorial is part of the TeachOpenCADD pipeline descr
 
 In this notebook, we will learn more about the ChEMBL database and how to extract data from ChEMBL, i.e. (compound, activity data) pairs for a target of interest. These data sets can be used for many cheminformatics tasks, such as similarity search, clustering or machine learning.
 
-Our work here will include finding compounds which were tested against a certain target and filtering available bioactivity data.
+Our work here will include finding compounds that were tested against a certain target and filtering available bioactivity data.
 
 
 ### Contents in *Theory*
 
 * ChEMBL database
     * ChEMBL web services
-    * ChEMBL webresource client
+    * ChEMBL web resource client
 * Compound activity measures
     * IC50 measure
     * pIC50 value
@@ -40,7 +40,7 @@ Our work here will include finding compounds which were tested against a certain
     * Fetch and download target data
     * Select target ChEMBL ID
 * Get bioactivity data
-    * Fetch and download bioactivity data for target
+    * Fetch and download bioactivity data for targets
     * Preprocess and filter bioactivity data
 * Get compound data
     * Fetch and download compound data
@@ -57,7 +57,7 @@ Our work here will include finding compounds which were tested against a certain
 * ChEMBL bioactivity database: [Gaulton *et al.*, <i>Nucleic Acids Res.</i> (2017), 45(Database issue), D945–D954](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5210557/)
 * ChEMBL web services: [Davies *et al.*, <i>Nucleic Acids Res.</i> (2015), <b>43</b>, 612-620](https://academic.oup.com/nar/article/43/W1/W612/2467881) 
 * [ChEMBL web-interface](https://www.ebi.ac.uk/chembl/)
-*  GitHub [ChEMBL webrescource client](https://github.com/chembl/chembl_webresource_client)
+*  GitHub [ChEMBL web rescource client](https://github.com/chembl/chembl_webresource_client)
 * The EBI RDF platform: [Jupp *et al.*, <i>Bioinformatics </i> (2014), 30(9), 1338-9](https://www.ncbi.nlm.nih.gov/pubmed/24413672)
 * Info on half maximal inhibitory concentration: [(p)IC50](https://en.wikipedia.org/wiki/IC50)
 * [UniProt website](https://www.uniprot.org/)

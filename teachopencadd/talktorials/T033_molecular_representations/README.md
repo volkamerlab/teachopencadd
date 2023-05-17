@@ -7,12 +7,12 @@ Authors:
 - Gerrit Großmann, 2022, [Chair for Modelling and Simulation](https://mosi.uni-saarland.de/people/gerrit/), Saarland University
 
 
-__Talktorial T033__: This talktorial is part of the TeachOpenCADD pipeline described in the TeachOpenCADD publication (TODO), comprising of talktorials T033 to T038.
+__Talktorial T033__: This talktorial is part of the TeachOpenCADD pipeline described in the TeachOpenCADD publication, consisting of Talktorials T033 to T038.
 
 
 ## Aim of this talktorial
 
-In this talktorial, we conduct the groundwork for the deep learning talktorials (<span style="color:pink">add references: 034, 035, 036, 037, 038</span>).
+In this talktorial, we conduct the groundwork for the deep learning talktorials.
 Specifically, we learn about molecular representations and find that representing a molecule in a computer is not a trivial task. Different representations come with their specific implications and (dis-)advantages.
 
 
