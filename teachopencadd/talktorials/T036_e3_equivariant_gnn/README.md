@@ -1,22 +1,22 @@
-# T037 · An introduction to $\text{E}(3)$-invariant graph neural networks
+# T036 · An introduction to $\text{E}(3)$-invariant graph neural networks
 
 **Note:** This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
 
 Authors:
 
-- Joschka Groß, 2022, Chair for Modelling and Simulation, Saarland University
+- Joschka Groß, 2022, [Chair for Modelling and Simulation](https://mosi.uni-saarland.de/), Saarland University
 
 
 ## Aim of this talktorial
 
-This talktorial is supposed to serve as an introduction to machine learning on point cloud representations of molecules with 3D conformer information, i.e., molecular graphs that are embedded into euclidean space (see **Talktorial 033**). You will learn why euclidean equivariance and invariance are important properties of neural networks (NNs) that take point clouds as input and learn how to implement and train such NNs. In addition to discussing them in theory, this notebook also aims to demonstrate the shortcomings of plain graph neural networks (GNNs) when working with point clouds practically.
+This talktorial is supposed to serve as an introduction to machine learning on point cloud representations of molecules with 3D conformer information, i.e., molecular graphs that are embedded into Euclidean space (see **Talktorial 033**). You will learn why Euclidean equivariance and invariance are important properties of neural networks (NNs) that take point clouds as input and learn how to implement and train such NNs. In addition to discussing them in theory, this notebook also aims to demonstrate the shortcomings of plain graph neural networks (GNNs) when working with point clouds practically.
 
 
 ### Contents in *Theory*
 
 * Why 3D coordinates?
 * Representing molecules as point clouds
-* Equivariance and invariance in euclidean space and why we care
+* Equivariance and Invariance in euclidean space and why we care
 * How to construct $\text{E}(n)$-invariant and equivariant models
 * The QM9 dataset
 
@@ -29,7 +29,7 @@ This talktorial is supposed to serve as an introduction to machine learning on p
   * Atomic number distribution and point cloud size
   * Data split, distribution of regression target electronic spatial extent
 * Model implementation
-  * Plain "naive euclidean" GNN
+  * Plain "naive Euclidean" GNN
   * Demo: Plain GNNs are not E(3)-invariant
   * EGNN model
   * Demo: Our EGNN is E(3)-invariant
