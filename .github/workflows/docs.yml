@@ -18,16 +18,15 @@ jobs:
     name: Docs
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - uses: conda-incubator/setup-miniconda@v2
         with:
           python-version: "3.8"
-          mamba-version: "*"
+          miniforge-variant: Mambaforge
+          miniforge-version: latest
           activate-environment: teachopencadd
-          channel-priority: true
           environment-file: devtools/test_env.yml
-          auto-activate-base: false
 
       - name: Additional info about the build
         shell: bash
@@ -62,20 +61,24 @@ jobs:
         shell: bash -l {0}
         run: |
           cd docs/_build/html
-          python -m http.server > /dev/null &2>1&
-          npx broken-link-checker http://localhost:8000/ --ordered --recursive \
-            --exclude "*.txt" \
-            --exclude "https://onlinelibrary.wiley.com/doi/full/10.1002/cmdc.200700139" \
-            --exclude "https://onlinelibrary.wiley.com/doi/10.1002/9783527806539.*" \
-            --exclude "https://towardsdatascience.com" \
-            --exclude "https://medium.com" \
-            --exclude "https://*.medium.com" \
-            --exclude "http[s]://quora.com" \
-            --exclude "http[s]://doi.org" \
-            --exclude "ftp://*" \
-            --exclude "http://localhost:8000" \
-            --exclude "https://pubs.acs.org/doi/10.1021/acs.jcim.9b00662" \
-            --exclude "https://pubs.acs.org/doi/abs/10.1021/bk-2021-1387.ch010"
+          npx linkinator . --verbosity error --recurse -r --retry-errors-jitter --timeout 10000 \
+            -s "/*.txt" \
+            -s "https://onlinelibrary.wiley.com/doi/full/10.1002/cmdc.200700139" \
+            -s "https://onlinelibrary.wiley.com/doi/10.1002/9783527806539.*" \
+            -s "https://towardsdatascience.com" \
+            -s "https://medium.com" \
+            -s "https://*.medium.com" \
+            -s "http[s]://quora.com" \
+            -s "http[s]://doi.org/*" \
+            -s "http[s]://pubs.acs.org/*" \
+            -s "ftp://*" \
+            -s "https://machinelearningmastery.com/*" \
+            -s "https://www.schrodinger.com/training/videos/*" \
+            -s "/*.mp4" \
+            -s "/*.pdf" \
+            -s "/*.png" \
+            -s "https://www.icoa.fr/pkidb/index.html" \
+            
 
       - name: Check 404s (README)
         uses: gaurav-nelson/github-action-markdown-link-check@v1

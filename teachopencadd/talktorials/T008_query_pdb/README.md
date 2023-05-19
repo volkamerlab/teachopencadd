@@ -1,12 +1,3 @@
-<div class="alert alert-block alert-danger">
-
-<b>TeachOpenCADD note</b>: This notebook uses the Ligand Expo website (http://ligand-expo.rcsb.org/), which will be offline in January 2023. During that time, T008 will not work in its entirety. Please check the following issue to track when this notebook will be available again: https://github.com/volkamerlab/teachopencadd/issues/303
-    
-<b>Ligand Expo website note</b>: "Ligand Expo will be down from January 1-31, 2023. Requests to this service will return a 410 http error code (“Gone”) and a message to contact RCSB PDB."
-
-</div>
-
-
 # T008 · Protein data acquisition: Protein Data Bank (PDB) 
 
 **Note:** This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
