@@ -77,15 +77,14 @@ jobs:
 
           # Ignore T019 under Windows, see https://github.com/volkamerlab/teachopencadd/issues/313
           PYTEST_IGNORE_T019="--ignore=teachopencadd/talktorials/T019_md_simulation/talktorial.ipynb"
-          pytest $PYTEST_ARGS teachopencadd/talktorials/T020_md_analysis/talktorial.ipynb
 
-          #if [ "$RUNNER_OS" != "Windows" ]; then
-          #  # If not Windows, run all
-          #  pytest $PYTEST_ARGS teachopencadd/talktorials/
-          #else
-          #  # If Windows, run all but T019
-          #  pytest $PYTEST_ARGS teachopencadd/talktorials/ $PYTEST_IGNORE_T019
-          #fi
+          if [ "$RUNNER_OS" != "Windows" ]; then
+            # If not Windows, run all
+            pytest $PYTEST_ARGS teachopencadd/talktorials/
+          else
+            # If Windows, run all but T019
+            pytest $PYTEST_ARGS teachopencadd/talktorials/ $PYTEST_IGNORE_T019
+          fi
 
   format:
     name: Black
