@@ -7,6 +7,7 @@ on:
   pull_request:
     branches:
       - "master"
+      - "base-ci-env-fix"
   schedule:
     # Run a cron job once weekly on Monday
     - cron: "0 3 * * 1"
@@ -21,21 +22,16 @@ jobs:
         cfg:
           - os: ubuntu-latest
             python-version: "3.8"
-            prefix: /usr/share/miniconda3/envs/my-env
           - os: ubuntu-latest
             python-version: "3.9"
-            prefix: /usr/share/miniconda3/envs/my-env
           - os: macos-latest
             python-version: "3.8"
-            prefix: /Users/runner/miniconda3/envs/my-env
           - os: windows-latest
             python-version: "3.8"
-            prefix: C:\Miniconda3\envs\my-env
 
     env:
       PYVER: ${{ matrix.cfg.python-version }}
       PACKAGE: teachopencadd
-      CACHE_NUMBER: 0
 
     steps:
       - uses: actions/checkout@v3
@@ -46,18 +42,7 @@ jobs:
           miniforge-variant: Mambaforge
           miniforge-version: latest
           activate-environment: teachopencadd
-          use-mamba: true
-      - name: Set cache date
-        run: echo "DATE=$(date +'%Y%m')" >> $GITHUB_ENV
-
-      - uses: actions/cache@v2
-        with:
-          path: ${{ matrix.cfg.prefix }}
-          key: ${{ matrix.cfg.os }}-${{ matrix.cfg.python-version }}-conda-${{ hashFiles('devtools/test_env.yml') }}-${{ env.DATE }}-${{ env.CACHE_NUMBER }}
-        id: cache
-      - name: Update environment
-        run: mamba env update -n teachopencadd -f devtools/test_env.yml
-        if: steps.cache.outputs.cache-hit != 'true'
+          environment-file: devtools/test_env.yml
 
       - name: Additional info about the build
         shell: bash
