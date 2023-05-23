@@ -7,7 +7,9 @@ on:
   pull_request:
     branches:
       - "master"
-      - "base-ci-env-fix"
+      - "dev"
+      # temporarily added
+      - "t019-exclude-windows-from-ci"
   schedule:
     # Run a cron job once weekly on Monday
     - cron: "0 3 * * 1"
@@ -72,7 +74,17 @@ jobs:
         shell: bash -l {0}
         run: |
           PYTEST_ARGS="--nbval-lax --current-env --dist loadscope --numprocesses 2"
-          pytest $PYTEST_ARGS teachopencadd/talktorials/
+
+          # Ignore T019 under Windows, see https://github.com/volkamerlab/teachopencadd/issues/313
+          PYTEST_IGNORE_T019="--ignore=teachopencadd/talktorials/T019_md_simulation/talktorial.ipynb"
+
+          if [ "$RUNNER_OS" != "Windows" ]; then
+            # If not Windows, run all
+            pytest $PYTEST_ARGS teachopencadd/talktorials/
+          else
+            # If Windows, run all but T019
+            pytest $PYTEST_ARGS teachopencadd/talktorials/ $PYTEST_IGNORE_T019
+          fi
 
   format:
     name: Black
