@@ -47,10 +47,10 @@ def protein(input_type, input_value, output_image_filename=None):
     """
 
     if input_type == "pdb_code":
-        viewer = nv.show_pdbid(input_value, height="600px")
+        viewer = nv.show_pdbid(input_value)
     else:
         with open(input_value) as f:
-            viewer = nv.show_file(f, ext=input_type, height="600px", default_representation=False)
+            viewer = nv.show_file(f, ext=input_type, default_representation=False)
             viewer.add_representation("cartoon", selection="protein")
 
     viewer.add_representation(repr_type="ball+stick", selection="hetero and not water")
@@ -132,7 +132,7 @@ def docking(
     print("(CID - mode)")
 
     # Create viewer widget
-    viewer = nv.NGLWidget(height="860px")
+    viewer = nv.NGLWidget()
 
     protein_filepath = Path(protein_filepath)
     with open(protein_filepath) as f:
@@ -255,7 +255,6 @@ def interactions(
         left_sidebar=selector,
         center=None,
         pane_widths=[1, 6, 1],
-        height="860px",
     )
 
     # Show color-map
@@ -283,7 +282,7 @@ def interactions(
                 app.center.close()
 
             # NGL Viewer
-            app.center = viewer = nv.NGLWidget(height="860px", default=True, gui=True)
+            app.center = viewer = nv.NGLWidget()
 
             with open(protein_filepath) as f:
                 prot_component = viewer.add_component(

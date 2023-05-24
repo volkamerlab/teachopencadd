@@ -49,7 +49,7 @@ First, we will use a query kinase ([EGFR](https://www.uniprot.org/uniprot/P00533
 ### References
 
 * Introduction to protein kinases and inhibition ([Chapter 9 in _Med. Chem. Anticancer Drugs_ (2008), 251-305](https://www.sciencedirect.com/science/article/pii/B9780444528247000093))
-* Kinase classification by Manning _et al._ ([_Science_ (2002), __298__, 1912-1934](https://science.sciencemag.org/content/298/5600/1912))
+* Kinase classification by Manning _et al._ ([_Science_ (2002), __298__, 1912-1934](https://pubmed.ncbi.nlm.nih.gov/12471243/))
 * Kinase-centric computational drug development ([_Annu. Rep. Med. Chem._ (2017), __50__, 197-236](https://www.sciencedirect.com/science/article/pii/S0065774317300040?via%3Dihub))
 * EGFR and Gefitinib 
   * Review on the EGFR family ([_Pharmacol. Res._ (2019), __139__, 395-411](https://www.sciencedirect.com/science/article/abs/pii/S104366181831747X?via%3Dihub) and [_Front. Cell Dev. Biol._ (2016), __8__](https://www.frontiersin.org/articles/10.3389/fcell.2016.00088/full))
