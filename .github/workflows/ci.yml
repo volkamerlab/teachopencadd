@@ -12,7 +12,7 @@ on:
       - "t019-exclude-windows-from-ci"
   schedule:
     # Run a cron job once weekly on Monday
-    - cron: "0 3 * * 1"
+    - cron: "0 3 1 * *"
 
 jobs:
   test:
