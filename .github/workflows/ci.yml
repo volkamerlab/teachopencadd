@@ -9,7 +9,7 @@ on:
       - "master"
       - "dev"
       # temporarily added
-      - "t019-exclude-windows-from-ci"
+      - "364-t020-not-working-under-mac-os"
   schedule:
     # Run a cron job once weekly on Monday
     - cron: "0 3 * * 1"
