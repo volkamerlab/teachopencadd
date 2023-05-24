@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta property="og:title" content="T009 · Ligand-based pharmacophores" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://projects.volkamerlab.org/teachopencadd/talktorials/T009_compound_ensemble_pharmacophores.html" />
@@ -87,6 +86,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -260,56 +260,305 @@
     
     
       <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="T001_query_chembl.html" class="md-nav__link">T001 · Compound data acquisition (ChEMBL)</a>
       
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T002_compound_adme.html" class="md-nav__link">T002 · Molecular filtering: ADME and lead-likeness criteria</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T003_compound_unwanted_substructures.html" class="md-nav__link">T003 · Molecular filtering: unwanted substructures</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T004_compound_similarity.html" class="md-nav__link">T004 · Ligand-based screening: compound similarity</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T005_compound_clustering.html" class="md-nav__link">T005 · Compound clustering</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T006_compound_maximum_common_substructures.html" class="md-nav__link">T006 · Maximum common substructure</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T007_compound_activity_machine_learning.html" class="md-nav__link">T007 · Ligand-based screening: machine learning</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T008_query_pdb.html" class="md-nav__link">T008 · Protein data acquisition: Protein Data Bank (PDB)</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <label class="md-nav__link md-nav__link--active" for="__toc"> T009 · Ligand-based pharmacophores </label>
+    
+      <a href="#" class="md-nav__link md-nav__link--active">T009 · Ligand-based pharmacophores</a>
+      
+        
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#talktorials-t009-compound-ensemble-pharmacophores--page-root" class="md-nav__link">T009 · Ligand-based pharmacophores</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a>
+        </li>
+        <li class="md-nav__item"><a href="#Learning-goals" class="md-nav__link">Learning goals</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
+        </li>
+        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
+        </li>
+        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Pharmacophores" class="md-nav__link">Pharmacophores</a>
+        </li>
+        <li class="md-nav__item"><a href="#Structure--and-ligand-based-pharmacophore-modeling" class="md-nav__link">Structure- and ligand-based pharmacophore modeling</a>
+        </li>
+        <li class="md-nav__item"><a href="#Virtual-screening-with-pharmacophores" class="md-nav__link">Virtual screening with pharmacophores</a>
+        </li>
+        <li class="md-nav__item"><a href="#Clustering:-k-means" class="md-nav__link">Clustering: k-means</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Get-pre-aligned-ligands-from-previous-talktorial" class="md-nav__link">Get pre-aligned ligands from previous talktorial</a>
+        </li>
+        <li class="md-nav__item"><a href="#Visualize-with-nglview" class="md-nav__link">Visualize with <code class="docutils literal notranslate"><span class="pre">nglview</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#Extract-pharmacophore-features" class="md-nav__link">Extract pharmacophore features</a>
+        </li>
+        <li class="md-nav__item"><a href="#Show-the-pharmacophore-features-of-all-ligands" class="md-nav__link">Show the pharmacophore features of all ligands</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Hydrogen-bond-donors" class="md-nav__link">Hydrogen bond donors</a>
+        </li>
+        <li class="md-nav__item"><a href="#Hydrogen-bond-acceptors" class="md-nav__link">Hydrogen bond acceptors</a>
+        </li>
+        <li class="md-nav__item"><a href="#Hydrophobic-contacts" class="md-nav__link">Hydrophobic contacts</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Collect-coordinates-of-features-per-feature-type" class="md-nav__link">Collect coordinates of features per feature type</a>
+        </li>
+        <li class="md-nav__item"><a href="#Generate-ensemble-pharmacophores" class="md-nav__link">Generate ensemble pharmacophores</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Set-static-parameters-for-k-means-clustering" class="md-nav__link">Set static parameters for k-means clustering</a>
+        </li>
+        <li class="md-nav__item"><a href="#Set-static-parameters-for-cluster-selection" class="md-nav__link">Set static parameters for cluster selection</a>
+        </li>
+        <li class="md-nav__item"><a href="#Define-k-means-clustering-and-cluster-selection-functions" class="md-nav__link">Define k-means clustering and cluster selection functions</a>
+        </li>
+        <li class="md-nav__item"><a href="#Cluster-features" class="md-nav__link">Cluster features</a>
+        </li>
+        <li class="md-nav__item"><a href="#Select-relevant-clusters" class="md-nav__link">Select relevant clusters</a>
+        </li>
+        <li class="md-nav__item"><a href="#Get-selected-cluster-coordinates" class="md-nav__link">Get selected cluster coordinates</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Show-clusters" class="md-nav__link">Show clusters</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#id1" class="md-nav__link">Hydrogen bond donors</a>
+        </li>
+        <li class="md-nav__item"><a href="#Hydrogen-bond-acceptor" class="md-nav__link">Hydrogen bond acceptor</a>
+        </li>
+        <li class="md-nav__item"><a href="#id2" class="md-nav__link">Hydrophobic contacts</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Show-ensemble-pharmacophore" class="md-nav__link">Show ensemble pharmacophore</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
+        </li>
+        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T009_compound_ensemble_pharmacophores.nblink.txt">Show Source</a> </li>
+
+  </ul>
+</nav>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T010_binding_site_comparison.html" class="md-nav__link">T010 · Binding site similarity and off-target prediction</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T011_query_online_api_webservices.html" class="md-nav__link">T011 · Querying online API webservices</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T012_query_klifs.html" class="md-nav__link">T012 · Data acquisition from KLIFS</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T013_query_pubchem.html" class="md-nav__link">T013 · Data acquisition from PubChem</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T014_binding_site_detection.html" class="md-nav__link">T014 · Binding site detection</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T015_protein_ligand_docking.html" class="md-nav__link">T015 · Protein ligand docking</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T016_protein_ligand_interactions.html" class="md-nav__link">T016 · Protein-ligand interactions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T017_advanced_nglview_usage.html" class="md-nav__link">T017 · Advanced NGLview usage</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T018_automated_cadd_pipeline.html" class="md-nav__link">T018 · Automated pipeline for lead optimization</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T019_md_simulation.html" class="md-nav__link">T019 · Molecular dynamics simulation</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T020_md_analysis.html" class="md-nav__link">T020 · Analyzing molecular dynamics simulations</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T021_one_hot_encoding.html" class="md-nav__link">T021 · One-Hot Encoding</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T022_ligand_based_screening_neural_network.html" class="md-nav__link">T022 · Ligand-based screening: neural networks</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T023_what_is_a_kinase.html" class="md-nav__link">T023 · What is a kinase?</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T024_kinase_similarity_sequence.html" class="md-nav__link">T024 · Kinase similarity: Sequence</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T025_kinase_similarity_kissim.html" class="md-nav__link">T025 · Kinase similarity: Kinase pocket (KiSSim fingerprint)</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T026_kinase_similarity_ifp.html" class="md-nav__link">T026 · Kinase similarity: Interaction fingerprints</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T027_kinase_similarity_ligand_profile.html" class="md-nav__link">T027 · Kinase similarity: Ligand profile</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T028_kinase_similarity_compare_perspectives.html" class="md-nav__link">T028 · Kinase similarity: Compare different perspectives</a>
+      
+    
+    </li></ul>
     
     </li>
     <li class="md-nav__item">
     
     
       <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html#edition-2019-jcim" class="md-nav__link">Edition 2019 - JCIM</a>
       
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html#edition-2021" class="md-nav__link">Edition 2021</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html#ligand-based-cheminformatics" class="md-nav__link">Ligand-based cheminformatics</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html#structural-biology" class="md-nav__link">Structural biology</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html#online-apis-servers" class="md-nav__link">Online APIs/servers</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html#kinase-similarity" class="md-nav__link">Kinase similarity</a>
-      
-    
-    </li></ul>
     
     </li>
     <li class="md-nav__item">
@@ -512,264 +761,7 @@
         <div class="md-content">
           <article class="md-content__inner md-typeset" role="main">
             
-  
-<style>
-/* CSS for nbsphinx extension */
-
-/* remove conflicting styling from Sphinx themes */
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt *,
-div.nbinput.container div.input_area pre,
-div.nboutput.container div.output_area pre,
-div.nbinput.container div.input_area .highlight,
-div.nboutput.container div.output_area .highlight {
-    border: none;
-    padding: 0;
-    margin: 0;
-    box-shadow: none;
-}
-
-div.nbinput.container > div[class*=highlight],
-div.nboutput.container > div[class*=highlight] {
-    margin: 0;
-}
-
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt * {
-    background: none;
-}
-
-div.nboutput.container div.output_area .highlight,
-div.nboutput.container div.output_area pre {
-    background: unset;
-}
-
-div.nboutput.container div.output_area div.highlight {
-    color: unset;  /* override Pygments text color */
-}
-
-/* avoid gaps between output lines */
-div.nboutput.container div[class*=highlight] pre {
-    line-height: normal;
-}
-
-/* input/output containers */
-div.nbinput.container,
-div.nboutput.container {
-    display: -webkit-flex;
-    display: flex;
-    align-items: flex-start;
-    margin: 0;
-    width: 100%;
-}
-@media (max-width: 540px) {
-    div.nbinput.container,
-    div.nboutput.container {
-        flex-direction: column;
-    }
-}
-
-/* input container */
-div.nbinput.container {
-    padding-top: 5px;
-}
-
-/* last container */
-div.nblast.container {
-    padding-bottom: 5px;
-}
-
-/* input prompt */
-div.nbinput.container div.prompt pre {
-    color: #307FC1;
-}
-
-/* output prompt */
-div.nboutput.container div.prompt pre {
-    color: #BF5B3D;
-}
-
-/* all prompts */
-div.nbinput.container div.prompt,
-div.nboutput.container div.prompt {
-    width: 4.5ex;
-    padding-top: 5px;
-    position: relative;
-    user-select: none;
-}
-
-div.nbinput.container div.prompt > div,
-div.nboutput.container div.prompt > div {
-    position: absolute;
-    right: 0;
-    margin-right: 0.3ex;
-}
-
-@media (max-width: 540px) {
-    div.nbinput.container div.prompt,
-    div.nboutput.container div.prompt {
-        width: unset;
-        text-align: left;
-        padding: 0.4em;
-    }
-    div.nboutput.container div.prompt.empty {
-        padding: 0;
-    }
-
-    div.nbinput.container div.prompt > div,
-    div.nboutput.container div.prompt > div {
-        position: unset;
-    }
-}
-
-/* disable scrollbars and line breaks on prompts */
-div.nbinput.container div.prompt pre,
-div.nboutput.container div.prompt pre {
-    overflow: hidden;
-    white-space: pre;
-}
-
-/* input/output area */
-div.nbinput.container div.input_area,
-div.nboutput.container div.output_area {
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: auto;
-}
-@media (max-width: 540px) {
-    div.nbinput.container div.input_area,
-    div.nboutput.container div.output_area {
-        width: 100%;
-    }
-}
-
-/* input area */
-div.nbinput.container div.input_area {
-    border: 1px solid #e0e0e0;
-    border-radius: 2px;
-    /*background: #f5f5f5;*/
-}
-
-/* override MathJax center alignment in output cells */
-div.nboutput.container div[class*=MathJax] {
-    text-align: left !important;
-}
-
-/* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput.container div.math p {
-    text-align: left;
-}
-
-/* standard error */
-div.nboutput.container div.output_area.stderr {
-    background: #fdd;
-}
-
-/* ANSI colors */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-default-inverse-fg { color: #FFFFFF; }
-.ansi-default-inverse-bg { background-color: #000000; }
-
-.ansi-bold { font-weight: bold; }
-.ansi-underline { text-decoration: underline; }
-
-
-div.nbinput.container div.input_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight].math,
-div.nboutput.container div.output_area.rendered_html,
-div.nboutput.container div.output_area > div.output_javascript,
-div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 5px;
-    margin: 0;
-}
-
-/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
-div.nbinput.container div.input_area > div[class^='highlight'],
-div.nboutput.container div.output_area > div[class^='highlight']{
-    overflow-y: hidden;
-}
-
-/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt .copybtn {
-    display: none;
-}
-
-/* Some additional styling taken form the Jupyter notebook CSS */
-.jp-RenderedHTMLCommon table,
-div.rendered_html table {
-  border: none;
-  border-collapse: collapse;
-  border-spacing: 0;
-  color: black;
-  font-size: 12px;
-  table-layout: fixed;
-}
-.jp-RenderedHTMLCommon thead,
-div.rendered_html thead {
-  border-bottom: 1px solid black;
-  vertical-align: bottom;
-}
-.jp-RenderedHTMLCommon tr,
-.jp-RenderedHTMLCommon th,
-.jp-RenderedHTMLCommon td,
-div.rendered_html tr,
-div.rendered_html th,
-div.rendered_html td {
-  text-align: right;
-  vertical-align: middle;
-  padding: 0.5em 0.5em;
-  line-height: normal;
-  white-space: normal;
-  max-width: none;
-  border: none;
-}
-.jp-RenderedHTMLCommon th,
-div.rendered_html th {
-  font-weight: bold;
-}
-.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
-div.rendered_html tbody tr:nth-child(odd) {
-  background: #f5f5f5;
-}
-.jp-RenderedHTMLCommon tbody tr:hover,
-div.rendered_html tbody tr:hover {
-  background: rgba(66, 165, 245, 0.2);
-}
-</style>
-<section id="T009-·-Ligand-based-pharmacophores">
+  <section id="T009-·-Ligand-based-pharmacophores">
 <h1 id="talktorials-t009-compound-ensemble-pharmacophores--page-root">T009 · Ligand-based pharmacophores<a class="headerlink" href="#talktorials-t009-compound-ensemble-pharmacophores--page-root" title="Permalink to this heading">¶</a></h1>
 <p><strong>Note:</strong> This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.</p>
 <p>Authors:</p>
@@ -837,9 +829,9 @@ div.rendered_html tbody tr:hover {
 <h3 id="References">References<a class="headerlink" href="#References" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>IUPAC pharmacophore definition (<a class="reference external" href="https://www.degruyter.com/view/journals/pac/70/5/article-p1129.xml">Pure &amp; Appl. Chem (1998), 70, 1129-43</a>)</p></li>
-<li><p>3D pharmacophores in LigandScout (<a class="reference external" href="http://pubs.acs.org/doi/pdf/10.1021/ci049885e">J. Chem. Inf. Model. (2005), 45, 160-9</a>)</p></li>
-<li><p>Book chapter: Pharmacophore Perception and Applications (<a class="reference external" href="https://onlinelibrary.wiley.com/doi/10.1002/9783527806539.ch6f">Applied Chemoinformatics, Wiley-VCH Verlag GmbH &amp; Co. KGaA, Weinheim, (2018), 1, 259-82</a>)</p></li>
-<li><p>Book chapter: Structure-Based Virtual Screening (<a class="reference external" href="https://onlinelibrary.wiley.com/doi/10.1002/9783527806539.ch6h">Applied Chemoinformatics, Wiley-VCH Verlag GmbH &amp; Co. KGaA, Weinheim, (2018), 1, 313-31</a>).</p></li>
+<li><p>3D pharmacophores in LigandScout (<a class="reference external" href="https://pubs.acs.org/doi/10.1021/ci049885e">J. Chem. Inf. Model. (2005), 45, 160-9</a>)</p></li>
+<li><p>Book chapter: Pharmacophore Perception and Applications (<a class="reference external" href="https://onlinelibrary.wiley.com/doi/10.1002/9783527806539.ch6f">Applied Chemoinformatics, Wiley-VCH Verlag GmbH &amp; Co. KGaA, Weinheim, (2018), 1, 259-82</a>)</p></li>
+<li><p>Book chapter: Structure-Based Virtual Screening (<a class="reference external" href="https://onlinelibrary.wiley.com/doi/10.1002/9783527806539.ch6h">Applied Chemoinformatics, Wiley-VCH Verlag GmbH &amp; Co. KGaA, Weinheim, (2018), 1, 313-31</a>).</p></li>
 <li><p>Monty Kier and the origin of the pharmacophore concept (<a class="reference external" href="http://biochempress.com/Files/iejmd_2007_6_0271.pdf">Internet Electron. J. Mol. Des. (2007), 6, 271-9</a>)</p></li>
 <li><p>Nik Stiefl’s demonstration of pharmacophore modeling with RDKit (<a class="reference external" href="https://github.com/rdkit/UGM_2016/blob/master/Notebooks/Stiefl_RDKitPh4FullPublication.ipynb">RDKit UGM 2016 on GitHub</a>)</p></li>
 </ul>
@@ -855,18 +847,18 @@ div.rendered_html tbody tr:hover {
 </section>
 <section id="Structure--and-ligand-based-pharmacophore-modeling">
 <h3 id="Structure--and-ligand-based-pharmacophore-modeling">Structure- and ligand-based pharmacophore modeling<a class="headerlink" href="#Structure--and-ligand-based-pharmacophore-modeling" title="Permalink to this heading">¶</a></h3>
-<p>In pharmacophore modeling, two main approaches are used, depending on the biological question and available data sources, i.e. structure- and ligand-based pharmacophore modeling.</p>
-<p><em>Structure-based pharmacophore models</em> are derived from protein-ligand complexes. Features are defined by observed interactions between the protein and ligand, ensuring that only those ligand moieties are used for virtual screening that have already been shown to be involved in ligand binding. However, structures of protein-ligand complexes are not available for all targets. In this case, either complex structures can be generated by modeling the ligand into the target binding site, e.g. via
+<p>In pharmacophore modeling, two main approaches are used, depending on the biological question and available data sources, i.e. structure- and ligand-based pharmacophore modeling.</p>
+<p><em>Structure-based pharmacophore models</em> are derived from protein-ligand complexes. Features are defined by observed interactions between the protein and ligand, ensuring that only those ligand moieties are used for virtual screening that have already been shown to be involved in ligand binding. However, structures of protein-ligand complexes are not available for all targets. In this case, either complex structures can be generated by modeling the ligand into the target binding site, e.g. via
 molecular docking, or pharmacophore modeling methods can be invoked that only use the target binding site to detect potential protein-ligand interaction sites.</p>
 <p><em>Ligand-based pharmacophore models</em> are based on a set of ligands known to bind the target under investigation. The common chemical features of these ligands build the pharmacophore model. This method is used for targets with multiple known ligands and in case of missing protein-ligand complex structures. In this talktorial, we will use ligand-based pharmacophore modeling using a set of known EGFR ligands.</p>
-<p>For more information on pharmacophore modeling, we recommend <a class="reference external" href="https://onlinelibrary.wiley.com/doi/10.1002/9783527806539.ch6f">Pharmacophore Perception and Applications: Applied Chemoinformatics, Wiley-VCH Verlag GmbH &amp; Co. KGaA, Weinheim, (2018), 1, 259-82</a> and <a class="reference external" href="http://pubs.acs.org/doi/pdf/10.1021/ci049885e">J. Chem. Inf. Model. (2005), 45, 160-9</a>.</p>
+<p>For more information on pharmacophore modeling, we recommend <a class="reference external" href="https://onlinelibrary.wiley.com/doi/10.1002/9783527806539.ch6f">Pharmacophore Perception and Applications: Applied Chemoinformatics, Wiley-VCH Verlag GmbH &amp; Co. KGaA, Weinheim, (2018), 1, 259-82</a> and <a class="reference external" href="https://pubs.acs.org/doi/10.1021/ci049885e">J. Chem. Inf. Model. (2005), 45, 160-9</a>.</p>
 <img alt="Structure-based pharmacophore representing protein-ligand interactions (figure by Dominique Sydow)" src="../_images/target%2Bligand%2Bpharma_3x_feather.png"/>
 <p><em>Figure 1</em>: Structure-based pharmacophore representing protein-ligand interactions. Figure created by Dominique Sydow.</p>
 </section>
 <section id="Virtual-screening-with-pharmacophores">
 <h3 id="Virtual-screening-with-pharmacophores">Virtual screening with pharmacophores<a class="headerlink" href="#Virtual-screening-with-pharmacophores" title="Permalink to this heading">¶</a></h3>
-<p>As described earlier in <strong>Talktorial 4</strong>, virtual screening (VS) describes the screening of a query, e.g. a pharmacophore model (T009) or a query compound (T004), against a large library of compounds, in order to identify the small molecules in the library that are most likely to bind a target under investigation (represented by the query). In pharmacophore-based virtual screening, the compound library is matched compound-by-compound into a pharmacophore model and ranked by the best matching
-results (<a class="reference external" href="https://onlinelibrary.wiley.com/doi/10.1002/9783527806539.ch6h">Structure-Based Virtual Screening: Applied Chemoinformatics, Wiley-VCH Verlag GmbH &amp; Co. KGaA, Weinheim, (2018), 1, 313-31</a>).</p>
+<p>As described earlier in <strong>Talktorial 4</strong>, virtual screening (VS) describes the screening of a query, e.g. a pharmacophore model (T009) or a query compound (T004), against a large library of compounds, in order to identify the small molecules in the library that are most likely to bind a target under investigation (represented by the query). In pharmacophore-based virtual screening, the compound library is matched compound-by-compound into a pharmacophore model and ranked by the best matching
+results (<a class="reference external" href="https://onlinelibrary.wiley.com/doi/10.1002/9783527806539.ch6h">Structure-Based Virtual Screening: Applied Chemoinformatics, Wiley-VCH Verlag GmbH &amp; Co. KGaA, Weinheim, (2018), 1, 313-31</a>).</p>
 </section>
 <section id="Clustering:-k-means">
 <h3 id="Clustering:-k-means">Clustering: k-means<a class="headerlink" href="#Clustering:-k-means" title="Permalink to this heading">¶</a></h3>
@@ -916,7 +908,7 @@ results (<a class="reference external" href="https://onlinelibrary.wiley.com/doi
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "cb518080e5da4abe92135d3eeb6cb2c7", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d1ccf8188b934b51adbf4292f18c077e", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <p>Set the Path to the current notebook.</p>
 <div class="nbinput nblast docutils container">
@@ -1019,9 +1011,9 @@ Number of molecules: 4
 <img alt="../_images/talktorials_T009_compound_ensemble_pharmacophores_22_0.png" src="../_images/talktorials_T009_compound_ensemble_pharmacophores_22_0.png"/>
 </div>
 </div>
-<p>Upon inspection of the structures we notice, that we encountered a problem here: When loading ligands from a PDB file, RDKit does not assign bonds in structures like aromatic rings correctly. We use the RDKit function <code class="docutils literal notranslate"><span class="pre">AssignBondOrdersFromTemplate</span></code>, which assigns bonds to a molecule based on a reference molecule, e.g. in our case based on the SMILES pattern of the molecule.</p>
+<p>Upon inspection of the structures we notice, that we encountered a problem here: When loading ligands from a PDB file, RDKit does not assign bonds in structures like aromatic rings correctly. We use the RDKit function <code class="docutils literal notranslate"><span class="pre">AssignBondOrdersFromTemplate</span></code>, which assigns bonds to a molecule based on a reference molecule, e.g. in our case based on the SMILES pattern of the molecule.</p>
 <p>Check for further information: <a class="reference external" href="https://github.com/rdkit/rdkit/issues/1031">RDKit discussion on Aromaticity of non-protein molecules in PDB not detected</a> and <a class="reference external" href="http://rdkit.org/docs/source/rdkit.Chem.AllChem.html#AssignBondOrdersFromTemplate">RDKit documentation</a> on <code class="docutils literal notranslate"><span class="pre">AssignBondOrdersFromTemplate</span></code>.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
@@ -1043,6 +1035,17 @@ Number of molecules: 4
 <span class="p">]</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+[13:19:36] WARNING: More than one matching pattern found - picking one
+
+[13:19:36] WARNING: More than one matching pattern found - picking one
+
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
@@ -1132,7 +1135,7 @@ Number of molecules: 4
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3cf6129fb5b3434fb6388ed193b0ca36", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b95d83340f2642fdb18379d517229edd", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
@@ -1276,7 +1279,7 @@ Number of features found: 16
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># NBVAL_CHECK_OUTPUT</span>
-<span class="n">feature_frequency</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">([</span><span class="n">feature</span><span class="o">.</span><span class="n">GetFamily</span><span class="p">()</span> <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">features</span><span class="p">])</span>
+<span class="n">feature_frequency</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">(</span><span class="nb">sorted</span><span class="p">([</span><span class="n">feature</span><span class="o">.</span><span class="n">GetFamily</span><span class="p">()</span> <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">features</span><span class="p">]))</span>
 <span class="n">feature_frequency</span>
 </pre></div>
 </div>
@@ -1287,9 +1290,9 @@ Number of features found: 16
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Counter({'Donor': 4,
-         'Acceptor': 5,
+Counter({'Acceptor': 5,
          'Aromatic': 4,
+         'Donor': 4,
          'Hydrophobe': 2,
          'LumpedHydrophobe': 1})
 </pre></div></div>
@@ -1419,7 +1422,7 @@ Counter({'Donor': 4,
 </section>
 <section id="Show-the-pharmacophore-features-of-all-ligands">
 <h3 id="Show-the-pharmacophore-features-of-all-ligands">Show the pharmacophore features of all ligands<a class="headerlink" href="#Show-the-pharmacophore-features-of-all-ligands" title="Permalink to this heading">¶</a></h3>
-<p>Pharmacophore feature types usually are displayed in defined colors, e.g. usually hydrogen bond donors, hydrogen bond acceptors, and hydrophobic contacts are colored green, red, and yellow, respectively.</p>
+<p>Pharmacophore feature types usually are displayed in defined colors, e.g. usually hydrogen bond donors, hydrogen bond acceptors, and hydrophobic contacts are colored green, red, and yellow, respectively.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
@@ -1503,7 +1506,7 @@ Number of donors in all ligands: 10
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "fff89f932eb54141b7bf82490d823097", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e5a71dac96174b549ab00f3e48cdaca4", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
@@ -1559,7 +1562,7 @@ Number of acceptors in all ligands: 25
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "69f44a2dfb384c5a8218a09716857e82", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "2b4d6ee280ee4234bc95543f42f8ae87", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
@@ -1570,7 +1573,7 @@ Number of acceptors in all ligands: 25
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">_display_image</span><span class="p">()</span>
@@ -1578,7 +1581,7 @@ Number of acceptors in all ligands: 25
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1589,7 +1592,7 @@ Number of acceptors in all ligands: 25
 <section id="Hydrophobic-contacts">
 <h4 id="Hydrophobic-contacts">Hydrophobic contacts<a class="headerlink" href="#Hydrophobic-contacts" title="Permalink to this heading">¶</a></h4>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">feature_type</span> <span class="o">=</span> <span class="s2">"hydrophobics"</span>
@@ -1615,10 +1618,10 @@ Number of hydrophobics in all ligands: 5
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c4ea935f59ea4a349959b655f00d9e96", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a5f1a328cd4045cca73271e6cc306aa2", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">render_image</span><span class="p">(</span><span class="n">trim</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
@@ -1626,7 +1629,7 @@ Number of hydrophobics in all ligands: 5
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">_display_image</span><span class="p">()</span>
@@ -1634,7 +1637,7 @@ Number of hydrophobics in all ligands: 5
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1647,7 +1650,7 @@ Number of hydrophobics in all ligands: 5
 <h3 id="Collect-coordinates-of-features-per-feature-type">Collect coordinates of features per feature type<a class="headerlink" href="#Collect-coordinates-of-features-per-feature-type" title="Permalink to this heading">¶</a></h3>
 <p>We want to cluster features per feature type. To do this we collect all coordinates of features and store them per feature type.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features_coord</span> <span class="o">=</span> <span class="p">{</span>
@@ -1660,9 +1663,9 @@ Number of hydrophobics in all ligands: 5
 </pre></div>
 </div>
 </div>
-<p>Now, we have the positions of e.g. all acceptor features:</p>
+<p>Now, we have the positions of e.g. all acceptor features:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features_coord</span><span class="p">[</span><span class="s2">"acceptors"</span><span class="p">]</span>
@@ -1670,7 +1673,7 @@ Number of hydrophobics in all ligands: 5
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1709,13 +1712,13 @@ Number of hydrophobics in all ligands: 5
 <section id="Set-static-parameters-for-k-means-clustering">
 <h4 id="Set-static-parameters-for-k-means-clustering">Set static parameters for k-means clustering<a class="headerlink" href="#Set-static-parameters-for-k-means-clustering" title="Permalink to this heading">¶</a></h4>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">kq</span></code>: With this paramter, we determine the number of clusters <code class="docutils literal notranslate"><span class="pre">k</span></code> per feature type depending on the number of feature points, i.e. per feature type</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">kq</span></code>: With this paramter, we determine the number of clusters <code class="docutils literal notranslate"><span class="pre">k</span></code> per feature type depending on the number of feature points, i.e. per feature type</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">k</span></code> = number_of_features / <code class="docutils literal notranslate"><span class="pre">kq</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">kq</span></code> should be selected so that <code class="docutils literal notranslate"><span class="pre">k</span></code> (feature clusters) is for all clusters at least 1 and not larger than 4-5 clusters</p></li>
 </ul>
 <p>We set our <code class="docutils literal notranslate"><span class="pre">kq</span></code> used to determine <code class="docutils literal notranslate"><span class="pre">k</span></code> in k-means as follows:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kq</span> <span class="o">=</span> <span class="mi">7</span>
@@ -1730,7 +1733,7 @@ Number of hydrophobics in all ligands: 5
 <li><p><code class="docutils literal notranslate"><span class="pre">top_cluster_number</span></code>: With this parameter, we select only the largest clusters.</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_cluster_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">molecules</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.75</span><span class="p">)</span>
@@ -1743,7 +1746,7 @@ Number of hydrophobics in all ligands: 5
 <h4 id="Define-k-means-clustering-and-cluster-selection-functions">Define k-means clustering and cluster selection functions<a class="headerlink" href="#Define-k-means-clustering-and-cluster-selection-functions" title="Permalink to this heading">¶</a></h4>
 <p>We define a function that calculates the centers of clusters, which are derived from k-means clustering.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">clustering</span><span class="p">(</span><span class="n">feature_coord</span><span class="p">,</span> <span class="n">kq</span><span class="p">):</span>
@@ -1768,7 +1771,7 @@ Number of hydrophobics in all ligands: 5
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Clustering: </span><span class="se">\n</span><span class="s2">Variable k in k-means: </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2"> of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">feature_coord</span><span class="p">)</span><span class="si">}</span><span class="s2"> points</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 
     <span class="c1"># Initialize k-means and compute clustering</span>
-    <span class="n">k_means</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
+    <span class="n">k_means</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
     <span class="n">k_means</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">feature_coord</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">k_means</span>
@@ -1777,7 +1780,7 @@ Number of hydrophobics in all ligands: 5
 </div>
 <p>We define a function that sorts the clusters by size and outputs a list of indices of the largest clusters.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_clusters</span><span class="p">(</span><span class="n">k_means</span><span class="p">,</span> <span class="n">min_cluster_size</span><span class="p">,</span> <span class="n">top_cluster_number</span><span class="p">):</span>
@@ -1829,7 +1832,7 @@ Number of hydrophobics in all ligands: 5
 <h4 id="Cluster-features">Cluster features<a class="headerlink" href="#Cluster-features" title="Permalink to this heading">¶</a></h4>
 <p>For each feature type, we perform the k-means clustering with our defined <code class="docutils literal notranslate"><span class="pre">clustering</span></code> function.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k_means</span> <span class="o">=</span> <span class="p">{</span>
@@ -1861,7 +1864,7 @@ Variable k in k-means: 2 of 5 points
 <h4 id="Select-relevant-clusters">Select relevant clusters<a class="headerlink" href="#Select-relevant-clusters" title="Permalink to this heading">¶</a></h4>
 <p>For each feature type, we select relevant clusters with our defined <code class="docutils literal notranslate"><span class="pre">get_clusters</span></code> function.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Hydrogen bond donors</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
@@ -1877,15 +1880,15 @@ Variable k in k-means: 2 of 5 points
 Hydrogen bond donors
 
 Clusters sorted by size:
-[(1, 6), (0, 4)]
+[(0, 6), (1, 4)]
 
 Cluster indices of selected clusters:
-[1, 0]
+[0, 1]
 
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Hydrogen bond acceptors</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
@@ -1911,7 +1914,7 @@ Cluster indices of selected clusters:
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Hydrophobic contacts</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
@@ -1937,7 +1940,7 @@ Cluster indices of selected clusters:
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cluster_indices_sel</span> <span class="o">=</span> <span class="p">{</span>
@@ -1952,7 +1955,7 @@ Cluster indices of selected clusters:
 <section id="Get-selected-cluster-coordinates">
 <h4 id="Get-selected-cluster-coordinates">Get selected cluster coordinates<a class="headerlink" href="#Get-selected-cluster-coordinates" title="Permalink to this heading">¶</a></h4>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_selected_cluster_center_coords</span><span class="p">(</span><span class="n">k_means</span><span class="p">,</span> <span class="n">cluster_indices_sel</span><span class="p">):</span>
@@ -1984,7 +1987,7 @@ Cluster indices of selected clusters:
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cluster_centers_sel</span> <span class="o">=</span> <span class="p">{</span>
@@ -2000,7 +2003,7 @@ Cluster indices of selected clusters:
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cluster_centers_sel</span><span class="p">[</span><span class="s2">"acceptors"</span><span class="p">]</span>
@@ -2008,7 +2011,7 @@ Cluster indices of selected clusters:
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -2025,7 +2028,7 @@ Cluster indices of selected clusters:
 <h3 id="Show-clusters">Show clusters<a class="headerlink" href="#Show-clusters" title="Permalink to this heading">¶</a></h3>
 <p>Per feature type, we visualize cluster centers alongside with all molecules and all feature points.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">visualize_clusters</span><span class="p">(</span>
@@ -2076,7 +2079,7 @@ Cluster indices of selected clusters:
 <section id="id1">
 <h4 id="id1">Hydrogen bond donors<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h4>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">feature_type</span> <span class="o">=</span> <span class="s2">"donors"</span>
@@ -2103,7 +2106,7 @@ Number of donors in all ligands: 10
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "057182002999461797f5dabe8235b9c2", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "bafe386fbadb4a948d7d8f58bff71528", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
@@ -2160,7 +2163,7 @@ Number of acceptors in all ligands: 25
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "97b044c99d75480e8da1e8a56f8e4e73", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c7d3904487094414b420d43f3ad39fa2", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
@@ -2217,10 +2220,10 @@ Number of hydrophobics in all ligands: 5
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a11ace1908e74a4ea6b1509fbf58c51a", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "5b416eb041e148a7b341a9972dd0cf6c", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">render_image</span><span class="p">(</span><span class="n">trim</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
@@ -2228,7 +2231,7 @@ Number of hydrophobics in all ligands: 5
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">_display_image</span><span class="p">()</span>
@@ -2236,7 +2239,7 @@ Number of hydrophobics in all ligands: 5
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -2247,9 +2250,9 @@ Number of hydrophobics in all ligands: 5
 </section>
 <section id="Show-ensemble-pharmacophore">
 <h3 id="Show-ensemble-pharmacophore">Show ensemble pharmacophore<a class="headerlink" href="#Show-ensemble-pharmacophore" title="Permalink to this heading">¶</a></h3>
-<p>In this last step, we combine the clustered pharmacophoric features (i.e. hydrogen bond donors and acceptors as well as hydrophobic contacts), to one ensemble pharmacophore, representing the pharmacophoric properties of the four selected ligands.</p>
+<p>In this last step, we combine the clustered pharmacophoric features (i.e. hydrogen bond donors and acceptors as well as hydrophobic contacts), to one ensemble pharmacophore, representing the pharmacophoric properties of the four selected ligands.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span> <span class="o">=</span> <span class="n">show_ligands</span><span class="p">(</span><span class="n">molecules</span><span class="p">)</span>
@@ -2269,10 +2272,10 @@ Number of hydrophobics in all ligands: 5
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "985499ccb97949e4b2556cad561f95e3", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "f56b8b9233084934ac2b1c8e818834d7", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">render_image</span><span class="p">(</span><span class="n">trim</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
@@ -2280,7 +2283,7 @@ Number of hydrophobics in all ligands: 5
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">_display_image</span><span class="p">()</span>
@@ -2288,7 +2291,7 @@ Number of hydrophobics in all ligands: 5
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -2300,7 +2303,7 @@ Number of hydrophobics in all ligands: 5
 <section id="Discussion">
 <h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this heading">¶</a></h2>
 <p>In this talktorial, we used a set of pre-aligned ligands, which are known to bind EGFR, to generate an ensemble pharmacophore model. This model could now be used for virtual screening against a large library of small molecules, in order to find novel small molecules that show the observed steric and physico-chemical properties and might therefore also bind to the EGFR binding site.</p>
-<p>Before screening, the pharmacophore models are usually further optimized, e.g. features might be omitted in order to reduce the number of features for screening based on biological knowledge (some interaction might be reported as important whereas others are not) or based on chemical expertise.</p>
+<p>Before screening, the pharmacophore models are usually further optimized, e.g. features might be omitted in order to reduce the number of features for screening based on biological knowledge (some interaction might be reported as important whereas others are not) or based on chemical expertise.</p>
 <p>We do not cover the virtual screening in this talktorial, however refer to an excellent tutorial by Nik Stiefl, demonstrating pharmacophore modeling and virtual screening with RDKit (<a class="reference external" href="https://github.com/rdkit/UGM_2016/blob/master/Notebooks/Stiefl_RDKitPh4FullPublication.ipynb">RDKit UGM 2016 on GitHub</a>).</p>
 <p>We used k-means clustering to cluster pharmacophore feature. This clustering approach has the disadvantage that the user needs to define the number of clusters beforehand, which is usually based on a visual inspection of the point distribution before clustering (or during cluster refinement) and is therefore hindering for an automated pharmacophore generation. Density-based clustering methods, also in combination with k-means clustering, can be a solution for this. For further reading we
 recommend the <a class="reference external" href="https://blog.dominodatalab.com/topology-and-density-based-clustering/">introduction to Density-Based Clustering at Domino Data Lab</a>.</p>
@@ -2364,7 +2367,7 @@ recommend the <a class="reference external" href="https://blog.dominodatalab.com
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

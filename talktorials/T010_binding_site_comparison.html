@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta property="og:title" content="T010 · Binding site similarity and off-target prediction" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://projects.volkamerlab.org/teachopencadd/talktorials/T010_binding_site_comparison.html" />
@@ -87,6 +86,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -260,56 +260,273 @@
     
     
       <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="T001_query_chembl.html" class="md-nav__link">T001 · Compound data acquisition (ChEMBL)</a>
       
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T002_compound_adme.html" class="md-nav__link">T002 · Molecular filtering: ADME and lead-likeness criteria</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T003_compound_unwanted_substructures.html" class="md-nav__link">T003 · Molecular filtering: unwanted substructures</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T004_compound_similarity.html" class="md-nav__link">T004 · Ligand-based screening: compound similarity</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T005_compound_clustering.html" class="md-nav__link">T005 · Compound clustering</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T006_compound_maximum_common_substructures.html" class="md-nav__link">T006 · Maximum common substructure</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T007_compound_activity_machine_learning.html" class="md-nav__link">T007 · Ligand-based screening: machine learning</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T008_query_pdb.html" class="md-nav__link">T008 · Protein data acquisition: Protein Data Bank (PDB)</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T009_compound_ensemble_pharmacophores.html" class="md-nav__link">T009 · Ligand-based pharmacophores</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <label class="md-nav__link md-nav__link--active" for="__toc"> T010 · Binding site similarity and off-target prediction </label>
+    
+      <a href="#" class="md-nav__link md-nav__link--active">T010 · Binding site similarity and off-target prediction</a>
+      
+        
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#talktorials-t010-binding-site-comparison--page-root" class="md-nav__link">T010 · Binding site similarity and off-target prediction</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
+        </li>
+        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
+        </li>
+        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Off-target-proteins" class="md-nav__link">Off-target proteins</a>
+        </li>
+        <li class="md-nav__item"><a href="#Computational-off-target-prediction:-binding-site-comparison" class="md-nav__link">Computational off-target prediction: binding site comparison</a>
+        </li>
+        <li class="md-nav__item"><a href="#Pairwise-RMSD-as-simple-measure-for-similarity" class="md-nav__link">Pairwise RMSD as simple measure for similarity</a>
+        </li>
+        <li class="md-nav__item"><a href="#Imatinib,-a-tyrosine-kinase-inhibitor" class="md-nav__link">Imatinib, a tyrosine kinase inhibitor</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Load-and-visualize-the-ligand-of-interest-(Imatinib/STI)" class="md-nav__link">Load and visualize the ligand of interest (Imatinib/STI)</a>
+        </li>
+        <li class="md-nav__item"><a href="#Get-protein-STI-complexes-from-the-PDB" class="md-nav__link">Get protein-STI complexes from the PDB</a>
+        </li>
+        <li class="md-nav__item"><a href="#Visualize-the-PDB-structures" class="md-nav__link">Visualize the PDB structures</a>
+        </li>
+        <li class="md-nav__item"><a href="#Align-the-PDB-structures-(full-protein)" class="md-nav__link">Align the PDB structures (full protein)</a>
+        </li>
+        <li class="md-nav__item"><a href="#Get-pairwise-RMSD-(full-protein)" class="md-nav__link">Get pairwise RMSD (full protein)</a>
+        </li>
+        <li class="md-nav__item"><a href="#Align-PDB-structures-(binding-sites)" class="md-nav__link">Align PDB structures (binding sites)</a>
+        </li>
+        <li class="md-nav__item"><a href="#Get-pairwise-RMSD-(binding-sites)" class="md-nav__link">Get pairwise RMSD (binding sites)</a>
+        </li>
+        <li class="md-nav__item"><a href="#Filter-out-outliers" class="md-nav__link">Filter out outliers</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
+        </li>
+        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T010_binding_site_comparison.nblink.txt">Show Source</a> </li>
+
+  </ul>
+</nav>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T011_query_online_api_webservices.html" class="md-nav__link">T011 · Querying online API webservices</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T012_query_klifs.html" class="md-nav__link">T012 · Data acquisition from KLIFS</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T013_query_pubchem.html" class="md-nav__link">T013 · Data acquisition from PubChem</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T014_binding_site_detection.html" class="md-nav__link">T014 · Binding site detection</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T015_protein_ligand_docking.html" class="md-nav__link">T015 · Protein ligand docking</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T016_protein_ligand_interactions.html" class="md-nav__link">T016 · Protein-ligand interactions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T017_advanced_nglview_usage.html" class="md-nav__link">T017 · Advanced NGLview usage</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T018_automated_cadd_pipeline.html" class="md-nav__link">T018 · Automated pipeline for lead optimization</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T019_md_simulation.html" class="md-nav__link">T019 · Molecular dynamics simulation</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T020_md_analysis.html" class="md-nav__link">T020 · Analyzing molecular dynamics simulations</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T021_one_hot_encoding.html" class="md-nav__link">T021 · One-Hot Encoding</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T022_ligand_based_screening_neural_network.html" class="md-nav__link">T022 · Ligand-based screening: neural networks</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T023_what_is_a_kinase.html" class="md-nav__link">T023 · What is a kinase?</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T024_kinase_similarity_sequence.html" class="md-nav__link">T024 · Kinase similarity: Sequence</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T025_kinase_similarity_kissim.html" class="md-nav__link">T025 · Kinase similarity: Kinase pocket (KiSSim fingerprint)</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T026_kinase_similarity_ifp.html" class="md-nav__link">T026 · Kinase similarity: Interaction fingerprints</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T027_kinase_similarity_ligand_profile.html" class="md-nav__link">T027 · Kinase similarity: Ligand profile</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T028_kinase_similarity_compare_perspectives.html" class="md-nav__link">T028 · Kinase similarity: Compare different perspectives</a>
+      
+    
+    </li></ul>
     
     </li>
     <li class="md-nav__item">
     
     
       <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html#edition-2019-jcim" class="md-nav__link">Edition 2019 - JCIM</a>
       
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html#edition-2021" class="md-nav__link">Edition 2021</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html#ligand-based-cheminformatics" class="md-nav__link">Ligand-based cheminformatics</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html#structural-biology" class="md-nav__link">Structural biology</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html#online-apis-servers" class="md-nav__link">Online APIs/servers</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html#kinase-similarity" class="md-nav__link">Kinase similarity</a>
-      
-    
-    </li></ul>
     
     </li>
     <li class="md-nav__item">
@@ -480,264 +697,7 @@
         <div class="md-content">
           <article class="md-content__inner md-typeset" role="main">
             
-  
-<style>
-/* CSS for nbsphinx extension */
-
-/* remove conflicting styling from Sphinx themes */
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt *,
-div.nbinput.container div.input_area pre,
-div.nboutput.container div.output_area pre,
-div.nbinput.container div.input_area .highlight,
-div.nboutput.container div.output_area .highlight {
-    border: none;
-    padding: 0;
-    margin: 0;
-    box-shadow: none;
-}
-
-div.nbinput.container > div[class*=highlight],
-div.nboutput.container > div[class*=highlight] {
-    margin: 0;
-}
-
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt * {
-    background: none;
-}
-
-div.nboutput.container div.output_area .highlight,
-div.nboutput.container div.output_area pre {
-    background: unset;
-}
-
-div.nboutput.container div.output_area div.highlight {
-    color: unset;  /* override Pygments text color */
-}
-
-/* avoid gaps between output lines */
-div.nboutput.container div[class*=highlight] pre {
-    line-height: normal;
-}
-
-/* input/output containers */
-div.nbinput.container,
-div.nboutput.container {
-    display: -webkit-flex;
-    display: flex;
-    align-items: flex-start;
-    margin: 0;
-    width: 100%;
-}
-@media (max-width: 540px) {
-    div.nbinput.container,
-    div.nboutput.container {
-        flex-direction: column;
-    }
-}
-
-/* input container */
-div.nbinput.container {
-    padding-top: 5px;
-}
-
-/* last container */
-div.nblast.container {
-    padding-bottom: 5px;
-}
-
-/* input prompt */
-div.nbinput.container div.prompt pre {
-    color: #307FC1;
-}
-
-/* output prompt */
-div.nboutput.container div.prompt pre {
-    color: #BF5B3D;
-}
-
-/* all prompts */
-div.nbinput.container div.prompt,
-div.nboutput.container div.prompt {
-    width: 4.5ex;
-    padding-top: 5px;
-    position: relative;
-    user-select: none;
-}
-
-div.nbinput.container div.prompt > div,
-div.nboutput.container div.prompt > div {
-    position: absolute;
-    right: 0;
-    margin-right: 0.3ex;
-}
-
-@media (max-width: 540px) {
-    div.nbinput.container div.prompt,
-    div.nboutput.container div.prompt {
-        width: unset;
-        text-align: left;
-        padding: 0.4em;
-    }
-    div.nboutput.container div.prompt.empty {
-        padding: 0;
-    }
-
-    div.nbinput.container div.prompt > div,
-    div.nboutput.container div.prompt > div {
-        position: unset;
-    }
-}
-
-/* disable scrollbars and line breaks on prompts */
-div.nbinput.container div.prompt pre,
-div.nboutput.container div.prompt pre {
-    overflow: hidden;
-    white-space: pre;
-}
-
-/* input/output area */
-div.nbinput.container div.input_area,
-div.nboutput.container div.output_area {
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: auto;
-}
-@media (max-width: 540px) {
-    div.nbinput.container div.input_area,
-    div.nboutput.container div.output_area {
-        width: 100%;
-    }
-}
-
-/* input area */
-div.nbinput.container div.input_area {
-    border: 1px solid #e0e0e0;
-    border-radius: 2px;
-    /*background: #f5f5f5;*/
-}
-
-/* override MathJax center alignment in output cells */
-div.nboutput.container div[class*=MathJax] {
-    text-align: left !important;
-}
-
-/* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput.container div.math p {
-    text-align: left;
-}
-
-/* standard error */
-div.nboutput.container div.output_area.stderr {
-    background: #fdd;
-}
-
-/* ANSI colors */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-default-inverse-fg { color: #FFFFFF; }
-.ansi-default-inverse-bg { background-color: #000000; }
-
-.ansi-bold { font-weight: bold; }
-.ansi-underline { text-decoration: underline; }
-
-
-div.nbinput.container div.input_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight].math,
-div.nboutput.container div.output_area.rendered_html,
-div.nboutput.container div.output_area > div.output_javascript,
-div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 5px;
-    margin: 0;
-}
-
-/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
-div.nbinput.container div.input_area > div[class^='highlight'],
-div.nboutput.container div.output_area > div[class^='highlight']{
-    overflow-y: hidden;
-}
-
-/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt .copybtn {
-    display: none;
-}
-
-/* Some additional styling taken form the Jupyter notebook CSS */
-.jp-RenderedHTMLCommon table,
-div.rendered_html table {
-  border: none;
-  border-collapse: collapse;
-  border-spacing: 0;
-  color: black;
-  font-size: 12px;
-  table-layout: fixed;
-}
-.jp-RenderedHTMLCommon thead,
-div.rendered_html thead {
-  border-bottom: 1px solid black;
-  vertical-align: bottom;
-}
-.jp-RenderedHTMLCommon tr,
-.jp-RenderedHTMLCommon th,
-.jp-RenderedHTMLCommon td,
-div.rendered_html tr,
-div.rendered_html th,
-div.rendered_html td {
-  text-align: right;
-  vertical-align: middle;
-  padding: 0.5em 0.5em;
-  line-height: normal;
-  white-space: normal;
-  max-width: none;
-  border: none;
-}
-.jp-RenderedHTMLCommon th,
-div.rendered_html th {
-  font-weight: bold;
-}
-.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
-div.rendered_html tbody tr:nth-child(odd) {
-  background: #f5f5f5;
-}
-.jp-RenderedHTMLCommon tbody tr:hover,
-div.rendered_html tbody tr:hover {
-  background: rgba(66, 165, 245, 0.2);
-}
-</style>
-<section id="T010-·-Binding-site-similarity-and-off-target-prediction">
+  <section id="T010-·-Binding-site-similarity-and-off-target-prediction">
 <h1 id="talktorials-t010-binding-site-comparison--page-root">T010 · Binding site similarity and off-target prediction<a class="headerlink" href="#talktorials-t010-binding-site-comparison--page-root" title="Permalink to this heading">¶</a></h1>
 <p><strong>Note:</strong> This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.</p>
 <p>Authors:</p>
@@ -753,7 +713,7 @@ div.rendered_html tbody tr:hover {
 <p><strong>Note</strong>: Please run this notebook cell by cell. Running all cells in one is possible also, however, part of the <code class="docutils literal notranslate"><span class="pre">nglview</span></code> 3D representations might be missing.</p>
 <section id="Aim-of-this-talktorial">
 <h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this heading">¶</a></h2>
-<p>In this talktorial, we use the structural similarity of full proteins and binding sites to predict off-targets, i.e. proteins that are not intended targets of a drug. This may lead to unwanted side effects or enable desired alternate applications of a drug (drug repositioning). We discuss the main steps for binding site comparison and implement a basic method, i.e. the geometrical variation between structures (the root mean square deviation between two structures).</p>
+<p>In this talktorial, we use the structural similarity of full proteins and binding sites to predict off-targets, i.e. proteins that are not intended targets of a drug. This may lead to unwanted side effects or enable desired alternate applications of a drug (drug repositioning). We discuss the main steps for binding site comparison and implement a basic method, i.e. the geometrical variation between structures (the root mean square deviation between two structures).</p>
 <section id="Contents-in-Theory">
 <h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
@@ -794,7 +754,7 @@ div.rendered_html tbody tr:hover {
 </li>
 <li><p>Imatinib</p>
 <ul>
-<li><p>Review on Imatinib: <a class="reference external" href="https://www.nature.com/articles/nrclinonc.2016.41">Nat. Rev. Clin. Oncol. (2016), 13, 431-46</a></p></li>
+<li><p>Review on Imatinib: <a class="reference external" href="https://www.nature.com/articles/nrclinonc.2016.41">Nat. Rev. Clin. Oncol. (2016), 13, 431-46</a></p></li>
 <li><p>Promiscuity of imatinib: <a class="reference external" href="https://jbiol.biomedcentral.com/articles/10.1186/jbiol134">J. Biol. (2009), 8, 30</a></p></li>
 <li><p><a class="reference external" href="https://www.ebi.ac.uk/chembl/compound/inspect/CHEMBL941">ChEMBL information on Imatinib</a></p></li>
 <li><p><a class="reference external" href="https://www3.rcsb.org/ligand/STI">PDB information on Imatinib</a></p></li>
@@ -842,9 +802,9 @@ div.rendered_html tbody tr:hover {
 </section>
 <section id="Imatinib,-a-tyrosine-kinase-inhibitor">
 <h3 id="Imatinib,-a-tyrosine-kinase-inhibitor">Imatinib, a tyrosine kinase inhibitor<a class="headerlink" href="#Imatinib,-a-tyrosine-kinase-inhibitor" title="Permalink to this heading">¶</a></h3>
-<p>Kinases transfer a phosphate group from ATP to proteins, and thereby regulate various cellular processes such as signal transduction, metabolism, and protein regulation. If these kinases are constitutively active (due to genomic mutations), they can distort regulation processes and cause cancer. An example for cancer treatment is Imatinib (<a class="reference external" href="https://www.nature.com/articles/nrclinonc.2016.41">Nat. Rev. Clin. Oncol. (2016), 13, 431-46</a>), a small molecule tyrosine kinase inhibitor used to treat
+<p>Kinases transfer a phosphate group from ATP to proteins, and thereby regulate various cellular processes such as signal transduction, metabolism, and protein regulation. If these kinases are constitutively active (due to genomic mutations), they can distort regulation processes and cause cancer. An example for cancer treatment is Imatinib (<a class="reference external" href="https://www.nature.com/articles/nrclinonc.2016.41">Nat. Rev. Clin. Oncol. (2016), 13, 431-46</a>), a small molecule tyrosine kinase inhibitor used to treat
 cancer, more specifically chronic myeloid leukaemia (CML) and gastrointestinal stromal tumour (GIST).</p>
-<p>Imatinib was shown to be not entirely specific and to target tyrosine kinases other than its main target. This was used for drug repositioning, i.e. Imatinib was approved for alternate cancer types, (<a class="reference external" href="https://jbiol.biomedcentral.com/articles/10.1186/jbiol134">J. Biol. (2009), 8, 30</a>), however can also show unwanted side effects such as signs of an allergic reaction, infection, bleeding, or headache (<a class="reference external" href="https://www.drugs.com/cdi/imatinib.html">MedFacts Consumer Drug Information</a>).</p>
+<p>Imatinib was shown to be not entirely specific and to target tyrosine kinases other than its main target. This was used for drug repositioning, i.e. Imatinib was approved for alternate cancer types, (<a class="reference external" href="https://jbiol.biomedcentral.com/articles/10.1186/jbiol134">J. Biol. (2009), 8, 30</a>), however can also show unwanted side effects such as signs of an allergic reaction, infection, bleeding, or headache (<a class="reference external" href="https://www.drugs.com/cdi/imatinib.html">MedFacts Consumer Drug Information</a>).</p>
 </section>
 </section>
 <section id="Practical">
@@ -879,11 +839,20 @@ cancer, more specifically chronic myeloid leukaemia (CML) and gastrointestinal s
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "cfbde7f877cf4aec9228e7bbddfb88c6", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d6b06f11898d415e8b86b2e07529d44f", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+~/.miniconda3/envs/teachopencadd/lib/python3.9/site-packages/h5py/__init__.py:46: DeprecationWarning: `np.typeDict` is a deprecated alias for `np.sctypeDict`.
+  from ._conv import register_converters as _register_converters
+</pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
@@ -921,7 +890,7 @@ cancer, more specifically chronic myeloid leukaemia (CML) and gastrointestinal s
 </div>
 <section id="Load-and-visualize-the-ligand-of-interest-(Imatinib/STI)">
 <h3 id="Load-and-visualize-the-ligand-of-interest-(Imatinib/STI)">Load and visualize the ligand of interest (Imatinib/STI)<a class="headerlink" href="#Load-and-visualize-the-ligand-of-interest-(Imatinib/STI)" title="Permalink to this heading">¶</a></h3>
-<p>The SMILES format for Imatinib can be retrieved from e.g. the <a class="reference external" href="https://www.ebi.ac.uk/chembl/compound/inspect/CHEMBL941">ChEMBL database by its compound ID CHEMBL941</a> or the <a class="reference external" href="https://www3.rcsb.org/ligand/STI">PDB database by its Ligand Expo ID STI</a>. We simply copy the string from the “Isomeric SMILES” entry of the Chemical Component Summary table, and load the ligand here by hand.</p>
+<p>The SMILES format for Imatinib can be retrieved from e.g. the <a class="reference external" href="https://www.ebi.ac.uk/chembl/compound/inspect/CHEMBL941">ChEMBL database by its compound ID CHEMBL941</a> or the <a class="reference external" href="https://www3.rcsb.org/ligand/STI">PDB database by its Ligand Expo ID STI</a>. We simply copy the string from the “Isomeric SMILES” entry of the Chemical Component Summary table, and load the ligand here by hand.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -990,7 +959,7 @@ cancer, more specifically chronic myeloid leukaemia (CML) and gastrointestinal s
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "392796c8a2994f64b526707fe779101d", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e5fa8dd37d9a4b7e991ce65fcb43b3ec", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
@@ -1074,7 +1043,7 @@ fields to retrieve a count (<code class="docutils literal notranslate"><span cla
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Number of matches: 27
+Number of matches: 28
 </pre></div></div>
 </div>
 <p><strong>Query structures from X-ray crystallography</strong></p>
@@ -1092,7 +1061,7 @@ Number of matches: 27
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Number of matches: 156386
+Number of matches: 175063
 </pre></div></div>
 </div>
 <p><strong>Query structures with resolution less than or equal to 3.0</strong></p>
@@ -1110,7 +1079,7 @@ Number of matches: 156386
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Number of matches: 147698
+Number of matches: 167444
 </pre></div></div>
 </div>
 <p><strong>Query structures with only one chain</strong></p>
@@ -1130,7 +1099,7 @@ Number of matches: 147698
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Number of matches: 67366
+Number of matches: 74435
 </pre></div></div>
 </div>
 <p><strong>Query structures fulfilling all the above criteria</strong></p>
@@ -1162,7 +1131,7 @@ Number of matches: 67366
 <div class="highlight"><pre>
 Number of matches: 9
 Selected PDB IDs:
-3GVU 3HEC 3FW1 4CSV 4R7I 2PL0 1XBB 6JOL 1T46
+1T46 1XBB 2PL0 3FW1 3GVU 3HEC 4CSV 4R7I 6JOL
 </pre></div></div>
 </div>
 <p><strong>Note</strong>: The next step has technical reasons only. In order to maintain the notebooks automatically, we define here a certain set of PDB IDs to work with. Thus, even if new PDB structures matching our filtering criteria are added to the PDB, they will not be included in the downstream analysis and therefore the output will stay the same. Remote this step if you want to work with the full set of PDB structures.</p>
@@ -1204,7 +1173,7 @@ Final set of PDB IDs:
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "1723719bb63740da8b36bce0db70d0fa", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8e7544c6900149c4aa4f6970bff09961", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
@@ -1265,7 +1234,7 @@ Final set of PDB IDs:
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "7888142e50df410787245f0d6523663f", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "96b96954ee9140e0adb4f32b060c35d8", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
@@ -1550,7 +1519,7 @@ Final set of PDB IDs:
 <img alt="../_images/talktorials_T010_binding_site_comparison_58_0.png" src="../_images/talktorials_T010_binding_site_comparison_58_0.png"/>
 </div>
 </div>
-<p>The RMSD comparison shows that one protein differs most from the other proteins, i.e. 3FW1. Let’s try to understand by checking which proteins we have in our dataset.</p>
+<p>The RMSD comparison shows that one protein differs most from the other proteins, i.e. 3FW1. Let’s try to understand by checking which proteins we have in our dataset.</p>
 <p>Proteins are classified by the chemical reactions that they catalyze with EC (Enzyme Commission) numbers. We will use them here to check the enzymatic groups the proteins belong to. Let’s get the EC numbers from the PDB using the package <code class="docutils literal notranslate"><span class="pre">pypdb</span></code> (see more details in <strong>Talktorial T008</strong>).</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
@@ -1671,7 +1640,7 @@ Final set of PDB IDs:
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "f41a315869d9479ba105825d959fc598", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "78fa9f0d701240b1aa0bb13e9672cfb7", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
@@ -1722,7 +1691,7 @@ Final set of PDB IDs:
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "542e91112b344443903e9e37b2e7306f", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "118b8aad0f234174b9abc5a8653e6e7d", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
@@ -1888,7 +1857,7 @@ Final set of PDB IDs:
 <p>What are the key observations in this heatmap?</p>
 <ul class="simple">
 <li><p>As observed already during the <em>full protein</em> comparison, also the <em>binding site</em> comparison reveals the highest dissimilarity for <code class="docutils literal notranslate"><span class="pre">3FW1</span></code>. Since <code class="docutils literal notranslate"><span class="pre">3FW1</span></code> is the only structure in our dataset representing not a kinase, we are content that our similarity measure was able to spot this. As discussed before, the human quinone reductase 2 (<code class="docutils literal notranslate"><span class="pre">3FW1</span></code>) is a reported off-target for Imatinib.</p></li>
-<li><p>Also the kinase <code class="docutils literal notranslate"><span class="pre">1XBB</span></code> shows a higher dissimilarity compared to the other kinases. This can be explained by <code class="docutils literal notranslate"><span class="pre">1XBB</span></code> being resolved in a different conformation (DFG-in) than the other kinases (DFG-out). The DFG motif is an important structural element in kinases, defining whether a kinase is active (DFG-in conformation) or inactive (DFG-out conformation). Note: DFG conformations of kinase structures can be looked up e.g. in the <a class="reference external" href="https://www.klifs.net">KLIFS database</a>.</p></li>
+<li><p>Also the kinase <code class="docutils literal notranslate"><span class="pre">1XBB</span></code> shows a higher dissimilarity compared to the other kinases. This can be explained by <code class="docutils literal notranslate"><span class="pre">1XBB</span></code> being resolved in a different conformation (DFG-in) than the other kinases (DFG-out). The DFG motif is an important structural element in kinases, defining whether a kinase is active (DFG-in conformation) or inactive (DFG-out conformation). Note: DFG conformations of kinase structures can be looked up e.g. in the <a class="reference external" href="https://www.klifs.net">KLIFS database</a>.</p></li>
 <li><p>The remaining structures are comparatively similar to each other, which we would expect since they all represent kinases in the overall same conformation.</p></li>
 </ul>
 <p>Note that RMSD values as calculated here are dependent on the residue selection (binding site definition) and the quality of the a priori sequence alignment.</p>
@@ -1935,7 +1904,7 @@ Final set of PDB IDs:
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3f2107e2b9214e73a244c3137f80251f", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "cc0c4eb1463748f293b3d2c48a296cb8", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
@@ -1984,7 +1953,7 @@ Final set of PDB IDs:
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "1ed9a92394784669a3d635c9a6ecd1aa", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "af7be54ceed848028696560a441c6221", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
@@ -2115,7 +2084,7 @@ Final set of PDB IDs:
 </section>
 <section id="Discussion">
 <h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this heading">¶</a></h2>
-<p>In this talktorial, we have used a simple comparison approach, i.e. sequence alignment and subsequent RMSD refinement of (i) full proteins and (ii) binding sites, to assess the similarity and dissimilarity of a small set of structures showing Imatinib-binding proteins. In our data set, we were able to spot an off-target for Imatinib (highest dissimilarity) and a kinase resolved in a different conformation compared to the rest of the kinases (also with a relatively high dissimilarity). Given our
+<p>In this talktorial, we have used a simple comparison approach, i.e. sequence alignment and subsequent RMSD refinement of (i) full proteins and (ii) binding sites, to assess the similarity and dissimilarity of a small set of structures showing Imatinib-binding proteins. In our data set, we were able to spot an off-target for Imatinib (highest dissimilarity) and a kinase resolved in a different conformation compared to the rest of the kinases (also with a relatively high dissimilarity). Given our
 simple approach, we are content with these results!</p>
 <p>In a real case scenario, off-targets for Imatinib would be predicted by comparing the binding site of an intended target of Imatinib (a tyrosine kinase) with a large database of resolved structures (PDB). Since this results in the comparison of sequences also with low similarity, more sophisticated methods should be invoked that use a sequence-independent alignment algorithm and that include the physico-chemical properties of the binding site.</p>
 </section>
@@ -2179,7 +2148,7 @@ simple approach, we are content with these results!</p>
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

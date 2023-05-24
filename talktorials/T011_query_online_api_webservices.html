@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta property="og:title" content="T011 · Querying online API webservices" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://projects.volkamerlab.org/teachopencadd/talktorials/T011_query_online_api_webservices.html" />
@@ -87,6 +86,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -260,56 +260,263 @@
     
     
       <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="T001_query_chembl.html" class="md-nav__link">T001 · Compound data acquisition (ChEMBL)</a>
       
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T002_compound_adme.html" class="md-nav__link">T002 · Molecular filtering: ADME and lead-likeness criteria</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T003_compound_unwanted_substructures.html" class="md-nav__link">T003 · Molecular filtering: unwanted substructures</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T004_compound_similarity.html" class="md-nav__link">T004 · Ligand-based screening: compound similarity</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T005_compound_clustering.html" class="md-nav__link">T005 · Compound clustering</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T006_compound_maximum_common_substructures.html" class="md-nav__link">T006 · Maximum common substructure</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T007_compound_activity_machine_learning.html" class="md-nav__link">T007 · Ligand-based screening: machine learning</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T008_query_pdb.html" class="md-nav__link">T008 · Protein data acquisition: Protein Data Bank (PDB)</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T009_compound_ensemble_pharmacophores.html" class="md-nav__link">T009 · Ligand-based pharmacophores</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T010_binding_site_comparison.html" class="md-nav__link">T010 · Binding site similarity and off-target prediction</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <label class="md-nav__link md-nav__link--active" for="__toc"> T011 · Querying online API webservices </label>
+    
+      <a href="#" class="md-nav__link md-nav__link--active">T011 · Querying online API webservices</a>
+      
+        
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#talktorials-t011-query-online-api-webservices--page-root" class="md-nav__link">T011 · Querying online API webservices</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in Theory</a>
+        </li>
+        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in Practical</a>
+        </li>
+        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a>
+        </li>
+        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Downloading-static-files" class="md-nav__link">Downloading static files</a>
+        </li>
+        <li class="md-nav__item"><a href="#Accessing-dynamically-generated-content" class="md-nav__link">Accessing dynamically generated content</a>
+        </li>
+        <li class="md-nav__item"><a href="#Programmatic-interfaces" class="md-nav__link">Programmatic interfaces</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#HTTP-based-RESTful-APIs" class="md-nav__link">HTTP-based RESTful APIs</a>
+        </li>
+        <li class="md-nav__item"><a href="#Generating-a-client-for-any-API" class="md-nav__link">Generating a client for any API</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Document-parsing" class="md-nav__link">Document parsing</a>
+        </li>
+        <li class="md-nav__item"><a href="#Browser-remote-control" class="md-nav__link">Browser remote control</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
+        </li>
+        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T011_query_online_api_webservices.nblink.txt">Show Source</a> </li>
+
+  </ul>
+</nav>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T012_query_klifs.html" class="md-nav__link">T012 · Data acquisition from KLIFS</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T013_query_pubchem.html" class="md-nav__link">T013 · Data acquisition from PubChem</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T014_binding_site_detection.html" class="md-nav__link">T014 · Binding site detection</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T015_protein_ligand_docking.html" class="md-nav__link">T015 · Protein ligand docking</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T016_protein_ligand_interactions.html" class="md-nav__link">T016 · Protein-ligand interactions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T017_advanced_nglview_usage.html" class="md-nav__link">T017 · Advanced NGLview usage</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T018_automated_cadd_pipeline.html" class="md-nav__link">T018 · Automated pipeline for lead optimization</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T019_md_simulation.html" class="md-nav__link">T019 · Molecular dynamics simulation</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T020_md_analysis.html" class="md-nav__link">T020 · Analyzing molecular dynamics simulations</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T021_one_hot_encoding.html" class="md-nav__link">T021 · One-Hot Encoding</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T022_ligand_based_screening_neural_network.html" class="md-nav__link">T022 · Ligand-based screening: neural networks</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T023_what_is_a_kinase.html" class="md-nav__link">T023 · What is a kinase?</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T024_kinase_similarity_sequence.html" class="md-nav__link">T024 · Kinase similarity: Sequence</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T025_kinase_similarity_kissim.html" class="md-nav__link">T025 · Kinase similarity: Kinase pocket (KiSSim fingerprint)</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T026_kinase_similarity_ifp.html" class="md-nav__link">T026 · Kinase similarity: Interaction fingerprints</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T027_kinase_similarity_ligand_profile.html" class="md-nav__link">T027 · Kinase similarity: Ligand profile</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T028_kinase_similarity_compare_perspectives.html" class="md-nav__link">T028 · Kinase similarity: Compare different perspectives</a>
+      
+    
+    </li></ul>
     
     </li>
     <li class="md-nav__item">
     
     
       <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html#edition-2019-jcim" class="md-nav__link">Edition 2019 - JCIM</a>
       
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html#edition-2021" class="md-nav__link">Edition 2021</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html#ligand-based-cheminformatics" class="md-nav__link">Ligand-based cheminformatics</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html#structural-biology" class="md-nav__link">Structural biology</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html#online-apis-servers" class="md-nav__link">Online APIs/servers</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html#kinase-similarity" class="md-nav__link">Kinase similarity</a>
-      
-    
-    </li></ul>
     
     </li>
     <li class="md-nav__item">
@@ -470,264 +677,7 @@
         <div class="md-content">
           <article class="md-content__inner md-typeset" role="main">
             
-  
-<style>
-/* CSS for nbsphinx extension */
-
-/* remove conflicting styling from Sphinx themes */
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt *,
-div.nbinput.container div.input_area pre,
-div.nboutput.container div.output_area pre,
-div.nbinput.container div.input_area .highlight,
-div.nboutput.container div.output_area .highlight {
-    border: none;
-    padding: 0;
-    margin: 0;
-    box-shadow: none;
-}
-
-div.nbinput.container > div[class*=highlight],
-div.nboutput.container > div[class*=highlight] {
-    margin: 0;
-}
-
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt * {
-    background: none;
-}
-
-div.nboutput.container div.output_area .highlight,
-div.nboutput.container div.output_area pre {
-    background: unset;
-}
-
-div.nboutput.container div.output_area div.highlight {
-    color: unset;  /* override Pygments text color */
-}
-
-/* avoid gaps between output lines */
-div.nboutput.container div[class*=highlight] pre {
-    line-height: normal;
-}
-
-/* input/output containers */
-div.nbinput.container,
-div.nboutput.container {
-    display: -webkit-flex;
-    display: flex;
-    align-items: flex-start;
-    margin: 0;
-    width: 100%;
-}
-@media (max-width: 540px) {
-    div.nbinput.container,
-    div.nboutput.container {
-        flex-direction: column;
-    }
-}
-
-/* input container */
-div.nbinput.container {
-    padding-top: 5px;
-}
-
-/* last container */
-div.nblast.container {
-    padding-bottom: 5px;
-}
-
-/* input prompt */
-div.nbinput.container div.prompt pre {
-    color: #307FC1;
-}
-
-/* output prompt */
-div.nboutput.container div.prompt pre {
-    color: #BF5B3D;
-}
-
-/* all prompts */
-div.nbinput.container div.prompt,
-div.nboutput.container div.prompt {
-    width: 4.5ex;
-    padding-top: 5px;
-    position: relative;
-    user-select: none;
-}
-
-div.nbinput.container div.prompt > div,
-div.nboutput.container div.prompt > div {
-    position: absolute;
-    right: 0;
-    margin-right: 0.3ex;
-}
-
-@media (max-width: 540px) {
-    div.nbinput.container div.prompt,
-    div.nboutput.container div.prompt {
-        width: unset;
-        text-align: left;
-        padding: 0.4em;
-    }
-    div.nboutput.container div.prompt.empty {
-        padding: 0;
-    }
-
-    div.nbinput.container div.prompt > div,
-    div.nboutput.container div.prompt > div {
-        position: unset;
-    }
-}
-
-/* disable scrollbars and line breaks on prompts */
-div.nbinput.container div.prompt pre,
-div.nboutput.container div.prompt pre {
-    overflow: hidden;
-    white-space: pre;
-}
-
-/* input/output area */
-div.nbinput.container div.input_area,
-div.nboutput.container div.output_area {
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: auto;
-}
-@media (max-width: 540px) {
-    div.nbinput.container div.input_area,
-    div.nboutput.container div.output_area {
-        width: 100%;
-    }
-}
-
-/* input area */
-div.nbinput.container div.input_area {
-    border: 1px solid #e0e0e0;
-    border-radius: 2px;
-    /*background: #f5f5f5;*/
-}
-
-/* override MathJax center alignment in output cells */
-div.nboutput.container div[class*=MathJax] {
-    text-align: left !important;
-}
-
-/* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput.container div.math p {
-    text-align: left;
-}
-
-/* standard error */
-div.nboutput.container div.output_area.stderr {
-    background: #fdd;
-}
-
-/* ANSI colors */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-default-inverse-fg { color: #FFFFFF; }
-.ansi-default-inverse-bg { background-color: #000000; }
-
-.ansi-bold { font-weight: bold; }
-.ansi-underline { text-decoration: underline; }
-
-
-div.nbinput.container div.input_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight].math,
-div.nboutput.container div.output_area.rendered_html,
-div.nboutput.container div.output_area > div.output_javascript,
-div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 5px;
-    margin: 0;
-}
-
-/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
-div.nbinput.container div.input_area > div[class^='highlight'],
-div.nboutput.container div.output_area > div[class^='highlight']{
-    overflow-y: hidden;
-}
-
-/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt .copybtn {
-    display: none;
-}
-
-/* Some additional styling taken form the Jupyter notebook CSS */
-.jp-RenderedHTMLCommon table,
-div.rendered_html table {
-  border: none;
-  border-collapse: collapse;
-  border-spacing: 0;
-  color: black;
-  font-size: 12px;
-  table-layout: fixed;
-}
-.jp-RenderedHTMLCommon thead,
-div.rendered_html thead {
-  border-bottom: 1px solid black;
-  vertical-align: bottom;
-}
-.jp-RenderedHTMLCommon tr,
-.jp-RenderedHTMLCommon th,
-.jp-RenderedHTMLCommon td,
-div.rendered_html tr,
-div.rendered_html th,
-div.rendered_html td {
-  text-align: right;
-  vertical-align: middle;
-  padding: 0.5em 0.5em;
-  line-height: normal;
-  white-space: normal;
-  max-width: none;
-  border: none;
-}
-.jp-RenderedHTMLCommon th,
-div.rendered_html th {
-  font-weight: bold;
-}
-.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
-div.rendered_html tbody tr:nth-child(odd) {
-  background: #f5f5f5;
-}
-.jp-RenderedHTMLCommon tbody tr:hover,
-div.rendered_html tbody tr:hover {
-  background: rgba(66, 165, 245, 0.2);
-}
-</style>
-<section id="T011-·-Querying-online-API-webservices">
+  <section id="T011-·-Querying-online-API-webservices">
 <h1 id="talktorials-t011-query-online-api-webservices--page-root">T011 · Querying online API webservices<a class="headerlink" href="#talktorials-t011-query-online-api-webservices--page-root" title="Permalink to this heading">¶</a></h1>
 <p><strong>Note:</strong> This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.</p>
 <p>Authors:</p>
@@ -776,11 +726,11 @@ div.rendered_html tbody tr:hover {
 <li><p><strong>A</strong>. Served straight away, since the server is simply a repository of files. E.g. you can <a class="reference external" href="ftp://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/latest/">download the ChEMBL database dump</a> from their servers.</p></li>
 <li><p><strong>B</strong>. Retrieved from a database and formatted in a particular way. The result you see on your browser is either:</p>
 <ul>
-<li><p><strong>B1</strong>. Pre-processed on the server, e.g. the HTML page you see when you visit any <a class="reference external" href="https://en.wikipedia.org/wiki/Drug_design">article in Wikipedia</a>.</p></li>
-<li><p><strong>B2</strong>. Dynamically generated on the client (your browser) as you use the website, e.g. Twitter, Facebook, or any modern <em>web-app</em>.</p></li>
+<li><p><strong>B1</strong>. Pre-processed on the server, e.g. the HTML page you see when you visit any <a class="reference external" href="https://en.wikipedia.org/wiki/Drug_design">article in Wikipedia</a>.</p></li>
+<li><p><strong>B2</strong>. Dynamically generated on the client (your browser) as you use the website, e.g. Twitter, Facebook, or any modern <em>web-app</em>.</p></li>
 </ul>
 </li>
-<li><p><strong>C</strong>. Computed through the execution of one or more programs on the server-side, e.g. estimating the protonation states of a protein-ligand complex using <a class="reference external" href="https://proteins.plus/help/tutorial">Protoss</a>.</p></li>
+<li><p><strong>C</strong>. Computed through the execution of one or more programs on the server-side, e.g. estimating the protonation states of a protein-ligand complex using <a class="reference external" href="https://proteins.plus/help/tutorial">Protoss</a>.</p></li>
 </ul>
 <blockquote>
 <div><p>In a way, configuration <strong>C</strong> is a special type of <strong>B1</strong>. You are just replacing the type of task that runs on the server: database querying and HTML rendering <em>vs.</em> computations that process your query and return data formatted in a domain-specific way.</p>
@@ -867,18 +817,18 @@ several, but the most common ones are:</p>
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">HTTPError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_22567/1358255193.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> bad_url <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">"https://raw.githubusercontent.com/openkinome/kinodata/master/data/KinHubKinaseList.txt"</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> bad_response <span class="ansi-blue-fg">=</span> requests<span class="ansi-blue-fg">.</span>get<span class="ansi-blue-fg">(</span>bad_url<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">----&gt; 4</span><span class="ansi-red-fg"> </span>bad_response<span class="ansi-blue-fg">.</span>raise_for_status<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+Cell <span class="ansi-green-fg">In[3], line 4</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> bad_url <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(175,0,0)">"</span><span style="color: rgb(175,0,0)">https://raw.githubusercontent.com/openkinome/kinodata/master/data/KinHubKinaseList.txt</span><span style="color: rgb(175,0,0)">"</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> bad_response <span style="color: rgb(98,98,98)">=</span> requests<span style="color: rgb(98,98,98)">.</span>get(bad_url)
+<span class="ansi-green-fg">----&gt; 4</span> <span class="ansi-yellow-bg">bad_response</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">raise_for_status</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">      5</span> bad_response
 
-<span class="ansi-green-fg">~/.local/miniconda/envs/toc/lib/python3.9/site-packages/requests/models.py</span> in <span class="ansi-cyan-fg">raise_for_status</span><span class="ansi-blue-fg">(self)</span>
-<span class="ansi-green-intense-fg ansi-bold">    951</span>
-<span class="ansi-green-intense-fg ansi-bold">    952</span>         <span class="ansi-green-fg">if</span> http_error_msg<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 953</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> HTTPError<span class="ansi-blue-fg">(</span>http_error_msg<span class="ansi-blue-fg">,</span> response<span class="ansi-blue-fg">=</span>self<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    954</span>
-<span class="ansi-green-intense-fg ansi-bold">    955</span>     <span class="ansi-green-fg">def</span> close<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+File <span class="ansi-green-fg">~/.miniconda3/envs/teachopencadd/lib/python3.9/site-packages/requests/models.py:1021</span>, in <span class="ansi-cyan-fg">Response.raise_for_status</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1016</span>     http_error_msg <span style="color: rgb(98,98,98)">=</span> (
+<span class="ansi-green-intense-fg ansi-bold">   1017</span>         <span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">"</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span><span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>status_code<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)"> Server Error: </span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>reason<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)"> for url: </span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span><span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>url<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)">"</span>
+<span class="ansi-green-intense-fg ansi-bold">   1018</span>     )
+<span class="ansi-green-intense-fg ansi-bold">   1020</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> http_error_msg:
+<span class="ansi-green-fg">-&gt; 1021</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> HTTPError(http_error_msg, response<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(0,135,0)">self</span>)
 
 <span class="ansi-red-fg">HTTPError</span>: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/openkinome/kinodata/master/data/KinHubKinaseList.txt
 </pre></div></div>
@@ -1063,7 +1013,7 @@ ACTR2B,ACTR2B,ACVR2B,Activin receptor type-2B,TKL,STKR,STKR2,Q13705
 </table>
 </div></div>
 </div>
-<p>One note about file downloads. The method above downloads the whole file into memory, which can be a problem for very big files. If you intend to download a very large file, you can push it to disk directly using <a class="reference external" href="https://requests.readthedocs.io/en/master/user/advanced/#streaming-requests">streaming requests</a> and <a class="reference external" href="https://2.python-requests.org/en/master/user/quickstart/#raw-response-content">raw responses</a>. As an example, let’s pretend this <a class="reference external" href="https://archive.org/download/SlowMotionFlame/slomoflame_512kb.mp4">1MB
+<p>One note about file downloads. The method above downloads the whole file into memory, which can be a problem for very big files. If you intend to download a very large file, you can push it to disk directly using <a class="reference external" href="https://requests.readthedocs.io/en/master/user/advanced/#streaming-requests">streaming requests</a> and <a class="reference external" href="https://docs.python-requests.org/en/v1.1.0/user/quickstart/?highlight=raw%20response#raw-response-content">raw responses</a>. As an example, let’s pretend this <a class="reference external" href="https://archive.org/download/SlowMotionFlame/slomoflame_512kb.mp4">1MB
 video</a> is <em>too big to fit in memory</em>:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
@@ -1122,25 +1072,97 @@ video</a> is <em>too big to fit in memory</em>:</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;!DOCTYPE html SYSTEM "about:legacy-compat"&gt;
-&lt;html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"&gt;&lt;head&gt;&lt;title&gt;S - Spike glycoprotein precursor - Severe acute respiratory syndrome coronavirus 2 (2019-nCoV) - S gene &amp;amp; protein&lt;/title&gt;&lt;meta content="IE=edge" http-equiv="X-UA-Compatible"/&gt;&lt;meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/&gt;&lt;meta content="width=device-width, initial-scale=1" name="viewport"/&gt;&lt;link href="/" rel="home"/&gt;&lt;link href="https://creativecommons.org/licenses/by/4.0/" rel="license"/&gt;&lt;link type="image/vnd.microsoft.icon" href="/favicon.ico" rel="shortcut icon"/&gt;&lt;link href="/uniprot.min.css2021_03" type="text/css" rel="stylesheet"/&gt;&lt;link href="/tippy.css" type="text/css" rel="stylesheet"/&gt;&lt;script type="text/javascript"&gt;
-                        var BASE = '/';
-                &lt;/script&gt;&lt;script src="/js-compr.js2021_03" type="text/javascript"&gt;&lt;/script&gt;&lt;script type="text/javascript"&gt;
-                                uniprot.isInternal = false;
-                                uniprot.namespace = 'uniprot';
-                                uniprot.releasedate = '2021_03';
-                        &lt;/script&gt;&lt;script type="text/javascript"&gt;
-                        ;
-                &lt;/script&gt;&lt;link href="opensearch.xml" title="UniProtKB" type="application/opensearchdescription+xml" rel="search"/&gt;&lt;link href="https://www.uniprot.org/uniprot/P0DTC2" rel="canonical"/&gt;&lt;link href="P0DTC2.rdf" title="RDF" type="application/rdf+xml" rel="alternate"/&gt;&lt;link href="P0DTC2.rss?version=*" type="application/rss+xml" title="RSS" rel="alternate"/&gt;&lt;script type="text/javascript"&gt;
-                                // variable to store annotation data
-                                var annotations = [];
-                                var entryId = 'P0DTC2';
-                                var isObsolete = false || !true;
-                        &lt;/script&gt;&lt;meta content="attaches the virion to the cell membrane by interacting with host receptor, initiating the infection. Binding to human ACE2 receptor and internalization of the virus into the endosomes of the host cell induces conformational changes in the Spike glycoprotein (PubMed:32142651, PubMed:32221306, PubMed:32075877, PubMed:32155444). Binding to host NRP1 and NRP2 via C-terminal polybasic sequence enhances virion entry into host cell (PubMed:33082294, PubMed:33082293). This interaction may explain virus tropism of human olfactory epithelium cells, which express high level of NRP1 and NRP2 but low level of ACE2 (PubMed:33082293). The stalk domain of S contains three hinges, giving the head unexpected orientational freedom (PubMed:32817270). Uses human TMPRSS2 for priming in human lung cells which is an essential step for viral entry (PubMed:32142651). Can be alternatively processed by host furin (PubMed:32362314). Proteolysis by cathepsin CTSL may unmask the fusion peptide of S2 and activate membranes fusion within endosomes." name="description"/&gt;&lt;meta content="nositelinkssearchbox" name="google"/&gt;&lt;script defer="defer" src="https://d3js.org/d3.v4.min.js"&gt;&lt;/script&gt;&lt;script defer="defer" src="https://cdn.jsdelivr.net/npm/protvista-uniprot@latest/dist/protvista-uniprot.js"&gt;&lt;/script&gt;&lt;script defer="defer" src="https://cdn.jsdelivr.net/npm/interaction-viewer@latest/dist/interaction-viewer.js"&gt;&lt;/script&gt;&lt;/head&gt;&lt;body class="namespace-uniprot" typeof="WebPage" prefix="up: http://purl.uniprot.org/core/" vocab="http://schema.org/"&gt;&lt;span id="evidenceToolTip" style="display:none"&gt;&amp;#xd;
-                                    &amp;lt;p&gt;An evidence describes the source of an annotation, e.g. an experiment that has been published in the scientific literature, an orthologous protein, a record from another database, etc.&amp;lt;/p&gt;&amp;#xd;
-&amp;#xd;
-&amp;lt;p&gt;&amp;lt;a href="/manual/evidences"&gt;More...&amp;lt;/a&gt;&amp;lt;/p&gt;&amp;#xd;
-                                &lt;/span&gt;&lt;p style="display:none"&gt;&lt;a accesskey="2" href="#content"&gt;Skip Header&lt;/a&gt;&lt;/p&gt;&lt;div id="masthead-container"&gt;&lt;div class="masthead" id="local-masthead"&gt;&lt;div id="local-title"&gt;&lt;a id="logo" accesskey="1" href="/"&gt;&lt;img alt="" src="/images/logos/Logo_medium.png" title="UniProt home"/&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class="namespace-uniprot" id="local-search"&gt;&lt;form method="get" action="/uniprot" id="search-form"&gt;&lt;div id="namespace-background"&gt;&lt;div class="searchBoxIndicator" style="display:none" id="searchBoxIndicator1"&gt; &lt;/div&gt;&lt;div onclick="location.href=&amp;apos;/help/text-search&amp;apos;;" class="searchBoxIndicator" style="display:none" id="searchBoxIndicator2"&gt; &lt;/div&gt;&lt;div onclick="location.href=&amp;apos;/help/advanced_search &amp;apos;;" class="searchBoxIndicator" style="display:none" id="searchBoxIndicator3"&gt; &lt;/div&gt;&lt;a class="namespace-select" id="select-namespace" onclick="return false;" href=""&gt;&lt;span class="caret_white" id="selected-namespace"&gt;UniProtKB&lt;/span&gt;&lt;/a&gt;&lt;ul style="display:none" class="select-namespace-options"&gt;&lt;a href="#" class="closeBox" id="closeNamespaceOptions"&gt;x&lt;/a&gt;&lt;li&gt;&lt;ul&gt;&lt;li class="fixedHeight_namespaces"&gt;&lt;h3 class="namespace_uniprot"&gt;&lt;a class="namespace-option uniprot" href="#" id="uniprot"&gt;UniProtKB&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Protein knowledgebase&lt;/p&gt;&lt;/li&gt;&lt;li class="fixedHeight_namespaces"&gt;&lt;h3 class="namespace_uniparc"&gt;&lt;a class="namespace-option uniparc" href="#" id="uniparc"&gt;UniParc&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Sequence archive&lt;/p&gt;&lt;/li&gt;&lt;li class="fixedHeight_namespaces"&gt;&lt;h3 class="
+&lt;!doctype html&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;meta charset="utf-8"/&gt;&lt;title&gt;UniProt&lt;/title&gt;&lt;meta name="viewport" content="width=device-width,initial-scale=1"/&gt;&lt;meta name="theme-color" content="#00639a"/&gt;&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/&gt;&lt;link rel="shortcut icon" type="image/png" sizes="144x144" href="/mstile-144x144.png"/&gt;&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/&gt;&lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/&gt;&lt;link rel="manifest" href="/manifest.json"/&gt;&lt;link rel="preconnect" href="https://fonts.gstatic.com/"/&gt;&lt;link rel="preconnect" href="https://rest.uniprot.org/"/&gt;&lt;link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Lato:400,700|Source+Sans+Pro:600,700&amp;display=swap"/&gt;&lt;script async src="https://www.googletagmanager.com/gtag/js?id=G-V6TXEC4BDF"&gt;&lt;/script&gt;&lt;script&gt;window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      // GA4
+      gtag('config', 'G-V6TXEC4BDF', {
+        anonymize_ip: true,
+        allow_google_signals: false,
+        allow_ad_personalization_signals: false,
+        restricted_data_processing: true,
+        custom_map: {
+          dimension1: 'result_view',
+          metric1: 'result_view_set',
+        },
+        send_page_view: false,
+      });
+      // UA
+      gtag('config', 'UA-6228219-1', {
+        anonymize_ip: true,
+        allow_google_signals: false,
+        allow_ad_personalization_signals: false,
+        restricted_data_processing: true,
+        custom_map: {
+          dimension1: 'result_view',
+          metric1: 'result_view_set',
+        },
+        send_page_view: false,
+      });&lt;/script&gt;&lt;script&gt;(function (h, o, t, j, a, r) {
+        h.hj =
+          h.hj ||
+          function () {
+            (h.hj.q = h.hj.q || []).push(arguments);
+          };
+        h._hjSettings = { hjid: 2638207, hjsv: 6 };
+        a = o.getElementsByTagName('head')[0];
+        r = o.createElement('script');
+        r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');&lt;/script&gt;&lt;style&gt;#root &gt; .fallback {
+        height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        animation: fallback-appear 1s 1 10s both;
+      }
+
+      #root &gt; .fallback &gt; div {
+        max-width: 60ch;
+      }
+
+      #root &gt; .fallback li {
+        margin-bottom: 1em;
+      }
+
+      @keyframes fallback-appear {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }&lt;/style&gt;&lt;link rel="stylesheet" href="/styles.6f2cd3.css"/&gt;&lt;link rel="stylesheet" href="/styles.8a7ea9.css"/&gt;&lt;/head&gt;&lt;body&gt;&lt;div id="root"&gt;&lt;div class="fallback" data-nosnippet&gt;&lt;div&gt;&lt;h1&gt;UniProt website fallback message&lt;/h1&gt;If you are not seeing anything on this page, it might be for multiple reasons:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;You might have JavaScript disabled&lt;/strong&gt;: make sure to enable JavaScript on your browser, or use a browser that supports JavaScript.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;You might have an outdated browser&lt;/strong&gt;: make sure that your browser is up to date as older versions might not work with the website.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;There might have been a network issue&lt;/strong&gt;: ensure that your connectivity is stable and try to reload the page to see if it solves the issue. &lt;button onclick="location.reload();"&gt;Reload this page&lt;/button&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;script nomodule&gt;// workaround for Safari 10.1 supporting module but ignoring nomodule
+      // From https://gist.github.com/samthor/64b114e4a4f539915a95b91ffd340acc
+      (function () {
+        var d = document;
+        var c = d.createElement('script');
+        if (!('noModule' in c) &amp;&amp; 'onbeforeload' in c) {
+          var s = false;
+          d.addEventListener(
+            'beforeload',
+            function (e) {
+              if (e.target === c) {
+                s = true;
+              } else if (!e.target.hasAttribute('nomodule') || !s) {
+                return;
+              }
+              e.preventDefault();
+            },
+            true
+          );
+
+          c.type = 'module';
+          c.src = '.';
+          d.head.appendChild(c);
+          c.remove();
+        }
+      })();&lt;/script&gt;&lt;script type="module" src="/modern.app.5b105d.js"&gt;&lt;/script&gt;&lt;script type="module" src="/modern.app.9062d6.js"&gt;&lt;/script&gt;&lt;script type="module" src="/modern.app.922f2d.js"&gt;&lt;/script&gt;&lt;script type="module" src="/modern.app.d71532.js"&gt;&lt;/script&gt;&lt;script type="module" src="/modern.app.7bbd26.js"&gt;&lt;/script&gt;&lt;script nomodule defer="defer" src="/legacy.app.a5cecc.js"&gt;&lt;/script&gt;&lt;script nomodule defer="defer" src="/legacy.app.9062d6.js"&gt;&lt;/script&gt;&lt;script nomodule defer="defer" src="/legacy.app.922f2d.js"&gt;&lt;/script&gt;&lt;script nomodule defer="defer" src="/legacy.app.1e5b43.js"&gt;&lt;/script&gt;&lt;script nomodule defer="defer" src="/legac
 </pre></div></div>
 </div>
 <p>Wow, what is all that noise? You are seeing the HTML content of the webpage! That’s the markup language web developers use to write webpages.</p>
@@ -1171,7 +1193,7 @@ ID   SPIKE_SARS2             Reviewed;        1273 AA.
 AC   P0DTC2;
 DT   22-APR-2020, integrated into UniProtKB/Swiss-Prot.
 DT   22-APR-2020, sequence version 1.
-DT   02-JUN-2021, entry version 8.
+DT   03-MAY-2023, entry version 16.
 DE   RecName: Full=Spike glycoprotein {ECO:0000255|HAMAP-Rule:MF_04099};
 DE            Short=S glycoprotein {ECO:0000255|HAMAP-Rule:MF_04099};
 DE   AltName: Full=E2 {ECO:0000255|HAMAP-Rule:MF_04099};
@@ -1739,7 +1761,7 @@ SwaggerClient(https://klifs.net/api)
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>client.Information.get_kinase_names<span class="o">?</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span>client.Information.get_kinase_names
 </pre></div>
 </div>
 </div>
@@ -1750,8 +1772,8 @@ SwaggerClient(https://klifs.net/api)
 <div class="highlight"><pre>
 <span class="ansi-red-fg">Signature:</span>      client<span class="ansi-blue-fg">.</span>Information<span class="ansi-blue-fg">.</span>get_kinase_names<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">**</span>op_kwargs<span class="ansi-blue-fg">)</span>
 <span class="ansi-red-fg">Type:</span>           CallableOperation
-<span class="ansi-red-fg">String form:</span>    &lt;bravado.client.CallableOperation object at 0x7f6ffebd6ca0&gt;
-<span class="ansi-red-fg">File:</span>           ~/.local/miniconda/envs/toc/lib/python3.9/site-packages/bravado/client.py
+<span class="ansi-red-fg">String form:</span>    &lt;bravado.client.CallableOperation object at 0x7f5143a90610&gt;
+<span class="ansi-red-fg">File:</span>           ~/.miniconda3/envs/teachopencadd/lib/python3.9/site-packages/bravado/client.py
 <span class="ansi-red-fg">Docstring:</span>
 [GET] Kinase names
 
@@ -1772,7 +1794,6 @@ The Kinase names endpoint returns a list of all available kinases in KLIFS accor
 Invoke the actual HTTP request and return a future.
 
 :rtype: :class:`bravado.http_future.HTTPFuture`
-
 </pre></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">bravado</span></code> is auto-generating classes and functions that mirror the API we were using before! How cool is that? The same query can now be done without requests.</p>
@@ -1790,7 +1811,7 @@ Invoke the actual HTTP request and return a future.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;bravado.http_future.HttpFuture at 0x7f6ffeb36670&gt;
+&lt;bravado.http_future.HttpFuture at 0x7f5143ab6f10&gt;
 </pre></div></div>
 </div>
 <p>Note that <code class="docutils literal notranslate"><span class="pre">bravado</span></code> does <em>not</em> return the response right away. It creates a <em>promise</em> that it will do so when you ask for it. This allows it to be usable in asynchronous programming, but for our purposes, it means that you need to call it with <code class="docutils literal notranslate"><span class="pre">.result()</span></code>.</p>
@@ -2136,8 +2157,8 @@ KinaseInformation(HGNC='MASTL', family='MAST', full_name='microtubule associated
 <p>In this theoretical introduction you have seen how different methods to programmatically access online web services can be used from a Python interpreter. Leveraging these techniques you will be able to build automated pipelines inside Jupyter Notebooks. In the end, querying a database or downloading a file involves the same kind of tooling.</p>
 <p>Unfortunately, there is too much material to cover about web APIs in a single lesson. For example, how do you <em>send</em> or <em>upload</em> contents from Python? Can you submit forms? If you are interested in knowing more, the <code class="docutils literal notranslate"><span class="pre">requests</span></code> <a class="reference external" href="https://requests.readthedocs.io/">documentation</a> should be your go-to resource. Some interesting parts include:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://2.python-requests.org/en/master/user/quickstart/#more-complicated-post-requests">Submitting forms with POST requests</a></p></li>
-<li><p><a class="reference external" href="https://2.python-requests.org/en/master/user/authentication/#basic-authentication">User authentication</a></p></li>
+<li><p><a class="reference external" href="https://docs.python-requests.org/en/v1.1.0/user/quickstart/#more-complicated-post-requests">Submitting forms with POST requests</a></p></li>
+<li><p><a class="reference external" href="https://docs.python-requests.org/en/v1.1.0/user/authentication/#basic-authentication">User authentication</a></p></li>
 </ul>
 </section>
 <section id="Quiz">
@@ -2199,7 +2220,7 @@ KinaseInformation(HGNC='MASTL', family='MAST', full_name='microtubule associated
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

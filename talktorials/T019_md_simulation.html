@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta property="og:title" content="T019 · Molecular dynamics simulation" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://projects.volkamerlab.org/teachopencadd/talktorials/T019_md_simulation.html" />
@@ -87,6 +86,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -260,56 +260,295 @@
     
     
       <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="T001_query_chembl.html" class="md-nav__link">T001 · Compound data acquisition (ChEMBL)</a>
       
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T002_compound_adme.html" class="md-nav__link">T002 · Molecular filtering: ADME and lead-likeness criteria</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T003_compound_unwanted_substructures.html" class="md-nav__link">T003 · Molecular filtering: unwanted substructures</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T004_compound_similarity.html" class="md-nav__link">T004 · Ligand-based screening: compound similarity</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T005_compound_clustering.html" class="md-nav__link">T005 · Compound clustering</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T006_compound_maximum_common_substructures.html" class="md-nav__link">T006 · Maximum common substructure</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T007_compound_activity_machine_learning.html" class="md-nav__link">T007 · Ligand-based screening: machine learning</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T008_query_pdb.html" class="md-nav__link">T008 · Protein data acquisition: Protein Data Bank (PDB)</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T009_compound_ensemble_pharmacophores.html" class="md-nav__link">T009 · Ligand-based pharmacophores</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T010_binding_site_comparison.html" class="md-nav__link">T010 · Binding site similarity and off-target prediction</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T011_query_online_api_webservices.html" class="md-nav__link">T011 · Querying online API webservices</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T012_query_klifs.html" class="md-nav__link">T012 · Data acquisition from KLIFS</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T013_query_pubchem.html" class="md-nav__link">T013 · Data acquisition from PubChem</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T014_binding_site_detection.html" class="md-nav__link">T014 · Binding site detection</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T015_protein_ligand_docking.html" class="md-nav__link">T015 · Protein ligand docking</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T016_protein_ligand_interactions.html" class="md-nav__link">T016 · Protein-ligand interactions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T017_advanced_nglview_usage.html" class="md-nav__link">T017 · Advanced NGLview usage</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T018_automated_cadd_pipeline.html" class="md-nav__link">T018 · Automated pipeline for lead optimization</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <label class="md-nav__link md-nav__link--active" for="__toc"> T019 · Molecular dynamics simulation </label>
+    
+      <a href="#" class="md-nav__link md-nav__link--active">T019 · Molecular dynamics simulation</a>
+      
+        
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#talktorials-t019-md-simulation--page-root" class="md-nav__link">T019 · Molecular dynamics simulation</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
+        </li>
+        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
+        </li>
+        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Molecular-dynamics" class="md-nav__link">Molecular dynamics</a>
+        </li>
+        <li class="md-nav__item"><a href="#Force-fields" class="md-nav__link">Force fields</a>
+        </li>
+        <li class="md-nav__item"><a href="#Boundary-conditions" class="md-nav__link">Boundary conditions</a>
+        </li>
+        <li class="md-nav__item"><a href="#MD-simulations-and-drug-design" class="md-nav__link">MD simulations and drug design</a>
+        </li>
+        <li class="md-nav__item"><a href="#EGFR-kinase" class="md-nav__link">EGFR kinase</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Installation-on-Google-Colab" class="md-nav__link">Installation on Google Colab</a>
+        </li>
+        <li class="md-nav__item"><a href="#Adjust-environment-for-local-installations-running-on-Linux-or-MacOS" class="md-nav__link">Adjust environment for local installations running on Linux or MacOS</a>
+        </li>
+        <li class="md-nav__item"><a href="#Import-dependencies" class="md-nav__link">Import dependencies</a>
+        </li>
+        <li class="md-nav__item"><a href="#Download-PDB-file" class="md-nav__link">Download PDB file</a>
+        </li>
+        <li class="md-nav__item"><a href="#Prepare-the-protein-ligand-complex" class="md-nav__link">Prepare the protein ligand complex</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Protein-preparation" class="md-nav__link">Protein preparation</a>
+        </li>
+        <li class="md-nav__item"><a href="#Prepare-ligand" class="md-nav__link">Prepare ligand</a>
+        </li>
+        <li class="md-nav__item"><a href="#Merge-protein-and-ligand" class="md-nav__link">Merge protein and ligand</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#MD-simulation-set-up" class="md-nav__link">MD simulation set up</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Force-field" class="md-nav__link">Force field</a>
+        </li>
+        <li class="md-nav__item"><a href="#System" class="md-nav__link">System</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Perform-the-MD-simulation" class="md-nav__link">Perform the MD simulation</a>
+        </li>
+        <li class="md-nav__item"><a href="#Download-results" class="md-nav__link">Download results</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
+        </li>
+        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
+        </li>
+        <li class="md-nav__item"><a href="#Further-reading" class="md-nav__link">Further reading</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Enhanced-sampling-methods" class="md-nav__link">Enhanced sampling methods</a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T019_md_simulation.nblink.txt">Show Source</a> </li>
+
+  </ul>
+</nav>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T020_md_analysis.html" class="md-nav__link">T020 · Analyzing molecular dynamics simulations</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T021_one_hot_encoding.html" class="md-nav__link">T021 · One-Hot Encoding</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T022_ligand_based_screening_neural_network.html" class="md-nav__link">T022 · Ligand-based screening: neural networks</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T023_what_is_a_kinase.html" class="md-nav__link">T023 · What is a kinase?</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T024_kinase_similarity_sequence.html" class="md-nav__link">T024 · Kinase similarity: Sequence</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T025_kinase_similarity_kissim.html" class="md-nav__link">T025 · Kinase similarity: Kinase pocket (KiSSim fingerprint)</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T026_kinase_similarity_ifp.html" class="md-nav__link">T026 · Kinase similarity: Interaction fingerprints</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T027_kinase_similarity_ligand_profile.html" class="md-nav__link">T027 · Kinase similarity: Ligand profile</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T028_kinase_similarity_compare_perspectives.html" class="md-nav__link">T028 · Kinase similarity: Compare different perspectives</a>
+      
+    
+    </li></ul>
     
     </li>
     <li class="md-nav__item">
     
     
       <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html#edition-2019-jcim" class="md-nav__link">Edition 2019 - JCIM</a>
       
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html#edition-2021" class="md-nav__link">Edition 2021</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html#ligand-based-cheminformatics" class="md-nav__link">Ligand-based cheminformatics</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html#structural-biology" class="md-nav__link">Structural biology</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html#online-apis-servers" class="md-nav__link">Online APIs/servers</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html#kinase-similarity" class="md-nav__link">Kinase similarity</a>
-      
-    
-    </li></ul>
     
     </li>
     <li class="md-nav__item">
@@ -502,264 +741,7 @@
         <div class="md-content">
           <article class="md-content__inner md-typeset" role="main">
             
-  
-<style>
-/* CSS for nbsphinx extension */
-
-/* remove conflicting styling from Sphinx themes */
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt *,
-div.nbinput.container div.input_area pre,
-div.nboutput.container div.output_area pre,
-div.nbinput.container div.input_area .highlight,
-div.nboutput.container div.output_area .highlight {
-    border: none;
-    padding: 0;
-    margin: 0;
-    box-shadow: none;
-}
-
-div.nbinput.container > div[class*=highlight],
-div.nboutput.container > div[class*=highlight] {
-    margin: 0;
-}
-
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt * {
-    background: none;
-}
-
-div.nboutput.container div.output_area .highlight,
-div.nboutput.container div.output_area pre {
-    background: unset;
-}
-
-div.nboutput.container div.output_area div.highlight {
-    color: unset;  /* override Pygments text color */
-}
-
-/* avoid gaps between output lines */
-div.nboutput.container div[class*=highlight] pre {
-    line-height: normal;
-}
-
-/* input/output containers */
-div.nbinput.container,
-div.nboutput.container {
-    display: -webkit-flex;
-    display: flex;
-    align-items: flex-start;
-    margin: 0;
-    width: 100%;
-}
-@media (max-width: 540px) {
-    div.nbinput.container,
-    div.nboutput.container {
-        flex-direction: column;
-    }
-}
-
-/* input container */
-div.nbinput.container {
-    padding-top: 5px;
-}
-
-/* last container */
-div.nblast.container {
-    padding-bottom: 5px;
-}
-
-/* input prompt */
-div.nbinput.container div.prompt pre {
-    color: #307FC1;
-}
-
-/* output prompt */
-div.nboutput.container div.prompt pre {
-    color: #BF5B3D;
-}
-
-/* all prompts */
-div.nbinput.container div.prompt,
-div.nboutput.container div.prompt {
-    width: 4.5ex;
-    padding-top: 5px;
-    position: relative;
-    user-select: none;
-}
-
-div.nbinput.container div.prompt > div,
-div.nboutput.container div.prompt > div {
-    position: absolute;
-    right: 0;
-    margin-right: 0.3ex;
-}
-
-@media (max-width: 540px) {
-    div.nbinput.container div.prompt,
-    div.nboutput.container div.prompt {
-        width: unset;
-        text-align: left;
-        padding: 0.4em;
-    }
-    div.nboutput.container div.prompt.empty {
-        padding: 0;
-    }
-
-    div.nbinput.container div.prompt > div,
-    div.nboutput.container div.prompt > div {
-        position: unset;
-    }
-}
-
-/* disable scrollbars and line breaks on prompts */
-div.nbinput.container div.prompt pre,
-div.nboutput.container div.prompt pre {
-    overflow: hidden;
-    white-space: pre;
-}
-
-/* input/output area */
-div.nbinput.container div.input_area,
-div.nboutput.container div.output_area {
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: auto;
-}
-@media (max-width: 540px) {
-    div.nbinput.container div.input_area,
-    div.nboutput.container div.output_area {
-        width: 100%;
-    }
-}
-
-/* input area */
-div.nbinput.container div.input_area {
-    border: 1px solid #e0e0e0;
-    border-radius: 2px;
-    /*background: #f5f5f5;*/
-}
-
-/* override MathJax center alignment in output cells */
-div.nboutput.container div[class*=MathJax] {
-    text-align: left !important;
-}
-
-/* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput.container div.math p {
-    text-align: left;
-}
-
-/* standard error */
-div.nboutput.container div.output_area.stderr {
-    background: #fdd;
-}
-
-/* ANSI colors */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-default-inverse-fg { color: #FFFFFF; }
-.ansi-default-inverse-bg { background-color: #000000; }
-
-.ansi-bold { font-weight: bold; }
-.ansi-underline { text-decoration: underline; }
-
-
-div.nbinput.container div.input_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight].math,
-div.nboutput.container div.output_area.rendered_html,
-div.nboutput.container div.output_area > div.output_javascript,
-div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 5px;
-    margin: 0;
-}
-
-/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
-div.nbinput.container div.input_area > div[class^='highlight'],
-div.nboutput.container div.output_area > div[class^='highlight']{
-    overflow-y: hidden;
-}
-
-/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt .copybtn {
-    display: none;
-}
-
-/* Some additional styling taken form the Jupyter notebook CSS */
-.jp-RenderedHTMLCommon table,
-div.rendered_html table {
-  border: none;
-  border-collapse: collapse;
-  border-spacing: 0;
-  color: black;
-  font-size: 12px;
-  table-layout: fixed;
-}
-.jp-RenderedHTMLCommon thead,
-div.rendered_html thead {
-  border-bottom: 1px solid black;
-  vertical-align: bottom;
-}
-.jp-RenderedHTMLCommon tr,
-.jp-RenderedHTMLCommon th,
-.jp-RenderedHTMLCommon td,
-div.rendered_html tr,
-div.rendered_html th,
-div.rendered_html td {
-  text-align: right;
-  vertical-align: middle;
-  padding: 0.5em 0.5em;
-  line-height: normal;
-  white-space: normal;
-  max-width: none;
-  border: none;
-}
-.jp-RenderedHTMLCommon th,
-div.rendered_html th {
-  font-weight: bold;
-}
-.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
-div.rendered_html tbody tr:nth-child(odd) {
-  background: #f5f5f5;
-}
-.jp-RenderedHTMLCommon tbody tr:hover,
-div.rendered_html tbody tr:hover {
-  background: rgba(66, 165, 245, 0.2);
-}
-</style>
-<section id="T019-·-Molecular-dynamics-simulation">
+  <section id="T019-·-Molecular-dynamics-simulation">
 <h1 id="talktorials-t019-md-simulation--page-root">T019 · Molecular dynamics simulation<a class="headerlink" href="#talktorials-t019-md-simulation--page-root" title="Permalink to this heading">¶</a></h1>
 <p><strong>Note:</strong> This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.</p>
 <p>Authors:</p>
@@ -837,7 +819,7 @@ mind offers us, in the perfection which it has given to astronomy, a faint sketc
 functions, called force fields, which provide an approximate description of all the forces applied to each particle in the system. We then use numerical integrators to solve the initial value problem for the system and obtain the trajectory. As it sounds, the process requires quite a bit of processing power and it was only few years ago that MD started seeing a more widespread use, especially in the field of computational chemistry and biology, as well as in drug discovery (<a class="reference external" href="https://doi.org/10.1021/acs.jmedchem.5b01684">J Med Chem (2016),
 59(9), 4035‐4061</a>).</p>
 <img alt="MD_rotor_250K_1ns.gif" src="https://github.com/volkamerlab/teachopencadd/raw/d1ded86bb2c82ef088cc5145d0bcb997f6eab7dd/teachopencadd/talktorials/018_md_simulation/images/MD_rotor_250K_1ns.gif"/>
-<p><strong>Figure 1</strong>: Molecular dynamics simulation of the rotation of a supramolecule composed of three molecules in a confined nanoscopic pore (Palma et al. via <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=34866205">Wikimedia</a>).</p>
+<p><strong>Figure 1</strong>: Molecular dynamics simulation of the rotation of a supramolecule composed of three molecules in a confined nanoscopic pore (Palma et al. via <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=34866205">Wikimedia</a>).</p>
 </section>
 <section id="Force-fields">
 <h3 id="Force-fields">Force fields<a class="headerlink" href="#Force-fields" title="Permalink to this heading">¶</a></h3>
@@ -888,8 +870,10 @@ perform an MD simulation (<a class="reference external" href="https://www.rcsb.o
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">google.colab</span>
+
     <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>condacolab
     <span class="kn">import</span> <span class="nn">condacolab</span>
+
     <span class="n">condacolab</span><span class="o">.</span><span class="n">install</span><span class="p">()</span>
 <span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
     <span class="k">pass</span>
@@ -904,14 +888,16 @@ perform an MD simulation (<a class="reference external" href="https://www.rcsb.o
     <span class="kn">import</span> <span class="nn">condacolab</span>
     <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">files</span>
     <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span>
+
     <span class="n">condacolab</span><span class="o">.</span><span class="n">check</span><span class="p">()</span>
     <span class="o">!</span>conda<span class="w"> </span>install<span class="w"> </span>-q<span class="w"> </span>-y<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>mdtraj<span class="w"> </span>openmm<span class="w"> </span>openmmforcefields<span class="w"> </span>openff-toolkit<span class="w"> </span>pdbfixer<span class="w"> </span>pypdb<span class="w"> </span>rdkit
 <span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
     <span class="n">on_colab</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="c1">#check if installation was succesful</span>
+    <span class="c1"># check if installation was succesful</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="kn">import</span> <span class="nn">rdkit</span>
+
         <span class="n">on_colab</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="n">clear_output</span><span class="p">()</span>  <span class="c1"># clear the excessive installation outputs</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">"Dependencies successfully installed!"</span><span class="p">)</span>
@@ -928,6 +914,7 @@ perform an MD simulation (<a class="reference external" href="https://www.rcsb.o
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
 <span class="k">if</span> <span class="ow">not</span> <span class="n">on_colab</span> <span class="ow">and</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span><span class="o">.</span><span class="n">startswith</span><span class="p">((</span><span class="s2">"linux"</span><span class="p">,</span> <span class="s2">"darwin"</span><span class="p">)):</span>
     <span class="o">!</span>mamba<span class="w"> </span>install<span class="w"> </span>-q<span class="w"> </span>-y<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>openmmforcefields
     <span class="c1"># Notes:</span>
@@ -942,14 +929,113 @@ perform an MD simulation (<a class="reference external" href="https://www.rcsb.o
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Collecting package metadata (current_repodata.json): ...working... ^C
+  Package                       Version  Build                   Channel                    Size
+──────────────────────────────────────────────────────────────────────────────────────────────────
+  Install:
+──────────────────────────────────────────────────────────────────────────────────────────────────
+
+<span class="ansi-green-fg">  + ambertools             </span>        22.0  py39h464e725_3          conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  + arpack                 </span>       3.7.0  hdefa2d7_2              conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  + cached-property        </span>       1.5.2  hd8ed1ab_1              conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  + cached_property        </span>       1.5.2  pyha770c72_1            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  + cython                 </span>     0.29.34  py39h227be39_0          conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  + flatbuffers            </span>    22.12.06  hcb278e6_2              conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  + giflib                 </span>       5.2.1  h0b41bf4_3              conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  + keras                  </span>      2.11.0  pyhd8ed1ab_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  + libaec                 </span>       1.0.6  hcb278e6_1              conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  + libgomp                </span>      12.2.0  h65d4601_19             conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  + netcdf-fortran         </span>       4.6.0  nompi_he1eeb6f_102      conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  + openff-amber-ff-ports  </span>       0.0.3  pyh6c4a22f_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  + openff-forcefields     </span>   2023.05.1  pyh1a96a4e_1            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  + openff-interchange     </span>       0.3.4  pyhd8ed1ab_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  + openff-interchange-base</span>       0.3.4  pyhd8ed1ab_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  + openff-models          </span>       0.0.5  pyh1a96a4e_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  + openff-toolkit         </span>      0.13.0  pyhd8ed1ab_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  + openff-toolkit-base    </span>      0.13.0  pyhd8ed1ab_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  + openff-units           </span>       0.2.0  pyh1a96a4e_1            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  + openff-utilities       </span>       0.1.8  pyh1a96a4e_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  + openmmforcefields      </span>      0.11.2  pyhd8ed1ab_1            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  + packmol                </span>      20.010  h86c2bf4_0              conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  + panedr                 </span>       0.7.1  pyhd8ed1ab_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  + parmed                 </span>       3.4.4  py39h227be39_0          conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  + pbr                    </span>      5.11.1  pyhd8ed1ab_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  + perl                   </span>      5.32.1  2_h7f98852_perl5        conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  + pint                   </span>        0.21  pyhd8ed1ab_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  + pydantic               </span>      1.10.7  py39h72bdee0_0          conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  + pyedr                  </span>       0.7.1  pyhd8ed1ab_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  + python-constraint      </span>       1.4.0  py_0                    conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  + smirnoff99frosst       </span>       1.1.0  pyh44b312d_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  + tensorboard-plugin-wit </span>       1.8.1  pyhd8ed1ab_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  + tinydb                 </span>       4.7.1  pyhd8ed1ab_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  + validators             </span>      0.20.0  pyhd8ed1ab_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  + xmltodict              </span>      0.13.0  pyhd8ed1ab_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  + xorg-libxt             </span>       1.2.1  h7f98852_2              conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+
+  Change:
+──────────────────────────────────────────────────────────────────────────────────────────────────
+
+<span class="ansi-red-fg">  - libnetcdf              </span>       4.8.1  h8322cc2_2              installed
+<span class="ansi-green-fg">  + libnetcdf              </span>       4.8.1  nompi_h261ec11_106      conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+
+  Upgrade:
+──────────────────────────────────────────────────────────────────────────────────────────────────
+
+<span class="ansi-red-fg">  - h5py                   </span>      2.10.0  nompi_py39h98ba4bc_106  installed
+<span class="ansi-green-fg">  + h5py                   </span>       3.7.0  nompi_py39h817c9c5_102  conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-red-fg">  - hdf4                   </span>      4.2.13  h10796ff_1005           installed
+<span class="ansi-green-fg">  + hdf4                   </span>      4.2.15  h9772cbc_5              conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-red-fg">  - hdf5                   </span>      1.10.6  h3ffc7dd_1              installed
+<span class="ansi-green-fg">  + hdf5                   </span>      1.12.2  nompi_h4df4325_101      conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-red-fg">  - netcdf4                </span>       1.5.7  nompi_py39hd2e3950_101  installed
+<span class="ansi-green-fg">  + netcdf4                </span>       1.6.2  nompi_py39hfaa66c4_100  conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-red-fg">  - pytables               </span>       3.6.1  py39hf6dc253_3          installed
+<span class="ansi-green-fg">  + pytables               </span>       3.7.0  py39h6a7961f_3          conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-red-fg">  - tensorflow             </span>       2.4.1  mkl_py39h4683426_0      installed
+<span class="ansi-green-fg">  + tensorflow             </span>      2.11.0  cpu_py39h4655687_0      conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-red-fg">  - tensorflow-base        </span>       2.4.1  mkl_py39h43e0292_0      installed
+<span class="ansi-green-fg">  + tensorflow-base        </span>      2.11.0  cpu_py39h9b4020c_0      conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-red-fg">  - tensorflow-estimator   </span>       2.6.0  py39he80948d_0          installed
+<span class="ansi-green-fg">  + tensorflow-estimator   </span>      2.11.0  cpu_py39hf050123_0      conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+
+  Downgrade:
+──────────────────────────────────────────────────────────────────────────────────────────────────
+
+<span class="ansi-red-fg">  - google-auth-oauthlib   </span>       1.0.0  pyhd8ed1ab_0            installed
+<span class="ansi-green-fg">  + google-auth-oauthlib   </span>       0.4.6  pyhd8ed1ab_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
+<span class="ansi-red-fg">  - grpcio                 </span>      1.54.2  py39h227be39_2          installed
+<span class="ansi-green-fg">  + grpcio                 </span>      1.51.1  py39he859823_1          conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-red-fg">  - libabseil              </span>  20230125.2  cxx17_h59595ed_2        installed
+<span class="ansi-green-fg">  + libabseil              </span>  20220623.0  cxx17_h05df665_6        conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-red-fg">  - libgrpc                </span>      1.54.2  hb20ce57_2              installed
+<span class="ansi-green-fg">  + libgrpc                </span>      1.51.1  h4fad500_1              conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-red-fg">  - re2                    </span>  2023.03.02  h8c504da_0              installed
+<span class="ansi-green-fg">  + re2                    </span>  2023.02.01  hcb278e6_0              conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-red-fg">  - tensorboard            </span>      2.13.0  pyhd8ed1ab_0            installed
+<span class="ansi-green-fg">  + tensorboard            </span>      2.11.2  pyhd8ed1ab_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
+<span class="ansi-red-fg">  - tensorboard-data-server</span>       0.7.0  py39h079d5ae_0          installed
+<span class="ansi-green-fg">  + tensorboard-data-server</span>       0.6.1  py39h3ccb8fc_4          conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+
+  Summary:
+
+  Install: 36 packages
+  Change: 1 packages
+  Upgrade: 8 packages
+  Downgrade: 7 packages
+
+  Total download: 0  B
+
+──────────────────────────────────────────────────────────────────────────────────────────────────
+
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
 </pre></div></div>
 </div>
 </section>
 <section id="Import-dependencies">
 <h3 id="Import-dependencies">Import dependencies<a class="headerlink" href="#Import-dependencies" title="Permalink to this heading">¶</a></h3>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">copy</span>
@@ -971,16 +1057,8 @@ Collecting package metadata (current_repodata.json): ...working... ^C
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-Warning: Unable to load toolkit 'OpenEye Toolkit'. The Open Force Field Toolkit does not require the OpenEye Toolkits, and can use RDKit/AmberTools instead. However, if you have a valid license for the OpenEye Toolkits, consider installing them for faster performance and additional file format support: https://docs.eyesopen.com/toolkits/python/quickstart-python/linuxosx.html OpenEye offers free Toolkit licenses for academics: https://www.eyesopen.com/academic-licensing
-</pre></div></div>
-</div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create data directory if not exists</span>
@@ -995,7 +1073,7 @@ Warning: Unable to load toolkit 'OpenEye Toolkit'. The Open Force Field Toolkit 
 <h3 id="Download-PDB-file">Download PDB file<a class="headerlink" href="#Download-PDB-file" title="Permalink to this heading">¶</a></h3>
 <p>The Protein Data Bank (<a class="reference external" href="https://www.rcsb.org/">PDB</a>) allows for easy downloading of files via url.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pdbid</span> <span class="o">=</span> <span class="s2">"3POZ"</span>
@@ -1006,7 +1084,7 @@ Warning: Unable to load toolkit 'OpenEye Toolkit'. The Open Force Field Toolkit 
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pdb_url</span><span class="p">)</span>
@@ -1023,7 +1101,7 @@ Warning: Unable to load toolkit 'OpenEye Toolkit'. The Open Force Field Toolkit 
 <h4 id="Protein-preparation">Protein preparation<a class="headerlink" href="#Protein-preparation" title="Permalink to this heading">¶</a></h4>
 <p>A crucial part for successful simulation is a correct and complete system. Crystallographic structures retrieved from the Protein Data Bank often miss atoms, mainly hydrogens, and may contain non-standard residues. In this talktorial, we will use the Python package <a class="reference external" href="https://github.com/openmm/pdbfixer">PDBFixer</a> to prepare the protein structure. However, co-crystallized ligands are not handled well by <a class="reference external" href="https://github.com/openmm/pdbfixer">PDBFixer</a> and will thus be prepared separately.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">prepare_protein</span><span class="p">(</span>
@@ -1076,8 +1154,8 @@ Warning: Unable to load toolkit 'OpenEye Toolkit'. The Open Force Field Toolkit 
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># prepare protein and build only missing non-terminal residues</span>
@@ -1085,13 +1163,21 @@ Warning: Unable to load toolkit 'OpenEye Toolkit'. The Open Force Field Toolkit 
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Warning: importing 'simtk.openmm' is deprecated.  Import 'openmm' instead.
+</pre></div></div>
+</div>
 </section>
 <section id="Prepare-ligand">
 <h4 id="Prepare-ligand">Prepare ligand<a class="headerlink" href="#Prepare-ligand" title="Permalink to this heading">¶</a></h4>
 <p>After preparing the protein, we turn our attention to the ligand. Again, we need to add hydrogens, but also need to make sure the bond orders are correctly assigned, since some PDB entries may contain errors. We use the Python package <a class="reference external" href="https://github.com/rdkit/rdkit">RDKit</a>, an open source cheminformatics library. We will provide the correct protonation state and bond orders to <a class="reference external" href="https://github.com/rdkit/rdkit">RDKit</a> via a SMILES string. Uncharged isomeric SMILES strings for each
 co-crystallized ligand can be found in their respective <a class="reference external" href="https://www.rcsb.org">PDB</a> entry. The ligand of PDB entry <a class="reference external" href="https://www.rcsb.org/structure/3poz">3POZ</a> has the name <a class="reference external" href="https://www.rcsb.org/ligand/03P">03P</a>. If a ligand is likely to bind in its charged form or as a specific tautomer, such characteristics need to be incorporated into the SMILES string.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">prepare_ligand</span><span class="p">(</span><span class="n">pdb_file</span><span class="p">,</span> <span class="n">resname</span><span class="p">,</span> <span class="n">smiles</span><span class="p">,</span> <span class="n">depict</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
@@ -1131,6 +1217,7 @@ co-crystallized ligand can be found in their respective <a class="reference exte
 
     <span class="c1"># protonate ligand</span>
     <span class="n">prepared_ligand</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">rdmolops</span><span class="o">.</span><span class="n">AddHs</span><span class="p">(</span><span class="n">prepared_ligand</span><span class="p">,</span> <span class="n">addCoords</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">prepared_ligand</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromMolBlock</span><span class="p">(</span><span class="n">Chem</span><span class="o">.</span><span class="n">MolToMolBlock</span><span class="p">(</span><span class="n">prepared_ligand</span><span class="p">))</span>
 
     <span class="c1"># 2D depiction</span>
     <span class="k">if</span> <span class="n">depict</span><span class="p">:</span>
@@ -1151,7 +1238,7 @@ co-crystallized ligand can be found in their respective <a class="reference exte
 </div>
 <p>Calling this function with the isomeric SMILES string taken from the PDB entry for <a class="reference external" href="https://www.rcsb.org/ligand/03P">03P</a> returns a correctly prepared ligand. Printed is a 2D-representation of the original and the prepared ligand for inspection.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smiles</span> <span class="o">=</span> <span class="s2">"CC(C)(O)CC(=O)NCCn1ccc2ncnc(Nc3ccc(Oc4cccc(c4)C(F)(F)F)c(Cl)c3)c12"</span>
@@ -1159,11 +1246,20 @@ co-crystallized ligand can be found in their respective <a class="reference exte
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+[12:25:08] WARNING: More than one matching pattern found - picking one
+
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T019_md_simulation_41_0.png" src="../_images/talktorials_T019_md_simulation_41_0.png"/>
+<img alt="../_images/talktorials_T019_md_simulation_41_1.png" src="../_images/talktorials_T019_md_simulation_41_1.png"/>
 </div>
 </div>
 </section>
@@ -1172,7 +1268,7 @@ co-crystallized ligand can be found in their respective <a class="reference exte
 <p>In the next step, we want to merge the prepared protein and ligand structures using the Python package <a class="reference external" href="https://github.com/mdtraj/mdtraj">MDTraj</a>. <a class="reference external" href="https://github.com/mdtraj/mdtraj">MDTraj</a> can handle the prepared protein, which is currently a <a class="reference external" href="https://github.com/openmm/pdbfixer">PDBFixer</a> molecule, a format that has a topology and atom positions similar to and usually interchangeable with <a class="reference external" href="http://docs.openmm.org/latest/userguide/application.html#model-building-and-editing">OpenMM
 Modeller</a> topologies and positions. For the ligand however, we need to do several conversions, since it is currently an <a class="reference external" href="https://github.com/rdkit/rdkit">RDKit</a> molecule.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rdkit_to_openmm</span><span class="p">(</span><span class="n">rdkit_mol</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"LIG"</span><span class="p">):</span>
@@ -1189,7 +1285,7 @@ Modeller</a> topologies and positions. For the ligand however, we need to do sev
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    omm_molecule: simtk.openmm.app.Modeller</span>
+<span class="sd">    omm_molecule: openmm.app.Modeller</span>
 <span class="sd">        OpenMM modeller object holding the molecule of interest.</span>
 <span class="sd">    """</span>
     <span class="c1"># convert RDKit to OpenFF</span>
@@ -1225,7 +1321,7 @@ Modeller</a> topologies and positions. For the ligand however, we need to do sev
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">omm_ligand</span> <span class="o">=</span> <span class="n">rdkit_to_openmm</span><span class="p">(</span><span class="n">rdkit_ligand</span><span class="p">,</span> <span class="n">ligand_name</span><span class="p">)</span>
@@ -1234,7 +1330,7 @@ Modeller</a> topologies and positions. For the ligand however, we need to do sev
 </div>
 <p>Now protein and ligand are both in <a class="reference external" href="https://github.com/openmm/openmm">OpenMM</a> like formats and can be merged with <a class="reference external" href="https://github.com/mdtraj/mdtraj">MDTraj</a>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">merge_protein_and_ligand</span><span class="p">(</span><span class="n">protein</span><span class="p">,</span> <span class="n">ligand</span><span class="p">):</span>
@@ -1245,14 +1341,14 @@ Modeller</a> topologies and positions. For the ligand however, we need to do sev
 <span class="sd">    ----------</span>
 <span class="sd">    protein: pdbfixer.pdbfixer.PDBFixer</span>
 <span class="sd">        Protein to merge.</span>
-<span class="sd">    ligand: simtk.openmm.app.Modeller</span>
+<span class="sd">    ligand: openmm.app.Modeller</span>
 <span class="sd">        Ligand to merge.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    complex_topology: simtk.openmm.app.topology.Topology</span>
+<span class="sd">    complex_topology: openmm.app.topology.Topology</span>
 <span class="sd">        The merged topology.</span>
-<span class="sd">    complex_positions: simtk.unit.quantity.Quantity</span>
+<span class="sd">    complex_positions: openmm.unit.quantity.Quantity</span>
 <span class="sd">        The merged positions.</span>
 <span class="sd">    """</span>
     <span class="c1"># combine topologies</span>
@@ -1275,11 +1371,27 @@ Modeller</a> topologies and positions. For the ligand however, we need to do sev
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">complex_topology</span><span class="p">,</span> <span class="n">complex_positions</span> <span class="o">=</span> <span class="n">merge_protein_and_ligand</span><span class="p">(</span><span class="n">prepared_protein</span><span class="p">,</span> <span class="n">omm_ligand</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Complex topology has"</span><span class="p">,</span> <span class="n">complex_topology</span><span class="o">.</span><span class="n">getNumAtoms</span><span class="p">(),</span> <span class="s2">"atoms."</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+~/.miniconda3/envs/teachopencadd/lib/python3.9/site-packages/openmm/unit/quantity.py:750: UnitStrippedWarning: The unit of the quantity is stripped when downcasting to ndarray.
+  self._value[key] = value / self.unit
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Complex topology has"</span><span class="p">,</span> <span class="n">complex_topology</span><span class="o">.</span><span class="n">getNumAtoms</span><span class="p">(),</span> <span class="s2">"atoms."</span><span class="p">)</span>
 <span class="c1"># NBVAL_CHECK_OUTPUT</span>
 </pre></div>
 </div>
@@ -1302,7 +1414,7 @@ Complex topology has 5561 atoms.
 <p>Common force fields like AMBER have parameters for amino acids, nucleic acids, water and ions and usually offer several options to choose from depending on your aim. We use the <code class="docutils literal notranslate"><span class="pre">amber14-all.xml</span></code> force field file, which is shipped with OpenMM and includes parameters for proteins, DNA, RNA and lipids. For solvation we use the standard three-site <a class="reference external" href="https://en.wikipedia.org/wiki/Water_model">water model</a> <a class="reference external" href="https://aip.scitation.org/doi/10.1063/1.445869">TIP3P</a>.</p>
 <p>Parameters for ligands however are not included. To generate these parameters, we can use the <strong>G</strong>eneral <strong>A</strong>MBER <strong>F</strong>orce<strong>F</strong>ield (<a class="reference external" href="http://ambermd.org/antechamber/gaff.html">GAFF</a>), which is implemented in the Python package <a class="reference external" href="https://github.com/openmm/openmmforcefields">OpenMM Forcefields</a>. The following function generates a force field object holding standard AMBER parameters and additionally includes parameters for a small molecule if required.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_forcefield</span><span class="p">(</span>
@@ -1322,7 +1434,7 @@ Complex topology has 5561 atoms.
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    forcefield: simtk.openmm.app.Forcefield</span>
+<span class="sd">    forcefield: openmm.app.Forcefield</span>
 <span class="sd">        Forcefield with registered small molecule.</span>
 <span class="sd">    """</span>
     <span class="n">forcefield</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">ForceField</span><span class="p">(</span><span class="n">protein_ff</span><span class="p">,</span> <span class="n">solvent_ff</span><span class="p">)</span>
@@ -1338,7 +1450,7 @@ Complex topology has 5561 atoms.
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">forcefield</span> <span class="o">=</span> <span class="n">generate_forcefield</span><span class="p">(</span><span class="n">rdkit_ligand</span><span class="p">)</span>
@@ -1354,7 +1466,7 @@ complex.</p>
 <div><p>Note this step can take a long time, in the order of minutes, depending on your hardware.</p>
 </div></blockquote>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">modeller</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">Modeller</span><span class="p">(</span><span class="n">complex_topology</span><span class="p">,</span> <span class="n">complex_positions</span><span class="p">)</span>
@@ -1363,9 +1475,9 @@ complex.</p>
 </div>
 </div>
 <p>With our solvated system and force field, we can finally create an <a class="reference external" href="http://docs.openmm.org/development/api-python/generated/openmm.openmm.System.html#openmm.openmm.System">OpenMM System</a> and set up the simulation. Additionally to the system the simulation needs an integrator. An <a class="reference external" href="http://docs.openmm.org/development/api-python/library.html#integrators">OpenMM Integrator</a> defines a method for simulating a system by integrating the equations of motion. The chosen <strong>Langevin Integrator</strong> uses
-Langevin equations. A list of all different kinds of integrators can be found in the <a class="reference external" href="http://docs.openmm.org/development/api-python/library.html#integrators">OpenMM Docs</a>. For further insight into the <strong>Langevin Integrator</strong>, we recommend reading about Langevin equations, e.g. on <a class="reference external" href="https://en.wikipedia.org/wiki/Langevin_equation">Wikipedia</a>.</p>
+Langevin equations. A list of all different kinds of integrators can be found in the <a class="reference external" href="http://docs.openmm.org/development/api-python/library.html#integrators">OpenMM Docs</a>. For further insight into the <strong>Langevin Integrator</strong>, we recommend reading about Langevin equations, e.g. on <a class="reference external" href="https://en.wikipedia.org/wiki/Langevin_equation">Wikipedia</a>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">system</span> <span class="o">=</span> <span class="n">forcefield</span><span class="o">.</span><span class="n">createSystem</span><span class="p">(</span><span class="n">modeller</span><span class="o">.</span><span class="n">topology</span><span class="p">,</span> <span class="n">nonbondedMethod</span><span class="o">=</span><span class="n">app</span><span class="o">.</span><span class="n">PME</span><span class="p">)</span>
@@ -1383,7 +1495,7 @@ Langevin equations. A list of all different kinds of integrators can be found in
 <h3 id="Perform-the-MD-simulation">Perform the MD simulation<a class="headerlink" href="#Perform-the-MD-simulation" title="Permalink to this heading">¶</a></h3>
 <p>Now that everything is set up, we can perform the simulation. We need to set starting positions and minimize the energy of the system to get a low energy starting configuration, which is important to decrease the chance of simulation failures due to severe atom clashes. The energy minimized system is saved.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simulation</span><span class="o">.</span><span class="n">minimizeEnergy</span><span class="p">()</span>
@@ -1401,7 +1513,7 @@ Langevin equations. A list of all different kinds of integrators can be found in
 point. Together with the PDB file of the energy minimized system written before, it gives us all the information needed for later analysis.</p>
 <p><strong>Note</strong>: This talktorial will only generate a 20 fs trajectory, if not on Google Colab. However, if you have a good GPU available, you can also increase the simulation time.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># output settings</span>
@@ -1436,7 +1548,7 @@ point. Together with the PDB file of the energy minimized system written before,
 <p>The velocities for all particles in the system are randomly chosen from a distribution at the given temperature. We chose 300 Kelvin, which is some degrees above room temperature. A random seed is generated, but could be explicitly given to reproduce results.</p>
 <p>Then the simulation is performed by taking the steps defined before.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simulation</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">setVelocitiesToTemperature</span><span class="p">(</span><span class="mi">300</span> <span class="o">*</span> <span class="n">unit</span><span class="o">.</span><span class="n">kelvin</span><span class="p">)</span>
@@ -1450,20 +1562,20 @@ point. Together with the PDB file of the energy minimized system written before,
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 #"Progress (%)" "Step"  "Potential Energy (kJ/mole)"    "Temperature (K)"       "Speed (ns/day)"        "Time Remaining"
-10.0%   1       -1085122.1956623252     281.57555973236634      0       --
-20.0%   2       -1070348.3185324278     251.86738680841447      1.51    0:00
-30.0%   3       -1051899.4079542693     215.95448730486487      1.51    0:00
-40.0%   4       -1033753.5592805085     182.06520085988276      1.48    0:00
-50.0%   5       -1026351.1473173589     165.6299124745822       1.43    0:00
-60.0%   6       -1017240.5016878737     149.69813923088134      1.41    0:00
-70.0%   7       -1014291.7984991225     144.3436806459813       1.39    0:00
-80.0%   8       -1017552.7975024059     150.2086758025887       1.38    0:00
-90.0%   9       -1020024.4422430506     156.51873909177607      1.37    0:00
-100.0%  10      -1025531.1720662565     166.89370373584623      1.37    0:00
+10.0%   1       -992629.2532507611      280.59188983053207      0       --
+20.0%   2       -978514.3140385933      250.1140053691449       1.88    0:00
+30.0%   3       -961427.9816461714      214.09328454071326      1.92    0:00
+40.0%   4       -944609.5657245225      180.29949178380076      1.9     0:00
+50.0%   5       -938426.3768274506      165.17778679274846      1.89    0:00
+60.0%   6       -930096.1319021038      149.4126629808844       1.89    0:00
+70.0%   7       -926924.8985479049      143.336941762251        1.9     0:00
+80.0%   8       -930284.4123182578      149.77757492192208      1.91    0:00
+90.0%   9       -932318.9156875424      155.78884925604478      1.9     0:00
+100.0%  10      -937770.7580560565      167.02287919129623      1.9     0:00
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the trajectory exists and is not empty</span>
@@ -1473,7 +1585,7 @@ point. Together with the PDB file of the energy minimized system written before,
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1486,7 +1598,7 @@ True
 <h3 id="Download-results">Download results<a class="headerlink" href="#Download-results" title="Permalink to this heading">¶</a></h3>
 <p>You can execute the following cell if you are working on Google Colab to download the MD simulation results.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">on_colab</span><span class="p">:</span>
@@ -1577,7 +1689,7 @@ very welcome!</div>
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
