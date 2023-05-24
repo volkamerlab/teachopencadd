@@ -86,7 +86,7 @@ jobs:
           fi
 
           if [ "$RUNNER_OS" == "macOS" ]; then
-            IGNORE="$IGNORE $PYTEST_IGNORE_T020"
+            IGNORE="$IGNORE $PYTEST_IGNORE_T019"
           fi
 
           pytest $PYTEST_ARGS teachopencadd/talktorials/ $IGNORE
