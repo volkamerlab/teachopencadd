@@ -51,7 +51,6 @@ dependencies:
   - pytest
   - pytest-xdist
   - pytest-cov
-  - pytest-retry
   - nbval
   - shyaml
   # Workaround for https://github.com/sphinx-doc/sphinx/issues/10289
@@ -69,6 +68,7 @@ dependencies:
       - black-nb
       - nbsphinx-link
       - sphinxext-opengraph
+      - pytest-retry
       - deepchem
       # TeachOpenCADD itself
       - ../
