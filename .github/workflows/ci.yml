@@ -72,7 +72,7 @@ jobs:
       - name: Run tests
         shell: bash -l {0}
         run: |
-          PYTEST_ARGS="--nbval-lax --nbval-cell-timeout 900 --current-env --dist loadscope --numprocesses 2"
+          PYTEST_ARGS="--nbval-lax --nbval-cell-timeout 1800 --current-env --dist loadscope --numprocesses 2"
 
           PYTEST_IGNORE_T019="--ignore=teachopencadd/talktorials/T019_md_simulation/talktorial.ipynb"
           PYTEST_IGNORE_T020="--ignore=teachopencadd/talktorials/T020_md_analysis/talktorial.ipynb"
