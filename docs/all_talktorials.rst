@@ -34,3 +34,9 @@ This is the complete list of talktorials available for online reading. Take into
    talktorials/T026_kinase_similarity_ifp.nblink
    talktorials/T027_kinase_similarity_ligand_profile.nblink
    talktorials/T028_kinase_similarity_compare_perspectives.nblink
+   talktorials/T033_molecular_representations.nblink
+   talktorials/T034_recurrent_neural_networks.nblink
+   talktorials/T035_graph_neural_networks.nblink
+   talktorials/T036_e3_equivariant_gnn.nblink
+   talktorials/T037_uncertainty_estimation.nblink
+   talktorials/T038_protein_ligand_interaction_prediction.nblink
