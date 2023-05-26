@@ -3,9 +3,6 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - mkl < 2022
-  - pytorch::pytorch==1.13.0
-  - pyg::pyg==2.2.0
   - python>=3.8
   - pip
   - jupyterlab>=3
@@ -19,6 +16,9 @@ dependencies:
   - numpy<1.24
   - scikit-learn
   # API changed after v2.6, see https://github.com/volkamerlab/teachopencadd/issues/265
+  - mkl < 2022
+  - pytorch::pytorch==1.13.0
+  - pyg::pyg==2.2.0
   - tensorflow<=2.6
   - seaborn
   - matplotlib-venn
