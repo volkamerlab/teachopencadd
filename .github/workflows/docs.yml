@@ -8,6 +8,7 @@ on:
   pull_request:
     branches:
       - "master"
+      - "dev"
       - "maintenance/.+"
   schedule:
     # Run a cron job once weekly on Monday
