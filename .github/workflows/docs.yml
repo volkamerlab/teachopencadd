@@ -63,8 +63,8 @@ jobs:
           cd docs/_build/html
           npx linkinator . --verbosity error --recurse -r --retry-errors-jitter --timeout 10000 \
             -s "/*.txt" \
-            -s "https://onlinelibrary.wiley.com/doi/full/10.1002/cmdc.200700139" \
-            -s "https://onlinelibrary.wiley.com/doi/10.1002/9783527806539.*" \
+            -s "https://onlinelibrary.wiley.com/doi/*" \
+            -s "https://chemistry-europe.onlinelibrary.wiley.com/doi/*" \
             -s "https://towardsdatascience.com" \
             -s "https://medium.com" \
             -s "https://*.medium.com" \
