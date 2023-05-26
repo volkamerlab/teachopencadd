@@ -52,8 +52,7 @@ jobs:
           environment-file: devtools/test_env.yml
           cache-environment: true
           log-level: debug
-
-      - run: mamba activate teachopencadd
+          init-shell: bash
 
       - name: Additional info about the build
         shell: bash
