@@ -43,7 +43,6 @@ jobs:
           miniforge-version: latest
           activate-environment: teachopencadd
           environment-file: devtools/test_env.yml
-          use-mamba: true
 
       - name: Additional info about the build
         shell: bash
