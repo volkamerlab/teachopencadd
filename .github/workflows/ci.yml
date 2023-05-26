@@ -92,7 +92,8 @@ jobs:
 
           if [ "$RUNNER_OS" == "macOS" ]; then
             IGNORE="$IGNORE $PYTEST_IGNORE_T019"
-            IGNORE="$IGNORE $PYTEST_IGNORE_T035"
+            IGNORE="$IGNORE $PYTEST_IGNORE_T035" # may cause kernel dying in pytest
+            IGNORE="$IGNORE $PYTEST_IGNORE_T036" # may cause kernel dying in pytest
           fi
 
           pytest $PYTEST_ARGS teachopencadd/talktorials/ $IGNORE
