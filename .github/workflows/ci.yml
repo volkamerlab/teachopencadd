@@ -80,7 +80,7 @@ jobs:
           PYTEST_IGNORE_T036="--ignore=teachopencadd/talktorials/T036_e3_equivariant_gnn/talktorial.ipynb"
           PYTEST_IGNORE_T038="--ignore=teachopencadd/talktorials/T038_protein_ligand_interaction_prediction/talktorial.ipynb"
 
-          IGNORE="PYTEST_IGNORE_T001"
+          IGNORE="$PYTEST_IGNORE_T001"
 
           if [ "$RUNNER_OS" == "Windows" ]; then
             # Ignore T019 under Windows, see https://github.com/volkamerlab/teachopencadd/issues/313
