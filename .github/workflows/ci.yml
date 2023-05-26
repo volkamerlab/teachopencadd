@@ -36,14 +36,24 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: conda-incubator/setup-miniconda@v2
+      #- uses: conda-incubator/setup-miniconda@v2
+        #with:
+          #python-version: ${{ matrix.cfg.python-version }}
+          #miniforge-variant: Mambaforge
+          #miniforge-version: latest
+          #activate-environment: teachopencadd
+          #environment-file: devtools/test_env.yml
+          #use-mamba: true
+
+      - uses: mamba-org/setup-micromamba@v1
+        env:
+          ACTIONS_STEP_DEBUG: true
         with:
-          python-version: ${{ matrix.cfg.python-version }}
-          miniforge-variant: Mambaforge
-          miniforge-version: latest
-          activate-environment: teachopencadd
           environment-file: devtools/test_env.yml
-          use-mamba: true
+          cache-environment: true
+          log-level: debug
+
+      - run: mamba activate teachopencadd
 
       - name: Additional info about the build
         shell: bash
