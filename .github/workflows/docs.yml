@@ -65,6 +65,7 @@ jobs:
           npx linkinator . --verbosity error --recurse -r --retry-errors-jitter --timeout 10000 \
             -s "/*.txt" \
             -s "https://onlinelibrary.wiley.com/doi/*" \
+            -s "https://wires.onlinelibrary.wiley.com/doi/*" \
             -s "https://chemistry-europe.onlinelibrary.wiley.com/doi/*" \
             -s "https://towardsdatascience.com" \
             -s "https://medium.com" \
