@@ -75,12 +75,18 @@ jobs:
 
           PYTEST_IGNORE_T019="--ignore=teachopencadd/talktorials/T019_md_simulation/talktorial.ipynb"
           PYTEST_IGNORE_T020="--ignore=teachopencadd/talktorials/T020_md_analysis/talktorial.ipynb"
+          PYTEST_IGNORE_T035="--ignore=teachopencadd/talktorials/T035_graph_neural_networks/talktorial.ipynb"
+          PYTEST_IGNORE_T036="--ignore=teachopencadd/talktorials/T036_e3_equivariant_gnn/talktorial.ipynb"
+          PYTEST_IGNORE_T038="--ignore=teachopencadd/talktorials/T038_protein_ligand_interaction_prediction/talktorial.ipynb"
 
           IGNORE=""
 
           if [ "$RUNNER_OS" == "Windows" ]; then
             # Ignore T019 under Windows, see https://github.com/volkamerlab/teachopencadd/issues/313
             IGNORE="$IGNORE $PYTEST_IGNORE_T019"
+            IGNORE="$IGNORE $PYTEST_IGNORE_T035"
+            IGNORE="$IGNORE $PYTEST_IGNORE_T036"
+            IGNORE="$IGNORE $PYTEST_IGNORE_T038"
           fi
 
           if [ "$RUNNER_OS" == "macOS" ]; then
