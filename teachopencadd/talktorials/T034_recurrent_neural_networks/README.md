@@ -34,8 +34,8 @@ Molecular representation by a SMILES string paved the way for applying natural l
 ### References
 
 #### Talktorials
-* [__Talktorial T021__](https://github.com/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T021_one_hot_encoding/talktorial.ipynb): One-Hot Encoding
-* [__Talktorial T022__](https://github.com/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T022_ligand_based_screening_neural_network/talktorial.ipynb): Ligand-based screening: neural networks
+* __Talktorial T021__: One-Hot Encoding
+* __Talktorial T022__: Ligand-based screening: neural networks
 * __Talktorial T033__: Molecular Representations
 * __Talktorial T034__: GNN based property prediction
 
