@@ -4,7 +4,7 @@
 
 Authors:
 
-- Michael Backenköhler, 2022, [Volkamer lab](https://volkarmerlab.org), Saarland University
+- Michael Backenköhler, 2022, [Volkamer lab](https://volkamerlab.org), Saarland University
 
 
 *The predictive setting (and the model class) used in this talktorial is adapted from __Talktorial T022__.*
