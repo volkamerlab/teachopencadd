@@ -4,6 +4,7 @@
 **Note**: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
 
 Authors:
+
 * Paula Linh Kramer, 2022, [Volkamer Lab](https://volkamerlab.org/), Saarland University
 
 

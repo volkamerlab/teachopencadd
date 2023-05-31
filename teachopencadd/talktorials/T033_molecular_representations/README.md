@@ -42,7 +42,7 @@ Specifically, we learn about molecular representations and find that representin
   * [Point-based molecular representation learning from conformers](https://openreview.net/pdf?id=pjePBJjlBby)
   * [Learning 3D Representations of Molecular Chirality with Invariance to Bond Rotations](https://openreview.net/pdf?id=hm2tNDdgaFK)
 * Talktorials: 
-  * [T008 - Protein data acquisition: Protein Data Bank (PDB)](https://github.com/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T008_query_pdb/talktorial.ipynb)
-  * [T017 - Advanced NGLview usage](https://github.com/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T017_advanced_nglview_usage/talktorial.ipynb)
+  * **Talktorial T008** - Protein data acquisition: Protein Data Bank (PDB)
+  * **Talktorial T017** - Advanced NGLview usage
   * Deep learning talktorials T033 to T038
 * [Tutorial on chirality](https://chem.libretexts.org/Bookshelves/Organic_Chemistry/Map%3A_Organic_Chemistry_(Vollhardt_and_Schore)/05._Stereoisomers/5.1%3A_Chiral__Molecules)

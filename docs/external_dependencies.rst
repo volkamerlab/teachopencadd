@@ -24,6 +24,11 @@ Python packages
   - ``biotite``: https://www.biotite-python.org/
   - ``smina``: https://sourceforge.net/p/smina/discussion/
 
+- Deep learning: 
+
+  - ``pytorch``: https://pytorch.org/
+  - ``pyg``: https://pyg.org/
+
 - Data science (PyData stack):
 
   - ``numpy``: https://numpy.org/
