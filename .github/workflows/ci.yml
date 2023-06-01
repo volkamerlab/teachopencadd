@@ -74,7 +74,7 @@ jobs:
           PYTEST_ARGS="--nbval-lax --current-env --dist loadscope --numprocesses 2"
 
           PYTEST_IGNORE_T001="--ignore=teachopencadd/talktorials/T001_query_chembl/talktorial.ipynb"
-          PYTEST_IGNORE_T019="--ignore=teachopencadd/talktorials/T018_automated_cadd_pipeline/talktorial.ipynb"
+          PYTEST_IGNORE_T018="--ignore=teachopencadd/talktorials/T018_automated_cadd_pipeline/talktorial.ipynb"
           PYTEST_IGNORE_T019="--ignore=teachopencadd/talktorials/T019_md_simulation/talktorial.ipynb"
           PYTEST_IGNORE_T020="--ignore=teachopencadd/talktorials/T020_md_analysis/talktorial.ipynb"
           PYTEST_IGNORE_T035="--ignore=teachopencadd/talktorials/T035_graph_neural_networks/talktorial.ipynb"
