@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="T033 · Molecular representations" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://projects.volkamerlab.org/teachopencadd/talktorials/T033_molecular_representations.html" />
+<meta property="og:site_name" content="TeachOpenCADD" />
+<meta property="og:description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Gerrit Großmann, 2022, Chair for Modelling and Simulation, Saarland University. Talktorial T033: This talktor..." />
+<meta property="og:image" content="https://raw.githubusercontent.com/volkamerlab/teachopencadd/master/docs/_static/images/TeachOpenCADD_topics.png" />
+<meta property="og:image:alt" content="TeachOpenCADD" />
+<meta name="description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Gerrit Großmann, 2022, Chair for Modelling and Simulation, Saarland University. Talktorial T033: This talktor..." />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
+
+    <style>
+      body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+    </style>
+  
+
+  <link rel="stylesheet" href="../_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="../_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#2196f3">
+  <script src="../_static/javascripts/modernizr.js"></script>
+  
+    <script async src="../_static/cookieconsent.min.js"></script>
+    <script>
+        window.addEventListener("load", function(){
+        window.cookieconsent.initialise({
+            "palette": {
+            "popup": {
+                "background": "#f0f0f0",
+                "text": "#999"
+            },
+            "button": {
+                "text": "#fff",
+                "background": "#009688"
+            }
+            },
+            "theme": "classic"
+        })});
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6ZE82CNZB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-Q6ZE82CNZB');
+    </script>
+  
+    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
+  
+  
+    <title>T033 · Molecular representations &#8212; TeachOpenCADD 0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/material.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="T034 · RNN-based molecular property prediction" href="T034_recurrent_neural_networks.html" />
+    <link rel="prev" title="T028 · Kinase similarity: Compare different perspectives" href="T028_kinase_similarity_compare_perspectives.html" />
+  
+    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
+  
+   
+
+  </head>
+  <body dir=ltr
+        data-md-color-primary=teal data-md-color-accent=cyan>
+  
+  <svg class="md-svg">
+    <defs data-children-count="0">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
+    </defs>
+  </svg>
+  
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#talktorials/T033_molecular_representations" tabindex="1" class="md-skip"> Skip to content </a>
+  <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../index.html" title="TeachOpenCADD 0 documentation"
+           class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic">TeachOpenCADD</span>
+          <span class="md-header-nav__topic"> T033 · Molecular representations </span>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="../search.html" method="get" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder="Search"
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    TeachOpenCADD
+  </div>
+</a>
+          </div>
+        </div>
+      
+      
+    </div>
+  </nav>
+</header>
+
+  
+  <div class="md-container">
+    
+    
+    
+  <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+      <ul class="md-tabs__list">
+            
+            <li class="md-tabs__item"><a href="../talktorials.html" class="md-tabs__link">Our talktorials</a></li>
+            
+            <li class="md-tabs__item"><a href="../installing.html" class="md-tabs__link">Run locally</a></li>
+            
+            <li class="md-tabs__item"><a href="../contribute.html" class="md-tabs__link">Development</a></li>
+            
+            <li class="md-tabs__item"><a href="../contact.html" class="md-tabs__link">Contact</a></li>
+            
+            <li class="md-tabs__item"><a href="../citation.html" class="md-tabs__link">Citation</a></li>
+          <li class="md-tabs__item"><a href="../all_talktorials.html" class="md-tabs__link">Complete list of talktorials</a></li>
+      </ul>
+    </div>
+  </nav>
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../index.html" title="TeachOpenCADD 0 documentation" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    <a href="../index.html"
+       title="TeachOpenCADD 0 documentation">TeachOpenCADD</a>
+  </label>
+    <div class="md-nav__source">
+      <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    TeachOpenCADD
+  </div>
+</a>
+    </div>
+  
+  
+
+  
+  <ul class="md-nav__list">
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Our talktorials</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="T001_query_chembl.html" class="md-nav__link">T001 · Compound data acquisition (ChEMBL)</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T002_compound_adme.html" class="md-nav__link">T002 · Molecular filtering: ADME and lead-likeness criteria</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T003_compound_unwanted_substructures.html" class="md-nav__link">T003 · Molecular filtering: unwanted substructures</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T004_compound_similarity.html" class="md-nav__link">T004 · Ligand-based screening: compound similarity</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T005_compound_clustering.html" class="md-nav__link">T005 · Compound clustering</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T006_compound_maximum_common_substructures.html" class="md-nav__link">T006 · Maximum common substructure</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T007_compound_activity_machine_learning.html" class="md-nav__link">T007 · Ligand-based screening: machine learning</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T008_query_pdb.html" class="md-nav__link">T008 · Protein data acquisition: Protein Data Bank (PDB)</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T009_compound_ensemble_pharmacophores.html" class="md-nav__link">T009 · Ligand-based pharmacophores</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T010_binding_site_comparison.html" class="md-nav__link">T010 · Binding site similarity and off-target prediction</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T011_query_online_api_webservices.html" class="md-nav__link">T011 · Querying online API webservices</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T012_query_klifs.html" class="md-nav__link">T012 · Data acquisition from KLIFS</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T013_query_pubchem.html" class="md-nav__link">T013 · Data acquisition from PubChem</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T014_binding_site_detection.html" class="md-nav__link">T014 · Binding site detection</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T015_protein_ligand_docking.html" class="md-nav__link">T015 · Protein ligand docking</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T016_protein_ligand_interactions.html" class="md-nav__link">T016 · Protein-ligand interactions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T017_advanced_nglview_usage.html" class="md-nav__link">T017 · Advanced NGLview usage</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T018_automated_cadd_pipeline.html" class="md-nav__link">T018 · Automated pipeline for lead optimization</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T019_md_simulation.html" class="md-nav__link">T019 · Molecular dynamics simulation</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T020_md_analysis.html" class="md-nav__link">T020 · Analyzing molecular dynamics simulations</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T021_one_hot_encoding.html" class="md-nav__link">T021 · One-Hot Encoding</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T022_ligand_based_screening_neural_network.html" class="md-nav__link">T022 · Ligand-based screening: neural networks</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T023_what_is_a_kinase.html" class="md-nav__link">T023 · What is a kinase?</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T024_kinase_similarity_sequence.html" class="md-nav__link">T024 · Kinase similarity: Sequence</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T025_kinase_similarity_kissim.html" class="md-nav__link">T025 · Kinase similarity: Kinase pocket (KiSSim fingerprint)</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T026_kinase_similarity_ifp.html" class="md-nav__link">T026 · Kinase similarity: Interaction fingerprints</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T027_kinase_similarity_ligand_profile.html" class="md-nav__link">T027 · Kinase similarity: Ligand profile</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T028_kinase_similarity_compare_perspectives.html" class="md-nav__link">T028 · Kinase similarity: Compare different perspectives</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <label class="md-nav__link md-nav__link--active" for="__toc"> T033 · Molecular representations </label>
+    
+      <a href="#" class="md-nav__link md-nav__link--active">T033 · Molecular representations</a>
+      
+        
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#talktorials-t033-molecular-representations--page-root" class="md-nav__link">T033 · Molecular representations</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in Theory</a>
+        </li>
+        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in Practical</a>
+        </li>
+        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#What-is-a-molecule?" class="md-nav__link">What is a molecule?</a>
+        </li>
+        <li class="md-nav__item"><a href="#Molecular-representations" class="md-nav__link">Molecular representations</a>
+        </li>
+        <li class="md-nav__item"><a href="#Molecular-representations-for-humans" class="md-nav__link">Molecular representations for humans</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Small-molecules" class="md-nav__link">Small molecules</a>
+        </li>
+        <li class="md-nav__item"><a href="#Large-molecules---proteins" class="md-nav__link">Large molecules - proteins</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Computer-age-molecular-representations" class="md-nav__link">Computer-age molecular representations</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Conformers" class="md-nav__link">Conformers</a>
+        </li>
+        <li class="md-nav__item"><a href="#Molecular-graphs" class="md-nav__link">Molecular graphs</a>
+        </li>
+        <li class="md-nav__item"><a href="#Fingerprints" class="md-nav__link">Fingerprints</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
+        </li>
+        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T033_molecular_representations.nblink.txt">Show Source</a> </li>
+
+  </ul>
+</nav>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T034_recurrent_neural_networks.html" class="md-nav__link">T034 · RNN-based molecular property prediction</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T035_graph_neural_networks.html" class="md-nav__link">T035 · GNN-based molecular property prediction</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T036_e3_equivariant_gnn.html" class="md-nav__link">T036 · An introduction to E(3)-invariant graph neural networks</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T037_uncertainty_estimation.html" class="md-nav__link">T037 · Uncertainty estimation</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T038_protein_ligand_interaction_prediction.html" class="md-nav__link">T038 · Protein Ligand Interaction Prediction</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Run locally</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../installing.html" class="md-nav__link">Installing</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Development</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../contribute.html" class="md-nav__link">For contributors</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../api.html" class="md-nav__link">API Documentation</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">About TeachOpenCADD</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../contact.html" class="md-nav__link">Contact</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../acknowledgments.html" class="md-nav__link">Acknowledgments</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../citation.html" class="md-nav__link">Citation</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../license.html" class="md-nav__link">License</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../funding.html" class="md-nav__link">Funding</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">External resources</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../external_dependencies.html" class="md-nav__link">Packages and webservers used in TeachOpenCADD</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../external_tutorials_collections.html" class="md-nav__link">External tutorials and collections</a>
+      
+    
+    </li>
+  </ul>
+  
+
+</nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#talktorials-t033-molecular-representations--page-root" class="md-nav__link">T033 · Molecular representations</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in Theory</a>
+        </li>
+        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in Practical</a>
+        </li>
+        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#What-is-a-molecule?" class="md-nav__link">What is a molecule?</a>
+        </li>
+        <li class="md-nav__item"><a href="#Molecular-representations" class="md-nav__link">Molecular representations</a>
+        </li>
+        <li class="md-nav__item"><a href="#Molecular-representations-for-humans" class="md-nav__link">Molecular representations for humans</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Small-molecules" class="md-nav__link">Small molecules</a>
+        </li>
+        <li class="md-nav__item"><a href="#Large-molecules---proteins" class="md-nav__link">Large molecules - proteins</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Computer-age-molecular-representations" class="md-nav__link">Computer-age molecular representations</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Conformers" class="md-nav__link">Conformers</a>
+        </li>
+        <li class="md-nav__item"><a href="#Molecular-graphs" class="md-nav__link">Molecular graphs</a>
+        </li>
+        <li class="md-nav__item"><a href="#Fingerprints" class="md-nav__link">Fingerprints</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
+        </li>
+        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T033_molecular_representations.nblink.txt">Show Source</a> </li>
+
+<li id="searchbox" class="md-nav__item"></li>
+
+  </ul>
+</nav>
+              </div>
+            </div>
+          </div>
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
+            
+  <section id="T033-·-Molecular-representations">
+<h1 id="talktorials-t033-molecular-representations--page-root">T033 · Molecular representations<a class="headerlink" href="#talktorials-t033-molecular-representations--page-root" title="Permalink to this heading">¶</a></h1>
+<p><strong>Note:</strong> This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.</p>
+<p>Authors:</p>
+<ul class="simple">
+<li><p>Gerrit Großmann, 2022, <a class="reference external" href="https://mosi.uni-saarland.de/people/gerrit/">Chair for Modelling and Simulation</a>, Saarland University</p></li>
+</ul>
+<p><strong>Talktorial T033</strong>: This talktorial is part of the TeachOpenCADD pipeline described in the TeachOpenCADD publication, consisting of Talktorials T033 to T038.</p>
+<section id="Aim-of-this-talktorial">
+<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this heading">¶</a></h2>
+<p>In this talktorial, we conduct the groundwork for the deep learning talktorials. Specifically, we learn about molecular representations and find that representing a molecule in a computer is not a trivial task. Different representations come with their specific implications and (dis-)advantages.</p>
+<section id="Contents-in-Theory">
+<h3 id="Contents-in-Theory">Contents in Theory<a class="headerlink" href="#Contents-in-Theory" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>What is a molecule?</p></li>
+<li><p>Molecular representations</p></li>
+<li><p>Molecular Representations for Humans</p></li>
+<li><p>Computer-age molecular representations</p></li>
+</ul>
+</section>
+<section id="Contents-in-Practical">
+<h3 id="Contents-in-Practical">Contents in Practical<a class="headerlink" href="#Contents-in-Practical" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Conformers</p></li>
+<li><p>Molecular graphs</p></li>
+<li><p>Fingerprints</p></li>
+</ul>
+</section>
+<section id="References">
+<h3 id="References">References<a class="headerlink" href="#References" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Databases:</p>
+<ul>
+<li><p><a class="reference external" href="https://www.uniprot.org/">UniProt Protein Database</a></p></li>
+<li><p><a class="reference external" href="https://alphafold.ebi.ac.uk/">AlphaFold Protein Structure Database</a></p></li>
+</ul>
+</li>
+<li><p>Papers:</p>
+<ul>
+<li><p><a class="reference external" href="https://jcheminf.biomedcentral.com/articles/10.1186/s13321-020-00460-5#:~:text=Traditionally%2C%20molecules%20are%20represented%20as,of%20chemical%20structures%20in%20cheminformatics.">Molecular representations in AI-driven drug discovery: a review and practical guide</a></p></li>
+<li><p><a class="reference external" href="https://wires.onlinelibrary.wiley.com/doi/full/10.1002/wcms.1603">A Review of molecular representation in the Age of machine learning</a></p></li>
+<li><p><a class="reference external" href="https://openreview.net/pdf?id=pjePBJjlBby">Point-based molecular representation learning from conformers</a></p></li>
+<li><p><a class="reference external" href="https://openreview.net/pdf?id=hm2tNDdgaFK">Learning 3D Representations of Molecular Chirality with Invariance to Bond Rotations</a></p></li>
+</ul>
+</li>
+<li><p>Talktorials:</p>
+<ul>
+<li><p><strong>Talktorial T008</strong> - Protein data acquisition: Protein Data Bank (PDB)</p></li>
+<li><p><strong>Talktorial T017</strong> - Advanced NGLview usage</p></li>
+<li><p>Deep learning talktorials T033 to T038</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://chem.libretexts.org/Bookshelves/Organic_Chemistry/Map%3A_Organic_Chemistry_(Vollhardt_and_Schore)/05._Stereoisomers/5.1%3A_Chiral__Molecules">Tutorial on chirality</a></p></li>
+</ul>
+</section>
+</section>
+<section id="Theory">
+<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this heading">¶</a></h2>
+<section id="What-is-a-molecule?">
+<h3 id="What-is-a-molecule?">What is a molecule?<a class="headerlink" href="#What-is-a-molecule?" title="Permalink to this heading">¶</a></h3>
+<p>A molecule is a <strong>group of atoms</strong> that are connected through chemical bonds. The number of atoms can range from only a few (e.g., in low molecular weight drugs) to several thousand (e.g., in proteins) or even millions (e.g., in DNA molecules).</p>
+<p>The physical force that is most relevant for the formation of molecules from atoms is the <strong>electrostatic force</strong>, which is the force that governs the behavior of charged particles. When atoms interact, their electrons can be repelled by the electrons of other atoms or attracted by their nucleus, leading to the formation of a <strong>chemical bond</strong> (here, we are mostly concerned with <a class="reference external" href="https://en.wikipedia.org/wiki/Covalent_bond">covalent bonds</a> where electrons are shared between two atoms).</p>
+<p>The formation of molecules gives a group of atoms a characteristic structure and behavior. The properties of a molecule emerge in a non-trivial way from (the interplay of) its constituent atoms. Molecules are the building blocks of living cells and play a key role in the function of living organisms.</p>
+<p>In addition to the subdivision into small molecules and macromolecules, the distinction between organic and inorganic molecules is important. Organic molecules are the ones containing carbon-hydrogen or carbon-carbon bonds. This talktorial focuses on <strong>small</strong> and <strong>organic</strong> molecules.</p>
+<!---
+![caffeine](https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Caffeine_molecule_ball_from_xtal_%281%29.png/671px-Caffeine_molecule_ball_from_xtal_%281%29.png)
+---><img alt="Caffeine Molecule" src="../_images/caffeine_molecule.png"/>
+<p><em>Figure 1</em>: The image is a ball-and-stick representation of a caffeine molecule. Atoms are shown in gray (carbon), white (hydrogen), red (oxygen), and blue (nitrogen). An edge between two atoms indicates a covalent chemical bond with one (single line) or two (double line) shared atoms (triple bonds are also possible, but not present in caffeine). The dashed 5-membered ring represents an aromatic ring system. Two electrons can move freely around in this ring and are not associated with a specific
+chemical bond within this ring.</p>
+</section>
+<section id="Molecular-representations">
+<h3 id="Molecular-representations">Molecular representations<a class="headerlink" href="#Molecular-representations" title="Permalink to this heading">¶</a></h3>
+<p>From the viewpoint of physics, molecules are <strong>complex three-dimensional objects</strong> that are dynamic rather than static and that exhibit quantum mechanical properties. Depending on the task you want to solve, a simplified view of molecules might be helpful.</p>
+<p>To apply machine learning to molecules, we need to find a proper <strong>representation</strong>. As it turns out, there are several possibilities, all with their advantages and disadvantages. Choosing a representation of a molecule gives you control over the simplifications you want to make. They provide the recipe to translate a quantum-mechanical object into a mathematical description. But before we discuss computational representations of molecules, we first want to give a recap on pre-computer-age
+techniques to represent molecules.</p>
+</section>
+<section id="Molecular-representations-for-humans">
+<h3 id="Molecular-representations-for-humans">Molecular representations for humans<a class="headerlink" href="#Molecular-representations-for-humans" title="Permalink to this heading">¶</a></h3>
+<section id="Small-molecules">
+<h4 id="Small-molecules">Small molecules<a class="headerlink" href="#Small-molecules" title="Permalink to this heading">¶</a></h4>
+<p>Without being able to represent molecules, it is also impossible to discuss them and communicate about them. We start with representations and visualizations that are intuitive <strong>for humans</strong>. Later, we will also look at “<strong>computer-age</strong>” encodings, suitable as input for deep-learning systems. However, note that this classification is somewhat arbitrary.</p>
+<p><strong>Text-based:</strong></p>
+<p>The easiest way to identify a molecule is its <strong>trivial name</strong>. For example, caffeine or aspirin. This is only possible for well-known molecules.</p>
+<p>Alternatively, the <strong>IUPAC nomenclature of organic chemistry</strong> can be used (there is also one for inorganic chemistry, which we will skip here). The goal is that each possible organic molecule is associated with a name that is easy to understand and that unambiguously identifies the molecule. The clarity and consistency make this naming scheme reasonably easy to understand and use. However, not all molecules can be named using this scheme; for instance, some complex organic molecules, such as
+those that contain rings with multiple substructures.</p>
+<p><strong>Example:</strong> The caffeine molecule has the IUPAC name: <em>1,3,7-trimethylpurine-2,6-dione</em>.</p>
+<p><strong>Molecular formula:</strong></p>
+<p>The <strong>molecular formula</strong> (sometimes referred to as Hill notation) is the easiest (and most simplified) way of representing a molecule: You simply count the number of atoms of each type. The ordering (from left to right) is arguably a little bit arbitrary: Carbon atoms are listed first, hydrogen atoms next, and all other atoms follow in alphabetical order. However, in the unlikely case that the formula does not contain carbon, all atoms (including hydrogen) are listed alphabetically.</p>
+<p><strong>Example:</strong> For caffeine, the molecular formula is <em>C8H10N4O2</em>, indicating that there are 8 carbon (C) atoms, 10 hydrogen (H) atoms, 4 nitrogen (N) atoms, and 2 oxygen (O) atoms present.</p>
+<p>Naturally, this does not uniquely identify a molecule.</p>
+<p><strong>Example:</strong> Molecules with the same molecular formula but with different arrangements in space are called <a class="reference external" href="https://chem.libretexts.org/Courses/University_of_Kentucky/UK%3A_CHE_103_-_Chemistry_for_Allied_Health_(Soult)/Chapters/Chapter_5%3A_Properties_of_Compounds/5.1%3A_Isomers">isomers</a>. One examples are <a class="reference external" href="https://www.wolframalpha.com/input?i=butane">n-butane</a> and <a class="reference external" href="https://www.wolframalpha.com/input?i=isobutane">isobutane</a>. Both have the molecular formula C4H10. The atoms in butane are
+arranged in a straight chain, while the atoms in isobutane are arranged in a branch structure. To be more precise, here, we are dealing with a <em>structural</em> or <em>constitutional</em> isomer because the chemical bonds are different. Molecules that have the same chemical bonds (or refer to the same molecular graph) but still differ in their spatial arrangement are called spatial (or stereo-)isomers.</p>
+<img alt="N-butaneAndIsobutane" src="../_images/butane_and_isobutane.png"/>
+<p><em>Figure 2</em>: N-butane and isobutane.</p>
+<p><strong>Visualizations of small molecules:</strong></p>
+<p>Visualizations are the easiest way to get a first impression of a molecule. In the first example, we have already seen a visualization of the caffeine molecule. These types of visualizations are referred to as <strong>Ball and Stick</strong> models. The color scheme follows the <a class="reference external" href="https://en.wikipedia.org/wiki/CPK_coloring">CPK coloring</a>. They are easy to understand but difficult to draw.</p>
+<img alt="CPK coloring" src="../_images/cpk.png"/>
+<p><em>Figure 3</em>: CPK coloring from Wikipedia.</p>
+<p>2D visualizations are easy to draw and come in many different flavors. For instance, the <strong>Lewis structure</strong> contains no 3D information (excess electrons that form lone pairs are sometimes shown as dots, we skip this part here).</p>
+<p>Similarly, the <strong>Skeletal formula</strong> (or line-angle formula) removes hydrogen atoms that are next to carbon atoms and draws carbon atoms only implicitly as bends and ends.</p>
+<p>For comparison, here are the three visualizations of the ethanol molecule (from <a class="reference external" href="https://en.wikipedia.org/wiki/Skeletal_formula">WP</a>).</p>
+<!---
+![SimpleMoleculeBallStick](https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Ethanol-CRC-MW-trans-3D-balls.png/120px-Ethanol-CRC-MW-trans-3D-balls.png)
+![SimpleMoleculeLewis](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Ethanol-structure.svg/150px-Ethanol-structure.svg.png)
+![SimpleMoleculeLineAngle](https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Ethanol-2D-skeletal.svg/120px-Ethanol-2D-skeletal.svg.png)
+---><img alt="Ethanol visualization" src="../_images/ethanol.png"/>
+<p><em>Figure 4</em>: Different visualizations of ethanol.</p>
+<p>A special feature of this is the <strong>Natta Projection</strong> which provides basic (but not in every case complete) information about the relative positions of the atoms in 3D. For instance, consider the kinase inhibitor from the <a class="reference external" href="https://www.rdkit.org/docs/Cookbook.html">RDKit Cookbook</a>:</p>
+<img alt="Kinase Inhibitor" src="../_images/kinase_inhibitor.png"/>
+<p><em>Figure 5</em>: Natta projection of a kinase inhibitor.</p>
+<p>Here,</p>
+<ul class="simple">
+<li><p>Solid wedges indicate a bond that points out of the plane;</p></li>
+<li><p>Dashed wedges indicate a bond that points into the plane (away from the observer)</p></li>
+</ul>
+<p>You can find the corresponding ball-and-stick plot <a class="reference external" href="https://molview.org/?q=C1CC2=C3C(=CC=C2)C(=CN3C1)%5BC@H%5D4%5BC@@H%5D(C(=O)NC4=O)C5=CNC6=CC=CC=C65">here</a>.</p>
+</section>
+<section id="Large-molecules---proteins">
+<h4 id="Large-molecules---proteins">Large molecules - proteins<a class="headerlink" href="#Large-molecules---proteins" title="Permalink to this heading">¶</a></h4>
+<p><strong>Representing proteins:</strong></p>
+<p>Proteins are large molecules that are composed of building blocks called amino acids. There exist 20 different natural amino acids. A protein is made up of one or more chains of amino acids. Each chain can be described as a string of characters. Therefore, we identify each of the amino acids with a <a class="reference external" href="https://en.wikipedia.org/wiki/Amino_acid#Table_of_standard_amino_acid_abbreviations_and_properties">single letter</a>.</p>
+<p>The <a class="reference external" href="https://www.uniprot.org/uniprotkb/P20396/entry#sequences">Pro-thyrotropin-releasing hormone</a> protein is one of the smallest proteins present in the human body. It consists of only 242 amino acids:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MPGPWLLLALALTLNLTGVPGGRAQPEAAQQEAVTAAEHPGLDDFLRQVERLLFLRENIQ
+RLQGDQGEHSASQIFQSDWLSKRQHPGKREEEEEEGVEEEEEEEGGAVGPHKRQHPGRRE
+DEASWSVDVTQHKRQHPGRRSPWLAYAVPKRQHPGRRLADPKAQRSWEEEEEEEEREEDL
+MPEKRQHPGKRALGGPCGPQGAYGQAGLLLGLLDDLSRSQGAEEKRQHPGRRAAWVREPL
+EE
+</pre></div>
+</div>
+<p>However, the amino acid sequence does not contain 3D information, which is important for the function. You can predict it using tools like Alphafold or simply look it up in the <a class="reference external" href="https://alphafold.ebi.ac.uk/entry/P20396">Alphafold database</a>.</p>
+<p><strong>Visualizations of proteins:</strong></p>
+<p>We focus here on small molecules but still want to point out that large molecules are typically visualized differently, most commonly by a <a class="reference external" href="https://en.wikipedia.org/wiki/Ribbon_diagram">Ribbon diagram</a>. The idea is to group common motifs and represent them, for instance, with curls (alpha-Helices) and arrows (beta-strands) connected by loops.</p>
+<!---
+![TubbyProtein](https://upload.wikimedia.org/wikipedia/commons/f/ff/Tubby-1c8z-pymol.png)
+---><img alt="TubbyProtein" src="../_images/ribbon_diagram_tubby.png"/>
+<p><em>Figure 6</em>: Ribbon diagram of the <a class="reference external" href="https://en.wikipedia.org/wiki/Tubby_protein">tubby protein</a>.</p>
+<p><strong>Talktorial T008</strong> explains how to find proteins in the Protein Data Bank and process them.</p>
+</section>
+</section>
+<section id="Computer-age-molecular-representations">
+<h3 id="Computer-age-molecular-representations">Computer-age molecular representations<a class="headerlink" href="#Computer-age-molecular-representations" title="Permalink to this heading">¶</a></h3>
+<p>When we want to communicate or store a molecular description, we better make sure there is little ambiguity left. In machine learning, it is still an open research question when to use which representation. <strong>Text</strong>-based (or <strong>linear</strong>) and <strong>graph</strong>-based representations are becoming both very widely used. Moreover, <strong>fingerprint</strong>-based methods are sometimes a viable alternative, especially for traditional machine learning methods.</p>
+<p><strong>Text-based representations:</strong></p>
+<p>Text-based representations use a sequence of characters to specify a molecule. This is possible for practically all (small) molecules relevant in practice. Here, we discuss SMILES, InChI, and SELFIES. For a deeper dive, we refer the reader to the SMILES <strong>Talktorial T034</strong>.</p>
+<p><strong>SMILES</strong> (Simplified Molecular Input Line Entry Specification) is the most widely used text-based representation and can be handled by all common frameworks. When we specify a molecule in RDKit, we often use SMILES notation (more on this in the practical part):</p>
+<p><code class="docutils literal notranslate"><span class="pre">mol</span> <span class="pre">=</span> <span class="pre">Chem.MolFromSmiles("CN1C=NC2=C1C(=O)N(C(=O)N2C)C")</span></code></p>
+<p>SMILES uses a combination of letters, numbers, and symbols to represent the atoms and bonds in a molecule. The letters identify the elements, the symbols specify the connectivity/branching structure.</p>
+<p>SMILES can also represent the <a class="reference external" href="https://en.wikipedia.org/wiki/Chirality_(chemistry)">chirality</a> of a molecule. This is possible by specifying the relative angle of a bond for an atom. We will see an example in the practical part.</p>
+<p>The main problem with SMILES for molecule representation is that two (or more) different SMILES strings might refer to the same molecule. Researchers try to circumvent this by resorting to a <strong>canonical SMILES</strong> notation. However, the canonicalization depends on the canonicalization algorithms and is therefore not standardized.</p>
+<p>In the other direction, a single SMILES string typically identifies no more than one molecule. However, when stereochemistry information is not given in the SMILES string, it leaves room for ambiguity (in some cases, it might not even be possible to remove all ambiguity for different molecular configurations).</p>
+<p><strong>InChI</strong> (International Chemical Identifier) is a more modern and also widely-used alternative to SMILES. The key advantage is that it exhibits less chemical ambiguity and that a standard canonical exists. The downside is that it is difficult for humans to read.</p>
+<p><strong>SELFIES</strong> (SELF-referencing embedded string) was introduced in 2020, primarily for machine learning purposes. The advantage is that “every combination of symbols in the Selfies alphabet maps to a chemically valid graph” (<a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S2666389922002069">Source</a>). This is great for generative tasks where you want to generate molecules because it is impossible to generate invalid molecules.</p>
+<p>To <strong>summarize</strong>, we find that different methods to encode molecules as strings exist. Currently, SMILES is the most widely adopted method and tools support it well, so it will probably be a good starting point.</p>
+<hr class="docutils"/>
+<p><strong>Molecular graphs:</strong></p>
+<p>Representing molecules as graphs allows for a very intuitive and comprehensive representation of a molecule’s structure. In a graph-based representation, atoms are represented as (labeled) nodes, and bonds are represented as (labeled) edges.</p>
+<p>One possibility to specify a graph is with an adjacency matrix <span class="math notranslate nohighlight">\(A\)</span>. For undirected graphs (which is the case for molecules), the adjacency matrix is symmetric. An entry <span class="math notranslate nohighlight">\(a_{ij}\)</span> indicates the presence (<span class="math notranslate nohighlight">\(a_{ij} = 1\)</span>) or absence (<span class="math notranslate nohighlight">\(a_{ij} = 0\)</span>) of an edge.</p>
+<p>One key property of graphs is that they rely on <strong>node ordering</strong>. The following two matrices identify identical graphs, except for the node ordering. We call these graphs <strong>isomorphic</strong>.</p>
+<p>The fact that we need to pick a node ordering to represent a molecule as a graph means that many graphs represent the same molecule. This problem can be circumvented by restricting ourselves to so-called <strong>permutation invariant functions</strong>, as we will learn in the next section.</p>
+<img alt="TwoIsomorphicGraphs" src="../_images/graph1_graph2.png"/>
+<p><em>Figure 7</em>: Two isomorphic graphs with different node ordering.</p>
+<p><strong>Permutation invariance:</strong> Assume you build a machine learning model that takes as input molecular graphs and outputs some prediction. It would be desirable that your model guarantees that isomorphic graphs (like <em>Graph 1</em> and <em>Graph 2</em>) generate the same output. We call neural networks (or functions in general) that have these guarantees (node-)permutation invariant (or equivariant for node-level outputs). However, there is a trade-off. Functions that are permutation invariant are typically
+not universal. That is, they are not able to tell all graphs that are non-isomorphic apart. If both were given, permutation invariance and the ability to produce a different output for all non-isomorphic graphs, our neural network would solve the graph isomorphism problem (which is computationally extremely difficult). This is also discussed in the <strong>Talktorial T035</strong> about graph neural networks.</p>
+<p><strong>Representational power:</strong> Another problem is that graphs do not contain 3D information. Specifically, different <a class="reference external" href="https://en.wikipedia.org/wiki/Isomer">isomers</a> can correspond to the same molecular graph but differ in the relative 3D positions of the atoms. These are called spatial isomers. One can circumvent this (to some degree) by adding 3D information to the node features. This is somewhat ad-hoc and not well-principled. It is also unclear in which cases this is necessary to improve the
+performance of a predictive model. In the practical part, we will visualize <a class="reference external" href="https://en.wikipedia.org/wiki/2-Butanol">2-butanol</a> that admits two mirror images (called <em>enantiomer</em>) with the same graph but with different geometry.</p>
+<img alt="Butanol_Enantiomer" src="../_images/butanol_2enantiomer.png"/>
+<p><em>Figure 8</em>: The two enantiomers of 2-butanol (source: <a class="reference external" href="https://en.wikipedia.org/wiki/2-Butanol">WP</a>).</p>
+<hr class="docutils"/>
+<p><strong>Point clouds:</strong></p>
+<p>We have already established that molecules are three-dimensional objects. So why not directly use a computational representation that captures the 3D information? The most straightforward way to do this is to annotate the nodes/atoms in a molecular graph with Euclidean 3D coordinates <span class="math notranslate nohighlight">\((x,y,z)\)</span>.</p>
+<p>The spatial arrangement of atoms is called <strong>molecular configuration</strong>.</p>
+<p>Instead of equipping a graph with 3D coordinates, one can also disregard the information on chemical bonds as <a class="reference external" href="https://openreview.net/pdf?id=pjePBJjlBby">this paper</a> claims:</p>
+<blockquote>
+<div><p>The covalent bonds between atoms do not need to be encoded explicitly because they are attributed by the overlap between the atomic orbitals, and can be inferred from the types and 3D coordinates of respective atoms. In principle, the point-based representation captures the complete structural information about the molecule, and thus serves as the adequate input for molecular representation learning.</p>
+</div></blockquote>
+<p><strong>SE(3)-invariance:</strong> When equipping the atoms of a molecule with their (absolute) 3D position, we have a similar problem as with the node ordering in the previous section. Instead of “<em>Which node ordering do we choose?</em>” We now have to ask “<em>How do we position the molecule in 3D to measure the atom positions?</em>”. As in the node-ordering case, it is difficult (if not impossible) to give a principled answer to this question. The solution is again to restrict ourselves to neural networks that are
+invariant to translations (move the whole molecule in <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, or <span class="math notranslate nohighlight">\(z\)</span> direction) or rotations of the molecule. Neural networks (or functions in general) that can guarantee that the output is not affected by translations and rotations are called <strong>SE(3)-invariant</strong>. One example of architecture can be found <a class="reference external" href="https://proceedings.neurips.cc/paper/2020/file/15231a7ce4ba789d13b722cc5c955834-Paper.pdf">here</a>. One possibility to design SE(3)-invariant neural networks is to consider
+only the distance between all pairs of atoms instead of their absolute position. This leads not only to SE(3)-invariance but to a broader class called <strong>E(3)-invariance</strong>. This is because also reflections (mirror images) are guaranteed to produce the same output. For molecules, this might be suboptimal because mirror molecules can exhibit different properties (see chirality).</p>
+<div class="line-block">
+<div class="line"><strong>Determining configurations:</strong> When you want to add 3D coordinates to atoms, you first need to find them somehow. This is not straightforward, and one can even train a machine learning model to predict this. One possibility is to determine the configuration experimentally. For small molecules, <a class="reference external" href="https://en.wikipedia.org/wiki/Molecular_geometry#Determination">techniques</a> like diffraction methods can be used. For proteins, <a class="reference external" href="https://en.wikipedia.org/wiki/Protein_folding#Experimental_techniques_for_studying_protein_folding">other
+techniques</a>, like X-ray crystallography, are available.</div>
+<div class="line">Alternatively, one can resort to computational methods. For instance, the popular dataset <a class="reference external" href="https://moleculenet.org/datasets-1">QM9</a> provides 3D coordinates of each atom that were computed using <a class="reference external" href="https://en.wikipedia.org/wiki/Density_functional_theory">DFT</a> (an approximation to the Schrödinger equation).</div>
+</div>
+<p><strong>Conformers:</strong> However, another problem of the point cloud perspective on molecules is that there is not a single, fixed configuration for a molecule. Instead, molecules are dynamic objects. <strong>Molecular conformers</strong> are different configurations that a molecule can take due to rotations around single bonds (double and triple bonds are non-rotatable). These conformations are a result of the rotational energy barriers that exist between different groups of atoms within a molecule. Conformations
+can change quickly and easily, e.g., in response to changes in temperature. Note that conformers are a special type of isomers. Not all isomers can be reached by rotating single bonds.</p>
+<img alt="Conformer" src="../_images/conformer.png"/>
+<p><em>Figure 9</em>: Some conformers of a simple molecule (<a class="reference external" href="https://pubs.acs.org/doi/10.1021/acs.jcim.5b00654">Source paper</a> via <a class="reference external" href="https://docs.datamol.io/stable/tutorials/Conformers.html">Datamol tutorial</a> on top of each other.</p>
+<p>Each specific conformer is associated with a conformation energy. The likelihood of a specific configuration depends on this energy (low-energy configurations are more likely than high-energy configurations). Specifically, we typically observe local minima. When representing a conformer, one might also store the torsion angles at rotatable bonds instead of the 3D position of each atom (as done <a class="reference external" href="https://arxiv.org/pdf/2210.01776.pdf">here</a>).</p>
+<img alt="Energy landscape" src="../_images/energy_landscape.jpeg"/>
+<p><em>Figure 10</em>: Energy landscape of the molecule 3-Methoxyphenol (<a class="reference external" href="https://chemistry-europe.onlinelibrary.wiley.com/doi/abs/10.1002/cphc.201800148">Source</a>). The four local minima correspond to four stable conformations.</p>
+<p>Note that SE(3)-invariant machine learning models are not invariant to bond rotations. Specifically, they can confuse different conformations of the same molecule. For a detailed discussion on this issue, we refer to the paper <a class="reference external" href="https://openreview.net/pdf?id=hm2tNDdgaFK">Learning 3D Representations of Molecular Chirality with Invariance to Bond Rotations</a>.</p>
+<hr class="docutils"/>
+<p><strong>Fingerprints:</strong></p>
+<p>Molecular fingerprints are representations based on the molecular graph. Typically, they are binary vectors that are relatively sparse (many 0s, very few 1s).</p>
+<p>The most commonly used fingerprint is <a class="reference external" href="https://chemicbook.com/2021/03/25/a-beginners-guide-for-understanding-extended-connectivity-fingerprints.html">ECFP4</a>. <a class="reference external" href="https://jcheminf.biomedcentral.com/articles/10.1186/s13321-020-00445-4">MAP4</a> is a newer alternative.</p>
+<p>Fingerprints do not uniquely identify a molecule. Different molecules can have the same fingerprint. However, the same molecule has a unique fingerprint (there is no canonicalization problem). It is difficult (if not practically impossible) to recover the molecular graph, given the fingerprint.</p>
+<p>They can be easily used for classical machine learning tasks because the architecture does not need to be invariant/equivariant to the node-ordering or geometric operations.</p>
+<p><strong>Talktorial T004</strong> explains several molecular fingerprints.</p>
+<hr class="docutils"/>
+<p><strong>Learned representations:</strong></p>
+<p>Another interesting line of research is the construction of learned molecular representation. Using a machine learning model to learn representations (from other representations)  can be useful in several ways. For instance, the paper <a class="reference external" href="https://pubs.acs.org/doi/pdf/10.1021/acscentsci.7b00572">Automatic Chemical Design Using a Data-Driven Continuous Representation of Molecules</a> uses a variational auto-encoder to learn a latent and continuous representation based on SMILES.</p>
+<p>The paper <a class="reference external" href="https://pubs.rsc.org/en/content/articlelanding/2019/sc/c8sc04175j">Learning continuous and data-driven molecular descriptors by translating equivalent chemical representations</a> builds a latent representation based on the translation from one representation to another (e.g., SMILES into the IUPAC name).</p>
+<p>One can also use <a class="reference external" href="https://arxiv.org/pdf/2102.10056.pdf">contrastive learning</a> to optimize the latent space of such learned representations.</p>
+<hr class="docutils"/>
+</section>
+</section>
+<section id="Practical">
+<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this heading">¶</a></h2>
+<p>In this section, we study how RDKit handles different molecular representations and visualizations. We start with the caffeine molecule from <em>Figure 1</em>. We define the molecule based on a SMILES string and find the visualization in a line-angle formula. But first, we import all libraries:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>  <span class="c1"># for graphs</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>  <span class="c1"># for matrices</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="kn">import</span> <span class="nn">nglview</span> <span class="k">as</span> <span class="nn">nv</span>  <span class="c1"># for 3D visualizations</span>
+
+<span class="kn">from</span> <span class="nn">rdkit</span> <span class="kn">import</span> <span class="n">Chem</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem.Draw</span> <span class="kn">import</span> <span class="n">IPythonConsole</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">Draw</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">AllChem</span><span class="p">,</span> <span class="n">rdDistGeom</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">rdFingerprintGenerator</span>
+
+<span class="n">IPythonConsole</span><span class="o">.</span><span class="n">ipython_useSVG</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "f2c7013940034d1e82a1077c2a4f4c77", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here we define a caffeine molecule using Smiles.</span>
+<span class="n">mol_caffeine</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s2">"CN1C=NC2=C1C(=O)N(C(=O)N2C)C"</span><span class="p">)</span>
+<span class="n">mol_caffeine</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<?xml version='1.0' encoding='iso-8859-1'?>
+<svg baseprofile="full" height="150px" version="1.1" viewbox="0 0 450 150" width="450px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:rdkit="http://www.rdkit.org/xml" xmlns:xlink="http://www.w3.org/1999/xlink">
+<!-- END OF HEADER -->
+<rect height="150.0" style="opacity:1.0;fill:#FFFFFF;stroke:none" width="450.0" x="0.0" y="0.0"> </rect>
+<path class="bond-0 atom-0 atom-1" d="M 307.7,103.8 L 299.1,93.2" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+<path class="bond-0 atom-0 atom-1" d="M 299.1,93.2 L 290.6,82.5" style="fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+<path class="bond-1 atom-1 atom-2" d="M 287.4,70.3 L 291.2,56.4" style="fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+<path class="bond-1 atom-1 atom-2" d="M 291.2,56.4 L 295.0,42.6" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+<path class="bond-2 atom-2 atom-3" d="M 295.0,42.6 L 282.8,34.6" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+<path class="bond-2 atom-2 atom-3" d="M 282.8,34.6 L 270.6,26.6" style="fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+<path class="bond-2 atom-2 atom-3" d="M 288.9,44.9 L 278.3,37.9" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+<path class="bond-2 atom-2 atom-3" d="M 278.3,37.9 L 267.7,31.0" style="fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+<path class="bond-3 atom-3 atom-4" d="M 260.7,27.3 L 249.5,36.3" style="fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+<path class="bond-3 atom-3 atom-4" d="M 249.5,36.3 L 238.3,45.3" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+<path class="bond-4 atom-4 atom-5" d="M 238.3,45.3 L 250.7,78.1" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+<path class="bond-4 atom-4 atom-5" d="M 244.6,47.0 L 254.3,72.6" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+<path class="bond-5 atom-5 atom-6" d="M 250.7,78.1 L 228.5,105.2" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+<path class="bond-6 atom-6 atom-7" d="M 225.5,104.7 L 230.8,118.7" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+<path class="bond-6 atom-6 atom-7" d="M 230.8,118.7 L 236.1,132.8" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+<path class="bond-6 atom-6 atom-7" d="M 230.4,102.9 L 235.7,116.9" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+<path class="bond-6 atom-6 atom-7" d="M 235.7,116.9 L 241.0,130.9" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+<path class="bond-7 atom-6 atom-8" d="M 228.5,105.2 L 213.7,102.8" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+<path class="bond-7 atom-6 atom-8" d="M 213.7,102.8 L 198.8,100.4" style="fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+<path class="bond-8 atom-8 atom-9" d="M 191.6,93.4 L 186.5,80.1" style="fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+<path class="bond-8 atom-8 atom-9" d="M 186.5,80.1 L 181.5,66.8" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+<path class="bond-9 atom-9 atom-10" d="M 183.4,64.4 L 168.2,61.9" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+<path class="bond-9 atom-9 atom-10" d="M 168.2,61.9 L 153.0,59.4" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+<path class="bond-9 atom-9 atom-10" d="M 182.6,69.6 L 167.4,67.1" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+<path class="bond-9 atom-9 atom-10" d="M 167.4,67.1 L 152.2,64.6" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+<path class="bond-10 atom-9 atom-11" d="M 181.5,66.8 L 190.1,56.2" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+<path class="bond-10 atom-9 atom-11" d="M 190.1,56.2 L 198.8,45.6" style="fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+<path class="bond-11 atom-11 atom-12" d="M 201.4,33.5 L 196.3,20.2" style="fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+<path class="bond-11 atom-11 atom-12" d="M 196.3,20.2 L 191.3,6.8" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+<path class="bond-12 atom-8 atom-13" d="M 189.0,105.6 L 180.3,116.1" style="fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+<path class="bond-12 atom-8 atom-13" d="M 180.3,116.1 L 171.7,126.7" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+<path class="bond-13 atom-5 atom-1" d="M 250.7,78.1 L 265.8,77.4" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+<path class="bond-13 atom-5 atom-1" d="M 265.8,77.4 L 280.8,76.6" style="fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+<path class="bond-14 atom-11 atom-4" d="M 208.6,40.4 L 223.5,42.8" style="fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+<path class="bond-14 atom-11 atom-4" d="M 223.5,42.8 L 238.3,45.3" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+<path d="M 294.8,43.3 L 295.0,42.6 L 294.4,42.2" style="fill:none;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"></path>
+<path d="M 229.6,103.9 L 228.5,105.2 L 227.8,105.1" style="fill:none;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"></path>
+<path d="M 181.8,67.4 L 181.5,66.8 L 181.9,66.2" style="fill:none;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"></path>
+<path class="atom-1" d="M 283.5 71.4
+L 286.8 76.7
+Q 287.1 77.2, 287.6 78.2
+Q 288.2 79.1, 288.2 79.2
+L 288.2 71.4
+L 289.5 71.4
+L 289.5 81.4
+L 288.1 81.4
+L 284.6 75.6
+Q 284.2 75.0, 283.8 74.2
+Q 283.4 73.4, 283.3 73.2
+L 283.3 81.4
+L 282.0 81.4
+L 282.0 71.4
+L 283.5 71.4
+" fill="#0000FF"></path>
+<path class="atom-3" d="M 263.5 18.4
+L 266.7 23.6
+Q 267.0 24.2, 267.6 25.1
+Q 268.1 26.0, 268.1 26.1
+L 268.1 18.4
+L 269.4 18.4
+L 269.4 28.3
+L 268.1 28.3
+L 264.6 22.6
+Q 264.2 21.9, 263.7 21.1
+Q 263.3 20.3, 263.2 20.1
+L 263.2 28.3
+L 261.9 28.3
+L 261.9 18.4
+L 263.5 18.4
+" fill="#0000FF"></path>
+<path class="atom-7" d="M 236.3 138.0
+Q 236.3 135.7, 237.5 134.3
+Q 238.7 133.0, 240.9 133.0
+Q 243.1 133.0, 244.3 134.3
+Q 245.5 135.7, 245.5 138.0
+Q 245.5 140.4, 244.3 141.8
+Q 243.1 143.2, 240.9 143.2
+Q 238.7 143.2, 237.5 141.8
+Q 236.3 140.5, 236.3 138.0
+M 240.9 142.1
+Q 242.4 142.1, 243.2 141.0
+Q 244.1 140.0, 244.1 138.0
+Q 244.1 136.1, 243.2 135.1
+Q 242.4 134.1, 240.9 134.1
+Q 239.4 134.1, 238.6 135.1
+Q 237.7 136.1, 237.7 138.0
+Q 237.7 140.0, 238.6 141.0
+Q 239.4 142.1, 240.9 142.1
+" fill="#FF0000"></path>
+<path class="atom-8" d="M 191.7 94.6
+L 195.0 99.8
+Q 195.3 100.4, 195.8 101.3
+Q 196.3 102.2, 196.3 102.3
+L 196.3 94.6
+L 197.7 94.6
+L 197.7 104.5
+L 196.3 104.5
+L 192.8 98.8
+Q 192.4 98.1, 192.0 97.3
+Q 191.6 96.5, 191.4 96.3
+L 191.4 104.5
+L 190.1 104.5
+L 190.1 94.6
+L 191.7 94.6
+" fill="#0000FF"></path>
+<path class="atom-10" d="M 142.3 61.1
+Q 142.3 58.7, 143.5 57.4
+Q 144.7 56.1, 146.9 56.1
+Q 149.1 56.1, 150.3 57.4
+Q 151.5 58.7, 151.5 61.1
+Q 151.5 63.5, 150.3 64.9
+Q 149.1 66.3, 146.9 66.3
+Q 144.7 66.3, 143.5 64.9
+Q 142.3 63.5, 142.3 61.1
+M 146.9 65.1
+Q 148.4 65.1, 149.2 64.1
+Q 150.1 63.1, 150.1 61.1
+Q 150.1 59.2, 149.2 58.2
+Q 148.4 57.2, 146.9 57.2
+Q 145.4 57.2, 144.6 58.2
+Q 143.7 59.2, 143.7 61.1
+Q 143.7 63.1, 144.6 64.1
+Q 145.4 65.1, 146.9 65.1
+" fill="#FF0000"></path>
+<path class="atom-11" d="M 201.5 34.7
+L 204.8 39.9
+Q 205.1 40.4, 205.6 41.4
+Q 206.1 42.3, 206.2 42.4
+L 206.2 34.7
+L 207.5 34.7
+L 207.5 44.6
+L 206.1 44.6
+L 202.6 38.8
+Q 202.2 38.2, 201.8 37.4
+Q 201.4 36.6, 201.2 36.4
+L 201.2 44.6
+L 199.9 44.6
+L 199.9 34.7
+L 201.5 34.7
+" fill="#0000FF"></path>
+</svg></div>
+</div>
+<p>Let us now take consider chirality. For instance, consider <a class="reference external" href="https://en.wikipedia.org/wiki/2-Butanol">2-Butanol</a>. The molecule has two configurations that are mirror images of each other (also called <strong>enantiomer</strong>). For more information and a 3D visualization, we refer to <a class="reference external" href="https://chem.libretexts.org/Bookshelves/Organic_Chemistry/Map%3A_Organic_Chemistry_(Vollhardt_and_Schore)/05._Stereoisomers/5.1%3A_Chiral__Molecules">this tutorial</a>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol1</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s2">"CC[CH](C)O"</span><span class="p">)</span>  <span class="c1"># without chiral information</span>
+<span class="n">mol2</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s2">"CC[C@H](C)O"</span><span class="p">)</span>  <span class="c1"># enantiomer 1</span>
+<span class="n">mol3</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s2">"CC[C@@H](C)O"</span><span class="p">)</span>  <span class="c1"># enantiomer 2</span>
+
+<span class="n">Draw</span><span class="o">.</span><span class="n">MolsToGridImage</span><span class="p">([</span><span class="n">mol1</span><span class="p">,</span> <span class="n">mol2</span><span class="p">,</span> <span class="n">mol3</span><span class="p">],</span> <span class="n">molsPerRow</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">subImgSize</span><span class="o">=</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_T033_molecular_representations_35_0.svg" src="../_images/talktorials_T033_molecular_representations_35_0.svg"/></div>
+</div>
+<p>NGLViewer allows us to see a ball-and-stick visualization (example taken from <a class="reference external" href="http://nglviewer.org/nglview/release/v0.6.1/api.html">this</a> tutorial, we also refer the reader to <strong>Talktorial T009</strong>).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">AddHs</span><span class="p">(</span>
+    <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s2">"CC[C@@H](C)O"</span><span class="p">)</span>
+<span class="p">)</span>  <span class="c1"># replace with 'CC[C@H](C)O' for other enantiomer</span>
+<span class="n">AllChem</span><span class="o">.</span><span class="n">EmbedMultipleConfs</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">useExpTorsionAnglePrefs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">useBasicKnowledge</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">view</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_rdkit</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="n">view</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "98b44082d4374c5ea485b5599e09954b", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<section id="Conformers">
+<h3 id="Conformers">Conformers<a class="headerlink" href="#Conformers" title="Permalink to this heading">¶</a></h3>
+<p>We can generate a set of n conformers using rdkit’s improved conformer generator <a class="reference external" href="https://pubs.acs.org/doi/10.1021/acs.jcim.0c00025">ETKDGv3</a>.</p>
+<p>We use aspirin as example molecule.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># generate molecule from Smiles</span>
+<span class="n">aspirin</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s2">"CC(=O)OC1=CC=CC=C1C(=O)O"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Generate 200 conformers</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add hydrogens</span>
+<span class="n">aspirin_h</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">AddHs</span><span class="p">(</span><span class="n">aspirin</span><span class="p">)</span>
+<span class="c1"># generate conformers</span>
+<span class="n">ps</span> <span class="o">=</span> <span class="n">rdDistGeom</span><span class="o">.</span><span class="n">ETKDGv3</span><span class="p">()</span>
+<span class="n">ps</span><span class="o">.</span><span class="n">randomSeed</span> <span class="o">=</span> <span class="mh">0xD06F00D</span>
+<span class="n">ps</span><span class="o">.</span><span class="n">numThreads</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">conf_ids</span> <span class="o">=</span> <span class="n">rdDistGeom</span><span class="o">.</span><span class="n">EmbedMultipleConfs</span><span class="p">(</span><span class="n">aspirin_h</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="n">ps</span><span class="p">)</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">conf_ids</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+200
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># remove hydrogens again</span>
+<span class="n">aspirin_3d</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">RemoveHs</span><span class="p">(</span><span class="n">aspirin_h</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print the x,y,z coordinates of the 4 atoms of the first conformer.</span>
+<span class="n">aspirin_3d</span><span class="o">.</span><span class="n">GetConformer</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">GetPositions</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[ 3.17182120e+00,  1.13983512e+00,  6.12133098e-01],
+       [ 1.98735544e+00,  3.90842627e-01,  9.18770273e-02],
+       [ 1.95458986e+00, -8.18501481e-02, -1.07293595e+00],
+       [ 8.66040249e-01,  1.97000500e-01,  9.10742864e-01],
+       [-2.13996074e-01, -5.02097657e-01,  3.95340332e-01],
+       [-3.07557851e-01, -1.87552241e+00,  5.04952311e-01],
+       [-1.40169144e+00, -2.53920230e+00, -2.24731485e-02],
+       [-2.39472408e+00, -1.80931156e+00, -6.57708799e-01],
+       [-2.31798266e+00, -4.42869698e-01, -7.75777129e-01],
+       [-1.20381738e+00,  2.11326811e-01, -2.36122170e-01],
+       [-1.08676636e+00,  1.64504351e+00, -3.38093829e-01],
+       [-1.97505636e+00,  2.30929967e+00, -9.08553274e-01],
+       [ 1.07226488e-03,  2.30152343e+00,  1.89435012e-01]])
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">show_conformers</span><span class="p">(</span><span class="n">molecule</span><span class="p">,</span> <span class="n">ids</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Generate a view of the ligand conformations.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    -----------</span>
+<span class="sd">    molecule: rdkit.Chem.rdchem.Mol</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    ----------</span>
+<span class="sd">    nglview.widget.NGLWidget</span>
+<span class="sd">    """</span>
+
+    <span class="n">view</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">NGLWidget</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">molecule</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ids</span><span class="p">):</span>
+        <span class="n">mb</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolToMolBlock</span><span class="p">(</span><span class="n">molecule</span><span class="p">,</span> <span class="n">confId</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">component</span> <span class="o">=</span> <span class="n">view</span><span class="o">.</span><span class="n">add_component</span><span class="p">(</span><span class="n">mb</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s2">"sdf"</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+        <span class="n">component</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="n">component</span><span class="o">.</span><span class="n">add_ball_and_stick</span><span class="p">(</span><span class="n">multipleBond</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">view</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print the x,y,z coordinates of the 4 atoms of the first conformer.</span>
+<span class="n">aspirin_3d</span><span class="o">.</span><span class="n">GetConformer</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">GetPositions</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[ 3.17182120e+00,  1.13983512e+00,  6.12133098e-01],
+       [ 1.98735544e+00,  3.90842627e-01,  9.18770273e-02],
+       [ 1.95458986e+00, -8.18501481e-02, -1.07293595e+00],
+       [ 8.66040249e-01,  1.97000500e-01,  9.10742864e-01],
+       [-2.13996074e-01, -5.02097657e-01,  3.95340332e-01],
+       [-3.07557851e-01, -1.87552241e+00,  5.04952311e-01],
+       [-1.40169144e+00, -2.53920230e+00, -2.24731485e-02],
+       [-2.39472408e+00, -1.80931156e+00, -6.57708799e-01],
+       [-2.31798266e+00, -4.42869698e-01, -7.75777129e-01],
+       [-1.20381738e+00,  2.11326811e-01, -2.36122170e-01],
+       [-1.08676636e+00,  1.64504351e+00, -3.38093829e-01],
+       [-1.97505636e+00,  2.30929967e+00, -9.08553274e-01],
+       [ 1.07226488e-03,  2.30152343e+00,  1.89435012e-01]])
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">show_conformers</span><span class="p">(</span><span class="n">molecule</span><span class="p">,</span> <span class="n">ids</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Generate a view of the ligand conformations.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    -----------</span>
+<span class="sd">    molecule: rdkit.Chem.rdchem.Mol</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    ----------</span>
+<span class="sd">    nglview.widget.NGLWidget</span>
+<span class="sd">    """</span>
+
+    <span class="n">view</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">NGLWidget</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">molecule</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ids</span><span class="p">):</span>
+        <span class="n">mb</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolToMolBlock</span><span class="p">(</span><span class="n">molecule</span><span class="p">,</span> <span class="n">confId</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">component</span> <span class="o">=</span> <span class="n">view</span><span class="o">.</span><span class="n">add_component</span><span class="p">(</span><span class="n">mb</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s2">"sdf"</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+        <span class="n">component</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="n">component</span><span class="o">.</span><span class="n">add_ball_and_stick</span><span class="p">(</span><span class="n">multipleBond</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">view</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span> <span class="o">=</span> <span class="n">show_conformers</span><span class="p">(</span><span class="n">aspirin_3d</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">view</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;class 'rdkit.Chem.rdchem.Mol'&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "889fcd2bc2a64252a4aaf22575256e80", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+</section>
+<section id="Molecular-graphs">
+<h3 id="Molecular-graphs">Molecular graphs<a class="headerlink" href="#Molecular-graphs" title="Permalink to this heading">¶</a></h3>
+<p>A common tool to work with graphs is called <strong>networkX</strong>. We use it to create two isomorphic graphs.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create two adjacency matrices</span>
+<span class="n">adj_matrix_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="n">adj_matrix_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Matrix 1:</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">adj_matrix_1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Matrix 2:</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">adj_matrix_2</span><span class="p">)</span>
+
+<span class="c1"># convert adjacency matrices to graphs</span>
+<span class="n">graph_1</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">from_numpy_array</span><span class="p">(</span><span class="n">adj_matrix_1</span><span class="p">)</span>
+<span class="n">graph_2</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">from_numpy_array</span><span class="p">(</span><span class="n">adj_matrix_2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Matrix 1:
+ [[0 0 0 1]
+ [0 0 0 1]
+ [0 0 0 1]
+ [1 1 1 0]]
+
+Matrix 2:
+ [[0 1 1 1]
+ [1 0 0 0]
+ [1 0 0 0]
+ [1 0 0 0]]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># draw</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">And the corresponding graphs:</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Graph 1"</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx</span><span class="p">(</span><span class="n">graph_1</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Graph 2"</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx</span><span class="p">(</span><span class="n">graph_2</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+And the corresponding graphs:
+
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_T033_molecular_representations_52_1.png" src="../_images/talktorials_T033_molecular_representations_52_1.png"/>
+</div>
+</div>
+<p><strong>Practical considerations:</strong></p>
+<p>Building a molecular graph requires the labeling of nodes and edges. Common frameworks support this. For machine learning, <a class="reference external" href="https://pytorch-geometric.readthedocs.io/en/latest/">PyTorch Geometric</a> is the most popular framework for building permutation-invariant neural networks. We provide a demonstration in <strong>Talktorials T035/T036</strong>.</p>
+<p>Converting a SMILES string or RDKit object to a PyTorch Geometric graph is not complicated, but somewhat technical. One possible implementation is explained <a class="reference external" href="https://www.blopig.com/blog/2022/02/how-to-turn-a-smiles-string-into-a-molecular-graph-for-pytorch-geometric/">here</a>. Similarly, one can create a networkX graph as explained <a class="reference external" href="https://gist.github.com/fangkuoyu/dc785218e5d4d94c752e80f1aaba4fad">here</a>.</p>
+<p>As you see, molecular graph representations are not standardized and leave a lot of <strong>design choices</strong> to the user. These include:</p>
+<ul class="simple">
+<li><p>What are the node features? Only the atom type, or also information on chirality? One can also include the information if the atom is part of a ring.</p></li>
+<li><p>For the edge features: Do you only include the bond type (single, double, triple) or also the bond length? Do you use one-hot encodings or scalars?</p></li>
+<li><p>Do you want to include hydrogen atoms that are bound to carbon atoms, or leave them out?</p></li>
+<li><p>Do you want to add a master node (a dummy atom connected to all other atoms)? It might help some ML algorithms.</p></li>
+<li><p>Do you want to explicitly indicate some substructures in the molecular graph?</p></li>
+</ul>
+</section>
+<section id="Fingerprints">
+<h3 id="Fingerprints">Fingerprints<a class="headerlink" href="#Fingerprints" title="Permalink to this heading">¶</a></h3>
+<p>Generate circular fingerprint (<code class="docutils literal notranslate"><span class="pre">ecfp</span></code>) and print information.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fpg</span> <span class="o">=</span> <span class="n">rdFingerprintGenerator</span><span class="o">.</span><span class="n">GetMorganGenerator</span><span class="p">()</span>
+<span class="n">fpg</span><span class="o">.</span><span class="n">GetInfoString</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+'Common arguments : countSimulation=0 fpSize=2048 bitsPerFeature=1 includeChirality=0 --- MorganArguments onlyNonzeroInvariants=0 radius=3 --- MorganEnvironmentGenerator --- MorganInvariantGenerator includeRingMembership=1 --- MorganInvariantGenerator useBondTypes=1 useChirality=0'
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fp</span> <span class="o">=</span> <span class="n">fpg</span><span class="o">.</span><span class="n">GetFingerprintAsNumPy</span><span class="p">(</span><span class="n">mol_caffeine</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">visualize_fingerprint_info</span><span class="p">(</span><span class="n">fp</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Number of elements: "</span><span class="p">,</span> <span class="n">fp</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Types of entries: "</span><span class="p">,</span> <span class="nb">set</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">fp</span><span class="p">)))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Number of Ones: "</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">fp</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">fp</span><span class="o">.</span><span class="n">size</span><span class="p">)</span> <span class="k">if</span> <span class="n">fp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">],</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">300</span>
+    <span class="p">)</span>  <span class="c1"># 300 gives a nice aspect ratio</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">fp</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>  <span class="c1"># dummy to calibrate scale</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">"equal"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">visualize_fingerprint_info</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Number of elements:  2048
+Types of entries:  {0, 1}
+Number of Ones:  34
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_T033_molecular_representations_58_1.png" src="../_images/talktorials_T033_molecular_representations_58_1.png"/>
+</div>
+</div>
+<p>Try another fingerprint: Rdkit fingerprint</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fpg2</span> <span class="o">=</span> <span class="n">rdFingerprintGenerator</span><span class="o">.</span><span class="n">GetRDKitFPGenerator</span><span class="p">()</span>
+<span class="n">fp2</span> <span class="o">=</span> <span class="n">fpg2</span><span class="o">.</span><span class="n">GetFingerprintAsNumPy</span><span class="p">(</span><span class="n">mol_caffeine</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The "rdkit" fingerprint is less sparse than ECFP</span>
+<span class="n">visualize_fingerprint_info</span><span class="p">(</span><span class="n">fp2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Number of elements:  2048
+Types of entries:  {0, 1}
+Number of Ones:  759
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_T033_molecular_representations_61_1.png" src="../_images/talktorials_T033_molecular_representations_61_1.png"/>
+</div>
+</div>
+</section>
+</section>
+<section id="Discussion">
+<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this heading">¶</a></h2>
+<p>We have discussed different methods for molecular representations:</p>
+<ul class="simple">
+<li><p>A molecule is a bag/multiset of atoms (molecular formula). This representation cannot differentiate isomers.</p></li>
+<li><p>A molecule is a labeled graph (molecular graphs) or a derived representation (SMILES, fingerprints). This representation can differentiate structural isomers and in some cases some (but not all) spatial isomers.</p></li>
+<li><p>A molecule is a graph, equipped with 3D coordinates (point clouds). This <em>configuration</em> can be predicted or determined experimentally.</p></li>
+<li><p>A molecule is a manipulable 3D object, e.g., with rotational bonds. Isomers that can be reached by rotating single bonds are called conformers.</p></li>
+</ul>
+<p>We have also learned that intermolecular forces are only explicitly represented when they lead to chemical bonds (and sometimes not even then). Other forces might be represented implicitly in the 3D configuration.</p>
+<p>We have not discussed methods that only consider the surface area of a molecule.</p>
+</section>
+<section id="Quiz">
+<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Can the same molecule correspond to different molecular graphs?</p></li>
+<li><p>True or false: When you mirror/rotate a molecule, its properties remain the same.</p></li>
+<li><p>Can an ML model predict different properties, depending on which SMILES canonicalization you use as input?</p></li>
+<li><p>Can an ML model predict different properties, depending on which node ordering you use as input?</p></li>
+<li><p>True or false: Only forces between atoms that lead to chemical bonds are relevant to a molecule’s properties.</p></li>
+</ul>
+<!--
+1. Yes, due to the node ordering.
+2. For rotation: true. For reflection: generally false (if the molecule is chiral)
+3. Yes. Text-based ML models are not invariant to different SMILES canonicalizations.
+4. If you use a graph neural network (an ML model that is invariant to node-orderings), no.
+5. False (hydrogen bonding, van der Waals force)
+--><script type="application/vnd.jupyter.widget-state+json">
+{"0d6c757d3aee4f198c31bc2fda0f1c9a": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "644e42602bb24388884fdf7ae60d9abc": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "SliderStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "8e69ff6fdaa246ec825abbb4686f1840": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "PlayModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "PlayModel", "_playing": false, "_repeat": false, "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "PlayView", "description": "", "description_tooltip": null, "disabled": false, "interval": 100, "layout": "IPY_MODEL_b74f4520044d4e6097a9b3d0a4928607", "max": 0, "min": 0, "show_repeat": true, "step": 1, "style": "IPY_MODEL_0d6c757d3aee4f198c31bc2fda0f1c9a", "value": 0}}, "9d01434780bb45f792aaf91fac4deec5": {"model_module": "nglview-js-widgets", "model_module_version": "3.0.1", "model_name": "NGLModel", "state": {"_camera_orientation": [], "_camera_str": "orthographic", "_dom_classes": [], "_gui_theme": null, "_ibtn_fullscreen": "IPY_MODEL_293f0a36788f4c0ea7602e501b62d565", "_igui": null, "_iplayer": "IPY_MODEL_5785eeda686d48a4b3b87f7f69b6d316", "_model_module": "nglview-js-widgets", "_model_module_version": "3.0.1", "_model_name": "NGLModel", "_ngl_color_dict": {}, "_ngl_coordinate_resource": {}, "_ngl_full_stage_parameters": {}, "_ngl_msg_archive": [{"args": [{"binary": false, "data": "MODEL        1\nHETATM    1  C1  UNL     1       7.626   0.674   0.734  1.00  0.00           C  \nHETATM    2  O1  UNL     1       6.951  -0.527   0.994  1.00  0.00           O  \nHETATM    3  C2  UNL     1       5.668  -0.710   0.508  1.00  0.00           C  \nHETATM    4  C3  UNL     1       5.068  -1.911   0.814  1.00  0.00           C  \nHETATM    5  C4  UNL     1       3.773  -2.172   0.363  1.00  0.00           C  \nHETATM    6  C5  UNL     1       3.155  -1.211  -0.369  1.00  0.00           C  \nHETATM    7  C6  UNL     1       1.739  -1.391  -0.846  1.00  0.00           C  \nHETATM    8  O2  UNL     1       1.684  -1.462  -2.226  1.00  0.00           O  \nHETATM    9  C7  UNL     1       1.086  -0.056  -0.437  1.00  0.00           C  \nHETATM   10  C8  UNL     1       1.576   0.952  -1.420  1.00  0.00           C  \nHETATM   11  O3  UNL     1       3.019   0.936  -1.451  1.00  0.00           O  \nHETATM   12  C9  UNL     1       3.731  -0.010  -0.686  1.00  0.00           C  \nHETATM   13  C10 UNL     1       5.012   0.221  -0.228  1.00  0.00           C  \nHETATM   14  N1  UNL     1      -0.334  -0.193  -0.447  1.00  0.00           N  \nHETATM   15  C11 UNL     1      -0.985   1.043  -0.855  1.00  0.00           C  \nHETATM   16  C12 UNL     1      -2.469   0.879  -0.859  1.00  0.00           C  \nHETATM   17  C13 UNL     1      -2.992   0.445   0.500  1.00  0.00           C  \nHETATM   18  O4  UNL     1      -2.690   1.338   1.499  1.00  0.00           O  \nHETATM   19  C14 UNL     1      -2.302  -0.876   0.781  1.00  0.00           C  \nHETATM   20  C15 UNL     1      -0.824  -0.579   0.875  1.00  0.00           C  \nHETATM   21  C16 UNL     1      -4.452   0.300   0.415  1.00  0.00           C  \nHETATM   22  C17 UNL     1      -5.127  -0.874   0.681  1.00  0.00           C  \nHETATM   23  C18 UNL     1      -6.501  -0.903   0.573  1.00  0.00           C  \nHETATM   24  C19 UNL     1      -7.201   0.228   0.204  1.00  0.00           C  \nHETATM   25  F1  UNL     1      -8.556   0.235   0.088  1.00  0.00           F  \nHETATM   26  C20 UNL     1      -6.554   1.420  -0.070  1.00  0.00           C  \nHETATM   27  C21 UNL     1      -5.177   1.415   0.047  1.00  0.00           C  \nHETATM   28  H1  UNL     1       8.212   0.564  -0.188  1.00  0.00           H  \nHETATM   29  H2  UNL     1       6.960   1.575   0.709  1.00  0.00           H  \nHETATM   30  H3  UNL     1       8.382   0.825   1.570  1.00  0.00           H  \nHETATM   31  H4  UNL     1       5.565  -2.678   1.397  1.00  0.00           H  \nHETATM   32  H5  UNL     1       3.307  -3.133   0.614  1.00  0.00           H  \nHETATM   33  H6  UNL     1       1.261  -2.260  -0.410  1.00  0.00           H  \nHETATM   34  H7  UNL     1       2.454  -1.963  -2.621  1.00  0.00           H  \nHETATM   35  H8  UNL     1       1.481   0.232   0.573  1.00  0.00           H  \nHETATM   36  H9  UNL     1       1.294   1.985  -1.202  1.00  0.00           H  \nHETATM   37  H10 UNL     1       1.223   0.694  -2.452  1.00  0.00           H  \nHETATM   38  H11 UNL     1       5.450   1.166  -0.487  1.00  0.00           H  \nHETATM   39  H12 UNL     1      -0.657   1.275  -1.889  1.00  0.00           H  \nHETATM   40  H13 UNL     1      -0.741   1.878  -0.141  1.00  0.00           H  \nHETATM   41  H14 UNL     1      -3.005   1.779  -1.180  1.00  0.00           H  \nHETATM   42  H15 UNL     1      -2.703   0.029  -1.561  1.00  0.00           H  \nHETATM   43  H16 UNL     1      -2.951   0.911   2.364  1.00  0.00           H  \nHETATM   44  H17 UNL     1      -2.687  -1.340   1.709  1.00  0.00           H  \nHETATM   45  H18 UNL     1      -2.444  -1.605  -0.039  1.00  0.00           H  \nHETATM   46  H19 UNL     1      -0.232  -1.410   1.294  1.00  0.00           H  \nHETATM   47  H20 UNL     1      -0.705   0.303   1.540  1.00  0.00           H  \nHETATM   48  H21 UNL     1      -4.541  -1.724   0.967  1.00  0.00           H  \nHETATM   49  H22 UNL     1      -7.045  -1.820   0.779  1.00  0.00           H  \nHETATM   50  H23 UNL     1      -7.129   2.296  -0.359  1.00  0.00           H  \nHETATM   51  H24 UNL     1      -4.674   2.359  -0.168  1.00  0.00           H  \nCONECT    1    2   28   29   30\nCONECT    2    3\nCONECT    3    4    4   13\nCONECT    4    5   31\nCONECT    5    6    6   32\nCONECT    6    7   12\nCONECT    7    8    9   33\nCONECT    8   34\nCONECT    9   10   14   35\nCONECT   10   11   36   37\nCONECT   11   12\nCONECT   12   13   13\nCONECT   13   38\nCONECT   14   15   20\nCONECT   15   16   39   40\nCONECT   16   17   41   42\nCONECT   17   18   19   21\nCONECT   18   43\nCONECT   19   20   44   45\nCONECT   20   46   47\nCONECT   21   22   22   27\nCONECT   22   23   48\nCONECT   23   24   24   49\nCONECT   24   25   26\nCONECT   26   27   27   50\nCONECT   27   51\nENDMDL\nMODEL        2\nHETATM    1  C1  UNL     1       6.845   1.899  -0.656  1.00  0.00           C  \nHETATM    2  O1  UNL     1       6.443   0.637  -1.117  1.00  0.00           O  \nHETATM    3  C2  UNL     1       5.290  -0.001  -0.671  1.00  0.00           C  \nHETATM    4  C3  UNL     1       4.960  -1.244  -1.171  1.00  0.00           C  \nHETATM    5  C4  UNL     1       3.803  -1.901  -0.734  1.00  0.00           C  \nHETATM    6  C5  UNL     1       2.977  -1.326   0.197  1.00  0.00           C  \nHETATM    7  C6  UNL     1       1.768  -2.063   0.626  1.00  0.00           C  \nHETATM    8  O2  UNL     1       1.253  -2.894  -0.338  1.00  0.00           O  \nHETATM    9  C7  UNL     1       0.716  -1.105   1.202  1.00  0.00           C  \nHETATM   10  C8  UNL     1       1.399  -0.233   2.187  1.00  0.00           C  \nHETATM   11  O3  UNL     1       2.475   0.522   1.648  1.00  0.00           O  \nHETATM   12  C9  UNL     1       3.300  -0.086   0.699  1.00  0.00           C  \nHETATM   13  C10 UNL     1       4.435   0.557   0.270  1.00  0.00           C  \nHETATM   14  N1  UNL     1      -0.053  -0.488   0.213  1.00  0.00           N  \nHETATM   15  C11 UNL     1      -0.866  -1.293  -0.620  1.00  0.00           C  \nHETATM   16  C12 UNL     1      -2.147  -0.606  -1.086  1.00  0.00           C  \nHETATM   17  C13 UNL     1      -2.804  -0.022   0.121  1.00  0.00           C  \nHETATM   18  O4  UNL     1      -2.971  -1.025   1.075  1.00  0.00           O  \nHETATM   19  C14 UNL     1      -1.897   1.083   0.645  1.00  0.00           C  \nHETATM   20  C15 UNL     1      -0.455   0.850   0.341  1.00  0.00           C  \nHETATM   21  C16 UNL     1      -4.113   0.598  -0.159  1.00  0.00           C  \nHETATM   22  C17 UNL     1      -5.048   0.717   0.840  1.00  0.00           C  \nHETATM   23  C18 UNL     1      -6.296   1.300   0.604  1.00  0.00           C  \nHETATM   24  C19 UNL     1      -6.592   1.765  -0.661  1.00  0.00           C  \nHETATM   25  F1  UNL     1      -7.817   2.339  -0.907  1.00  0.00           F  \nHETATM   26  C20 UNL     1      -5.676   1.656  -1.668  1.00  0.00           C  \nHETATM   27  C21 UNL     1      -4.431   1.069  -1.413  1.00  0.00           C  \nHETATM   28  H1  UNL     1       7.732   2.207  -1.283  1.00  0.00           H  \nHETATM   29  H2  UNL     1       7.201   1.855   0.405  1.00  0.00           H  \nHETATM   30  H3  UNL     1       6.052   2.668  -0.754  1.00  0.00           H  \nHETATM   31  H4  UNL     1       5.601  -1.709  -1.903  1.00  0.00           H  \nHETATM   32  H5  UNL     1       3.612  -2.868  -1.171  1.00  0.00           H  \nHETATM   33  H6  UNL     1       2.098  -2.675   1.516  1.00  0.00           H  \nHETATM   34  H7  UNL     1       1.862  -3.697  -0.386  1.00  0.00           H  \nHETATM   35  H8  UNL     1       0.042  -1.789   1.799  1.00  0.00           H  \nHETATM   36  H9  UNL     1       1.879  -0.911   2.955  1.00  0.00           H  \nHETATM   37  H10 UNL     1       0.743   0.433   2.762  1.00  0.00           H  \nHETATM   38  H11 UNL     1       4.670   1.519   0.672  1.00  0.00           H  \nHETATM   39  H12 UNL     1      -1.191  -2.243  -0.135  1.00  0.00           H  \nHETATM   40  H13 UNL     1      -0.297  -1.626  -1.533  1.00  0.00           H  \nHETATM   41  H14 UNL     1      -1.928   0.153  -1.861  1.00  0.00           H  \nHETATM   42  H15 UNL     1      -2.748  -1.394  -1.582  1.00  0.00           H  \nHETATM   43  H16 UNL     1      -3.859  -1.447   0.908  1.00  0.00           H  \nHETATM   44  H17 UNL     1      -2.192   2.056   0.201  1.00  0.00           H  \nHETATM   45  H18 UNL     1      -2.118   1.169   1.725  1.00  0.00           H  \nHETATM   46  H19 UNL     1      -0.238   1.364  -0.642  1.00  0.00           H  \nHETATM   47  H20 UNL     1       0.139   1.417   1.083  1.00  0.00           H  \nHETATM   48  H21 UNL     1      -4.851   0.365   1.842  1.00  0.00           H  \nHETATM   49  H22 UNL     1      -7.055   1.413   1.361  1.00  0.00           H  \nHETATM   50  H23 UNL     1      -5.912   2.022  -2.653  1.00  0.00           H  \nHETATM   51  H24 UNL     1      -3.742   1.009  -2.246  1.00  0.00           H  \nCONECT    1    2   28   29   30\nCONECT    2    3\nCONECT    3    4    4   13\nCONECT    4    5   31\nCONECT    5    6    6   32\nCONECT    6    7   12\nCONECT    7    8    9   33\nCONECT    8   34\nCONECT    9   10   14   35\nCONECT   10   11   36   37\nCONECT   11   12\nCONECT   12   13   13\nCONECT   13   38\nCONECT   14   15   20\nCONECT   15   16   39   40\nCONECT   16   17   41   42\nCONECT   17   18   19   21\nCONECT   18   43\nCONECT   19   20   44   45\nCONECT   20   46   47\nCONECT   21   22   22   27\nCONECT   22   23   48\nCONECT   23   24   24   49\nCONECT   24   25   26\nCONECT   26   27   27   50\nCONECT   27   51\nENDMDL\nMODEL        3\nHETATM    1  C1  UNL     1       8.184  -1.162   0.459  1.00  0.00           C  \nHETATM    2  O1  UNL     1       7.198  -0.713  -0.376  1.00  0.00           O  \nHETATM    3  C2  UNL     1       5.900  -0.418  -0.063  1.00  0.00           C  \nHETATM    4  C3  UNL     1       5.373  -0.509   1.206  1.00  0.00           C  \nHETATM    5  C4  UNL     1       4.037  -0.201   1.451  1.00  0.00           C  \nHETATM    6  C5  UNL     1       3.196   0.199   0.458  1.00  0.00           C  \nHETATM    7  C6  UNL     1       1.766   0.564   0.698  1.00  0.00           C  \nHETATM    8  O2  UNL     1       1.222  -0.285   1.679  1.00  0.00           O  \nHETATM    9  C7  UNL     1       0.910   0.555  -0.508  1.00  0.00           C  \nHETATM   10  C8  UNL     1       1.554   0.073  -1.785  1.00  0.00           C  \nHETATM   11  O3  UNL     1       2.846   0.688  -1.810  1.00  0.00           O  \nHETATM   12  C9  UNL     1       3.714   0.289  -0.808  1.00  0.00           C  \nHETATM   13  C10 UNL     1       5.050  -0.004  -1.106  1.00  0.00           C  \nHETATM   14  N1  UNL     1      -0.442   0.303  -0.396  1.00  0.00           N  \nHETATM   15  C11 UNL     1      -1.336   1.280   0.140  1.00  0.00           C  \nHETATM   16  C12 UNL     1      -2.516   1.304  -0.883  1.00  0.00           C  \nHETATM   17  C13 UNL     1      -3.239   0.021  -0.674  1.00  0.00           C  \nHETATM   18  O4  UNL     1      -3.496  -0.548  -1.938  1.00  0.00           O  \nHETATM   19  C14 UNL     1      -2.419  -0.961   0.110  1.00  0.00           C  \nHETATM   20  C15 UNL     1      -0.947  -1.031  -0.316  1.00  0.00           C  \nHETATM   21  C16 UNL     1      -4.576   0.211  -0.048  1.00  0.00           C  \nHETATM   22  C17 UNL     1      -4.942   1.392   0.528  1.00  0.00           C  \nHETATM   23  C18 UNL     1      -6.205   1.563   1.086  1.00  0.00           C  \nHETATM   24  C19 UNL     1      -7.099   0.540   1.060  1.00  0.00           C  \nHETATM   25  F1  UNL     1      -8.310   0.762   1.618  1.00  0.00           F  \nHETATM   26  C20 UNL     1      -6.740  -0.658   0.479  1.00  0.00           C  \nHETATM   27  C21 UNL     1      -5.482  -0.840  -0.079  1.00  0.00           C  \nHETATM   28  H1  UNL     1       8.891  -1.832  -0.092  1.00  0.00           H  \nHETATM   29  H2  UNL     1       8.753  -0.309   0.939  1.00  0.00           H  \nHETATM   30  H3  UNL     1       7.728  -1.738   1.283  1.00  0.00           H  \nHETATM   31  H4  UNL     1       6.032  -0.844   2.044  1.00  0.00           H  \nHETATM   32  H5  UNL     1       3.699  -0.282   2.475  1.00  0.00           H  \nHETATM   33  H6  UNL     1       1.803   1.564   1.236  1.00  0.00           H  \nHETATM   34  H7  UNL     1       1.836  -1.035   1.927  1.00  0.00           H  \nHETATM   35  H8  UNL     1       0.896   1.741  -0.762  1.00  0.00           H  \nHETATM   36  H9  UNL     1       1.003   0.539  -2.639  1.00  0.00           H  \nHETATM   37  H10 UNL     1       1.651  -0.989  -1.920  1.00  0.00           H  \nHETATM   38  H11 UNL     1       5.425   0.078  -2.096  1.00  0.00           H  \nHETATM   39  H12 UNL     1      -0.886   2.258   0.262  1.00  0.00           H  \nHETATM   40  H13 UNL     1      -1.770   0.925   1.081  1.00  0.00           H  \nHETATM   41  H14 UNL     1      -1.979   1.224  -1.889  1.00  0.00           H  \nHETATM   42  H15 UNL     1      -3.046   2.217  -0.922  1.00  0.00           H  \nHETATM   43  H16 UNL     1      -3.082  -1.416  -2.045  1.00  0.00           H  \nHETATM   44  H17 UNL     1      -2.559  -0.895   1.185  1.00  0.00           H  \nHETATM   45  H18 UNL     1      -2.832  -1.984  -0.175  1.00  0.00           H  \nHETATM   46  H19 UNL     1      -0.449  -1.546   0.555  1.00  0.00           H  \nHETATM   47  H20 UNL     1      -0.918  -1.611  -1.243  1.00  0.00           H  \nHETATM   48  H21 UNL     1      -4.253   2.230   0.579  1.00  0.00           H  \nHETATM   49  H22 UNL     1      -6.423   2.528   1.527  1.00  0.00           H  \nHETATM   50  H23 UNL     1      -7.476  -1.438   0.479  1.00  0.00           H  \nHETATM   51  H24 UNL     1      -5.246  -1.795  -0.528  1.00  0.00           H  \nCONECT    1    2   28   29   30\nCONECT    2    3\nCONECT    3    4    4   13\nCONECT    4    5   31\nCONECT    5    6    6   32\nCONECT    6    7   12\nCONECT    7    8    9   33\nCONECT    8   34\nCONECT    9   10   14   35\nCONECT   10   11   36   37\nCONECT   11   12\nCONECT   12   13   13\nCONECT   13   38\nCONECT   14   15   20\nCONECT   15   16   39   40\nCONECT   16   17   41   42\nCONECT   17   18   19   21\nCONECT   18   43\nCONECT   19   20   44   45\nCONECT   20   46   47\nCONECT   21   22   22   27\nCONECT   22   23   48\nCONECT   23   24   24   49\nCONECT   24   25   26\nCONECT   26   27   27   50\nCONECT   27   51\nENDMDL\nMODEL        4\nHETATM    1  C1  UNL     1       7.492   1.671  -0.620  1.00  0.00           C  \nHETATM    2  O1  UNL     1       6.366   1.578   0.194  1.00  0.00           O  \nHETATM    3  C2  UNL     1       5.263   0.772   0.024  1.00  0.00           C  \nHETATM    4  C3  UNL     1       5.139  -0.084  -1.034  1.00  0.00           C  \nHETATM    5  C4  UNL     1       3.998  -0.868  -1.143  1.00  0.00           C  \nHETATM    6  C5  UNL     1       2.989  -0.805  -0.216  1.00  0.00           C  \nHETATM    7  C6  UNL     1       1.778  -1.620  -0.372  1.00  0.00           C  \nHETATM    8  O2  UNL     1       1.343  -1.712  -1.702  1.00  0.00           O  \nHETATM    9  C7  UNL     1       0.667  -1.276   0.566  1.00  0.00           C  \nHETATM   10  C8  UNL     1       1.346  -1.137   1.955  1.00  0.00           C  \nHETATM   11  O3  UNL     1       2.063   0.114   1.813  1.00  0.00           O  \nHETATM   12  C9  UNL     1       3.109   0.052   0.850  1.00  0.00           C  \nHETATM   13  C10 UNL     1       4.244   0.829   0.955  1.00  0.00           C  \nHETATM   14  N1  UNL     1       0.018  -0.042   0.379  1.00  0.00           N  \nHETATM   15  C11 UNL     1      -0.669   0.227  -0.833  1.00  0.00           C  \nHETATM   16  C12 UNL     1      -1.991  -0.501  -1.011  1.00  0.00           C  \nHETATM   17  C13 UNL     1      -2.886  -0.287   0.156  1.00  0.00           C  \nHETATM   18  O4  UNL     1      -2.935  -1.502   0.856  1.00  0.00           O  \nHETATM   19  C14 UNL     1      -2.209   0.700   1.114  1.00  0.00           C  \nHETATM   20  C15 UNL     1      -0.893   0.134   1.503  1.00  0.00           C  \nHETATM   21  C16 UNL     1      -4.228   0.222  -0.137  1.00  0.00           C  \nHETATM   22  C17 UNL     1      -5.355  -0.525   0.089  1.00  0.00           C  \nHETATM   23  C18 UNL     1      -6.619  -0.016  -0.155  1.00  0.00           C  \nHETATM   24  C19 UNL     1      -6.771   1.280  -0.643  1.00  0.00           C  \nHETATM   25  F1  UNL     1      -8.017   1.744  -0.847  1.00  0.00           F  \nHETATM   26  C20 UNL     1      -5.648   2.044  -0.878  1.00  0.00           C  \nHETATM   27  C21 UNL     1      -4.391   1.498  -0.620  1.00  0.00           C  \nHETATM   28  H1  UNL     1       7.476   2.585  -1.220  1.00  0.00           H  \nHETATM   29  H2  UNL     1       8.383   1.741   0.079  1.00  0.00           H  \nHETATM   30  H3  UNL     1       7.696   0.756  -1.238  1.00  0.00           H  \nHETATM   31  H4  UNL     1       5.924  -0.155  -1.795  1.00  0.00           H  \nHETATM   32  H5  UNL     1       3.967  -1.525  -2.021  1.00  0.00           H  \nHETATM   33  H6  UNL     1       2.096  -2.672  -0.120  1.00  0.00           H  \nHETATM   34  H7  UNL     1       1.494  -2.591  -2.108  1.00  0.00           H  \nHETATM   35  H8  UNL     1       0.005  -2.162   0.686  1.00  0.00           H  \nHETATM   36  H9  UNL     1       2.106  -1.906   2.114  1.00  0.00           H  \nHETATM   37  H10 UNL     1       0.649  -1.008   2.770  1.00  0.00           H  \nHETATM   38  H11 UNL     1       4.300   1.522   1.803  1.00  0.00           H  \nHETATM   39  H12 UNL     1      -0.943   1.334  -0.812  1.00  0.00           H  \nHETATM   40  H13 UNL     1      -0.050   0.155  -1.738  1.00  0.00           H  \nHETATM   41  H14 UNL     1      -2.482  -0.058  -1.915  1.00  0.00           H  \nHETATM   42  H15 UNL     1      -1.795  -1.577  -1.240  1.00  0.00           H  \nHETATM   43  H16 UNL     1      -3.320  -2.165   0.211  1.00  0.00           H  \nHETATM   44  H17 UNL     1      -2.234   1.731   0.779  1.00  0.00           H  \nHETATM   45  H18 UNL     1      -2.874   0.659   2.031  1.00  0.00           H  \nHETATM   46  H19 UNL     1      -1.133  -0.866   1.977  1.00  0.00           H  \nHETATM   47  H20 UNL     1      -0.371   0.702   2.306  1.00  0.00           H  \nHETATM   48  H21 UNL     1      -5.306  -1.541   0.473  1.00  0.00           H  \nHETATM   49  H22 UNL     1      -7.492  -0.642   0.028  1.00  0.00           H  \nHETATM   50  H23 UNL     1      -5.769   3.049  -1.259  1.00  0.00           H  \nHETATM   51  H24 UNL     1      -3.534   2.140  -0.821  1.00  0.00           H  \nCONECT    1    2   28   29   30\nCONECT    2    3\nCONECT    3    4    4   13\nCONECT    4    5   31\nCONECT    5    6    6   32\nCONECT    6    7   12\nCONECT    7    8    9   33\nCONECT    8   34\nCONECT    9   10   14   35\nCONECT   10   11   36   37\nCONECT   11   12\nCONECT   12   13   13\nCONECT   13   38\nCONECT   14   15   20\nCONECT   15   16   39   40\nCONECT   16   17   41   42\nCONECT   17   18   19   21\nCONECT   18   43\nCONECT   19   20   44   45\nCONECT   20   46   47\nCONECT   21   22   22   27\nCONECT   22   23   48\nCONECT   23   24   24   49\nCONECT   24   25   26\nCONECT   26   27   27   50\nCONECT   27   51\nENDMDL\nMODEL        5\nHETATM    1  C1  UNL     1      -8.326  -0.284  -0.860  1.00  0.00           C  \nHETATM    2  O1  UNL     1      -7.263  -0.189   0.013  1.00  0.00           O  \nHETATM    3  C2  UNL     1      -5.920  -0.225  -0.240  1.00  0.00           C  \nHETATM    4  C3  UNL     1      -5.392  -0.371  -1.495  1.00  0.00           C  \nHETATM    5  C4  UNL     1      -4.018  -0.397  -1.637  1.00  0.00           C  \nHETATM    6  C5  UNL     1      -3.152  -0.278  -0.537  1.00  0.00           C  \nHETATM    7  C6  UNL     1      -1.662  -0.296  -0.776  1.00  0.00           C  \nHETATM    8  O2  UNL     1      -1.278  -1.591  -1.054  1.00  0.00           O  \nHETATM    9  C7  UNL     1      -0.971   0.236   0.462  1.00  0.00           C  \nHETATM   10  C8  UNL     1      -1.515  -0.543   1.621  1.00  0.00           C  \nHETATM   11  O3  UNL     1      -2.843  -0.012   1.828  1.00  0.00           O  \nHETATM   12  C9  UNL     1      -3.680  -0.130   0.718  1.00  0.00           C  \nHETATM   13  C10 UNL     1      -5.056  -0.107   0.846  1.00  0.00           C  \nHETATM   14  N1  UNL     1       0.442   0.145   0.347  1.00  0.00           N  \nHETATM   15  C11 UNL     1       1.160   0.653   1.480  1.00  0.00           C  \nHETATM   16  C12 UNL     1       2.559   0.025   1.406  1.00  0.00           C  \nHETATM   17  C13 UNL     1       3.252   0.774   0.264  1.00  0.00           C  \nHETATM   18  O4  UNL     1       3.315   2.102   0.669  1.00  0.00           O  \nHETATM   19  C14 UNL     1       2.440   0.625  -0.987  1.00  0.00           C  \nHETATM   20  C15 UNL     1       0.962   0.872  -0.797  1.00  0.00           C  \nHETATM   21  C16 UNL     1       4.587   0.177   0.110  1.00  0.00           C  \nHETATM   22  C17 UNL     1       5.394   0.085   1.251  1.00  0.00           C  \nHETATM   23  C18 UNL     1       6.661  -0.461   1.208  1.00  0.00           C  \nHETATM   24  C19 UNL     1       7.182  -0.939   0.031  1.00  0.00           C  \nHETATM   25  F1  UNL     1       8.420  -1.465   0.029  1.00  0.00           F  \nHETATM   26  C20 UNL     1       6.394  -0.853  -1.095  1.00  0.00           C  \nHETATM   27  C21 UNL     1       5.113  -0.300  -1.053  1.00  0.00           C  \nHETATM   28  H1  UNL     1      -8.898   0.677  -0.930  1.00  0.00           H  \nHETATM   29  H2  UNL     1      -7.956  -0.473  -1.884  1.00  0.00           H  \nHETATM   30  H3  UNL     1      -9.022  -1.097  -0.527  1.00  0.00           H  \nHETATM   31  H4  UNL     1      -6.021  -0.467  -2.390  1.00  0.00           H  \nHETATM   32  H5  UNL     1      -3.591  -0.515  -2.637  1.00  0.00           H  \nHETATM   33  H6  UNL     1      -1.503   0.359  -1.668  1.00  0.00           H  \nHETATM   34  H7  UNL     1      -1.898  -2.074  -1.640  1.00  0.00           H  \nHETATM   35  H8  UNL     1      -1.279   1.324   0.555  1.00  0.00           H  \nHETATM   36  H9  UNL     1      -0.938  -0.541   2.536  1.00  0.00           H  \nHETATM   37  H10 UNL     1      -1.670  -1.596   1.254  1.00  0.00           H  \nHETATM   38  H11 UNL     1      -5.429   0.016   1.865  1.00  0.00           H  \nHETATM   39  H12 UNL     1       1.337   1.761   1.314  1.00  0.00           H  \nHETATM   40  H13 UNL     1       0.710   0.528   2.457  1.00  0.00           H  \nHETATM   41  H14 UNL     1       2.448  -1.017   1.080  1.00  0.00           H  \nHETATM   42  H15 UNL     1       3.091   0.141   2.354  1.00  0.00           H  \nHETATM   43  H16 UNL     1       3.464   2.118   1.654  1.00  0.00           H  \nHETATM   44  H17 UNL     1       2.806   1.380  -1.705  1.00  0.00           H  \nHETATM   45  H18 UNL     1       2.598  -0.373  -1.453  1.00  0.00           H  \nHETATM   46  H19 UNL     1       0.791   1.951  -0.570  1.00  0.00           H  \nHETATM   47  H20 UNL     1       0.483   0.582  -1.751  1.00  0.00           H  \nHETATM   48  H21 UNL     1       5.075   0.433   2.225  1.00  0.00           H  \nHETATM   49  H22 UNL     1       7.271  -0.524   2.097  1.00  0.00           H  \nHETATM   50  H23 UNL     1       6.783  -1.226  -2.035  1.00  0.00           H  \nHETATM   51  H24 UNL     1       4.541  -0.252  -1.951  1.00  0.00           H  \nCONECT    1    2   28   29   30\nCONECT    2    3\nCONECT    3    4    4   13\nCONECT    4    5   31\nCONECT    5    6    6   32\nCONECT    6    7   12\nCONECT    7    8    9   33\nCONECT    8   34\nCONECT    9   10   14   35\nCONECT   10   11   36   37\nCONECT   11   12\nCONECT   12   13   13\nCONECT   13   38\nCONECT   14   15   20\nCONECT   15   16   39   40\nCONECT   16   17   41   42\nCONECT   17   18   19   21\nCONECT   18   43\nCONECT   19   20   44   45\nCONECT   20   46   47\nCONECT   21   22   22   27\nCONECT   22   23   48\nCONECT   23   24   24   49\nCONECT   24   25   26\nCONECT   26   27   27   50\nCONECT   27   51\nENDMDL\nMODEL        6\nHETATM    1  C1  UNL     1       8.183   0.968  -0.284  1.00  0.00           C  \nHETATM    2  O1  UNL     1       7.347   0.009   0.366  1.00  0.00           O  \nHETATM    3  C2  UNL     1       5.979   0.133   0.229  1.00  0.00           C  \nHETATM    4  C3  UNL     1       5.426   1.158  -0.531  1.00  0.00           C  \nHETATM    5  C4  UNL     1       4.069   1.270  -0.656  1.00  0.00           C  \nHETATM    6  C5  UNL     1       3.218   0.358  -0.024  1.00  0.00           C  \nHETATM    7  C6  UNL     1       1.768   0.544  -0.167  1.00  0.00           C  \nHETATM    8  O2  UNL     1       1.480   1.653   0.678  1.00  0.00           O  \nHETATM    9  C7  UNL     1       1.003  -0.661   0.182  1.00  0.00           C  \nHETATM   10  C8  UNL     1       1.549  -1.313   1.426  1.00  0.00           C  \nHETATM   11  O3  UNL     1       2.949  -1.531   1.331  1.00  0.00           O  \nHETATM   12  C9  UNL     1       3.779  -0.618   0.699  1.00  0.00           C  \nHETATM   13  C10 UNL     1       5.155  -0.786   0.865  1.00  0.00           C  \nHETATM   14  N1  UNL     1      -0.416  -0.499   0.391  1.00  0.00           N  \nHETATM   15  C11 UNL     1      -1.111  -1.623  -0.214  1.00  0.00           C  \nHETATM   16  C12 UNL     1      -2.572  -1.522   0.261  1.00  0.00           C  \nHETATM   17  C13 UNL     1      -3.160  -0.388  -0.537  1.00  0.00           C  \nHETATM   18  O4  UNL     1      -3.084  -0.784  -1.884  1.00  0.00           O  \nHETATM   19  C14 UNL     1      -2.378   0.846  -0.318  1.00  0.00           C  \nHETATM   20  C15 UNL     1      -0.936   0.763  -0.048  1.00  0.00           C  \nHETATM   21  C16 UNL     1      -4.576  -0.116  -0.170  1.00  0.00           C  \nHETATM   22  C17 UNL     1      -5.441   0.447  -1.082  1.00  0.00           C  \nHETATM   23  C18 UNL     1      -6.764   0.709  -0.753  1.00  0.00           C  \nHETATM   24  C19 UNL     1      -7.238   0.407   0.496  1.00  0.00           C  \nHETATM   25  F1  UNL     1      -8.530   0.657   0.833  1.00  0.00           F  \nHETATM   26  C20 UNL     1      -6.386  -0.157   1.421  1.00  0.00           C  \nHETATM   27  C21 UNL     1      -5.059  -0.411   1.069  1.00  0.00           C  \nHETATM   28  H1  UNL     1       8.072   0.851  -1.380  1.00  0.00           H  \nHETATM   29  H2  UNL     1       7.870   1.988  -0.012  1.00  0.00           H  \nHETATM   30  H3  UNL     1       9.229   0.743   0.008  1.00  0.00           H  \nHETATM   31  H4  UNL     1       6.101   1.856  -1.012  1.00  0.00           H  \nHETATM   32  H5  UNL     1       3.651   2.071  -1.245  1.00  0.00           H  \nHETATM   33  H6  UNL     1       1.622   0.869  -1.236  1.00  0.00           H  \nHETATM   34  H7  UNL     1       1.707   1.416   1.600  1.00  0.00           H  \nHETATM   35  H8  UNL     1       1.181  -1.409  -0.644  1.00  0.00           H  \nHETATM   36  H9  UNL     1       1.251  -0.701   2.291  1.00  0.00           H  \nHETATM   37  H10 UNL     1       1.006  -2.300   1.501  1.00  0.00           H  \nHETATM   38  H11 UNL     1       5.539  -1.594   1.460  1.00  0.00           H  \nHETATM   39  H12 UNL     1      -1.090  -1.634  -1.309  1.00  0.00           H  \nHETATM   40  H13 UNL     1      -0.711  -2.534   0.232  1.00  0.00           H  \nHETATM   41  H14 UNL     1      -2.522  -1.333   1.335  1.00  0.00           H  \nHETATM   42  H15 UNL     1      -3.099  -2.479   0.060  1.00  0.00           H  \nHETATM   43  H16 UNL     1      -3.712  -1.550  -2.021  1.00  0.00           H  \nHETATM   44  H17 UNL     1      -2.936   1.473   0.451  1.00  0.00           H  \nHETATM   45  H18 UNL     1      -2.528   1.477  -1.253  1.00  0.00           H  \nHETATM   46  H19 UNL     1      -0.365   1.176  -0.910  1.00  0.00           H  \nHETATM   47  H20 UNL     1      -0.744   1.487   0.807  1.00  0.00           H  \nHETATM   48  H21 UNL     1      -5.122   0.698  -2.071  1.00  0.00           H  \nHETATM   49  H22 UNL     1      -7.452   1.150  -1.465  1.00  0.00           H  \nHETATM   50  H23 UNL     1      -6.778  -0.385   2.398  1.00  0.00           H  \nHETATM   51  H24 UNL     1      -4.425  -0.847   1.809  1.00  0.00           H  \nCONECT    1    2   28   29   30\nCONECT    2    3\nCONECT    3    4    4   13\nCONECT    4    5   31\nCONECT    5    6    6   32\nCONECT    6    7   12\nCONECT    7    8    9   33\nCONECT    8   34\nCONECT    9   10   14   35\nCONECT   10   11   36   37\nCONECT   11   12\nCONECT   12   13   13\nCONECT   13   38\nCONECT   14   15   20\nCONECT   15   16   39   40\nCONECT   16   17   41   42\nCONECT   17   18   19   21\nCONECT   18   43\nCONECT   19   20   44   45\nCONECT   20   46   47\nCONECT   21   22   22   27\nCONECT   22   23   48\nCONECT   23   24   24   49\nCONECT   24   25   26\nCONECT   26   27   27   50\nCONECT   27   51\nENDMDL\nMODEL        7\nHETATM    1  C1  UNL     1       7.708   1.360   0.873  1.00  0.00           C  \nHETATM    2  O1  UNL     1       6.822   1.159  -0.194  1.00  0.00           O  \nHETATM    3  C2  UNL     1       5.577   0.583   0.013  1.00  0.00           C  \nHETATM    4  C3  UNL     1       5.136   0.182   1.250  1.00  0.00           C  \nHETATM    5  C4  UNL     1       3.875  -0.392   1.419  1.00  0.00           C  \nHETATM    6  C5  UNL     1       3.077  -0.549   0.309  1.00  0.00           C  \nHETATM    7  C6  UNL     1       1.744  -1.179   0.411  1.00  0.00           C  \nHETATM    8  O2  UNL     1       1.930  -2.519  -0.023  1.00  0.00           O  \nHETATM    9  C7  UNL     1       0.797  -0.448  -0.519  1.00  0.00           C  \nHETATM   10  C8  UNL     1       1.264  -0.493  -1.956  1.00  0.00           C  \nHETATM   11  O3  UNL     1       2.657  -0.337  -2.021  1.00  0.00           O  \nHETATM   12  C9  UNL     1       3.508  -0.153  -0.937  1.00  0.00           C  \nHETATM   13  C10 UNL     1       4.732   0.404  -1.092  1.00  0.00           C  \nHETATM   14  N1  UNL     1      -0.528  -1.005  -0.371  1.00  0.00           N  \nHETATM   15  C11 UNL     1      -1.481  -0.476  -1.329  1.00  0.00           C  \nHETATM   16  C12 UNL     1      -1.917   0.867  -0.811  1.00  0.00           C  \nHETATM   17  C13 UNL     1      -2.876   0.609   0.314  1.00  0.00           C  \nHETATM   18  O4  UNL     1      -2.911   1.774   1.122  1.00  0.00           O  \nHETATM   19  C14 UNL     1      -2.436  -0.577   1.104  1.00  0.00           C  \nHETATM   20  C15 UNL     1      -0.954  -0.844   0.980  1.00  0.00           C  \nHETATM   21  C16 UNL     1      -4.279   0.415  -0.120  1.00  0.00           C  \nHETATM   22  C17 UNL     1      -4.741   0.725  -1.373  1.00  0.00           C  \nHETATM   23  C18 UNL     1      -6.075   0.518  -1.701  1.00  0.00           C  \nHETATM   24  C19 UNL     1      -6.950   0.004  -0.781  1.00  0.00           C  \nHETATM   25  F1  UNL     1      -8.236  -0.180  -1.129  1.00  0.00           F  \nHETATM   26  C20 UNL     1      -6.474  -0.309   0.492  1.00  0.00           C  \nHETATM   27  C21 UNL     1      -5.148  -0.107   0.826  1.00  0.00           C  \nHETATM   28  H1  UNL     1       8.513   2.116   0.650  1.00  0.00           H  \nHETATM   29  H2  UNL     1       8.267   0.377   0.991  1.00  0.00           H  \nHETATM   30  H3  UNL     1       7.256   1.586   1.841  1.00  0.00           H  \nHETATM   31  H4  UNL     1       5.772   0.304   2.120  1.00  0.00           H  \nHETATM   32  H5  UNL     1       3.559  -0.697   2.419  1.00  0.00           H  \nHETATM   33  H6  UNL     1       1.324  -1.161   1.446  1.00  0.00           H  \nHETATM   34  H7  UNL     1       1.721  -2.609  -0.987  1.00  0.00           H  \nHETATM   35  H8  UNL     1       0.801   0.613  -0.220  1.00  0.00           H  \nHETATM   36  H9  UNL     1       0.940  -1.429  -2.467  1.00  0.00           H  \nHETATM   37  H10 UNL     1       0.844   0.429  -2.445  1.00  0.00           H  \nHETATM   38  H11 UNL     1       5.070   0.710  -2.069  1.00  0.00           H  \nHETATM   39  H12 UNL     1      -0.984  -0.390  -2.304  1.00  0.00           H  \nHETATM   40  H13 UNL     1      -2.309  -1.235  -1.372  1.00  0.00           H  \nHETATM   41  H14 UNL     1      -2.250   1.581  -1.550  1.00  0.00           H  \nHETATM   42  H15 UNL     1      -1.003   1.337  -0.319  1.00  0.00           H  \nHETATM   43  H16 UNL     1      -2.106   2.335   0.917  1.00  0.00           H  \nHETATM   44  H17 UNL     1      -3.040  -1.499   0.915  1.00  0.00           H  \nHETATM   45  H18 UNL     1      -2.624  -0.353   2.195  1.00  0.00           H  \nHETATM   46  H19 UNL     1      -0.387  -0.068   1.533  1.00  0.00           H  \nHETATM   47  H20 UNL     1      -0.778  -1.821   1.517  1.00  0.00           H  \nHETATM   48  H21 UNL     1      -4.074   1.124  -2.098  1.00  0.00           H  \nHETATM   49  H22 UNL     1      -6.382   0.780  -2.684  1.00  0.00           H  \nHETATM   50  H23 UNL     1      -7.166  -0.705   1.201  1.00  0.00           H  \nHETATM   51  H24 UNL     1      -4.786  -0.359   1.837  1.00  0.00           H  \nCONECT    1    2   28   29   30\nCONECT    2    3\nCONECT    3    4    4   13\nCONECT    4    5   31\nCONECT    5    6    6   32\nCONECT    6    7   12\nCONECT    7    8    9   33\nCONECT    8   34\nCONECT    9   10   14   35\nCONECT   10   11   36   37\nCONECT   11   12\nCONECT   12   13   13\nCONECT   13   38\nCONECT   14   15   20\nCONECT   15   16   39   40\nCONECT   16   17   41   42\nCONECT   17   18   19   21\nCONECT   18   43\nCONECT   19   20   44   45\nCONECT   20   46   47\nCONECT   21   22   22   27\nCONECT   22   23   48\nCONECT   23   24   24   49\nCONECT   24   25   26\nCONECT   26   27   27   50\nCONECT   27   51\nENDMDL\nMODEL        8\nHETATM    1  C1  UNL     1       7.012  -1.928  -1.264  1.00  0.00           C  \nHETATM    2  O1  UNL     1       6.315  -2.014  -0.042  1.00  0.00           O  \nHETATM    3  C2  UNL     1       5.222  -1.199   0.162  1.00  0.00           C  \nHETATM    4  C3  UNL     1       4.536  -1.266   1.355  1.00  0.00           C  \nHETATM    5  C4  UNL     1       3.435  -0.465   1.613  1.00  0.00           C  \nHETATM    6  C5  UNL     1       3.008   0.419   0.661  1.00  0.00           C  \nHETATM    7  C6  UNL     1       1.912   1.379   0.866  1.00  0.00           C  \nHETATM    8  O2  UNL     1       1.168   1.165   1.999  1.00  0.00           O  \nHETATM    9  C7  UNL     1       1.062   1.655  -0.323  1.00  0.00           C  \nHETATM   10  C8  UNL     1       1.773   1.512  -1.641  1.00  0.00           C  \nHETATM   11  O3  UNL     1       3.189   1.407  -1.458  1.00  0.00           O  \nHETATM   12  C9  UNL     1       3.701   0.486  -0.550  1.00  0.00           C  \nHETATM   13  C10 UNL     1       4.798  -0.308  -0.807  1.00  0.00           C  \nHETATM   14  N1  UNL     1      -0.208   1.041  -0.229  1.00  0.00           N  \nHETATM   15  C11 UNL     1      -0.353  -0.351  -0.260  1.00  0.00           C  \nHETATM   16  C12 UNL     1      -1.793  -0.789  -0.552  1.00  0.00           C  \nHETATM   17  C13 UNL     1      -2.761  -0.034   0.304  1.00  0.00           C  \nHETATM   18  O4  UNL     1      -2.533  -0.358   1.666  1.00  0.00           O  \nHETATM   19  C14 UNL     1      -2.537   1.460   0.204  1.00  0.00           C  \nHETATM   20  C15 UNL     1      -1.112   1.730   0.654  1.00  0.00           C  \nHETATM   21  C16 UNL     1      -4.153  -0.334  -0.022  1.00  0.00           C  \nHETATM   22  C17 UNL     1      -4.617  -1.645  -0.068  1.00  0.00           C  \nHETATM   23  C18 UNL     1      -5.943  -1.917  -0.375  1.00  0.00           C  \nHETATM   24  C19 UNL     1      -6.855  -0.909  -0.643  1.00  0.00           C  \nHETATM   25  F1  UNL     1      -8.159  -1.185  -0.939  1.00  0.00           F  \nHETATM   26  C20 UNL     1      -6.410   0.383  -0.600  1.00  0.00           C  \nHETATM   27  C21 UNL     1      -5.075   0.657  -0.294  1.00  0.00           C  \nHETATM   28  H1  UNL     1       7.896  -2.603  -1.300  1.00  0.00           H  \nHETATM   29  H2  UNL     1       6.285  -2.099  -2.078  1.00  0.00           H  \nHETATM   30  H3  UNL     1       7.463  -0.900  -1.409  1.00  0.00           H  \nHETATM   31  H4  UNL     1       4.866  -1.965   2.103  1.00  0.00           H  \nHETATM   32  H5  UNL     1       2.914  -0.532   2.564  1.00  0.00           H  \nHETATM   33  H6  UNL     1       2.430   2.421   1.088  1.00  0.00           H  \nHETATM   34  H7  UNL     1       1.156   0.258   2.303  1.00  0.00           H  \nHETATM   35  H8  UNL     1       0.814   2.780  -0.283  1.00  0.00           H  \nHETATM   36  H9  UNL     1       1.464   0.621  -2.219  1.00  0.00           H  \nHETATM   37  H10 UNL     1       1.636   2.375  -2.322  1.00  0.00           H  \nHETATM   38  H11 UNL     1       5.316  -0.233  -1.773  1.00  0.00           H  \nHETATM   39  H12 UNL     1      -0.114  -0.811   0.708  1.00  0.00           H  \nHETATM   40  H13 UNL     1       0.267  -0.832  -1.015  1.00  0.00           H  \nHETATM   41  H14 UNL     1      -2.054  -0.694  -1.616  1.00  0.00           H  \nHETATM   42  H15 UNL     1      -1.878  -1.872  -0.279  1.00  0.00           H  \nHETATM   43  H16 UNL     1      -3.213   0.137   2.185  1.00  0.00           H  \nHETATM   44  H17 UNL     1      -2.655   1.836  -0.810  1.00  0.00           H  \nHETATM   45  H18 UNL     1      -3.215   1.951   0.959  1.00  0.00           H  \nHETATM   46  H19 UNL     1      -0.852   2.785   0.675  1.00  0.00           H  \nHETATM   47  H20 UNL     1      -1.066   1.275   1.690  1.00  0.00           H  \nHETATM   48  H21 UNL     1      -3.927  -2.459   0.137  1.00  0.00           H  \nHETATM   49  H22 UNL     1      -6.331  -2.920  -0.423  1.00  0.00           H  \nHETATM   50  H23 UNL     1      -7.081   1.202  -0.801  1.00  0.00           H  \nHETATM   51  H24 UNL     1      -4.742   1.688  -0.264  1.00  0.00           H  \nCONECT    1    2   28   29   30\nCONECT    2    3\nCONECT    3    4    4   13\nCONECT    4    5   31\nCONECT    5    6    6   32\nCONECT    6    7   12\nCONECT    7    8    9   33\nCONECT    8   34\nCONECT    9   10   14   35\nCONECT   10   11   36   37\nCONECT   11   12\nCONECT   12   13   13\nCONECT   13   38\nCONECT   14   15   20\nCONECT   15   16   39   40\nCONECT   16   17   41   42\nCONECT   17   18   19   21\nCONECT   18   43\nCONECT   19   20   44   45\nCONECT   20   46   47\nCONECT   21   22   22   27\nCONECT   22   23   48\nCONECT   23   24   24   49\nCONECT   24   25   26\nCONECT   26   27   27   50\nCONECT   27   51\nENDMDL\nMODEL        9\nHETATM    1  C1  UNL     1       8.292   0.347  -0.103  1.00  0.00           C  \nHETATM    2  O1  UNL     1       7.286  -0.531   0.346  1.00  0.00           O  \nHETATM    3  C2  UNL     1       5.950  -0.343   0.080  1.00  0.00           C  \nHETATM    4  C3  UNL     1       5.542   0.747  -0.660  1.00  0.00           C  \nHETATM    5  C4  UNL     1       4.207   0.940  -0.936  1.00  0.00           C  \nHETATM    6  C5  UNL     1       3.251   0.039  -0.474  1.00  0.00           C  \nHETATM    7  C6  UNL     1       1.826   0.227  -0.809  1.00  0.00           C  \nHETATM    8  O2  UNL     1       1.527   1.597  -0.642  1.00  0.00           O  \nHETATM    9  C7  UNL     1       0.868  -0.677  -0.078  1.00  0.00           C  \nHETATM   10  C8  UNL     1       1.459  -1.382   1.109  1.00  0.00           C  \nHETATM   11  O3  UNL     1       2.708  -1.922   0.715  1.00  0.00           O  \nHETATM   12  C9  UNL     1       3.679  -1.035   0.260  1.00  0.00           C  \nHETATM   13  C10 UNL     1       5.034  -1.242   0.549  1.00  0.00           C  \nHETATM   14  N1  UNL     1      -0.325   0.028   0.132  1.00  0.00           N  \nHETATM   15  C11 UNL     1      -1.014  -0.069   1.347  1.00  0.00           C  \nHETATM   16  C12 UNL     1      -2.450  -0.571   1.211  1.00  0.00           C  \nHETATM   17  C13 UNL     1      -3.133   0.356   0.244  1.00  0.00           C  \nHETATM   18  O4  UNL     1      -2.838   1.666   0.694  1.00  0.00           O  \nHETATM   19  C14 UNL     1      -2.454   0.126  -1.101  1.00  0.00           C  \nHETATM   20  C15 UNL     1      -0.985   0.460  -1.023  1.00  0.00           C  \nHETATM   21  C16 UNL     1      -4.573   0.192   0.142  1.00  0.00           C  \nHETATM   22  C17 UNL     1      -5.287   0.835  -0.836  1.00  0.00           C  \nHETATM   23  C18 UNL     1      -6.660   0.709  -0.950  1.00  0.00           C  \nHETATM   24  C19 UNL     1      -7.336  -0.074  -0.069  1.00  0.00           C  \nHETATM   25  F1  UNL     1      -8.702  -0.225  -0.159  1.00  0.00           F  \nHETATM   26  C20 UNL     1      -6.667  -0.726   0.915  1.00  0.00           C  \nHETATM   27  C21 UNL     1      -5.301  -0.604   1.030  1.00  0.00           C  \nHETATM   28  H1  UNL     1       8.071   0.661  -1.158  1.00  0.00           H  \nHETATM   29  H2  UNL     1       8.314   1.241   0.525  1.00  0.00           H  \nHETATM   30  H3  UNL     1       9.284  -0.157  -0.177  1.00  0.00           H  \nHETATM   31  H4  UNL     1       6.253   1.492  -1.051  1.00  0.00           H  \nHETATM   32  H5  UNL     1       3.823   1.782  -1.512  1.00  0.00           H  \nHETATM   33  H6  UNL     1       1.744   0.072  -1.929  1.00  0.00           H  \nHETATM   34  H7  UNL     1       1.533   2.084  -1.507  1.00  0.00           H  \nHETATM   35  H8  UNL     1       0.618  -1.514  -0.806  1.00  0.00           H  \nHETATM   36  H9  UNL     1       0.801  -2.245   1.329  1.00  0.00           H  \nHETATM   37  H10 UNL     1       1.650  -0.726   1.984  1.00  0.00           H  \nHETATM   38  H11 UNL     1       5.326  -2.082   1.124  1.00  0.00           H  \nHETATM   39  H12 UNL     1      -0.524  -0.731   2.076  1.00  0.00           H  \nHETATM   40  H13 UNL     1      -1.098   0.941   1.812  1.00  0.00           H  \nHETATM   41  H14 UNL     1      -2.445  -1.613   0.848  1.00  0.00           H  \nHETATM   42  H15 UNL     1      -2.872  -0.574   2.227  1.00  0.00           H  \nHETATM   43  H16 UNL     1      -3.414   1.760   1.519  1.00  0.00           H  \nHETATM   44  H17 UNL     1      -2.627  -0.915  -1.391  1.00  0.00           H  \nHETATM   45  H18 UNL     1      -2.889   0.762  -1.902  1.00  0.00           H  \nHETATM   46  H19 UNL     1      -0.882   1.538  -1.190  1.00  0.00           H  \nHETATM   47  H20 UNL     1      -0.515  -0.023  -1.908  1.00  0.00           H  \nHETATM   48  H21 UNL     1      -4.819   1.473  -1.578  1.00  0.00           H  \nHETATM   49  H22 UNL     1      -7.235   1.212  -1.718  1.00  0.00           H  \nHETATM   50  H23 UNL     1      -7.197  -1.355   1.626  1.00  0.00           H  \nHETATM   51  H24 UNL     1      -4.803  -1.133   1.824  1.00  0.00           H  \nCONECT    1    2   28   29   30\nCONECT    2    3\nCONECT    3    4    4   13\nCONECT    4    5   31\nCONECT    5    6    6   32\nCONECT    6    7   12\nCONECT    7    8    9   33\nCONECT    8   34\nCONECT    9   10   14   35\nCONECT   10   11   36   37\nCONECT   11   12\nCONECT   12   13   13\nCONECT   13   38\nCONECT   14   15   20\nCONECT   15   16   39   40\nCONECT   16   17   41   42\nCONECT   17   18   19   21\nCONECT   18   43\nCONECT   19   20   44   45\nCONECT   20   46   47\nCONECT   21   22   22   27\nCONECT   22   23   48\nCONECT   23   24   24   49\nCONECT   24   25   26\nCONECT   26   27   27   50\nCONECT   27   51\nENDMDL\nMODEL       10\nHETATM    1  C1  UNL     1       7.480   1.062   1.263  1.00  0.00           C  \nHETATM    2  O1  UNL     1       6.759  -0.167   1.177  1.00  0.00           O  \nHETATM    3  C2  UNL     1       5.552  -0.148   0.499  1.00  0.00           C  \nHETATM    4  C3  UNL     1       5.025   0.993  -0.087  1.00  0.00           C  \nHETATM    5  C4  UNL     1       3.830   0.991  -0.754  1.00  0.00           C  \nHETATM    6  C5  UNL     1       3.124  -0.196  -0.846  1.00  0.00           C  \nHETATM    7  C6  UNL     1       1.844  -0.275  -1.586  1.00  0.00           C  \nHETATM    8  O2  UNL     1       1.377   1.030  -1.739  1.00  0.00           O  \nHETATM    9  C7  UNL     1       0.878  -1.209  -0.935  1.00  0.00           C  \nHETATM   10  C8  UNL     1       1.469  -2.352  -0.223  1.00  0.00           C  \nHETATM   11  O3  UNL     1       2.873  -2.486  -0.397  1.00  0.00           O  \nHETATM   12  C9  UNL     1       3.637  -1.331  -0.268  1.00  0.00           C  \nHETATM   13  C10 UNL     1       4.855  -1.333   0.412  1.00  0.00           C  \nHETATM   14  N1  UNL     1      -0.131  -0.451  -0.246  1.00  0.00           N  \nHETATM   15  C11 UNL     1      -0.860   0.301  -1.258  1.00  0.00           C  \nHETATM   16  C12 UNL     1      -2.375   0.020  -1.189  1.00  0.00           C  \nHETATM   17  C13 UNL     1      -2.798   0.497   0.158  1.00  0.00           C  \nHETATM   18  O4  UNL     1      -2.307   1.789   0.347  1.00  0.00           O  \nHETATM   19  C14 UNL     1      -2.091  -0.376   1.170  1.00  0.00           C  \nHETATM   20  C15 UNL     1      -1.013  -1.245   0.556  1.00  0.00           C  \nHETATM   21  C16 UNL     1      -4.258   0.559   0.359  1.00  0.00           C  \nHETATM   22  C17 UNL     1      -5.111   0.846  -0.679  1.00  0.00           C  \nHETATM   23  C18 UNL     1      -6.498   0.905  -0.475  1.00  0.00           C  \nHETATM   24  C19 UNL     1      -7.038   0.676   0.770  1.00  0.00           C  \nHETATM   25  F1  UNL     1      -8.394   0.732   0.983  1.00  0.00           F  \nHETATM   26  C20 UNL     1      -6.184   0.389   1.812  1.00  0.00           C  \nHETATM   27  C21 UNL     1      -4.819   0.334   1.599  1.00  0.00           C  \nHETATM   28  H1  UNL     1       6.792   1.805   1.717  1.00  0.00           H  \nHETATM   29  H2  UNL     1       8.365   0.974   1.912  1.00  0.00           H  \nHETATM   30  H3  UNL     1       7.689   1.410   0.240  1.00  0.00           H  \nHETATM   31  H4  UNL     1       5.627   1.905   0.017  1.00  0.00           H  \nHETATM   32  H5  UNL     1       3.419   1.873  -1.208  1.00  0.00           H  \nHETATM   33  H6  UNL     1       2.054  -0.627  -2.647  1.00  0.00           H  \nHETATM   34  H7  UNL     1       1.865   1.459  -2.465  1.00  0.00           H  \nHETATM   35  H8  UNL     1       0.296  -1.669  -1.818  1.00  0.00           H  \nHETATM   36  H9  UNL     1       1.064  -3.352  -0.575  1.00  0.00           H  \nHETATM   37  H10 UNL     1       1.303  -2.389   0.874  1.00  0.00           H  \nHETATM   38  H11 UNL     1       5.214  -2.244   0.842  1.00  0.00           H  \nHETATM   39  H12 UNL     1      -0.802   1.409  -1.090  1.00  0.00           H  \nHETATM   40  H13 UNL     1      -0.602   0.006  -2.295  1.00  0.00           H  \nHETATM   41  H14 UNL     1      -2.558  -1.045  -1.385  1.00  0.00           H  \nHETATM   42  H15 UNL     1      -2.801   0.693  -1.957  1.00  0.00           H  \nHETATM   43  H16 UNL     1      -2.633   2.422  -0.335  1.00  0.00           H  \nHETATM   44  H17 UNL     1      -2.807  -1.104   1.643  1.00  0.00           H  \nHETATM   45  H18 UNL     1      -1.642   0.196   2.005  1.00  0.00           H  \nHETATM   46  H19 UNL     1      -1.445  -2.109   0.003  1.00  0.00           H  \nHETATM   47  H20 UNL     1      -0.474  -1.644   1.447  1.00  0.00           H  \nHETATM   48  H21 UNL     1      -4.752   1.032  -1.664  1.00  0.00           H  \nHETATM   49  H22 UNL     1      -7.179   1.128  -1.276  1.00  0.00           H  \nHETATM   50  H23 UNL     1      -6.626   0.207   2.803  1.00  0.00           H  \nHETATM   51  H24 UNL     1      -4.190   0.104   2.467  1.00  0.00           H  \nCONECT    1    2   28   29   30\nCONECT    2    3\nCONECT    3    4    4   13\nCONECT    4    5   31\nCONECT    5    6    6   32\nCONECT    6    7   12\nCONECT    7    8    9   33\nCONECT    8   34\nCONECT    9   10   14   35\nCONECT   10   11   36   37\nCONECT   11   12\nCONECT   12   13   13\nCONECT   13   38\nCONECT   14   15   20\nCONECT   15   16   39   40\nCONECT   16   17   41   42\nCONECT   17   18   19   21\nCONECT   18   43\nCONECT   19   20   44   45\nCONECT   20   46   47\nCONECT   21   22   22   27\nCONECT   22   23   48\nCONECT   23   24   24   49\nCONECT   24   25   26\nCONECT   26   27   27   50\nCONECT   27   51\nENDMDL\nEND\n", "type": "blob"}], "kwargs": {"defaultRepresentation": true, "ext": "pdb"}, "methodName": "loadFile", "reconstruc_color_scheme": false, "target": "Stage", "type": "call_method"}], "_ngl_original_stage_parameters": {}, "_ngl_repr_dict": {}, "_ngl_serialize": false, "_ngl_version": "", "_ngl_view_id": [], "_player_dict": {}, "_scene_position": {}, "_scene_rotation": {}, "_synced_model_ids": [], "_synced_repr_model_ids": [], "_view_count": null, "_view_height": "", "_view_module": "nglview-js-widgets", "_view_module_version": "3.0.1", "_view_name": "NGLView", "_view_width": "", "background": "white", "frame": 0, "gui_style": null, "layout": "IPY_MODEL_03a768507ba04d9f9ad986d8b2f2f266", "max_frame": 0, "n_components": 0, "picked": {}}}, "adaa4fd0227a4771a0dd6aa16735fdc7": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "b74f4520044d4e6097a9b3d0a4928607": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "bd51e0e506fd4b95a54469a380f04af5": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "IntSliderModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_adaa4fd0227a4771a0dd6aa16735fdc7", "max": 0, "min": 0, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_644e42602bb24388884fdf7ae60d9abc", "value": 0}}}
+</script></section>
+</section>
+
+
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="md-footer">
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="T028_kinase_similarity_compare_perspectives.html" title="T028 · Kinase similarity: Compare different perspectives"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> Previous </span> T028 · Kinase similarity: Compare different perspectives </span>
+              </div>
+            </a>
+          
+          
+            <a href="T034_recurrent_neural_networks.html" title="T034 · RNN-based molecular property prediction"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> Next </span> T034 · RNN-based molecular property prediction </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          
+        </a>
+        
+      </nav>
+    </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169; Copyright 2018-2023, Volkamer Lab. Project structure based on the Computational Molecular Science Python Cookiecutter version 1.1.
+              
+          </div>
+            Created using
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../_static/javascripts/application.js"></script>
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  </body>
+</html>

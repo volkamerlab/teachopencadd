@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="T035 · GNN-based molecular property prediction" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://projects.volkamerlab.org/teachopencadd/talktorials/T035_graph_neural_networks.html" />
+<meta property="og:site_name" content="TeachOpenCADD" />
+<meta property="og:description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Paula Linh Kramer, 2022, Volkamer Lab, Saarland University. Aim of this talktorial: In this tutorial, we will..." />
+<meta property="og:image" content="https://raw.githubusercontent.com/volkamerlab/teachopencadd/master/docs/_static/images/TeachOpenCADD_topics.png" />
+<meta property="og:image:alt" content="TeachOpenCADD" />
+<meta name="description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Paula Linh Kramer, 2022, Volkamer Lab, Saarland University. Aim of this talktorial: In this tutorial, we will..." />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
+
+    <style>
+      body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+    </style>
+  
+
+  <link rel="stylesheet" href="../_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="../_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#2196f3">
+  <script src="../_static/javascripts/modernizr.js"></script>
+  
+    <script async src="../_static/cookieconsent.min.js"></script>
+    <script>
+        window.addEventListener("load", function(){
+        window.cookieconsent.initialise({
+            "palette": {
+            "popup": {
+                "background": "#f0f0f0",
+                "text": "#999"
+            },
+            "button": {
+                "text": "#fff",
+                "background": "#009688"
+            }
+            },
+            "theme": "classic"
+        })});
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6ZE82CNZB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-Q6ZE82CNZB');
+    </script>
+  
+    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
+  
+  
+    <title>T035 · GNN-based molecular property prediction &#8212; TeachOpenCADD 0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/material.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="T036 · An introduction to E(3)-invariant graph neural networks" href="T036_e3_equivariant_gnn.html" />
+    <link rel="prev" title="T034 · RNN-based molecular property prediction" href="T034_recurrent_neural_networks.html" />
+  
+    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
+  
+   
+
+  </head>
+  <body dir=ltr
+        data-md-color-primary=teal data-md-color-accent=cyan>
+  
+  <svg class="md-svg">
+    <defs data-children-count="0">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
+    </defs>
+  </svg>
+  
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#talktorials/T035_graph_neural_networks" tabindex="1" class="md-skip"> Skip to content </a>
+  <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../index.html" title="TeachOpenCADD 0 documentation"
+           class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic">TeachOpenCADD</span>
+          <span class="md-header-nav__topic"> T035 · GNN-based molecular property prediction </span>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="../search.html" method="get" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder="Search"
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    TeachOpenCADD
+  </div>
+</a>
+          </div>
+        </div>
+      
+      
+    </div>
+  </nav>
+</header>
+
+  
+  <div class="md-container">
+    
+    
+    
+  <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+      <ul class="md-tabs__list">
+            
+            <li class="md-tabs__item"><a href="../talktorials.html" class="md-tabs__link">Our talktorials</a></li>
+            
+            <li class="md-tabs__item"><a href="../installing.html" class="md-tabs__link">Run locally</a></li>
+            
+            <li class="md-tabs__item"><a href="../contribute.html" class="md-tabs__link">Development</a></li>
+            
+            <li class="md-tabs__item"><a href="../contact.html" class="md-tabs__link">Contact</a></li>
+            
+            <li class="md-tabs__item"><a href="../citation.html" class="md-tabs__link">Citation</a></li>
+          <li class="md-tabs__item"><a href="../all_talktorials.html" class="md-tabs__link">Complete list of talktorials</a></li>
+      </ul>
+    </div>
+  </nav>
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../index.html" title="TeachOpenCADD 0 documentation" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    <a href="../index.html"
+       title="TeachOpenCADD 0 documentation">TeachOpenCADD</a>
+  </label>
+    <div class="md-nav__source">
+      <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    TeachOpenCADD
+  </div>
+</a>
+    </div>
+  
+  
+
+  
+  <ul class="md-nav__list">
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Our talktorials</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="T001_query_chembl.html" class="md-nav__link">T001 · Compound data acquisition (ChEMBL)</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T002_compound_adme.html" class="md-nav__link">T002 · Molecular filtering: ADME and lead-likeness criteria</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T003_compound_unwanted_substructures.html" class="md-nav__link">T003 · Molecular filtering: unwanted substructures</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T004_compound_similarity.html" class="md-nav__link">T004 · Ligand-based screening: compound similarity</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T005_compound_clustering.html" class="md-nav__link">T005 · Compound clustering</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T006_compound_maximum_common_substructures.html" class="md-nav__link">T006 · Maximum common substructure</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T007_compound_activity_machine_learning.html" class="md-nav__link">T007 · Ligand-based screening: machine learning</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T008_query_pdb.html" class="md-nav__link">T008 · Protein data acquisition: Protein Data Bank (PDB)</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T009_compound_ensemble_pharmacophores.html" class="md-nav__link">T009 · Ligand-based pharmacophores</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T010_binding_site_comparison.html" class="md-nav__link">T010 · Binding site similarity and off-target prediction</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T011_query_online_api_webservices.html" class="md-nav__link">T011 · Querying online API webservices</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T012_query_klifs.html" class="md-nav__link">T012 · Data acquisition from KLIFS</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T013_query_pubchem.html" class="md-nav__link">T013 · Data acquisition from PubChem</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T014_binding_site_detection.html" class="md-nav__link">T014 · Binding site detection</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T015_protein_ligand_docking.html" class="md-nav__link">T015 · Protein ligand docking</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T016_protein_ligand_interactions.html" class="md-nav__link">T016 · Protein-ligand interactions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T017_advanced_nglview_usage.html" class="md-nav__link">T017 · Advanced NGLview usage</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T018_automated_cadd_pipeline.html" class="md-nav__link">T018 · Automated pipeline for lead optimization</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T019_md_simulation.html" class="md-nav__link">T019 · Molecular dynamics simulation</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T020_md_analysis.html" class="md-nav__link">T020 · Analyzing molecular dynamics simulations</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T021_one_hot_encoding.html" class="md-nav__link">T021 · One-Hot Encoding</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T022_ligand_based_screening_neural_network.html" class="md-nav__link">T022 · Ligand-based screening: neural networks</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T023_what_is_a_kinase.html" class="md-nav__link">T023 · What is a kinase?</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T024_kinase_similarity_sequence.html" class="md-nav__link">T024 · Kinase similarity: Sequence</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T025_kinase_similarity_kissim.html" class="md-nav__link">T025 · Kinase similarity: Kinase pocket (KiSSim fingerprint)</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T026_kinase_similarity_ifp.html" class="md-nav__link">T026 · Kinase similarity: Interaction fingerprints</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T027_kinase_similarity_ligand_profile.html" class="md-nav__link">T027 · Kinase similarity: Ligand profile</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T028_kinase_similarity_compare_perspectives.html" class="md-nav__link">T028 · Kinase similarity: Compare different perspectives</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T033_molecular_representations.html" class="md-nav__link">T033 · Molecular representations</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T034_recurrent_neural_networks.html" class="md-nav__link">T034 · RNN-based molecular property prediction</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <label class="md-nav__link md-nav__link--active" for="__toc"> T035 · GNN-based molecular property prediction </label>
+    
+      <a href="#" class="md-nav__link md-nav__link--active">T035 · GNN-based molecular property prediction</a>
+      
+        
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#talktorials-t035-graph-neural-networks--page-root" class="md-nav__link">T035 · GNN-based molecular property prediction</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
+        </li>
+        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
+        </li>
+        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Graph-Neural-Networks" class="md-nav__link">Graph Neural Networks</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#GNN-Tasks" class="md-nav__link">GNN Tasks</a>
+        </li>
+        <li class="md-nav__item"><a href="#Message-Passing" class="md-nav__link">Message Passing</a>
+        </li>
+        <li class="md-nav__item"><a href="#GCN" class="md-nav__link">GCN</a>
+        </li>
+        <li class="md-nav__item"><a href="#GIN" class="md-nav__link">GIN</a>
+        </li>
+        <li class="md-nav__item"><a href="#Training-a-GNN" class="md-nav__link">Training a GNN</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Batching" class="md-nav__link">Batching</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Pooling" class="md-nav__link">Pooling</a>
+        </li>
+        <li class="md-nav__item"><a href="#Dropout-(Regularization)" class="md-nav__link">Dropout (Regularization)</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Applications-of-GNNs" class="md-nav__link">Applications of GNNs</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Dataset" class="md-nav__link">Dataset</a>
+        </li>
+        <li class="md-nav__item"><a href="#Defining-a-GCN-and-a-GIN" class="md-nav__link">Defining a GCN and a GIN</a>
+        </li>
+        <li class="md-nav__item"><a href="#id1" class="md-nav__link">Training a GNN</a>
+        </li>
+        <li class="md-nav__item"><a href="#Evaluating-the-model" class="md-nav__link">Evaluating the model</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
+        </li>
+        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T035_graph_neural_networks.nblink.txt">Show Source</a> </li>
+
+  </ul>
+</nav>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T036_e3_equivariant_gnn.html" class="md-nav__link">T036 · An introduction to E(3)-invariant graph neural networks</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T037_uncertainty_estimation.html" class="md-nav__link">T037 · Uncertainty estimation</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T038_protein_ligand_interaction_prediction.html" class="md-nav__link">T038 · Protein Ligand Interaction Prediction</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Run locally</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../installing.html" class="md-nav__link">Installing</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Development</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../contribute.html" class="md-nav__link">For contributors</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../api.html" class="md-nav__link">API Documentation</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">About TeachOpenCADD</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../contact.html" class="md-nav__link">Contact</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../acknowledgments.html" class="md-nav__link">Acknowledgments</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../citation.html" class="md-nav__link">Citation</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../license.html" class="md-nav__link">License</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../funding.html" class="md-nav__link">Funding</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">External resources</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../external_dependencies.html" class="md-nav__link">Packages and webservers used in TeachOpenCADD</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../external_tutorials_collections.html" class="md-nav__link">External tutorials and collections</a>
+      
+    
+    </li>
+  </ul>
+  
+
+</nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#talktorials-t035-graph-neural-networks--page-root" class="md-nav__link">T035 · GNN-based molecular property prediction</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
+        </li>
+        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
+        </li>
+        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Graph-Neural-Networks" class="md-nav__link">Graph Neural Networks</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#GNN-Tasks" class="md-nav__link">GNN Tasks</a>
+        </li>
+        <li class="md-nav__item"><a href="#Message-Passing" class="md-nav__link">Message Passing</a>
+        </li>
+        <li class="md-nav__item"><a href="#GCN" class="md-nav__link">GCN</a>
+        </li>
+        <li class="md-nav__item"><a href="#GIN" class="md-nav__link">GIN</a>
+        </li>
+        <li class="md-nav__item"><a href="#Training-a-GNN" class="md-nav__link">Training a GNN</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Batching" class="md-nav__link">Batching</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Pooling" class="md-nav__link">Pooling</a>
+        </li>
+        <li class="md-nav__item"><a href="#Dropout-(Regularization)" class="md-nav__link">Dropout (Regularization)</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Applications-of-GNNs" class="md-nav__link">Applications of GNNs</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Dataset" class="md-nav__link">Dataset</a>
+        </li>
+        <li class="md-nav__item"><a href="#Defining-a-GCN-and-a-GIN" class="md-nav__link">Defining a GCN and a GIN</a>
+        </li>
+        <li class="md-nav__item"><a href="#id1" class="md-nav__link">Training a GNN</a>
+        </li>
+        <li class="md-nav__item"><a href="#Evaluating-the-model" class="md-nav__link">Evaluating the model</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
+        </li>
+        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T035_graph_neural_networks.nblink.txt">Show Source</a> </li>
+
+<li id="searchbox" class="md-nav__item"></li>
+
+  </ul>
+</nav>
+              </div>
+            </div>
+          </div>
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
+            
+  <section id="T035-·-GNN-based-molecular-property-prediction">
+<h1 id="talktorials-t035-graph-neural-networks--page-root">T035 · GNN-based molecular property prediction<a class="headerlink" href="#talktorials-t035-graph-neural-networks--page-root" title="Permalink to this heading">¶</a></h1>
+<p><strong>Note</strong>: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.</p>
+<p>Authors:</p>
+<ul class="simple">
+<li><p>Paula Linh Kramer, 2022, <a class="reference external" href="https://volkamerlab.org/">Volkamer Lab</a>, Saarland University</p></li>
+</ul>
+<section id="Aim-of-this-talktorial">
+<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this heading">¶</a></h2>
+<p>In this tutorial, we will first explain the basic concepts of graph neural networks (GNNs) and present two different GNN architectures. We apply our neural networks to the <code class="docutils literal notranslate"><span class="pre">QM9</span></code> dataset, which is a dataset containing small molecules. With this dataset, we want to predict molecular properties. We demonstrate how to train and evaluate GNNs step by step using PyTorch Geometric.</p>
+<section id="Contents-in-Theory">
+<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>GNN Tasks</p></li>
+<li><p>Message Passing</p></li>
+<li><p>Graph Convolutional Network (GCN)</p></li>
+<li><p>Graph Isomorphism Network (GIN)</p></li>
+<li><p>Training a GNN</p></li>
+<li><p>Applications of GNNs</p></li>
+</ul>
+</section>
+<section id="Contents-in-Practical">
+<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Dataset</p></li>
+<li><p>Defining a GCN and GIN</p></li>
+<li><p>Training a GNN</p></li>
+<li><p>Evaluating the model</p></li>
+</ul>
+</section>
+<section id="References">
+<h3 id="References">References<a class="headerlink" href="#References" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Articles:</p>
+<ul>
+<li><p>Atz, Kenneth, Francesca Grisoni, and Gisbert Schneider. <em>Geometric Deep Learning on Molecular Representations</em>, <a class="reference external" href="https://arxiv.org/pdf/2107.12375.pdf">Nature Machine Intelligence 3.12 (2021): 1023-1032</a></p></li>
+<li><p>Xu, Keyulu, Weihua Hu, Jure Leskovec, and Stefanie Jegelka. <em>How Powerful are Graph Neural Networks?</em>, <a class="reference external" href="https://arxiv.org/abs/1810.00826v3">International Conference on Learning Representations (ICLR 2019)</a></p></li>
+<li><p>Welling, Max, and Thomas N. Kipf. <em>Semi-supervised classification with graph convolutional networks</em>, <a class="reference external" href="https://arxiv.org/pdf/1609.02907.pdf">International Conference on Learning Representations (ICLR 2017)</a></p></li>
+<li><p>Gilmer, Justin, Samuel S. Schoenholz, Patrick F. Riley, Oriol Vinyals, and George E. Dahl. <em>Neural Message Passing for Quantum Chemistry</em>, <a class="reference external" href="https://arxiv.org/pdf/1704.01212.pdf">International conference on machine learning. PMLR, 2017</a></p></li>
+</ul>
+</li>
+<li><p>Blog posts:</p>
+<ul>
+<li><p>Maxime Labonne, <em>Graph Convolutional Networks: Introduction to GNNs</em>, <a class="reference external" href="https://mlabonne.github.io/blog/intrognn/">Maxime Labonne</a></p></li>
+<li><p>Maxime Labonne, <em>GIN: How to Design the Most Powerful Graph Neural Network</em>, <a class="reference external" href="https://mlabonne.github.io/blog/gin/">Maxime Labonne</a></p></li>
+<li><p>Vortana Say, <em>How To Save and Load Model In PyTorch With A Complete Example</em>, <a class="reference external" href="https://towardsdatascience.com/how-to-save-and-load-a-model-in-pytorch-with-a-complete-example-c2920e617dee">towardsdatascience</a></p></li>
+<li><p>Michael Bronstein, <em>Expressive power of graph neural networks and the Weisfeiler-Lehman test</em>, <a class="reference external" href="https://towardsdatascience.com/expressive-power-of-graph-neural-networks-and-the-weisefeiler-lehman-test-b883db3c7c49">towardsdatascience</a></p></li>
+<li><p>Benjamin Sanchez-Lengeling, Emily Reif, <em>A Gentle Introduction to Graph Neural Networks</em>, <a class="reference external" href="https://distill.pub/2021/gnn-intro/">Distill</a></p></li>
+</ul>
+</li>
+<li><p>Tutorials:</p>
+<ul>
+<li><p><em>Pytorch Geometric Documentation</em>, <a class="reference external" href="https://pytorch-geometric.readthedocs.io/en/latest/notes/colabs.html">Colab Notebooks and Video Tutorials</a></p></li>
+<li><p><em>Pytorch Geometric Documentation</em>, <a class="reference external" href="https://pytorch-geometric.readthedocs.io/en/latest/notes/introduction.html#learning-methods-on-graphs">Introduction by Example</a></p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="Theory">
+<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this heading">¶</a></h2>
+<section id="Graph-Neural-Networks">
+<h3 id="Graph-Neural-Networks">Graph Neural Networks<a class="headerlink" href="#Graph-Neural-Networks" title="Permalink to this heading">¶</a></h3>
+<p>There are several ways to represent molecules which are explained and discussed in <strong>Talktorial T033</strong>. If we work with molecules, one intuitive approach to apply deep learning to certain tasks is to make use of the graph structure of molecules. Graph neural networks can directly work on given graphs. Molecules can easily be represented as a graph, as seen in Figure 1. Given a graph <span class="math notranslate nohighlight">\(G=(V, E)\)</span>, <span class="math notranslate nohighlight">\(V\)</span> describes the vertices or nodes. In molecular graphs, a node
+<span class="math notranslate nohighlight">\(v_i \in \mathbb{R}^{d_v}\)</span> represents an atom. Nodes can have <span class="math notranslate nohighlight">\(d_v\)</span> different features, such as atomic number and chirality. Edges usually correspond to covalent bonds between the atoms. Each edge <span class="math notranslate nohighlight">\(e_{ij} \in \mathbb{R}^{d_e}\)</span> is described by <span class="math notranslate nohighlight">\(d_e\)</span> number of features, which usually represent the bond type. A graph neural network is a network consisting of learnable and differentiable functions that are invariant for graph permutations. Graph neural networks consist of
+so-called message-passing layers which will be explained in more detail below, followed by more specific explanations of two different GNN architectures.</p>
+<p align="center"><p><img alt="simple_graph" class="no-scaled-link" src="../_images/simple-graph.png" style="width: 600px;"/></p>
+</p><p align="center"><p>Figure 1: Molecular graph overview. Figure taken from [1]</p>
+</p><section id="GNN-Tasks">
+<h4 id="GNN-Tasks">GNN Tasks<a class="headerlink" href="#GNN-Tasks" title="Permalink to this heading">¶</a></h4>
+<p>We can perform different tasks with a GNN:</p>
+<ul class="simple">
+<li><p>Graph-level tasks: one application would be to predict a specific property of the entire graph. This can be a classification task such as toxicity prediction or a regression task. In this tutorial, we will implement a regression task to predict molecular properties. Another graph-level task would be to predict entirely new graphs/molecules. This is especially relevant in the area of drug discovery, where new drug candidates are of interest.</p></li>
+<li><p>Node-level tasks: we can predict a property of a specific node in the graph, e.g. the atomic charges of each atom. We could also predict a new node to be added to the graph. This is often done for molecule generation, where we want to add multiple atoms to form new molecules one after the other.</p></li>
+<li><p>Edge-level tasks: we can predict edge properties, e.g. intramolecular forces between atoms, or a new edge in the graph. In the molecule generation context, we want to predict potential bonds between the atoms. Edge prediction can also be used to infer connections/interactions e.g. in a gene regulatory network.</p></li>
+</ul>
+</section>
+<section id="Message-Passing">
+<h4 id="Message-Passing">Message Passing<a class="headerlink" href="#Message-Passing" title="Permalink to this heading">¶</a></h4>
+<p>Instead of MLP layers in standard neural networks, GNNs have message-passing layers, where we collect information about the neighboring nodes. For each node <span class="math notranslate nohighlight">\(v\)</span>, we look at the direct neighbors <span class="math notranslate nohighlight">\(N(v)\)</span> and gather information. Then all the information is aggregated, for example with summation. Then we update the node <span class="math notranslate nohighlight">\(v\)</span> with the aggregated messages. If we perform this aggregation and combining, each node contains the information about the direct neighbors (1-hop). If we repeat
+this <span class="math notranslate nohighlight">\(n\)</span> times, we aggregate information about the <span class="math notranslate nohighlight">\(n_{th}\)</span> closest neighbors (<span class="math notranslate nohighlight">\(n\)</span> -hop).</p>
+<div class="math notranslate nohighlight">
+\[a_v^{(k)} = \text{aggregate}^{(k)} (\{ h_u^{(k-1)}: u \in N(v) \})\]</div>
+<div class="math notranslate nohighlight">
+\[h_v^{(k)} = \text{combine}^{(k)} (h_v^{(k-1)}, a_v^{(k)})\]</div>
+<p>where <span class="math notranslate nohighlight">\(h_v^{(k)}\)</span> is the embedding of node <span class="math notranslate nohighlight">\(v\)</span> at layer <span class="math notranslate nohighlight">\(k\)</span>, <span class="math notranslate nohighlight">\(N(v)\)</span> are the neighbors of node <span class="math notranslate nohighlight">\(v\)</span>.</p>
+<p align="center"><p><img alt="simple_graph" class="no-scaled-link" src="../_images/gnn_overview.png" style="width: 600px;"/></p>
+</p><p align="center"><p>Figure 2: Message passing overview. Figure taken from [2]</p>
+</p><p>One important property of a GNN is permutation invariance. This means that changing the order of nodes in the graph should not affect the outcome. For example, when working with adjacency matrices, changing the order of nodes would mean swapping rows and/or columns. However, this does not change any properties of a graph, but the input would differ. In GNNs, we want to overcome this. We, therefore need an aggregation function and a combining function that are permutation invariant, such as using
+the mean, the maximum or a sum. Using a permutation invariant aggregation function ensures that the graph-level outputs are also invariant to permutations. In this tutorial, we will explain graph-level regression tasks and in the following, we will present two different GNN architectures.</p>
+</section>
+<section id="GCN">
+<h4 id="GCN">GCN<a class="headerlink" href="#GCN" title="Permalink to this heading">¶</a></h4>
+<p>One of the simplest GNNs is a Graph Convolutional Network (GCN). For GCNs, we sum over all neighbors of node <span class="math notranslate nohighlight">\(v\)</span>, including the node <span class="math notranslate nohighlight">\(v\)</span> itself and aggregate all information. We divide it by the degree to keep the range of different nodes comparable. The node-wise aggregation function for layer <span class="math notranslate nohighlight">\(k\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[h_v^{(k)} = \Theta^{\top} \sum_{u \in N(v) \cup \{v\}} \frac{1}{\sqrt{d_v d_u}} \cdot h_u^{(k-1)}\]</div>
+<p>where <span class="math notranslate nohighlight">\(d_j\)</span> and <span class="math notranslate nohighlight">\(d_i\)</span> denote the degree of node <span class="math notranslate nohighlight">\(j\)</span> and <span class="math notranslate nohighlight">\(i\)</span>, respectively, and <span class="math notranslate nohighlight">\(\Theta\)</span> represent trainable weights.</p>
+<p>One disadvantage of GCNs is, that they use a mean-based aggregation and this function is not injective. This means that different graphs can lead to the same graph embedding and the network cannot distinguish between the two graphs anymore. One example is visualized in Figure 3 below. Assuming the node and edge properties are identical, GCNs could create the same hidden embedding for these two graphs.</p>
+<p align="center"><p><img alt="simple_graph" class="no-scaled-link" src="../_images/graph.jpeg" style="width: 500px;"/></p>
+</p><p align="center"><p>Figure 3: Two indistinguishable graphs using GCNs</p>
+</p></section>
+<section id="GIN">
+<h4 id="GIN">GIN<a class="headerlink" href="#GIN" title="Permalink to this heading">¶</a></h4>
+<p>Another type of GNN is the Graph Isomorphism Network (GIN), which has been proposed to overcome the disadvantages of GCNs explained above. The aggregation function is defined as follows</p>
+<div class="math notranslate nohighlight">
+\[h_v^{(k)} = h_\Theta((1+ \epsilon) \cdot h_v^{(k-1)} + \sum_{u \in N(v)} h_u^{(k-1)} )\]</div>
+<p>The aggregation function here is a sum. The parameter <span class="math notranslate nohighlight">\(\epsilon\)</span> decides on the importance of the node <span class="math notranslate nohighlight">\(v\)</span> compared to its neighbors. <span class="math notranslate nohighlight">\(h_\Theta\)</span> represents a neural network for all nodes <span class="math notranslate nohighlight">\(v\)</span>, for example an MLP. The sum aggregation function is more powerful compared to a mean aggregation (used in the GCN above) since we can distinguish between more similar graphs, for example, the two graphs in Figure 3.</p>
+<p>GINs are a good example of a simple network, which still is quite powerful, as they are quite good at distinguishing between non-isomorphic graphs. Two graphs are isomorphic if the graphs are identical except for node permutations. While this might be easily visible for smaller graphs, it is a complex problem for larger graphs. When working with GNNs, we would like the model to give us the same output if the input graphs are isomorphic. On the other hand, we also want the model to be able to
+differentiate between non-isomorphic graphs and output (possibly) different results. GINs can differentiate between non-isomorphic graphs a lot better than other simple GNNs such as GCN and GraphSage. For example, the two graphs in the figure above have different embeddings using GINs, since we are using a sum-based aggregation without any scaling or averaging. It is proven that GINs are as powerful as the Weisfeiler-Lehman test, a common (but not perfect) isomorphism test for graphs. If you are
+interested in the WL test or more details on GINs, have a look at the original publication about <a class="reference external" href="https://arxiv.org/abs/1810.00826v3">GINs</a> or this <a class="reference external" href="https://towardsdatascience.com/expressive-power-of-graph-neural-networks-and-the-weisefeiler-lehman-test-b883db3c7c49">blog post</a> about the WL test. GINs cannot distinguish between all non-isomorphic graphs, one example is in Figure 4. Each node in both graphs has the same number of neighbors, therefore <span class="math notranslate nohighlight">\(h_v\)</span> is the same for all nodes
+<span class="math notranslate nohighlight">\(v\)</span> in both graphs.</p>
+<p align="center"><p><img alt="simple_graph" class="no-scaled-link" src="../_images/gin_graphs.jpeg" style="width: 500px;"/></p>
+</p><p align="center"><p>Figure 4: Two indistinguishable graphs using GINs</p>
+</p></section>
+<section id="Training-a-GNN">
+<h4 id="Training-a-GNN">Training a GNN<a class="headerlink" href="#Training-a-GNN" title="Permalink to this heading">¶</a></h4>
+<p>Similar to training a standard neural network, different design choices and hyperparameters need to be decided on. We will shortly present some concepts commonly used in neural networks, which can also be used for GNNs. Loss functions and activation functions are already discussed in <strong>Talktorial T022</strong>. We also used the mean squared error loss as well as the ReLU activation function.</p>
+<section id="Batching">
+<h5 id="Batching">Batching<a class="headerlink" href="#Batching" title="Permalink to this heading">¶</a></h5>
+<p>It is common to do batching when training a GNN to improve performance. The batch size indicates how many samples from the training data are fed to the neural network before updating model parameters. Choosing the right batch size is a trade-off between computational cost and generalization. For larger batches, the model is updated fewer times and the training is a lot faster. Models using smaller batches can generalize better, meaning that the test error can be lowered. Since this is not the
+only hyperparameter, choosing the batch size is also linked to the learning rate, the number of training epochs etc. One way to implement batching in GNNs is to stack the adjacency matrices of all graphs in the batch diagonally and to concatenate the node feature matrices. However, graphs (especially molecular graphs) can have rather sparse adjacency matrices. In this case, it is more efficient to use a sparse representation for the edges. PyTorch Geometric for example uses <a class="reference external" href="https://pytorch-geometric.readthedocs.io/en/latest/notes/batching.html">edge
+lists</a>, where only the indexes of present edges are saved. These lists are concatenated during batching.</p>
+<p align="center"><p><img alt="simple_graph" class="no-scaled-link" src="../_images/batching-ex.png" style="width: 600px;"/></p>
+</p><p align="center"><p>Figure 4: Batching in GNNs, image taken from [3]</p>
+</p></section>
+</section>
+<section id="Pooling">
+<h4 id="Pooling">Pooling<a class="headerlink" href="#Pooling" title="Permalink to this heading">¶</a></h4>
+<p>Pooling layers help a neural network to reduce dimensionality. This makes the model more robust to variations. In graphs, global pooling layers can produce a graph embedding from the different node embeddings. There are different ways for pooling, the most common ones are: mean, max and sum, which are permutation invariant. Hence, pooling layers are also permutation invariant. For our GCN, we use a global mean pooling layer and for our GIN we use a global sum pooling layer, as it was proposed in
+the original publications listed in the references above. Pooling layers are also very useful to reduce the size of the layer to a fixed size for graph representation, therefore global pooling layers are also referred to as readout layers.</p>
+</section>
+<section id="Dropout-(Regularization)">
+<h4 id="Dropout-(Regularization)">Dropout (Regularization)<a class="headerlink" href="#Dropout-(Regularization)" title="Permalink to this heading">¶</a></h4>
+<p>One common problem in deep learning tasks is overfitting. This usually means that the dataset used to train the neural network is too small. Applying an overfitted network to a different dataset then leads to a high error in prediction, since the model is fit too closely to the training data and does not generalize well enough. To reduce overfitting, one approach is to use dropout layers, which can lead to a better generalization of the model. During training, nodes are randomly dropped. The
+probability of dropping nodes is another hyperparameter to be fixed. In each iteration, the nodes in a neural network (and the number of nodes) can therefore differ. This means we incorporate more noise and therefore force the neural network to generalize better.</p>
+</section>
+</section>
+<section id="Applications-of-GNNs">
+<h3 id="Applications-of-GNNs">Applications of GNNs<a class="headerlink" href="#Applications-of-GNNs" title="Permalink to this heading">¶</a></h3>
+<p>GNNs can be applied to a wide variety of tasks involving graphs, these could be based on small molecules (like in this tutorial), but also proteins (see <strong>Talktorial T038</strong>), gene regulatory networks and many more. Some applications are:</p>
+<ul class="simple">
+<li><p>Property prediction of molecules, such as toxicity and solubility (see: Wieder, Oliver, et al. <em>A compact review of molecular property prediction with graph neural networks</em> <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1740674920300305">Drug Discovery Today: Technologies 37 (2020): 1-12.</a> and <em>MoleculeNet: a benchmark for molecular machine learning</em> by Zhenqin Wu et al., <a class="reference external" href="https://pubs.rsc.org/en/content/articlehtml/2018/sc/c7sc02664a">Chemical science 9.2 (2018): 513-530.</a>)</p></li>
+<li><p>Generating new molecules, which is especially relevant in the field of drug discovery (for more details, read this review by Tong, Xiaochu, et al. <em>Generative models for De Novo drug design</em> <a class="reference external" href="https://pubs.acs.org/doi/full/10.1021/acs.jmedchem.1c00927?casa_token=WhlMtHT6bdEAAAAA%3ATT5MISL_F3LN9lEnddHjZsNpQwuCycQgN02rIYfuSL2BSki12AdH72H4i2KwlhaIltWUPC0ia1g61YQ">Journal of Medicinal Chemistry 64.19 (2021): 14011-14027</a>)</p></li>
+<li><p>Inferring new interactions/associations in biological networks, such as gene regulatory networks or protein-protein interaction networks</p></li>
+</ul>
+<p>For a more detailed overview of GNNs and their applications, you can read the article by Zhang, Xiao-Meng, et al. <em>Graph Neural Networks and Their Current Applications in Bioinformatics</em> <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8360394/">Frontiers in Genetics 12 (2021)</a>.</p>
+</section>
+</section>
+<section id="Practical">
+<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this heading">¶</a></h2>
+<p>For the practical section, we have used PyTorch and PyTorch-Geometric, which helps us to handle graph data efficiently. PyTorch Geometric for example uses sparse matrix representations and implemented efficient graph batching. However, there are also different graph libraries for Python, such as the <a class="reference external" href="https://www.dgl.ai/">Deep Graph Library</a> which is not covered in this tutorial.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.ticker</span> <span class="kn">import</span> <span class="n">MaxNLocator</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">Fun</span>
+<span class="kn">from</span> <span class="nn">torch.nn</span> <span class="kn">import</span> <span class="n">Linear</span><span class="p">,</span> <span class="n">Sequential</span><span class="p">,</span> <span class="n">BatchNorm1d</span><span class="p">,</span> <span class="n">ReLU</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span><span class="o">.</span><span class="n">startswith</span><span class="p">((</span><span class="s2">"linux"</span><span class="p">,</span> <span class="s2">"darwin"</span><span class="p">)):</span>
+    <span class="o">!</span>mamba<span class="w"> </span>install<span class="w"> </span>-q<span class="w"> </span>-y<span class="w"> </span>-c<span class="w"> </span>pyg<span class="w"> </span>pyg
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">torch_geometric.datasets</span> <span class="kn">import</span> <span class="n">QM9</span>
+<span class="kn">from</span> <span class="nn">torch_geometric.nn</span> <span class="kn">import</span> <span class="n">GCNConv</span><span class="p">,</span> <span class="n">GINConv</span>
+<span class="kn">from</span> <span class="nn">torch_geometric.loader</span> <span class="kn">import</span> <span class="n">DataLoader</span>
+<span class="kn">from</span> <span class="nn">torch_geometric.nn</span> <span class="kn">import</span> <span class="n">global_mean_pool</span><span class="p">,</span> <span class="n">global_add_pool</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># specify the local data path</span>
+<span class="n">HERE</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">_dh</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">DATA</span> <span class="o">=</span> <span class="n">HERE</span> <span class="o">/</span> <span class="s2">"data"</span>
+</pre></div>
+</div>
+</div>
+<section id="Dataset">
+<h3 id="Dataset">Dataset<a class="headerlink" href="#Dataset" title="Permalink to this heading">¶</a></h3>
+<p>For this tutorial, we use the <a class="reference external" href="https://pytorch-geometric.readthedocs.io/en/latest/modules/datasets.html#torch_geometric.datasets.QM9">QM9</a> dataset, which can be imported with <code class="docutils literal notranslate"><span class="pre">torch_geometric</span></code>. The dataset is part of a benchmarking collection called <a class="reference external" href="https://pubs.rsc.org/en/content/articlehtml/2018/sc/c7sc02664a">MoleculeNet</a>. It contains around <span class="math notranslate nohighlight">\(130,000\)</span> small molecules with at most 9 heavy atoms as well as various molecular properties. We will choose one property which we will
+then try to predict.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load dataset</span>
+<span class="n">qm9</span> <span class="o">=</span> <span class="n">QM9</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="n">DATA</span><span class="p">)</span>
+<span class="n">qm9</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Downloading https://deepchemdata.s3-us-west-1.amazonaws.com/datasets/molnet_publish/qm9.zip
+Extracting ~/teachopencadd/teachopencadd/talktorials/T035_graph_neural_networks/data/raw/qm9.zip
+Downloading https://ndownloader.figshare.com/files/3195404
+Processing...
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 133885/133885 [03:03&lt;00:00, 728.09it/s]
+Done!
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Data(x=[5, 11], edge_index=[2, 8], edge_attr=[8, 4], y=[1, 19], pos=[5, 3], z=[5], name='gdb_1', idx=[1])
+</pre></div></div>
+</div>
+<p>If you are running this tutorial for the first time, the dataset will be downloaded here. As an example, the first molecule from the dataset is shown below. The dataset contains the following information: - <code class="docutils literal notranslate"><span class="pre">x</span></code>: contains the different node features, such as atomic number, chirality, hybridization, is aromatic, is ring, - <code class="docutils literal notranslate"><span class="pre">edge_index</span></code>: adjacency matrix, representing the covalent bonds between the atoms, - <code class="docutils literal notranslate"><span class="pre">edge_attributes</span></code>: contains the edge features (bond type, is conjugated, stereo
+configuration), - <code class="docutils literal notranslate"><span class="pre">pos</span></code>: 3D atom coordinates, we will not use them in this tutorial, - <code class="docutils literal notranslate"><span class="pre">z</span></code>: atomic numbers, - <code class="docutils literal notranslate"><span class="pre">y</span></code>: target values, this dataset contains 19 different properties describing each molecule, such as dipole moment, different molecular energies, enthalpy and rotational constants.</p>
+<p>In this tutorial, we only use <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">edge_index</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> to keep it simple. While the dataset has many regression targets, we will only focus on one of the tasks, which is the prediction of the dipole moment <span class="math notranslate nohighlight">\(\mu\)</span>. For this tutorial, we only sample a subset of QM9. This keeps the runtime low and this is still enough to show some first results. The dataset is split into training, validation and test sets with a <span class="math notranslate nohighlight">\(80:10:10\)</span> split ratio. In addition, we normalize the training data
+(<span class="math notranslate nohighlight">\(\mu=0, \sigma=1\)</span>) and apply the same mean and standard deviation to the test and validation set.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get one regression target</span>
+<span class="n">y_target</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">qm9</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+<span class="n">qm9</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span><span class="n">y_target</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">qm9</span> <span class="o">=</span> <span class="n">qm9</span><span class="o">.</span><span class="n">shuffle</span><span class="p">()</span>
+
+<span class="c1"># data split</span>
+<span class="n">data_size</span> <span class="o">=</span> <span class="mi">30000</span>
+<span class="n">train_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">data_size</span> <span class="o">*</span> <span class="mf">0.8</span><span class="p">)</span>
+<span class="n">test_index</span> <span class="o">=</span> <span class="n">train_index</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">data_size</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="n">val_index</span> <span class="o">=</span> <span class="n">test_index</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">data_size</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">)</span>
+
+
+<span class="c1"># normalizing the data</span>
+<span class="n">data_mean</span> <span class="o">=</span> <span class="n">qm9</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">train_index</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">data_std</span> <span class="o">=</span> <span class="n">qm9</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">train_index</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+
+<span class="n">qm9</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">qm9</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">data_mean</span><span class="p">)</span> <span class="o">/</span> <span class="n">data_std</span>
+
+<span class="c1"># datasets into DataLoader</span>
+<span class="n">train_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">qm9</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">train_index</span><span class="p">],</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">test_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">qm9</span><span class="p">[</span><span class="n">train_index</span><span class="p">:</span><span class="n">test_index</span><span class="p">],</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">val_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">qm9</span><span class="p">[</span><span class="n">test_index</span><span class="p">:</span><span class="n">val_index</span><span class="p">],</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+~/.miniconda3/envs/teachopencadd/lib/python3.9/site-packages/torch_geometric/data/in_memory_dataset.py:157: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. The data of the dataset is already cached, so any modifications to `data` will not be reflected when accessing its elements. Clearing the cache now by removing all elements in `dataset._data_list`. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
+  warnings.warn(msg)
+~/.miniconda3/envs/teachopencadd/lib/python3.9/site-packages/torch_geometric/data/in_memory_dataset.py:157: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
+  warnings.warn(msg)
+~/.miniconda3/envs/teachopencadd/lib/python3.9/site-packages/torch_geometric/data/in_memory_dataset.py:157: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. The given 'InMemoryDataset' only references a subset of examples of the full dataset, but 'data' will contain information of the full dataset. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
+  warnings.warn(msg)
+</pre></div></div>
+</div>
+</section>
+<section id="Defining-a-GCN-and-a-GIN">
+<h3 id="Defining-a-GCN-and-a-GIN">Defining a GCN and a GIN<a class="headerlink" href="#Defining-a-GCN-and-a-GIN" title="Permalink to this heading">¶</a></h3>
+<p>The following two Python classes are the two GNNs we will consider in this tutorial. Both have 3 convolutional layers, one global pooling layer, linear layers, ReLU activation functions between the layers and a dropout layer.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">GCN</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Graph Convolutional Network class with 3 convolutional layers and a linear layer"""</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim_h</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""init method for GCN</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            dim_h (int): the dimension of hidden layers</span>
+<span class="sd">        """</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conv1</span> <span class="o">=</span> <span class="n">GCNConv</span><span class="p">(</span><span class="n">qm9</span><span class="o">.</span><span class="n">num_features</span><span class="p">,</span> <span class="n">dim_h</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conv2</span> <span class="o">=</span> <span class="n">GCNConv</span><span class="p">(</span><span class="n">dim_h</span><span class="p">,</span> <span class="n">dim_h</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conv3</span> <span class="o">=</span> <span class="n">GCNConv</span><span class="p">(</span><span class="n">dim_h</span><span class="p">,</span> <span class="n">dim_h</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lin</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">dim_h</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="n">e</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">edge_index</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">x</span>
+
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conv1</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">relu</span><span class="p">()</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conv2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">relu</span><span class="p">()</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conv3</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">global_mean_pool</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">batch</span><span class="p">)</span>
+
+        <span class="n">x</span> <span class="o">=</span> <span class="n">Fun</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">training</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">training</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">GIN</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Graph Isomorphism Network class with 3 GINConv layers and 2 linear layers"""</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim_h</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Initializing GIN class</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            dim_h (int): the dimension of hidden layers</span>
+<span class="sd">        """</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">GIN</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conv1</span> <span class="o">=</span> <span class="n">GINConv</span><span class="p">(</span>
+            <span class="n">Sequential</span><span class="p">(</span><span class="n">Linear</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="n">dim_h</span><span class="p">),</span> <span class="n">BatchNorm1d</span><span class="p">(</span><span class="n">dim_h</span><span class="p">),</span> <span class="n">ReLU</span><span class="p">(),</span> <span class="n">Linear</span><span class="p">(</span><span class="n">dim_h</span><span class="p">,</span> <span class="n">dim_h</span><span class="p">),</span> <span class="n">ReLU</span><span class="p">())</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conv2</span> <span class="o">=</span> <span class="n">GINConv</span><span class="p">(</span>
+            <span class="n">Sequential</span><span class="p">(</span>
+                <span class="n">Linear</span><span class="p">(</span><span class="n">dim_h</span><span class="p">,</span> <span class="n">dim_h</span><span class="p">),</span> <span class="n">BatchNorm1d</span><span class="p">(</span><span class="n">dim_h</span><span class="p">),</span> <span class="n">ReLU</span><span class="p">(),</span> <span class="n">Linear</span><span class="p">(</span><span class="n">dim_h</span><span class="p">,</span> <span class="n">dim_h</span><span class="p">),</span> <span class="n">ReLU</span><span class="p">()</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conv3</span> <span class="o">=</span> <span class="n">GINConv</span><span class="p">(</span>
+            <span class="n">Sequential</span><span class="p">(</span>
+                <span class="n">Linear</span><span class="p">(</span><span class="n">dim_h</span><span class="p">,</span> <span class="n">dim_h</span><span class="p">),</span> <span class="n">BatchNorm1d</span><span class="p">(</span><span class="n">dim_h</span><span class="p">),</span> <span class="n">ReLU</span><span class="p">(),</span> <span class="n">Linear</span><span class="p">(</span><span class="n">dim_h</span><span class="p">,</span> <span class="n">dim_h</span><span class="p">),</span> <span class="n">ReLU</span><span class="p">()</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lin1</span> <span class="o">=</span> <span class="n">Linear</span><span class="p">(</span><span class="n">dim_h</span><span class="p">,</span> <span class="n">dim_h</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lin2</span> <span class="o">=</span> <span class="n">Linear</span><span class="p">(</span><span class="n">dim_h</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">x</span>
+        <span class="n">edge_index</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">edge_index</span>
+        <span class="n">batch</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">batch</span>
+
+        <span class="c1"># Node embeddings</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conv1</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">edge_index</span><span class="p">)</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">relu</span><span class="p">()</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conv2</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">edge_index</span><span class="p">)</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">relu</span><span class="p">()</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conv3</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">edge_index</span><span class="p">)</span>
+
+        <span class="c1"># Graph-level readout</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">global_add_pool</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span>
+
+        <span class="n">h</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lin1</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">relu</span><span class="p">()</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">Fun</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">training</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">training</span><span class="p">)</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lin2</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">h</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="id1">
+<h3 id="id1">Training a GNN<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<p>When training a GNN (or any neural network), we have a training set, a validation set and a test set. The training set is used for training, the validation set is used to test the loss in each epoch not only on the training set but also on another dataset (<em>monitor generalization performance</em>). The test set is used to calculate the error of the fully trained model using a dataset, which has not been used during the whole training process.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">training</span><span class="p">(</span><span class="n">loader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Training one epoch</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        loader (DataLoader): loader (DataLoader): training data divided into batches</span>
+<span class="sd">        model (nn.Module): GNN model to train on</span>
+<span class="sd">        loss (nn.functional): loss function to use during training</span>
+<span class="sd">        optimizer (torch.optim): optimizer during training</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: training loss</span>
+<span class="sd">    """</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+
+    <span class="n">current_loss</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">loader</span><span class="p">:</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="n">d</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
+
+        <span class="n">out</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+
+        <span class="n">l</span> <span class="o">=</span> <span class="n">loss</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">y</span><span class="p">),</span> <span class="mi">1</span><span class="p">)))</span>
+        <span class="n">current_loss</span> <span class="o">+=</span> <span class="n">l</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">loader</span><span class="p">)</span>
+        <span class="n">l</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">current_loss</span><span class="p">,</span> <span class="n">model</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">validation</span><span class="p">(</span><span class="n">loader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Validation</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        loader (DataLoader): validation set in batches</span>
+<span class="sd">        model (nn.Module): current trained model</span>
+<span class="sd">        loss (nn.functional): loss function</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: validation loss</span>
+<span class="sd">    """</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+    <span class="n">val_loss</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">loader</span><span class="p">:</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="n">loss</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">y</span><span class="p">),</span> <span class="mi">1</span><span class="p">)))</span>
+        <span class="n">val_loss</span> <span class="o">+=</span> <span class="n">l</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">loader</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">val_loss</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">testing</span><span class="p">(</span><span class="n">loader</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Testing</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        loader (DataLoader): test dataset</span>
+<span class="sd">        model (nn.Module): trained model</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: test loss</span>
+<span class="sd">    """</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">()</span>
+    <span class="n">test_loss</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">test_target</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">0</span><span class="p">))</span>
+    <span class="n">test_y_target</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">0</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">loader</span><span class="p">:</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+        <span class="c1"># NOTE</span>
+        <span class="c1"># out = out.view(d.y.size())</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="n">loss</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">y</span><span class="p">),</span> <span class="mi">1</span><span class="p">)))</span>
+        <span class="n">test_loss</span> <span class="o">+=</span> <span class="n">l</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">loader</span><span class="p">)</span>
+
+        <span class="c1"># save prediction vs ground truth values for plotting</span>
+        <span class="n">test_target</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">test_target</span><span class="p">,</span> <span class="n">out</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()[:,</span> <span class="mi">0</span><span class="p">]))</span>
+        <span class="n">test_y_target</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">test_y_target</span><span class="p">,</span> <span class="n">d</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()))</span>
+
+    <span class="k">return</span> <span class="n">test_loss</span><span class="p">,</span> <span class="n">test_target</span><span class="p">,</span> <span class="n">test_y_target</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">train_epochs</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">val_loader</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Training over all epochs</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        epochs (int): number of epochs to train for</span>
+<span class="sd">        model (nn.Module): the current model</span>
+<span class="sd">        train_loader (DataLoader): training data in batches</span>
+<span class="sd">        val_loader (DataLoader): validation data in batches</span>
+<span class="sd">        path (string): path to save the best model</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        array: returning train and validation losses over all epochs, prediction and ground truth values for training data in the last epoch</span>
+<span class="sd">    """</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">weight_decay</span><span class="o">=</span><span class="mf">5e-4</span><span class="p">)</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">()</span>
+
+    <span class="n">train_target</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">0</span><span class="p">))</span>
+    <span class="n">train_y_target</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">0</span><span class="p">))</span>
+    <span class="n">train_loss</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">epochs</span><span class="p">)</span>
+    <span class="n">val_loss</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">epochs</span><span class="p">)</span>
+    <span class="n">best_loss</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">inf</span>
+
+    <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+        <span class="n">epoch_loss</span><span class="p">,</span> <span class="n">model</span> <span class="o">=</span> <span class="n">training</span><span class="p">(</span><span class="n">train_loader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">)</span>
+        <span class="n">v_loss</span> <span class="o">=</span> <span class="n">validation</span><span class="p">(</span><span class="n">val_loader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">v_loss</span> <span class="o">&lt;</span> <span class="n">best_loss</span><span class="p">:</span>
+            <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="n">path</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">train_loader</span><span class="p">:</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">epoch</span> <span class="o">==</span> <span class="n">epochs</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="c1"># record truly vs predicted values for training data from last epoch</span>
+                <span class="n">train_target</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">train_target</span><span class="p">,</span> <span class="n">out</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()[:,</span> <span class="mi">0</span><span class="p">]))</span>
+                <span class="n">train_y_target</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">train_y_target</span><span class="p">,</span> <span class="n">d</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()))</span>
+
+        <span class="n">train_loss</span><span class="p">[</span><span class="n">epoch</span><span class="p">]</span> <span class="o">=</span> <span class="n">epoch_loss</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+        <span class="n">val_loss</span><span class="p">[</span><span class="n">epoch</span><span class="p">]</span> <span class="o">=</span> <span class="n">v_loss</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+
+        <span class="c1"># print current train and val loss</span>
+        <span class="k">if</span> <span class="n">epoch</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="s2">"Epoch: "</span>
+                <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">epoch</span><span class="p">)</span>
+                <span class="o">+</span> <span class="s2">", Train loss: "</span>
+                <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">epoch_loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+                <span class="o">+</span> <span class="s2">", Val loss: "</span>
+                <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">v_loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+            <span class="p">)</span>
+    <span class="k">return</span> <span class="n">train_loss</span><span class="p">,</span> <span class="n">val_loss</span><span class="p">,</span> <span class="n">train_target</span><span class="p">,</span> <span class="n">train_y_target</span>
+</pre></div>
+</div>
+</div>
+<p>We have trained both models with 100 epochs and saved the best models under <code class="docutils literal notranslate"><span class="pre">GCN_best-model-parameters.pt</span></code> and <code class="docutils literal notranslate"><span class="pre">GIN_best-model-parameters.pt</span></code>. Since this takes some time, we reduced the number of epochs to 10 for this tutorial for demonstration purposes. The results and the plots below are based on the models trained for 100 epochs. If you want to train your own model using our tutorial, you can change the number of epochs and any other parameters in our models (such as learning rate, batch
+size, etc.).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># training GCN for 10 epochs</span>
+<span class="n">epochs</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">GCN</span><span class="p">(</span><span class="n">dim_h</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
+
+<span class="c1"># Remember to change the path if you want to keep the previously trained model</span>
+<span class="n">gcn_train_loss</span><span class="p">,</span> <span class="n">gcn_val_loss</span><span class="p">,</span> <span class="n">gcn_train_target</span><span class="p">,</span> <span class="n">gcn_train_y_target</span> <span class="o">=</span> <span class="n">train_epochs</span><span class="p">(</span>
+    <span class="n">epochs</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">test_loader</span><span class="p">,</span> <span class="s2">"GCN_model.pt"</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Epoch: 0, Train loss: 0.9262555241584778, Val loss: 0.7875796556472778
+Epoch: 2, Train loss: 0.8586100339889526, Val loss: 0.7610003352165222
+Epoch: 4, Train loss: 0.831976056098938, Val loss: 0.7375475168228149
+Epoch: 6, Train loss: 0.8072418570518494, Val loss: 0.6950475573539734
+Epoch: 8, Train loss: 0.7751282453536987, Val loss: 0.6763118505477905
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Training GIN for 10 epochs</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">GIN</span><span class="p">(</span><span class="n">dim_h</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
+
+<span class="c1"># Remember to change the path if you want to keep the previously trained model</span>
+<span class="n">gin_train_loss</span><span class="p">,</span> <span class="n">gin_val_loss</span><span class="p">,</span> <span class="n">gin_train_target</span><span class="p">,</span> <span class="n">gin_train_y_target</span> <span class="o">=</span> <span class="n">train_epochs</span><span class="p">(</span>
+    <span class="n">epochs</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">test_loader</span><span class="p">,</span> <span class="s2">"GIN_model.pt"</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Epoch: 0, Train loss: 0.702804684638977, Val loss: 0.6012566685676575
+Epoch: 2, Train loss: 0.5309209823608398, Val loss: 0.45285511016845703
+Epoch: 4, Train loss: 0.5022059082984924, Val loss: 0.4036828875541687
+Epoch: 6, Train loss: 0.46470388770103455, Val loss: 0.4122920632362366
+Epoch: 8, Train loss: 0.4486030638217926, Val loss: 0.36034974455833435
+</pre></div></div>
+</div>
+</section>
+<section id="Evaluating-the-model">
+<h3 id="Evaluating-the-model">Evaluating the model<a class="headerlink" href="#Evaluating-the-model" title="Permalink to this heading">¶</a></h3>
+<p>For evaluation, we use a validation dataset to find the best model and a test set, to test our model on unseen data. First, we plotted the losses of our training and validation sets. As expected, the GIN model has a lower training and validation loss.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_loss</span><span class="p">(</span><span class="n">gcn_train_loss</span><span class="p">,</span> <span class="n">gcn_val_loss</span><span class="p">,</span> <span class="n">gin_train_loss</span><span class="p">,</span> <span class="n">gin_val_loss</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Plot the loss for each epoch</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        epochs (int): number of epochs</span>
+<span class="sd">        train_loss (array): training losses for each epoch</span>
+<span class="sd">        val_loss (array): validation losses for each epoch</span>
+<span class="sd">    """</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">gcn_train_loss</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Train loss (GCN)"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">gcn_val_loss</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Val loss (GCN)"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">gin_train_loss</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Train loss (GIN)"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">gin_val_loss</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Val loss (GIN)"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"loss"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"epoch"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Model Loss"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">MaxNLocator</span><span class="p">(</span><span class="n">integer</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_targets</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">ground_truth</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Plot true vs predicted value in a scatter plot</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        pred (array): predicted values</span>
+<span class="sd">        ground_truth (array): ground truth values</span>
+<span class="sd">    """</span>
+    <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">ground_truth</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axline</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">slope</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Predicted Value"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Ground truth"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Ground truth vs prediction"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>When looking at the losses for each epoch, we can see that the GIN model performs better overall. We can also see that the training loss is often lower compared to the validation loss. This is normal since the training loss describes the error of the model using the training set, which is the dataset used for improving the model. The validation loss is calculated on a separate dataset, which is not used for updating the model weights. Therefore, the error is often higher. This is also the
+reason, the validation loss sometimes fluctuates more. As long as both losses show a decreasing tendency, this is not problematic. It is important to have a low training loss and a low validation loss.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot overall losses of GIN and GCN</span>
+
+<span class="n">plot_loss</span><span class="p">(</span><span class="n">gcn_train_loss</span><span class="p">,</span> <span class="n">gcn_val_loss</span><span class="p">,</span> <span class="n">gin_train_loss</span><span class="p">,</span> <span class="n">gin_val_loss</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_T035_graph_neural_networks_37_0.png" src="../_images/talktorials_T035_graph_neural_networks_37_0.png"/>
+</div>
+</div>
+<p>Then, we also plotted the actual predictions of our target value compared to the ground truth for the GIN model, since this model performs better.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot target and prediction for training data</span>
+
+<span class="n">plot_targets</span><span class="p">(</span><span class="n">gin_train_target</span><span class="p">,</span> <span class="n">gin_train_y_target</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_T035_graph_neural_networks_39_0.png" src="../_images/talktorials_T035_graph_neural_networks_39_0.png"/>
+</div>
+</div>
+<p>Below, we have calculated the test loss for both the GCN and the GIN. We also plot the predicted dipole moment compared to the ground truth for both models. If we are interested in the actual numeric range of the predicted dipole moment, the normalization applied during the preprocessing should be subtracted again. Since we only visualize the data in our evaluation, this does not make a difference. In the figures below, we can see that the GIN model performs a lot better compared to the GCN
+since the test error is lower.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate test loss from the best GCN model (according to validation loss)</span>
+
+<span class="c1"># load our model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">GCN</span><span class="p">(</span><span class="n">dim_h</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"GCN_best-model-parameters.pt"</span><span class="p">))</span>
+
+<span class="c1"># calculate test loss</span>
+<span class="n">gcn_test_loss</span><span class="p">,</span> <span class="n">gcn_test_target</span><span class="p">,</span> <span class="n">gcn_test_y</span> <span class="o">=</span> <span class="n">testing</span><span class="p">(</span><span class="n">test_loader</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Test Loss for GCN: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">gcn_test_loss</span><span class="o">.</span><span class="n">item</span><span class="p">()))</span>
+
+<span class="c1"># plot prediction vs ground truth</span>
+<span class="n">plot_targets</span><span class="p">(</span><span class="n">gcn_test_target</span><span class="p">,</span> <span class="n">gcn_test_y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Test Loss for GCN: 0.5251887440681458
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_T035_graph_neural_networks_41_1.png" src="../_images/talktorials_T035_graph_neural_networks_41_1.png"/>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate test loss from the best GIN model (according to validation loss)</span>
+
+<span class="c1"># load our model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">GIN</span><span class="p">(</span><span class="n">dim_h</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"GIN_best-model-parameters.pt"</span><span class="p">))</span>
+
+<span class="c1"># calculate test loss</span>
+<span class="n">gin_test_loss</span><span class="p">,</span> <span class="n">gin_test_target</span><span class="p">,</span> <span class="n">gin_test_y</span> <span class="o">=</span> <span class="n">testing</span><span class="p">(</span><span class="n">test_loader</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Test Loss for GIN: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">gin_test_loss</span><span class="o">.</span><span class="n">item</span><span class="p">()))</span>
+
+<span class="c1"># plot prediction vs ground truth</span>
+<span class="n">plot_targets</span><span class="p">(</span><span class="n">gin_test_target</span><span class="p">,</span> <span class="n">gin_test_y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Test Loss for GIN: 0.3028673827648163
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_T035_graph_neural_networks_42_1.png" src="../_images/talktorials_T035_graph_neural_networks_42_1.png"/>
+</div>
+</div>
+</section>
+</section>
+<section id="Discussion">
+<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this heading">¶</a></h2>
+<p>In this talktorial we have first presented two different graph neural networks. We applied these two GNNs to a molecular dataset to predict molecular properties. We showed how to train and evaluate a simple GNN using <em>pytorch</em> and <em>pytorch_geometric</em>. This model can be used for any type of graph-level regression and, with small changes (such as the loss function), graph-level classification is also easy.</p>
+<p>One disadvantage of GNNs is that the quality of the model is extremely data-dependent, the more of the chemical space is covered in the training set, the better the performance would be on new, unseen data. In addition, training a model can be rather complex, since there are many parameters influencing the model. Model parameters, such as learning rate, batch size and number of hidden dimensions could be more thoroughly evaluated to improve the model. To apply this to real tasks, first, a bigger
+dataset is needed. When using the whole QM9 dataset and not only a small subset, the performance will increase. In addition, the model parameters can also still be optimized. The model architecture can also still be adapted. These changes could lead to longer runtimes, which is why we have chosen this simplified version for demonstration purposes.</p>
+</section>
+<section id="Quiz">
+<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>What is the difference between a GCN and GIN?</p></li>
+<li><p>How would you change the model for a classification task?</p></li>
+<li><p>What other parameters can be tuned for better model performance?</p></li>
+</ol>
+</section>
+</section>
+
+
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="md-footer">
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="T034_recurrent_neural_networks.html" title="T034 · RNN-based molecular property prediction"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> Previous </span> T034 · RNN-based molecular property prediction </span>
+              </div>
+            </a>
+          
+          
+            <a href="T036_e3_equivariant_gnn.html" title="T036 · An introduction to E(3)-invariant graph neural networks"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> Next </span> T036 · An introduction to E(3)-invariant graph neural networks </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          
+        </a>
+        
+      </nav>
+    </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169; Copyright 2018-2023, Volkamer Lab. Project structure based on the Computational Molecular Science Python Cookiecutter version 1.1.
+              
+          </div>
+            Created using
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../_static/javascripts/application.js"></script>
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  </body>
+</html>

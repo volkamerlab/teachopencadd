@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="T038 · Protein Ligand Interaction Prediction" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://projects.volkamerlab.org/teachopencadd/talktorials/T038_protein_ligand_interaction_prediction.html" />
+<meta property="og:site_name" content="TeachOpenCADD" />
+<meta property="og:description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Roman Joeres, 2022, Chair for Drug Bioinformatics, UdS and HIPS. Aim of this talktorial: The goal of this tal..." />
+<meta property="og:image" content="https://raw.githubusercontent.com/volkamerlab/teachopencadd/master/docs/_static/images/TeachOpenCADD_topics.png" />
+<meta property="og:image:alt" content="TeachOpenCADD" />
+<meta name="description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Roman Joeres, 2022, Chair for Drug Bioinformatics, UdS and HIPS. Aim of this talktorial: The goal of this tal..." />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
+
+    <style>
+      body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+    </style>
+  
+
+  <link rel="stylesheet" href="../_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="../_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#2196f3">
+  <script src="../_static/javascripts/modernizr.js"></script>
+  
+    <script async src="../_static/cookieconsent.min.js"></script>
+    <script>
+        window.addEventListener("load", function(){
+        window.cookieconsent.initialise({
+            "palette": {
+            "popup": {
+                "background": "#f0f0f0",
+                "text": "#999"
+            },
+            "button": {
+                "text": "#fff",
+                "background": "#009688"
+            }
+            },
+            "theme": "classic"
+        })});
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6ZE82CNZB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-Q6ZE82CNZB');
+    </script>
+  
+    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
+  
+  
+    <title>T038 · Protein Ligand Interaction Prediction &#8212; TeachOpenCADD 0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/material.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Talktorials by collection" href="../talktorials.html" />
+    <link rel="prev" title="T037 · Uncertainty estimation" href="T037_uncertainty_estimation.html" />
+  
+    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
+  
+   
+
+  </head>
+  <body dir=ltr
+        data-md-color-primary=teal data-md-color-accent=cyan>
+  
+  <svg class="md-svg">
+    <defs data-children-count="0">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
+    </defs>
+  </svg>
+  
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#talktorials/T038_protein_ligand_interaction_prediction" tabindex="1" class="md-skip"> Skip to content </a>
+  <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../index.html" title="TeachOpenCADD 0 documentation"
+           class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic">TeachOpenCADD</span>
+          <span class="md-header-nav__topic"> T038 · Protein Ligand Interaction Prediction </span>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="../search.html" method="get" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder="Search"
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    TeachOpenCADD
+  </div>
+</a>
+          </div>
+        </div>
+      
+      
+    </div>
+  </nav>
+</header>
+
+  
+  <div class="md-container">
+    
+    
+    
+  <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+      <ul class="md-tabs__list">
+            
+            <li class="md-tabs__item"><a href="../talktorials.html" class="md-tabs__link">Our talktorials</a></li>
+            
+            <li class="md-tabs__item"><a href="../installing.html" class="md-tabs__link">Run locally</a></li>
+            
+            <li class="md-tabs__item"><a href="../contribute.html" class="md-tabs__link">Development</a></li>
+            
+            <li class="md-tabs__item"><a href="../contact.html" class="md-tabs__link">Contact</a></li>
+            
+            <li class="md-tabs__item"><a href="../citation.html" class="md-tabs__link">Citation</a></li>
+          <li class="md-tabs__item"><a href="../all_talktorials.html" class="md-tabs__link">Complete list of talktorials</a></li>
+      </ul>
+    </div>
+  </nav>
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../index.html" title="TeachOpenCADD 0 documentation" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    <a href="../index.html"
+       title="TeachOpenCADD 0 documentation">TeachOpenCADD</a>
+  </label>
+    <div class="md-nav__source">
+      <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    TeachOpenCADD
+  </div>
+</a>
+    </div>
+  
+  
+
+  
+  <ul class="md-nav__list">
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Our talktorials</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="T001_query_chembl.html" class="md-nav__link">T001 · Compound data acquisition (ChEMBL)</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T002_compound_adme.html" class="md-nav__link">T002 · Molecular filtering: ADME and lead-likeness criteria</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T003_compound_unwanted_substructures.html" class="md-nav__link">T003 · Molecular filtering: unwanted substructures</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T004_compound_similarity.html" class="md-nav__link">T004 · Ligand-based screening: compound similarity</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T005_compound_clustering.html" class="md-nav__link">T005 · Compound clustering</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T006_compound_maximum_common_substructures.html" class="md-nav__link">T006 · Maximum common substructure</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T007_compound_activity_machine_learning.html" class="md-nav__link">T007 · Ligand-based screening: machine learning</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T008_query_pdb.html" class="md-nav__link">T008 · Protein data acquisition: Protein Data Bank (PDB)</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T009_compound_ensemble_pharmacophores.html" class="md-nav__link">T009 · Ligand-based pharmacophores</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T010_binding_site_comparison.html" class="md-nav__link">T010 · Binding site similarity and off-target prediction</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T011_query_online_api_webservices.html" class="md-nav__link">T011 · Querying online API webservices</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T012_query_klifs.html" class="md-nav__link">T012 · Data acquisition from KLIFS</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T013_query_pubchem.html" class="md-nav__link">T013 · Data acquisition from PubChem</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T014_binding_site_detection.html" class="md-nav__link">T014 · Binding site detection</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T015_protein_ligand_docking.html" class="md-nav__link">T015 · Protein ligand docking</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T016_protein_ligand_interactions.html" class="md-nav__link">T016 · Protein-ligand interactions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T017_advanced_nglview_usage.html" class="md-nav__link">T017 · Advanced NGLview usage</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T018_automated_cadd_pipeline.html" class="md-nav__link">T018 · Automated pipeline for lead optimization</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T019_md_simulation.html" class="md-nav__link">T019 · Molecular dynamics simulation</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T020_md_analysis.html" class="md-nav__link">T020 · Analyzing molecular dynamics simulations</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T021_one_hot_encoding.html" class="md-nav__link">T021 · One-Hot Encoding</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T022_ligand_based_screening_neural_network.html" class="md-nav__link">T022 · Ligand-based screening: neural networks</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T023_what_is_a_kinase.html" class="md-nav__link">T023 · What is a kinase?</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T024_kinase_similarity_sequence.html" class="md-nav__link">T024 · Kinase similarity: Sequence</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T025_kinase_similarity_kissim.html" class="md-nav__link">T025 · Kinase similarity: Kinase pocket (KiSSim fingerprint)</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T026_kinase_similarity_ifp.html" class="md-nav__link">T026 · Kinase similarity: Interaction fingerprints</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T027_kinase_similarity_ligand_profile.html" class="md-nav__link">T027 · Kinase similarity: Ligand profile</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T028_kinase_similarity_compare_perspectives.html" class="md-nav__link">T028 · Kinase similarity: Compare different perspectives</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T033_molecular_representations.html" class="md-nav__link">T033 · Molecular representations</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T034_recurrent_neural_networks.html" class="md-nav__link">T034 · RNN-based molecular property prediction</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T035_graph_neural_networks.html" class="md-nav__link">T035 · GNN-based molecular property prediction</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T036_e3_equivariant_gnn.html" class="md-nav__link">T036 · An introduction to E(3)-invariant graph neural networks</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="T037_uncertainty_estimation.html" class="md-nav__link">T037 · Uncertainty estimation</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <label class="md-nav__link md-nav__link--active" for="__toc"> T038 · Protein Ligand Interaction Prediction </label>
+    
+      <a href="#" class="md-nav__link md-nav__link--active">T038 · Protein Ligand Interaction Prediction</a>
+      
+        
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#talktorials-t038-protein-ligand-interaction-prediction--page-root" class="md-nav__link">T038 · Protein Ligand Interaction Prediction</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
+        </li>
+        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
+        </li>
+        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Relevance-of-protein-ligand-interaction-prediction" class="md-nav__link">Relevance of protein-ligand interaction prediction</a>
+        </li>
+        <li class="md-nav__item"><a href="#Model-architecture" class="md-nav__link">Model architecture</a>
+        </li>
+        <li class="md-nav__item"><a href="#Biological-background---Proteins-as-Graphs" class="md-nav__link">Biological background - Proteins as Graphs</a>
+        </li>
+        <li class="md-nav__item"><a href="#Technical-background" class="md-nav__link">Technical background</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Graph-Isomorphism-Networks" class="md-nav__link">Graph Isomorphism Networks</a>
+        </li>
+        <li class="md-nav__item"><a href="#Binary-Cross-Entropy-Loss-(BCE-Loss)" class="md-nav__link">Binary Cross Entropy Loss (BCE Loss)</a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Compute-graph-representations" class="md-nav__link">Compute graph representations</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Ligands-to-graphs" class="md-nav__link">Ligands to graphs</a>
+        </li>
+        <li class="md-nav__item"><a href="#Proteins-to-graphs" class="md-nav__link">Proteins to graphs</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Data-storages" class="md-nav__link">Data storages</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Data-points" class="md-nav__link">Data points</a>
+        </li>
+        <li class="md-nav__item"><a href="#Data-set" class="md-nav__link">Data set</a>
+        </li>
+        <li class="md-nav__item"><a href="#Data-module" class="md-nav__link">Data module</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Network" class="md-nav__link">Network</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#GNN-encoder" class="md-nav__link">GNN encoder</a>
+        </li>
+        <li class="md-nav__item"><a href="#Full-model" class="md-nav__link">Full model</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Training-routine" class="md-nav__link">Training routine</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
+        </li>
+        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T038_protein_ligand_interaction_prediction.nblink.txt">Show Source</a> </li>
+
+  </ul>
+</nav>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Run locally</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../installing.html" class="md-nav__link">Installing</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Development</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../contribute.html" class="md-nav__link">For contributors</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../api.html" class="md-nav__link">API Documentation</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">About TeachOpenCADD</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../contact.html" class="md-nav__link">Contact</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../acknowledgments.html" class="md-nav__link">Acknowledgments</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../citation.html" class="md-nav__link">Citation</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../license.html" class="md-nav__link">License</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../funding.html" class="md-nav__link">Funding</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">External resources</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../external_dependencies.html" class="md-nav__link">Packages and webservers used in TeachOpenCADD</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../external_tutorials_collections.html" class="md-nav__link">External tutorials and collections</a>
+      
+    
+    </li>
+  </ul>
+  
+
+</nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#talktorials-t038-protein-ligand-interaction-prediction--page-root" class="md-nav__link">T038 · Protein Ligand Interaction Prediction</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
+        </li>
+        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
+        </li>
+        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Relevance-of-protein-ligand-interaction-prediction" class="md-nav__link">Relevance of protein-ligand interaction prediction</a>
+        </li>
+        <li class="md-nav__item"><a href="#Model-architecture" class="md-nav__link">Model architecture</a>
+        </li>
+        <li class="md-nav__item"><a href="#Biological-background---Proteins-as-Graphs" class="md-nav__link">Biological background - Proteins as Graphs</a>
+        </li>
+        <li class="md-nav__item"><a href="#Technical-background" class="md-nav__link">Technical background</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Graph-Isomorphism-Networks" class="md-nav__link">Graph Isomorphism Networks</a>
+        </li>
+        <li class="md-nav__item"><a href="#Binary-Cross-Entropy-Loss-(BCE-Loss)" class="md-nav__link">Binary Cross Entropy Loss (BCE Loss)</a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Compute-graph-representations" class="md-nav__link">Compute graph representations</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Ligands-to-graphs" class="md-nav__link">Ligands to graphs</a>
+        </li>
+        <li class="md-nav__item"><a href="#Proteins-to-graphs" class="md-nav__link">Proteins to graphs</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Data-storages" class="md-nav__link">Data storages</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Data-points" class="md-nav__link">Data points</a>
+        </li>
+        <li class="md-nav__item"><a href="#Data-set" class="md-nav__link">Data set</a>
+        </li>
+        <li class="md-nav__item"><a href="#Data-module" class="md-nav__link">Data module</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Network" class="md-nav__link">Network</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#GNN-encoder" class="md-nav__link">GNN encoder</a>
+        </li>
+        <li class="md-nav__item"><a href="#Full-model" class="md-nav__link">Full model</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Training-routine" class="md-nav__link">Training routine</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
+        </li>
+        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T038_protein_ligand_interaction_prediction.nblink.txt">Show Source</a> </li>
+
+<li id="searchbox" class="md-nav__item"></li>
+
+  </ul>
+</nav>
+              </div>
+            </div>
+          </div>
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
+            
+  <section id="T038-·-Protein-Ligand-Interaction-Prediction">
+<h1 id="talktorials-t038-protein-ligand-interaction-prediction--page-root">T038 · Protein Ligand Interaction Prediction<a class="headerlink" href="#talktorials-t038-protein-ligand-interaction-prediction--page-root" title="Permalink to this heading">¶</a></h1>
+<p><strong>Note:</strong> This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.</p>
+<p>Authors:</p>
+<ul class="simple">
+<li><p>Roman Joeres, 2022, <a class="reference external" href="https://www.helmholtz-hips.de/de/forschung/teams/team/wirkstoffbioinformatik/">Chair for Drug Bioinformatics, UdS and HIPS</a></p></li>
+</ul>
+<section id="Aim-of-this-talktorial">
+<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this heading">¶</a></h2>
+<p>The goal of this talktorial is to introduce the reader to the field of protein-ligand interaction prediction using graph neural networks (GNNs). GNNs are especially useful for representing structural data such as proteins and chemical molecules (ligands) to a deep learning model. In this talktorial, we will show how to train a deep learning model to predict interactions between proteins and ligands.</p>
+<section id="Contents-in-Theory">
+<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Relevance of protein-ligand interaction prediction</p></li>
+<li><p>Workflow</p></li>
+<li><p>Biological background - proteins as graphs</p></li>
+<li><p>Technical background</p>
+<ul>
+<li><p>Graph Isomorphism Networks</p></li>
+<li><p>Binary Cross Entropy Loss</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="Contents-in-Practical">
+<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Compute graph representations</p>
+<ul>
+<li><p>Ligands to graphs</p></li>
+<li><p>Proteins to graphs</p></li>
+</ul>
+</li>
+<li><p>Data Storages</p>
+<ul>
+<li><p>Data points</p></li>
+<li><p>Data set</p></li>
+<li><p>Data module</p></li>
+</ul>
+</li>
+<li><p>Network</p>
+<ul>
+<li><p>GNN encoder</p></li>
+<li><p>Full model</p></li>
+</ul>
+</li>
+<li><p>Training routine</p></li>
+</ul>
+</section>
+<section id="References">
+<h3 id="References">References<a class="headerlink" href="#References" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Theoretical background</p>
+<ul>
+<li><p>Graph Neural Networks: Kipf, Welling: “Semi-Supervised Classification with Graph Convolutional Networks”, <a class="reference external" href="https://arxiv.org/abs/1609.02907">arXiv (2017)</a> Bronstein, et al.: “Geometric deep learning: going beyond Euclidean data”, <a class="reference external" href="https://doi.org/10.1109/MSP.2017.2693418">IEEE Signal Processing Magazine (2017), 4, 18-42</a></p></li>
+<li><p>GNN-based Protein-Ligand Interaction Prediction: Öztürk, et al.: “DeepDTA: Deep drug-target binding affinity prediction”, <a class="reference external" href="https://doi.org/10.1093/bioinformatics/bty593">Bioinformatics (2018), 34, i821-i829</a> Nguyen, et. al.: “GraphDTA: Predicting drug-target binding affinity with graph neural networks”, <a class="reference external" href="https://doi.org/10.1093/bioinformatics/btaa921">Bioinformatics (2021), 37, 1140-1147</a></p></li>
+<li><p>Graph Isomorphism Network: Xu, et al.: “How powerful are graph neural networks?”, <a class="reference external" href="https://arxiv.org/abs/1810.00826">arXiv (2018)</a></p></li>
+</ul>
+</li>
+<li><p>Practical background</p>
+<ul>
+<li><p><a class="reference external" href="https://pytorch.org/">PyTorch</a></p></li>
+<li><p><a class="reference external" href="https://pytorch-geometric.readthedocs.io/en/latest/">PyTorch Geometric</a></p></li>
+<li><p><a class="reference external" href="http://rdkit.org/">RDKit</a>: Greg Landrum, <em>RDKit Documentation</em>, <a class="reference external" href="https://www.rdkit.org/UGM/2012/Landrum_RDKit_UGM.Fingerprints.Final.pptx.pdf">PDF</a>, Release on 2019.09.1.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="Theory">
+<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this heading">¶</a></h2>
+<p>This talktorial combines several topics, you have seen in other talktorials. Here, we will describe the general idea of how to predict interactions between proteins and ligands. If some technique used in the workflow is already presented somewhere else, I’ll link to this. Otherwise, I’ll explain new things below.</p>
+<section id="Relevance-of-protein-ligand-interaction-prediction">
+<h3 id="Relevance-of-protein-ligand-interaction-prediction">Relevance of protein-ligand interaction prediction<a class="headerlink" href="#Relevance-of-protein-ligand-interaction-prediction" title="Permalink to this heading">¶</a></h3>
+<p>Protein-ligand interactions are of interest in research for many reasons as can be seen in <strong>Talktorial T016</strong>. Drug discovery is one of the most important fields where interaction prediction between proteins and ligands has applications. In drug discovery, one wants to find a new drug for a given protein. Computer-aided interaction prediction helps in the process of virtual screening, where many possible ligands are tested <em>in silico</em> if they interact with a certain target protein. Classically,
+screening of potential drugs for a target protein is done in a laboratory where the candidates are manually tested and ranked by their binding affinity. The binding affinity is a measure of how strong the interaction between two molecules is. The higher the binding affinity, the stronger the interactions and the better the two molecules bind each other.</p>
+<p>But investigating candidates manually is time-consuming and costly. Predicting binding events in a computer is way faster and cheaper. In this talktorial we will focus on predicting binding events between proteins and ligands on a qualitative level, i.e., if a protein and a ligand bind each other or not, the affinity is not interesting for now.</p>
+</section>
+<section id="Model-architecture">
+<h3 id="Model-architecture">Model architecture<a class="headerlink" href="#Model-architecture" title="Permalink to this heading">¶</a></h3>
+<p>The input for our training is a dataset comprising a set of proteins and a set of ligands and a table with binding information for every pair of proteins and ligands. We will perform supervised learning (as in <strong>Talktorial T022</strong>), therefore, we split the list of interactions into a training set, a validation set, and a test set. As discussed above, we will do a binary classification of interactions, i.e., does a pair of protein and molecule interact or not?</p>
+<p>The last component of our network architecture is a simple multilayer perceptron (MLP) as presented in <strong>Talktorial T022</strong>. The other two components are graph neural networks (GNNs) to extract features from the proteins and ligands in each pair of the dataset. As discussed in <strong>Talktorial T035</strong> GNNs are used to compute a representation of graph-structured data that holds information about the structure. These representations are concatenated into one vector which serves as input for the final
+MLP.</p>
+<img alt="Basic structure" src="../_images/basic_structure.png"/>
+<p><em>Figure 1:</em> Visualization of the model in this notebook. The shown exemplary structures are taken from the PDB entry with ID <a class="reference external" href="https://www.rcsb.org/structure/4O75">4O75</a> (see <strong>Talktorial T008</strong> for an introduction to PDB).</p>
+</section>
+<section id="Biological-background---Proteins-as-Graphs">
+<h3 id="Biological-background---Proteins-as-Graphs">Biological background - Proteins as Graphs<a class="headerlink" href="#Biological-background---Proteins-as-Graphs" title="Permalink to this heading">¶</a></h3>
+<p>Here, we will focus on the conversion of proteins into graphs as the conversion of SMILES to graphs is explained in <strong>Talktorial T033</strong>.</p>
+<p>There are usually two ways to represent proteins in science. Either by their sequence of amino acids or as a PDB structure as introduced in <strong>Talktorial T008</strong>. As amino acid sequences do not contain structural information, we use PDB files of proteins as input for our structure-based models. In the graph representation of a protein, every node of the graph represents an amino acid from the protein. Edges between nodes in the graph are drawn if the two represented amino acids are within a
+certain distance. This is the equivalent of an interaction between the two amino acids in the protein. To compute the distance of two amino acids, we look at the coordinates of the <span class="math notranslate nohighlight">\(C_\alpha\)</span> atoms of the amino acids in the PDB file. If the distance between two <span class="math notranslate nohighlight">\(C_\alpha\)</span> atoms is below a certain distance threshold, we consider the amino acids to interact and insert an edge in the graph representation of the protein. This can be seen in Figure 2. Atoms in amino acids are enumerated.
+So, <span class="math notranslate nohighlight">\(C_\alpha\)</span> atoms of amino acids are specific carbon atoms in each amino acid that are also present in the backbone of proteins. Examples of the <span class="math notranslate nohighlight">\(C_\alpha\)</span> atom in exemplary amino acids can be seen in Figures 2 and 3.</p>
+<img alt="Prot2Graph" src="../_images/prot_graph_creation.png"/>
+<p><em>Figure 2:</em> Visualization of the process and idea of protein structures as graphs. For this example, we consider only the <span class="math notranslate nohighlight">\(C_\alpha\)</span> atoms of the cysteines to be within a distance threshold of 7 Angstrom. As both cysteines are spatially close, their sulfates generate a disulfate bridge and stabilize the protein’s three-dimensions structure which is the type of interaction we want to have in the graph representations.</p>
+<img alt="CAlphas" src="../_images/calphas.jpg"/>
+<p><em>Figure 3:</em> Visualization of carbon atoms in three exemplary amino acids. Also, other numbers for atoms in amino acids are shown, but for us, only the <span class="math notranslate nohighlight">\(C_\alpha\)</span> atoms are interesting (<a class="reference external" href="https://chemistry.stackexchange.com/questions/134409/what-exactly-makes-a-carbon-atom-%CE%B1-in-a-protein-residue">Source</a>).</p>
+</section>
+<section id="Technical-background">
+<h3 id="Technical-background">Technical background<a class="headerlink" href="#Technical-background" title="Permalink to this heading">¶</a></h3>
+<p>In this section, we will focus on the computer science aspects of the proposed solution. Mainly, we will discuss the concrete GNN architecture and which node features we use. For simplicity (and because it works well), we will use the same network architecture to compute embeddings of kinases and their ligands.</p>
+<section id="Graph-Isomorphism-Networks">
+<h4 id="Graph-Isomorphism-Networks">Graph Isomorphism Networks<a class="headerlink" href="#Graph-Isomorphism-Networks" title="Permalink to this heading">¶</a></h4>
+<p>There is a whole zoo of GNN architectures proposed to solve many problems. If you want to get an overview of the most popular architectures, you can have a look at the <a class="reference external" href="https://pytorch-geometric.readthedocs.io/en/latest/modules/nn.html#convolutional-layers">list of convolutional layers implemented in PyTorch-Geometric</a>. In this talktorial, we will use the GINConv layers as the backbone of out GNNs as they have been proven to be powerful in embedding molecular data yet remaining easy to
+understand in their functionality. The formula to compute an embedding of a node based on the neighbors is</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{x}^{\prime}_i = h_{\mathbf{\Theta}} \left( (1 + \epsilon) \cdot \mathbf{x}_i + \sum_{j \in \mathcal{N}(i)} \mathbf{x}_j \right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathcal{N}(i)\)</span> is the set of neighbors of node <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(\epsilon\)</span> is a constant hyperparameter, and <span class="math notranslate nohighlight">\(h_{\mathbf{\Theta}}\)</span> is a neural network as presented in <strong>Talktorial T022</strong>. The idea is to aggregate all neighbor embeddings together with the own current embedding and put this into a neural network to extract information on the nodes and their neighborhoods.</p>
+<p>As can be seen, GINConv layers do not use edge information in their computation. So, the only thing we need to extract from our proteins and ligands when turning into graphs are features for the edges. In this talktorial, we will use a very simple featurization and every node just contains categorical information on the amino acid type or atom type it represents. Information on one-hot encodings of categorical data is covered in <strong>Talktorial T021</strong>.</p>
+<p>The final element of our GNN module is the pooling function, which uses to compute the graph embedding based on the node embeddings in the final layer. For simplicity (and because it’s surprisingly powerful) we use mean pooling! That means, we just take the mean vector over all node embeddings in the final GINConv layer.</p>
+</section>
+<section id="Binary-Cross-Entropy-Loss-(BCE-Loss)">
+<h4 id="Binary-Cross-Entropy-Loss-(BCE-Loss)">Binary Cross Entropy Loss (BCE Loss)<a class="headerlink" href="#Binary-Cross-Entropy-Loss-(BCE-Loss)" title="Permalink to this heading">¶</a></h4>
+<p><strong>Talktorial T022</strong> introduces two loss functions, namely MSE and MAE. Both are suitable to train regression models but not appropriate for classification. For classification, there is a wide range of loss functions of which we will use the <a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.nn.BCELoss.html">Binary Cross Entropy Loss</a>.</p>
+<p>The formula to compute the loss is</p>
+<div class="math notranslate nohighlight">
+\[-\left[ y\cdot\log(x)+(1-y)\cdot\log (1-x)\right],\]</div>
+<p>where <span class="math notranslate nohighlight">\(x\)</span> is the model output for one sample and <span class="math notranslate nohighlight">\(y\)</span> is the label of that sample.</p>
+<p>The idea is that exactly one term of <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(1-y\)</span> equals <span class="math notranslate nohighlight">\(1\)</span> to the formula reduces to <span class="math notranslate nohighlight">\(\log x\)</span> for a positive sample and <span class="math notranslate nohighlight">\(\log (1-x)\)</span> for a negative example. By this setting, the BCE formula ensures that you want to push the predicted values <span class="math notranslate nohighlight">\(x\)</span> towards 0 in negative samples (<span class="math notranslate nohighlight">\(y=0\)</span>) and towards <span class="math notranslate nohighlight">\(1\)</span> in positive cases (<span class="math notranslate nohighlight">\(y=1\)</span>).</p>
+<p>For our example, positive samples (<span class="math notranslate nohighlight">\(y=1\)</span>) are pairs of binding kinase and ligand, then <span class="math notranslate nohighlight">\(x\)</span> should be close to 1. According to this, negative samples (<span class="math notranslate nohighlight">\(y=0\)</span>) in our example are non-binding pairs of kinase and ligand. Note the leading “-” in the formula, this flips the rest of the formula from a maximization problem to a minimization.</p>
+</section>
+</section>
+</section>
+<section id="Practical">
+<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this heading">¶</a></h2>
+<p>In this practical section, we will discuss every step in implementing the above-presented solution to protein-ligand interaction prediction. We will start with all the imports needed and some path definitions.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">from</span> <span class="nn">rdkit</span> <span class="kn">import</span> <span class="n">Chem</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">nn</span>
+<span class="kn">from</span> <span class="nn">torch.optim</span> <span class="kn">import</span> <span class="n">Adam</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span><span class="o">.</span><span class="n">startswith</span><span class="p">((</span><span class="s2">"linux"</span><span class="p">,</span> <span class="s2">"darwin"</span><span class="p">)):</span>
+    <span class="o">!</span>mamba<span class="w"> </span>install<span class="w"> </span>-q<span class="w"> </span>-y<span class="w"> </span>-c<span class="w"> </span>pyg<span class="w"> </span>pyg
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">torch_geometric.nn</span> <span class="kn">import</span> <span class="n">global_mean_pool</span><span class="p">,</span> <span class="n">GINConv</span>
+<span class="kn">from</span> <span class="nn">torch_geometric.data</span> <span class="kn">import</span> <span class="n">Data</span><span class="p">,</span> <span class="n">InMemoryDataset</span>
+<span class="kn">from</span> <span class="nn">torch_geometric.loader</span> <span class="kn">import</span> <span class="n">DataLoader</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">kiba_preprocessing</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HERE</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"./"</span><span class="p">)</span>
+<span class="n">DATA</span> <span class="o">=</span> <span class="n">HERE</span> <span class="o">/</span> <span class="s2">"data"</span>
+<span class="n">IMGS</span> <span class="o">=</span> <span class="n">HERE</span> <span class="o">/</span> <span class="s2">"images"</span>
+
+<span class="c1"># This method calls a data-preprocessing pipeline that is very technical and not of bigger interest for this talktorial.</span>
+<span class="c1"># The method basically converts the KiBA dataset from an excel table to a dataset of structures in the format that we need.</span>
+<span class="n">kiba_preprocessing</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"KIBA.csv"</span><span class="p">,</span> <span class="n">DATA</span> <span class="o">/</span> <span class="s2">"resources"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+KiBA originally contains 52498 ligands and 468 proteins.
+KiBA after dropping sparse rows contains 79 ligands and 468 proteins.
+KiBA finally contains 79 ligands and 373 proteins.
+Preprocessing ligands
+After ligand availability analysis KiBA contains 76 ligands and 373 proteins.
+Preprocessing ligands finished
+Preprocessing proteins
+After protein availability analysis KiBA contains 76 ligands and 275 proteins.
+Preprocessing proteins finished
+Preprocessing interactions
+Finally, KiBA comprises 20475 interactions.
+Preprocessing interactions finished
+</pre></div></div>
+</div>
+<section id="Compute-graph-representations">
+<h3 id="Compute-graph-representations">Compute graph representations<a class="headerlink" href="#Compute-graph-representations" title="Permalink to this heading">¶</a></h3>
+<section id="Ligands-to-graphs">
+<h4 id="Ligands-to-graphs">Ligands to graphs<a class="headerlink" href="#Ligands-to-graphs" title="Permalink to this heading">¶</a></h4>
+<p>First, we’re going to implement the conversion of ligands into graphs. For the following explanation, the ligand has <span class="math notranslate nohighlight">\(N\)</span> atoms. To encode a graph, we have to compute a matrix of the node features (a <span class="math notranslate nohighlight">\(N\times F\)</span>-matrix where <span class="math notranslate nohighlight">\(F\)</span> is the number of features per node) and a matrix of the edges given by pairs of the participating node ids.</p>
+<p>Due to some PyTorch Geometric-related implementation details, the edge matrix has to have the format <span class="math notranslate nohighlight">\(2\times N\)</span>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># For every atom type we consider, map the symbol to a numerical value for one-hot encoding.</span>
+<span class="n">atoms_to_num</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">atom</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s2">"C"</span><span class="p">,</span> <span class="s2">"N"</span><span class="p">,</span> <span class="s2">"O"</span><span class="p">,</span> <span class="s2">"F"</span><span class="p">,</span> <span class="s2">"P"</span><span class="p">,</span> <span class="s2">"S"</span><span class="p">,</span> <span class="s2">"Cl"</span><span class="p">,</span> <span class="s2">"Br"</span><span class="p">,</span> <span class="s2">"I"</span><span class="p">])</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">atom_to_onehot</span><span class="p">(</span><span class="n">atom</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Return the one-hot encoding for an atom given its index in the atoms_to_num dict.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    atom: str</span>
+<span class="sd">        Atomic symbol of the atom to represent</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    torch.Tensor</span>
+<span class="sd">        A one-hot tensor encoding the atoms features.</span>
+<span class="sd">    """</span>
+    <span class="c1"># initialize a 0-vector ...</span>
+    <span class="n">one_hot</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">atoms_to_num</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">)</span>
+    <span class="c1"># ... and set the according field to one, ...</span>
+    <span class="k">if</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">atoms_to_num</span><span class="p">:</span>
+        <span class="n">one_hot</span><span class="p">[</span><span class="n">atoms_to_num</span><span class="p">[</span><span class="n">atom</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="c1"># ... the last field is used to represent atom types that do not have their own field in the one-hot vector</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">one_hot</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">atoms_to_num</span><span class="p">)]</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="k">return</span> <span class="n">one_hot</span>
+
+
+<span class="k">def</span> <span class="nf">smiles_to_graph</span><span class="p">(</span><span class="n">smiles</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Convert a molecule given as SDF file into a graph.</span>
+
+<span class="sd">    Arguments</span>
+<span class="sd">    ---------</span>
+<span class="sd">    smiles: str</span>
+<span class="sd">        Path to the file storing the structural information of the ligand</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Tuple[torch.Tensor, torch.Tensor]</span>
+<span class="sd">        A pair of node features and edges in the PyTorch Geometric format</span>
+<span class="sd">    """</span>
+    <span class="c1"># read in the molecule from an SDF file</span>
+    <span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="n">smiles</span><span class="p">)</span>
+    <span class="n">atoms</span><span class="p">,</span> <span class="n">bonds</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+    <span class="c1"># check if the molecule is valid</span>
+    <span class="k">if</span> <span class="n">mol</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">smiles</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+
+    <span class="c1"># iterate over all atom, compute the feature vector and store them in a torch.Tensor object</span>
+    <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">mol</span><span class="o">.</span><span class="n">GetAtoms</span><span class="p">():</span>
+        <span class="n">atoms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">atom_to_onehot</span><span class="p">(</span><span class="n">atom</span><span class="o">.</span><span class="n">GetSymbol</span><span class="p">()))</span>
+    <span class="n">atoms</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">atoms</span><span class="p">)</span>
+
+    <span class="c1"># iterate over all bonds in the molecule and store them in the PyTorch Geometric specific format in a torch.Tensor,</span>
+    <span class="k">for</span> <span class="n">bond</span> <span class="ow">in</span> <span class="n">mol</span><span class="o">.</span><span class="n">GetBonds</span><span class="p">():</span>
+        <span class="n">bonds</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">bond</span><span class="o">.</span><span class="n">GetBeginAtomIdx</span><span class="p">(),</span> <span class="n">bond</span><span class="o">.</span><span class="n">GetEndAtomIdx</span><span class="p">()))</span>
+        <span class="n">bonds</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">bond</span><span class="o">.</span><span class="n">GetEndAtomIdx</span><span class="p">(),</span> <span class="n">bond</span><span class="o">.</span><span class="n">GetBeginAtomIdx</span><span class="p">()))</span>
+    <span class="n">bonds</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">bonds</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+
+    <span class="k">return</span> <span class="n">atoms</span><span class="p">,</span> <span class="n">bonds</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Proteins-to-graphs">
+<h4 id="Proteins-to-graphs">Proteins to graphs<a class="headerlink" href="#Proteins-to-graphs" title="Permalink to this heading">¶</a></h4>
+<p>Similar to how we converted ligands to graphs, we convert proteins into graphs. The output will be the same, a pair of node features and edges. To get more information on the PDB format, read <a class="reference external" href="https://www.cgl.ucsf.edu/chimera/docs/UsersGuide/tutorials/pdbintro.html">this</a>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate a mapping from amino acids to numbers for one-hot encoding</span>
+<span class="n">aa_to_num</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">aa</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">aa</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="s2">"ALA"</span><span class="p">,</span>
+            <span class="s2">"ARG"</span><span class="p">,</span>
+            <span class="s2">"ASN"</span><span class="p">,</span>
+            <span class="s2">"ASP"</span><span class="p">,</span>
+            <span class="s2">"CYS"</span><span class="p">,</span>
+            <span class="s2">"GLU"</span><span class="p">,</span>
+            <span class="s2">"GLN"</span><span class="p">,</span>
+            <span class="s2">"GLY"</span><span class="p">,</span>
+            <span class="s2">"HIS"</span><span class="p">,</span>
+            <span class="s2">"ILE"</span><span class="p">,</span>
+            <span class="s2">"LEU"</span><span class="p">,</span>
+            <span class="s2">"LYS"</span><span class="p">,</span>
+            <span class="s2">"MET"</span><span class="p">,</span>
+            <span class="s2">"PHE"</span><span class="p">,</span>
+            <span class="s2">"PRO"</span><span class="p">,</span>
+            <span class="s2">"SER"</span><span class="p">,</span>
+            <span class="s2">"THR"</span><span class="p">,</span>
+            <span class="s2">"TRP"</span><span class="p">,</span>
+            <span class="s2">"TYR"</span><span class="p">,</span>
+            <span class="s2">"VAL"</span><span class="p">,</span>
+            <span class="s2">"UNK"</span><span class="p">,</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">aa_to_onehot</span><span class="p">(</span><span class="n">aa</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Compute the one-hot vector for an amino acid representing node.</span>
+
+<span class="sd">    Arguments</span>
+<span class="sd">    ---------</span>
+<span class="sd">    aa: str</span>
+<span class="sd">        The three-letter code of the amino acid to be represented</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    torch.Tensor</span>
+<span class="sd">        A one-hot tensor encoding the atoms features.</span>
+<span class="sd">    """</span>
+    <span class="n">one_hot</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">aa_to_num</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">)</span>
+    <span class="n">one_hot</span><span class="p">[</span><span class="n">aa_to_num</span><span class="p">[</span><span class="n">aa</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="k">return</span> <span class="n">one_hot</span>
+
+
+<span class="k">def</span> <span class="nf">pdb_to_graph</span><span class="p">(</span><span class="n">pdb_file_path</span><span class="p">,</span> <span class="n">max_dist</span><span class="o">=</span><span class="mf">7.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Extract a graph representation of a protein from the PDB file.</span>
+
+<span class="sd">    Arguments</span>
+<span class="sd">    ---------</span>
+<span class="sd">    pdb_file_path: str</span>
+<span class="sd">        Filepath of the PDB file containing structural information on the protein</span>
+<span class="sd">    max_dist: float</span>
+<span class="sd">        Distance threshold to apply when computing edges between amino acids</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Tuple[torch.Tensor, torch.Tensor]</span>
+<span class="sd">        A pair of node features and edges in the PyTorch Geometric format</span>
+<span class="sd">    """</span>
+    <span class="c1"># read in the PDB file by looking for the Calpha atoms and extract their amino acid and coordinates based on the positioning in the PDB file</span>
+    <span class="n">residues</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">pdb_file_path</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">protein</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">protein</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"ATOM"</span><span class="p">)</span> <span class="ow">and</span> <span class="n">line</span><span class="p">[</span><span class="mi">12</span><span class="p">:</span><span class="mi">16</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"CA"</span><span class="p">:</span>
+                <span class="n">residues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="p">(</span>
+                        <span class="n">line</span><span class="p">[</span><span class="mi">17</span><span class="p">:</span><span class="mi">20</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span>
+                        <span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="p">[</span><span class="mi">30</span><span class="p">:</span><span class="mi">38</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()),</span>
+                        <span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="p">[</span><span class="mi">38</span><span class="p">:</span><span class="mi">46</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()),</span>
+                        <span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="p">[</span><span class="mi">46</span><span class="p">:</span><span class="mi">54</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()),</span>
+                    <span class="p">)</span>
+                <span class="p">)</span>
+    <span class="c1"># Finally compute the node features based on the amino acids in the protein</span>
+    <span class="n">node_feat</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">aa_to_onehot</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">for</span> <span class="n">res</span> <span class="ow">in</span> <span class="n">residues</span><span class="p">])</span>
+
+    <span class="c1"># compute the edges of the protein by iterating over all pairs of amino acids and computing their distance</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">residues</span><span class="p">)):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">residues</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">residues</span><span class="p">)):</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">residues</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">math</span><span class="o">.</span><span class="n">dist</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="n">tmp</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="n">max_dist</span><span class="p">:</span>
+                <span class="n">edges</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">))</span>
+                <span class="n">edges</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
+
+    <span class="c1"># store the edges in the PyTorch Geometric format</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+
+    <span class="k">return</span> <span class="n">node_feat</span><span class="p">,</span> <span class="n">edges</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="Data-storages">
+<h3 id="Data-storages">Data storages<a class="headerlink" href="#Data-storages" title="Permalink to this heading">¶</a></h3>
+<p>Storing and representing input data for our neural network in protein-ligand interaction prediction is a bit different from other neural networks. Therefore, we have to define our own classes to represent the data. The main difference to training an MLP as in <strong>Talktorial T008</strong>, apart from graphs being the input, is that we have two data points as input. A graph of the protein and a graph of the ligand. Therefore, we need to implement out own data infrastructure.</p>
+<section id="Data-points">
+<h4 id="Data-points">Data points<a class="headerlink" href="#Data-points" title="Permalink to this heading">¶</a></h4>
+<p>Usually the built-in <a class="reference external" href="https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.data.Data.html#torch_geometric.data.Data">Data</a> class of <a class="reference external" href="https://pytorch-geometric.readthedocs.io/en/latest/">PyTorch Geometric</a> is used to represent only one graph, for our task, the data contains two graphs, therefore, we need to adapt the functionality to compute the number of nodes and edges for one data point.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">DTIDataPair</span><span class="p">(</span><span class="n">Data</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">num_nodes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="s2">"lig_x"</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="p">[</span><span class="s2">"prot_x"</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">num_edges</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="s2">"lig_edge_index"</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="p">[</span><span class="s2">"prot_edge_index"</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__inc__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Method that is necessary to overwrite for successful batching of DTIDataPair object.</span>
+<span class="sd">        In case of interest, one can look at this explanation:</span>
+<span class="sd">        https://pytorch-geometric.readthedocs.io/en/latest/notes/batching.html</span>
+
+<span class="sd">        When multiple samples are sent through a network at once, they are aggregated into batches.</span>
+<span class="sd">        In PyTorch Geometric this is done by copying all n graphs for one batch into one graph with</span>
+<span class="sd">        n connected components. Because of this, the node ids in the edge_index objects have to be</span>
+<span class="sd">        changed. As they have to be increased by a fixed offset based on the number of nodes in the</span>
+<span class="sd">        batch so far, this method computes this offset in case the edge_indices of either the</span>
+<span class="sd">        proteins or ligands.</span>
+
+<span class="sd">        Arguments</span>
+<span class="sd">        ---------</span>
+<span class="sd">        key: str</span>
+<span class="sd">            String name of the field of this class to increment while batching</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        torch.Tensor</span>
+<span class="sd">            A one-element tensor describing how to modify the values when batching.</span>
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">key</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"edge_index"</span><span class="p">):</span>
+            <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__inc__</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">lenedg</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="s2">"edge_index"</span><span class="p">)</span>
+        <span class="n">prefix</span> <span class="o">=</span> <span class="n">key</span><span class="p">[:</span><span class="o">-</span><span class="n">lenedg</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">prefix</span> <span class="o">+</span> <span class="s2">"x"</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Data-set">
+<h4 id="Data-set">Data set<a class="headerlink" href="#Data-set" title="Permalink to this heading">¶</a></h4>
+<p>This is where the real data magic happens. In the dataset, we read the data points and process it into the graphical representation we want to have.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">DTIDataset</span><span class="p">(</span><span class="n">InMemoryDataset</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">folder_name</span><span class="p">,</span> <span class="n">file_index</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">folder_name</span> <span class="o">=</span> <span class="n">folder_name</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="n">folder_name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">slices</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">processed_paths</span><span class="p">[</span><span class="n">file_index</span><span class="p">])</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">processed_file_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Just store the names of the files where the training split, validation split, and test split are stored.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        List[str]</span>
+<span class="sd">            A list of filenames where the preprocessed data is stored to not recompute the preprocessing every time.</span>
+<span class="sd">        """</span>
+        <span class="k">return</span> <span class="p">[</span><span class="s2">"train.pt"</span><span class="p">,</span> <span class="s2">"val.pt"</span><span class="p">,</span> <span class="s2">"test.pt"</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        This function is called internally in the preprocessing routine of PyTorch Geometric and defined how the dataset of PDB files, ligands, and an interaction table is converted into a dataset of graphs, ready for deep learning.</span>
+<span class="sd">        """</span>
+        <span class="c1"># compute all ligand graphs and store them as a dictionary with their names as key and the graphs as values</span>
+        <span class="n">ligand_graphs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">folder_name</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"tables"</span> <span class="o">/</span> <span class="s2">"ligands.tsv"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">data</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">readlines</span><span class="p">()[</span><span class="mi">1</span><span class="p">:]:</span>
+                <span class="n">chembl_id</span><span class="p">,</span> <span class="n">smiles</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="p">)[:</span><span class="mi">2</span><span class="p">]</span>
+                <span class="n">ligand_graphs</span><span class="p">[</span><span class="n">chembl_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">smiles_to_graph</span><span class="p">(</span><span class="n">smiles</span><span class="p">)</span>
+
+        <span class="c1"># compute all protein graphs and store them as a dictionary with their names as key and the graphs as values</span>
+        <span class="n">protein_graphs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="p">(</span><span class="n">filename</span><span class="p">[:</span><span class="o">-</span><span class="mi">4</span><span class="p">],</span> <span class="n">pdb_to_graph</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">folder_name</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"proteins"</span> <span class="o">/</span> <span class="n">filename</span><span class="p">))</span>
+                <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">folder_name</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"proteins"</span><span class="p">)</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">folder_name</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"tables"</span> <span class="o">/</span> <span class="s2">"inter.tsv"</span><span class="p">)</span> <span class="k">as</span> <span class="n">inter</span><span class="p">:</span>
+            <span class="n">data_list</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">inter</span><span class="o">.</span><span class="n">readlines</span><span class="p">()[</span><span class="mi">1</span><span class="p">:]:</span>
+                <span class="c1"># read a line with one interaction sample. Extract ligand and protein ID and get their graphs from the dictionaries above</span>
+                <span class="n">protein</span><span class="p">,</span> <span class="n">ligand</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="p">)</span>
+                <span class="n">lig_node_feat</span><span class="p">,</span> <span class="n">lig_edge_index</span> <span class="o">=</span> <span class="n">ligand_graphs</span><span class="p">[</span><span class="n">ligand</span><span class="p">]</span>
+                <span class="n">prot_node_feat</span><span class="p">,</span> <span class="n">prot_edge_index</span> <span class="o">=</span> <span class="n">protein_graphs</span><span class="p">[</span><span class="n">protein</span><span class="p">]</span>
+
+                <span class="c1"># if either ligand or protein are invalid graphs, skip this sample ...</span>
+                <span class="k">if</span> <span class="n">lig_node_feat</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">prot_node_feat</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+                    <span class="k">continue</span>
+
+                <span class="c1"># ... otherwise, create a datapoint using the class from above</span>
+                <span class="n">data_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="n">DTIDataPair</span><span class="p">(</span>
+                        <span class="n">lig_x</span><span class="o">=</span><span class="n">lig_node_feat</span><span class="p">,</span>
+                        <span class="n">lig_edge_index</span><span class="o">=</span><span class="n">lig_edge_index</span><span class="p">,</span>
+                        <span class="n">prot_x</span><span class="o">=</span><span class="n">prot_node_feat</span><span class="p">,</span>
+                        <span class="n">prot_edge_index</span><span class="o">=</span><span class="n">prot_edge_index</span><span class="p">,</span>
+                        <span class="n">y</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">),</span>
+                    <span class="p">)</span>
+                <span class="p">)</span>
+
+            <span class="c1"># shuffle the data, and compute how many samples go into which split</span>
+            <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">data_list</span><span class="p">)</span>
+            <span class="n">train_frac</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data_list</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.7</span><span class="p">)</span>
+            <span class="n">test_frac</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data_list</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">)</span>
+
+            <span class="c1"># then split the data and store them for later reuse without running the preprocessing pipeline</span>
+            <span class="n">train_data</span><span class="p">,</span> <span class="n">train_slices</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">collate</span><span class="p">(</span><span class="n">data_list</span><span class="p">[:</span><span class="n">train_frac</span><span class="p">])</span>
+            <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">((</span><span class="n">train_data</span><span class="p">,</span> <span class="n">train_slices</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">processed_paths</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">val_data</span><span class="p">,</span> <span class="n">val_slices</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">collate</span><span class="p">(</span><span class="n">data_list</span><span class="p">[</span><span class="n">train_frac</span><span class="p">:</span><span class="o">-</span><span class="n">test_frac</span><span class="p">])</span>
+            <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">((</span><span class="n">val_data</span><span class="p">,</span> <span class="n">val_slices</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">processed_paths</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">test_data</span><span class="p">,</span> <span class="n">test_slices</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">collate</span><span class="p">(</span><span class="n">data_list</span><span class="p">[</span><span class="o">-</span><span class="n">test_frac</span><span class="p">:])</span>
+            <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">((</span><span class="n">test_data</span><span class="p">,</span> <span class="n">test_slices</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">processed_paths</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Data-module">
+<h4 id="Data-module">Data module<a class="headerlink" href="#Data-module" title="Permalink to this heading">¶</a></h4>
+<p>This is just a handy class holding all three splits of a dataset and providing data loaders for training, validation, and test sets.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">DTIDataModule</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">folder_name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">train</span> <span class="o">=</span> <span class="n">DTIDataset</span><span class="p">(</span><span class="n">folder_name</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">DTIDataset</span><span class="p">(</span><span class="n">folder_name</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">test</span> <span class="o">=</span> <span class="n">DTIDataset</span><span class="p">(</span><span class="n">folder_name</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">train_dataloader</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Create and return a dataloader for the training dataset.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        torch_geometric.loaders.DataLoader</span>
+<span class="sd">            Dataloader on the training dataset</span>
+<span class="sd">        """</span>
+        <span class="k">return</span> <span class="n">DataLoader</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">train</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">follow_batch</span><span class="o">=</span><span class="p">[</span><span class="s2">"prot_x"</span><span class="p">,</span> <span class="s2">"lig_x"</span><span class="p">]</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">val_dataloader</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Create and return a dataloader for the validation dataset.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        torch_geometric.loaders.DataLoader</span>
+<span class="sd">            Dataloader on the validation dataset</span>
+<span class="sd">        """</span>
+        <span class="k">return</span> <span class="n">DataLoader</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">follow_batch</span><span class="o">=</span><span class="p">[</span><span class="s2">"prot_x"</span><span class="p">,</span> <span class="s2">"lig_x"</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">test_dataloader</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Create and return a dataloader for the test dataset.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        torch_geometric.loaders.DataLoader</span>
+<span class="sd">            Dataloader on the test dataset</span>
+<span class="sd">        """</span>
+        <span class="k">return</span> <span class="n">DataLoader</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">test</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">follow_batch</span><span class="o">=</span><span class="p">[</span><span class="s2">"prot_x"</span><span class="p">,</span> <span class="s2">"lig_x"</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="Network">
+<h3 id="Network">Network<a class="headerlink" href="#Network" title="Permalink to this heading">¶</a></h3>
+<p>Here, we will implement the networks as defined in the theory section.</p>
+<section id="GNN-encoder">
+<h4 id="GNN-encoder">GNN encoder<a class="headerlink" href="#GNN-encoder" title="Permalink to this heading">¶</a></h4>
+<p>First, the GNN encoder which we will use for both, embedding proteins and embedding ligands.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Encoding</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">output_dim</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">num_layers</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Encoding to embed structural data using a stack of GINConv layers.</span>
+
+<span class="sd">        Arguments</span>
+<span class="sd">        ---------</span>
+<span class="sd">        input_dim: int</span>
+<span class="sd">            Size of the feature vector of the data</span>
+<span class="sd">        hidden_dim: int</span>
+<span class="sd">            Number of hidden neurons to use when computing the embeddings</span>
+<span class="sd">        output_dim: int</span>
+<span class="sd">            Size of the output vector of the final graph embedding after a final mean pooling</span>
+<span class="sd">        num_layers: int</span>
+<span class="sd">            Number of layers to use when computing embedding. This includes input and output layers, so values below 3 are meaningless.</span>
+<span class="sd">        """</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layers</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="p">[</span>
+                <span class="c1"># define the input layer</span>
+                <span class="n">GINConv</span><span class="p">(</span>
+                    <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+                        <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">input_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">),</span>
+                        <span class="n">nn</span><span class="o">.</span><span class="n">PReLU</span><span class="p">(),</span>
+                        <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">),</span>
+                        <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm1d</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">),</span>
+                    <span class="p">)</span>
+                <span class="p">)</span>
+            <span class="p">]</span>
+            <span class="o">+</span> <span class="p">[</span>
+                <span class="c1"># define a number of hidden layers</span>
+                <span class="n">GINConv</span><span class="p">(</span>
+                    <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+                        <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">),</span>
+                        <span class="n">nn</span><span class="o">.</span><span class="n">PReLU</span><span class="p">(),</span>
+                        <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">),</span>
+                        <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm1d</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">),</span>
+                    <span class="p">)</span>
+                <span class="p">)</span>
+                <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_layers</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="p">]</span>
+            <span class="o">+</span> <span class="p">[</span>
+                <span class="c1"># define the output layer</span>
+                <span class="n">GINConv</span><span class="p">(</span>
+                    <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+                        <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">),</span>
+                        <span class="n">nn</span><span class="o">.</span><span class="n">PReLU</span><span class="p">(),</span>
+                        <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">,</span> <span class="n">output_dim</span><span class="p">),</span>
+                        <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm1d</span><span class="p">(</span><span class="n">output_dim</span><span class="p">),</span>
+                    <span class="p">)</span>
+                <span class="p">)</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">edge_index</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Forward a batch of samples through this network to compute the forward pass.</span>
+
+<span class="sd">        Arguments</span>
+<span class="sd">        ---------</span>
+<span class="sd">        x: torch.Tensor</span>
+<span class="sd">            feature matrices of the graphs forwarded through the network</span>
+<span class="sd">        edge_index: torch.Tensor</span>
+<span class="sd">            edge indices of the graphs forwarded through the network</span>
+<span class="sd">        batch: torch.Tensor</span>
+<span class="sd">            Some internally used information, not relevant for the topic of this talktorial</span>
+<span class="sd">        """</span>
+        <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">layers</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">layer</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">edge_index</span><span class="o">=</span><span class="n">edge_index</span><span class="p">)</span>
+        <span class="n">pool</span> <span class="o">=</span> <span class="n">global_mean_pool</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">pool</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Full-model">
+<h4 id="Full-model">Full model<a class="headerlink" href="#Full-model" title="Permalink to this heading">¶</a></h4>
+<p>Define the full model according to the workflow proposed in the theory section.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">DTINetwork</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="c1"># create encoders for both, proteins and ligands</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">prot_encoder</span> <span class="o">=</span> <span class="n">Encoding</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lig_encoder</span> <span class="o">=</span> <span class="n">Encoding</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+        <span class="c1"># define a simple FNN to compute the final prediction (to bind or not to bind)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">combine</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+            <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span>
+            <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+            <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.2</span><span class="p">),</span>
+            <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">64</span><span class="p">),</span>
+            <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+            <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.2</span><span class="p">),</span>
+            <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Sigmoid</span><span class="p">(),</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Define the standard forward process of this network.</span>
+
+<span class="sd">        Arguments</span>
+<span class="sd">        ---------</span>
+<span class="sd">        data: DTIDataPairBatch</span>
+<span class="sd">            A batch of DTIDataPair samples to be predicted to train on them</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Prediction values for all pairs in the input batch</span>
+<span class="sd">        """</span>
+        <span class="c1"># compute the protein embeddings using the protein embedder on the protein data of the batch</span>
+        <span class="n">prot_embed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prot_encoder</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">prot_x</span><span class="p">,</span>
+            <span class="n">edge_index</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">prot_edge_index</span><span class="p">,</span>
+            <span class="n">batch</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">prot_x_batch</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># compute the ligand embeddings using the ligand embedder on the ligand data of the batch</span>
+        <span class="n">lig_embed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lig_encoder</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">lig_x</span><span class="p">,</span>
+            <span class="n">edge_index</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">lig_edge_index</span><span class="p">,</span>
+            <span class="n">batch</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">lig_x_batch</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># concatenate both embeddings and return the output of the FNN</span>
+        <span class="n">combined</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="n">prot_embed</span><span class="p">,</span> <span class="n">lig_embed</span><span class="p">),</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">combined</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="Training-routine">
+<h3 id="Training-routine">Training routine<a class="headerlink" href="#Training-routine" title="Permalink to this heading">¶</a></h3>
+<p>In the training, we will use the <a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.optim.Adam.html#torch.optim.Adam">Adam optimizer</a> (which is a standard choice). As described above, we use the BCE loss function to compute how far off the model’s predictions are. A special thing about the setup is that we only train for one epoch. This is because only in the first epoch the model shows improvements. After that, the model learned the dataset and does not improve much. But feel free to test more
+epochs. On average, one epoch takes around 10 minutes to complete.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="n">num_epochs</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Implementation of the actual training routine.</span>
+
+<span class="sd">    Arguments</span>
+<span class="sd">    ---------</span>
+<span class="sd">    num_epochs: int</span>
+<span class="sd">        Number of epochs to train the model</span>
+<span class="sd">    """</span>
+    <span class="c1"># load the data, model, and define the loss function</span>
+    <span class="n">dataset</span> <span class="o">=</span> <span class="n">DTIDataModule</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"resources"</span><span class="p">)</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">DTINetwork</span><span class="p">()</span>
+    <span class="n">loss_fn</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">BCELoss</span><span class="p">()</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">)</span>
+    <span class="n">epoch_train_acc</span><span class="p">,</span> <span class="n">epoch_train_loss</span><span class="p">,</span> <span class="n">epoch_val_acc</span><span class="p">,</span> <span class="n">epoch_val_loss</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
+
+    <span class="c1"># train for num_epochs</span>
+    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Epoch </span><span class="si">{</span><span class="n">e</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">num_epochs</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+        <span class="c1"># perform the actual training</span>
+        <span class="n">train_loader</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">train_dataloader</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">b</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">train_loader</span><span class="p">):</span>
+            <span class="c1"># compute the models predictions and the loss</span>
+            <span class="n">pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">squeeze</span><span class="p">())</span>
+
+            <span class="c1"># perform one step of backpropagation</span>
+            <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+            <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+            <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+            <span class="c1"># report some statistics on the training batch</span>
+            <span class="n">pred</span> <span class="o">=</span> <span class="n">pred</span> <span class="o">&gt;</span> <span class="mf">0.5</span>
+            <span class="n">epoch_train_acc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">pred</span> <span class="o">==</span> <span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">pred</span><span class="p">))</span>
+            <span class="n">epoch_train_loss</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"</span><span class="se">\r</span><span class="s2">Training step </span><span class="si">{</span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">train_loader</span><span class="p">)</span><span class="si">}</span><span class="s2">: Loss: </span><span class="si">{</span><span class="n">epoch_train_loss</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="se">\t</span><span class="s2">Acc: </span><span class="si">{</span><span class="n">epoch_train_acc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+                <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="n">DATA</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"model_</span><span class="si">{</span><span class="n">e</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">.pth"</span><span class="p">)</span>
+
+        <span class="c1"># perform validation of the last training epoch</span>
+        <span class="n">val_loader</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">val_dataloader</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">b</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">val_loader</span><span class="p">):</span>
+            <span class="c1"># compute the models predictions and the loss</span>
+            <span class="n">pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">squeeze</span><span class="p">())</span>
+
+            <span class="c1"># report some statistics on the validation batch</span>
+            <span class="n">pred</span> <span class="o">=</span> <span class="n">pred</span> <span class="o">&gt;</span> <span class="mf">0.5</span>
+            <span class="n">epoch_val_acc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">pred</span> <span class="o">==</span> <span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">pred</span><span class="p">))</span>
+            <span class="n">epoch_val_loss</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"</span><span class="se">\r</span><span class="s2">Validation step </span><span class="si">{</span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">val_loader</span><span class="p">)</span><span class="si">}</span><span class="s2">: Loss: </span><span class="si">{</span><span class="n">epoch_val_loss</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="se">\t</span><span class="s2">Acc: </span><span class="si">{</span><span class="n">epoch_val_acc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+                <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span>
+            <span class="p">)</span>
+
+    <span class="c1"># test the final model</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="n">test_loss</span><span class="p">,</span> <span class="n">test_acc</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+    <span class="n">test_loader</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">test_dataloader</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">b</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">test_loader</span><span class="p">):</span>
+        <span class="c1"># compute the models predictions and the loss</span>
+        <span class="n">pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">squeeze</span><span class="p">())</span>
+
+        <span class="c1"># report some statistics on the validation batch</span>
+        <span class="n">pred</span> <span class="o">=</span> <span class="n">pred</span> <span class="o">&gt;</span> <span class="mf">0.5</span>
+        <span class="n">test_acc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">pred</span> <span class="o">==</span> <span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">pred</span><span class="p">))</span>
+        <span class="n">test_loss</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\r</span><span class="s2">Testing Loss: </span><span class="si">{</span><span class="n">test_loss</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="se">\t</span><span class="s2">Acc: </span><span class="si">{</span><span class="n">test_acc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">"</span><span class="se">\r</span><span class="s2">Testing: Loss: </span><span class="si">{</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">test_loss</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">test_loss</span><span class="p">))</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="se">\t</span><span class="s2">Acc: </span><span class="si">{</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">test_acc</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">test_acc</span><span class="p">))</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2">"</span>
+    <span class="p">)</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epoch_train_loss</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">"b"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Train"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="nb">len</span><span class="p">(</span><span class="n">epoch_train_loss</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="n">epoch_val_loss</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">epoch_val_loss</span><span class="p">),</span> <span class="s2">"rx"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Val"</span>
+    <span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">"Batches"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Loss"</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epoch_train_acc</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">"b"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Train"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="nb">len</span><span class="p">(</span><span class="n">epoch_train_loss</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="n">epoch_val_loss</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">epoch_val_loss</span><span class="p">),</span> <span class="s2">"rx"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Val"</span>
+    <span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">"Batches"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Accuracy"</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">IMGS</span> <span class="o">/</span> <span class="s2">"train_perf.png"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">model</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">train</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="n">DATA</span> <span class="o">/</span> <span class="s2">"final_model.pth"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<img alt="TrainGraph" src="../_images/train_perf.png"/>
+<p><em>Figure 3:</em> Visualization of the results of the first epoch of training.</p>
+</section>
+</section>
+<section id="Discussion">
+<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this heading">¶</a></h2>
+<p>As we can see in Figure 3, the loss decreases slightly while the accuracy is stagnating. Protein-ligand interaction prediction is a highly relevant and very complex field. Due to the complexity of the binding between proteins and ligands, e.g., which atoms of the ligand bind to which site of the protein, it is difficult to train a simple model to predict these interactions. In this talktorial, we discussed a proof of concept that is further investigated in the linked literature at the beginning
+of this talktorial.</p>
+</section>
+<section id="Quiz">
+<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Permalink to this heading">¶</a></h2>
+<p>With this quiz, you can test if you understand the important lessons of this talktorial.</p>
+<ol class="arabic simple">
+<li><p>Why do we use structural data instead of amino acid sequences and SMILES strings?</p></li>
+<li><p>How do we convert proteins into graphs? What are the essential parts of proteins we use for that?</p></li>
+<li><p>Difficult: Why do we need to implement our own class to represent data points?</p></li>
+</ol>
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {}, "version_major": 2, "version_minor": 0}
+</script></section>
+</section>
+
+
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="md-footer">
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="T037_uncertainty_estimation.html" title="T037 · Uncertainty estimation"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> Previous </span> T037 · Uncertainty estimation </span>
+              </div>
+            </a>
+          
+          
+            <a href="../talktorials.html" title="Talktorials by collection"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> Next </span> Talktorials by collection </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          
+        </a>
+        
+      </nav>
+    </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169; Copyright 2018-2023, Volkamer Lab. Project structure based on the Computational Molecular Science Python Cookiecutter version 1.1.
+              
+          </div>
+            Created using
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../_static/javascripts/application.js"></script>
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  </body>
+</html>
