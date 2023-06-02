@@ -58,28 +58,28 @@ jobs:
           sed -i 's|src="images/butina_full.pdf"|src="../_images/butina_full.pdf"|g' \
             _build/html/talktorials/T005_compound_clustering.html
 
-      #- name: Check 404s (Sphinx)
-        #shell: bash -l {0}
-        #run: |
-          #cd docs/_build/html
-          #npx linkinator . --verbosity error --recurse -r --retry-errors-jitter --timeout 10000 \
-            #-s "/*.txt" \
-            #-s "https://onlinelibrary.wiley.com/doi/*" \
-            #-s "https://wires.onlinelibrary.wiley.com/doi/*" \
-            #-s "https://chemistry-europe.onlinelibrary.wiley.com/doi/*" \
-            #-s "https://towardsdatascience.com" \
-            #-s "https://medium.com" \
-            #-s "https://*.medium.com" \
-            #-s "http[s]://quora.com" \
-            #-s "http[s]://doi.org/*" \
-            #-s "http[s]://pubs.acs.org/*" \
-            #-s "ftp://*" \
-            #-s "https://machinelearningmastery.com/*" \
-            #-s "https://www.schrodinger.com/training/videos/*" \
-            #-s "/*.mp4" \
-            #-s "/*.pdf" \
-            #-s "/*.png" \
-            #-s "https://www.icoa.fr/pkidb/index.html" \
+      - name: Check 404s (Sphinx)
+        shell: bash -l {0}
+        run: |
+          cd docs/_build/html
+          npx linkinator . --verbosity error --recurse -r --retry-errors-jitter --timeout 10000 \
+            -s "/*.txt" \
+            -s "https://onlinelibrary.wiley.com/doi/*" \
+            -s "https://wires.onlinelibrary.wiley.com/doi/*" \
+            -s "https://chemistry-europe.onlinelibrary.wiley.com/doi/*" \
+            -s "https://towardsdatascience.com" \
+            -s "https://medium.com" \
+            -s "https://*.medium.com" \
+            -s "http[s]://quora.com" \
+            -s "http[s]://doi.org/*" \
+            -s "http[s]://pubs.acs.org/*" \
+            -s "ftp://*" \
+            -s "https://machinelearningmastery.com/*" \
+            -s "https://www.schrodinger.com/training/videos/*" \
+            -s "/*.mp4" \
+            -s "/*.pdf" \
+            -s "/*.png" \
+            -s "https://www.icoa.fr/pkidb/index.html" \
             
 
       - name: Check 404s (README)
