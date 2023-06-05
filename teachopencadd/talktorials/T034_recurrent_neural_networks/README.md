@@ -4,7 +4,7 @@
 
 Authors:
 
-- Azat Tagirdzhanov, 2022, [Chair for Clinical Bioinformatics](https://www.ccb.uni-saarland.de/), Saarland University
+- Azat Tagirdzhanov, 2022, [Chair for Clinical Bioinformatics](https://www.ccb.uni-saarland.de/), member of the [NextAID](https://nextaid.cs.uni-saarland.de/) project, Saarland University
 
 
 ## Aim of this talktorial
