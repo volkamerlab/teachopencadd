@@ -11,8 +11,8 @@ on:
       # temporarily added
       - "t019-exclude-windows-from-ci"
   schedule:
-    # Run a cron job once monthly on the first
-    - cron: "0 3 1 * *"
+    # every two weeks on Monday at 3 am
+    - cron: "0 3/336 * * 1"
 
 jobs:
   test:
