@@ -62,6 +62,7 @@ extensions = [
     "IPython.sphinxext.ipython_console_highlighting",
     "sphinx_copybutton",
     "sphinxext.opengraph",
+    "sphinx_gallery.load_style",
 ]
 
 autosummary_generate = True
@@ -231,3 +232,16 @@ ogp_site_url = "https://projects.volkamerlab.org/teachopencadd/"
 ogp_image = "https://raw.githubusercontent.com/volkamerlab/teachopencadd/master/docs/_static/images/TeachOpenCADD_topics.png"
 ogp_description_length = 300
 ogp_type = "website"
+
+
+# -- Thumbnails --
+
+nbsphinx_thumbnails = {
+    'talktorials/T011_query_online_api_webservices': '_static/images/thumbnails/T011.svg',
+    'talktorials/T033_molecular_representations': '_static/images/thumbnails/T033.png',
+    'talktorials/T034_recurrent_neural_networks': '_static/images/thumbnails/T034.png',
+    'talktorials/T035_graph_neural_networks': '_static/images/thumbnails/T035.png',
+    'talktorials/T036_e3_equivariant_gnn': '_static/images/thumbnails/T036.png',
+    'talktorials/T037_uncertainty_estimation': '_static/images/thumbnails/T037.png',
+    'talktorials/T038_protein_ligand_interaction_prediction': '_static/images/thumbnails/T038.png',
+}

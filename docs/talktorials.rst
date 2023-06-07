@@ -25,7 +25,7 @@ Talktorials as presented in the original `JCIM 2019 article <https://jcheminf.bi
 Edition 2021
 ------------
 
-Talktorials of the second major release as presented in the `ChemRxiv preprint <https://doi.org/10.26434/chemrxiv-2021-8x13n>`_:
+Talktorials of the second major release as presented in the `Nucleic Acids Research 2022 article <https://academic.oup.com/nar/article/50/W1/W753/6582172>`_:
 
 .. nbgallery::
    :name: edition2021
@@ -103,7 +103,7 @@ Online API/servers for structural bioinformatics and cheminformatics
 Kinase similarity
 -------------------
 
-Kinase similarity comparison using various methods
+Kinase similarity comparison using various methods as presented in the `LiveCoMS 2021 article <https://doi.org/10.33011/livecoms.3.1.1599>`_:
 
 .. nbgallery::
    :name: kinasesimilarity
@@ -119,7 +119,7 @@ Kinase similarity comparison using various methods
 Deep learning 
 -------------------
 
-Various deep learning architectures for drug discovery tasks
+Various deep learning architectures for drug discovery tasks as presented in the `ChemRxiv preprint 2023 <https://doi.org/10.26434/chemrxiv-2023-kz1pb>`_:
 
 .. nbgallery::
    :name: deeplearning
