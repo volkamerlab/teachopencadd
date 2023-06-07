@@ -41,7 +41,7 @@ TeachOpenCADD is a teaching platform developed by students for students, which p
 Each topic is covered in an interactive Jupyter Notebook, using open source packages such as the Python packages `rdkit`, `pypdb`, `biopandas`, `nglview`, and `mdanalysis` (find the full list [here](https://projects.volkamerlab.org/teachopencadd/external_dependencies.html)). Topics are continuously expanded and open for contributions from the community. Beyond their teaching purpose, the TeachOpenCADD material can serve as starting point for users’ project-directed modifications and extensions.
 
 
-**New edition**: we have extended the TeachOpenCADD platform with 6 notebooks introducing deep learning and the application to CADD related topics. 
+**New edition**: we have extended the TeachOpenCADD platform with 6 notebooks introducing deep learning and its application to CADD related topics. 
 
 ## Get started
 

@@ -5,7 +5,7 @@
 
 Authors:
 
-* Paula Linh Kramer, 2022, [Volkamer Lab](https://volkamerlab.org/), member of the [NextAID](https://nextaid.cs.uni-saarland.de/) project, Saarland University
+* Paula Linh Kramer, 2022, [Volkamer Lab](https://volkamerlab.org/), [NextAID](https://nextaid.cs.uni-saarland.de/) project, Saarland University
 
 
 ## Aim of this talktorial

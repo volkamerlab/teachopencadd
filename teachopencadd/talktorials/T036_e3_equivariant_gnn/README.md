@@ -4,7 +4,7 @@
 
 Authors:
 
-- Joschka Groß, 2022, [Chair for Modelling and Simulation](https://mosi.uni-saarland.de/), member of the [NextAID](https://nextaid.cs.uni-saarland.de/) project, Saarland University
+- Joschka Groß, 2022, [Chair for Modelling and Simulation](https://mosi.uni-saarland.de/), [NextAID](https://nextaid.cs.uni-saarland.de/) project, Saarland University
 
 
 ## Aim of this talktorial
