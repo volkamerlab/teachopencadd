@@ -8,8 +8,6 @@ on:
     branches:
       - "master"
       - "dev"
-      # temporarily added
-      - "t019-exclude-windows-from-ci"
   schedule:
     # every two weeks on Monday at 3 am
     - cron: "0 3/336 * * 1"
