@@ -5,7 +5,7 @@ channels:
 dependencies:
   - mkl < 2022
   - pytorch::pytorch==1.13.0
-  - pyg::pyg==2.2.0
+  #- pyg::pyg==2.2.0
   - python>=3.8
   - pip
   - jupyterlab>=3
@@ -13,7 +13,8 @@ dependencies:
   - jsonschema>=4.3.0
   - nglview>=3
   # Workaround for nglview, see https://github.com/volkamerlab/teachopencadd/issues/262
-  - ipywidgets<8
+  - ipywidgets<=7.75
+  - jupyter_client<=7.4.9
   # New numpy version 1.2.4 too young, e.g. caused
   # https://github.com/volkamerlab/teachopencadd/issues/299
   - numpy<1.24

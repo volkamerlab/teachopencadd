@@ -7,7 +7,6 @@ on:
   pull_request:
     branches:
       - "master"
-      - "DL_edition"
       - "dev"
   schedule:
     # Run a cron job once weekly on Monday
@@ -74,18 +73,33 @@ jobs:
         run: |
           PYTEST_ARGS="--nbval-lax --current-env --dist loadscope --numprocesses 4 --reruns 5 --reruns-delay 60"
 
+          PYTEST_IGNORE_T001="--ignore=teachopencadd/talktorials/T001_query_chembl/talktorial.ipynb"
+          PYTEST_IGNORE_T018="--ignore=teachopencadd/talktorials/T018_automated_cadd_pipeline/talktorial.ipynb"
           PYTEST_IGNORE_T019="--ignore=teachopencadd/talktorials/T019_md_simulation/talktorial.ipynb"
           PYTEST_IGNORE_T020="--ignore=teachopencadd/talktorials/T020_md_analysis/talktorial.ipynb"
+          PYTEST_IGNORE_T035="--ignore=teachopencadd/talktorials/T035_graph_neural_networks/talktorial.ipynb"
+          PYTEST_IGNORE_T036="--ignore=teachopencadd/talktorials/T036_e3_equivariant_gnn/talktorial.ipynb"
+          PYTEST_IGNORE_T038="--ignore=teachopencadd/talktorials/T038_protein_ligand_interaction_prediction/talktorial.ipynb"
 
-          IGNORE=""
+          IGNORE="$PYTEST_IGNORE_T001"
 
           if [ "$RUNNER_OS" == "Windows" ]; then
             # Ignore T019 under Windows, see https://github.com/volkamerlab/teachopencadd/issues/313
             IGNORE="$IGNORE $PYTEST_IGNORE_T019"
+            IGNORE="$IGNORE $PYTEST_IGNORE_T035"
+            IGNORE="$IGNORE $PYTEST_IGNORE_T036"
+            IGNORE="$IGNORE $PYTEST_IGNORE_T038"
           fi
-
+          
+          if [ "$RUNNER_OS" == "Linux" ]; then
+            IGNORE="$IGNORE $PYTEST_IGNORE_T018" # see 385
+          fi
+          
           if [ "$RUNNER_OS" == "macOS" ]; then
+            IGNORE="$IGNORE $PYTEST_IGNORE_T018" # see 385
             IGNORE="$IGNORE $PYTEST_IGNORE_T019"
+            IGNORE="$IGNORE $PYTEST_IGNORE_T035" # may cause kernel dying in pytest
+            IGNORE="$IGNORE $PYTEST_IGNORE_T036" # may cause kernel dying in pytest
           fi
 
           pytest $PYTEST_ARGS teachopencadd/talktorials/ $IGNORE

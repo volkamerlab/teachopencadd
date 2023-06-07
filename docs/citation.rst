@@ -45,6 +45,17 @@ TeachOpenCADD Jupyter notebooks on kinase similarities spanning `talktorials T02
         doi = {10.1186/s13321-019-0351-x},
     }
 
+TeachOpenCADD Jupyter notebooks on deep learning spanning `talktorials T033-T038 (paper) <https://doi.org/10.26434/chemrxiv-2023-kz1pb>`_::
+
+   @article{TeachOpenCADD2023,
+        author = {Backenköhler, Michael and Kramer, Paula Linh and Groß, Joschka and Großmann, Gerrit and Joeres, Roman and Tagirdzhanov, Azat and Sydow, Dominique and Ibrahim, Hamza and Odje, Floriane and Wolf, Verena and Volkamer, Andrea},
+        title = {{TeachOpenCADD goes Deep Learning: Open-source Teaching Platform Exploring Molecular DL Applications}},
+        journal = {ChemRxiv preprint},
+        year = {2023}, 
+        doi = {10.26434/chemrxiv-2023-kz1pb},
+   } 
+
+
 TeachOpenCADD-KNIME
 -------------------
 
