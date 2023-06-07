@@ -4,7 +4,7 @@
 
 Authors:
 
-- Roman Joeres, 2022, [Chair for Drug Bioinformatics, UdS and HIPS](https://www.helmholtz-hips.de/de/forschung/teams/team/wirkstoffbioinformatik/)
+- Roman Joeres, 2022, [Chair for Drug Bioinformatics, UdS and HIPS](https://www.helmholtz-hips.de/de/forschung/teams/team/wirkstoffbioinformatik/), [NextAID](https://nextaid.cs.uni-saarland.de/) project, Saarland University
 
 
 ## Aim of this talktorial

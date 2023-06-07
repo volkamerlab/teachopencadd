@@ -4,7 +4,7 @@
 
 Authors:
 
-- Gerrit Großmann, 2022, [Chair for Modelling and Simulation](https://mosi.uni-saarland.de/people/gerrit/), Saarland University
+- Gerrit Großmann, 2022, [Chair for Modelling and Simulation](https://mosi.uni-saarland.de/people/gerrit/), [NextAID](https://nextaid.cs.uni-saarland.de/) project, Saarland University
 
 
 __Talktorial T033__: This talktorial is part of the TeachOpenCADD pipeline described in the TeachOpenCADD publication, consisting of Talktorials T033 to T038.
