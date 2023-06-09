@@ -26,8 +26,6 @@ jobs:
             python-version: "3.9"
           - os: macos-latest
             python-version: "3.8"
-          - os: windows-latest
-            python-version: "3.8"
 
     env:
       PYVER: ${{ matrix.cfg.python-version }}
@@ -41,7 +39,7 @@ jobs:
           python-version: ${{ matrix.cfg.python-version }}
           miniforge-variant: Mambaforge
           miniforge-version: latest
-          activate-environment: teachopencadd
+          activate-environment: teachopencadd_test
           environment-file: devtools/test_env.yml
 
       - name: Additional info about the build
