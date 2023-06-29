@@ -14,6 +14,9 @@ Installing
 
 Install from the conda package
 ------------------------------
+.. note::
+
+    The conda package does not yet include all packages necessary to run the deep learning edition talktorials (T033-T038).
 
 1. Create a new conda environment for TeachOpenCADD::
 
