@@ -77,7 +77,7 @@ jobs:
           echo "::set-output name=changed_notebooks::$changed_files"
 
 
-      - name: Setup environment variables:
+      - name: Setup environment variables
         shell: bash -l {0}
         run: |
           PYTEST_ARGS="--nbval-lax --current-env --dist loadscope --numprocesses 2"
