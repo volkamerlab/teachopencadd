@@ -74,7 +74,7 @@ jobs:
         id: find_changed
         run: |
           # Find changed notebooks in the last commit
-          changed_files=$(git diff --name-only ${{ github.sha }}^ ${{ github.sha }} | grep 'talktorial.ipynb$' || true)
+          changed_files=$(git diff --name-only ${{ github.event.before }}^ ${{ github.event.after }} | grep 'talktorial.ipynb$' || true)
           echo "Changed notebooks: $changed_files"
           echo "::set-output name=changed_notebooks::$changed_files"
 
