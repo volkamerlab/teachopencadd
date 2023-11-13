@@ -21,22 +21,22 @@ jobs:
       matrix:
         cfg:
           - os: ubuntu-latest
-            python-version: "3.8"
-          - os: ubuntu-latest
             python-version: "3.9"
           - os: macos-latest
-            python-version: "3.8"
+            python-version: "3.9"
           - os: windows-latest
-            python-version: "3.8"
+            python-version: "3.9"
 
     env:
       PYVER: ${{ matrix.cfg.python-version }}
       PACKAGE: teachopencadd
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
-      - uses: conda-incubator/setup-miniconda@v2
+      - name: Setup Conda
+        uses: conda-incubator/setup-miniconda@v2
         with:
           python-version: ${{ matrix.cfg.python-version }}
           miniforge-variant: Mambaforge
@@ -68,7 +68,16 @@ jobs:
           teachopencadd -h
           pytest -v --cov=${PACKAGE} --cov-report=xml --color=yes ${PACKAGE}/tests/
 
-      - name: Run tests
+      - name: Find changed notebooks
+        id: find_changed
+        run: |
+          # Find changed notebooks in the last commit
+          changed_files=$(git diff --name-only ${{ github.sha }}^ ${{ github.sha }} | grep 'talktorial.ipynb$' || true)
+          echo "Changed notebooks: $changed_files"
+          echo "::set-output name=changed_notebooks::$changed_files"
+
+
+      - name: Setup environment variables:
         shell: bash -l {0}
         run: |
           PYTEST_ARGS="--nbval-lax --current-env --dist loadscope --numprocesses 2"
@@ -102,6 +111,15 @@ jobs:
             IGNORE="$IGNORE $PYTEST_IGNORE_T036" # may cause kernel dying in pytest
           fi
 
+      - name: Test changed notebooks
+        if: steps.find_changed.outputs.changed_notebooks != ''
+        run: |
+          pytest $PYTEST_ARGS ${{ steps.find_changed.outputs.changed_notebooks }} $IGNORE
+
+      - name: Test all notebooks
+        if: github.event_name == 'schedule'
+        shell: bash -l {0}
+        run: |
           pytest $PYTEST_ARGS teachopencadd/talktorials/ $IGNORE
 
   format:
