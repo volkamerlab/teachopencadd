@@ -175,7 +175,7 @@ The pipeline is **particularly suited for the hit expansion and lead optimizatio
     
     40. Journal article describing the *Smina* docking program and its scoring function: [D. R. Koes *et al.*, *J. Chem. Inf. Model.* **2013**, 53, 1893-1904.](https://doi.org/10.1021/ci300604z) 
     
-    41. [*OpenBabel* documentation](http://openbabel.org/wiki/Main_Page)
+    41. [*OpenBabel* documentation](http://openbabel.org/docs/index.html)
     
     42. [*Smina* documentation](https://sourceforge.net/projects/smina/)
     
