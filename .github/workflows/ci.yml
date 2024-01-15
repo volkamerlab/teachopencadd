@@ -42,7 +42,7 @@ jobs:
           miniforge-variant: Mambaforge
           miniforge-version: latest
           activate-environment: teachopencadd
-          environment-file: devtools/test_env.yml
+          environment-file: devtools/test_env-2023-06-29.yml
 
       - name: Additional info about the build
         shell: bash

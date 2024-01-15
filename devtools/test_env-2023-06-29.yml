@@ -1,0 +1,62 @@
+channels:
+- conda-forge
+- defaults
+dependencies:
+- python <=3.11.4, >=3.8
+- pip <=23.1.2
+- jupyterlab <=4.0.2, >=3
+- jsonschema <=4.17.3, >=4.3.0
+- nglview <=3.0.6, >=3
+- ipywidgets <=8.0.6, <=7.75
+- jupyter_client <=8.3.0, <=7.4.9
+- numpy <=1.25.0, <1.24
+- scikit-learn <=1.2.2
+- tensorflow <=2.12.0, <=2.6
+- seaborn <=0.12.2
+- matplotlib-venn <=0.11.9
+- bravado <=11.0.3
+- requests <=2.31.0
+- requests-cache <=1.0.1
+- redo <=2.0.4
+- suds-community <=1.1.2
+- beautifulsoup4 <=4.12.2
+- chembl_webresource_client <=0.10.8
+- pypdb <=2.2
+- biopython <=1.81, <=1.77
+- biopandas <=0.4.1
+- rdkit <=2023.03.2
+- openbabel <=3.1.1
+- opencadd <=1.0.1
+- biotite <=0.37.0, >=0.34.0
+- smina <=2020.12.10
+- mdanalysis <=2.5.0, >=1.0.0
+- mdtraj <=1.9.7
+- plip <=2.2.2
+- openmm <=8.0.0
+- mkl <=2023.1.0, < 2022
+- pytorch::pytorch <=2.0.1, ==1.13.0
+- pdbfixer <=1.9
+- tqdm <=4.65.0
+- lxml <=4.9.2
+- kissim <=1.0.1
+- pytest <=7.4.0
+- pytest-xdist <=3.3.1
+- pytest-cov <=4.1.0
+- nbval <=0.9.6
+- shyaml <=0.6.2
+- jinja2 <=3.1.2, ==3.0.3
+- sphinx <=7.0.1
+- sphinx-material <=0.0.35
+- nbsphinx <=0.9.2
+- recommonmark <=0.7.1
+- sphinx-autodoc-typehints <=1.21.8
+- sphinx-copybutton <=0.5.2
+- sphinx-gallery <=0.13.0
+- autodocsumm <=0.2.11
+- pip:
+  - black-nb
+  - nbsphinx-link
+  - sphinxext-opengraph
+  - deepchem
+  - ../
+name: teachopencadd
