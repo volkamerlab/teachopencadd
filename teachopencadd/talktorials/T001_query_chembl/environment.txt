@@ -1,0 +1,26 @@
+python=3.9
+conda-forge::notebook=7
+conda-forge::rdkit=2023
+conda-forge::pandas=2
+conda-forge::tqdm=4.66
+conda-forge::chembl_webresource_client=0.10
+conda-forge::numpy=1.26
+conda-forge::ipywidgets=8
+conda-forge::matplotlib=3.8
+conda-forge::scikit-learn=1.3
+conda-forge::nglview=3
+conda-forge::biopython=1.77
+conda-forge::bravado=11
+conda-forge::opencadd=1
+conda-forge::pypdb=2
+conda-forge::redo=2
+conda-forge::matplotlib-venn=0.11
+conda-forge::openbabel=3
+conda-forge::smina=2020
+conda-forge::plip=2
+conda-forge::tensorflow=2
+
+conda-forge::pillow=9.5
+
+conda-forge::pytorch=2.1  # if GPU present
+conda-forge::pytorch=1.12  # if no GPU present
