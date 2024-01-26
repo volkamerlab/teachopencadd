@@ -1,0 +1,20 @@
+name: teachopencadd-t010
+
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.9
+  # - jupyterlab
+  - notebook=7
+  - opencadd
+  - numpy=1.21
+  - rdkit=2023.9
+  - pandas=2.1
+  - pyarrow
+  - nglview=3
+  - redo=2
+  - mdanalysis=2
+  - pypdb=2
+  - teachopencadd
