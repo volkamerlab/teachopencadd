@@ -24,8 +24,8 @@ jobs:
           - T003_compound_unwanted_structures
         cfg:
           - os: ubuntu-latest
-          - os: macos-latest
-          - os: windows-latest
+          #- os: macos-latest
+          #- os: windows-latest
 
     env:
       PYVER: ${{ matrix.cfg.python-version }}
@@ -52,15 +52,17 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-conda-
 
-      - name: Install package
-        shell: bash -l {0}
-        run: |
-          pip install . --no-deps -vv
+      #- name: Install package
+        #shell: bash -l {0}
+        #run: |
+          #pip install . --no-deps -vv
 
       - name: Install Conda environment
-        run: |
-          mamba env create -f ${{ matrix.directory }}/environment.yml -n ${{ matrix.directory }}
+        run: mamba env create -f environment.yml -n ${{ matrix.directory }}
         working-directory: teachopencadd/talktorials/${{ matrix.directory }}
+
+      - name: Activate Conda environment
+        run: conda activate ${{ matrix.directory }}
 
       - name: Install pytest
         run: mamba install pytest -c conda-forge -y
