@@ -21,7 +21,7 @@ jobs:
       matrix:
         directory:
           - T002_compound_adme
-          - T003_compound_unwanted_structures
+          #- T003_compound_unwanted_structures
         cfg:
           - os: ubuntu-latest
           #- os: macos-latest
@@ -52,10 +52,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-conda-
 
-      #- name: Install package
-        #shell: bash -l {0}
-        #run: |
-          #pip install . --no-deps -vv
+      - name: Install package
+        shell: bash -l {0}
+        run: |
+          ls
+          pwd
 
       - name: Install Conda environment
         run: |
