@@ -57,11 +57,13 @@ jobs:
           mamba env create -f environment.yml -n ${{ matrix.directory }}
           conda activate $(basename ${{ matrix.directory }})
           mamba install pytest pytest-xdist pytest-cov nbval shyaml -c conda-forge -y
+        working-directory: teachopencadd/talktorials/${{ matrix.directory }}
 
       - name: Conda info
         shell: bash -el {0}
         run: |
           conda info
+        working-directory: teachopencadd/talktorials/${{ matrix.directory }}
 
       - name: Test Talktorial
         shell: bash -el {0}
