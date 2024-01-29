@@ -50,15 +50,18 @@ jobs:
             ${{ runner.os }}-conda-
 
       - name: Install Conda environment
+        shell: bash -el {0}
         run: |
-          echo `pwd`
           conda env create -f environment.yml -n ${{ matrix.directory }}
         working-directory: teachopencadd/talktorials/${{ matrix.directory }}
 
       - name: Activate Conda environment
-        run: conda activate ${{ matrix.directory }}
+        shell: bash -el {0}
+        run: |
+          conda activate ${{ matrix.directory }}
 
       - name: Install pytest
+        shell: bash -el {0}
         run: conda install pytest -c conda-forge -y
 
       - name: Run tests
