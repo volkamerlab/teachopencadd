@@ -60,7 +60,7 @@ jobs:
       - name: Activate Conda environment
         shell: bash -el {0}
         run: |
-          conda activate $(basename ${{ matrix.directory }})
+          source activate $(basename ${{ matrix.directory }})
 
       - name: Install pytest
         shell: bash -el {0}
