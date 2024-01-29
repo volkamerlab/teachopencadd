@@ -38,6 +38,8 @@ jobs:
       - name: Set up Miniconda
         uses: conda-incubator/setup-miniconda@v3
         with:
+          mamba-version: "*"
+          channels: conda-forge,defaults
           use-mamba: true
           auto-activate-base: true
 
@@ -45,24 +47,24 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.conda/pkgs
-          key: ${{ runner.os }}-conda-${{ hashFiles('**/environment.yml') }}
+          key: ${{ runner.os }}-conda-
           restore-keys: |
             ${{ runner.os }}-conda-
 
       - name: Install Conda environment
         shell: bash -el {0}
         run: |
-          conda env create -f environment.yml -n ${{ matrix.directory }}
+          mamba env create -f environment.yml -n ${{ matrix.directory }}
         working-directory: teachopencadd/talktorials/${{ matrix.directory }}
 
       - name: Activate Conda environment
         shell: bash -el {0}
         run: |
-          conda activate ${{ matrix.directory }}
+          mamba activate ${{ matrix.directory }}
 
       - name: Install pytest
         shell: bash -el {0}
-        run: conda install pytest -c conda-forge -y
+        run: mamba install pytest pytest-xdist pytest-cov nbval shyaml -c conda-forge -y
 
       - name: Run tests
         shell: bash -l {0}
