@@ -79,7 +79,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v3
       - name: Install format dependencies
-        run: python -m pip install 'black-nb<0.7' shyaml
+        run: python -m pip install 'black<23' 'black-nb<0.7' shyaml
       - name: Run black-nb
         run: |
           black-nb -l 99 --check teachopencadd/talktorials/T*/talktorial.ipynb
