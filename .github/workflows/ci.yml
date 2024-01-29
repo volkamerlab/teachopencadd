@@ -38,11 +38,8 @@ jobs:
       - name: Set up Miniconda
         uses: conda-incubator/setup-miniconda@v3
         with:
-
-          mamba-version: "*"
-          channels: conda-forge,defaults
+          use-mamba: true
           auto-activate-base: true
-          activate-environment: true
 
       - name: Cache Conda packages
         uses: actions/cache@v3
@@ -57,12 +54,14 @@ jobs:
         run: |
           ls
           pwd
+          ls teachopencadd
+          ls teachopencadd/talktorials
 
       - name: Install Conda environment
         run: |
           echo `pwd`
           mamba env create -f environment.yml -n ${{ matrix.directory }}
-        working-directory: talktorials/${{ matrix.directory }}
+        working-directory: teachopencadd/talktorials/${{ matrix.directory }}
 
       - name: Activate Conda environment
         run: conda activate ${{ matrix.directory }}
