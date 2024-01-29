@@ -33,7 +33,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Miniconda
         uses: conda-incubator/setup-miniconda@v3
@@ -45,7 +45,7 @@ jobs:
           activate-environment: true
 
       - name: Cache Conda packages
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.conda/pkgs
           key: ${{ runner.os }}-conda-${{ hashFiles('**/environment.yml') }}
@@ -58,7 +58,9 @@ jobs:
           #pip install . --no-deps -vv
 
       - name: Install Conda environment
-        run: mamba env create -f environment.yml -n ${{ matrix.directory }}
+        run: |
+          echo `pwd`
+          mamba env create -f environment.yml -n ${{ matrix.directory }}
         working-directory: teachopencadd/talktorials/${{ matrix.directory }}
 
       - name: Activate Conda environment
