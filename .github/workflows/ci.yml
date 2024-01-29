@@ -59,15 +59,11 @@ jobs:
           mamba install pytest pytest-xdist pytest-cov nbval shyaml -c conda-forge -y
         working-directory: teachopencadd/talktorials/${{ matrix.directory }}
 
-      - name: Conda info
-        shell: bash -el {0}
-        run: |
-          conda info
-        working-directory: teachopencadd/talktorials/${{ matrix.directory }}
-
       - name: Test Talktorial
         shell: bash -el {0}
         run: |
+          conda activate $(basename ${{ matrix.directory }})
+          conda info
           PYTEST_ARGS="--nbval-lax --nbval-current-env --dist loadscope"
           pytest $PYTEST_ARGS .
         working-directory: teachopencadd/talktorials/${{ matrix.directory }}
