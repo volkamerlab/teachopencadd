@@ -68,7 +68,7 @@ jobs:
         shell: bash -l {0}
         run: |
           PYTEST_ARGS="--nbval-lax --current-env --dist loadscope"
-          pytest $PYTEST_ARGS teachopencadd/talktorials/ $IGNORE
+          pytest $PYTEST_ARGS .
         working-directory: teachopencadd/talktorials/${{ matrix.directory }}
 
   format:
