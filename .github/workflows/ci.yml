@@ -46,7 +46,7 @@ jobs:
       - name: Cache Conda packages
         uses: actions/cache@v3
         with:
-          path: ~/.conda/pkgs
+          path: /home/runner/conda_pkgs_dir
           key: ${{ runner.os }}-conda-
           restore-keys: |
             ${{ runner.os }}-conda-
@@ -57,7 +57,15 @@ jobs:
           mamba env create -f environment.yml -n ${{ matrix.directory }}
           conda activate $(basename ${{ matrix.directory }})
           mamba install pytest pytest-xdist pytest-cov nbval shyaml -c conda-forge -y
+
+      - name: Conda info
+        shell: bash -el {0}
+        run: |
           conda info
+
+      - name: Test Talktorial
+        shell: bash -el {0}
+        run: |
           PYTEST_ARGS="--nbval-lax --nbval-current-env --dist loadscope"
           pytest $PYTEST_ARGS .
         working-directory: teachopencadd/talktorials/${{ matrix.directory }}
