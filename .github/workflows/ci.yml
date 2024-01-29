@@ -21,7 +21,7 @@ jobs:
       matrix:
         directory:
           - T002_compound_adme
-          - T003_compound_unwanted_structures
+          - T003_compound_unwanted_substructures
         cfg:
           - os: ubuntu-latest
           - os: macos-latest
