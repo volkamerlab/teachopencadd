@@ -49,25 +49,17 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-conda-
 
-      - name: Install package
-        shell: bash -l {0}
-        run: |
-          ls
-          pwd
-          ls teachopencadd
-          ls teachopencadd/talktorials
-
       - name: Install Conda environment
         run: |
           echo `pwd`
-          mamba env create -f environment.yml -n ${{ matrix.directory }}
+          conda env create -f environment.yml -n ${{ matrix.directory }}
         working-directory: teachopencadd/talktorials/${{ matrix.directory }}
 
       - name: Activate Conda environment
         run: conda activate ${{ matrix.directory }}
 
       - name: Install pytest
-        run: mamba install pytest -c conda-forge -y
+        run: conda install pytest -c conda-forge -y
 
       - name: Run tests
         shell: bash -l {0}
