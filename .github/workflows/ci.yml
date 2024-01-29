@@ -36,10 +36,10 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Set up Miniconda
-        uses: conda-incubator/setup-miniconda@v2
+        uses: conda-incubator/setup-miniconda@v3
         with:
-          miniforge-version: latest
-          activate-environment: base
+          auto-activate-base: true
+          activate-environment: true
 
       - name: Cache Conda packages
         uses: actions/cache@v2
