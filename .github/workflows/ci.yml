@@ -46,7 +46,7 @@ jobs:
       - name: Cache Conda packages
         uses: actions/cache@v3
         with:
-          path: /home/runner/conda_pkgs_dir
+          path: ~/conda_pkgs_dir
           key: ${{ runner.os }}-conda-
           restore-keys: |
             ${{ runner.os }}-conda-
