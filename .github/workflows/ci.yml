@@ -20,6 +20,7 @@ jobs:
       fail-fast: false
       matrix:
         directory:
+          - T001_query_chembl
           - T002_compound_adme
           - T003_compound_unwanted_substructures
         cfg:
