@@ -19,10 +19,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        directory:
-          - T001_query_chembl
-          - T002_compound_adme
-          - T003_compound_unwanted_substructures
+        talktorial:
+          - name: T001_query_chembl
+            env: environment_a.yml
+          - name: T002_compound_adme
+            env: environment_a.yml
+          - name: T003_compound_unwanted_substructures
+            env: environment_a.yml
         cfg:
           - os: ubuntu-latest
           - os: macos-latest
@@ -55,10 +58,10 @@ jobs:
       - name: Install Conda environment
         shell: bash -el {0}
         run: |
-          mamba env create -f environment.yml -n ${{ matrix.directory }}
-          conda activate $(basename ${{ matrix.directory }})
+          mamba env create -f ../../../devtools/${{ matrix.talktorial.env }} -n ${{ matrix.talktorial.name }}
+          conda activate $(basename ${{ matrix.talktorial.name }})
           mamba install pytest pytest-xdist pytest-cov nbval shyaml -c conda-forge -y
-        working-directory: teachopencadd/talktorials/${{ matrix.directory }}
+        working-directory: teachopencadd/talktorials/${{ matrix.talktorial.name }}
 
       - name: Test Talktorial
         shell: bash -el {0}
