@@ -5,6 +5,7 @@ Set of functions required to analyze protein-ligand interactions using the PLIP 
 from enum import Enum  # for creating enumeration classes
 from pathlib import Path  # for creating folders and handling local paths
 import logging  # for setting logging levels (to disable logging defaults of packages e.g. PLIP)
+import warnings
 
 import plip  # for changing the logging setting of the package (see bottom of the cell: Settings)
 # for calculating protein-ligand interactions
@@ -15,8 +16,8 @@ import pandas as pd  # for creating dataframes and handling data
 
 # Settings:
 # disabling excessive INFO logs of the PLIP package
-logging.getLogger(plip.__name__).setLevel(logging.WARNING)
-
+logging.getLogger(plip.__name__).setLevel(logging.ERROR)
+warnings.simplefilter("ignore", category=DeprecationWarning)
 
 class Consts:
     """
