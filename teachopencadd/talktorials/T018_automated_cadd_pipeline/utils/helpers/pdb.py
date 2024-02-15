@@ -7,7 +7,7 @@ import warnings
 
 from biopandas.pdb import PandasPdb  # for working with PDB files
 import pypdb  # for communicating with the RCSB Protein Data Bank (PDB) to fetch PDB files
-from opencadd.structure.core import Structure  # for manipulating PDB files
+import MDAnalysis  # for manipulating PDB files
 
 
 def read_pdb_file_content(input_type, input_value):
@@ -81,13 +81,13 @@ def extract_molecule_from_pdb_file(molecule_name, input_filepath, output_filepat
         Structure object of the extracted molecule.
     """
 
-    pdb_structure = Structure.from_string(input_filepath)
+    pdb_structure = MDAnalysis.Universe(input_filepath)
     molecule_name = f"resname {molecule_name}" if molecule_name != "protein" else molecule_name
     extracted_structure = pdb_structure.select_atoms(molecule_name)
     if output_filepath is not None:
         with warnings.catch_warnings():
             warnings.simplefilter("ignore")
-            extracted_structure.write(Path(output_filepath).with_suffix(".pdb"))
+            extracted_structure.atoms.write(Path(output_filepath).with_suffix(".pdb"))
     return extracted_structure
 
 
