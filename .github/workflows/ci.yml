@@ -19,20 +19,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        talktorial:
-          - name: T001_query_chembl
-            env: environment_a.yml
-          - name: T002_compound_adme
-            env: environment_a.yml
-          - name: T003_compound_unwanted_substructures
-            env: environment_a.yml
         cfg:
           - os: ubuntu-latest
           - os: macos-latest
           - os: windows-latest
 
     env:
-      PYVER: ${{ matrix.cfg.python-version }}
       PACKAGE: teachopencadd
 
     steps:
@@ -47,6 +39,10 @@ jobs:
           use-mamba: true
           auto-activate-base: true
 
+      - name: Run Talktorials
+        run: |
+          python devtools/test_talktorials.py
+
       - name: Cache Conda packages
         uses: actions/cache@v3
         with:
@@ -55,22 +51,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-conda-
 
-      - name: Install Conda environment
-        shell: bash -el {0}
-        run: |
-          mamba env create -f ../../../devtools/${{ matrix.talktorial.env }} -n ${{ matrix.talktorial.name }}
-          conda activate $(basename ${{ matrix.talktorial.name }})
-          mamba install pytest pytest-xdist pytest-cov nbval shyaml -c conda-forge -y
-        working-directory: teachopencadd/talktorials/${{ matrix.talktorial.name }}
-
-      - name: Test Talktorial
-        shell: bash -el {0}
-        run: |
-          conda activate $(basename ${{ matrix.directory }})
-          conda info
-          PYTEST_ARGS="--nbval-lax --nbval-current-env --dist loadscope"
-          pytest $PYTEST_ARGS .
-        working-directory: teachopencadd/talktorials/${{ matrix.directory }}
 
   format:
     name: Black
