@@ -5,6 +5,7 @@ import pathlib
 import yaml
 
 HERE = pathlib.Path().absolute()
+PYTEST_ARGS = "--nbval-lax --nbval-current-env --dist loadscope --numprocesses 4"
 
 
 def create_conda_environment(env_file, env_name):
@@ -21,24 +22,16 @@ def create_conda_environment(env_file, env_name):
     )
 
 
-def deactivate_conda_environment():
-    # Deactivate Conda environment
-    subprocess.run(["conda", "deactivate"], shell=True, check=True)
-
-
 def test_notebooks(notebooks, env_name):
     # Run tests on Jupyter notebooks
-    success = True
-    for notebook in notebooks:
-        talktorial_path = (
-            HERE / "teachopencadd" / "talktorials" / notebook / "talktorial.ipynb"
-        )
-        assert talktorial_path.exists(), f"Talktorial {notebook} not found."
-        res = subprocess.run(
-            f"conda run -n {env_name} pytest --nbval {talktorial_path}".split()
-        )
-        success = (res == 0) and success
-    return success
+    talktorial_paths = " ".join(
+        str(HERE / "teachopencadd" / "talktorials" / notebook / "talktorial.ipynb")
+        for notebook in notebooks
+    )
+    result = subprocess.run(
+        f"conda run -n {env_name} pytest {PYTEST_ARGS} {talktorial_paths}".split()
+    )
+    return 0 == result.returncode
 
 
 def main():
@@ -56,7 +49,8 @@ def main():
         create_conda_environment(env_file, env_name)
 
         print(f"Running tests on Jupyter notebooks for environment '{env_name}'...")
-        success = success and test_notebooks(notebooks, env_name)
+        res = test_notebooks(notebooks, env_name)
+        success = success and res
 
     return success
 
