@@ -52,7 +52,7 @@ def main():
         notebooks = environment["notebooks"]
 
         print(f"Setting up Conda environment '{env_name}'...")
-        # create_conda_environment(env_file, env_name)
+        create_conda_environment(env_file, env_name)
 
         print(f"Running tests on Jupyter notebooks for environment '{env_name}'...")
         success = success and test_notebooks(notebooks, env_name)
