@@ -34,10 +34,8 @@ jobs:
       - name: Set up Miniconda
         uses: conda-incubator/setup-miniconda@v3
         with:
-          mamba-version: "*"
-          channels: conda-forge,defaults
-          use-mamba: true
-          auto-activate-base: true
+          activate-environment: true
+          environment-file: devtools/test_env.yml
 
       - name: Run Talktorials
         run: |
