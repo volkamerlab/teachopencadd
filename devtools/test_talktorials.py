@@ -8,7 +8,10 @@ def create_conda_environment(env_file, env_name):
     # Create Conda environment from environment file
     env_path = HERE / "devtools" / env_file
     assert env_path.exists(), f"No environment file {env_path} found."
-    subprocess.run(f'mamba env remove -n {env_name}')
+    try:
+        subprocess.run(f'mamba env remove -n {env_name}', check=False)
+    except:
+        pass  # fails if environment not present
     subprocess.run(f'mamba env create -f {env_path} -n {env_name} -q'.split(), check=True)
     subprocess.run(f'mamba install -n {env_name} pytest pytest-xdist nbval -c conda-forge -y -q'.split(), check=True)
 
