@@ -1,0 +1,19 @@
+name: teachopencadd-t005 
+
+channels: 
+  - conda-forge 
+  - defaults 
+
+dependencies: 
+
+  - python=3.11
+  - pip
+  - jupyterlab 
+  - numpy
+  - pandas=2.0
+  - rdkit
+  - pyarrow
+  - tqdm
+  - ipywidgets
+  - pip: 
+      - ../../../
