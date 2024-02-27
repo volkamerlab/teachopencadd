@@ -31,12 +31,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - uses: mamba-org/setup-micromamba@v1
+      - name: Setup Conda
+        uses: conda-incubator/setup-miniconda@v3
         with:
+          mamba-version: "*"
+          channels: conda-forge,defaults
+          channel-priority: true
+          activate-environment: teachopencadd
           environment-file: devtools/test_env.yml
-          init-shell: bash
 
       - name: Run Talktorials
+        shell: bash -el {0}
         run: |
           python devtools/test_talktorials.py
 
