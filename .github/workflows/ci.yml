@@ -36,6 +36,7 @@ jobs:
         with:
           activate-environment: true
           environment-file: devtools/test_env.yml
+          use-mamba: true
 
       - name: Run Talktorials
         run: |
