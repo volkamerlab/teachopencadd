@@ -43,7 +43,7 @@ def test_notebooks(notebooks, env_name):
 
 def main():
     # Load configuration from YAML file
-    with open("test_configurations.yml", "r") as file:
+    with open(HERE / "devtools" / "test_configurations.yml", "r") as file:
         config = yaml.safe_load(file)
 
     success = True
