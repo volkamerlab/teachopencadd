@@ -1,3 +1,4 @@
+import os
 import sys
 import subprocess
 import pathlib
@@ -61,5 +62,8 @@ def main():
 
 
 if __name__ == "__main__":
-    return_code = main()
-    sys.exit(return_code)
+    success = main()
+    if success:
+        sys.exit(os.EX_OK)
+    else:
+        sys.exit(os.EX_SOFTWARE)
