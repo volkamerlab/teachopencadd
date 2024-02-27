@@ -21,91 +21,29 @@ jobs:
       matrix:
         cfg:
           - os: ubuntu-latest
-            python-version: "3.8"
-          - os: ubuntu-latest
-            python-version: "3.9"
           - os: macos-latest
-            python-version: "3.8"
           - os: windows-latest
-            python-version: "3.8"
-
-    env:
-      PYVER: ${{ matrix.cfg.python-version }}
-      PACKAGE: teachopencadd
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - uses: conda-incubator/setup-miniconda@v2
+      - name: Setup Conda
+        uses: conda-incubator/setup-miniconda@v3
         with:
-          python-version: ${{ matrix.cfg.python-version }}
-          miniforge-variant: Mambaforge
-          miniforge-version: latest
+          mamba-version: "*"
+          channels: conda-forge,defaults
+          channel-priority: true
           activate-environment: teachopencadd
           environment-file: devtools/test_env.yml
 
-      - name: Additional info about the build
-        shell: bash
+      - name: Run Talktorials
+        shell: bash -el {0}
         run: |
-          uname -a
-          df -h
-          ulimit -a
-
-      - name: Install package
-        shell: bash -l {0}
-        run: |
-          pip install . --no-deps -vv
-
-      - name: Environment Information
-        shell: bash -l {0}
-        run: |
-          conda info --all
-          conda list
-
-      - name: Test CLI
-        shell: bash -l {0}
-        run: |
-          teachopencadd -h
-          pytest -v --cov=${PACKAGE} --cov-report=xml --color=yes ${PACKAGE}/tests/
-
-      - name: Run tests
-        shell: bash -l {0}
-        run: |
-          PYTEST_ARGS="--nbval-lax --current-env --dist loadscope --numprocesses 2"
-
-          PYTEST_IGNORE_T001="--ignore=teachopencadd/talktorials/T001_query_chembl/talktorial.ipynb"
-          PYTEST_IGNORE_T018="--ignore=teachopencadd/talktorials/T018_automated_cadd_pipeline/talktorial.ipynb"
-          PYTEST_IGNORE_T019="--ignore=teachopencadd/talktorials/T019_md_simulation/talktorial.ipynb"
-          PYTEST_IGNORE_T020="--ignore=teachopencadd/talktorials/T020_md_analysis/talktorial.ipynb"
-          PYTEST_IGNORE_T035="--ignore=teachopencadd/talktorials/T035_graph_neural_networks/talktorial.ipynb"
-          PYTEST_IGNORE_T036="--ignore=teachopencadd/talktorials/T036_e3_equivariant_gnn/talktorial.ipynb"
-          PYTEST_IGNORE_T038="--ignore=teachopencadd/talktorials/T038_protein_ligand_interaction_prediction/talktorial.ipynb"
-
-          IGNORE="$PYTEST_IGNORE_T001"
-
-          if [ "$RUNNER_OS" == "Windows" ]; then
-            # Ignore T019 under Windows, see https://github.com/volkamerlab/teachopencadd/issues/313
-            IGNORE="$IGNORE $PYTEST_IGNORE_T019"
-            IGNORE="$IGNORE $PYTEST_IGNORE_T035"
-            IGNORE="$IGNORE $PYTEST_IGNORE_T036"
-            IGNORE="$IGNORE $PYTEST_IGNORE_T038"
-          fi
-          
-          if [ "$RUNNER_OS" == "Linux" ]; then
-            IGNORE="$IGNORE $PYTEST_IGNORE_T018" # see 385
-          fi
-          
-          if [ "$RUNNER_OS" == "macOS" ]; then
-            IGNORE="$IGNORE $PYTEST_IGNORE_T018" # see 385
-            IGNORE="$IGNORE $PYTEST_IGNORE_T019"
-            IGNORE="$IGNORE $PYTEST_IGNORE_T035" # may cause kernel dying in pytest
-            IGNORE="$IGNORE $PYTEST_IGNORE_T036" # may cause kernel dying in pytest
-          fi
-
-          pytest $PYTEST_ARGS teachopencadd/talktorials/ $IGNORE
+          python devtools/test_talktorials.py
 
   format:
-    name: Black
+    name: Talktorial Formatting
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -117,7 +55,7 @@ jobs:
           black-nb -l 99 --check teachopencadd/talktorials/T*/talktorial.ipynb
 
   readmes:
-    name: READMEs
+    name: README consistency
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
