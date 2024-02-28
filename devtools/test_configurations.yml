@@ -36,10 +36,19 @@ environments:
     file: environment_e.yml
     notebooks:
       - T010_binding_site_comparison
-      #
   - name: teachopencadd-f
     file: environment_f.yml
     notebooks:
       - T024_kinase_similarity_sequence
       - T028_kinase_similarity_compare_perspectiv
+  - name: teachopencadd-g
+    file: environment_g.yml
+    notebooks:
+      - T033_molecular_representations
+      - T034_recurrent_neural_networks
+      - T035_graph_neural_networks
+      - T036_e3_equivariant_gnn
+      - T037_uncertainty_estimation
+      - T038_protein_ligand_interaction_prediction
+
 # MISSING: T011 T018
