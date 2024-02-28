@@ -1,0 +1,60 @@
+environments:
+  - name: teachopencadd-a
+    file: environment_a.yml
+    notebooks:
+      - T001_query_chembl
+  - name: teachopencadd-b
+    file: environment_b.yml
+    notebooks:
+      - T002_compound_adme
+      - T003_compound_unwanted_substructures
+      - T004_compound_similarity
+      - T005_compound_clustering
+      - T006_compound_maximum_common_substructures
+      - T007_compound_activity_machine_learning
+      - T013_query_pubchem
+        #   - T019_md_simulation
+      - T021_one_hot_encoding
+      - T027_kinase_similarity_ligand_profile
+  - name: teachopencadd-c
+    file: environment_c.yml
+    notebooks:
+      - T008_query_pdb
+      - T012_query_klifs
+      - T014_binding_site_detection
+      - T015_protein_ligand_docking
+      - T016_protein_ligand_interactions
+      - T017_advanced_nglview_usage
+      - T023_what_is_a_kinase
+      - T025_kinase_similarity_kissim
+      - T026_kinase_similarity_ifp
+  - name: teachopencadd-d
+    file: environment_d.yml
+    notebooks:
+      - T009_compound_ensemble_pharmacophores
+  - name: teachopencadd-e
+    file: environment_e.yml
+    notebooks:
+      - T010_binding_site_comparison
+  - name: teachopencadd-f
+    file: environment_f.yml
+    notebooks:
+      - T024_kinase_similarity_sequence
+      - T028_kinase_similarity_compare_perspectiv
+  - name: teachopencadd-g
+    file: environment_g.yml
+    notebooks:
+      - T033_molecular_representations
+      - T034_recurrent_neural_networks
+      - T035_graph_neural_networks
+      - T036_e3_equivariant_gnn
+      - T037_uncertainty_estimation
+      - T038_protein_ligand_interaction_prediction
+  - name: teachopencadd-h
+    file: environment_h.yml
+    notebooks:
+      - T011_query_online_api_webservices
+  - name: teachopencadd-i
+    file: environment_i.yml
+    notebooks:
+      - T018_automated_cadd_pipeline
