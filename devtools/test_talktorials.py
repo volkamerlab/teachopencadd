@@ -2,10 +2,18 @@ import os
 import sys
 import subprocess
 import pathlib
+import platform
 import yaml
 
 HERE = pathlib.Path().absolute()
 PYTEST_ARGS = "--nbval-lax --nbval-current-env --dist loadscope --numprocesses 4"
+
+
+def setup_mamba():
+    if platform.system() == "Windows":
+        subprocess.run("conda config --add channels conda-forge".split(), check=True)
+        subprocess.run("conda update -n base --all".split(), check=True)
+        subprocess.run("conda install -n base mamba".split(), check=True)
 
 
 def create_conda_environment(env_file, env_name):
@@ -45,10 +53,14 @@ def main():
         env_file = environment["file"]
         notebooks = environment["notebooks"]
 
+        print("Set up mamba")
+        setup_mamba()
+
         print(f"Setting up Conda environment '{env_name}'...")
         create_conda_environment(env_file, env_name)
 
         print(f"Running tests on Jupyter notebooks for environment '{env_name}'...")
+        print(f"\n".join(" - " + nb for nb in notebooks))
         res = test_notebooks(notebooks, env_name)
         success = success and res
 
