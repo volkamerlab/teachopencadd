@@ -9,13 +9,6 @@ HERE = pathlib.Path().absolute()
 PYTEST_ARGS = "--nbval-lax --nbval-current-env --dist loadscope --numprocesses 4"
 
 
-def setup_mamba():
-    if platform.system() == "Windows":
-        subprocess.run("conda config --add channels conda-forge".split(), check=True)
-        subprocess.run("conda update -n base --all".split(), check=True)
-        subprocess.run("conda install -n base mamba".split(), check=True)
-
-
 def create_conda_environment(env_file, env_name):
     # Create Conda environment from environment file
     env_path = HERE / "devtools" / env_file
@@ -52,9 +45,6 @@ def main():
         env_name = environment["name"]
         env_file = environment["file"]
         notebooks = environment["notebooks"]
-
-        print("Set up mamba")
-        setup_mamba()
 
         print(f"Setting up Conda environment '{env_name}'...")
         create_conda_environment(env_file, env_name)
