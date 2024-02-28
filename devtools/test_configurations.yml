@@ -50,5 +50,11 @@ environments:
       - T036_e3_equivariant_gnn
       - T037_uncertainty_estimation
       - T038_protein_ligand_interaction_prediction
-
-# MISSING: T011 T018
+  - name: teachopencadd-h
+    file: environment_h.yml
+    notebooks:
+      - T011_query_online_api_webservices
+  - name: teachopencadd-i
+    file: environment_i.yml
+    notebooks:
+      - T018_automated_cadd_pipeline
