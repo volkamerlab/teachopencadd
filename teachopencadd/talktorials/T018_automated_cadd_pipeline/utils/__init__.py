@@ -2,6 +2,10 @@
 Main classes used in Talktorial T018.
 """
 
+import warnings
+warnings.simplefilter("ignore", category=DeprecationWarning)
+warnings.simplefilter("ignore", category=FutureWarning)
+
 from .consts import Consts
 from .specs import Specs
 from .protein import Protein

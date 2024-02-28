@@ -1,0 +1,21 @@
+name: teachopencadd-t018
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python = 3.12.1
+  - jupyterlab = 4.1.1
+  - numpy = 1.26.4
+  - pandas = 2.1.4  # not 2.2.x due to this problem in RDKit: https://github.com/rdkit/rdkit/pull/7165
+  - matplotlib = 3.8.2
+  - rdkit = 2023.09.5
+  - nglview = 3.1.1
+  - openbabel = 3.1.1
+  - biopandas = 0.4.1
+  - pypdb = 2.3
+  - mdanalysis = 2.7.0
+  - plip = 2.3.0
+  - smina = 2020.12.10
+  - requests = 2.31.0
+  - redo = 2.0.4
+  - ipywidgets = 8.1.2
