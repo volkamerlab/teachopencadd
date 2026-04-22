@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta property="og:title" content="Installing" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://projects.volkamerlab.org/teachopencadd/installing.html" />
+<meta property="og:url" content="installing.html" />
 <meta property="og:site_name" content="TeachOpenCADD" />
-<meta property="og:description" content="Install from the conda package: Create a new conda environment for TeachOpenCADD:, Activate the new environment:, Run teachopencadd -h to test that it works., Run teachopencadd start . to set up a new workspace with the TeachOpenCADD material. Follow the instructions printed in your terminal to o..." />
-<meta property="og:image" content="https://raw.githubusercontent.com/volkamerlab/teachopencadd/master/docs/_static/images/TeachOpenCADD_topics.png" />
-<meta property="og:image:alt" content="TeachOpenCADD" />
-<meta name="description" content="Install from the conda package: Create a new conda environment for TeachOpenCADD:, Activate the new environment:, Run teachopencadd -h to test that it works., Run teachopencadd start . to set up a new workspace with the TeachOpenCADD material. Follow the instructions printed in your terminal to o..." />
+<meta property="og:description" content="Install from the pip package: Install TeachOpenCADD using pip:, Run teachopencadd -h to test that it works., Run teachopencadd &lt;ID&gt; to set up a new workspace with the TeachOpenCADD material. ..." />
+<meta property="og:image:width" content="1146" />
+<meta property="og:image:height" content="600" />
+<meta property="og:image" content="_images/social_previews/summary_installing_97ed8751.png" />
+<meta property="og:image:alt" content="Install from the pip package: Install TeachOpenCADD using pip:, Run teachopencadd -h to test that it works., Run teachopencadd &lt;ID&gt; to set up a new workspace with the TeachOpenCADD material. ..." />
+<meta name="description" content="Install from the pip package: Install TeachOpenCADD using pip:, Run teachopencadd -h to test that it works., Run teachopencadd &lt;ID&gt; to set up a new workspace with the TeachOpenCADD material. ..." />
+<meta name="twitter:card" content="summary_large_image" />
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -79,28 +82,22 @@
         gtag('config', 'G-Q6ZE82CNZB');
     </script>
   
-    <link rel="apple-touch-icon" href="_static/images/apple-icon-152x152.png"/>
   
-  
-    <title>Installing &#8212; TeachOpenCADD 0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+    <title>Installing &#8212; TeachOpenCADD 2023.5.2.post442 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=75810a84" />
     <link rel="stylesheet" type="text/css" href="_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=d2d258e8" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css?v=897d968c" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=e43216b9"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
-    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/documentation_options.js?v=f78c6808"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="For contributors" href="contribute.html" />
-    <link rel="prev" title="Talktorials by collection" href="talktorials.html" />
-  
-    <link rel="apple-touch-icon" href="_static/images/apple-icon-152x152.png"/>
   
    
 
@@ -124,7 +121,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="index.html" title="TeachOpenCADD 0 documentation"
+        <a href="index.html" title="TeachOpenCADD 2023.5.2.post442 documentation"
            class="md-header-nav__button md-logo">
           
             <i class="md-icon">school</i>
@@ -136,7 +133,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">TeachOpenCADD</span>
+          <span class="md-header-nav__topic">TeachOpenCADD 2023.5.2.post442 documentation</span>
           <span class="md-header-nav__topic"> Installing </span>
         </div>
       </div>
@@ -188,6 +185,16 @@
         </div>
       
       
+  
+  <script src="_static/javascripts/version_dropdown.js"></script>
+  <script>
+    var json_loc = ""versions.json"",
+        target_loc = "../",
+        text = "Versions";
+    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
+  </script>
+  
+
     </div>
   </nav>
 </header>
@@ -200,6 +207,7 @@
   <nav class="md-tabs" data-md-component="tabs">
     <div class="md-tabs__inner md-grid">
       <ul class="md-tabs__list">
+          <li class="md-tabs__item"><a href="index.html" class="md-tabs__link">TeachOpenCADD 2023.5.2.post442 documentation</a></li>
             
             <li class="md-tabs__item"><a href="talktorials.html" class="md-tabs__link">Our talktorials</a></li>
             
@@ -221,13 +229,13 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="index.html" title="TeachOpenCADD 0 documentation" class="md-nav__button md-logo">
+    <a href="index.html" title="TeachOpenCADD 2023.5.2.post442 documentation" class="md-nav__button md-logo">
       
         <i class="md-icon">school</i>
       
     </a>
     <a href="index.html"
-       title="TeachOpenCADD 0 documentation">TeachOpenCADD</a>
+       title="TeachOpenCADD 2023.5.2.post442 documentation">TeachOpenCADD 2023.5.2.post442 documentation</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
@@ -246,155 +254,6 @@
   
   
 
-  
-  <ul class="md-nav__list">
-    <li class="md-nav__item">
-    
-      <span class="md-nav__link caption"><span class="caption-text">Our talktorials</span></span>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="talktorials.html" class="md-nav__link">Talktorials by collection</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-      <span class="md-nav__link caption"><span class="caption-text">Run locally</span></span>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> Installing </label>
-    
-      <a href="#" class="md-nav__link md-nav__link--active">Installing</a>
-      
-        
-<nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">"Contents"</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#installing--page-root" class="md-nav__link">Installing</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#install-from-the-conda-package" class="md-nav__link">Install from the conda package</a>
-        </li>
-        <li class="md-nav__item"><a href="#install-from-the-latest-development-snapshot" class="md-nav__link">Install from the latest development snapshot</a>
-        </li></ul>
-            </nav>
-        </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="_sources/installing.rst.txt">Show Source</a> </li>
-
-  </ul>
-</nav>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="#install-from-the-conda-package" class="md-nav__link">Install from the conda package</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#install-from-the-latest-development-snapshot" class="md-nav__link">Install from the latest development snapshot</a>
-      
-    
-    </li></ul>
-    
-    </li>
-    <li class="md-nav__item">
-    
-      <span class="md-nav__link caption"><span class="caption-text">Development</span></span>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="contribute.html" class="md-nav__link">For contributors</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="api.html" class="md-nav__link">API Documentation</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-      <span class="md-nav__link caption"><span class="caption-text">About TeachOpenCADD</span></span>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="contact.html" class="md-nav__link">Contact</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="acknowledgments.html" class="md-nav__link">Acknowledgments</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="citation.html" class="md-nav__link">Citation</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="license.html" class="md-nav__link">License</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="funding.html" class="md-nav__link">Funding</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-      <span class="md-nav__link caption"><span class="caption-text">External resources</span></span>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="external_dependencies.html" class="md-nav__link">Packages and webservers used in TeachOpenCADD</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="external_tutorials_collections.html" class="md-nav__link">External tutorials and collections</a>
-      
-    
-    </li>
-  </ul>
-  
-
 </nav>
               </div>
             </div>
@@ -408,9 +267,7 @@
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#installing--page-root" class="md-nav__link">Installing</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#install-from-the-conda-package" class="md-nav__link">Install from the conda package</a>
-        </li>
-        <li class="md-nav__item"><a href="#install-from-the-latest-development-snapshot" class="md-nav__link">Install from the latest development snapshot</a>
+        <li class="md-nav__item"><a href="#install-from-the-pip-package" class="md-nav__link">Install from the pip package</a>
         </li></ul>
             </nav>
         </li>
@@ -429,85 +286,24 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="installing">
-<h1 id="installing--page-root">Installing<a class="headerlink" href="#installing--page-root" title="Permalink to this heading">¶</a></h1>
+<h1 id="installing--page-root">Installing<a class="headerlink" href="#installing--page-root" title="Link to this heading">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>We are assuming you have a working <code class="docutils literal notranslate"><span class="pre">mamba</span></code> installation in your computer.
-If this is not the case, please refer to their <a class="reference external" href="https://mamba.readthedocs.io/en/latest/installation.html#mamba">official documentation</a>.</p>
-<p>If you installed <code class="docutils literal notranslate"><span class="pre">mamba</span></code> into an existing <code class="docutils literal notranslate"><span class="pre">conda</span></code> installation, also make sure that the <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> channel is configured by running <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">config</span> <span class="pre">--add</span> <span class="pre">channels</span> <span class="pre">conda-forge</span></code>.</p>
-<p>If you prefer to work with <code class="docutils literal notranslate"><span class="pre">conda</span></code>, please use <code class="docutils literal notranslate"><span class="pre">conda</span></code> in place of <code class="docutils literal notranslate"><span class="pre">mamba</span></code> in the instructions below.
-Please note that the TeachOpenCADD setup with <code class="docutils literal notranslate"><span class="pre">conda</span></code> takes much longer than with <code class="docutils literal notranslate"><span class="pre">mamba</span></code>.</p>
+<p>We are currently working on providing TeachOpenCADD as a conda package, as well.</p>
 </div>
-<section id="install-from-the-conda-package">
-<h2 id="install-from-the-conda-package">Install from the conda package<a class="headerlink" href="#install-from-the-conda-package" title="Permalink to this heading">¶</a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The conda package does not yet include all packages necessary to run the deep learning edition talktorials (T033-T038).</p>
-<p>We are working on it and will post an update as soon as the new package is available.</p>
-</div>
+<section id="install-from-the-pip-package">
+<h2 id="install-from-the-pip-package">Install from the pip package<a class="headerlink" href="#install-from-the-pip-package" title="Link to this heading">¶</a></h2>
 <ol class="arabic">
-<li><p>Create a new conda environment for TeachOpenCADD:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Linux / MacOS
-mamba create -n teachopencadd teachopencadd
-
-# Windows
-mamba create -n teachopencadd teachopencadd -c conda-forge -c defaults
-
-# When using a MacBook Air 12.4 with an M1 chip you may need:
-CONDA_SUBDIR=osx-64 mamba create -n teachopencadd teachopencadd
-</pre></div>
-</div>
-</li>
-<li><p>Activate the new environment:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda activate teachopencadd
+<li><p>Install TeachOpenCADD using pip:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">teachopencadd</span>
 </pre></div>
 </div>
 </li>
 <li><p>Run <code class="docutils literal notranslate"><span class="pre">teachopencadd</span> <span class="pre">-h</span></code> to test that it works.</p></li>
-<li><p>Run <code class="docutils literal notranslate"><span class="pre">teachopencadd</span> <span class="pre">start</span> <span class="pre">.</span></code> to set up a new workspace with the TeachOpenCADD material. Follow the instructions printed in your terminal to open the material (Jupyter notebooks) with Jupyter Lab.
-In this example command, you are setting up your workspace in the current directory <code class="docutils literal notranslate"><span class="pre">.</span></code>; you can use any other path.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">teachopencadd</span> <span class="pre">&lt;ID&gt;</span></code> to set up a new workspace with the TeachOpenCADD material. In this example command, you are choosing the talktorial by its numerical <code class="docutils literal notranslate"><span class="pre">&lt;ID&gt;</span></code>.</p></li>
 </ol>
-<p>You can always return to your TeachOpenCADD material with <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span> <span class="pre">/path/to/your/teachopencadd/workspace</span></code>.
-If you need an introduction to Jupyter notebooks, please check out the suggested resources <a class="reference internal" href="external_tutorials_collections.html#jupyter-tutorial"><span class="std std-ref">here</span></a>.</p>
+<p>If you need an introduction to Jupyter notebooks, please check out the suggested resources <a class="reference internal" href="external_tutorials_collections.html#jupyter-tutorial"><span class="std std-ref">here</span></a>.</p>
 </section>
-<section id="install-from-the-latest-development-snapshot">
-<h2 id="install-from-the-latest-development-snapshot">Install from the latest development snapshot<a class="headerlink" href="#install-from-the-latest-development-snapshot" title="Permalink to this heading">¶</a></h2>
-<ol class="arabic">
-<li><p>Create a new conda environment and activate it:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mamba env create -f https://raw.githubusercontent.com/volkamerlab/TeachOpenCADD/master/devtools/test_env.yml
-conda activate teachopencadd
-</pre></div>
-</div>
-<p>Note: If you are working on MacOS with an M1 chip and the above command is not working, e.g. “The environment can’t be solved, aborting the operation”, prefix the command with <code class="docutils literal notranslate"><span class="pre">CONDA_SUBDIR=osx-64</span></code> and try again:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>CONDA_SUBDIR=osx-64 mamba env create -f https://raw.githubusercontent.com/volkamerlab/TeachOpenCADD/master/devtools/test_env.yml
-conda activate teachopencadd
-</pre></div>
-</div>
-</li>
-<li><p>Download a zipfile of the repository using <a class="reference external" href="https://github.com/volkamerlab/teachopencadd/archive/master.zip">this link</a>.</p></li>
-<li><p>Unzip to your location of choice.</p></li>
-<li><p>Navigate to your location.</p></li>
-<li><p>Start Jupyter Lab.</p></li>
-<li><p>Double click on the lesson you want to start.</p></li>
-</ol>
-<p>Steps 2 to 5 are summarized below.</p>
-<details>
-<summary>Instructions for Linux / MacOS</summary><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>https://github.com/volkamerlab/teachopencadd/archive/master.zip<span class="w"> </span>-O<span class="w"> </span>teachopencadd.zip
-mkdir<span class="w"> </span>-p<span class="w"> </span>~/Documents
-unzip<span class="w"> </span>teachopencadd.zip<span class="w"> </span>-d<span class="w"> </span>~/Documents
-<span class="nb">cd</span><span class="w"> </span>~/Documents/teachopencadd-master/teachopencadd/talktorials
-jupyter<span class="w"> </span>lab
-</pre></div>
-</div>
-</details><details>
-<summary>Instructions for Windows (PowerShell)</summary><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>wget https://github.com/volkamerlab/teachopencadd/archive/master.zip -O teachopencadd.zip
-mkdir ~/Documents/
-Expand-Archive teachopencadd.zip -d ~/Documents
-cd ~/Documents/teachopencadd-master/teachopencadd/talktorials
-jupyter lab
-</pre></div>
-</div>
-</details></section>
 </section>
 
 
@@ -520,30 +316,6 @@ jupyter lab
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="talktorials.html" title="Talktorials by collection"
-               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
-               rel="prev">
-              <div class="md-flex__cell md-flex__cell--shrink">
-                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-              </div>
-              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-                <span class="md-flex__ellipsis">
-                  <span
-                      class="md-footer-nav__direction"> "Previous" </span> Talktorials by collection </span>
-              </div>
-            </a>
-          
-          
-            <a href="contribute.html" title="For contributors"
-               class="md-flex md-footer-nav__link md-footer-nav__link--next"
-               rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
-                class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> "Next" </span> For contributors </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink"><i
-                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
           
         </a>
         
@@ -553,11 +325,11 @@ jupyter lab
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2018-2023, Volkamer Lab. Project structure based on the Computational Molecular Science Python Cookiecutter version 1.1.
+              &#169; Copyright 2018-2026, Volkamer Lab. Project structure based on the Computational Molecular Science Python Cookiecutter version 1.1.
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 9.0.4.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

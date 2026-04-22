@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta property="og:title" content="T017 · Advanced NGLview usage" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://projects.volkamerlab.org/teachopencadd/talktorials/T017_advanced_nglview_usage.html" />
+<meta property="og:url" content="talktorials/T017_advanced_nglview_usage.html" />
 <meta property="og:site_name" content="TeachOpenCADD" />
-<meta property="og:description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Jaime Rodríguez-Guerra, 2021, Volkamer lab, Charité, Dominique Sydow, 2021, Volkamer lab, Charité. Aim of thi..." />
-<meta property="og:image" content="https://raw.githubusercontent.com/volkamerlab/teachopencadd/master/docs/_static/images/TeachOpenCADD_topics.png" />
-<meta property="og:image:alt" content="TeachOpenCADD" />
-<meta name="description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Jaime Rodríguez-Guerra, 2021, Volkamer lab, Charité, Dominique Sydow, 2021, Volkamer lab, Charité. Aim of thi..." />
+<meta property="og:description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Jaime Rod..." />
+<meta property="og:image:width" content="1146" />
+<meta property="og:image:height" content="600" />
+<meta property="og:image" content="_images/social_previews/summary_talktorials_T017_advanced_nglview_usage_232d00bb.png" />
+<meta property="og:image:alt" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Jaime Rod..." />
+<meta name="description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Jaime Rod..." />
+<meta name="twitter:card" content="summary_large_image" />
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -79,31 +82,27 @@
         gtag('config', 'G-Q6ZE82CNZB');
     </script>
   
-    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
-  
-    <title>T017 · Advanced NGLview usage &#8212; TeachOpenCADD 0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+    <title>T017 · Advanced NGLview usage &#8212; TeachOpenCADD 2023.5.2.post442 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=75810a84" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
-    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=897d968c" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=e43216b9"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/documentation_options.js?v=f78c6808"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="T018 · Automated pipeline for lead optimization" href="T018_automated_cadd_pipeline.html" />
     <link rel="prev" title="T016 · Protein-ligand interactions" href="T016_protein_ligand_interactions.html" />
-  
-    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
    
 
@@ -127,7 +126,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../index.html" title="TeachOpenCADD 0 documentation"
+        <a href="../index.html" title="TeachOpenCADD 2023.5.2.post442 documentation"
            class="md-header-nav__button md-logo">
           
             <i class="md-icon">school</i>
@@ -139,7 +138,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">TeachOpenCADD</span>
+          <span class="md-header-nav__topic">TeachOpenCADD 2023.5.2.post442 documentation</span>
           <span class="md-header-nav__topic"> T017 · Advanced NGLview usage </span>
         </div>
       </div>
@@ -191,6 +190,16 @@
         </div>
       
       
+  
+  <script src="../_static/javascripts/version_dropdown.js"></script>
+  <script>
+    var json_loc = "../"versions.json"",
+        target_loc = "../../",
+        text = "Versions";
+    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
+  </script>
+  
+
     </div>
   </nav>
 </header>
@@ -203,6 +212,7 @@
   <nav class="md-tabs" data-md-component="tabs">
     <div class="md-tabs__inner md-grid">
       <ul class="md-tabs__list">
+          <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">TeachOpenCADD 2023.5.2.post442 documentation</a></li>
             
             <li class="md-tabs__item"><a href="../talktorials.html" class="md-tabs__link">Our talktorials</a></li>
             
@@ -225,13 +235,13 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../index.html" title="TeachOpenCADD 0 documentation" class="md-nav__button md-logo">
+    <a href="../index.html" title="TeachOpenCADD 2023.5.2.post442 documentation" class="md-nav__button md-logo">
       
         <i class="md-icon">school</i>
       
     </a>
     <a href="../index.html"
-       title="TeachOpenCADD 0 documentation">TeachOpenCADD</a>
+       title="TeachOpenCADD 2023.5.2.post442 documentation">TeachOpenCADD 2023.5.2.post442 documentation</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
@@ -248,465 +258,6 @@
 </a>
     </div>
   
-  
-
-  
-  <ul class="md-nav__list">
-    <li class="md-nav__item">
-    
-      <span class="md-nav__link caption"><span class="caption-text">Our talktorials</span></span>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="T001_query_chembl.html" class="md-nav__link">T001 · Compound data acquisition (ChEMBL)</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T002_compound_adme.html" class="md-nav__link">T002 · Molecular filtering: ADME and lead-likeness criteria</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T003_compound_unwanted_substructures.html" class="md-nav__link">T003 · Molecular filtering: unwanted substructures</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T004_compound_similarity.html" class="md-nav__link">T004 · Ligand-based screening: compound similarity</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T005_compound_clustering.html" class="md-nav__link">T005 · Compound clustering</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T006_compound_maximum_common_substructures.html" class="md-nav__link">T006 · Maximum common substructure</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T007_compound_activity_machine_learning.html" class="md-nav__link">T007 · Ligand-based screening: machine learning</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T008_query_pdb.html" class="md-nav__link">T008 · Protein data acquisition: Protein Data Bank (PDB)</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T009_compound_ensemble_pharmacophores.html" class="md-nav__link">T009 · Ligand-based pharmacophores</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T010_binding_site_comparison.html" class="md-nav__link">T010 · Binding site similarity and off-target prediction</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T011_query_online_api_webservices.html" class="md-nav__link">T011 · Querying online API webservices</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T012_query_klifs.html" class="md-nav__link">T012 · Data acquisition from KLIFS</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T013_query_pubchem.html" class="md-nav__link">T013 · Data acquisition from PubChem</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T014_binding_site_detection.html" class="md-nav__link">T014 · Binding site detection</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T015_protein_ligand_docking.html" class="md-nav__link">T015 · Protein ligand docking</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T016_protein_ligand_interactions.html" class="md-nav__link">T016 · Protein-ligand interactions</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> T017 · Advanced NGLview usage </label>
-    
-      <a href="#" class="md-nav__link md-nav__link--active">T017 · Advanced NGLview usage</a>
-      
-        
-<nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">"Contents"</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#talktorials-t017-advanced-nglview-usage--page-root" class="md-nav__link">T017 · Advanced NGLview usage</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
-        </li>
-        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
-        </li>
-        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#NGL-and-NGLView" class="md-nav__link">NGL and NGLView</a>
-        </li>
-        <li class="md-nav__item"><a href="#NGL-object-model-and-terminology" class="md-nav__link">NGL object model and terminology</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#First-steps:-make-sure-everything-works!" class="md-nav__link">First steps: make sure everything works!</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Experiment-with-the-interactive-controls" class="md-nav__link">Experiment with the interactive controls</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Basic-API-usage" class="md-nav__link">Basic API usage</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Show-a-structure-using-its-PDB-identifier" class="md-nav__link">Show a structure using its PDB identifier</a>
-        </li>
-        <li class="md-nav__item"><a href="#Show-a-structure-using-a-local-file" class="md-nav__link">Show a structure using a local file</a>
-        </li>
-        <li class="md-nav__item"><a href="#Saving-the-widget-state-as-a-screenshot-for-offline-viewing" class="md-nav__link">Saving the widget state as a screenshot for offline viewing</a>
-        </li>
-        <li class="md-nav__item"><a href="#Customize-the-representations" class="md-nav__link">Customize the representations</a>
-        </li>
-        <li class="md-nav__item"><a href="#Control-representations-by-selections" class="md-nav__link">Control representations by selections</a>
-        </li>
-        <li class="md-nav__item"><a href="#NMR-and-multimodel-structures" class="md-nav__link">NMR and multimodel structures</a>
-        </li>
-        <li class="md-nav__item"><a href="#Load-more-than-one-structure" class="md-nav__link">Load more than one structure</a>
-        </li>
-        <li class="md-nav__item"><a href="#Show-and-hide-components" class="md-nav__link">Show and hide components</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Advanced-usage" class="md-nav__link">Advanced usage</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Custom-coloring-schemes-and-representations" class="md-nav__link">Custom coloring schemes and representations</a>
-        </li>
-        <li class="md-nav__item"><a href="#Add-geometric-objects-at-selected-atoms" class="md-nav__link">Add geometric objects at selected atoms</a>
-        </li>
-        <li class="md-nav__item"><a href="#Create-interactive-interfaces" class="md-nav__link">Create interactive interfaces</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Customize-your-own-GUI-with-IPyWidgets" class="md-nav__link">Customize your own GUI with IPyWidgets</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Access-the-JavaScript-layer" class="md-nav__link">Access the JavaScript layer</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Debugging-JavaScript-code" class="md-nav__link">Debugging JavaScript code</a>
-        </li>
-        <li class="md-nav__item"><a href="#Practical-example:-show-residues-around-ligand" class="md-nav__link">Practical example: show residues around ligand</a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Troubleshooting-tips" class="md-nav__link">Troubleshooting tips</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Check-which-Jupyter-platform-you-are-working-from" class="md-nav__link">Check which Jupyter platform you are working from</a>
-        </li>
-        <li class="md-nav__item"><a href="#How-to-install-nglview,-the-right-way" class="md-nav__link">How to install <code class="docutils literal notranslate"><span class="pre">nglview</span></code>, the right way</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Jupyter-Notebook" class="md-nav__link">Jupyter Notebook</a>
-        </li>
-        <li class="md-nav__item"><a href="#Jupyter-Lab-(v2-style)" class="md-nav__link">Jupyter Lab (v2 style)</a>
-        </li>
-        <li class="md-nav__item"><a href="#Jupyter-Lab-(v3+-style)" class="md-nav__link">Jupyter Lab (v3+ style)</a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
-        </li>
-        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
-        </li></ul>
-            </nav>
-        </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T017_advanced_nglview_usage.nblink.txt">Show Source</a> </li>
-
-  </ul>
-</nav>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T018_automated_cadd_pipeline.html" class="md-nav__link">T018 · Automated pipeline for lead optimization</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T019_md_simulation.html" class="md-nav__link">T019 · Molecular dynamics simulation</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T020_md_analysis.html" class="md-nav__link">T020 · Analyzing molecular dynamics simulations</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T021_one_hot_encoding.html" class="md-nav__link">T021 · One-Hot Encoding</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T022_ligand_based_screening_neural_network.html" class="md-nav__link">T022 · Ligand-based screening: neural networks</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T023_what_is_a_kinase.html" class="md-nav__link">T023 · What is a kinase?</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T024_kinase_similarity_sequence.html" class="md-nav__link">T024 · Kinase similarity: Sequence</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T025_kinase_similarity_kissim.html" class="md-nav__link">T025 · Kinase similarity: Kinase pocket (KiSSim fingerprint)</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T026_kinase_similarity_ifp.html" class="md-nav__link">T026 · Kinase similarity: Interaction fingerprints</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T027_kinase_similarity_ligand_profile.html" class="md-nav__link">T027 · Kinase similarity: Ligand profile</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T028_kinase_similarity_compare_perspectives.html" class="md-nav__link">T028 · Kinase similarity: Compare different perspectives</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T033_molecular_representations.html" class="md-nav__link">T033 · Molecular representations</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T034_recurrent_neural_networks.html" class="md-nav__link">T034 · RNN-based molecular property prediction</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T035_graph_neural_networks.html" class="md-nav__link">T035 · GNN-based molecular property prediction</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T036_e3_equivariant_gnn.html" class="md-nav__link">T036 · An introduction to E(3)-invariant graph neural networks</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T037_uncertainty_estimation.html" class="md-nav__link">T037 · Uncertainty estimation</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T038_protein_ligand_interaction_prediction.html" class="md-nav__link">T038 · Protein Ligand Interaction Prediction</a>
-      
-    
-    </li></ul>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-      <span class="md-nav__link caption"><span class="caption-text">Run locally</span></span>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../installing.html" class="md-nav__link">Installing</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-      <span class="md-nav__link caption"><span class="caption-text">Development</span></span>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../contribute.html" class="md-nav__link">For contributors</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../api.html" class="md-nav__link">API Documentation</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-      <span class="md-nav__link caption"><span class="caption-text">About TeachOpenCADD</span></span>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../contact.html" class="md-nav__link">Contact</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../acknowledgments.html" class="md-nav__link">Acknowledgments</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../citation.html" class="md-nav__link">Citation</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../license.html" class="md-nav__link">License</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../funding.html" class="md-nav__link">Funding</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-      <span class="md-nav__link caption"><span class="caption-text">External resources</span></span>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../external_dependencies.html" class="md-nav__link">Packages and webservers used in TeachOpenCADD</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../external_tutorials_collections.html" class="md-nav__link">External tutorials and collections</a>
-      
-    
-    </li>
-  </ul>
   
 
 </nav>
@@ -829,7 +380,7 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="T017-·-Advanced-NGLview-usage">
-<h1 id="talktorials-t017-advanced-nglview-usage--page-root">T017 · Advanced NGLview usage<a class="headerlink" href="#talktorials-t017-advanced-nglview-usage--page-root" title="Permalink to this heading">¶</a></h1>
+<h1 id="talktorials-t017-advanced-nglview-usage--page-root">T017 · Advanced NGLview usage<a class="headerlink" href="#talktorials-t017-advanced-nglview-usage--page-root" title="Link to this heading">¶</a></h1>
 <p><strong>Note:</strong> This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.</p>
 <p>Authors:</p>
 <ul class="simple">
@@ -837,17 +388,17 @@
 <li><p>Dominique Sydow, 2021, <a class="reference external" href="https://volkamerlab.org/">Volkamer lab, Charité</a></p></li>
 </ul>
 <section id="Aim-of-this-talktorial">
-<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this heading">¶</a></h2>
+<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Link to this heading">¶</a></h2>
 <p><a class="reference external" href="http://nglviewer.org/nglview/latest/">NGLView</a> is a powerful Jupyter widget that allows you to show molecular structures in your notebooks in a 3D interactive view! It supports both single conformations and trajectories, as well as a plethora of representations. In this talktorial we will cover how to use it in different scenarios, from simpler cases to more intricate ones.</p>
 <section id="Contents-in-Theory">
-<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Permalink to this heading">¶</a></h3>
+<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>NGL and NGLView</p></li>
 <li><p>NGL object model and terminology</p></li>
 </ul>
 </section>
 <section id="Contents-in-Practical">
-<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Permalink to this heading">¶</a></h3>
+<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>First steps: make sure everything works!</p>
 <ul>
@@ -883,7 +434,7 @@
 </ul>
 </section>
 <section id="References">
-<h3 id="References">References<a class="headerlink" href="#References" title="Permalink to this heading">¶</a></h3>
+<h3 id="References">References<a class="headerlink" href="#References" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><strong>NGL manuscript</strong>: Rose <em>et al.</em>, Nucl Acids Res. (2015), 43 (W1), W576-W579 (<a class="reference external" href="https://academic.oup.com/nar/article/43/W1/W576/2467902">https://academic.oup.com/nar/article/43/W1/W576/2467902</a>)</p></li>
 <li><p><a class="reference external" href="http://nglviewer.org/ngl/api/">NGL documentation</a> and <a class="reference external" href="https://github.com/nglviewer/ngl">repository</a></p></li>
@@ -893,12 +444,26 @@
 <li><p><a class="reference external" href="https://github.com/nglviewer/nglview/tree/master/examples">NGLView examples</a></p></li>
 <li><p><a class="reference external" href="https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20Basics.html">Jupyter Widgets (IPyWidgets)</a></p></li>
 </ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="k">if</span> <span class="s2">"google.colab"</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
+    <span class="o">%</span><span class="k">pip</span> install teachopencadd --no-deps -q
+    <span class="o">!</span>teachopencadd<span class="w"> </span>-d<span class="w"> </span><span class="m">17</span>
+    <span class="o">%</span><span class="k">pip</span> uninstall teachopencadd -y -q
+    <span class="o">%</span><span class="k">pip</span> install -qr requirements.txt
+</pre></div>
+</div>
+</div>
 </section>
 </section>
 <section id="Theory">
-<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this heading">¶</a></h2>
+<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Link to this heading">¶</a></h2>
 <section id="NGL-and-NGLView">
-<h3 id="NGL-and-NGLView">NGL and NGLView<a class="headerlink" href="#NGL-and-NGLView" title="Permalink to this heading">¶</a></h3>
+<h3 id="NGL-and-NGLView">NGL and NGLView<a class="headerlink" href="#NGL-and-NGLView" title="Link to this heading">¶</a></h3>
 <p>NGL is a <a class="reference external" href="https://www.khronos.org/webgl/">WebGL</a>-accelerated JavaScript library for the depiction of 3D macromolecular structures on your browser. It doesn’t require any software installation! It has been widely adopted in the data science community, partially thanks to the NGLView integrations in the Jupyter ecosystem. While tightly connected, NGL and NGLView are two separate projects and understanding this difference is key.</p>
 <ul class="simple">
 <li><p>NGL is the JavaScript library that renders the molecular structures in your browser using WebGL. It can be embedded in any webpage, see the <a class="reference external" href="http://nglviewer.org/ngl/?script=component/structure-biomol">demo application</a>.</p></li>
@@ -915,7 +480,7 @@
 </li>
 <li><p>Showing a 3D structure:</p>
 <ul>
-<li><p>When you ask for a PDB ID to be shown, NGLView will pass NGL the URL of the file you want to download. Then, the JavaScript layer takes over and downloads the contents to your browser’s memory, creates JavaScript objects for the macromolecular structure and then renders it in a WebGL-enabled <code class="docutils literal notranslate"><span class="pre">&lt;canvas&gt;</span></code> HTML5 element.</p></li>
+<li><p>When you ask for a PDB ID to be shown, NGLView will pass NGL the URL of the file you want to download (we’ll use a sepertate function to download the PDB file safely and then pass it to NGLView). Then, the JavaScript layer takes over and downloads the contents to your browser’s memory, creates JavaScript objects for the macromolecular structure and then renders it in a WebGL-enabled <code class="docutils literal notranslate"><span class="pre">&lt;canvas&gt;</span></code> HTML5 element.</p></li>
 <li><p>If you want to open a local file, you can either:</p>
 <ul>
 <li><p>Open the file with Python and pass the <em>contents</em> of the file to NGL.</p></li>
@@ -930,7 +495,7 @@
 <p>We will cover all of these subtleties with different examples through this talktorial.</p>
 </section>
 <section id="NGL-object-model-and-terminology">
-<h3 id="NGL-object-model-and-terminology">NGL object model and terminology<a class="headerlink" href="#NGL-object-model-and-terminology" title="Permalink to this heading">¶</a></h3>
+<h3 id="NGL-object-model-and-terminology">NGL object model and terminology<a class="headerlink" href="#NGL-object-model-and-terminology" title="Link to this heading">¶</a></h3>
 <p>When you ask for a 3D viewer, NGLView (the Python package) will create an object called <code class="docutils literal notranslate"><span class="pre">NGLWidget</span></code>, which wraps the NGL <code class="docutils literal notranslate"><span class="pre">Stage</span></code> JavaScript object in an IPyWidget object. <code class="docutils literal notranslate"><span class="pre">NGLWidget</span></code> acts as the bridge between Python and JavaScript. When you autocomplete on a <code class="docutils literal notranslate"><span class="pre">view</span></code> instance, you are exploring the <code class="docutils literal notranslate"><span class="pre">NGLWidget</span></code> <em>Python</em> attributes and methods.</p>
 <p>Once you are in JavaScript territory, you are handling the NGL object model. This basically consists of the <code class="docutils literal notranslate"><span class="pre">Stage</span></code>, which can host one or more <em>components</em>. A <em>component</em> can be a molecular structure or a geometric shape. Components can be rendered with one or more <em>representations</em>. For example, when you see a protein ligand complex (like, let’s say, PDB ID <a class="reference external" href="https://www.rcsb.org/structure/3pk2">3PK2</a>), you are seeing:</p>
 <ul class="simple">
@@ -947,15 +512,15 @@
 </section>
 </section>
 <section id="Practical">
-<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this heading">¶</a></h2>
+<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><p>Note: Since NGLView is an interactive widget, most of the features discussed in this talktorial will be best enjoyed in a running Jupyter environment. If you are reading this from the online static preview, you are missing out a lot of cool things!</p>
 </div></blockquote>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 
 <span class="n">HERE</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">_dh</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">DATA</span> <span class="o">=</span> <span class="n">HERE</span> <span class="o">/</span> <span class="s2">"data"</span>
@@ -963,12 +528,13 @@
 </div>
 </div>
 <section id="First-steps:-make-sure-everything-works!">
-<h3 id="First-steps:-make-sure-everything-works!">First steps: make sure everything works!<a class="headerlink" href="#First-steps:-make-sure-everything-works!" title="Permalink to this heading">¶</a></h3>
+<h3 id="First-steps:-make-sure-everything-works!">First steps: make sure everything works!<a class="headerlink" href="#First-steps:-make-sure-everything-works!" title="Link to this heading">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nglview</span> <span class="k">as</span> <span class="nn">nv</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">nglview</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nv</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pypdb.clients.pdb.pdb_client</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_pdb_file</span>
 
 <span class="n">nv</span><span class="o">.</span><span class="n">demo</span><span class="p">()</span>
 </pre></div>
@@ -978,17 +544,17 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "53a08c45fb0147de9a9388c2590cede0", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "15b842cf9ef040289e2e3bbe74c9600a", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b7a4cc63726247d6881b12e32e141ea6", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4304251637b743e2a6162958e9f7a222", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <p>If you don’t see a 3D interactive view of protein in the output of the cell above, check the <strong>Troubleshooting tips</strong> section at the end of this notebook.</p>
 <section id="Experiment-with-the-interactive-controls">
-<h4 id="Experiment-with-the-interactive-controls">Experiment with the interactive controls<a class="headerlink" href="#Experiment-with-the-interactive-controls" title="Permalink to this heading">¶</a></h4>
+<h4 id="Experiment-with-the-interactive-controls">Experiment with the interactive controls<a class="headerlink" href="#Experiment-with-the-interactive-controls" title="Link to this heading">¶</a></h4>
 <p>The view above is interactive! You can use your mouse to:</p>
 <ul class="simple">
 <li><p><strong>Translation</strong>: right click + drag</p></li>
@@ -1015,14 +581,14 @@
 </section>
 </section>
 <section id="Basic-API-usage">
-<h3 id="Basic-API-usage">Basic API usage<a class="headerlink" href="#Basic-API-usage" title="Permalink to this heading">¶</a></h3>
+<h3 id="Basic-API-usage">Basic API usage<a class="headerlink" href="#Basic-API-usage" title="Link to this heading">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">nglview</span></code> wraps the <code class="docutils literal notranslate"><span class="pre">ngl.js</span></code> JavaScript library with an <code class="docutils literal notranslate"><span class="pre">IPyWidget</span></code> subclass named <code class="docutils literal notranslate"><span class="pre">NGLWidget</span></code>. You can create widget objects using the class directly:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">viewer</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">NGLWidget</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>But for simple cases, it’s more convenient to use the <code class="docutils literal notranslate"><span class="pre">nv.show_*</span></code> helper functions. This is the current list of functions available:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"NGLView version:"</span><span class="p">,</span> <span class="n">nv</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
@@ -1037,7 +603,7 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-NGLView version: 3.0.4
+NGLView version: 4.0
   nv.show_ase(...)
   nv.show_asetraj(...)
   nv.show_biopython(...)
@@ -1071,30 +637,60 @@ NGLView version: 3.0.4
 <li><p>objects from popular libraries (BioPython, MDAnalysis, RDKit…). This includes both single structures <em>and</em> trajectories! You can see it in action in <strong>Talktorial T020</strong>, a talktorial on analyzing molecular dynamics simulations.</p></li>
 </ul>
 <section id="Show-a-structure-using-its-PDB-identifier">
-<h4 id="Show-a-structure-using-its-PDB-identifier">Show a structure using its PDB identifier<a class="headerlink" href="#Show-a-structure-using-its-PDB-identifier" title="Permalink to this heading">¶</a></h4>
-<p>Use <code class="docutils literal notranslate"><span class="pre">nv.show_pdbid</span></code> to fetch and display a PDB structure from the RCSB PDB website:</p>
+<h4 id="Show-a-structure-using-its-PDB-identifier">Show a structure using its PDB identifier<a class="headerlink" href="#Show-a-structure-using-its-PDB-identifier" title="Link to this heading">¶</a></h4>
+<p>For now, <code class="docutils literal notranslate"><span class="pre">nv.show_pdbid</span></code> isn’t working so we substitute the process using <code class="docutils literal notranslate"><span class="pre">get_pdb_nglviewer</span></code> function.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">pypdb.get_pdb_file</span></code> to fetch a PDB structure from the RCSB PDB website and display using <code class="docutils literal notranslate"><span class="pre">nv.show_file</span></code>:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_structure</span><span class="p">(</span><span class="n">pdb_id</span><span class="p">):</span>
+    <span class="c1"># download the PDB file content.</span>
+    <span class="n">pdb_file_content</span> <span class="o">=</span> <span class="n">get_pdb_file</span><span class="p">(</span><span class="n">pdb_id</span><span class="p">)</span>
+    <span class="c1"># create an nglview structure object from the content</span>
+    <span class="n">structure</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">TextStructure</span><span class="p">(</span><span class="n">pdb_file_content</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s2">"pdb"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">structure</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_pdb_nglviewer</span><span class="p">(</span><span class="n">pdb_id</span><span class="p">,</span> <span class="n">default_representation</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">gui</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">structure</span> <span class="o">=</span> <span class="n">get_structure</span><span class="p">(</span><span class="n">pdb_id</span><span class="p">)</span>
+    <span class="c1"># set structure viewer</span>
+    <span class="n">nglviewer</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_file</span><span class="p">(</span><span class="n">structure</span><span class="p">,</span> <span class="n">default_representation</span><span class="o">=</span><span class="n">default_representation</span><span class="p">,</span> <span class="n">gui</span><span class="o">=</span><span class="n">gui</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">nglviewer</span>
+</pre></div>
+</div>
+</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nv</span><span class="o">.</span><span class="n">show_pdbid</span><span class="p">(</span><span class="s2">"3pk2"</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># nv.show_pdbid("3pk2")</span>
+<span class="n">get_pdb_nglviewer</span><span class="p">(</span><span class="s2">"3pk2"</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sending GET request to https://files.rcsb.org/download/3pk2.pdb to fetch 3pk2's pdb file as a string.
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4a3214e73d0f4093a2af677d8f9b210d", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "22cbec81da124e389987b710ffff1fa6", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 </section>
 <section id="Show-a-structure-using-a-local-file">
-<h4 id="Show-a-structure-using-a-local-file">Show a structure using a local file<a class="headerlink" href="#Show-a-structure-using-a-local-file" title="Permalink to this heading">¶</a></h4>
+<h4 id="Show-a-structure-using-a-local-file">Show a structure using a local file<a class="headerlink" href="#Show-a-structure-using-a-local-file" title="Link to this heading">¶</a></h4>
 <p>In other cases, you will have a local file produced by other parts of your pipeline. To load local files, you would need to use <code class="docutils literal notranslate"><span class="pre">nv.show_file("path/to/local/file.pdb")</span></code>. If you are using Jupyter Notebook as the UI, this will work out of the box.</p>
 <p>However, the Jupyter ecosystem is moving towards Lab, where things work a bit differently. One of them is accessing local files. This is a <a class="reference external" href="https://github.com/nglviewer/nglview/issues/929">known issue</a>, so we are going to provide a workaround until this is fixed. The trick consists of opening the file with Python first, and then passing the handler to NGLView, instead of the path. You also need to specify the extension for that file handler (<code class="docutils literal notranslate"><span class="pre">pdb</span></code> in this example). <code class="docutils literal notranslate"><span class="pre">display(...)</span></code> is
 needed to explicitly export the widget view to the output because we are inside the <code class="docutils literal notranslate"><span class="pre">open()</span></code> context manager.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"1ARM.pdb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -1106,11 +702,11 @@ needed to explicitly export the widget view to the output because we are inside 
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3a623ec0481449d692718501e575aebb", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "35f859fdc8b249e289511d137f258269", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <p>You can also save the widget returned by the function (<code class="docutils literal notranslate"><span class="pre">view</span></code>, by convention) and evaluate it at the global level:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"1ARM.pdb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -1123,12 +719,12 @@ needed to explicitly export the widget view to the output because we are inside 
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "f19c649188f44dfb950db269f3f02b8f", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d8d398cc2dea4a58bff3fd92a6f85c3a", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <p>This has the advantage of allowing you to modify the state of the widget from the Python interface, as you will see in the next steps.</p>
 </section>
 <section id="Saving-the-widget-state-as-a-screenshot-for-offline-viewing">
-<h4 id="Saving-the-widget-state-as-a-screenshot-for-offline-viewing">Saving the widget state as a screenshot for offline viewing<a class="headerlink" href="#Saving-the-widget-state-as-a-screenshot-for-offline-viewing" title="Permalink to this heading">¶</a></h4>
+<h4 id="Saving-the-widget-state-as-a-screenshot-for-offline-viewing">Saving the widget state as a screenshot for offline viewing<a class="headerlink" href="#Saving-the-widget-state-as-a-screenshot-for-offline-viewing" title="Link to this heading">¶</a></h4>
 <p>In some cases, you might want to take a screenshot of the current state of the widget (e.g. to save a static preview). This is a step that <em>necessarily</em> involves three separate cells. Although it is very tempting to merge all the cells together, it will <em>not</em> work unless each cell is run separately:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">view</span></code> will show the widget output. You can use your mouse to move it to a nice orientation, if you want.</p></li>
@@ -1136,7 +732,7 @@ needed to explicitly export the widget view to the output because we are inside 
 <li><p><code class="docutils literal notranslate"><span class="pre">view._display_image()</span></code> will export the contents of the Python layer to the cell output.</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span>
@@ -1147,7 +743,7 @@ needed to explicitly export the widget view to the output because we are inside 
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "f19c649188f44dfb950db269f3f02b8f", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d8d398cc2dea4a58bff3fd92a6f85c3a", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <p>Let’s render an image of this view with the following parameters:</p>
 <ul class="simple">
@@ -1155,7 +751,7 @@ needed to explicitly export the widget view to the output because we are inside 
 <li><p><code class="docutils literal notranslate"><span class="pre">factor=2</span></code> asks for a 2x resolution render for higher quality, but not too much (default is 4x)</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">render_image</span><span class="p">(</span><span class="n">trim</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -1163,13 +759,14 @@ needed to explicitly export the widget view to the output because we are inside 
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3b03644d0ac74d1dad8ee66d49acb415", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e031579662e64ad99a5fb1c52ffaa98e", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">_display_image</span><span class="p">()</span>
@@ -1177,22 +774,22 @@ needed to explicitly export the widget view to the output because we are inside 
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T017_advanced_nglview_usage_28_0.png" src="../_images/talktorials_T017_advanced_nglview_usage_28_0.png"/>
+<img alt="../_images/talktorials_T017_advanced_nglview_usage_30_0.png" src="../_images/talktorials_T017_advanced_nglview_usage_30_0.png"/>
 </div>
 </div>
 </section>
 <section id="Customize-the-representations">
-<h4 id="Customize-the-representations">Customize the representations<a class="headerlink" href="#Customize-the-representations" title="Permalink to this heading">¶</a></h4>
+<h4 id="Customize-the-representations">Customize the representations<a class="headerlink" href="#Customize-the-representations" title="Link to this heading">¶</a></h4>
 <p>You can add more representations using the <code class="docutils literal notranslate"><span class="pre">view.add_*</span></code> methods. The following ones are available. Take into account that in NGL, a representation can include visual tools other than how a protein or ligand is depicted. For example, calculating (and showing) distance measurements is also a <em>representation</em>. We will talk more about this later, but you can also check this part of the <a class="reference external" href="http://nglviewer.org/ngl/api/manual/molecular-representations.html">NGL documentation</a>.</p>
 <blockquote>
 <div><p>Note that some <code class="docutils literal notranslate"><span class="pre">.add_*</span></code> functionalities actually are convenience methods to <em>add</em> more <em>components</em> to the canvas, not representations! This is the case with <code class="docutils literal notranslate"><span class="pre">add_component</span></code>, <code class="docutils literal notranslate"><span class="pre">add_pdbid</span></code>, <code class="docutils literal notranslate"><span class="pre">add_structure</span></code> and <code class="docutils literal notranslate"><span class="pre">add_trajectory</span></code>, among others.</p>
 </div></blockquote>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">view</span><span class="p">):</span>
@@ -1262,28 +859,37 @@ docstring, which will take you to the table of options you can use (see <a class
 </div></blockquote>
 </section>
 <section id="Control-representations-by-selections">
-<h4 id="Control-representations-by-selections">Control representations by selections<a class="headerlink" href="#Control-representations-by-selections" title="Permalink to this heading">¶</a></h4>
+<h4 id="Control-representations-by-selections">Control representations by selections<a class="headerlink" href="#Control-representations-by-selections" title="Link to this heading">¶</a></h4>
 <p>If you combine all those <code class="docutils literal notranslate"><span class="pre">add_*</span></code> functions with <a class="reference external" href="http://nglviewer.org/ngl/api/manual/selection-language.html">NGL’s powerful selection language</a> you can adapt the style of your structures to your liking. This is specially useful when you disable the default representation to start from scratch.</p>
 <p>For this example, we will use <a class="reference external" href="https://www.rcsb.org/structure/3pk2">3PK2</a>, a streptavidin binded to a biotine derivative that is coordinated to a transition metal ion (Iridium). For details see <a class="reference external" href="https://www.rcsb.org/ligand/4IR">4IR</a>. This is considered an <em>artificial metalloenzyme</em>, how cool is that?!</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_pdbid</span><span class="p">(</span><span class="s2">"3pk2"</span><span class="p">,</span> <span class="n">default_representation</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># view = nv.show_pdbid("3pk2", default_representation=False)</span>
+<span class="n">view</span> <span class="o">=</span> <span class="n">get_pdb_nglviewer</span><span class="p">(</span><span class="s2">"3pk2"</span><span class="p">,</span> <span class="n">default_representation</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">view</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sending GET request to https://files.rcsb.org/download/3pk2.pdb to fetch 3pk2's pdb file as a string.
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "eec23c1459f8458f949f02b5c0f19b32", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "89a09b627b5642cfb5356fb6b5ef7132", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <p>The above widget is now completely <em>blank</em>*. That doesn’t mean the structures were not loaded (the <em>components</em> are loaded but no <em>representation</em> is set, yet). Then, we have to add representations. Look how the widget updates over the next steps (including in the view above).</p>
 <p>* If the widget is not black, you may have executed the whole talktorial at once; please restart and execute the talktorial cell by cell.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add ribbon to protein only</span>
@@ -1296,11 +902,11 @@ docstring, which will take you to the table of options you can use (see <a class
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "eec23c1459f8458f949f02b5c0f19b32", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "89a09b627b5642cfb5356fb6b5ef7132", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <p>Now we want to ask the JS backend to render the current state of the widget to an internal image buffer with <code class="docutils literal notranslate"><span class="pre">.render_image</span></code>. We will use this to depict the progressive changes to the representation over the next cells.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">render_image</span><span class="p">(</span><span class="n">trim</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span>
@@ -1309,7 +915,7 @@ docstring, which will take you to the table of options you can use (see <a class
 </div>
 <p>Once rendered, we can show the screenshot in the notebook!</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">_display_image</span><span class="p">()</span>
@@ -1317,16 +923,16 @@ docstring, which will take you to the table of options you can use (see <a class
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T017_advanced_nglview_usage_40_0.png" src="../_images/talktorials_T017_advanced_nglview_usage_40_0.png"/>
+<img alt="../_images/talktorials_T017_advanced_nglview_usage_42_0.png" src="../_images/talktorials_T017_advanced_nglview_usage_42_0.png"/>
 </div>
 </div>
 <p>By default, the camera is not centered on the molecule, but we can remediate that with <code class="docutils literal notranslate"><span class="pre">.center()</span></code></p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">center</span><span class="p">()</span>
@@ -1335,7 +941,7 @@ docstring, which will take you to the table of options you can use (see <a class
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">_display_image</span><span class="p">()</span>
@@ -1343,16 +949,16 @@ docstring, which will take you to the table of options you can use (see <a class
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T017_advanced_nglview_usage_43_0.png" src="../_images/talktorials_T017_advanced_nglview_usage_43_0.png"/>
+<img alt="../_images/talktorials_T017_advanced_nglview_usage_45_0.png" src="../_images/talktorials_T017_advanced_nglview_usage_45_0.png"/>
 </div>
 </div>
 <p>Didn’t we say we had a super cool ligand? Where is it? Hm, let’s add a ball &amp; stick representation for it!</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">add_ball_and_stick</span><span class="p">(</span><span class="s2">"ligand"</span><span class="p">)</span>
@@ -1361,7 +967,7 @@ docstring, which will take you to the table of options you can use (see <a class
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">_display_image</span><span class="p">()</span>
@@ -1369,16 +975,16 @@ docstring, which will take you to the table of options you can use (see <a class
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T017_advanced_nglview_usage_46_0.png" src="../_images/talktorials_T017_advanced_nglview_usage_46_0.png"/>
+<img alt="../_images/talktorials_T017_advanced_nglview_usage_48_0.png" src="../_images/talktorials_T017_advanced_nglview_usage_48_0.png"/>
 </div>
 </div>
 <p>Crystallographic waters should be displayed, but in a subtle way that does not get in the way. <code class="docutils literal notranslate"><span class="pre">line</span></code> representations work nice for this. Note: Crystallographic waters consist of an oxygen atom only since hydrogen atoms are not resolved by X-ray crystallography, so we see dots instead of lines.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="s2">"water"</span><span class="p">)</span>
@@ -1387,7 +993,7 @@ docstring, which will take you to the table of options you can use (see <a class
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">_display_image</span><span class="p">()</span>
@@ -1395,16 +1001,16 @@ docstring, which will take you to the table of options you can use (see <a class
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T017_advanced_nglview_usage_49_0.png" src="../_images/talktorials_T017_advanced_nglview_usage_49_0.png"/>
+<img alt="../_images/talktorials_T017_advanced_nglview_usage_51_0.png" src="../_images/talktorials_T017_advanced_nglview_usage_51_0.png"/>
 </div>
 </div>
 <p>Oh, we almost forgot about the Iridium ion. Where is it? We better highlight it so we don’t miss it. We can ask for a larger sphere style if we use <code class="docutils literal notranslate"><span class="pre">spacefill</span></code> for that atom only. We can select by elements using <code class="docutils literal notranslate"><span class="pre">_</span></code> in front of the element <em>symbol</em>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">add_spacefill</span><span class="p">(</span><span class="s2">"_Ir"</span><span class="p">)</span>
@@ -1413,7 +1019,7 @@ docstring, which will take you to the table of options you can use (see <a class
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">_display_image</span><span class="p">()</span>
@@ -1421,16 +1027,16 @@ docstring, which will take you to the table of options you can use (see <a class
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T017_advanced_nglview_usage_52_0.png" src="../_images/talktorials_T017_advanced_nglview_usage_52_0.png"/>
+<img alt="../_images/talktorials_T017_advanced_nglview_usage_54_0.png" src="../_images/talktorials_T017_advanced_nglview_usage_54_0.png"/>
 </div>
 </div>
 <p>Wait, in addition to the ligand Iridium, we can see more in other parts of the solvent? Hm, we don’t want to see those, since they are probably artifacts of the X-ray preparation. Let’s undo the last step with the corresponding <code class="docutils literal notranslate"><span class="pre">.remove_*()</span></code> method.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">remove_spacefill</span><span class="p">()</span>
@@ -1439,7 +1045,7 @@ docstring, which will take you to the table of options you can use (see <a class
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">_display_image</span><span class="p">()</span>
@@ -1447,16 +1053,16 @@ docstring, which will take you to the table of options you can use (see <a class
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T017_advanced_nglview_usage_55_0.png" src="../_images/talktorials_T017_advanced_nglview_usage_55_0.png"/>
+<img alt="../_images/talktorials_T017_advanced_nglview_usage_57_0.png" src="../_images/talktorials_T017_advanced_nglview_usage_57_0.png"/>
 </div>
 </div>
 <p>Now, let’s add <code class="docutils literal notranslate"><span class="pre">spacefill</span></code> again, but only for the Iridium ion in the ligand. The selection query needs to satisfy atoms that are both Iridium <em>and</em> part of the ligand.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">add_spacefill</span><span class="p">(</span><span class="s2">"ligand and _Ir"</span><span class="p">)</span>
@@ -1465,7 +1071,7 @@ docstring, which will take you to the table of options you can use (see <a class
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">_display_image</span><span class="p">()</span>
@@ -1473,55 +1079,72 @@ docstring, which will take you to the table of options you can use (see <a class
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T017_advanced_nglview_usage_58_0.png" src="../_images/talktorials_T017_advanced_nglview_usage_58_0.png"/>
+<img alt="../_images/talktorials_T017_advanced_nglview_usage_60_0.png" src="../_images/talktorials_T017_advanced_nglview_usage_60_0.png"/>
 </div>
 </div>
 <p>Perfect!</p>
 </section>
 <section id="NMR-and-multimodel-structures">
-<h4 id="NMR-and-multimodel-structures">NMR and multimodel structures<a class="headerlink" href="#NMR-and-multimodel-structures" title="Permalink to this heading">¶</a></h4>
+<h4 id="NMR-and-multimodel-structures">NMR and multimodel structures<a class="headerlink" href="#NMR-and-multimodel-structures" title="Link to this heading">¶</a></h4>
 <p>If you are dealing with NMR structures or multimodel PDBs, there will be multiple conformations. By default, only the first one will be loaded:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># By default, first model only</span>
-<span class="n">nv</span><span class="o">.</span><span class="n">show_pdbid</span><span class="p">(</span><span class="s2">"1rfo"</span><span class="p">)</span>
+<span class="c1"># nv.show_pdbid("1rfo")</span>
+<span class="n">get_pdb_nglviewer</span><span class="p">(</span><span class="s2">"1rfo"</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sending GET request to https://files.rcsb.org/download/1rfo.pdb to fetch 1rfo's pdb file as a string.
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "911c4798e9d8468f9785adb4cb078d3e", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "f44d91c16e254ab78ffa29d962a81551", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <p>To display all of them, you need to disable the default representation and provide your own:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># all models require custom representation</span>
-<span class="n">view</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_pdbid</span><span class="p">(</span><span class="s2">"1rfo"</span><span class="p">,</span> <span class="n">default_representation</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">view</span> <span class="o">=</span> <span class="n">get_pdb_nglviewer</span><span class="p">(</span><span class="s2">"1rfo"</span><span class="p">,</span> <span class="n">default_representation</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">view</span><span class="o">.</span><span class="n">center</span><span class="p">()</span>
 <span class="n">view</span><span class="o">.</span><span class="n">add_cartoon</span><span class="p">()</span>
 <span class="n">view</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sending GET request to https://files.rcsb.org/download/1rfo.pdb to fetch 1rfo's pdb file as a string.
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "f8bedf37159c47c28df19b345c7f688a", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8ddac9b1ba8a48e78e474ebb53729c42", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 </section>
 <section id="Load-more-than-one-structure">
-<h4 id="Load-more-than-one-structure">Load more than one structure<a class="headerlink" href="#Load-more-than-one-structure" title="Permalink to this heading">¶</a></h4>
+<h4 id="Load-more-than-one-structure">Load more than one structure<a class="headerlink" href="#Load-more-than-one-structure" title="Link to this heading">¶</a></h4>
 <p>Once you have the <code class="docutils literal notranslate"><span class="pre">view</span></code> instance around, you can start doing more advanced stuff with NGLView! For example, loading more than one structure!</p>
 <p>Let’s start with some depictions of <em>Bos taurus</em>’ carboxypeptidase. The RCSB PDB contains several structures for this enzyme. We can choose two of them that are very similar, except for a little difference. That way, if we load both on NGLView and show/hide one at a time, we will be able to spot the differences right away!</p>
 <ul class="simple">
@@ -1529,41 +1152,59 @@ docstring, which will take you to the table of options you can use (see <a class
 <li><p><a class="reference external" href="https://www.rcsb.org/structure/1arm">1ARM</a>: Same structure, but the Zn has been replaced with a Hg ion</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_pdbid</span><span class="p">(</span><span class="s2">"1YME"</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span> <span class="o">=</span> <span class="n">get_pdb_nglviewer</span><span class="p">(</span><span class="s2">"1YME"</span><span class="p">)</span>
 <span class="n">view</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sending GET request to https://files.rcsb.org/download/1YME.pdb to fetch 1YME's pdb file as a string.
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "26ab444e21e845c8b1e122727c9a6bd7", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "865d376caa41405f8d4c1ac4dff66e47", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <p>Now, let’s add <code class="docutils literal notranslate"><span class="pre">1ARM</span></code>, which contains a ligand <code class="docutils literal notranslate"><span class="pre">TRS</span></code>. Note that the view <em>above</em> will get updated automatically:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">add_component</span><span class="p">(</span><span class="n">nv</span><span class="o">.</span><span class="n">PdbIdStructure</span><span class="p">(</span><span class="s2">"1ARM"</span><span class="p">))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># view.add_component(nv.PdbIdStructure("1ARM"))</span>
+
+<span class="n">view</span><span class="o">.</span><span class="n">add_component</span><span class="p">(</span><span class="n">get_structure</span><span class="p">(</span><span class="s2">"1ARM"</span><span class="p">))</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sending GET request to https://files.rcsb.org/download/1ARM.pdb to fetch 1ARM's pdb file as a string.
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;nglview.component.ComponentViewer at 0x7f2aa16099d0&gt;
+&lt;nglview.component.ComponentViewer at 0x116703ef0&gt;
 </pre></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">view</span></code> contains now <em>two</em> components, as shown in:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">n_components</span>
@@ -1571,7 +1212,7 @@ docstring, which will take you to the table of options you can use (see <a class
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1581,7 +1222,7 @@ docstring, which will take you to the table of options you can use (see <a class
 </div>
 <p>The individual components are available via <code class="docutils literal notranslate"><span class="pre">view.component_{index}</span></code> or <code class="docutils literal notranslate"><span class="pre">view[{index}]</span></code>:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -1589,16 +1230,16 @@ docstring, which will take you to the table of options you can use (see <a class
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;nglview.component.ComponentViewer at 0x7f2aa04743d0&gt;
+&lt;nglview.component.ComponentViewer at 0x11677be90&gt;
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">component_0</span>
@@ -1606,20 +1247,20 @@ docstring, which will take you to the table of options you can use (see <a class
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;nglview.component.ComponentViewer at 0x7f2aa04b66a0&gt;
+&lt;nglview.component.ComponentViewer at 0x1167033b0&gt;
 </pre></div></div>
 </div>
 </section>
 <section id="Show-and-hide-components">
-<h4 id="Show-and-hide-components">Show and hide components<a class="headerlink" href="#Show-and-hide-components" title="Permalink to this heading">¶</a></h4>
+<h4 id="Show-and-hide-components">Show and hide components<a class="headerlink" href="#Show-and-hide-components" title="Link to this heading">¶</a></h4>
 <p>Since each component can control their own representations, we can hide some parts on command using the <code class="docutils literal notranslate"><span class="pre">.hide()</span></code>. This action is undone with <code class="docutils literal notranslate"><span class="pre">.show()</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span>
@@ -1628,7 +1269,7 @@ docstring, which will take you to the table of options you can use (see <a class
 </div>
 <p>Note how the TRS ligand disappeared from the view above. Now, let’s show it again:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1640,12 +1281,12 @@ docstring, which will take you to the table of options you can use (see <a class
 </section>
 </section>
 <section id="Advanced-usage">
-<h3 id="Advanced-usage">Advanced usage<a class="headerlink" href="#Advanced-usage" title="Permalink to this heading">¶</a></h3>
+<h3 id="Advanced-usage">Advanced usage<a class="headerlink" href="#Advanced-usage" title="Link to this heading">¶</a></h3>
 <section id="Custom-coloring-schemes-and-representations">
-<h4 id="Custom-coloring-schemes-and-representations">Custom coloring schemes and representations<a class="headerlink" href="#Custom-coloring-schemes-and-representations" title="Permalink to this heading">¶</a></h4>
+<h4 id="Custom-coloring-schemes-and-representations">Custom coloring schemes and representations<a class="headerlink" href="#Custom-coloring-schemes-and-representations" title="Link to this heading">¶</a></h4>
 <p>In addition to different kinds of representations, you can also alter how each part of the displayed structure is colored. So far we have only used the default coloring, but NGL provides several default schemes (check <a class="reference external" href="https://nglviewer.org/ngl/api/manual/coloring.html">this list</a> and also <code class="docutils literal notranslate"><span class="pre">nv.color.COLOR_SCHEMES</span></code>). The color schemes - and also names - can be used as arguments of a given representation.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">nv</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">COLOR_SCHEMES</span><span class="p">)</span>
@@ -1661,10 +1302,10 @@ docstring, which will take you to the table of options you can use (see <a class
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_pdbid</span><span class="p">(</span><span class="s2">"1PIE"</span><span class="p">,</span> <span class="n">default_representation</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span> <span class="o">=</span> <span class="n">get_pdb_nglviewer</span><span class="p">(</span><span class="s2">"1PIE"</span><span class="p">,</span> <span class="n">default_representation</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">view</span><span class="o">.</span><span class="n">add_ribbon</span><span class="p">(</span><span class="s2">"protein"</span><span class="p">,</span> <span class="n">color_scheme</span><span class="o">=</span><span class="s2">"sstruc"</span><span class="p">)</span>  <span class="c1"># color based on secondary structure</span>
 <span class="n">view</span><span class="o">.</span><span class="n">add_ball_and_stick</span><span class="p">(</span><span class="s2">"ligand"</span><span class="p">)</span>
 <span class="n">view</span><span class="o">.</span><span class="n">center</span><span class="p">()</span>
@@ -1672,11 +1313,19 @@ docstring, which will take you to the table of options you can use (see <a class
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sending GET request to https://files.rcsb.org/download/1PIE.pdb to fetch 1PIE's pdb file as a string.
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ce1f097bf7204483a286e120e58e649b", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "6944c44b9e0c4924aea6965322e89480", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <p>You can show all side chains by applying the <code class="docutils literal notranslate"><span class="pre">licorice</span></code> scheme on the selection <code class="docutils literal notranslate"><span class="pre">sidechainAttached</span></code> directly (check the <a class="reference external" href="https://nglviewer.org/ngl/api/manual/usage/selection-language.html">selection query docs</a> for more detail, e.g. <code class="docutils literal notranslate"><span class="pre">sidechainAttached</span></code> = “Select the side-chain and C-alpha atoms plus the backbone nitrogen in case of proline.”).</p>
 <p>Note that you can also ignore coloring <em>schemes</em> and use a color directly. The <code class="docutils literal notranslate"><span class="pre">color</span></code> option supports any of these notations:</p>
@@ -1686,7 +1335,7 @@ docstring, which will take you to the table of options you can use (see <a class
 <li><p>Hexadecimal integers. In this notation, yellow is encoded as <code class="docutils literal notranslate"><span class="pre">0xFFFF00</span></code>.</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">add_licorice</span><span class="p">(</span>
@@ -1707,7 +1356,7 @@ docstring, which will take you to the table of options you can use (see <a class
 </ul>
 <p>These examples are taken directly from the corresponding docstrings:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># residues from 1 to 100 will be blue; 101 to 1000 will be red</span>
@@ -1715,24 +1364,32 @@ docstring, which will take you to the table of options you can use (see <a class
     <span class="s2">"my_custom_scheme"</span><span class="p">,</span> <span class="p">[[</span><span class="s2">"blue"</span><span class="p">,</span> <span class="s2">"1-100"</span><span class="p">],</span> <span class="p">[</span><span class="s2">"red"</span><span class="p">,</span> <span class="s2">"101-1000"</span><span class="p">]]</span>
 <span class="p">)</span>
 
-<span class="n">view</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_pdbid</span><span class="p">(</span><span class="s2">"1EYE"</span><span class="p">,</span> <span class="n">default_representation</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">view</span> <span class="o">=</span> <span class="n">get_pdb_nglviewer</span><span class="p">(</span><span class="s2">"1EYE"</span><span class="p">,</span> <span class="n">default_representation</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">view</span><span class="o">.</span><span class="n">add_cartoon</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">"my_custom_scheme"</span><span class="p">)</span>
 <span class="n">view</span><span class="o">.</span><span class="n">center</span><span class="p">()</span>
 <span class="n">view</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sending GET request to https://files.rcsb.org/download/1EYE.pdb to fetch 1EYE's pdb file as a string.
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8efc0862e8c143dab66120a564bb7f3a", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "71a2ae1e416f4de2b8dad725dc5d899e", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <blockquote>
 <div><p>You can build the list of sublists programmatically for more complex visualizations. Check this <a class="reference external" href="https://github.com/volkamerlab/kissim_app/blob/f63327e/notebooks/fingerprints/feature_distribution_per_residue.ipynb#Side-chain-orientation">external notebook</a> for an example!</p>
 </div></blockquote>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">js_function</span> <span class="o">=</span> <span class="s2">"""</span>
@@ -1747,40 +1404,56 @@ docstring, which will take you to the table of options you can use (see <a class
 <span class="s2">}</span>
 <span class="s2">"""</span>
 <span class="n">nv</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">ColormakerRegistry</span><span class="o">.</span><span class="n">add_scheme_func</span><span class="p">(</span><span class="s2">"awesome"</span><span class="p">,</span> <span class="n">js_function</span><span class="p">)</span>
-<span class="n">view</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_pdbid</span><span class="p">(</span><span class="s2">"1EYE"</span><span class="p">,</span> <span class="n">default_representation</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">view</span> <span class="o">=</span> <span class="n">get_pdb_nglviewer</span><span class="p">(</span><span class="s2">"1EYE"</span><span class="p">,</span> <span class="n">default_representation</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">view</span><span class="o">.</span><span class="n">center</span><span class="p">()</span>
 <span class="n">view</span><span class="o">.</span><span class="n">add_cartoon</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">"awesome"</span><span class="p">)</span>
 <span class="n">view</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sending GET request to https://files.rcsb.org/download/1EYE.pdb to fetch 1EYE's pdb file as a string.
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8e0bf203fd2e4960bd10db66923a0b8d", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4a9e8e9598334e718b675afb46146b9e", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 </section>
 <section id="Add-geometric-objects-at-selected-atoms">
-<h4 id="Add-geometric-objects-at-selected-atoms">Add geometric objects at selected atoms<a class="headerlink" href="#Add-geometric-objects-at-selected-atoms" title="Permalink to this heading">¶</a></h4>
+<h4 id="Add-geometric-objects-at-selected-atoms">Add geometric objects at selected atoms<a class="headerlink" href="#Add-geometric-objects-at-selected-atoms" title="Link to this heading">¶</a></h4>
 <p>For some figures, it’s often useful to mark certain areas of your structure with geometric or textual annotations. This functionality is available under a mixture of representation styles and <code class="docutils literal notranslate"><span class="pre">nglview.shape</span></code> functions.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_pdbid</span><span class="p">(</span><span class="s2">"1YES"</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span> <span class="o">=</span> <span class="n">get_pdb_nglviewer</span><span class="p">(</span><span class="s2">"1YES"</span><span class="p">)</span>
 <span class="n">view</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sending GET request to https://files.rcsb.org/download/1YES.pdb to fetch 1YES's pdb file as a string.
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "9e0e87ce6581409e96ba204491d6a1e4", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "99fd18c4c997438e8a0297e7ebac175c", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add volume for residues 0-50</span>
@@ -1790,7 +1463,7 @@ docstring, which will take you to the table of options you can use (see <a class
 </div>
 <p>Let’s measure the distance between GLU223 and GLU200 <code class="docutils literal notranslate"><span class="pre">view.add_distance</span></code> takes a list of sublists. The sublists must contain atom indices (<code class="docutils literal notranslate"><span class="pre">int</span></code>) or a selection query that returns exactly one atom (in this case alpha carbon for residues 223 and 200). Don’t forget the black label color or you won’t see the distance value (default is white).</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">add_distance</span><span class="p">(</span><span class="n">atom_pair</span><span class="o">=</span><span class="p">[[</span><span class="s2">"223.CA"</span><span class="p">,</span> <span class="s2">"200.CA"</span><span class="p">]],</span> <span class="n">label_color</span><span class="o">=</span><span class="s2">"black"</span><span class="p">)</span>
@@ -1799,30 +1472,26 @@ docstring, which will take you to the table of options you can use (see <a class
 </div>
 <p>Now we want to add a sphere next to ILE 151… The function is <code class="docutils literal notranslate"><span class="pre">view.shape.add_sphere(..)</span></code>:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span>view.shape.add_sphere
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">shape</span><span class="o">.</span><span class="n">add_sphere</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+</pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-red-fg">Signature:</span> view<span class="ansi-blue-fg">.</span>shape<span class="ansi-blue-fg">.</span>add_sphere<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>args<span class="ansi-blue-fg">)</span>
-<span class="ansi-red-fg">Docstring:</span>
-# add_sphere(position, color, radius, name)
-&gt;&gt;&gt; shape.add_sphere([0, 0, 9], [1, 0, 0], 1.5)
-<span class="ansi-red-fg">File:</span>      ~/.miniconda3/envs/teachopencadd/lib/python3.9/site-packages/nglview/shape.py
-<span class="ansi-red-fg">Type:</span>      method
+&lt;bound method Shape._make_func.&lt;locals&gt;.make_func.&lt;locals&gt;.func of &lt;nglview.shape.Shape object at 0x1167c33e0&gt;&gt;
 </pre></div></div>
 </div>
 <p>But it takes XYZ coordinates. How do we get access to that information? When you click on a residue or atom, you’ll see that the top left corner of the widget exposes some details. We clicked on ILE151, and it printed <code class="docutils literal notranslate"><span class="pre">ATOM:</span> <span class="pre">[ILE]151:A.CA</span></code>. That means that the alpha carbon of residue 151 in chain A is selected. The best part is that this information is exposed to Python via <code class="docutils literal notranslate"><span class="pre">view.picked</span></code>!</p>
 <p>Go and select ILE151 before executing the next cell!</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">picked</span>
@@ -1830,7 +1499,7 @@ docstring, which will take you to the table of options you can use (see <a class
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1840,7 +1509,7 @@ docstring, which will take you to the table of options you can use (see <a class
 </div>
 <p>The coordinates are hence <code class="docutils literal notranslate"><span class="pre">view.picked["atom1"]["x"],</span> <span class="pre">view.picked["atom1"]["y"],</span> <span class="pre">view.picked["atom1"]["z"]</span></code>:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="s2">"atom1"</span> <span class="ow">in</span> <span class="n">view</span><span class="o">.</span><span class="n">picked</span><span class="p">:</span>
@@ -1855,7 +1524,7 @@ docstring, which will take you to the table of options you can use (see <a class
 </div>
 <p>To change the opacity of the sphere you will need to work with <code class="docutils literal notranslate"><span class="pre">.update_representation</span></code> and the component indices. It’s a bit involved, but this is how you have to do it:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The sphere is the last thing we added, so the component index is the last one (n_components - 1)</span>
@@ -1865,7 +1534,7 @@ docstring, which will take you to the table of options you can use (see <a class
 </div>
 </section>
 <section id="Create-interactive-interfaces">
-<h4 id="Create-interactive-interfaces">Create interactive interfaces<a class="headerlink" href="#Create-interactive-interfaces" title="Permalink to this heading">¶</a></h4>
+<h4 id="Create-interactive-interfaces">Create interactive interfaces<a class="headerlink" href="#Create-interactive-interfaces" title="Link to this heading">¶</a></h4>
 <p>One of the secret features of NGLView is the interactive GUI! Enabling it is surprisingly easy and will give you some extra control on the representations.</p>
 <p>There are two GUIs included:</p>
 <ul class="simple">
@@ -1873,11 +1542,11 @@ docstring, which will take you to the table of options you can use (see <a class
 <li><p>The one NGL uses in their <a class="reference external" href="http://nglviewer.org/ngl/">demo app</a></p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is the default one</span>
-<span class="n">nv</span><span class="o">.</span><span class="n">show_pdbid</span><span class="p">(</span><span class="s2">"1RFO"</span><span class="p">,</span> <span class="n">gui</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">get_pdb_nglviewer</span><span class="p">(</span><span class="s2">"1RFO"</span><span class="p">,</span> <span class="n">gui</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1885,52 +1554,74 @@ docstring, which will take you to the table of options you can use (see <a class
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "982f4b5f234f47dc9ec95a2a8f19c410", "version_major": 2, "version_minor": 0}</script></div>
+<div class="highlight"><pre>
+Sending GET request to https://files.rcsb.org/download/1RFO.pdb to fetch 1RFO's pdb file as a string.
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8e45b6aee2f04ac69797d74630e58e85", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a8cbcb08f15947c4a9dc0e6117b38800", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <p>Now bring in the NGL GUI. Sometimes the canvas itself does not load, so try to execute it twice. See discussion <a class="reference external" href="https://github.com/nglviewer/nglview/issues/901#issuecomment-747163835">here</a> for more details.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_pdbid</span><span class="p">(</span><span class="s2">"1RFO"</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span> <span class="o">=</span> <span class="n">get_pdb_nglviewer</span><span class="p">(</span><span class="s2">"1RFO"</span><span class="p">)</span>
 <span class="c1"># Uncomment the lines below</span>
 <span class="c1"># view.gui_style = "NGL"</span>
 <span class="c1"># view</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sending GET request to https://files.rcsb.org/download/1RFO.pdb to fetch 1RFO's pdb file as a string.
+</pre></div></div>
+</div>
 <p>Since the NGL GUI currently causes artifacts when rendered as HTML (see this <a class="reference external" href="https://github.com/nglviewer/nglview/issues/988">issue</a>), we only show below a screenshot of the NGL GUI. If you are working with this notebook in an executable mode, do uncomment the lines in the cell above and rerun the cell to load the NGL GUI.</p>
 <img alt="Geometric measurements on NGLView" src="../_images/nglview_ngl_gui.png"/>
 <section id="Customize-your-own-GUI-with-IPyWidgets">
-<h5 id="Customize-your-own-GUI-with-IPyWidgets">Customize your own GUI with IPyWidgets<a class="headerlink" href="#Customize-your-own-GUI-with-IPyWidgets" title="Permalink to this heading">¶</a></h5>
+<h5 id="Customize-your-own-GUI-with-IPyWidgets">Customize your own GUI with IPyWidgets<a class="headerlink" href="#Customize-your-own-GUI-with-IPyWidgets" title="Link to this heading">¶</a></h5>
 <p>Since <code class="docutils literal notranslate"><span class="pre">nglview</span></code> exposes NGL as an IPython/Jupyter widget, it can be used to compose advanced dashboards in combination with the <a class="reference external" href="https://ipywidgets.readthedocs.io/en/latest/examples/Widget%20Basics.html">IPyWidgets project</a>.</p>
 <p>For example, a simple model picker for multimodel structures like in NMR studies (multimodel structure = multiple sets of coordinates for the same structure in one PDB file).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_pdbid</span><span class="p">(</span><span class="s2">"1RFO"</span><span class="p">,</span> <span class="n">default_representation</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span> <span class="o">=</span> <span class="n">get_pdb_nglviewer</span><span class="p">(</span><span class="s2">"1RFO"</span><span class="p">,</span> <span class="n">default_representation</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">view</span><span class="o">.</span><span class="n">add_ribbon</span><span class="p">(</span><span class="s2">"protein"</span><span class="p">)</span>
 <span class="n">view</span><span class="o">.</span><span class="n">center</span><span class="p">()</span>
 <span class="n">view</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sending GET request to https://files.rcsb.org/download/1RFO.pdb to fetch 1RFO's pdb file as a string.
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "17f1586cc03548429c3d5e4320bdaca9", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "749a6898d3a54004aed00073e7f24f9a", "version_major": 2, "version_minor": 0}</script></div>
 </div>
-<p>This is what we need to display a single model: * clear all representations * and add the ribbon only on model N with the syntax <code class="docutils literal notranslate"><span class="pre">/N</span></code> (atoms can have multiple possible positions based on the experimental data, which can be deposited in the PDB file as alternative models)</p>
+<p>This is what we need to display a single model:</p>
+<ul class="simple">
+<li><p>clear all representations</p></li>
+<li><p>and add the ribbon only on model N with the syntax <code class="docutils literal notranslate"><span class="pre">/N</span></code> (atoms can have multiple possible positions based on the experimental data, which can be deposited in the PDB file as alternative models)</p></li>
+</ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
@@ -1940,10 +1631,10 @@ docstring, which will take you to the table of options you can use (see <a class
 </div>
 <p>We can put this in a function.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">show_one_model_only</span><span class="p">(</span><span class="n">view</span><span class="p">,</span> <span class="n">model_id</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">show_one_model_only</span><span class="p">(</span><span class="n">view</span><span class="p">,</span> <span class="n">model_id</span><span class="p">):</span>
     <span class="n">view</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
     <span class="n">view</span><span class="o">.</span><span class="n">add_ribbon</span><span class="p">(</span><span class="sa">f</span><span class="s2">"/</span><span class="si">{</span><span class="n">model_id</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
@@ -1951,7 +1642,7 @@ docstring, which will take you to the table of options you can use (see <a class
 </div>
 <p>Look how it reacts to your function calls.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_one_model_only</span><span class="p">(</span><span class="n">view</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -1966,10 +1657,10 @@ docstring, which will take you to the table of options you can use (see <a class
 <li><p>Changing the state of the widget will result in calling that function with the new parameters. Since we are reacting on <code class="docutils literal notranslate"><span class="pre">view</span></code>, you will see the changes in real time!</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[69]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">fixed</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ipywidgets</span><span class="w"> </span><span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">fixed</span>
 
 <span class="n">interact</span><span class="p">(</span><span class="n">show_one_model_only</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="n">fixed</span><span class="p">(</span><span class="n">view</span><span class="p">),</span> <span class="n">model_id</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
 <span class="n">view</span>
@@ -1980,29 +1671,29 @@ docstring, which will take you to the table of options you can use (see <a class
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "872a292a27494ffcbbcad0cc8ded10f2", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "936100dd414b41e3a8ba0598971bbfcf", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "17f1586cc03548429c3d5e4320bdaca9", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "749a6898d3a54004aed00073e7f24f9a", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <p>Change the value of the slider by dragging the widget!</p>
 <p>Other interesting exercise is to change the type of representation with a widget. The full list is <a class="reference external" href="https://nglviewer.org/ngl/api/manual/molecular-representations.html">here</a>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[70]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">representations</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"backbone"</span><span class="p">,</span> <span class="s2">"ball+stick"</span><span class="p">,</span> <span class="s2">"line"</span><span class="p">,</span> <span class="s2">"point"</span><span class="p">,</span> <span class="s2">"ribbon"</span><span class="p">]</span>
 
 
-<span class="k">def</span> <span class="nf">change_representation</span><span class="p">(</span><span class="n">view</span><span class="p">,</span> <span class="n">representation</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">change_representation</span><span class="p">(</span><span class="n">view</span><span class="p">,</span> <span class="n">representation</span><span class="p">):</span>
     <span class="n">view</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
     <span class="n">view</span><span class="o">.</span><span class="n">add_representation</span><span class="p">(</span><span class="n">representation</span><span class="p">)</span>
 
 
-<span class="n">view</span> <span class="o">=</span> <span class="n">view</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_pdbid</span><span class="p">(</span><span class="s2">"1LEG"</span><span class="p">)</span>
+<span class="n">view</span> <span class="o">=</span> <span class="n">view</span> <span class="o">=</span> <span class="n">get_pdb_nglviewer</span><span class="p">(</span><span class="s2">"1LEG"</span><span class="p">)</span>
 <span class="n">interact</span><span class="p">(</span><span class="n">change_representation</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="n">fixed</span><span class="p">(</span><span class="n">view</span><span class="p">),</span> <span class="n">representation</span><span class="o">=</span><span class="n">representations</span><span class="p">)</span>
 <span class="n">view</span>
 </pre></div>
@@ -2012,25 +1703,33 @@ docstring, which will take you to the table of options you can use (see <a class
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "f1b2294a6d54414bb660e892eb54b83d", "version_major": 2, "version_minor": 0}</script></div>
+<div class="highlight"><pre>
+Sending GET request to https://files.rcsb.org/download/1LEG.pdb to fetch 1LEG's pdb file as a string.
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "76d8ff6c1df541c6a69dd1ccaa5c9a3d", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "81fe4b385a28428abbdfa96d887dfba7", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4d6a16e1b4e647568e99fa3977de7104", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <p>What about color schemes? Same principle! Note that in this case these are <em>arguments</em> to a representation style. We are going to play with coloring schemes on <em>ribbon</em>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[71]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">change_coloring</span><span class="p">(</span><span class="n">view</span><span class="p">,</span> <span class="n">coloring</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">change_coloring</span><span class="p">(</span><span class="n">view</span><span class="p">,</span> <span class="n">coloring</span><span class="p">):</span>
     <span class="n">view</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
     <span class="n">view</span><span class="o">.</span><span class="n">add_representation</span><span class="p">(</span><span class="s2">"ribbon"</span><span class="p">,</span> <span class="n">color_scheme</span><span class="o">=</span><span class="n">coloring</span><span class="p">)</span>
 
 
-<span class="n">view</span> <span class="o">=</span> <span class="n">view</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_pdbid</span><span class="p">(</span><span class="s2">"1HND"</span><span class="p">)</span>
+<span class="n">view</span> <span class="o">=</span> <span class="n">get_pdb_nglviewer</span><span class="p">(</span><span class="s2">"1HND"</span><span class="p">)</span>
 <span class="n">interact</span><span class="p">(</span><span class="n">change_coloring</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="n">fixed</span><span class="p">(</span><span class="n">view</span><span class="p">),</span> <span class="n">coloring</span><span class="o">=</span><span class="n">nv</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">COLOR_SCHEMES</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
 <span class="n">view</span>
 </pre></div>
@@ -2040,18 +1739,26 @@ docstring, which will take you to the table of options you can use (see <a class
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4cf2c175a39d4a2299930f4841ce13cc", "version_major": 2, "version_minor": 0}</script></div>
+<div class="highlight"><pre>
+Sending GET request to https://files.rcsb.org/download/1HND.pdb to fetch 1HND's pdb file as a string.
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "bd2a3217916145ec909c29b09b836c11", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b99cbfc19e1f4e3ba0c2d5e2b7913f4d", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3de1df70e31641808b7e3ed65b1774ac", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 </section>
 </section>
 <section id="Access-the-JavaScript-layer">
-<h4 id="Access-the-JavaScript-layer">Access the JavaScript layer<a class="headerlink" href="#Access-the-JavaScript-layer" title="Permalink to this heading">¶</a></h4>
+<h4 id="Access-the-JavaScript-layer">Access the JavaScript layer<a class="headerlink" href="#Access-the-JavaScript-layer" title="Link to this heading">¶</a></h4>
 <p>NGL is an incredibly powerful JavaScript library. NGLView exports the most commonly used bits to Python, which allows us to control certain things in a very convenient way. However, sometimes we need to leverage both layers (JS and Python) to achieve some advanced representations. To do so, we can use some private methods in <code class="docutils literal notranslate"><span class="pre">nglview.NGLWidget</span></code>. Namely:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">nglview.NGLWidget._remote_call</span></code>: Run a method on a NGL JS object, with positional arguments <code class="docutils literal notranslate"><span class="pre">args</span></code> and keyword arguments <code class="docutils literal notranslate"><span class="pre">kwargs</span></code>. You have to choose the target object first:</p>
@@ -2067,19 +1774,27 @@ docstring, which will take you to the table of options you can use (see <a class
 </ul>
 <p>Let’s try some simple examples first.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[72]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_pdbid</span><span class="p">(</span><span class="s2">"2G1T"</span><span class="p">)</span>  <span class="c1"># Human ABL1 kinase</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span> <span class="o">=</span> <span class="n">get_pdb_nglviewer</span><span class="p">(</span><span class="s2">"2G1T"</span><span class="p">)</span>  <span class="c1"># Human ABL1 kinase</span>
 <span class="n">view</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sending GET request to https://files.rcsb.org/download/2G1T.pdb to fetch 2G1T's pdb file as a string.
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ae3c70a8c5b8486f8273bf05bf4e39d7", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "6ba92166c06d4698b7cdf03ccad10c9d", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <p>Let’s add some random text. This is possible via the <code class="docutils literal notranslate"><span class="pre">addShape</span></code> widget method. Some considerations:</p>
 <ul class="simple">
@@ -2089,7 +1804,7 @@ docstring, which will take you to the table of options you can use (see <a class
 </ul>
 <p>Let’s add some red (encoded as RGB <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">0,</span> <span class="pre">0]</span></code>) text (<code class="docutils literal notranslate"><span class="pre">TeachOpenCADD</span></code>) at the XYZ coordinates <code class="docutils literal notranslate"><span class="pre">[60,</span> <span class="pre">0,</span> <span class="pre">-20]</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[73]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">_remote_call</span><span class="p">(</span>
@@ -2102,36 +1817,32 @@ docstring, which will take you to the table of options you can use (see <a class
 </div>
 <p>Note that this can be achieved in a similar way using <code class="docutils literal notranslate"><span class="pre">_execute_js_code</span></code>. The difference is how to pass arguments, which would need to be substituted in an <code class="docutils literal notranslate"><span class="pre">f-string</span></code>. Hopefully, for some simple cases, JS and Python share a similar syntax (e.g. lists and strings). Let’s add some more text, but now it will be blue and in a different position:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[74]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">_execute_js_code</span><span class="p">(</span>
-<span class="w">    </span><span class="sd">"""</span>
-<span class="sd">this.addShape("blueText", [["text", [60, 20, -20], [0, 0, 1], 10, "TeachOpenCADD"]])</span>
-<span class="sd">"""</span>
-<span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">_execute_js_code</span><span class="p">(</span><span class="s2">"""</span>
+<span class="s2">this.addShape("blueText", [["text", [60, 20, -20], [0, 0, 1], 10, "TeachOpenCADD"]])</span>
+<span class="s2">"""</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <p>This might be cumbersome in some cases, but in others we don’t have a choice. For example, if we want to remove one of the shapes, we can only do it via <code class="docutils literal notranslate"><span class="pre">_execute_js_code</span></code>:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[75]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">_execute_js_code</span><span class="p">(</span>
-<span class="w">    </span><span class="sd">"""</span>
-<span class="sd">this.stage.removeComponent(this.stage.getComponentsByName("blueText").first)</span>
-<span class="sd">"""</span>
-<span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">_execute_js_code</span><span class="p">(</span><span class="s2">"""</span>
+<span class="s2">this.stage.removeComponent(this.stage.getComponentsByName("blueText").first)</span>
+<span class="s2">"""</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <section id="Debugging-JavaScript-code">
-<h5 id="Debugging-JavaScript-code">Debugging JavaScript code<a class="headerlink" href="#Debugging-JavaScript-code" title="Permalink to this heading">¶</a></h5>
+<h5 id="Debugging-JavaScript-code">Debugging JavaScript code<a class="headerlink" href="#Debugging-JavaScript-code" title="Link to this heading">¶</a></h5>
 <p>You might be wondering how you can find the right JS command if autocomplete does not work and the documentation is tricky to follow. Your best chance is using the Developer Tools in your browser!</p>
 <p>The trick is to export the NGL Widget, represented by <code class="docutils literal notranslate"><span class="pre">this</span></code> under the <code class="docutils literal notranslate"><span class="pre">_execute_js_code</span></code> context, to your browser tab context. To do so, execute this snippet:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[76]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">_execute_js_code</span><span class="p">(</span><span class="s2">"document.nglview = this;"</span><span class="p">)</span>
@@ -2155,47 +1866,53 @@ docstring, which will take you to the table of options you can use (see <a class
 </ul>
 </section>
 <section id="Practical-example:-show-residues-around-ligand">
-<h5 id="Practical-example:-show-residues-around-ligand">Practical example: show residues around ligand<a class="headerlink" href="#Practical-example:-show-residues-around-ligand" title="Permalink to this heading">¶</a></h5>
+<h5 id="Practical-example:-show-residues-around-ligand">Practical example: show residues around ligand<a class="headerlink" href="#Practical-example:-show-residues-around-ligand" title="Link to this heading">¶</a></h5>
 <p>This is a popular operation we often perform while studying protein-ligand complexes, but NGLView does not expose that directly. NGL does offer that functionality, so we can still query JS for this!</p>
 <p>Let’s open a kinase, e.g. EGFR, with an inhibitor bound. The PDB <a class="reference external" href="https://klifs.net/details.php?structure_id=783">structure</a> <code class="docutils literal notranslate"><span class="pre">2ITO</span></code> seems to be bound by gefitinib with residue code <code class="docutils literal notranslate"><span class="pre">IRE</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[77]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_pdbid</span><span class="p">(</span><span class="s2">"2ITO"</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span> <span class="o">=</span> <span class="n">get_pdb_nglviewer</span><span class="p">(</span><span class="s2">"2ITO"</span><span class="p">)</span>
 <span class="n">view</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="s2">"IRE"</span><span class="p">)</span>
 <span class="n">view</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sending GET request to https://files.rcsb.org/download/2ITO.pdb to fetch 2ITO's pdb file as a string.
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "07085bc71ce245038fcbb76a521304f3", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c704907fcb59469ea945e8f1382e081b", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[78]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">_execute_js_code</span><span class="p">(</span>
-<span class="w">    </span><span class="sd">"""</span>
-<span class="sd">// Get first (and only) loaded component: our protein-ligand system</span>
-<span class="sd">var system = this.stage.compList[0];</span>
-<span class="sd">// Store current selection, we will need it laer</span>
-<span class="sd">var prevSele = system.selection.string;</span>
-<span class="sd">// Set selection to our desired ligand</span>
-<span class="sd">system.setSelection("IRE");</span>
-<span class="sd">// Select all atoms within 5A from the ligand</span>
-<span class="sd">var around = system.structure.getAtomSetWithinSelection(system.selection, 5.0);</span>
-<span class="sd">// Extend selection so it includes full residues</span>
-<span class="sd">var around_complete = system.structure.getAtomSetWithinGroup(around);</span>
-<span class="sd">// Add representation for those atoms</span>
-<span class="sd">system.addRepresentation("licorice", {sele: around_complete.toSeleString()});</span>
-<span class="sd">// Restore selection to original one; otherwise changes won't be reflected</span>
-<span class="sd">system.setSelection(prevSele)</span>
-<span class="sd">"""</span>
-<span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">_execute_js_code</span><span class="p">(</span><span class="s2">"""</span>
+<span class="s2">// Get first (and only) loaded component: our protein-ligand system</span>
+<span class="s2">var system = this.stage.compList[0];</span>
+<span class="s2">// Store current selection, we will need it laer</span>
+<span class="s2">var prevSele = system.selection.string;</span>
+<span class="s2">// Set selection to our desired ligand</span>
+<span class="s2">system.setSelection("IRE");</span>
+<span class="s2">// Select all atoms within 5A from the ligand</span>
+<span class="s2">var around = system.structure.getAtomSetWithinSelection(system.selection, 5.0);</span>
+<span class="s2">// Extend selection so it includes full residues</span>
+<span class="s2">var around_complete = system.structure.getAtomSetWithinGroup(around);</span>
+<span class="s2">// Add representation for those atoms</span>
+<span class="s2">system.addRepresentation("licorice", {sele: around_complete.toSeleString()});</span>
+<span class="s2">// Restore selection to original one; otherwise changes won't be reflected</span>
+<span class="s2">system.setSelection(prevSele)</span>
+<span class="s2">"""</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2236,10 +1953,10 @@ docstring, which will take you to the table of options you can use (see <a class
 </div>
 <p>Knowing this, you can define <code class="docutils literal notranslate"><span class="pre">show_residues_around</span></code> like this:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[79]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">show_residues_around</span><span class="p">(</span><span class="n">view</span><span class="p">,</span> <span class="n">component_index</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">selection</span><span class="o">=</span><span class="s2">"ligand"</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mf">5.0</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">show_residues_around</span><span class="p">(</span><span class="n">view</span><span class="p">,</span> <span class="n">component_index</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">selection</span><span class="o">=</span><span class="s2">"ligand"</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mf">5.0</span><span class="p">):</span>
     <span class="n">js</span> <span class="o">=</span> <span class="p">(</span>
         <span class="sa">f</span><span class="s2">"""</span>
 <span class="s2">        // Get first (and only) loaded component: our protein-ligand system</span>
@@ -2266,28 +1983,36 @@ docstring, which will take you to the table of options you can use (see <a class
 </div>
 <p>Let’s see if it works!</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[80]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_pdbid</span><span class="p">(</span><span class="s2">"1KSW"</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span> <span class="o">=</span> <span class="n">get_pdb_nglviewer</span><span class="p">(</span><span class="s2">"1KSW"</span><span class="p">)</span>
 <span class="n">show_residues_around</span><span class="p">(</span><span class="n">view</span><span class="p">)</span>
 <span class="n">view</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="s2">"ligand"</span><span class="p">)</span>
 <span class="n">view</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sending GET request to https://files.rcsb.org/download/1KSW.pdb to fetch 1KSW's pdb file as a string.
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "da1eabe5b6934953b881ed3faf9d1209", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "bb9e42d4e7a0498e95c5f7d34a4127a3", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <p>This way of working with NGL opens a world of possibilities! The <a class="reference external" href="https://github.com/nglviewer/nglview/issues?q=is%3Aissue+label%3AQ%26A">issues labeled as Q&amp;A</a> in the <code class="docutils literal notranslate"><span class="pre">nglview</span></code> repository often resort this technique, and now you will be able to know what’s going on!</p>
 </section>
 </section>
 </section>
 <section id="Troubleshooting-tips">
-<h3 id="Troubleshooting-tips">Troubleshooting tips<a class="headerlink" href="#Troubleshooting-tips" title="Permalink to this heading">¶</a></h3>
+<h3 id="Troubleshooting-tips">Troubleshooting tips<a class="headerlink" href="#Troubleshooting-tips" title="Link to this heading">¶</a></h3>
 <p>The Jupyter ecosystem is vast and changes rapidly. Keeping up-to-date with the latest additions is tricky and resource consuming, so ending up with a broken NGLView installation is not uncommon. The following packages might affect the functionality of NGLView. If one of them had a recent version change (specially major versions, like Jupyter Lab 2 -&gt; Jupyter Lab 3), that might be one of the possible explanations for the errors you are seeing:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">jupyter</span></code></p></li>
@@ -2300,7 +2025,7 @@ docstring, which will take you to the table of options you can use (see <a class
 <div><p>Tip: If <code class="docutils literal notranslate"><span class="pre">nglview</span></code> can be imported but you don’t see the canvas for <code class="docutils literal notranslate"><span class="pre">nv.demo()</span></code>, check the Developer Tools console (Ctrl+Shift+J in Chrome, Ctrl+Shift+K in Firefox) for error messages! 404 errors trying to load the JS NGL libraries are one of the most common ones. Check the steps below to troubleshoot!</p>
 </div></blockquote>
 <section id="Check-which-Jupyter-platform-you-are-working-from">
-<h4 id="Check-which-Jupyter-platform-you-are-working-from">Check which Jupyter platform you are working from<a class="headerlink" href="#Check-which-Jupyter-platform-you-are-working-from" title="Permalink to this heading">¶</a></h4>
+<h4 id="Check-which-Jupyter-platform-you-are-working-from">Check which Jupyter platform you are working from<a class="headerlink" href="#Check-which-Jupyter-platform-you-are-working-from" title="Link to this heading">¶</a></h4>
 <p>While the community transitions from Jupyter Notebook to Jupyter Lab, these alternative frontends for our beloved notebooks will coexist for a while, making everything a bit more confusing. Which one are you using? Check the table below.</p>
 <table>
 <thead>
@@ -2341,11 +2066,11 @@ docstring, which will take you to the table of options you can use (see <a class
 <p>As a result, installing <code class="docutils literal notranslate"><span class="pre">nglview</span></code> on your machine involves different step depending on which Jupyter UI you are going to use.</p>
 </section>
 <section id="How-to-install-nglview,-the-right-way">
-<h4 id="How-to-install-nglview,-the-right-way">How to install <code class="docutils literal notranslate"><span class="pre">nglview</span></code>, the right way<a class="headerlink" href="#How-to-install-nglview,-the-right-way" title="Permalink to this heading">¶</a></h4>
+<h4 id="How-to-install-nglview,-the-right-way">How to install <code class="docutils literal notranslate"><span class="pre">nglview</span></code>, the right way<a class="headerlink" href="#How-to-install-nglview,-the-right-way" title="Link to this heading">¶</a></h4>
 <p>If you didn’t know about the subtle differences explained above, there’s a chance you have several instances of <code class="docutils literal notranslate"><span class="pre">nglview</span></code> installed in your computer. Having both <code class="docutils literal notranslate"><span class="pre">conda</span></code> and <code class="docutils literal notranslate"><span class="pre">pip</span></code> available makes it more difficult, specially if you mix system installations with environment ones. Our advice is that you create a fresh environment for each project you work on, and specify their dependencies explicitly.</p>
 <p>To get to that clean slate you might need to delete some files that will interfere with the environment-specific setting.</p>
 <section id="Jupyter-Notebook">
-<h5 id="Jupyter-Notebook">Jupyter Notebook<a class="headerlink" href="#Jupyter-Notebook" title="Permalink to this heading">¶</a></h5>
+<h5 id="Jupyter-Notebook">Jupyter Notebook<a class="headerlink" href="#Jupyter-Notebook" title="Link to this heading">¶</a></h5>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>nglview
 nglview<span class="w"> </span>install
 nglview<span class="w"> </span><span class="nb">enable</span>
@@ -2374,7 +2099,7 @@ del %_CONDA_ROOT%\share\jupyter\nbextensions\nglview-js-widgets
 </ul>
 </section>
 <section id="Jupyter-Lab-(v2-style)">
-<h5 id="Jupyter-Lab-(v2-style)">Jupyter Lab (v2 style)<a class="headerlink" href="#Jupyter-Lab-(v2-style)" title="Permalink to this heading">¶</a></h5>
+<h5 id="Jupyter-Lab-(v2-style)">Jupyter Lab (v2 style)<a class="headerlink" href="#Jupyter-Lab-(v2-style)" title="Link to this heading">¶</a></h5>
 <p>Since Jupyter Lab uses a different extension system, it doesn’t suffer from the path precedence issues shown above. However, you need to make sure the extension was installed <em>and</em> built:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>nglview
 jupyter<span class="w"> </span>labextension<span class="w"> </span>install<span class="w"> </span>@jupyter-widgets/jupyterlab-manager<span class="w"> </span>nglview-js-widgets
@@ -2382,7 +2107,7 @@ jupyter<span class="w"> </span>labextension<span class="w"> </span>install<span 
 </div>
 </section>
 <section id="Jupyter-Lab-(v3+-style)">
-<h5 id="Jupyter-Lab-(v3+-style)">Jupyter Lab (v3+ style)<a class="headerlink" href="#Jupyter-Lab-(v3+-style)" title="Permalink to this heading">¶</a></h5>
+<h5 id="Jupyter-Lab-(v3+-style)">Jupyter Lab (v3+ style)<a class="headerlink" href="#Jupyter-Lab-(v3+-style)" title="Link to this heading">¶</a></h5>
 <p>Jupyter Lab v3 and above use a nice trick to precompile the JavaScript libraries, so you will <em>only</em> need to install <code class="docutils literal notranslate"><span class="pre">nglview</span></code> with your favourite package manager.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>nglview
 </pre></div>
@@ -2392,7 +2117,7 @@ jupyter<span class="w"> </span>labextension<span class="w"> </span>install<span 
 </section>
 </section>
 <section id="Discussion">
-<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this heading">¶</a></h2>
+<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Link to this heading">¶</a></h2>
 <p>NGLView is an incredibly powerful widget with a lot of features already accessible from the Python interface. But it’s easy to miss the potential of the underlying JavaScript library! We hope you could see some of the possibilities available and that you’ve learned the tools you need to use to get there and beyond. If you are interested in some more examples of advanced uses, check the links below.</p>
 <!-- * [Link to Plipify's PLIP depiction when it's public](#) --><ul class="simple">
 <li><p><a class="reference external" href="https://github.com/openforcefield/openff-toolkit/pull/560">Adding an automatic NGLView preview for your molecular objects</a></p></li>
@@ -2400,7 +2125,7 @@ jupyter<span class="w"> </span>labextension<span class="w"> </span>install<span 
 </ul>
 </section>
 <section id="Quiz">
-<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Permalink to this heading">¶</a></h2>
+<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Link to this heading">¶</a></h2>
 <p>NGLView is now part of your CADD toolbox. Here you have some interesting exercises:</p>
 <ol class="arabic simple">
 <li><p>Load one of the structures for ABL1 (available at <a class="reference external" href="https://klifs.net/result.php?kinase=ABL1">KLIFS.net</a>), without downloading anything manually. Check talktorial <code class="docutils literal notranslate"><span class="pre">T013</span></code> for more details about KLIFS!</p></li>
@@ -2456,11 +2181,11 @@ jupyter<span class="w"> </span>labextension<span class="w"> </span>install<span 
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2018-2023, Volkamer Lab. Project structure based on the Computational Molecular Science Python Cookiecutter version 1.1.
+              &#169; Copyright 2018-2026, Volkamer Lab. Project structure based on the Computational Molecular Science Python Cookiecutter version 1.1.
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 9.0.4.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

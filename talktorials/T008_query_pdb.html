@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta property="og:title" content="T008 · Protein data acquisition: Protein Data Bank (PDB)" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://projects.volkamerlab.org/teachopencadd/talktorials/T008_query_pdb.html" />
+<meta property="og:url" content="talktorials/T008_query_pdb.html" />
 <meta property="og:site_name" content="TeachOpenCADD" />
-<meta property="og:description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Anja Georgi, CADD seminar, 2017, Charité/FU Berlin, Majid Vafadar, CADD seminar, 2018, Charité/FU Berlin, Jai..." />
-<meta property="og:image" content="https://raw.githubusercontent.com/volkamerlab/teachopencadd/master/docs/_static/images/TeachOpenCADD_topics.png" />
-<meta property="og:image:alt" content="TeachOpenCADD" />
-<meta name="description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Anja Georgi, CADD seminar, 2017, Charité/FU Berlin, Majid Vafadar, CADD seminar, 2018, Charité/FU Berlin, Jai..." />
+<meta property="og:description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Anja Geor..." />
+<meta property="og:image:width" content="1146" />
+<meta property="og:image:height" content="600" />
+<meta property="og:image" content="_images/social_previews/summary_talktorials_T008_query_pdb_846a333e.png" />
+<meta property="og:image:alt" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Anja Geor..." />
+<meta name="description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Anja Geor..." />
+<meta name="twitter:card" content="summary_large_image" />
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -79,31 +82,27 @@
         gtag('config', 'G-Q6ZE82CNZB');
     </script>
   
-    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
-  
-    <title>T008 · Protein data acquisition: Protein Data Bank (PDB) &#8212; TeachOpenCADD 0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+    <title>T008 · Protein data acquisition: Protein Data Bank (PDB) &#8212; TeachOpenCADD 2023.5.2.post442 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=75810a84" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
-    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=897d968c" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=e43216b9"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/documentation_options.js?v=f78c6808"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="T009 · Ligand-based pharmacophores" href="T009_compound_ensemble_pharmacophores.html" />
     <link rel="prev" title="T007 · Ligand-based screening: machine learning" href="T007_compound_activity_machine_learning.html" />
-  
-    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
    
 
@@ -127,7 +126,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../index.html" title="TeachOpenCADD 0 documentation"
+        <a href="../index.html" title="TeachOpenCADD 2023.5.2.post442 documentation"
            class="md-header-nav__button md-logo">
           
             <i class="md-icon">school</i>
@@ -139,7 +138,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">TeachOpenCADD</span>
+          <span class="md-header-nav__topic">TeachOpenCADD 2023.5.2.post442 documentation</span>
           <span class="md-header-nav__topic"> T008 · Protein data acquisition: Protein Data Bank (PDB) </span>
         </div>
       </div>
@@ -191,6 +190,16 @@
         </div>
       
       
+  
+  <script src="../_static/javascripts/version_dropdown.js"></script>
+  <script>
+    var json_loc = "../"versions.json"",
+        target_loc = "../../",
+        text = "Versions";
+    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
+  </script>
+  
+
     </div>
   </nav>
 </header>
@@ -203,6 +212,7 @@
   <nav class="md-tabs" data-md-component="tabs">
     <div class="md-tabs__inner md-grid">
       <ul class="md-tabs__list">
+          <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">TeachOpenCADD 2023.5.2.post442 documentation</a></li>
             
             <li class="md-tabs__item"><a href="../talktorials.html" class="md-tabs__link">Our talktorials</a></li>
             
@@ -225,13 +235,13 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../index.html" title="TeachOpenCADD 0 documentation" class="md-nav__button md-logo">
+    <a href="../index.html" title="TeachOpenCADD 2023.5.2.post442 documentation" class="md-nav__button md-logo">
       
         <i class="md-icon">school</i>
       
     </a>
     <a href="../index.html"
-       title="TeachOpenCADD 0 documentation">TeachOpenCADD</a>
+       title="TeachOpenCADD 2023.5.2.post442 documentation">TeachOpenCADD 2023.5.2.post442 documentation</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
@@ -248,427 +258,6 @@
 </a>
     </div>
   
-  
-
-  
-  <ul class="md-nav__list">
-    <li class="md-nav__item">
-    
-      <span class="md-nav__link caption"><span class="caption-text">Our talktorials</span></span>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="T001_query_chembl.html" class="md-nav__link">T001 · Compound data acquisition (ChEMBL)</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T002_compound_adme.html" class="md-nav__link">T002 · Molecular filtering: ADME and lead-likeness criteria</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T003_compound_unwanted_substructures.html" class="md-nav__link">T003 · Molecular filtering: unwanted substructures</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T004_compound_similarity.html" class="md-nav__link">T004 · Ligand-based screening: compound similarity</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T005_compound_clustering.html" class="md-nav__link">T005 · Compound clustering</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T006_compound_maximum_common_substructures.html" class="md-nav__link">T006 · Maximum common substructure</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T007_compound_activity_machine_learning.html" class="md-nav__link">T007 · Ligand-based screening: machine learning</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> T008 · Protein data acquisition: Protein Data Bank (PDB) </label>
-    
-      <a href="#" class="md-nav__link md-nav__link--active">T008 · Protein data acquisition: Protein Data Bank (PDB)</a>
-      
-        
-<nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">"Contents"</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#talktorials-t008-query-pdb--page-root" class="md-nav__link">T008 · Protein data acquisition: Protein Data Bank (PDB)</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in Theory</a>
-        </li>
-        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in Practical</a>
-        </li>
-        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Protein-Data-Bank-(PDB)" class="md-nav__link">Protein Data Bank (PDB)</a>
-        </li>
-        <li class="md-nav__item"><a href="#Query-the-PDB-using-the-Python-packages-biotite-and-pypdb" class="md-nav__link">Query the PDB using the Python packages <code class="docutils literal notranslate"><span class="pre">biotite</span></code> and <code class="docutils literal notranslate"><span class="pre">pypdb</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Select-a-query-protein" class="md-nav__link">Select a query protein</a>
-        </li>
-        <li class="md-nav__item"><a href="#Get-the-number-of-PDB-entries-for-a-query-protein" class="md-nav__link">Get the number of PDB entries for a query protein</a>
-        </li>
-        <li class="md-nav__item"><a href="#Find-PDB-entries-fullfilling-certain-conditions" class="md-nav__link">Find PDB entries fullfilling certain conditions</a>
-        </li>
-        <li class="md-nav__item"><a href="#Select-PDB-entries-with-the-hightest-resolution" class="md-nav__link">Select PDB entries with the hightest resolution</a>
-        </li>
-        <li class="md-nav__item"><a href="#Get-metadata-of-ligands-from-top-structures" class="md-nav__link">Get metadata of ligands from top structures</a>
-        </li>
-        <li class="md-nav__item"><a href="#Draw-top-ligand-molecules" class="md-nav__link">Draw top ligand molecules</a>
-        </li>
-        <li class="md-nav__item"><a href="#Create-protein-ligand-ID-pairs" class="md-nav__link">Create protein-ligand ID pairs</a>
-        </li>
-        <li class="md-nav__item"><a href="#Align-PDB-structures-and-extract-ligands" class="md-nav__link">Align PDB structures and extract ligands</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Get-the-PDB-structure-files" class="md-nav__link">Get the PDB structure files</a>
-        </li>
-        <li class="md-nav__item"><a href="#Extract-protein-and-ligand" class="md-nav__link">Extract protein and ligand</a>
-        </li>
-        <li class="md-nav__item"><a href="#Align-proteins" class="md-nav__link">Align proteins</a>
-        </li>
-        <li class="md-nav__item"><a href="#Extract-ligands" class="md-nav__link">Extract ligands</a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
-        </li>
-        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
-        </li></ul>
-            </nav>
-        </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T008_query_pdb.nblink.txt">Show Source</a> </li>
-
-  </ul>
-</nav>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T009_compound_ensemble_pharmacophores.html" class="md-nav__link">T009 · Ligand-based pharmacophores</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T010_binding_site_comparison.html" class="md-nav__link">T010 · Binding site similarity and off-target prediction</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T011_query_online_api_webservices.html" class="md-nav__link">T011 · Querying online API webservices</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T012_query_klifs.html" class="md-nav__link">T012 · Data acquisition from KLIFS</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T013_query_pubchem.html" class="md-nav__link">T013 · Data acquisition from PubChem</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T014_binding_site_detection.html" class="md-nav__link">T014 · Binding site detection</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T015_protein_ligand_docking.html" class="md-nav__link">T015 · Protein ligand docking</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T016_protein_ligand_interactions.html" class="md-nav__link">T016 · Protein-ligand interactions</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T017_advanced_nglview_usage.html" class="md-nav__link">T017 · Advanced NGLview usage</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T018_automated_cadd_pipeline.html" class="md-nav__link">T018 · Automated pipeline for lead optimization</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T019_md_simulation.html" class="md-nav__link">T019 · Molecular dynamics simulation</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T020_md_analysis.html" class="md-nav__link">T020 · Analyzing molecular dynamics simulations</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T021_one_hot_encoding.html" class="md-nav__link">T021 · One-Hot Encoding</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T022_ligand_based_screening_neural_network.html" class="md-nav__link">T022 · Ligand-based screening: neural networks</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T023_what_is_a_kinase.html" class="md-nav__link">T023 · What is a kinase?</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T024_kinase_similarity_sequence.html" class="md-nav__link">T024 · Kinase similarity: Sequence</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T025_kinase_similarity_kissim.html" class="md-nav__link">T025 · Kinase similarity: Kinase pocket (KiSSim fingerprint)</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T026_kinase_similarity_ifp.html" class="md-nav__link">T026 · Kinase similarity: Interaction fingerprints</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T027_kinase_similarity_ligand_profile.html" class="md-nav__link">T027 · Kinase similarity: Ligand profile</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T028_kinase_similarity_compare_perspectives.html" class="md-nav__link">T028 · Kinase similarity: Compare different perspectives</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T033_molecular_representations.html" class="md-nav__link">T033 · Molecular representations</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T034_recurrent_neural_networks.html" class="md-nav__link">T034 · RNN-based molecular property prediction</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T035_graph_neural_networks.html" class="md-nav__link">T035 · GNN-based molecular property prediction</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T036_e3_equivariant_gnn.html" class="md-nav__link">T036 · An introduction to E(3)-invariant graph neural networks</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T037_uncertainty_estimation.html" class="md-nav__link">T037 · Uncertainty estimation</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T038_protein_ligand_interaction_prediction.html" class="md-nav__link">T038 · Protein Ligand Interaction Prediction</a>
-      
-    
-    </li></ul>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-      <span class="md-nav__link caption"><span class="caption-text">Run locally</span></span>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../installing.html" class="md-nav__link">Installing</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-      <span class="md-nav__link caption"><span class="caption-text">Development</span></span>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../contribute.html" class="md-nav__link">For contributors</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../api.html" class="md-nav__link">API Documentation</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-      <span class="md-nav__link caption"><span class="caption-text">About TeachOpenCADD</span></span>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../contact.html" class="md-nav__link">Contact</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../acknowledgments.html" class="md-nav__link">Acknowledgments</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../citation.html" class="md-nav__link">Citation</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../license.html" class="md-nav__link">License</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../funding.html" class="md-nav__link">Funding</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-      <span class="md-nav__link caption"><span class="caption-text">External resources</span></span>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../external_dependencies.html" class="md-nav__link">Packages and webservers used in TeachOpenCADD</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../external_tutorials_collections.html" class="md-nav__link">External tutorials and collections</a>
-      
-    
-    </li>
-  </ul>
   
 
 </nav>
@@ -753,7 +342,7 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="T008-·-Protein-data-acquisition:-Protein-Data-Bank-(PDB)">
-<h1 id="talktorials-t008-query-pdb--page-root">T008 · Protein data acquisition: Protein Data Bank (PDB)<a class="headerlink" href="#talktorials-t008-query-pdb--page-root" title="Permalink to this heading">¶</a></h1>
+<h1 id="talktorials-t008-query-pdb--page-root">T008 · Protein data acquisition: Protein Data Bank (PDB)<a class="headerlink" href="#talktorials-t008-query-pdb--page-root" title="Link to this heading">¶</a></h1>
 <p><strong>Note:</strong> This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.</p>
 <p>Authors:</p>
 <ul class="simple">
@@ -764,17 +353,23 @@
 </ul>
 <p><strong>Talktorial T008</strong>: This talktorial is part of the TeachOpenCADD pipeline described in the first TeachOpenCADD publication (<a class="reference external" href="https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x">J. Cheminform. (2019), 11, 1-7</a>), comprising of talktorials T001-T010.</p>
 <section id="Aim-of-this-talktorial">
-<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this heading">¶</a></h2>
-<p>In this talktorial, we conduct the groundwork for the next talktorial where we will generate a ligand-based ensemble pharmacophore for EGFR. Therefore, we (i) fetch all PDB IDs for EGFR from the PDB database that fullfil certain criteria (e.g. ligand-bound structures with high resolution), (ii) retrieve protein-ligand structures with the best structural quality, (iii) align all structures, and (iv) extract and save the ligands to be used in the next talktorial.</p>
+<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Link to this heading">¶</a></h2>
+<p>In this talktorial, we conduct the groundwork for the next talktorial where we will generate a ligand-based ensemble pharmacophore for EGFR. Therefore, we</p>
+<ol class="lowerroman simple">
+<li><p>fetch all PDB IDs for EGFR from the PDB database that fullfil certain criteria (e.g. ligand-bound structures with high resolution),</p></li>
+<li><p>retrieve protein-ligand structures with the best structural quality,</p></li>
+<li><p>align all structures, and</p></li>
+<li><p>extract and save the ligands to be used in the next talktorial.</p></li>
+</ol>
 <section id="Contents-in-Theory">
-<h3 id="Contents-in-Theory">Contents in Theory<a class="headerlink" href="#Contents-in-Theory" title="Permalink to this heading">¶</a></h3>
+<h3 id="Contents-in-Theory">Contents in Theory<a class="headerlink" href="#Contents-in-Theory" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Protein Data Bank (PDB)</p></li>
 <li><p>Query the PDB using the Python packages <code class="docutils literal notranslate"><span class="pre">biotite</span></code> and <code class="docutils literal notranslate"><span class="pre">pypdb</span></code></p></li>
 </ul>
 </section>
 <section id="Contents-in-Practical">
-<h3 id="Contents-in-Practical">Contents in Practical<a class="headerlink" href="#Contents-in-Practical" title="Permalink to this heading">¶</a></h3>
+<h3 id="Contents-in-Practical">Contents in Practical<a class="headerlink" href="#Contents-in-Practical" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Select a query protein</p></li>
 <li><p>Get the number of PDB entries for a query protein</p></li>
@@ -787,19 +382,33 @@
 </ul>
 </section>
 <section id="References">
-<h3 id="References">References<a class="headerlink" href="#References" title="Permalink to this heading">¶</a></h3>
+<h3 id="References">References<a class="headerlink" href="#References" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Protein Data Bank (<a class="reference external" href="http://www.rcsb.org/">PDB website</a>)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">pypdb</span></code> Python package (<a class="reference external" href="https://academic.oup.com/bioinformatics/article-lookup/doi/10.1093/bioinformatics/btv543">Bioinformatics (2016), 1, 159-60</a>; <a class="reference external" href="http://www.wgilpin.com/pypdb_docs/html/">documentation</a>)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">biotite</span></code> Python package (<a class="reference external" href="https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-018-2367-z">BMC Bioinformatics (2018), 19</a>; <a class="reference external" href="https://www.biotite-python.org/">documentation</a>)</p></li>
 <li><p>Molecular superposition with the Python package <code class="docutils literal notranslate"><span class="pre">opencadd</span></code> (<a class="reference external" href="https://github.com/volkamerlab/opencadd">repository</a>)</p></li>
 </ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="k">if</span> <span class="s2">"google.colab"</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
+    <span class="o">%</span><span class="k">pip</span> install teachopencadd --no-deps -q
+    <span class="o">!</span>teachopencadd<span class="w"> </span>-d<span class="w"> </span><span class="m">8</span>
+    <span class="o">%</span><span class="k">pip</span> uninstall teachopencadd -y -q
+    <span class="o">%</span><span class="k">pip</span> install -qr requirements.txt
+</pre></div>
+</div>
+</div>
 </section>
 </section>
 <section id="Theory">
-<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this heading">¶</a></h2>
+<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Link to this heading">¶</a></h2>
 <section id="Protein-Data-Bank-(PDB)">
-<h3 id="Protein-Data-Bank-(PDB)">Protein Data Bank (PDB)<a class="headerlink" href="#Protein-Data-Bank-(PDB)" title="Permalink to this heading">¶</a></h3>
+<h3 id="Protein-Data-Bank-(PDB)">Protein Data Bank (PDB)<a class="headerlink" href="#Protein-Data-Bank-(PDB)" title="Link to this heading">¶</a></h3>
 <p>The RCSB Protein Data Bank (PDB) is a comprehensive structural biology information database and a key resource in areas of structural biology, such as structural genomics and drug design (<a class="reference external" href="http://www.rcsb.org/">PDB website</a>).</p>
 <p>Structural data is generated from structural determination methods such as X-ray crystallography (most common method), nuclear magnetic resonance (NMR), and cryo electron microscopy (cryo-EM). For each entry, the database contains (i) the 3D coordinates of the atoms and the bonds connecting these atoms for proteins, ligand, cofactors, water molecules, and ions, as well as (ii) meta information on the structural data such as the PDB ID, the authors, the deposition date, the structural
 determination method used, and the structural resolution. The structural resolution is a measure of the collected data quality and has the unit Å (Angstrom); the lower the value, the higher the quality of the structure.</p>
@@ -808,7 +417,7 @@ determination method used, and the structural resolution. The structural resolut
 <p><em>Figure 1</em>: The protein structure (in gray) with an interacting ligand (in green) is shown for an example epidermal growth factor receptor (EGFR) with the PDB ID 3UG5.</p>
 </section>
 <section id="Query-the-PDB-using-the-Python-packages-biotite-and-pypdb">
-<h3 id="Query-the-PDB-using-the-Python-packages-biotite-and-pypdb">Query the PDB using the Python packages <code class="docutils literal notranslate"><span class="pre">biotite</span></code> and <code class="docutils literal notranslate"><span class="pre">pypdb</span></code><a class="headerlink" href="#Query-the-PDB-using-the-Python-packages-biotite-and-pypdb" title="Permalink to this heading">¶</a></h3>
+<h3 id="Query-the-PDB-using-the-Python-packages-biotite-and-pypdb">Query the PDB using the Python packages <code class="docutils literal notranslate"><span class="pre">biotite</span></code> and <code class="docutils literal notranslate"><span class="pre">pypdb</span></code><a class="headerlink" href="#Query-the-PDB-using-the-Python-packages-biotite-and-pypdb" title="Link to this heading">¶</a></h3>
 <p>Each structure in the PDB database is linked to many different fields to hold meta information. Check out the complete list of available fields for <a class="reference external" href="https://search.rcsb.org/chemical-search-attributes.html">chemicals</a>/<a class="reference external" href="https://search.rcsb.org/structure-search-attributes.html">structures</a> and supported operators on the RCSB website. The Python package <code class="docutils literal notranslate"><span class="pre">biotite</span></code> provides the convenient module <code class="docutils literal notranslate"><span class="pre">databases.rcsb</span></code> (see
 <a class="reference external" href="https://www.biotite-python.org/apidoc/biotite.database.rcsb.html">docs</a>), which allows us to query one (<code class="docutils literal notranslate"><span class="pre">FieldQuery</span></code>, see <a class="reference external" href="https://www.biotite-python.org/apidoc/biotite.database.rcsb.FieldQuery.html#biotite.database.rcsb.FieldQuery">docs</a>) or more (<code class="docutils literal notranslate"><span class="pre">CompositeQuery</span></code>, see <a class="reference external" href="https://www.biotite-python.org/apidoc/biotite.database.rcsb.CompositeQuery.html#biotite.database.rcsb.CompositeQuery">docs</a>) of these fields to retrieve a count (<code class="docutils literal notranslate"><span class="pre">count</span></code>) or list (<code class="docutils literal notranslate"><span class="pre">search</span></code>) of PDB IDs that
 match our criteria.</p>
@@ -817,33 +426,33 @@ match our criteria.</p>
 </section>
 </section>
 <section id="Practical">
-<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this heading">¶</a></h2>
+<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Link to this heading">¶</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">collections</span>
-<span class="kn">import</span> <span class="nn">logging</span>
-<span class="kn">import</span> <span class="nn">pathlib</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
-<span class="kn">import</span> <span class="nn">datetime</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">collections</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pathlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
 
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">from</span> <span class="nn">tqdm.auto</span> <span class="kn">import</span> <span class="n">tqdm</span>
-<span class="kn">import</span> <span class="nn">redo</span>
-<span class="kn">import</span> <span class="nn">requests_cache</span>
-<span class="kn">import</span> <span class="nn">nglview</span>
-<span class="kn">import</span> <span class="nn">pypdb</span>
-<span class="kn">import</span> <span class="nn">biotite.database.rcsb</span> <span class="k">as</span> <span class="nn">rcsb</span>
-<span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">Draw</span>
-<span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">PandasTools</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bs4</span><span class="w"> </span><span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm.auto</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">redo</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests_cache</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">nglview</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pypdb</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">biotite.database.rcsb</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rcsb</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rdkit.Chem</span><span class="w"> </span><span class="kn">import</span> <span class="n">Draw</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rdkit.Chem</span><span class="w"> </span><span class="kn">import</span> <span class="n">PandasTools</span>
 
-<span class="kn">from</span> <span class="nn">opencadd.structure.superposition.api</span> <span class="kn">import</span> <span class="n">align</span><span class="p">,</span> <span class="n">METHODS</span>
-<span class="kn">from</span> <span class="nn">opencadd.structure.core</span> <span class="kn">import</span> <span class="n">Structure</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">opencadd.structure.superposition.api</span><span class="w"> </span><span class="kn">import</span> <span class="n">align</span><span class="p">,</span> <span class="n">METHODS</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">opencadd.structure.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">Structure</span>
 
 <span class="c1"># Disable some unneeded warnings</span>
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">"opencadd"</span><span class="p">)</span>
@@ -855,23 +464,14 @@ match our criteria.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "12ef9b1dffa348abb32090618950c5f3", "version_major": 2, "version_minor": 0}</script></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-~/.miniconda3/envs/teachopencadd/lib/python3.9/site-packages/h5py/__init__.py:46: DeprecationWarning: `np.typeDict` is a deprecated alias for `np.sctypeDict`.
-  from ._conv import register_converters as _register_converters
-</pre></div></div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8b26f3fdc35844e9b6026354ea163ffa", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define paths</span>
@@ -881,10 +481,10 @@ match our criteria.</p>
 </div>
 </div>
 <section id="Select-a-query-protein">
-<h3 id="Select-a-query-protein">Select a query protein<a class="headerlink" href="#Select-a-query-protein" title="Permalink to this heading">¶</a></h3>
+<h3 id="Select-a-query-protein">Select a query protein<a class="headerlink" href="#Select-a-query-protein" title="Link to this heading">¶</a></h3>
 <p>We use EGFR as query protein for this talktorial. The UniProt ID of EGFR is <code class="docutils literal notranslate"><span class="pre">P00533</span></code>, which will be used in the following to query the PDB database.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uniprot_id</span> <span class="o">=</span> <span class="s2">"P00533"</span>
@@ -893,10 +493,10 @@ match our criteria.</p>
 </div>
 </section>
 <section id="Get-the-number-of-PDB-entries-for-a-query-protein">
-<h3 id="Get-the-number-of-PDB-entries-for-a-query-protein">Get the number of PDB entries for a query protein<a class="headerlink" href="#Get-the-number-of-PDB-entries-for-a-query-protein" title="Permalink to this heading">¶</a></h3>
+<h3 id="Get-the-number-of-PDB-entries-for-a-query-protein">Get the number of PDB entries for a query protein<a class="headerlink" href="#Get-the-number-of-PDB-entries-for-a-query-protein" title="Link to this heading">¶</a></h3>
 <p>How many structures are available in the PDB for EGFR (at the time this notebook was last run)?</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query_by_uniprot_id</span> <span class="o">=</span> <span class="n">rcsb</span><span class="o">.</span><span class="n">FieldQuery</span><span class="p">(</span>
@@ -915,12 +515,12 @@ match our criteria.</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Number of structures on 2023-5-31: 281
+Number of structures on 2026-4-21: 385
 </pre></div></div>
 </div>
 <p>How many structures were available in every year since the <a class="reference external" href="https://www.rcsb.org/pages/about-us/history">PDB was established in 1971</a>?</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define lists for years and number of structures available in a given year</span>
@@ -948,7 +548,7 @@ Number of structures on 2023-5-31: 281
 </div>
 <p>Plot the results!</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">years</span><span class="p">,</span> <span class="n">n_structures</span><span class="p">)</span>
@@ -962,12 +562,12 @@ Number of structures on 2023-5-31: 281
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T008_query_pdb_21_0.png" src="../_images/talktorials_T008_query_pdb_21_0.png"/>
+<img alt="../_images/talktorials_T008_query_pdb_22_0.png" src="../_images/talktorials_T008_query_pdb_22_0.png"/>
 </div>
 </div>
 </section>
 <section id="Find-PDB-entries-fullfilling-certain-conditions">
-<h3 id="Find-PDB-entries-fullfilling-certain-conditions">Find PDB entries fullfilling certain conditions<a class="headerlink" href="#Find-PDB-entries-fullfilling-certain-conditions" title="Permalink to this heading">¶</a></h3>
+<h3 id="Find-PDB-entries-fullfilling-certain-conditions">Find PDB entries fullfilling certain conditions<a class="headerlink" href="#Find-PDB-entries-fullfilling-certain-conditions" title="Link to this heading">¶</a></h3>
 <p>We will search for PDB IDs describing structures in the PDB that fulfill the following criteria:</p>
 <ul class="simple">
 <li><p><strong>Structures for UniProt ID P00533</strong>: This is our target of interest, EGFR!</p></li>
@@ -1014,7 +614,7 @@ Number of structures on 2023-5-31: 281
 </table>
 <p>We define our criteria.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uniprot_id</span> <span class="o">=</span> <span class="s2">"P00533"</span>
@@ -1028,7 +628,7 @@ Number of structures on 2023-5-31: 281
 </div>
 <p>We set up each query.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query_by_uniprot_id</span> <span class="o">=</span> <span class="n">rcsb</span><span class="o">.</span><span class="n">FieldQuery</span><span class="p">(</span>
@@ -1053,7 +653,7 @@ Number of structures on 2023-5-31: 281
 </div>
 <p>We perform each of the queries alone and check the number of matches per condition.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Number of structures with UniProt ID </span><span class="si">{</span><span class="n">uniprot_id</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">rcsb</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">query_by_uniprot_id</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -1083,17 +683,17 @@ Number of structures on 2023-5-31: 281
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Number of structures with UniProt ID P00533: 281
-Number of structures deposited before 2020-01-01T00:00:00Z: 166266
-Number of structures resolved by X-RAY DIFFRACTION: 175602
-Number of structures with resolution less than or equal to 3.0: 168059
-Number of structures with only 1 chain: 74646
-Number of structures with ligand of more than or equal to 100.0 Da: 205450
+Number of structures with UniProt ID P00533: 385
+Number of structures deposited before 2020-01-01T00:00:00Z: 166264
+Number of structures resolved by X-RAY DIFFRACTION: 203558
+Number of structures with resolution less than or equal to 3.0: 201385
+Number of structures with only 1 chain: 86880
+Number of structures with ligand of more than or equal to 100.0 Da: 252475
 </pre></div></div>
 </div>
 <p>We combine all queries with the <code class="docutils literal notranslate"><span class="pre">and</span></code> operator to match only PDB IDs that fulfill all the conditions.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="n">rcsb</span><span class="o">.</span><span class="n">CompositeQuery</span><span class="p">(</span>
@@ -1121,12 +721,12 @@ Number of structures with ligand of more than or equal to 100.0 Da: 205450
 <div class="highlight"><pre>
 Number of matches: 110
 Selected PDB IDs:
-1M14 1M17 1XKK 2EB2 2EB3 2GS2 2ITN 2ITP 2ITQ 2ITT 2ITU 2ITV 2ITW 2ITX 2ITZ 2J5F 2RGP 3BEL 3GOP 3POZ 3UG1 3UG2 3VJN 3VJO 3W2O 3W2P 3W2Q 3W2R 3W2S 3W32 3W33 4G5J 4HJO 4I1Z 4I22 4I23 4JQ7 4JQ8 4JR3 4JRV 4LI5 4LQM 4RJ4 4RJ6 4RJ7 4RJ8 4WKQ 4WRG 4ZAU 5C8K 5C8M 5C8N 5CAL 5CAN 5CAO 5CAP 5CAQ 5CAS 5CAU 5CAV 5EDP 5EDQ 5EDR 5EM5 5EM6 5EM7 5EM8 5FED 5FEE 5GMP 5GNK 5GTZ 5HCX 5HCY 5HCZ 5HG5 5HG7 5HG8 5HG9 5HIB 5HIC 5J9Y 5J9Z 5U8L 5UG8 5UG9 5UGA 5UGB 5UGC 5X26 5X27 5X28 5XDK 5XDL 5XGM 5ZTO 5ZWJ 6D8E 6JRJ 6JRK 6JRX 6JWL 6JX0 6JX4 6JXT 6JZ0 6S89 6S8A 6S9C 6S9D
+2GS2 2ITN 2ITQ 2ITV 2ITZ 2J5F 3VJO 3W2Q 3W2R 3W32 4I22 4I23 4JQ7 4RJ8 4WKQ 5C8N 5CAO 5EDP 5EDQ 5EM5 5EM6 5HG5 5HG8 5HIC 5U8L 5UG9 5UGC 5X28 5ZTO 5ZWJ 6JWL 6JXT 6S89 6S8A 6S9C 1M17 2ITT 2ITX 3UG1 3UG2 3W2O 3W2P 3W2S 4I1Z 4JR3 4LI5 4LQM 4RJ4 4RJ6 4WRG 4ZAU 5C8K 5CAL 5CAN 5CAP 5CAS 5CAU 5CAV 5EDR 5EM7 5FED 5FEE 5HCY 5X27 5XDL 5XGM 6JRJ 6JRK 6JRX 6JZ0 6S9D 1M14 1XKK 2EB2 2EB3 2ITP 2ITU 2ITW 2RGP 3BEL 3GOP 3POZ 3VJN 3W33 4G5J 4HJO 4JQ8 4JRV 4RJ7 5C8M 5CAQ 5EM8 5GMP 5GNK 5GTZ 5HCX 5HCZ 5HG7 5HG9 5HIB 5J9Y 5J9Z 5UG8 5UGA 5UGB 5X26 5XDK 6D8E 6JX0 6JX4
 </pre></div></div>
 </div>
 </section>
 <section id="Select-PDB-entries-with-the-hightest-resolution">
-<h3 id="Select-PDB-entries-with-the-hightest-resolution">Select PDB entries with the hightest resolution<a class="headerlink" href="#Select-PDB-entries-with-the-hightest-resolution" title="Permalink to this heading">¶</a></h3>
+<h3 id="Select-PDB-entries-with-the-hightest-resolution">Select PDB entries with the hightest resolution<a class="headerlink" href="#Select-PDB-entries-with-the-hightest-resolution" title="Link to this heading">¶</a></h3>
 <p>So far we have used certain search criteria to find PDB entries of interest.</p>
 <p>At the moment, we cannot access the structures’ resolution directly via <code class="docutils literal notranslate"><span class="pre">biotite</span></code>; with <code class="docutils literal notranslate"><span class="pre">biotite</span></code> we can only check if the resolution fullfils a certain condition. Instead we download the full metadata for our selected PDB IDs. To this end, we use from the <code class="docutils literal notranslate"><span class="pre">pypdb</span></code> package the method <code class="docutils literal notranslate"><span class="pre">describe_pdb</span></code>. Each structure’s metadata is returned as a dictionary.</p>
 <p>Note: we only fetch meta information on PDB structures here, we do not fetch the structures (3D coordinates), yet.</p>
@@ -1134,11 +734,11 @@ Selected PDB IDs:
 <div><p>The <code class="docutils literal notranslate"><span class="pre">redo.retriable</span></code> line is a <em>decorator</em>. This wraps the function and provides extra functionality. In this case, it will retry failed queries automatically (10 times maximum).</p>
 </div></blockquote>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@redo</span><span class="o">.</span><span class="n">retriable</span><span class="p">(</span><span class="n">attempts</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">sleeptime</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">describe_one_pdb_id</span><span class="p">(</span><span class="n">pdb_id</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">describe_one_pdb_id</span><span class="p">(</span><span class="n">pdb_id</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Fetch meta information from PDB."""</span>
     <span class="n">described</span> <span class="o">=</span> <span class="n">pypdb</span><span class="o">.</span><span class="n">describe_pdb</span><span class="p">(</span><span class="n">pdb_id</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">described</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -1149,7 +749,7 @@ Selected PDB IDs:
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pdbs_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">describe_one_pdb_id</span><span class="p">(</span><span class="n">pdb_id</span><span class="p">)</span> <span class="k">for</span> <span class="n">pdb_id</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">pdb_ids</span><span class="p">)]</span>
@@ -1160,11 +760,11 @@ Selected PDB IDs:
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "1977b5b0136341549021a55b968e97e0", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "03974ea361024a3fb8a0bb8943421b1f", "version_major": 2, "version_minor": 0}</script></div>
 </div>
-<p>Let’s take a look at the metadata of the first PDB IDs (keys only because the dictionary contains a lot of information, which we do not want to print here). Find more more information about the PDB metadata in the <a class="reference external" href="https://pdb101.rcsb.org/learn/guide-to-understanding-pdb-data/beginner%E2%80%99s-guide-to-pdb-structures-and-the-pdbx-mmcif-format">Beginner’s Guide to PDB Structures and the PDBx/mmCIF Format</a>.</p>
+<p>Let’s take a look at the metadata of the first PDB IDs (keys only because the dictionary contains a lot of information, which we do not want to print here). Find more more information about the PDB metadata in the <a class="reference external" href="https://pdb101.rcsb.org/learn/guide-to-understanding-pdb-data/beginner’s-guide-to-pdbx-mmcif">Beginner’s Guide to PDB Structures and the PDBx/mmCIF Format</a>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pdbs_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
@@ -1179,6 +779,7 @@ Selected PDB IDs:
 audit_author
 cell
 citation
+database_2
 diffrn
 diffrn_detector
 diffrn_radiation
@@ -1187,17 +788,22 @@ entry
 exptl
 exptl_crystal
 exptl_crystal_grow
+pdbx_audit_revision_category
 pdbx_audit_revision_details
 pdbx_audit_revision_group
 pdbx_audit_revision_history
+pdbx_audit_revision_item
 pdbx_database_related
 pdbx_database_status
+pdbx_initial_refinement_model
+pdbx_vrpt_summary
+pdbx_vrpt_summary_diffraction
+pdbx_vrpt_summary_geometry
 rcsb_accession_info
 rcsb_entry_container_identifiers
 rcsb_entry_info
 rcsb_primary_citation
 refine
-refine_analyze
 refine_hist
 refine_ls_restr
 reflns
@@ -1211,7 +817,7 @@ rcsb_id
 </div>
 <p>Let’s take a closer look at two keys that will be of interest to us: The <code class="docutils literal notranslate"><span class="pre">"entry"</span></code> key which contains the PDB ID (<code class="docutils literal notranslate"><span class="pre">"id"</span></code>) and the <code class="docutils literal notranslate"><span class="pre">"rcsb_entry_info"</span></code> key which contains amongst others the structure’s resolution (<code class="docutils literal notranslate"><span class="pre">"resolution_combined"</span></code>).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pdbs_data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"entry"</span><span class="p">]</span>
@@ -1219,16 +825,16 @@ rcsb_id
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{'id': '1M14'}
+{'id': '2GS2'}
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pdbs_data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"rcsb_entry_info"</span><span class="p">]</span>
@@ -1236,7 +842,7 @@ rcsb_id
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1244,55 +850,56 @@ rcsb_id
 {'assembly_count': 1,
  'branched_entity_count': 0,
  'cis_peptide_count': 0,
- 'deposited_atom_count': 2469,
+ 'deposited_atom_count': 2443,
+ 'deposited_deuterated_water_count': 0,
  'deposited_hydrogen_atom_count': 0,
  'deposited_model_count': 1,
- 'deposited_modeled_polymer_monomer_count': 307,
+ 'deposited_modeled_polymer_monomer_count': 305,
  'deposited_nonpolymer_entity_instance_count': 0,
  'deposited_polymer_entity_instance_count': 1,
- 'deposited_polymer_monomer_count': 333,
- 'deposited_solvent_atom_count': 17,
- 'deposited_unmodeled_polymer_monomer_count': 26,
- 'diffrn_radiation_wavelength_maximum': 1.008,
- 'diffrn_radiation_wavelength_minimum': 1.008,
+ 'deposited_polymer_monomer_count': 330,
+ 'deposited_solvent_atom_count': 24,
+ 'deposited_unmodeled_polymer_monomer_count': 25,
+ 'diffrn_radiation_wavelength_maximum': 1.116,
+ 'diffrn_radiation_wavelength_minimum': 1.116,
  'disulfide_bond_count': 0,
  'entity_count': 2,
  'experimental_method': 'X-ray',
  'experimental_method_count': 1,
  'inter_mol_covalent_bond_count': 0,
  'inter_mol_metalic_bond_count': 0,
- 'molecular_weight': 37.88,
+ 'molecular_weight': 37.56,
  'na_polymer_entity_types': 'Other',
  'nonpolymer_entity_count': 0,
  'polymer_composition': 'homomeric protein',
  'polymer_entity_count': 1,
- 'polymer_entity_count_dna': 0,
- 'polymer_entity_count_rna': 0,
+ 'polymer_entity_count_DNA': 0,
+ 'polymer_entity_count_RNA': 0,
  'polymer_entity_count_nucleic_acid': 0,
  'polymer_entity_count_nucleic_acid_hybrid': 0,
  'polymer_entity_count_protein': 1,
  'polymer_entity_taxonomy_count': 1,
- 'polymer_molecular_weight_maximum': 37.88,
- 'polymer_molecular_weight_minimum': 37.88,
- 'polymer_monomer_count_maximum': 333,
- 'polymer_monomer_count_minimum': 333,
- 'resolution_combined': [2.6],
+ 'polymer_molecular_weight_maximum': 37.56,
+ 'polymer_molecular_weight_minimum': 37.56,
+ 'polymer_monomer_count_maximum': 330,
+ 'polymer_monomer_count_minimum': 330,
+ 'resolution_combined': [2.8],
  'selected_polymer_entity_types': 'Protein (only)',
- 'software_programs_combined': ['AMORE',
-  'CCP4',
+ 'software_programs_combined': ['BLU-ICE',
+  'CNS',
   'HKL-2000',
-  'TRUNCATE',
-  'X-PLOR'],
+  'PDB_EXTRACT',
+  'PHASER'],
  'solvent_entity_count': 1,
  'structure_determination_methodology': 'experimental',
  'structure_determination_methodology_priority': 10,
  'diffrn_resolution_high': {'provenance_source': 'Depositor assigned',
-  'value': 2.6}}
+  'value': 2.8}}
 </pre></div></div>
 </div>
 <p>Now we save the resolution per PDB ID as <code class="docutils literal notranslate"><span class="pre">pandas</span></code> DataFrame, sorted by the resolution in ascending order.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resolution</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
@@ -1307,7 +914,7 @@ rcsb_id
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1381,12 +988,12 @@ rcsb_id
 </tr>
 <tr>
 <th>108</th>
-<td>4I1Z</td>
+<td>5C8K</td>
 <td>3.000</td>
 </tr>
 <tr>
 <th>109</th>
-<td>5C8K</td>
+<td>4I1Z</td>
 <td>3.000</td>
 </tr>
 </tbody>
@@ -1396,9 +1003,9 @@ rcsb_id
 </div>
 </section>
 <section id="Get-metadata-of-ligands-from-top-structures">
-<h3 id="Get-metadata-of-ligands-from-top-structures">Get metadata of ligands from top structures<a class="headerlink" href="#Get-metadata-of-ligands-from-top-structures" title="Permalink to this heading">¶</a></h3>
+<h3 id="Get-metadata-of-ligands-from-top-structures">Get metadata of ligands from top structures<a class="headerlink" href="#Get-metadata-of-ligands-from-top-structures" title="Link to this heading">¶</a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top_num</span> <span class="o">=</span> <span class="mi">6</span>  <span class="c1"># Number of top structures</span>
@@ -1407,7 +1014,7 @@ rcsb_id
 </div>
 <p>In the next talktorial, we will build ligand-based ensemble pharmacophores from the top <code class="docutils literal notranslate"><span class="pre">top_num</span></code> structures with the highest resolution.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selected_pdb_ids</span> <span class="o">=</span> <span class="n">resolution</span><span class="p">[:</span><span class="n">top_num</span><span class="p">][</span><span class="s2">"pdb_id"</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
@@ -1425,7 +1032,7 @@ Selected PDB IDs: ['5UG9', '5HG8', '5UG8', '3POZ', '5HG5', '5UGC']
 </div>
 <p>The selected highest resolution PDB entries can contain ligands targeting different binding sites, e.g. allosteric and orthosteric ligands, which would hamper ligand-based pharmacophore generation. Thus, we will focus on the following 4 structures, which contain ligands in the orthosteric binding pocket. The code provided later in the notebook can be used to verify this.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selected_pdb_ids</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"5UG9"</span><span class="p">,</span> <span class="s2">"5HG8"</span><span class="p">,</span> <span class="s2">"5UG8"</span><span class="p">,</span> <span class="s2">"5UGC"</span><span class="p">]</span>
@@ -1444,10 +1051,10 @@ Selected PDB IDs (frozen set): ['5UG9', '5HG8', '5UG8', '5UGC']
 <p>We fetch the PDB information about the top <code class="docutils literal notranslate"><span class="pre">top_num</span></code> ligands using <code class="docutils literal notranslate"><span class="pre">get_ligands</span></code>, to be stored as <em>csv</em> file (as dictionary per ligand).</p>
 <p>If a structure contains several ligands, we select the largest ligand. Note: this is a simple, but not comprehensive method to select a ligand in the binding site of a protein. This approach may also select a cofactor bound to the protein. Therefore, please check the automatically selected top ligands visually before further usage.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_ligands</span><span class="p">(</span><span class="n">pdb_id</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_ligands</span><span class="p">(</span><span class="n">pdb_id</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    RCSB has not provided a new endpoint for ligand information yet. As a</span>
 <span class="sd">    workaround we are obtaining extra information from ligand-expo.rcsb.org,</span>
@@ -1467,25 +1074,22 @@ Selected PDB IDs (frozen set): ['5UG9', '5HG8', '5UG8', '5UGC']
     <span class="k">return</span> <span class="n">ligands</span>
 
 
-<span class="k">def</span> <span class="nf">_fetch_pdb_nonpolymer_info</span><span class="p">(</span><span class="n">pdb_id</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_fetch_pdb_nonpolymer_info</span><span class="p">(</span><span class="n">pdb_id</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Fetch nonpolymer data from rcsb.org.</span>
 <span class="sd">    Thanks @BJWiley233 and Rachel Green for this GraphQL solution.</span>
 <span class="sd">    """</span>
-    <span class="n">query</span> <span class="o">=</span> <span class="p">(</span>
-<span class="w">        </span><span class="sd">"""{</span>
-<span class="sd">          entry(entry_id: "%s") {</span>
-<span class="sd">            nonpolymer_entities {</span>
-<span class="sd">              pdbx_entity_nonpoly {</span>
-<span class="sd">                comp_id</span>
-<span class="sd">                name</span>
-<span class="sd">                rcsb_prd_id</span>
-<span class="sd">              }</span>
-<span class="sd">            }</span>
-<span class="sd">          }</span>
-<span class="sd">        }"""</span>
-        <span class="o">%</span> <span class="n">pdb_id</span>
-    <span class="p">)</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">"""{</span>
+<span class="s2">          entry(entry_id: "</span><span class="si">%s</span><span class="s2">") {</span>
+<span class="s2">            nonpolymer_entities {</span>
+<span class="s2">              pdbx_entity_nonpoly {</span>
+<span class="s2">                comp_id</span>
+<span class="s2">                name</span>
+<span class="s2">                rcsb_prd_id</span>
+<span class="s2">              }</span>
+<span class="s2">            }</span>
+<span class="s2">          }</span>
+<span class="s2">        }"""</span> <span class="o">%</span> <span class="n">pdb_id</span>
 
     <span class="n">query_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"https://data.rcsb.org/graphql?query=</span><span class="si">{</span><span class="n">query</span><span class="si">}</span><span class="s2">"</span>
     <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">query_url</span><span class="p">)</span>
@@ -1494,36 +1098,63 @@ Selected PDB IDs (frozen set): ['5UG9', '5HG8', '5UG8', '5UGC']
     <span class="k">return</span> <span class="n">info</span>
 
 
-<span class="k">def</span> <span class="nf">_fetch_ligand_expo_info</span><span class="p">(</span><span class="n">ligand_expo_id</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_fetch_ligand_expo_info</span><span class="p">(</span><span class="n">ligand_id</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Fetch ligand data from ligand-expo.rcsb.org.</span>
+<span class="sd">    Fetch ligand data from RCSB API using the exact JSON structure</span>
+<span class="sd">    provided for identifiers like 8AM.</span>
 <span class="sd">    """</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">"http://ligand-expo.rcsb.org/reports/</span><span class="si">{</span><span class="n">ligand_expo_id</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">ligand_expo_id</span><span class="si">}</span><span class="s2">/"</span><span class="p">)</span>
-    <span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
-    <span class="n">html</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-    <span class="n">info</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="k">for</span> <span class="n">table</span> <span class="ow">in</span> <span class="n">html</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">"table"</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">"tr"</span><span class="p">):</span>
-            <span class="n">cells</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">"td"</span><span class="p">)</span>
-            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cells</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
-                <span class="k">continue</span>
-            <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">cells</span>
-            <span class="k">if</span> <span class="n">key</span><span class="o">.</span><span class="n">string</span> <span class="ow">and</span> <span class="n">key</span><span class="o">.</span><span class="n">string</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
-                <span class="n">info</span><span class="p">[</span><span class="n">key</span><span class="o">.</span><span class="n">string</span><span class="o">.</span><span class="n">strip</span><span class="p">()]</span> <span class="o">=</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="n">string</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"https://data.rcsb.org/rest/v1/core/chemcomp/</span><span class="si">{</span><span class="n">ligand_id</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 
-    <span class="c1"># Postprocess some known values</span>
-    <span class="n">info</span><span class="p">[</span><span class="s2">"Molecular weight"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s2">"Molecular weight"</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="n">info</span><span class="p">[</span><span class="s2">"Formal charge"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s2">"Formal charge"</span><span class="p">])</span>
-    <span class="n">info</span><span class="p">[</span><span class="s2">"Atom count"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s2">"Atom count"</span><span class="p">])</span>
-    <span class="n">info</span><span class="p">[</span><span class="s2">"Chiral atom count"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s2">"Chiral atom count"</span><span class="p">])</span>
-    <span class="n">info</span><span class="p">[</span><span class="s2">"Bond count"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s2">"Bond count"</span><span class="p">])</span>
-    <span class="n">info</span><span class="p">[</span><span class="s2">"Aromatic bond count"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s2">"Aromatic bond count"</span><span class="p">])</span>
-    <span class="k">return</span> <span class="n">info</span>
+    <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{}</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="n">chem</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"chem_comp"</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="n">rcsb_desc</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"rcsb_chem_comp_descriptor"</span><span class="p">,</span> <span class="p">{})</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rcsb_desc</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="n">inchi</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"descriptor"</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">rcsb_desc</span> <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"type"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"InChI"</span><span class="p">),</span> <span class="kc">None</span>
+        <span class="p">)</span>
+        <span class="n">inchikey</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"descriptor"</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">rcsb_desc</span> <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"type"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"InChIKey"</span><span class="p">),</span> <span class="kc">None</span>
+        <span class="p">)</span>
+        <span class="n">smiles</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"descriptor"</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">rcsb_desc</span> <span class="k">if</span> <span class="s2">"SMILES"</span> <span class="ow">in</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"type"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)),</span>
+            <span class="kc">None</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">inchi</span> <span class="o">=</span> <span class="n">rcsb_desc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"in_ch_i"</span><span class="p">)</span>
+        <span class="n">inchikey</span> <span class="o">=</span> <span class="n">rcsb_desc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"in_ch_ikey"</span><span class="p">)</span>
+        <span class="n">smiles</span> <span class="o">=</span> <span class="n">rcsb_desc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"smilesstereo"</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">smiles</span><span class="p">:</span>
+        <span class="n">pdbx_descs</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"pdbx_chem_comp_descriptor"</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">pdbx_descs</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"program"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"OpenEye OEToolkits"</span> <span class="ow">and</span> <span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"type"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"SMILES_CANONICAL"</span><span class="p">:</span>
+                <span class="n">smiles</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"descriptor"</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">"Name"</span><span class="p">:</span> <span class="n">chem</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"name"</span><span class="p">),</span>
+        <span class="s2">"Formula"</span><span class="p">:</span> <span class="n">chem</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"formula"</span><span class="p">),</span>
+        <span class="s2">"Molecular weight"</span><span class="p">:</span> <span class="n">chem</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"formula_weight"</span><span class="p">),</span>
+        <span class="s2">"Formal charge"</span><span class="p">:</span> <span class="n">chem</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"pdbx_formal_charge"</span><span class="p">),</span>
+        <span class="s2">"Atom count"</span><span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"rcsb_chem_comp_info"</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"atom_count"</span><span class="p">),</span>
+        <span class="s2">"Chiral atom count"</span><span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"rcsb_chem_comp_info"</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"atom_count_chiral"</span><span class="p">),</span>
+        <span class="s2">"Bond count"</span><span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"rcsb_chem_comp_info"</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"bond_count"</span><span class="p">),</span>
+        <span class="s2">"Aromatic bond count"</span><span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"rcsb_chem_comp_info"</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"bond_count_aromatic"</span><span class="p">),</span>
+        <span class="s2">"Component type"</span><span class="p">:</span> <span class="n">chem</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"type"</span><span class="p">),</span>
+        <span class="c1"># Set keys</span>
+        <span class="s2">"InChI descriptor"</span><span class="p">:</span> <span class="n">inchi</span><span class="p">,</span>
+        <span class="s2">"InChIKey descriptor"</span><span class="p">:</span> <span class="n">inchikey</span><span class="p">,</span>
+        <span class="s2">"Stereo SMILES (OpenEye)"</span><span class="p">:</span> <span class="n">smiles</span><span class="p">,</span>
+    <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span>
@@ -1559,7 +1190,7 @@ Selected PDB IDs (frozen set): ['5UG9', '5HG8', '5UG8', '5UGC']
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># NBVAL_CHECK_OUTPUT</span>
@@ -1570,7 +1201,7 @@ Selected PDB IDs (frozen set): ['5UG9', '5HG8', '5UG8', '5UGC']
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1608,48 +1239,48 @@ Selected PDB IDs (frozen set): ['5UG9', '5HG8', '5UG8', '5UGC']
 <th>0</th>
 <td>5UG9</td>
 <td>8AM</td>
-<td>NON-POLYMER</td>
+<td>non-polymer</td>
 <td>445.494</td>
 <td>N-[(3R,4R)-4-fluoro-1-{6-[(3-methoxy-1-methyl-...</td>
 <td>C20 H28 F N9 O2</td>
-<td>InChI=1S/C20H28FN9O2/c1-6-15(31)23-13-9-29(7-1...</td>
-<td>MJLFLAORJNTNDV-CHWSQXEVSA-N</td>
+<td>None</td>
+<td>None</td>
 <td>CCC(=O)N[C@@H]1CN(C[C@H]1F)c2nc(c3c(n2)n(cn3)C...</td>
 </tr>
 <tr>
 <th>1</th>
 <td>5HG8</td>
 <td>634</td>
-<td>NON-POLYMER</td>
+<td>non-polymer</td>
 <td>377.400</td>
 <td>N-[3-({2-[(1-methyl-1H-pyrazol-4-yl)amino]-7H-...</td>
 <td>C19 H19 N7 O2</td>
-<td>InChI=1S/C19H19N7O2/c1-3-16(27)22-12-5-4-6-14(...</td>
-<td>YWNHZBNRKJYHTR-UHFFFAOYSA-N</td>
+<td>None</td>
+<td>None</td>
 <td>CCC(=O)Nc1cccc(c1)Oc2c3cc[nH]c3nc(n2)Nc4cnn(c4)C</td>
 </tr>
 <tr>
 <th>2</th>
 <td>5UG8</td>
 <td>8BP</td>
-<td>NON-POLYMER</td>
+<td>non-polymer</td>
 <td>415.468</td>
 <td>N-[(3R,4R)-4-fluoro-1-{6-[(1-methyl-1H-pyrazol...</td>
 <td>C19 H26 F N9 O</td>
-<td>InChI=1S/C19H26FN9O/c1-5-15(30)24-14-9-28(8-13...</td>
-<td>CGULPICMFDDQRH-ZIAGYGMSSA-N</td>
+<td>None</td>
+<td>None</td>
 <td>CCC(=O)N[C@@H]1CN(C[C@H]1F)c2nc(c3c(n2)n(cn3)C...</td>
 </tr>
 <tr>
 <th>3</th>
 <td>5UGC</td>
 <td>8BS</td>
-<td>NON-POLYMER</td>
+<td>non-polymer</td>
 <td>417.441</td>
 <td>N-[(3R,4R)-4-fluoro-1-{6-[(3-methoxy-1-methyl-...</td>
 <td>C18 H24 F N9 O2</td>
-<td>InChI=1S/C18H24FN9O2/c1-5-13(29)21-11-8-28(6-1...</td>
-<td>XWNKXCUQRQRAFF-GHMZBOCLSA-N</td>
+<td>None</td>
+<td>None</td>
 <td>CCC(=O)N[C@@H]1CN(C[C@H]1F)c2nc(c3c(n2)n(cn3)C...</td>
 </tr>
 </tbody>
@@ -1657,7 +1288,7 @@ Selected PDB IDs (frozen set): ['5UG9', '5HG8', '5UG8', '5UGC']
 </div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ligands</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"PDB_top_ligands.csv"</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -1666,9 +1297,9 @@ Selected PDB IDs (frozen set): ['5UG9', '5HG8', '5UG8', '5UGC']
 </div>
 </section>
 <section id="Draw-top-ligand-molecules">
-<h3 id="Draw-top-ligand-molecules">Draw top ligand molecules<a class="headerlink" href="#Draw-top-ligand-molecules" title="Permalink to this heading">¶</a></h3>
+<h3 id="Draw-top-ligand-molecules">Draw top ligand molecules<a class="headerlink" href="#Draw-top-ligand-molecules" title="Link to this heading">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PandasTools</span><span class="o">.</span><span class="n">AddMoleculeColumnToFrame</span><span class="p">(</span><span class="n">ligands</span><span class="p">,</span> <span class="s2">"smiles"</span><span class="p">)</span>
@@ -1681,18 +1312,18 @@ Selected PDB IDs (frozen set): ['5UG9', '5HG8', '5UG8', '5UGC']
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T008_query_pdb_55_0.png" src="../_images/talktorials_T008_query_pdb_55_0.png"/>
+<img alt="../_images/talktorials_T008_query_pdb_56_0.png" src="../_images/talktorials_T008_query_pdb_56_0.png"/>
 </div>
 </div>
 </section>
 <section id="Create-protein-ligand-ID-pairs">
-<h3 id="Create-protein-ligand-ID-pairs">Create protein-ligand ID pairs<a class="headerlink" href="#Create-protein-ligand-ID-pairs" title="Permalink to this heading">¶</a></h3>
+<h3 id="Create-protein-ligand-ID-pairs">Create protein-ligand ID pairs<a class="headerlink" href="#Create-protein-ligand-ID-pairs" title="Link to this heading">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># NBVAL_CHECK_OUTPUT</span>
@@ -1702,7 +1333,7 @@ Selected PDB IDs (frozen set): ['5UG9', '5HG8', '5UG8', '5UGC']
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1715,15 +1346,15 @@ OrderedDict([('5UG9', '8AM'),
 </div>
 </section>
 <section id="Align-PDB-structures-and-extract-ligands">
-<h3 id="Align-PDB-structures-and-extract-ligands">Align PDB structures and extract ligands<a class="headerlink" href="#Align-PDB-structures-and-extract-ligands" title="Permalink to this heading">¶</a></h3>
+<h3 id="Align-PDB-structures-and-extract-ligands">Align PDB structures and extract ligands<a class="headerlink" href="#Align-PDB-structures-and-extract-ligands" title="Link to this heading">¶</a></h3>
 <p>Since we want to build ligand-based ensemble pharmacophores in the next talktorial, it is necessary to align all structures to each other in 3D.</p>
 <p>We will use the Python package <code class="docutils literal notranslate"><span class="pre">opencadd</span></code> (<a class="reference external" href="https://github.com/volkamerlab/opencadd">repository</a>), which includes a 3D superposition subpackage to guide the structural alignment of the proteins. The approach is based on superposition guided by sequence alignment of provided matched residues. There are other methods in the package, but this simple one will be enough for the task at hand.</p>
 <section id="Get-the-PDB-structure-files">
-<h4 id="Get-the-PDB-structure-files">Get the PDB structure files<a class="headerlink" href="#Get-the-PDB-structure-files" title="Permalink to this heading">¶</a></h4>
+<h4 id="Get-the-PDB-structure-files">Get the PDB structure files<a class="headerlink" href="#Get-the-PDB-structure-files" title="Link to this heading">¶</a></h4>
 <p>We now fetch the PDB structure files, i.e. 3D coordinates of the protein, ligand (and if available other atomic or molecular entities such as cofactors, water molecules, and ions) from the PDB using <code class="docutils literal notranslate"><span class="pre">opencadd.structure.superposition</span></code>.</p>
 <p>Available file formats are <em>pdb</em> and <em>cif</em>, which store the 3D coordinations of atoms of the protein (and ligand, cofactors, water molecules, and ions) as well as information on bonds between atoms. Here, we work with <em>pdb</em> files.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download PDB structures</span>
@@ -1733,7 +1364,7 @@ OrderedDict([('5UG9', '8AM'),
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1746,10 +1377,10 @@ OrderedDict([('5UG9', '8AM'),
 </div>
 </section>
 <section id="Extract-protein-and-ligand">
-<h4 id="Extract-protein-and-ligand">Extract protein and ligand<a class="headerlink" href="#Extract-protein-and-ligand" title="Permalink to this heading">¶</a></h4>
+<h4 id="Extract-protein-and-ligand">Extract protein and ligand<a class="headerlink" href="#Extract-protein-and-ligand" title="Link to this heading">¶</a></h4>
 <p>Extract protein and ligand from the structure in order to remove solvent and other artifacts of crystallography.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">complexes</span> <span class="o">=</span> <span class="p">[</span>
@@ -1761,7 +1392,7 @@ OrderedDict([('5UG9', '8AM'),
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1773,7 +1404,7 @@ OrderedDict([('5UG9', '8AM'),
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write complex to file</span>
@@ -1784,10 +1415,10 @@ OrderedDict([('5UG9', '8AM'),
 </div>
 </section>
 <section id="Align-proteins">
-<h4 id="Align-proteins">Align proteins<a class="headerlink" href="#Align-proteins" title="Permalink to this heading">¶</a></h4>
+<h4 id="Align-proteins">Align proteins<a class="headerlink" href="#Align-proteins" title="Link to this heading">¶</a></h4>
 <p>Align complexes (based on protein atoms).</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">align</span><span class="p">(</span><span class="n">complexes</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">METHODS</span><span class="p">[</span><span class="s2">"mda"</span><span class="p">])</span>
@@ -1796,7 +1427,7 @@ OrderedDict([('5UG9', '8AM'),
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">nglview</span></code> can be used to visualize molecular data within Jupyter notebooks. With the next cell we will visualize out aligned protein-ligand complexes.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span> <span class="o">=</span> <span class="n">nglview</span><span class="o">.</span><span class="n">NGLWidget</span><span class="p">()</span>
@@ -1810,10 +1441,10 @@ OrderedDict([('5UG9', '8AM'),
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a857e0a7dd0848a19eb950dfdda68aa4", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "eb1ed2100be7432c9c31c844c8438a07", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">render_image</span><span class="p">(</span><span class="n">trim</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
@@ -1821,7 +1452,7 @@ OrderedDict([('5UG9', '8AM'),
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">_display_image</span><span class="p">()</span>
@@ -1829,18 +1460,18 @@ OrderedDict([('5UG9', '8AM'),
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T008_query_pdb_69_0.png" src="../_images/talktorials_T008_query_pdb_69_0.png"/>
+<img alt="../_images/talktorials_T008_query_pdb_70_0.png" src="../_images/talktorials_T008_query_pdb_70_0.png"/>
 </div>
 </div>
 </section>
 <section id="Extract-ligands">
-<h4 id="Extract-ligands">Extract ligands<a class="headerlink" href="#Extract-ligands" title="Permalink to this heading">¶</a></h4>
+<h4 id="Extract-ligands">Extract ligands<a class="headerlink" href="#Extract-ligands" title="Link to this heading">¶</a></h4>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ligands</span> <span class="o">=</span> <span class="p">[</span>
@@ -1852,7 +1483,7 @@ OrderedDict([('5UG9', '8AM'),
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1864,7 +1495,7 @@ OrderedDict([('5UG9', '8AM'),
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">ligand</span><span class="p">,</span> <span class="n">pdb_id</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ligands</span><span class="p">,</span> <span class="n">pairs</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
@@ -1874,7 +1505,7 @@ OrderedDict([('5UG9', '8AM'),
 </div>
 <p>We check the existence of all ligand <em>pdb</em> files.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ligand_files</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1885,7 +1516,7 @@ OrderedDict([('5UG9', '8AM'),
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1895,7 +1526,7 @@ OrderedDict([('5UG9', '8AM'),
 </div>
 <p>We can also use <code class="docutils literal notranslate"><span class="pre">nglview</span></code> to depict the co-crystallized ligands alone. As we can see, the selected complexes contain ligands populating the same binding pocket and can thus be used in the next talktorial for ligand-based pharmacophore generation.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span> <span class="o">=</span> <span class="n">nglview</span><span class="o">.</span><span class="n">NGLWidget</span><span class="p">()</span>
@@ -1911,10 +1542,10 @@ OrderedDict([('5UG9', '8AM'),
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "63da962e663c4769a6fbc85083fe18d7", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4fc12cf3f721451a997176226829c185", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">render_image</span><span class="p">(</span><span class="n">trim</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
@@ -1922,7 +1553,7 @@ OrderedDict([('5UG9', '8AM'),
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">_display_image</span><span class="p">()</span>
@@ -1930,25 +1561,25 @@ OrderedDict([('5UG9', '8AM'),
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T008_query_pdb_78_0.png" src="../_images/talktorials_T008_query_pdb_78_0.png"/>
+<img alt="../_images/talktorials_T008_query_pdb_79_0.png" src="../_images/talktorials_T008_query_pdb_79_0.png"/>
 </div>
 </div>
 </section>
 </section>
 </section>
 <section id="Discussion">
-<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this heading">¶</a></h2>
+<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Link to this heading">¶</a></h2>
 <p>In this talktorial, we learned how to retrieve protein and ligand meta information and structural information from the PDB. We retained only X-ray structures for EGFR and filtered our data by resolution and ligand availability. Ultimately, we aimed for an aligned set of ligands to be used in the next talktorial for the generation of ligand-based ensemble pharmacophores.</p>
 <p>In order to enrich information about ligands for pharmacophore modeling, it is advisable to not only filter by PDB structure resolution, but also to check for ligand diversity (see <strong>Talktorial T005</strong> on molecule clustering by similarity) and to check for ligand activity (i.e. to include only potent ligands).</p>
-<p>On a technical note: We saw that the different bits of information deposited in the PDB (structural metadata, coordinates, ligand metadata) cannot be accessed at the moment from a single Python package but taking together <code class="docutils literal notranslate"><span class="pre">biotite</span></code> and <code class="docutils literal notranslate"><span class="pre">pypdb</span></code> - and a bit of web scraping to extract ligand information - we were able to collect all the pieces of information that we needed. Given that the PDB only <a class="reference external" href="https://www4.rcsb.org/news?year=2020&amp;article=5eb18ccfd62245129947212a&amp;feature=true">recently changed completely to a new API (Nov
+<p>On a technical note: We saw that the different bits of information deposited in the PDB (structural metadata, coordinates, ligand metadata) cannot be accessed at the moment from a single Python package but taking together <code class="docutils literal notranslate"><span class="pre">biotite</span></code> and <code class="docutils literal notranslate"><span class="pre">pypdb</span></code> - and a bit of web scraping to extract ligand information - we were able to collect all the pieces of information that we needed. Given that the PDB only <a class="reference external" href="https://www.rcsb.org/news?year=2020&amp;article=5eb18ccfd62245129947212a&amp;feature=true">recently changed completely to a new API (Nov
 2020)</a>, related open source Python packages might offer more functionalities in the future after having had the time to catch up.</p>
 </section>
 <section id="Quiz">
-<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Permalink to this heading">¶</a></h2>
+<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Link to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Summarize the kind of data that the Protein Data Bank contains.</p></li>
 <li><p>Explain what the resolution of a structure stands for and how and why we filter for it in this talktorial.</p></li>
@@ -2002,11 +1633,11 @@ OrderedDict([('5UG9', '8AM'),
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2018-2023, Volkamer Lab. Project structure based on the Computational Molecular Science Python Cookiecutter version 1.1.
+              &#169; Copyright 2018-2026, Volkamer Lab. Project structure based on the Computational Molecular Science Python Cookiecutter version 1.1.
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 9.0.4.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

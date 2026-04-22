@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta property="og:title" content="T001 · Compound data acquisition (ChEMBL)" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://projects.volkamerlab.org/teachopencadd/talktorials/T001_query_chembl.html" />
+<meta property="og:url" content="talktorials/T001_query_chembl.html" />
 <meta property="og:site_name" content="TeachOpenCADD" />
-<meta property="og:description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Svetlana Leng, CADD seminar 2017, Volkamer lab, Charité/FU Berlin, Paula Junge, CADD seminar 2018, Volkamer l..." />
-<meta property="og:image" content="https://raw.githubusercontent.com/volkamerlab/teachopencadd/master/docs/_static/images/TeachOpenCADD_topics.png" />
-<meta property="og:image:alt" content="TeachOpenCADD" />
-<meta name="description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Svetlana Leng, CADD seminar 2017, Volkamer lab, Charité/FU Berlin, Paula Junge, CADD seminar 2018, Volkamer l..." />
+<meta property="og:description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Svetlana ..." />
+<meta property="og:image:width" content="1146" />
+<meta property="og:image:height" content="600" />
+<meta property="og:image" content="_images/social_previews/summary_talktorials_T001_query_chembl_3a3ac717.png" />
+<meta property="og:image:alt" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Svetlana ..." />
+<meta name="description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Svetlana ..." />
+<meta name="twitter:card" content="summary_large_image" />
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -79,31 +82,27 @@
         gtag('config', 'G-Q6ZE82CNZB');
     </script>
   
-    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
-  
-    <title>T001 · Compound data acquisition (ChEMBL) &#8212; TeachOpenCADD 0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+    <title>T001 · Compound data acquisition (ChEMBL) &#8212; TeachOpenCADD 2023.5.2.post442 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=75810a84" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
-    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=897d968c" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=e43216b9"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/documentation_options.js?v=f78c6808"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="T002 · Molecular filtering: ADME and lead-likeness criteria" href="T002_compound_adme.html" />
     <link rel="prev" title="Complete list of talktorials" href="../all_talktorials.html" />
-  
-    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
    
 
@@ -127,7 +126,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../index.html" title="TeachOpenCADD 0 documentation"
+        <a href="../index.html" title="TeachOpenCADD 2023.5.2.post442 documentation"
            class="md-header-nav__button md-logo">
           
             <i class="md-icon">school</i>
@@ -139,7 +138,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">TeachOpenCADD</span>
+          <span class="md-header-nav__topic">TeachOpenCADD 2023.5.2.post442 documentation</span>
           <span class="md-header-nav__topic"> T001 · Compound data acquisition (ChEMBL) </span>
         </div>
       </div>
@@ -191,6 +190,16 @@
         </div>
       
       
+  
+  <script src="../_static/javascripts/version_dropdown.js"></script>
+  <script>
+    var json_loc = "../"versions.json"",
+        target_loc = "../../",
+        text = "Versions";
+    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
+  </script>
+  
+
     </div>
   </nav>
 </header>
@@ -203,6 +212,7 @@
   <nav class="md-tabs" data-md-component="tabs">
     <div class="md-tabs__inner md-grid">
       <ul class="md-tabs__list">
+          <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">TeachOpenCADD 2023.5.2.post442 documentation</a></li>
             
             <li class="md-tabs__item"><a href="../talktorials.html" class="md-tabs__link">Our talktorials</a></li>
             
@@ -225,13 +235,13 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../index.html" title="TeachOpenCADD 0 documentation" class="md-nav__button md-logo">
+    <a href="../index.html" title="TeachOpenCADD 2023.5.2.post442 documentation" class="md-nav__button md-logo">
       
         <i class="md-icon">school</i>
       
     </a>
     <a href="../index.html"
-       title="TeachOpenCADD 0 documentation">TeachOpenCADD</a>
+       title="TeachOpenCADD 2023.5.2.post442 documentation">TeachOpenCADD 2023.5.2.post442 documentation</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
@@ -248,459 +258,6 @@
 </a>
     </div>
   
-  
-
-  
-  <ul class="md-nav__list">
-    <li class="md-nav__item">
-    
-      <span class="md-nav__link caption"><span class="caption-text">Our talktorials</span></span>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> T001 · Compound data acquisition (ChEMBL) </label>
-    
-      <a href="#" class="md-nav__link md-nav__link--active">T001 · Compound data acquisition (ChEMBL)</a>
-      
-        
-<nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">"Contents"</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#talktorials-t001-query-chembl--page-root" class="md-nav__link">T001 · Compound data acquisition (ChEMBL)</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
-        </li>
-        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
-        </li>
-        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#ChEMBL-database" class="md-nav__link">ChEMBL database</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#ChEMBL-web-services" class="md-nav__link">ChEMBL web services</a>
-        </li>
-        <li class="md-nav__item"><a href="#ChEMBL-web-resource-client" class="md-nav__link">ChEMBL web resource client</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Compound-activity-measures" class="md-nav__link">Compound activity measures</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#IC50-measure" class="md-nav__link">IC50 measure</a>
-        </li>
-        <li class="md-nav__item"><a href="#pIC50-value" class="md-nav__link">pIC50 value</a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Connect-to-ChEMBL-database" class="md-nav__link">Connect to ChEMBL database</a>
-        </li>
-        <li class="md-nav__item"><a href="#Get-target-data-(EGFR-kinase)" class="md-nav__link">Get target data (EGFR kinase)</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Fetch-target-data-from-ChEMBL" class="md-nav__link">Fetch target data from ChEMBL</a>
-        </li>
-        <li class="md-nav__item"><a href="#Download-target-data-from-ChEMBL" class="md-nav__link">Download target data from ChEMBL</a>
-        </li>
-        <li class="md-nav__item"><a href="#Select-target-(target-ChEMBL-ID)" class="md-nav__link">Select target (target ChEMBL ID)</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Get-bioactivity-data" class="md-nav__link">Get bioactivity data</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Fetch-bioactivity-data-for-the-target-from-ChEMBL" class="md-nav__link">Fetch bioactivity data for the target from ChEMBL</a>
-        </li>
-        <li class="md-nav__item"><a href="#Download-bioactivity-data-from-ChEMBL" class="md-nav__link">Download bioactivity data from ChEMBL</a>
-        </li>
-        <li class="md-nav__item"><a href="#Preprocess-and-filter-bioactivity-data" class="md-nav__link">Preprocess and filter bioactivity data</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Get-compound-data" class="md-nav__link">Get compound data</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Fetch-compound-data-from-ChEMBL" class="md-nav__link">Fetch compound data from ChEMBL</a>
-        </li>
-        <li class="md-nav__item"><a href="#Download-compound-data-from-ChEMBL" class="md-nav__link">Download compound data from ChEMBL</a>
-        </li>
-        <li class="md-nav__item"><a href="#Preprocess-and-filter-compound-data" class="md-nav__link">Preprocess and filter compound data</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Output-(bioactivity-compound)-data" class="md-nav__link">Output (bioactivity-compound) data</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Merge-both-datasets" class="md-nav__link">Merge both datasets</a>
-        </li>
-        <li class="md-nav__item"><a href="#Add-pIC50-values" class="md-nav__link">Add pIC50 values</a>
-        </li>
-        <li class="md-nav__item"><a href="#Draw-compound-data" class="md-nav__link">Draw compound data</a>
-        </li>
-        <li class="md-nav__item"><a href="#Freeze-output-data-to-ChEMBL-27" class="md-nav__link">Freeze output data to ChEMBL 27</a>
-        </li>
-        <li class="md-nav__item"><a href="#Write-output-data-to-file" class="md-nav__link">Write output data to file</a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
-        </li>
-        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
-        </li></ul>
-            </nav>
-        </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T001_query_chembl.nblink.txt">Show Source</a> </li>
-
-  </ul>
-</nav>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T002_compound_adme.html" class="md-nav__link">T002 · Molecular filtering: ADME and lead-likeness criteria</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T003_compound_unwanted_substructures.html" class="md-nav__link">T003 · Molecular filtering: unwanted substructures</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T004_compound_similarity.html" class="md-nav__link">T004 · Ligand-based screening: compound similarity</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T005_compound_clustering.html" class="md-nav__link">T005 · Compound clustering</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T006_compound_maximum_common_substructures.html" class="md-nav__link">T006 · Maximum common substructure</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T007_compound_activity_machine_learning.html" class="md-nav__link">T007 · Ligand-based screening: machine learning</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T008_query_pdb.html" class="md-nav__link">T008 · Protein data acquisition: Protein Data Bank (PDB)</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T009_compound_ensemble_pharmacophores.html" class="md-nav__link">T009 · Ligand-based pharmacophores</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T010_binding_site_comparison.html" class="md-nav__link">T010 · Binding site similarity and off-target prediction</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T011_query_online_api_webservices.html" class="md-nav__link">T011 · Querying online API webservices</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T012_query_klifs.html" class="md-nav__link">T012 · Data acquisition from KLIFS</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T013_query_pubchem.html" class="md-nav__link">T013 · Data acquisition from PubChem</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T014_binding_site_detection.html" class="md-nav__link">T014 · Binding site detection</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T015_protein_ligand_docking.html" class="md-nav__link">T015 · Protein ligand docking</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T016_protein_ligand_interactions.html" class="md-nav__link">T016 · Protein-ligand interactions</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T017_advanced_nglview_usage.html" class="md-nav__link">T017 · Advanced NGLview usage</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T018_automated_cadd_pipeline.html" class="md-nav__link">T018 · Automated pipeline for lead optimization</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T019_md_simulation.html" class="md-nav__link">T019 · Molecular dynamics simulation</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T020_md_analysis.html" class="md-nav__link">T020 · Analyzing molecular dynamics simulations</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T021_one_hot_encoding.html" class="md-nav__link">T021 · One-Hot Encoding</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T022_ligand_based_screening_neural_network.html" class="md-nav__link">T022 · Ligand-based screening: neural networks</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T023_what_is_a_kinase.html" class="md-nav__link">T023 · What is a kinase?</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T024_kinase_similarity_sequence.html" class="md-nav__link">T024 · Kinase similarity: Sequence</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T025_kinase_similarity_kissim.html" class="md-nav__link">T025 · Kinase similarity: Kinase pocket (KiSSim fingerprint)</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T026_kinase_similarity_ifp.html" class="md-nav__link">T026 · Kinase similarity: Interaction fingerprints</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T027_kinase_similarity_ligand_profile.html" class="md-nav__link">T027 · Kinase similarity: Ligand profile</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T028_kinase_similarity_compare_perspectives.html" class="md-nav__link">T028 · Kinase similarity: Compare different perspectives</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T033_molecular_representations.html" class="md-nav__link">T033 · Molecular representations</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T034_recurrent_neural_networks.html" class="md-nav__link">T034 · RNN-based molecular property prediction</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T035_graph_neural_networks.html" class="md-nav__link">T035 · GNN-based molecular property prediction</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T036_e3_equivariant_gnn.html" class="md-nav__link">T036 · An introduction to E(3)-invariant graph neural networks</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T037_uncertainty_estimation.html" class="md-nav__link">T037 · Uncertainty estimation</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T038_protein_ligand_interaction_prediction.html" class="md-nav__link">T038 · Protein Ligand Interaction Prediction</a>
-      
-    
-    </li></ul>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-      <span class="md-nav__link caption"><span class="caption-text">Run locally</span></span>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../installing.html" class="md-nav__link">Installing</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-      <span class="md-nav__link caption"><span class="caption-text">Development</span></span>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../contribute.html" class="md-nav__link">For contributors</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../api.html" class="md-nav__link">API Documentation</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-      <span class="md-nav__link caption"><span class="caption-text">About TeachOpenCADD</span></span>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../contact.html" class="md-nav__link">Contact</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../acknowledgments.html" class="md-nav__link">Acknowledgments</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../citation.html" class="md-nav__link">Citation</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../license.html" class="md-nav__link">License</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../funding.html" class="md-nav__link">Funding</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-      <span class="md-nav__link caption"><span class="caption-text">External resources</span></span>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../external_dependencies.html" class="md-nav__link">Packages and webservers used in TeachOpenCADD</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../external_tutorials_collections.html" class="md-nav__link">External tutorials and collections</a>
-      
-    
-    </li>
-  </ul>
   
 
 </nav>
@@ -817,7 +374,7 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="T001-·-Compound-data-acquisition-(ChEMBL)">
-<h1 id="talktorials-t001-query-chembl--page-root">T001 · Compound data acquisition (ChEMBL)<a class="headerlink" href="#talktorials-t001-query-chembl--page-root" title="Permalink to this heading">¶</a></h1>
+<h1 id="talktorials-t001-query-chembl--page-root">T001 · Compound data acquisition (ChEMBL)<a class="headerlink" href="#talktorials-t001-query-chembl--page-root" title="Link to this heading">¶</a></h1>
 <p><strong>Note:</strong> This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.</p>
 <p>Authors:</p>
 <ul class="simple">
@@ -829,11 +386,11 @@
 </ul>
 <p><strong>Talktorial T001</strong>: This talktorial is part of the TeachOpenCADD pipeline described in the <a class="reference external" href="https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x">first TeachOpenCADD paper</a>, comprising of talktorials T001-T010.</p>
 <section id="Aim-of-this-talktorial">
-<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this heading">¶</a></h2>
+<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Link to this heading">¶</a></h2>
 <p>In this notebook, we will learn more about the ChEMBL database and how to extract data from ChEMBL, i.e. (compound, activity data) pairs for a target of interest. These data sets can be used for many cheminformatics tasks, such as similarity search, clustering or machine learning.</p>
 <p>Our work here will include finding compounds that were tested against a certain target and filtering available bioactivity data.</p>
 <section id="Contents-in-Theory">
-<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Permalink to this heading">¶</a></h3>
+<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>ChEMBL database</p>
 <ul>
@@ -850,7 +407,7 @@
 </ul>
 </section>
 <section id="Contents-in-Practical">
-<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Permalink to this heading">¶</a></h3>
+<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Link to this heading">¶</a></h3>
 <p><strong>Goal: Get a list of compounds with bioactivity data for a given target</strong></p>
 <ul class="simple">
 <li><p>Connect to ChEMBL database</p></li>
@@ -883,7 +440,7 @@
 </ul>
 </section>
 <section id="References">
-<h3 id="References">References<a class="headerlink" href="#References" title="Permalink to this heading">¶</a></h3>
+<h3 id="References">References<a class="headerlink" href="#References" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>ChEMBL bioactivity database: <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5210557/">Gaulton et al., Nucleic Acids Res. (2017), 45(Database issue), D945–D954</a></p></li>
 <li><p>ChEMBL web services: <a class="reference external" href="https://academic.oup.com/nar/article/43/W1/W612/2467881">Davies et al., Nucleic Acids Res. (2015), 43, 612-620</a></p></li>
@@ -893,12 +450,26 @@
 <li><p>Info on half maximal inhibitory concentration: <a class="reference external" href="https://en.wikipedia.org/wiki/IC50">(p)IC50</a></p></li>
 <li><p><a class="reference external" href="https://www.uniprot.org/">UniProt website</a></p></li>
 </ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="k">if</span> <span class="s2">"google.colab"</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
+    <span class="o">%</span><span class="k">pip</span> install teachopencadd --no-deps -q
+    <span class="o">!</span>teachopencadd<span class="w"> </span>-d<span class="w"> </span><span class="m">1</span>
+    <span class="o">%</span><span class="k">pip</span> uninstall teachopencadd -y -q
+    <span class="o">%</span><span class="k">pip</span> install -qr requirements.txt
+</pre></div>
+</div>
+</div>
 </section>
 </section>
 <section id="Theory">
-<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this heading">¶</a></h2>
+<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Link to this heading">¶</a></h2>
 <section id="ChEMBL-database">
-<h3 id="ChEMBL-database">ChEMBL database<a class="headerlink" href="#ChEMBL-database" title="Permalink to this heading">¶</a></h3>
+<h3 id="ChEMBL-database">ChEMBL database<a class="headerlink" href="#ChEMBL-database" title="Link to this heading">¶</a></h3>
 <blockquote>
 <div><p>“ChEMBL is a manually curated database of bioactive molecules with drug-like properties. It brings together chemical, bioactivity and genomic data to aid the translation of genomic information into effective new drugs.” (<a class="reference external" href="https://www.ebi.ac.uk/chembl/">ChEMBL website</a>)</p>
 </div></blockquote>
@@ -915,17 +486,19 @@
 <li><p>ChEMBL data can be accessed via a <a class="reference external" href="https://www.ebi.ac.uk/chembl/">web-interface</a>, the <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pubmed/24413672">EBI-RDF platform</a> and the <a class="reference external" href="https://github.com/chembl/chembl_webresource_client">ChEMBL web rescource client</a></p></li>
 </ul>
 <section id="ChEMBL-web-services">
-<h4 id="ChEMBL-web-services">ChEMBL web services<a class="headerlink" href="#ChEMBL-web-services" title="Permalink to this heading">¶</a></h4>
+<h4 id="ChEMBL-web-services">ChEMBL web services<a class="headerlink" href="#ChEMBL-web-services" title="Link to this heading">¶</a></h4>
 <ul class="simple">
 <li><p>RESTful web service</p></li>
 <li><p>ChEMBL web service version 2.x resource schema:</p></li>
 </ul>
-<img alt="ChEMBL web service schema" src="../_images/chembl_webservices_schema_diagram.jpg"/>
+<!---
+![ChEMBL web service schema](images/chembl_webservices_schema_diagram.jpg)
+---><img alt="ChEMBL web service schema" src="../_images/chembl_webservices_schema_diagram.jpg"/>
 <p><em>Figure 1:</em> “<a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4489243/figure/F2/">ChEMBL web service schema diagram</a>. The oval shapes represent ChEMBL web service resources and the line between two resources indicates that they share a common attribute. The arrow direction shows where the primary information about a resource type can be found. A dashed line indicates the relationship between two resources behaves differently. For example, the <code class="docutils literal notranslate"><span class="pre">Image</span></code> resource provides a graphical-based
 representation of a <code class="docutils literal notranslate"><span class="pre">Molecule</span></code>.” Figure and description are taken from: <a class="reference external" href="https://academic.oup.com/nar/article/43/W1/W612/2467881">Nucleic Acids Res. (2015), 43, 612-620</a>.</p>
 </section>
 <section id="ChEMBL-web-resource-client">
-<h4 id="ChEMBL-web-resource-client">ChEMBL web resource client<a class="headerlink" href="#ChEMBL-web-resource-client" title="Permalink to this heading">¶</a></h4>
+<h4 id="ChEMBL-web-resource-client">ChEMBL web resource client<a class="headerlink" href="#ChEMBL-web-resource-client" title="Link to this heading">¶</a></h4>
 <ul class="simple">
 <li><p>Python client library for accessing ChEMBL data</p></li>
 <li><p>Handles interaction with the HTTPS protocol</p></li>
@@ -934,19 +507,22 @@ representation of a <code class="docutils literal notranslate"><span class="pre"
 </section>
 </section>
 <section id="Compound-activity-measures">
-<h3 id="Compound-activity-measures">Compound activity measures<a class="headerlink" href="#Compound-activity-measures" title="Permalink to this heading">¶</a></h3>
+<h3 id="Compound-activity-measures">Compound activity measures<a class="headerlink" href="#Compound-activity-measures" title="Link to this heading">¶</a></h3>
 <section id="IC50-measure">
-<h4 id="IC50-measure">IC50 measure<a class="headerlink" href="#IC50-measure" title="Permalink to this heading">¶</a></h4>
+<h4 id="IC50-measure">IC50 measure<a class="headerlink" href="#IC50-measure" title="Link to this heading">¶</a></h4>
 <ul class="simple">
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/IC50">Half maximal inhibitory concentration</a></p></li>
 <li><p>Indicates how much of a particular drug or other substance is needed to inhibit a given biological process by half</p></li>
 </ul>
 <img alt="Wiki_Example_IC50_curve_demonstrating_visually_how_IC50_is_derived" src="../_images/Wiki_Example_IC50_curve_demonstrating_visually_how_IC50_is_derived.png"/>
-<p><em>Figure 2:</em> Visual demonstration of how to derive an IC50 value: (i) Arrange inhibition data on y-axis and log(concentration) on x-axis. (ii) Identify maximum and minimum inhibition. (iii) The IC50 is the concentration at which the curve passes through the 50% inhibition level. Figure <a class="reference external" href="https://en.wikipedia.org/wiki/IC50#/media/File:Example_IC50_curve_demonstrating_visually_how_IC50_is_derived.png">“Example IC50 curve demonstrating visually how IC50 is derived”</a> by JesseAlanGordon is licensed
-under <a class="reference external" href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>.</p>
+<p><em>Figure 2:</em> Visual demonstration of how to derive an IC50 value:</p>
+<ol class="lowerroman simple">
+<li><p>Arrange inhibition data on y-axis and log(concentration) on x-axis. (ii) Identify maximum and minimum inhibition. (iii) The IC50 is the concentration at which the curve passes through the 50% inhibition level. Figure <a class="reference external" href="https://en.wikipedia.org/wiki/IC50#/media/File:Example_IC50_curve_demonstrating_visually_how_IC50_is_derived.png">“Example IC50 curve demonstrating visually how IC50 is derived”</a> by JesseAlanGordon is licensed under <a class="reference external" href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA
+3.0</a>.</p></li>
+</ol>
 </section>
 <section id="pIC50-value">
-<h4 id="pIC50-value">pIC50 value<a class="headerlink" href="#pIC50-value" title="Permalink to this heading">¶</a></h4>
+<h4 id="pIC50-value">pIC50 value<a class="headerlink" href="#pIC50-value" title="Link to this heading">¶</a></h4>
 <ul class="simple">
 <li><p>To facilitate the comparison of IC50 values, which have a large value range and are given in different units (M, nM, …), often pIC50 values are used</p></li>
 <li><p>The pIC50 is the negative log of the IC50 value when converted to molar units: $ pIC_{50} = -log_{10}(IC_{50}) $, where $ IC_{50}$ is specified in units of M</p></li>
@@ -959,30 +535,39 @@ under <a class="reference external" href="https://creativecommons.org/licenses/b
 </section>
 </section>
 <section id="Practical">
-<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this heading">¶</a></h2>
+<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Link to this heading">¶</a></h2>
 <p>In the following, we want to download all molecules that have been tested against our target of interest, the <strong>epidermal growth factor receptor</strong> (<a class="reference external" href="https://www.uniprot.org/uniprot/P00533">EGFR</a>) kinase.</p>
 <section id="Connect-to-ChEMBL-database">
-<h3 id="Connect-to-ChEMBL-database">Connect to ChEMBL database<a class="headerlink" href="#Connect-to-ChEMBL-database" title="Permalink to this heading">¶</a></h3>
+<h3 id="Connect-to-ChEMBL-database">Connect to ChEMBL database<a class="headerlink" href="#Connect-to-ChEMBL-database" title="Link to this heading">¶</a></h3>
 <p>First, the ChEMBL web resource client as well as other Python libraries are imported.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">from</span> <span class="nn">zipfile</span> <span class="kn">import</span> <span class="n">ZipFile</span>
-<span class="kn">from</span> <span class="nn">tempfile</span> <span class="kn">import</span> <span class="n">TemporaryDirectory</span>
-
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">PandasTools</span>
-<span class="kn">from</span> <span class="nn">chembl_webresource_client.new_client</span> <span class="kn">import</span> <span class="n">new_client</span>
-<span class="kn">from</span> <span class="nn">tqdm.auto</span> <span class="kn">import</span> <span class="n">tqdm</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">zipfile</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZipFile</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tempfile</span><span class="w"> </span><span class="kn">import</span> <span class="n">TemporaryDirectory</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rdkit.Chem</span><span class="w"> </span><span class="kn">import</span> <span class="n">PandasTools</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">chembl_webresource_client.new_client</span><span class="w"> </span><span class="kn">import</span> <span class="n">new_client</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm.auto</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/opt/miniconda3/envs/T001_3120/lib/python3.12/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HERE</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">_dh</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
@@ -992,7 +577,7 @@ under <a class="reference external" href="https://creativecommons.org/licenses/b
 </div>
 <p>Next, we create resource objects for API access.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">targets_api</span> <span class="o">=</span> <span class="n">new_client</span><span class="o">.</span><span class="n">target</span>
@@ -1002,7 +587,7 @@ under <a class="reference external" href="https://creativecommons.org/licenses/b
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">targets_api</span><span class="p">)</span>
@@ -1010,7 +595,7 @@ under <a class="reference external" href="https://creativecommons.org/licenses/b
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1020,14 +605,14 @@ chembl_webresource_client.query_set.QuerySet
 </div>
 </section>
 <section id="Get-target-data-(EGFR-kinase)">
-<h3 id="Get-target-data-(EGFR-kinase)">Get target data (EGFR kinase)<a class="headerlink" href="#Get-target-data-(EGFR-kinase)" title="Permalink to this heading">¶</a></h3>
+<h3 id="Get-target-data-(EGFR-kinase)">Get target data (EGFR kinase)<a class="headerlink" href="#Get-target-data-(EGFR-kinase)" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Get UniProt ID of the target of interest (EGFR kinase: <a class="reference external" href="http://www.uniprot.org/uniprot/P00533">P00533</a>) from <a class="reference external" href="https://www.uniprot.org/">UniProt website</a></p></li>
 <li><p>Use UniProt ID to get target information</p></li>
 </ul>
 <p>Select a different UniProt ID, if you are interested in another target.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uniprot_id</span> <span class="o">=</span> <span class="s2">"P00533"</span>
@@ -1035,9 +620,9 @@ chembl_webresource_client.query_set.QuerySet
 </div>
 </div>
 <section id="Fetch-target-data-from-ChEMBL">
-<h4 id="Fetch-target-data-from-ChEMBL">Fetch target data from ChEMBL<a class="headerlink" href="#Fetch-target-data-from-ChEMBL" title="Permalink to this heading">¶</a></h4>
+<h4 id="Fetch-target-data-from-ChEMBL">Fetch target data from ChEMBL<a class="headerlink" href="#Fetch-target-data-from-ChEMBL" title="Link to this heading">¶</a></h4>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get target information from ChEMBL but restrict it to specified values only</span>
@@ -1058,14 +643,14 @@ The type of the targets is "&lt;class 'chembl_webresource_client.query_set.Query
 </div>
 </section>
 <section id="Download-target-data-from-ChEMBL">
-<h4 id="Download-target-data-from-ChEMBL">Download target data from ChEMBL<a class="headerlink" href="#Download-target-data-from-ChEMBL" title="Permalink to this heading">¶</a></h4>
+<h4 id="Download-target-data-from-ChEMBL">Download target data from ChEMBL<a class="headerlink" href="#Download-target-data-from-ChEMBL" title="Link to this heading">¶</a></h4>
 <p>The results of the query are stored in <code class="docutils literal notranslate"><span class="pre">targets</span></code>, a <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code>, i.e. the results are not fetched from ChEMBL until we ask for it (here using <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame.from_records</span></code>).</p>
 <p>More information about the <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code> datatype:</p>
 <blockquote>
 <div><p>QuerySets are lazy – the act of creating a QuerySet does not involve any database activity. You can stack filters together all day long, and Django will actually not run the query until the QuerySet is evaluated. (<a class="reference external" href="https://docs.djangoproject.com/en/3.0/topics/db/queries/#querysets-are-lazy">querysets-are-lazy</a>)</p>
 </div></blockquote>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">targets</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="n">targets</span><span class="p">)</span>
@@ -1074,7 +659,7 @@ The type of the targets is "&lt;class 'chembl_webresource_client.query_set.Query
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1106,14 +691,14 @@ The type of the targets is "&lt;class 'chembl_webresource_client.query_set.Query
 <tr>
 <th>0</th>
 <td>Homo sapiens</td>
-<td>Epidermal growth factor receptor erbB1</td>
+<td>Epidermal growth factor receptor</td>
 <td>CHEMBL203</td>
 <td>SINGLE PROTEIN</td>
 </tr>
 <tr>
 <th>1</th>
 <td>Homo sapiens</td>
-<td>Epidermal growth factor receptor erbB1</td>
+<td>Epidermal growth factor receptor</td>
 <td>CHEMBL203</td>
 <td>SINGLE PROTEIN</td>
 </tr>
@@ -1155,7 +740,7 @@ The type of the targets is "&lt;class 'chembl_webresource_client.query_set.Query
 <tr>
 <th>7</th>
 <td>Homo sapiens</td>
-<td>VHL/EGFR</td>
+<td>von Hippel-Lindau disease tumor suppressor/EGFR</td>
 <td>CHEMBL4523998</td>
 <td>PROTEIN-PROTEIN INTERACTION</td>
 </tr>
@@ -1166,17 +751,38 @@ The type of the targets is "&lt;class 'chembl_webresource_client.query_set.Query
 <td>CHEMBL4802031</td>
 <td>PROTEIN-PROTEIN INTERACTION</td>
 </tr>
+<tr>
+<th>9</th>
+<td>Homo sapiens</td>
+<td>CCN2-EGFR</td>
+<td>CHEMBL5465557</td>
+<td>PROTEIN-PROTEIN INTERACTION</td>
+</tr>
+<tr>
+<th>10</th>
+<td>Homo sapiens</td>
+<td>Microtubule-associated protein 1 light chain 3...</td>
+<td>CHEMBL6066839</td>
+<td>PROTEIN-PROTEIN INTERACTION</td>
+</tr>
+<tr>
+<th>11</th>
+<td>Homo sapiens</td>
+<td>Glucose-induced degradation protein 4 homolog/...</td>
+<td>CHEMBL6066845</td>
+<td>PROTEIN-PROTEIN INTERACTION</td>
+</tr>
 </tbody>
 </table>
 </div></div>
 </div>
 </section>
 <section id="Select-target-(target-ChEMBL-ID)">
-<h4 id="Select-target-(target-ChEMBL-ID)">Select target (target ChEMBL ID)<a class="headerlink" href="#Select-target-(target-ChEMBL-ID)" title="Permalink to this heading">¶</a></h4>
+<h4 id="Select-target-(target-ChEMBL-ID)">Select target (target ChEMBL ID)<a class="headerlink" href="#Select-target-(target-ChEMBL-ID)" title="Link to this heading">¶</a></h4>
 <p>After checking the entries, we select the first entry as our target of interest:</p>
 <p><code class="docutils literal notranslate"><span class="pre">CHEMBL203</span></code>: It is a single protein and represents the human Epidermal growth factor receptor (EGFR, also named erbB1)</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target</span> <span class="o">=</span> <span class="n">targets</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -1185,21 +791,21 @@ The type of the targets is "&lt;class 'chembl_webresource_client.query_set.Query
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-organism                                      Homo sapiens
-pref_name           Epidermal growth factor receptor erbB1
-target_chembl_id                                 CHEMBL203
-target_type                                 SINGLE PROTEIN
+organism                                Homo sapiens
+pref_name           Epidermal growth factor receptor
+target_chembl_id                           CHEMBL203
+target_type                           SINGLE PROTEIN
 Name: 0, dtype: object
 </pre></div></div>
 </div>
 <p>Save selected ChEMBL ID.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chembl_id</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">target_chembl_id</span>
@@ -1219,10 +825,10 @@ The target ChEMBL ID is CHEMBL203
 </section>
 </section>
 <section id="Get-bioactivity-data">
-<h3 id="Get-bioactivity-data">Get bioactivity data<a class="headerlink" href="#Get-bioactivity-data" title="Permalink to this heading">¶</a></h3>
+<h3 id="Get-bioactivity-data">Get bioactivity data<a class="headerlink" href="#Get-bioactivity-data" title="Link to this heading">¶</a></h3>
 <p>Now, we want to query bioactivity data for the target of interest.</p>
 <section id="Fetch-bioactivity-data-for-the-target-from-ChEMBL">
-<h4 id="Fetch-bioactivity-data-for-the-target-from-ChEMBL">Fetch bioactivity data for the target from ChEMBL<a class="headerlink" href="#Fetch-bioactivity-data-for-the-target-from-ChEMBL" title="Permalink to this heading">¶</a></h4>
+<h4 id="Fetch-bioactivity-data-for-the-target-from-ChEMBL">Fetch bioactivity data for the target from ChEMBL<a class="headerlink" href="#Fetch-bioactivity-data-for-the-target-from-ChEMBL" title="Link to this heading">¶</a></h4>
 <p>In this step, we fetch the bioactivity data and filter it to only consider</p>
 <ul class="simple">
 <li><p>human proteins,</p></li>
@@ -1231,7 +837,7 @@ The target ChEMBL ID is CHEMBL203
 <li><p>binding data (assay type <code class="docutils literal notranslate"><span class="pre">'B'</span></code>).</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bioactivities</span> <span class="o">=</span> <span class="n">bioactivities_api</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
@@ -1259,12 +865,12 @@ The target ChEMBL ID is CHEMBL203
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Length and type of bioactivities object: 9576, &lt;class 'chembl_webresource_client.query_set.QuerySet'&gt;
+Length and type of bioactivities object: 17107, &lt;class 'chembl_webresource_client.query_set.QuerySet'&gt;
 </pre></div></div>
 </div>
 <p>Each entry in our bioactivity set holds the following information:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Length and type of first element: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">bioactivities</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">bioactivities</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -1281,7 +887,7 @@ Length and type of first element: 13, &lt;class 'dict'&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1303,7 +909,7 @@ Length and type of first element: 13, &lt;class 'dict'&gt;
 </div>
 </section>
 <section id="Download-bioactivity-data-from-ChEMBL">
-<h4 id="Download-bioactivity-data-from-ChEMBL">Download bioactivity data from ChEMBL<a class="headerlink" href="#Download-bioactivity-data-from-ChEMBL" title="Permalink to this heading">¶</a></h4>
+<h4 id="Download-bioactivity-data-from-ChEMBL">Download bioactivity data from ChEMBL<a class="headerlink" href="#Download-bioactivity-data-from-ChEMBL" title="Link to this heading">¶</a></h4>
 <p>Finally, we download the <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code> in the form of a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
 <blockquote>
 <div><p><strong>Note</strong>: This step should not take more than 2 minutes, if so try to rerun all cells starting from <em>“Fetch bioactivity data for the target from ChEMBL”</em> or read this message below:</p>
@@ -1315,7 +921,7 @@ Length and type of first element: 13, &lt;class 'dict'&gt;
 </pre></div>
 </div>
 </details><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bioactivities_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">bioactivities</span><span class="p">)</span>
@@ -1329,11 +935,11 @@ Length and type of first element: 13, &lt;class 'dict'&gt;
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-DataFrame shape: (9576, 13)
+DataFrame shape: (17107, 13)
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1458,7 +1064,7 @@ DataFrame shape: (9576, 13)
 <p>Note that the first two rows describe the same bioactivity entry; we will remove such artifacts later during the deduplication step. Note also that we have columns for <code class="docutils literal notranslate"><span class="pre">standard_units</span></code>/<code class="docutils literal notranslate"><span class="pre">units</span></code> and <code class="docutils literal notranslate"><span class="pre">standard_values</span></code>/<code class="docutils literal notranslate"><span class="pre">values</span></code>; in the following, we will use the standardized columns (standardization by ChEMBL), and thus, we drop the other two columns.</p>
 <p>If we used the <code class="docutils literal notranslate"><span class="pre">units</span></code> and <code class="docutils literal notranslate"><span class="pre">values</span></code> columns, we would need to convert all values with many different units to nM:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bioactivities_df</span><span class="p">[</span><span class="s2">"units"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
@@ -1466,7 +1072,7 @@ DataFrame shape: (9576, 13)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1474,11 +1080,12 @@ DataFrame shape: (9576, 13)
 array(['uM', 'nM', 'pM', 'M', "10'3 uM", "10'1 ug/ml", 'ug ml-1',
        "10'-1microM", "10'1 uM", "10'-1 ug/ml", "10'-2 ug/ml", "10'2 uM",
        "10'-3 ug/ml", "10'-2microM", '/uM', "10'-6g/ml", 'mM', 'umol/L',
-       'nmol/L', "10'-10M", "10'-7M", 'nmol', '10^-8M'], dtype=object)
+       'nmol/L', "10'-10M", "10'-7M", 'nmol', '10^-8M', '10^3 uM'],
+      dtype=object)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bioactivities_df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">"units"</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1487,7 +1094,7 @@ array(['uM', 'nM', 'pM', 'M', "10'3 uM", "10'1 ug/ml", 'ug ml-1',
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1599,7 +1206,7 @@ array(['uM', 'nM', 'pM', 'M', "10'3 uM", "10'1 ug/ml", 'ug ml-1',
 </div>
 </section>
 <section id="Preprocess-and-filter-bioactivity-data">
-<h4 id="Preprocess-and-filter-bioactivity-data">Preprocess and filter bioactivity data<a class="headerlink" href="#Preprocess-and-filter-bioactivity-data" title="Permalink to this heading">¶</a></h4>
+<h4 id="Preprocess-and-filter-bioactivity-data">Preprocess and filter bioactivity data<a class="headerlink" href="#Preprocess-and-filter-bioactivity-data" title="Link to this heading">¶</a></h4>
 <ol class="arabic simple">
 <li><p>Convert <code class="docutils literal notranslate"><span class="pre">standard_value</span></code>’s datatype from <code class="docutils literal notranslate"><span class="pre">object</span></code> to <code class="docutils literal notranslate"><span class="pre">float</span></code></p></li>
 <li><p>Delete entries with missing values</p></li>
@@ -1611,7 +1218,7 @@ array(['uM', 'nM', 'pM', 'M', "10'3 uM", "10'1 ug/ml", 'ug ml-1',
 <p><strong>1. Convert datatype of “standard_value” from “object” to “float”</strong></p>
 <p>The field <code class="docutils literal notranslate"><span class="pre">standard_value</span></code> holds standardized (here IC50) values. In order to make these values usable in calculations later on, convert values to floats.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bioactivities_df</span><span class="o">.</span><span class="n">dtypes</span>
@@ -1619,7 +1226,7 @@ array(['uM', 'nM', 'pM', 'M', "10'3 uM", "10'1 ug/ml", 'ug ml-1',
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1639,7 +1246,7 @@ dtype: object
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bioactivities_df</span> <span class="o">=</span> <span class="n">bioactivities_df</span><span class="o">.</span><span class="n">astype</span><span class="p">({</span><span class="s2">"standard_value"</span><span class="p">:</span> <span class="s2">"float64"</span><span class="p">})</span>
@@ -1648,7 +1255,7 @@ dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1670,7 +1277,7 @@ dtype: object
 <p><strong>2. Delete entries with missing values</strong></p>
 <p>Use the parameter <code class="docutils literal notranslate"><span class="pre">inplace=True</span></code> to drop values in the current <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> directly.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bioactivities_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">"any"</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1683,20 +1290,18 @@ dtype: object
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-DataFrame shape: (9575, 11)
+DataFrame shape: (17106, 11)
 </pre></div></div>
 </div>
 <p><strong>3. Keep only entries with “standard_unit == nM”</strong></p>
 <p>We only want to keep bioactivity entries in <code class="docutils literal notranslate"><span class="pre">nM</span></code>, thus we remove all entries with other units.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Units in downloaded data: </span><span class="si">{</span><span class="n">bioactivities_df</span><span class="p">[</span><span class="s1">'standard_units'</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span>
-    <span class="sa">f</span><span class="s2">"Number of non-nM entries:</span><span class="se">\</span>
-<span class="s2">    </span><span class="si">{</span><span class="n">bioactivities_df</span><span class="p">[</span><span class="n">bioactivities_df</span><span class="p">[</span><span class="s1">'standard_units'</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">'nM'</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
-<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Number of non-nM entries:</span><span class="se">\</span>
+<span class="s2">    </span><span class="si">{</span><span class="n">bioactivities_df</span><span class="p">[</span><span class="n">bioactivities_df</span><span class="p">[</span><span class="s1">'standard_units'</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">'nM'</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1705,12 +1310,12 @@ DataFrame shape: (9575, 11)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Units in downloaded data: ['nM' 'ug.mL-1' '/uM']
-Number of non-nM entries:    69
+Units in downloaded data: ['nM' 'ug.mL-1' '/uM' '10^3 uM']
+Number of non-nM entries:    71
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bioactivities_df</span> <span class="o">=</span> <span class="n">bioactivities_df</span><span class="p">[</span><span class="n">bioactivities_df</span><span class="p">[</span><span class="s2">"standard_units"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"nM"</span><span class="p">]</span>
@@ -1727,7 +1332,7 @@ Units after filtering: ['nM']
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"DataFrame shape: </span><span class="si">{</span><span class="n">bioactivities_df</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -1739,14 +1344,14 @@ Units after filtering: ['nM']
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-DataFrame shape: (9506, 11)
+DataFrame shape: (17035, 11)
 </pre></div></div>
 </div>
 <p><strong>4. Delete duplicate molecules</strong></p>
 <p>Sometimes the same molecule (<code class="docutils literal notranslate"><span class="pre">molecule_chembl_id</span></code>) has been tested more than once, in this case, we only keep the first one.</p>
 <p>Note other choices could be to keep the one with the best value or a mean value of all assay results for the respective compound.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bioactivities_df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="s2">"molecule_chembl_id"</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="s2">"first"</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1759,13 +1364,13 @@ DataFrame shape: (9506, 11)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-DataFrame shape: (6461, 11)
+DataFrame shape: (9996, 11)
 </pre></div></div>
 </div>
 <p><strong>5. Reset “DataFrame” index</strong></p>
 <p>Since we deleted some rows, but we want to iterate over the index later, we reset the index to be continuous.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bioactivities_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1774,7 +1379,7 @@ DataFrame shape: (6461, 11)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1886,7 +1491,7 @@ DataFrame shape: (6461, 11)
 </div>
 <p><strong>6. Rename columns</strong></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bioactivities_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
@@ -1897,7 +1502,7 @@ DataFrame shape: (6461, 11)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2008,7 +1613,7 @@ DataFrame shape: (6461, 11)
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"DataFrame shape: </span><span class="si">{</span><span class="n">bioactivities_df</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -2020,21 +1625,21 @@ DataFrame shape: (6461, 11)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-DataFrame shape: (6461, 11)
+DataFrame shape: (9996, 11)
 </pre></div></div>
 </div>
 <p>We now have a set of <strong>5575</strong> molecule ids with respective IC50 values for our target kinase.</p>
 </section>
 </section>
 <section id="Get-compound-data">
-<h3 id="Get-compound-data">Get compound data<a class="headerlink" href="#Get-compound-data" title="Permalink to this heading">¶</a></h3>
+<h3 id="Get-compound-data">Get compound data<a class="headerlink" href="#Get-compound-data" title="Link to this heading">¶</a></h3>
 <p>We have a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> containing all molecules tested against EGFR (with the respective measured bioactivity).</p>
 <p>Now, we want to get the molecular structures of the molecules that are linked to respective bioactivity ChEMBL IDs.</p>
 <section id="Fetch-compound-data-from-ChEMBL">
-<h4 id="Fetch-compound-data-from-ChEMBL">Fetch compound data from ChEMBL<a class="headerlink" href="#Fetch-compound-data-from-ChEMBL" title="Permalink to this heading">¶</a></h4>
+<h4 id="Fetch-compound-data-from-ChEMBL">Fetch compound data from ChEMBL<a class="headerlink" href="#Fetch-compound-data-from-ChEMBL" title="Link to this heading">¶</a></h4>
 <p>Let’s have a look at the compounds from ChEMBL which we have defined bioactivity data for: We fetch compound ChEMBL IDs and structures for the compounds linked to our filtered bioactivity data.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compounds_provider</span> <span class="o">=</span> <span class="n">compounds_api</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
@@ -2045,10 +1650,10 @@ DataFrame shape: (6461, 11)
 </div>
 </section>
 <section id="Download-compound-data-from-ChEMBL">
-<h4 id="Download-compound-data-from-ChEMBL">Download compound data from ChEMBL<a class="headerlink" href="#Download-compound-data-from-ChEMBL" title="Permalink to this heading">¶</a></h4>
+<h4 id="Download-compound-data-from-ChEMBL">Download compound data from ChEMBL<a class="headerlink" href="#Download-compound-data-from-ChEMBL" title="Link to this heading">¶</a></h4>
 <p>Again, we want to export the <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code> object into a <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>. Given the data volume, <strong>this can take some time.</strong> For that reason, we will first obtain the list of records through <code class="docutils literal notranslate"><span class="pre">tqdm</span></code>, so we get a nice progress bar and some ETAs. We can then pass the list of compounds to the DataFrame.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compounds</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">tqdm</span><span class="p">(</span><span class="n">compounds_provider</span><span class="p">))</span>
@@ -2058,11 +1663,13 @@ DataFrame shape: (6461, 11)
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "00f2933de0e84fed92bd432cc4015eab", "version_major": 2, "version_minor": 0}</script></div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+100%|██████████| 9996/9996 [00:06&lt;00:00, 1515.54it/s]
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compounds_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span>
@@ -2077,11 +1684,11 @@ DataFrame shape: (6461, 11)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-DataFrame shape: (6461, 2)
+DataFrame shape: (9996, 2)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compounds_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -2089,7 +1696,8 @@ DataFrame shape: (6461, 2)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
 <div>
@@ -2146,7 +1754,7 @@ DataFrame shape: (6461, 2)
 </div>
 </section>
 <section id="Preprocess-and-filter-compound-data">
-<h4 id="Preprocess-and-filter-compound-data">Preprocess and filter compound data<a class="headerlink" href="#Preprocess-and-filter-compound-data" title="Permalink to this heading">¶</a></h4>
+<h4 id="Preprocess-and-filter-compound-data">Preprocess and filter compound data<a class="headerlink" href="#Preprocess-and-filter-compound-data" title="Link to this heading">¶</a></h4>
 <ol class="arabic simple">
 <li><p>Remove entries with missing entries</p></li>
 <li><p>Delete duplicate molecules (by molecule_chembl_id)</p></li>
@@ -2154,7 +1762,7 @@ DataFrame shape: (6461, 2)
 </ol>
 <p><strong>1. Remove entries with missing molecule structure entry</strong></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compounds_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">"any"</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -2167,12 +1775,12 @@ DataFrame shape: (6461, 2)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-DataFrame shape: (6454, 2)
+DataFrame shape: (9979, 2)
 </pre></div></div>
 </div>
 <p><strong>2. Delete duplicate molecules</strong></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compounds_df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="s2">"molecule_chembl_id"</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="s2">"first"</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -2185,13 +1793,13 @@ DataFrame shape: (6454, 2)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-DataFrame shape: (6454, 2)
+DataFrame shape: (9979, 2)
 </pre></div></div>
 </div>
 <p><strong>3. Get molecules with canonical SMILES</strong></p>
 <p>So far, we have multiple different molecular structure representations. We only want to keep the canonical SMILES.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compounds_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">molecule_structures</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
@@ -2199,7 +1807,8 @@ DataFrame shape: (6454, 2)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
@@ -2207,7 +1816,7 @@ dict_keys(['canonical_smiles', 'molfile', 'standard_inchi', 'standard_inchi_key'
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">canonical_smiles</span> <span class="o">=</span> <span class="p">[]</span>
@@ -2229,12 +1838,12 @@ dict_keys(['canonical_smiles', 'molfile', 'standard_inchi', 'standard_inchi_key'
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-DataFrame shape: (6454, 2)
+DataFrame shape: (9979, 2)
 </pre></div></div>
 </div>
 <p>Sanity check: Remove all molecules without a canonical SMILES string.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compounds_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">"any"</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -2247,16 +1856,16 @@ DataFrame shape: (6454, 2)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-DataFrame shape: (6454, 2)
+DataFrame shape: (9979, 2)
 </pre></div></div>
 </div>
 </section>
 </section>
 <section id="Output-(bioactivity-compound)-data">
-<h3 id="Output-(bioactivity-compound)-data">Output (bioactivity-compound) data<a class="headerlink" href="#Output-(bioactivity-compound)-data" title="Permalink to this heading">¶</a></h3>
+<h3 id="Output-(bioactivity-compound)-data">Output (bioactivity-compound) data<a class="headerlink" href="#Output-(bioactivity-compound)-data" title="Link to this heading">¶</a></h3>
 <p><strong>Summary of compound and bioactivity data</strong></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Bioactivities filtered: </span><span class="si">{</span><span class="n">bioactivities_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -2269,11 +1878,12 @@ DataFrame shape: (6454, 2)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Bioactivities filtered: 6461
+Bioactivities filtered: 9996
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
@@ -2284,7 +1894,7 @@ Index(['activity_id', 'assay_chembl_id', 'assay_description', 'assay_type',
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Compounds filtered: </span><span class="si">{</span><span class="n">compounds_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -2297,11 +1907,12 @@ Index(['activity_id', 'assay_chembl_id', 'assay_description', 'assay_type',
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Compounds filtered: 6454
+Compounds filtered: 9979
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
@@ -2309,7 +1920,7 @@ Index(['molecule_chembl_id', 'smiles'], dtype='object')
 </pre></div></div>
 </div>
 <section id="Merge-both-datasets">
-<h4 id="Merge-both-datasets">Merge both datasets<a class="headerlink" href="#Merge-both-datasets" title="Permalink to this heading">¶</a></h4>
+<h4 id="Merge-both-datasets">Merge both datasets<a class="headerlink" href="#Merge-both-datasets" title="Link to this heading">¶</a></h4>
 <p>Merge values of interest from <code class="docutils literal notranslate"><span class="pre">bioactivities_df</span></code> and <code class="docutils literal notranslate"><span class="pre">compounds_df</span></code> in an <code class="docutils literal notranslate"><span class="pre">output_df</span></code> based on the compounds’ ChEMBL IDs (<code class="docutils literal notranslate"><span class="pre">molecule_chembl_id</span></code>), keeping the following columns:</p>
 <ul class="simple">
 <li><p>ChEMBL IDs: <code class="docutils literal notranslate"><span class="pre">molecule_chembl_id</span></code></p></li>
@@ -2318,7 +1929,7 @@ Index(['molecule_chembl_id', 'smiles'], dtype='object')
 <li><p>IC50: <code class="docutils literal notranslate"><span class="pre">IC50</span></code></p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Merge DataFrames</span>
@@ -2340,11 +1951,11 @@ Index(['molecule_chembl_id', 'smiles'], dtype='object')
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Dataset with 6454 entries.
+Dataset with 9979 entries.
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output_df</span><span class="o">.</span><span class="n">dtypes</span>
@@ -2352,7 +1963,8 @@ Dataset with 6454 entries.
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
@@ -2364,7 +1976,7 @@ dtype: object
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -2372,7 +1984,8 @@ dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+</pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
 <div>
@@ -2476,20 +2089,20 @@ dtype: object
 </div>
 </section>
 <section id="Add-pIC50-values">
-<h4 id="Add-pIC50-values">Add pIC50 values<a class="headerlink" href="#Add-pIC50-values" title="Permalink to this heading">¶</a></h4>
+<h4 id="Add-pIC50-values">Add pIC50 values<a class="headerlink" href="#Add-pIC50-values" title="Link to this heading">¶</a></h4>
 <p>As you can see the low IC50 values are difficult to read (values are distributed over multiple scales), which is why we convert the IC50 values to pIC50.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">convert_ic50_to_pic50</span><span class="p">(</span><span class="n">IC50_value</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">convert_ic50_to_pic50</span><span class="p">(</span><span class="n">IC50_value</span><span class="p">):</span>
     <span class="n">pIC50_value</span> <span class="o">=</span> <span class="mi">9</span> <span class="o">-</span> <span class="n">math</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">IC50_value</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">pIC50_value</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply conversion to each row of the compounds DataFrame</span>
@@ -2498,7 +2111,7 @@ dtype: object
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -2506,7 +2119,8 @@ dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+</pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
 <div>
@@ -2581,11 +2195,11 @@ dtype: object
 </div>
 </section>
 <section id="Draw-compound-data">
-<h4 id="Draw-compound-data">Draw compound data<a class="headerlink" href="#Draw-compound-data" title="Permalink to this heading">¶</a></h4>
+<h4 id="Draw-compound-data">Draw compound data<a class="headerlink" href="#Draw-compound-data" title="Link to this heading">¶</a></h4>
 <p>Let’s have a look at our collected data set.</p>
 <p>First, we plot the pIC50 value distribution</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output_df</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s2">"pIC50"</span><span class="p">)</span>
@@ -2593,7 +2207,8 @@ dtype: object
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+</pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
@@ -2604,12 +2219,12 @@ array([[&lt;Axes: title={'center': 'pIC50'}&gt;]], dtype=object)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T001_query_chembl_91_1.png" src="../_images/talktorials_T001_query_chembl_91_1.png"/>
+<img alt="../_images/talktorials_T001_query_chembl_92_1.png" src="../_images/talktorials_T001_query_chembl_92_1.png"/>
 </div>
 </div>
 <p>In the next steps, we add a column for RDKit molecule objects to our <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> and look at the structures of the molecules with the highest pIC50 values.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add molecule column</span>
@@ -2618,7 +2233,7 @@ array([[&lt;Axes: title={'center': 'pIC50'}&gt;]], dtype=object)
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sort molecules by pIC50</span>
@@ -2631,7 +2246,7 @@ array([[&lt;Axes: title={'center': 'pIC50'}&gt;]], dtype=object)
 </div>
 <p>Show the three most active molecules, i.e. molecules with the highest pIC50 values.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">"smiles"</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
@@ -2639,7 +2254,8 @@ array([[&lt;Axes: title={'center': 'pIC50'}&gt;]], dtype=object)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+</pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
 <div>
@@ -2674,7 +2290,7 @@ array([[&lt;Axes: title={'center': 'pIC50'}&gt;]], dtype=object)
 <td>0.003</td>
 <td>nM</td>
 <td>11.522879</td>
-<td>&lt;rdkit.Chem.rdchem.Mol object at 0x7f041e269430&gt;</td>
+<td>&lt;rdkit.Chem.rdchem.Mol object at 0x1190015b0&gt;</td>
 </tr>
 <tr>
 <th>1</th>
@@ -2682,7 +2298,7 @@ array([[&lt;Axes: title={'center': 'pIC50'}&gt;]], dtype=object)
 <td>0.006</td>
 <td>nM</td>
 <td>11.221849</td>
-<td>&lt;rdkit.Chem.rdchem.Mol object at 0x7f041e260ac0&gt;</td>
+<td>&lt;rdkit.Chem.rdchem.Mol object at 0x118f74d60&gt;</td>
 </tr>
 <tr>
 <th>2</th>
@@ -2690,14 +2306,14 @@ array([[&lt;Axes: title={'center': 'pIC50'}&gt;]], dtype=object)
 <td>0.006</td>
 <td>nM</td>
 <td>11.221849</td>
-<td>&lt;rdkit.Chem.rdchem.Mol object at 0x7f041e253ac0&gt;</td>
+<td>&lt;rdkit.Chem.rdchem.Mol object at 0x118f63e60&gt;</td>
 </tr>
 </tbody>
 </table>
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Prepare saving the dataset: Drop the ROMol column</span>
@@ -2711,17 +2327,17 @@ array([[&lt;Axes: title={'center': 'pIC50'}&gt;]], dtype=object)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-DataFrame shape: (6454, 5)
+DataFrame shape: (9979, 5)
 </pre></div></div>
 </div>
 </section>
 <section id="Freeze-output-data-to-ChEMBL-27">
-<h4 id="Freeze-output-data-to-ChEMBL-27">Freeze output data to ChEMBL 27<a class="headerlink" href="#Freeze-output-data-to-ChEMBL-27" title="Permalink to this heading">¶</a></h4>
+<h4 id="Freeze-output-data-to-ChEMBL-27">Freeze output data to ChEMBL 27<a class="headerlink" href="#Freeze-output-data-to-ChEMBL-27" title="Link to this heading">¶</a></h4>
 <p>This is a technical step: Usually, we would continue to work with the dataset that we just created (latest dataset).</p>
 <p>However, here on the TeachOpenCADD platform, we prefer to freeze the dataset to a certain ChEMBL releases (i.e. <a class="reference external" href="http://doi.org/10.6019/CHEMBL.database.27">ChEMBL 27</a>), so that this talktorial and other talktorials downstream in our CADD pipeline do not change in the future (helping us to maintain the talktorials).</p>
 <div class="alert alert-block alert-info"><p>Note: If you prefer to run this notebook on the latest dataset or if you want to use it for another target, please comment the cell below.</p>
 </div><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Disable this cell to unfreeze the dataset</span>
@@ -2733,7 +2349,8 @@ DataFrame shape: (6454, 5)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+</pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
 <div>
@@ -2807,7 +2424,7 @@ DataFrame shape: (6454, 5)
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"DataFrame shape: </span><span class="si">{</span><span class="n">output_df</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -2825,10 +2442,10 @@ DataFrame shape: (5568, 5)
 </div>
 </section>
 <section id="Write-output-data-to-file">
-<h4 id="Write-output-data-to-file">Write output data to file<a class="headerlink" href="#Write-output-data-to-file" title="Permalink to this heading">¶</a></h4>
+<h4 id="Write-output-data-to-file">Write output data to file<a class="headerlink" href="#Write-output-data-to-file" title="Link to this heading">¶</a></h4>
 <p>We want to use this bioactivity-compound dataset in the following talktorials, thus we save the data as <code class="docutils literal notranslate"><span class="pre">csv</span></code> file. Note that it is advisable to drop the molecule column (which only contains an image of the molecules) when saving the data.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"EGFR_compounds.csv"</span><span class="p">)</span>
@@ -2837,7 +2454,8 @@ DataFrame shape: (5568, 5)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+</pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
 <div>
@@ -2911,7 +2529,7 @@ DataFrame shape: (5568, 5)
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"DataFrame shape: </span><span class="si">{</span><span class="n">output_df</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -2931,13 +2549,13 @@ DataFrame shape: (5568, 5)
 </section>
 </section>
 <section id="Discussion">
-<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this heading">¶</a></h2>
+<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Link to this heading">¶</a></h2>
 <p>In this tutorial, we collected bioactivity data for our target of interest from the ChEMBL database. We filtered the data set in order to only contain molecules with measured IC50 bioactivity values.</p>
 <p>Be aware that ChEMBL data originates from various sources. Compound data has been generated in different labs by different people all over the world. Therefore, we have to be cautious with the predictions we make using this data set. It is always important to consider the source of the data and consistency of data production assays when interpreting the results and determining how much confidence we have in our predictions.</p>
 <p>In the next tutorials, we will filter our acquired data by Lipinski’s rule of five and by unwanted substructures. Another important step would be to <em>clean</em> the molecular data. As this is not shown in any of our talktorials (yet), we would like to refer to the <a class="reference external" href="https://github.com/flatkinson/standardiser">Standardiser library</a> or <a class="reference external" href="https://molvs.readthedocs.io/en/latest/">MolVS</a> as useful tools for this task.</p>
 </section>
 <section id="Quiz">
-<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Permalink to this heading">¶</a></h2>
+<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>We have downloaded in this talktorial molecules and bioactivity data from ChEMBL. What else is the ChEMBL database useful for?</p></li>
 <li><p>What is the difference between IC50 and EC50?</p></li>
@@ -2991,11 +2609,11 @@ DataFrame shape: (5568, 5)
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2018-2023, Volkamer Lab. Project structure based on the Computational Molecular Science Python Cookiecutter version 1.1.
+              &#169; Copyright 2018-2026, Volkamer Lab. Project structure based on the Computational Molecular Science Python Cookiecutter version 1.1.
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 9.0.4.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

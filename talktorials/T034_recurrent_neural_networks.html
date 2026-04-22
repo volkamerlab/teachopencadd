@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta property="og:title" content="T034 · RNN-based molecular property prediction" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://projects.volkamerlab.org/teachopencadd/talktorials/T034_recurrent_neural_networks.html" />
+<meta property="og:url" content="talktorials/T034_recurrent_neural_networks.html" />
 <meta property="og:site_name" content="TeachOpenCADD" />
-<meta property="og:description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Azat Tagirdzhanov, 2022, Chair for Clinical Bioinformatics, NextAID project, Saarland University. Aim of this..." />
-<meta property="og:image" content="https://raw.githubusercontent.com/volkamerlab/teachopencadd/master/docs/_static/images/TeachOpenCADD_topics.png" />
-<meta property="og:image:alt" content="TeachOpenCADD" />
-<meta name="description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Azat Tagirdzhanov, 2022, Chair for Clinical Bioinformatics, NextAID project, Saarland University. Aim of this..." />
+<meta property="og:description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Azat Tagi..." />
+<meta property="og:image:width" content="1146" />
+<meta property="og:image:height" content="600" />
+<meta property="og:image" content="_images/social_previews/summary_talktorials_T034_recurrent_neural_networks_cf0a7855.png" />
+<meta property="og:image:alt" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Azat Tagi..." />
+<meta name="description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Azat Tagi..." />
+<meta name="twitter:card" content="summary_large_image" />
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -79,31 +82,27 @@
         gtag('config', 'G-Q6ZE82CNZB');
     </script>
   
-    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
-  
-    <title>T034 · RNN-based molecular property prediction &#8212; TeachOpenCADD 0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+    <title>T034 · RNN-based molecular property prediction &#8212; TeachOpenCADD 2023.5.2.post442 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=75810a84" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
-    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=897d968c" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=e43216b9"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/documentation_options.js?v=f78c6808"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="T035 · GNN-based molecular property prediction" href="T035_graph_neural_networks.html" />
     <link rel="prev" title="T033 · Molecular representations" href="T033_molecular_representations.html" />
-  
-    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
    
 
@@ -127,7 +126,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../index.html" title="TeachOpenCADD 0 documentation"
+        <a href="../index.html" title="TeachOpenCADD 2023.5.2.post442 documentation"
            class="md-header-nav__button md-logo">
           
             <i class="md-icon">school</i>
@@ -139,7 +138,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">TeachOpenCADD</span>
+          <span class="md-header-nav__topic">TeachOpenCADD 2023.5.2.post442 documentation</span>
           <span class="md-header-nav__topic"> T034 · RNN-based molecular property prediction </span>
         </div>
       </div>
@@ -191,6 +190,16 @@
         </div>
       
       
+  
+  <script src="../_static/javascripts/version_dropdown.js"></script>
+  <script>
+    var json_loc = "../"versions.json"",
+        target_loc = "../../",
+        text = "Versions";
+    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
+  </script>
+  
+
     </div>
   </nav>
 </header>
@@ -203,6 +212,7 @@
   <nav class="md-tabs" data-md-component="tabs">
     <div class="md-tabs__inner md-grid">
       <ul class="md-tabs__list">
+          <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">TeachOpenCADD 2023.5.2.post442 documentation</a></li>
             
             <li class="md-tabs__item"><a href="../talktorials.html" class="md-tabs__link">Our talktorials</a></li>
             
@@ -225,13 +235,13 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../index.html" title="TeachOpenCADD 0 documentation" class="md-nav__button md-logo">
+    <a href="../index.html" title="TeachOpenCADD 2023.5.2.post442 documentation" class="md-nav__button md-logo">
       
         <i class="md-icon">school</i>
       
     </a>
     <a href="../index.html"
-       title="TeachOpenCADD 0 documentation">TeachOpenCADD</a>
+       title="TeachOpenCADD 2023.5.2.post442 documentation">TeachOpenCADD 2023.5.2.post442 documentation</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
@@ -248,443 +258,6 @@
 </a>
     </div>
   
-  
-
-  
-  <ul class="md-nav__list">
-    <li class="md-nav__item">
-    
-      <span class="md-nav__link caption"><span class="caption-text">Our talktorials</span></span>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="T001_query_chembl.html" class="md-nav__link">T001 · Compound data acquisition (ChEMBL)</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T002_compound_adme.html" class="md-nav__link">T002 · Molecular filtering: ADME and lead-likeness criteria</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T003_compound_unwanted_substructures.html" class="md-nav__link">T003 · Molecular filtering: unwanted substructures</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T004_compound_similarity.html" class="md-nav__link">T004 · Ligand-based screening: compound similarity</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T005_compound_clustering.html" class="md-nav__link">T005 · Compound clustering</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T006_compound_maximum_common_substructures.html" class="md-nav__link">T006 · Maximum common substructure</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T007_compound_activity_machine_learning.html" class="md-nav__link">T007 · Ligand-based screening: machine learning</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T008_query_pdb.html" class="md-nav__link">T008 · Protein data acquisition: Protein Data Bank (PDB)</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T009_compound_ensemble_pharmacophores.html" class="md-nav__link">T009 · Ligand-based pharmacophores</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T010_binding_site_comparison.html" class="md-nav__link">T010 · Binding site similarity and off-target prediction</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T011_query_online_api_webservices.html" class="md-nav__link">T011 · Querying online API webservices</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T012_query_klifs.html" class="md-nav__link">T012 · Data acquisition from KLIFS</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T013_query_pubchem.html" class="md-nav__link">T013 · Data acquisition from PubChem</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T014_binding_site_detection.html" class="md-nav__link">T014 · Binding site detection</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T015_protein_ligand_docking.html" class="md-nav__link">T015 · Protein ligand docking</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T016_protein_ligand_interactions.html" class="md-nav__link">T016 · Protein-ligand interactions</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T017_advanced_nglview_usage.html" class="md-nav__link">T017 · Advanced NGLview usage</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T018_automated_cadd_pipeline.html" class="md-nav__link">T018 · Automated pipeline for lead optimization</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T019_md_simulation.html" class="md-nav__link">T019 · Molecular dynamics simulation</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T020_md_analysis.html" class="md-nav__link">T020 · Analyzing molecular dynamics simulations</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T021_one_hot_encoding.html" class="md-nav__link">T021 · One-Hot Encoding</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T022_ligand_based_screening_neural_network.html" class="md-nav__link">T022 · Ligand-based screening: neural networks</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T023_what_is_a_kinase.html" class="md-nav__link">T023 · What is a kinase?</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T024_kinase_similarity_sequence.html" class="md-nav__link">T024 · Kinase similarity: Sequence</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T025_kinase_similarity_kissim.html" class="md-nav__link">T025 · Kinase similarity: Kinase pocket (KiSSim fingerprint)</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T026_kinase_similarity_ifp.html" class="md-nav__link">T026 · Kinase similarity: Interaction fingerprints</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T027_kinase_similarity_ligand_profile.html" class="md-nav__link">T027 · Kinase similarity: Ligand profile</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T028_kinase_similarity_compare_perspectives.html" class="md-nav__link">T028 · Kinase similarity: Compare different perspectives</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T033_molecular_representations.html" class="md-nav__link">T033 · Molecular representations</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> T034 · RNN-based molecular property prediction </label>
-    
-      <a href="#" class="md-nav__link md-nav__link--active">T034 · RNN-based molecular property prediction</a>
-      
-        
-<nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">"Contents"</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#talktorials-t034-recurrent-neural-networks--page-root" class="md-nav__link">T034 · RNN-based molecular property prediction</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
-        </li>
-        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
-        </li>
-        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Talktorials" class="md-nav__link">Talktorials</a>
-        </li>
-        <li class="md-nav__item"><a href="#Theoretical-background" class="md-nav__link">Theoretical background</a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Molecules-as-text" class="md-nav__link">Molecules as text</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Tokenization-and-one-hot-encoding" class="md-nav__link">Tokenization and one-hot encoding</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Recurrent-Neural-Networks-(RNNs)" class="md-nav__link">Recurrent Neural Networks (RNNs)</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Vanilla-RNN" class="md-nav__link">Vanilla RNN</a>
-        </li>
-        <li class="md-nav__item"><a href="#Training-an-RNN" class="md-nav__link">Training an RNN</a>
-        </li>
-        <li class="md-nav__item"><a href="#Vanishing-gradients" class="md-nav__link">Vanishing gradients</a>
-        </li>
-        <li class="md-nav__item"><a href="#Gated-Recurrent-Unit" class="md-nav__link">Gated Recurrent Unit</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Reset-gate" class="md-nav__link">Reset gate</a>
-        </li>
-        <li class="md-nav__item"><a href="#Update-gate" class="md-nav__link">Update gate</a>
-        </li>
-        <li class="md-nav__item"><a href="#Hidden-state-candidate" class="md-nav__link">Hidden state candidate</a>
-        </li>
-        <li class="md-nav__item"><a href="#Hidden-state-update" class="md-nav__link">Hidden state update</a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Dataset" class="md-nav__link">Dataset</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Preprocessing" class="md-nav__link">Preprocessing</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Models" class="md-nav__link">Models</a>
-        </li>
-        <li class="md-nav__item"><a href="#Training" class="md-nav__link">Training</a>
-        </li>
-        <li class="md-nav__item"><a href="#Evaluation" class="md-nav__link">Evaluation</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
-        </li>
-        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
-        </li></ul>
-            </nav>
-        </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T034_recurrent_neural_networks.nblink.txt">Show Source</a> </li>
-
-  </ul>
-</nav>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T035_graph_neural_networks.html" class="md-nav__link">T035 · GNN-based molecular property prediction</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T036_e3_equivariant_gnn.html" class="md-nav__link">T036 · An introduction to E(3)-invariant graph neural networks</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T037_uncertainty_estimation.html" class="md-nav__link">T037 · Uncertainty estimation</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T038_protein_ligand_interaction_prediction.html" class="md-nav__link">T038 · Protein Ligand Interaction Prediction</a>
-      
-    
-    </li></ul>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-      <span class="md-nav__link caption"><span class="caption-text">Run locally</span></span>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../installing.html" class="md-nav__link">Installing</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-      <span class="md-nav__link caption"><span class="caption-text">Development</span></span>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../contribute.html" class="md-nav__link">For contributors</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../api.html" class="md-nav__link">API Documentation</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-      <span class="md-nav__link caption"><span class="caption-text">About TeachOpenCADD</span></span>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../contact.html" class="md-nav__link">Contact</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../acknowledgments.html" class="md-nav__link">Acknowledgments</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../citation.html" class="md-nav__link">Citation</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../license.html" class="md-nav__link">License</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../funding.html" class="md-nav__link">Funding</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-      <span class="md-nav__link caption"><span class="caption-text">External resources</span></span>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../external_dependencies.html" class="md-nav__link">Packages and webservers used in TeachOpenCADD</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../external_tutorials_collections.html" class="md-nav__link">External tutorials and collections</a>
-      
-    
-    </li>
-  </ul>
   
 
 </nav>
@@ -785,17 +358,17 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="T034-·-RNN-based-molecular-property-prediction">
-<h1 id="talktorials-t034-recurrent-neural-networks--page-root">T034 · RNN-based molecular property prediction<a class="headerlink" href="#talktorials-t034-recurrent-neural-networks--page-root" title="Permalink to this heading">¶</a></h1>
+<h1 id="talktorials-t034-recurrent-neural-networks--page-root">T034 · RNN-based molecular property prediction<a class="headerlink" href="#talktorials-t034-recurrent-neural-networks--page-root" title="Link to this heading">¶</a></h1>
 <p><strong>Note:</strong> This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.</p>
 <p>Authors:</p>
 <ul class="simple">
 <li><p>Azat Tagirdzhanov, 2022, <a class="reference external" href="https://www.ccb.uni-saarland.de/">Chair for Clinical Bioinformatics</a>, <a class="reference external" href="https://nextaid.cs.uni-saarland.de/">NextAID</a> project, Saarland University</p></li>
 </ul>
 <section id="Aim-of-this-talktorial">
-<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this heading">¶</a></h2>
+<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Link to this heading">¶</a></h2>
 <p>Molecular representation by a SMILES string paved the way for applying natural language processing techniques to a broad range of molecule-related tasks. In this talktorial we will dive deeper into one of these techniques: recurrent neural networks (RNNs). First, we will describe different RNN architectures and then apply them to a regression task using the QM9 dataset.</p>
 <section id="Contents-in-Theory">
-<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Permalink to this heading">¶</a></h3>
+<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Molecules as text</p>
 <ul>
@@ -813,7 +386,7 @@
 </ul>
 </section>
 <section id="Contents-in-Practical">
-<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Permalink to this heading">¶</a></h3>
+<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Dataset</p></li>
 <li><p>Model definition</p></li>
@@ -822,9 +395,9 @@
 </ul>
 </section>
 <section id="References">
-<h3 id="References">References<a class="headerlink" href="#References" title="Permalink to this heading">¶</a></h3>
+<h3 id="References">References<a class="headerlink" href="#References" title="Link to this heading">¶</a></h3>
 <section id="Talktorials">
-<h4 id="Talktorials">Talktorials<a class="headerlink" href="#Talktorials" title="Permalink to this heading">¶</a></h4>
+<h4 id="Talktorials">Talktorials<a class="headerlink" href="#Talktorials" title="Link to this heading">¶</a></h4>
 <ul class="simple">
 <li><p><strong>Talktorial T021</strong>: One-Hot Encoding</p></li>
 <li><p><strong>Talktorial T022</strong>: Ligand-based screening: neural networks</p></li>
@@ -833,7 +406,7 @@
 </ul>
 </section>
 <section id="Theoretical-background">
-<h4 id="Theoretical-background">Theoretical background<a class="headerlink" href="#Theoretical-background" title="Permalink to this heading">¶</a></h4>
+<h4 id="Theoretical-background">Theoretical background<a class="headerlink" href="#Theoretical-background" title="Link to this heading">¶</a></h4>
 <ul class="simple">
 <li><p>Michael Phi, Illustrated Guide to Recurrent Neural Networks, <a class="reference external" href="https://towardsdatascience.com/illustrated-guide-to-recurrent-neural-networks-79e5eb8049c9">towardsdatascience</a></p></li>
 <li><p>Michael Phi, Illustrated Guide to LSTM’s and GRU’s: A step by-step explanation, <a class="reference external" href="https://towardsdatascience.com/illustrated-guide-to-lstms-and-gru-s-a-step-by-step-explanation-44e9eb85bf21">towardsdatascience</a></p></li>
@@ -841,29 +414,48 @@
 <li><p>Denny Britz, Recurrent Neural Networks Tutorial, <a class="reference external" href="https://dennybritz.com/posts/wildml/recurrent-neural-networks-tutorial-part-1/">dennybritz.com</a></p></li>
 <li><p>Andrej Karpathy, The Unreasonable Effectiveness of Recurrent Neural Networks, <a class="reference external" href="https://karpathy.github.io/2015/05/21/rnn-effectiveness/">Andrej Karpathy blog</a></p></li>
 </ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="k">if</span> <span class="s2">"google.colab"</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
+    <span class="o">%</span><span class="k">pip</span> install teachopencadd --no-deps -q
+    <span class="o">!</span>teachopencadd<span class="w"> </span>-d<span class="w"> </span><span class="m">34</span>
+    <span class="o">%</span><span class="k">pip</span> uninstall teachopencadd -y -q
+    <span class="o">%</span><span class="k">pip</span> install -qr requirements.txt
+</pre></div>
+</div>
+</div>
 </section>
 </section>
 </section>
 <section id="Theory">
-<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this heading">¶</a></h2>
+<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Link to this heading">¶</a></h2>
 <section id="Molecules-as-text">
-<h3 id="Molecules-as-text">Molecules as text<a class="headerlink" href="#Molecules-as-text" title="Permalink to this heading">¶</a></h3>
+<h3 id="Molecules-as-text">Molecules as text<a class="headerlink" href="#Molecules-as-text" title="Link to this heading">¶</a></h3>
 <p>To apply machine learning to molecular data, it is necessary to first convert the molecules into a representation that can be used as input to the machine learning models. We have already discussed numerous ways of molecular representations in <strong>Talktorial T033</strong>. In this talktorial we will be using a textual representation of molecules by SMILES strings.</p>
 <p>The string representation of molecules paves the way for applying natural language processing (NLP) techniques to molecular data. In recent years, there has been significant progress in NLP models including, most famously, recurrent neural networks and transformers. These models proved to be good at capturing text semantics and, when applied to SMILES strings, can capture the structure of the molecule in its textual representation.</p>
 <section id="Tokenization-and-one-hot-encoding">
-<h4 id="Tokenization-and-one-hot-encoding">Tokenization and one-hot encoding<a class="headerlink" href="#Tokenization-and-one-hot-encoding" title="Permalink to this heading">¶</a></h4>
-<p>Like other machine learning models, NLP models are designed to operate with numeric inputs. We have already discussed how to transform SMILES strings into numerical form in <strong>Talktorial T021</strong>. Here, we will only briefly go through the key steps: - To transform a string into a sequence of vectors, the string is first split into meaningful chunks called <em>tokens</em>. For example, one way of tokenizing a SMILES string <code class="docutils literal notranslate"><span class="pre">C=CCl</span></code> is to split it into individual atomic and branch symbols:
-<code class="docutils literal notranslate"><span class="pre">[C,</span> <span class="pre">=,</span> <span class="pre">C,</span> <span class="pre">Cl]</span></code>. - All possible tokens form a <em>vocabulary</em>. The vocabulary is usually derived from the dataset and contains a fixed amount of the most common tokens among all the data. Depending on the application, the vocabulary might also contain special tokens marking out-of-vocabulary tokens, padding symbols, and more. In our example, only limited to this particular compound, the vocabulary will look like <code class="docutils literal notranslate"><span class="pre">[C,</span> <span class="pre">Cl,</span> <span class="pre">=]</span></code>. Replacing the tokens with their indices in the vocabulary gets us to
-another representation, <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">2,</span> <span class="pre">0,</span> <span class="pre">1]</span></code>. - Finally, the sequence of token indices is transformed to a sequence of binary vectors using one-hot encoding:</p>
+<h4 id="Tokenization-and-one-hot-encoding">Tokenization and one-hot encoding<a class="headerlink" href="#Tokenization-and-one-hot-encoding" title="Link to this heading">¶</a></h4>
+<p>Like other machine learning models, NLP models are designed to operate with numeric inputs. We have already discussed how to transform SMILES strings into numerical form in <strong>Talktorial T021</strong>. Here, we will only briefly go through the key steps:</p>
+<ul>
+<li><p>To transform a string into a sequence of vectors, the string is first split into meaningful chunks called <em>tokens</em>. For example, one way of tokenizing a SMILES string <code class="docutils literal notranslate"><span class="pre">C=CCl</span></code> is to split it into individual atomic and branch symbols: <code class="docutils literal notranslate"><span class="pre">[C,</span> <span class="pre">=,</span> <span class="pre">C,</span> <span class="pre">Cl]</span></code>.</p></li>
+<li><p>All possible tokens form a <em>vocabulary</em>. The vocabulary is usually derived from the dataset and contains a fixed amount of the most common tokens among all the data. Depending on the application, the vocabulary might also contain special tokens marking out-of-vocabulary tokens, padding symbols, and more. In our example, only limited to this particular compound, the vocabulary will look like <code class="docutils literal notranslate"><span class="pre">[C,</span> <span class="pre">Cl,</span> <span class="pre">=]</span></code>. Replacing the tokens with their indices in the vocabulary gets us to another
+representation, <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">2,</span> <span class="pre">0,</span> <span class="pre">1]</span></code>.</p></li>
+<li><p>Finally, the sequence of token indices is transformed to a sequence of binary vectors using one-hot encoding:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix},~
 \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix},~
 \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix},~
 \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix}.\end{split}\]</div>
+</li>
+</ul>
 </section>
 </section>
 <section id="Recurrent-Neural-Networks-(RNNs)">
-<h3 id="Recurrent-Neural-Networks-(RNNs)">Recurrent Neural Networks (RNNs)<a class="headerlink" href="#Recurrent-Neural-Networks-(RNNs)" title="Permalink to this heading">¶</a></h3>
+<h3 id="Recurrent-Neural-Networks-(RNNs)">Recurrent Neural Networks (RNNs)<a class="headerlink" href="#Recurrent-Neural-Networks-(RNNs)" title="Link to this heading">¶</a></h3>
 <p>Recurrent neural networks (RNNs) are designed to handle sequential data. To do so, they introduce the notion of time. Elements of the input sequence are processed one after another, with the output of the current time step being passed to the next one as an additional input. This is done by introducing a special type of connection called a <em>recurrent connection</em> (hence the name). This architecture allows RNNs to accumulate information about the past and as a result capture dependencies between
 elements in the sequence.</p>
 <p>The figure below illustrates the basic principle of an RNN. An RNN cell has a hidden state vector <span class="math notranslate nohighlight">\(h_t\)</span> which is updated at each time step <span class="math notranslate nohighlight">\(t\)</span> and is responsible for aggregating the information about the previous elements of the input sequence. The update is performed by combining the input <span class="math notranslate nohighlight">\(x_t\)</span> with the hidden state of the previous step <span class="math notranslate nohighlight">\(h_{t-1}\)</span>, passed to the RNN cell by the recurrent connection (Figure 1, on the left).</p>
@@ -872,40 +464,40 @@ elements in the sequence.</p>
 <p><em>Figure 1:</em> Two ways of representing a recurrent neural network: compressed (left) and unfolded in time (right).</p>
 <p>The mechanism behind the computation of the hidden state varies depending on the architecture. Examples of RNN architectures include Vanilla RNN, Long Short-Term Memory (LSTM), and Gated Recurrent Units (GRUs).</p>
 <section id="Vanilla-RNN">
-<h4 id="Vanilla-RNN">Vanilla RNN<a class="headerlink" href="#Vanilla-RNN" title="Permalink to this heading">¶</a></h4>
+<h4 id="Vanilla-RNN">Vanilla RNN<a class="headerlink" href="#Vanilla-RNN" title="Link to this heading">¶</a></h4>
 <p>In a Vanilla RNN the hidden state is updated according to the following recurrence relation,</p>
 <div class="math notranslate nohighlight">
 \[h_{t} = \tanh( W x_{t} + U h_{t-1} + b),~~~t=1,2,\dots,L.\]</div>
 <p>Here <span class="math notranslate nohighlight">\(W\)</span> and <span class="math notranslate nohighlight">\(U\)</span> are weight matrices, and <span class="math notranslate nohighlight">\(b\)</span> is a bias vector. The initial hidden state <span class="math notranslate nohighlight">\(h_0\)</span> is usually seeded as a vector of zeros. Model weights <span class="math notranslate nohighlight">\(W\)</span>, <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are shared between all the time steps.</p>
 </section>
 <section id="Training-an-RNN">
-<h4 id="Training-an-RNN">Training an RNN<a class="headerlink" href="#Training-an-RNN" title="Permalink to this heading">¶</a></h4>
+<h4 id="Training-an-RNN">Training an RNN<a class="headerlink" href="#Training-an-RNN" title="Link to this heading">¶</a></h4>
 <p>Similar to other neural networks, RNNs are trained using a backpropagation algorithm. A flavor of the algorithm used in RNNs is called <em>backpropagation through time</em> or BPTT for short. BPTT applies backpropagation to the unfolded network to compute the gradient of the loss function for the network weights taking into account parameter sharing.</p>
 </section>
 <section id="Vanishing-gradients">
-<h4 id="Vanishing-gradients">Vanishing gradients<a class="headerlink" href="#Vanishing-gradients" title="Permalink to this heading">¶</a></h4>
+<h4 id="Vanishing-gradients">Vanishing gradients<a class="headerlink" href="#Vanishing-gradients" title="Link to this heading">¶</a></h4>
 <p>Vanilla RNNs are susceptible to a problem called <em>vanishing gradients</em>. This problem occurs in deep neural networks when the gradients of the weights of the first layers of the network become very small as they are backpropagated through the network. This can lead to slow training and poor performance. In RNNs, the backpropagation is applied to the unfolded network which tends to be very deep. Furthermore, all copies of the RNN cells in the unfolded network share the same weights, which can
 cause gradients to diminish exponentially fast. For more details on the vanishing gradients problem, please refer to the blog post: <a class="reference external" href="https://dennybritz.com/posts/wildml/recurrent-neural-networks-tutorial-part-3/">Backpropagation Through Time and Vanishing Gradients</a>.</p>
 </section>
 <section id="Gated-Recurrent-Unit">
-<h4 id="Gated-Recurrent-Unit">Gated Recurrent Unit<a class="headerlink" href="#Gated-Recurrent-Unit" title="Permalink to this heading">¶</a></h4>
+<h4 id="Gated-Recurrent-Unit">Gated Recurrent Unit<a class="headerlink" href="#Gated-Recurrent-Unit" title="Link to this heading">¶</a></h4>
 <p>A Gated recurrent unit (GRU) is a more advanced architecture of the recurrent network that aims to solve the vanishing gradient problem. In addition to the hidden state vector, GRU introduces the so-called <em>update gate</em> and <em>reset gate</em>. These two vectors help the model to decide which information should be passed forward. They can be trained to keep information from long ago, without washing it through time or removing information that is irrelevant to the prediction.</p>
 <section id="Reset-gate">
-<h5 id="Reset-gate">Reset gate<a class="headerlink" href="#Reset-gate" title="Permalink to this heading">¶</a></h5>
+<h5 id="Reset-gate">Reset gate<a class="headerlink" href="#Reset-gate" title="Link to this heading">¶</a></h5>
 <p>This gate is used by the GRU cell to decide how much of the past information to forget. It is calculated using the formula</p>
 <div class="math notranslate nohighlight">
 \[r_t = \sigma(W_{r} x_t + U_{r} h_{t-1} + b_r).\]</div>
 <p>The input vector <span class="math notranslate nohighlight">\(x_t\)</span> is multiplied by the weight matrix <span class="math notranslate nohighlight">\(W_r\)</span>. The hidden state from the previous time steps <span class="math notranslate nohighlight">\(h_{t-1}\)</span> is also plugged into the cell and is multiplied by its weight matrix <span class="math notranslate nohighlight">\(U_r\)</span>. Both results are added together with a bias vector <span class="math notranslate nohighlight">\(b_r\)</span> and passed through a sigmoid activation function to limit the output to a range between 0 and 1.</p>
 </section>
 <section id="Update-gate">
-<h5 id="Update-gate">Update gate<a class="headerlink" href="#Update-gate" title="Permalink to this heading">¶</a></h5>
+<h5 id="Update-gate">Update gate<a class="headerlink" href="#Update-gate" title="Link to this heading">¶</a></h5>
 <p>The update gate is calculated using a similar formula,</p>
 <div class="math notranslate nohighlight">
 \[z_t = \sigma(W_{z} x_t + U_{z} h_{t-1} + b_z),\]</div>
 <p>but it has its own weights <span class="math notranslate nohighlight">\(W_z\)</span>, <span class="math notranslate nohighlight">\(U_z\)</span>, <span class="math notranslate nohighlight">\(b_z\)</span>, and serves a different purpose. As we will see below, the update gate helps the GRU cell to decide how much of the past information should be passed to the future step.</p>
 </section>
 <section id="Hidden-state-candidate">
-<h5 id="Hidden-state-candidate">Hidden state candidate<a class="headerlink" href="#Hidden-state-candidate" title="Permalink to this heading">¶</a></h5>
+<h5 id="Hidden-state-candidate">Hidden state candidate<a class="headerlink" href="#Hidden-state-candidate" title="Link to this heading">¶</a></h5>
 <p>A candidate’s hidden state stores the relevant information from the past. It is calculated as follows:</p>
 <div class="math notranslate nohighlight">
 \[\hat{h}_t = \tanh(W_{h} x_t + U_{h}(r_t \odot h_{t-1}) + b_h),\]</div>
@@ -913,7 +505,7 @@ cause gradients to diminish exponentially fast. For more details on the vanishin
 which information is not relevant and should be discarded. If, for example, an <span class="math notranslate nohighlight">\(i\)</span>-th component of <span class="math notranslate nohighlight">\(r_t\)</span> is close to 0, then the memory contained in the <span class="math notranslate nohighlight">\(i\)</span>-th component of <span class="math notranslate nohighlight">\(h_{t-1}\)</span> will be discarded in the candidate vector.</p>
 </section>
 <section id="Hidden-state-update">
-<h5 id="Hidden-state-update">Hidden state update<a class="headerlink" href="#Hidden-state-update" title="Permalink to this heading">¶</a></h5>
+<h5 id="Hidden-state-update">Hidden state update<a class="headerlink" href="#Hidden-state-update" title="Link to this heading">¶</a></h5>
 <p>Finally, the hidden state is updated as a mixture of <span class="math notranslate nohighlight">\(h_{t-1}\)</span> and the hidden state candidate,</p>
 <div class="math notranslate nohighlight">
 \[h_t =   z_t \odot h_{t-1} + (1-z_t) \odot  \hat{h}_t.\]</div>
@@ -923,29 +515,29 @@ which information is not relevant and should be discarded. If, for example, an <
 </section>
 </section>
 <section id="Practical">
-<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this heading">¶</a></h2>
+<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Link to this heading">¶</a></h2>
 <p>In the practical section, we will apply recurrent neural networks to a regression task.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">torch</span>
-<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
-<span class="kn">from</span> <span class="nn">torch.nn.utils.rnn</span> <span class="kn">import</span> <span class="n">pad_sequence</span>
-<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">DataLoader</span><span class="p">,</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">Subset</span><span class="p">,</span> <span class="n">TensorDataset</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nn</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch.nn.utils.rnn</span><span class="w"> </span><span class="kn">import</span> <span class="n">pad_sequence</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch.utils.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataLoader</span><span class="p">,</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">Subset</span><span class="p">,</span> <span class="n">TensorDataset</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use cuda if available</span>
@@ -957,7 +549,7 @@ which information is not relevant and should be discarded. If, for example, an <
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HERE</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">_dh</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
@@ -966,10 +558,10 @@ which information is not relevant and should be discarded. If, for example, an <
 </div>
 </div>
 <section id="Dataset">
-<h3 id="Dataset">Dataset<a class="headerlink" href="#Dataset" title="Permalink to this heading">¶</a></h3>
+<h3 id="Dataset">Dataset<a class="headerlink" href="#Dataset" title="Link to this heading">¶</a></h3>
 <p>In this talktorial we use <a class="reference external" href="https://pytorch-geometric.readthedocs.io/en/2.2.0/modules/datasets.html#torch_geometric.datasets.QM9">QM9</a> dataset from the <a class="reference external" href="https://arxiv.org/abs/1703.00564">MoleculeNet</a> paper. This dataset consists of about 130,000 molecules together with their quantum chemical properties.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load the dataset</span>
@@ -979,7 +571,7 @@ which information is not relevant and should be discarded. If, for example, an <
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1152,26 +744,26 @@ which information is not relevant and should be discarded. If, for example, an <
 </div>
 <p>In this talktorial we will build a model predicting one of the properties – the dipole moment <code class="docutils literal notranslate"><span class="pre">mu</span></code> – based on the string representation of the molecule provided in the <code class="docutils literal notranslate"><span class="pre">smiles</span></code> column in the table above.</p>
 <section id="Preprocessing">
-<h4 id="Preprocessing">Preprocessing<a class="headerlink" href="#Preprocessing" title="Permalink to this heading">¶</a></h4>
+<h4 id="Preprocessing">Preprocessing<a class="headerlink" href="#Preprocessing" title="Link to this heading">¶</a></h4>
 <p>First, define the classes and helper functions we will be using for the data preprocessing</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SmilesTokenizer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">SmilesTokenizer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    A simple regex-based tokenizer adapted from the deepchem smiles_tokenizer package.</span>
 <span class="sd">    SMILES regex pattern for the tokenization is designed by Schwaller et. al., ACS Cent. Sci 5 (2019)</span>
 <span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">regex_pattern</span> <span class="o">=</span> <span class="p">(</span>
             <span class="sa">r</span><span class="s2">"(\[[^\]]+]|Br?|Cl?|N|O|S|P|F|I|b|c|n|o|s|p|\(|\)|\."</span>
             <span class="sa">r</span><span class="s2">"|=|#|-|\+|</span><span class="se">\\</span><span class="s2">|\/|:|~|@|\?|&gt;&gt;?|\*|\$|\%[0-9]</span><span class="si">{2}</span><span class="s2">|[0-9])"</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">regex</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">regex_pattern</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">tokenize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">smiles</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">tokenize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">smiles</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Tokenizes SMILES string.</span>
 
@@ -1191,10 +783,10 @@ which information is not relevant and should be discarded. If, for example, an <
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">build_vocab</span><span class="p">(</span><span class="n">smiles_list</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="n">max_vocab_size</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_vocab</span><span class="p">(</span><span class="n">smiles_list</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="n">max_vocab_size</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Builds a vocabulary of N=max_vocab_size most common tokens from list of SMILES strings.</span>
 
@@ -1218,7 +810,7 @@ which information is not relevant and should be discarded. If, for example, an <
     <span class="k">return</span> <span class="n">vocab</span>
 
 
-<span class="k">def</span> <span class="nf">smiles_to_ohe</span><span class="p">(</span><span class="n">smiles</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="n">vocab</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">smiles_to_ohe</span><span class="p">(</span><span class="n">smiles</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="n">vocab</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Transforms SMILES string to one-hot encoding representation.</span>
 
@@ -1246,7 +838,7 @@ which information is not relevant and should be discarded. If, for example, an <
 </div>
 <p>Let’s have a look at how these functions work with a simple example. Here, we will be using the same SMILES string as in the Theoretical section.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">SmilesTokenizer</span><span class="p">()</span>
@@ -1279,7 +871,7 @@ OHE:
 </div>
 <p>Now, we apply these preprocessing steps to our data. For the sake of reducing the runtime, we will be using only a random subset of the whole QM9 dataset. The dataset is split into training, validation and test sets. We build the vocabulary and define the transformation of the target based only on the training set.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_size</span> <span class="o">=</span> <span class="mi">50000</span>
@@ -1338,16 +930,16 @@ OHE:
 </section>
 </section>
 <section id="Models">
-<h3 id="Models">Models<a class="headerlink" href="#Models" title="Permalink to this heading">¶</a></h3>
+<h3 id="Models">Models<a class="headerlink" href="#Models" title="Link to this heading">¶</a></h3>
 <p>In this talktorial we compare two recurrent networks. Both of them contain a single recurrent layer followed by a fully-connected layer transforming the hidden state from the last time step to a one-dimensional output. In the <code class="docutils literal notranslate"><span class="pre">RNNRegressionModel</span></code> we use a vanilla RNN architecture, while in <code class="docutils literal notranslate"><span class="pre">GRURegressionModel</span></code> a more advanced GRU architecture.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">RNNRegressionModel</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">RNNRegressionModel</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Vanilla RNN with one recurrent layer"""</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">num_layers</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">num_layers</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Vanilla RNN</span>
 
@@ -1366,7 +958,7 @@ OHE:
         <span class="bp">self</span><span class="o">.</span><span class="n">fc</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
         <span class="n">h0</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_layers</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_size</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
         <span class="n">out</span><span class="p">,</span> <span class="n">hn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rnn</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">h0</span><span class="p">)</span>
         <span class="n">out</span> <span class="o">=</span> <span class="n">out</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
@@ -1375,10 +967,10 @@ OHE:
         <span class="k">return</span> <span class="n">out</span>
 
 
-<span class="k">class</span> <span class="nc">GRURegressionModel</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">GRURegressionModel</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""GRU network with one recurrent layer"""</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">num_layers</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">num_layers</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        GRU network</span>
 
@@ -1397,7 +989,7 @@ OHE:
         <span class="bp">self</span><span class="o">.</span><span class="n">fc</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
         <span class="n">h0</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_layers</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_size</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
         <span class="n">out</span><span class="p">,</span> <span class="n">hn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gru</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">h0</span><span class="p">)</span>
         <span class="n">out</span> <span class="o">=</span> <span class="n">out</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
@@ -1409,15 +1001,15 @@ OHE:
 </div>
 </section>
 <section id="Training">
-<h3 id="Training">Training<a class="headerlink" href="#Training" title="Permalink to this heading">¶</a></h3>
+<h3 id="Training">Training<a class="headerlink" href="#Training" title="Link to this heading">¶</a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ModelTrainer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">ModelTrainer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""A class that provides training and validation infrastructure for the model and keeps track of training and validation metrics."""</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">lr</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">clip_gradients</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">lr</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">clip_gradients</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Initialization.</span>
 
@@ -1440,7 +1032,7 @@ OHE:
         <span class="bp">self</span><span class="o">.</span><span class="n">batch_loss</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">val_loss</span> <span class="o">=</span> <span class="p">[]</span>
 
-    <span class="k">def</span> <span class="nf">_train_epoch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loader</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_train_epoch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loader</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
         <span class="n">epoch_loss</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="n">batch_losses</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1460,7 +1052,7 @@ OHE:
 
         <span class="k">return</span> <span class="n">epoch_loss</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">loader</span><span class="p">),</span> <span class="n">batch_losses</span>
 
-    <span class="k">def</span> <span class="nf">_eval_epoch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loader</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_eval_epoch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loader</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
         <span class="n">val_loss</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="n">predictions</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1478,7 +1070,7 @@ OHE:
         <span class="n">targets</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">targets</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">val_loss</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">loader</span><span class="p">),</span> <span class="n">predictions</span><span class="p">,</span> <span class="n">targets</span>
 
-    <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">val_loader</span><span class="p">,</span> <span class="n">n_epochs</span><span class="p">,</span> <span class="n">print_every</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">val_loader</span><span class="p">,</span> <span class="n">n_epochs</span><span class="p">,</span> <span class="n">print_every</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Train the model</span>
 
@@ -1500,7 +1092,7 @@ OHE:
             <span class="k">if</span> <span class="n">e</span> <span class="o">%</span> <span class="n">print_every</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Epoch </span><span class="si">{</span><span class="n">e</span><span class="o">+</span><span class="mi">0</span><span class="si">:</span><span class="s2">03</span><span class="si">}</span><span class="s2"> | train_loss: </span><span class="si">{</span><span class="n">train_loss</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2"> | val_loss: </span><span class="si">{</span><span class="n">val_loss</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val_loader</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val_loader</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Validate the model</span>
 
@@ -1521,7 +1113,7 @@ OHE:
 </div>
 <p>Now we define the models and train them for 50 epochs. The hidden state has the same dimension for both models.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_rnn</span> <span class="o">=</span> <span class="n">ModelTrainer</span><span class="p">(</span>
@@ -1532,7 +1124,7 @@ OHE:
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_rnn</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">train_loader</span><span class="p">,</span> <span class="n">val_loader</span><span class="p">,</span> <span class="mi">51</span><span class="p">)</span>
@@ -1545,15 +1137,15 @@ OHE:
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Epoch 000 | train_loss: 1.00060 | val_loss: 0.93796
-Epoch 010 | train_loss: 0.63237 | val_loss: 0.56349
-Epoch 020 | train_loss: 0.54434 | val_loss: 0.49586
-Epoch 030 | train_loss: 0.51031 | val_loss: 0.47032
-Epoch 040 | train_loss: 0.47616 | val_loss: 0.44936
-Epoch 050 | train_loss: 0.46097 | val_loss: 0.49712
+Epoch 010 | train_loss: 0.63185 | val_loss: 0.56341
+Epoch 020 | train_loss: 0.53801 | val_loss: 0.49376
+Epoch 030 | train_loss: 0.50546 | val_loss: 0.45505
+Epoch 040 | train_loss: 0.48365 | val_loss: 0.44333
+Epoch 050 | train_loss: 0.46981 | val_loss: 0.43694
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_gru</span> <span class="o">=</span> <span class="n">ModelTrainer</span><span class="p">(</span>
@@ -1564,7 +1156,7 @@ Epoch 050 | train_loss: 0.46097 | val_loss: 0.49712
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_gru</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">train_loader</span><span class="p">,</span> <span class="n">val_loader</span><span class="p">,</span> <span class="mi">51</span><span class="p">)</span>
@@ -1586,10 +1178,10 @@ Epoch 050 | train_loss: 0.29032 | val_loss: 0.31914
 </div>
 </section>
 <section id="Evaluation">
-<h3 id="Evaluation">Evaluation<a class="headerlink" href="#Evaluation" title="Permalink to this heading">¶</a></h3>
+<h3 id="Evaluation">Evaluation<a class="headerlink" href="#Evaluation" title="Link to this heading">¶</a></h3>
 <p>First, we compare our models’ performance during training. We have plotted the losses on the training and validation sets on each epoch. As we can see, the GRU model trains faster and has better overall performance compared to the Vanilla RNN.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">model_rnn</span><span class="o">.</span><span class="n">train_loss</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">"RNN train"</span><span class="p">)</span>
@@ -1606,12 +1198,12 @@ Epoch 050 | train_loss: 0.29032 | val_loss: 0.31914
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T034_recurrent_neural_networks_45_0.png" src="../_images/talktorials_T034_recurrent_neural_networks_45_0.png"/>
+<img alt="../_images/talktorials_T034_recurrent_neural_networks_46_0.png" src="../_images/talktorials_T034_recurrent_neural_networks_46_0.png"/>
 </div>
 </div>
 <p>To further evaluate the performance of the models, we calculate the loss on the testing set and visually compare the predictions to the ground truth values. As we can see from the plot, Vanilla RNN tends to produce more skewed predictions compared to the GRU model.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">axarr</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1643,7 +1235,7 @@ Epoch 050 | train_loss: 0.29032 | val_loss: 0.31914
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-RNN test loss: 0.497
+RNN test loss: 0.437
 GRU test loss: 0.319
 </pre></div></div>
 </div>
@@ -1651,17 +1243,17 @@ GRU test loss: 0.319
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T034_recurrent_neural_networks_47_1.png" src="../_images/talktorials_T034_recurrent_neural_networks_47_1.png"/>
+<img alt="../_images/talktorials_T034_recurrent_neural_networks_48_1.png" src="../_images/talktorials_T034_recurrent_neural_networks_48_1.png"/>
 </div>
 </div>
 </section>
 </section>
 <section id="Discussion">
-<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this heading">¶</a></h2>
+<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Link to this heading">¶</a></h2>
 <p>Natural language processing-based models proved to be a powerful tool for a wide range of molecular tasks. In this talktorial we introduced the basics of Recurrent Neural Network architectures and demonstrated their application to the regression task on the QM9 dataset. We have learned how to pre-process SMILES strings, build a model using PyTorch, and train the model to predict the dipole moment of the molecule.</p>
 </section>
 <section id="Quiz">
-<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Permalink to this heading">¶</a></h2>
+<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Link to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>What problems do the recurrent neural networks experience during training?</p></li>
 <li><p>In this talktorial we used a regex-based tokenizer. What other tokenization approaches could be used?</p></li>
@@ -1715,11 +1307,11 @@ GRU test loss: 0.319
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2018-2023, Volkamer Lab. Project structure based on the Computational Molecular Science Python Cookiecutter version 1.1.
+              &#169; Copyright 2018-2026, Volkamer Lab. Project structure based on the Computational Molecular Science Python Cookiecutter version 1.1.
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 9.0.4.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

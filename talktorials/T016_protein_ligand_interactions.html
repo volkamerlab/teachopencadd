@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta property="og:title" content="T016 · Protein-ligand interactions" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://projects.volkamerlab.org/teachopencadd/talktorials/T016_protein_ligand_interactions.html" />
+<meta property="og:url" content="talktorials/T016_protein_ligand_interactions.html" />
 <meta property="og:site_name" content="TeachOpenCADD" />
-<meta property="og:description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Jaime Rodríguez-Guerra 2019-2020, Volkamer lab, Michele Wichmann, 2019-2020, Charité/FU Berlin, Yonghui Chen,..." />
-<meta property="og:image" content="https://raw.githubusercontent.com/volkamerlab/teachopencadd/master/docs/_static/images/TeachOpenCADD_topics.png" />
-<meta property="og:image:alt" content="TeachOpenCADD" />
-<meta name="description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Jaime Rodríguez-Guerra 2019-2020, Volkamer lab, Michele Wichmann, 2019-2020, Charité/FU Berlin, Yonghui Chen,..." />
+<meta property="og:description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Jaime Rod..." />
+<meta property="og:image:width" content="1146" />
+<meta property="og:image:height" content="600" />
+<meta property="og:image" content="_images/social_previews/summary_talktorials_T016_protein_ligand_interactions_25131203.png" />
+<meta property="og:image:alt" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Jaime Rod..." />
+<meta name="description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Jaime Rod..." />
+<meta name="twitter:card" content="summary_large_image" />
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -79,31 +82,27 @@
         gtag('config', 'G-Q6ZE82CNZB');
     </script>
   
-    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
-  
-    <title>T016 · Protein-ligand interactions &#8212; TeachOpenCADD 0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+    <title>T016 · Protein-ligand interactions &#8212; TeachOpenCADD 2023.5.2.post442 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=75810a84" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
-    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=897d968c" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=e43216b9"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/documentation_options.js?v=f78c6808"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="T017 · Advanced NGLview usage" href="T017_advanced_nglview_usage.html" />
     <link rel="prev" title="T015 · Protein ligand docking" href="T015_protein_ligand_docking.html" />
-  
-    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
    
 
@@ -127,7 +126,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../index.html" title="TeachOpenCADD 0 documentation"
+        <a href="../index.html" title="TeachOpenCADD 2023.5.2.post442 documentation"
            class="md-header-nav__button md-logo">
           
             <i class="md-icon">school</i>
@@ -139,7 +138,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">TeachOpenCADD</span>
+          <span class="md-header-nav__topic">TeachOpenCADD 2023.5.2.post442 documentation</span>
           <span class="md-header-nav__topic"> T016 · Protein-ligand interactions </span>
         </div>
       </div>
@@ -191,6 +190,16 @@
         </div>
       
       
+  
+  <script src="../_static/javascripts/version_dropdown.js"></script>
+  <script>
+    var json_loc = "../"versions.json"",
+        target_loc = "../../",
+        text = "Versions";
+    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
+  </script>
+  
+
     </div>
   </nav>
 </header>
@@ -203,6 +212,7 @@
   <nav class="md-tabs" data-md-component="tabs">
     <div class="md-tabs__inner md-grid">
       <ul class="md-tabs__list">
+          <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">TeachOpenCADD 2023.5.2.post442 documentation</a></li>
             
             <li class="md-tabs__item"><a href="../talktorials.html" class="md-tabs__link">Our talktorials</a></li>
             
@@ -225,13 +235,13 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../index.html" title="TeachOpenCADD 0 documentation" class="md-nav__button md-logo">
+    <a href="../index.html" title="TeachOpenCADD 2023.5.2.post442 documentation" class="md-nav__button md-logo">
       
         <i class="md-icon">school</i>
       
     </a>
     <a href="../index.html"
-       title="TeachOpenCADD 0 documentation">TeachOpenCADD</a>
+       title="TeachOpenCADD 2023.5.2.post442 documentation">TeachOpenCADD 2023.5.2.post442 documentation</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
@@ -248,421 +258,6 @@
 </a>
     </div>
   
-  
-
-  
-  <ul class="md-nav__list">
-    <li class="md-nav__item">
-    
-      <span class="md-nav__link caption"><span class="caption-text">Our talktorials</span></span>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="T001_query_chembl.html" class="md-nav__link">T001 · Compound data acquisition (ChEMBL)</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T002_compound_adme.html" class="md-nav__link">T002 · Molecular filtering: ADME and lead-likeness criteria</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T003_compound_unwanted_substructures.html" class="md-nav__link">T003 · Molecular filtering: unwanted substructures</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T004_compound_similarity.html" class="md-nav__link">T004 · Ligand-based screening: compound similarity</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T005_compound_clustering.html" class="md-nav__link">T005 · Compound clustering</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T006_compound_maximum_common_substructures.html" class="md-nav__link">T006 · Maximum common substructure</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T007_compound_activity_machine_learning.html" class="md-nav__link">T007 · Ligand-based screening: machine learning</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T008_query_pdb.html" class="md-nav__link">T008 · Protein data acquisition: Protein Data Bank (PDB)</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T009_compound_ensemble_pharmacophores.html" class="md-nav__link">T009 · Ligand-based pharmacophores</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T010_binding_site_comparison.html" class="md-nav__link">T010 · Binding site similarity and off-target prediction</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T011_query_online_api_webservices.html" class="md-nav__link">T011 · Querying online API webservices</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T012_query_klifs.html" class="md-nav__link">T012 · Data acquisition from KLIFS</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T013_query_pubchem.html" class="md-nav__link">T013 · Data acquisition from PubChem</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T014_binding_site_detection.html" class="md-nav__link">T014 · Binding site detection</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T015_protein_ligand_docking.html" class="md-nav__link">T015 · Protein ligand docking</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> T016 · Protein-ligand interactions </label>
-    
-      <a href="#" class="md-nav__link md-nav__link--active">T016 · Protein-ligand interactions</a>
-      
-        
-<nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">"Contents"</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#talktorials-t016-protein-ligand-interactions--page-root" class="md-nav__link">T016 · Protein-ligand interactions</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
-        </li>
-        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
-        </li>
-        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Protein-ligand-interactions" class="md-nav__link">Protein-ligand interactions</a>
-        </li>
-        <li class="md-nav__item"><a href="#PLIP:-Protein–Ligand-Interaction-Profiler" class="md-nav__link">PLIP: Protein–Ligand Interaction Profiler</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#PLIP:-web-service" class="md-nav__link">PLIP: web service</a>
-        </li>
-        <li class="md-nav__item"><a href="#PLIP:-algorithm" class="md-nav__link">PLIP: algorithm</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Visualization:-complex-and-interactions" class="md-nav__link">Visualization: complex and interactions</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#PDB-complex:-example-with-EGFR" class="md-nav__link">PDB complex: example with EGFR</a>
-        </li>
-        <li class="md-nav__item"><a href="#Profiling-protein-ligand-interactions-using-PLIP" class="md-nav__link">Profiling protein-ligand interactions using PLIP</a>
-        </li>
-        <li class="md-nav__item"><a href="#Table-of-interaction-types" class="md-nav__link">Table of interaction types</a>
-        </li>
-        <li class="md-nav__item"><a href="#Visualization-with-NGLView" class="md-nav__link">Visualization with NGLView</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Analysis-of-interactions" class="md-nav__link">Analysis of interactions</a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
-        </li>
-        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
-        </li></ul>
-            </nav>
-        </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T016_protein_ligand_interactions.nblink.txt">Show Source</a> </li>
-
-  </ul>
-</nav>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T017_advanced_nglview_usage.html" class="md-nav__link">T017 · Advanced NGLview usage</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T018_automated_cadd_pipeline.html" class="md-nav__link">T018 · Automated pipeline for lead optimization</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T019_md_simulation.html" class="md-nav__link">T019 · Molecular dynamics simulation</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T020_md_analysis.html" class="md-nav__link">T020 · Analyzing molecular dynamics simulations</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T021_one_hot_encoding.html" class="md-nav__link">T021 · One-Hot Encoding</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T022_ligand_based_screening_neural_network.html" class="md-nav__link">T022 · Ligand-based screening: neural networks</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T023_what_is_a_kinase.html" class="md-nav__link">T023 · What is a kinase?</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T024_kinase_similarity_sequence.html" class="md-nav__link">T024 · Kinase similarity: Sequence</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T025_kinase_similarity_kissim.html" class="md-nav__link">T025 · Kinase similarity: Kinase pocket (KiSSim fingerprint)</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T026_kinase_similarity_ifp.html" class="md-nav__link">T026 · Kinase similarity: Interaction fingerprints</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T027_kinase_similarity_ligand_profile.html" class="md-nav__link">T027 · Kinase similarity: Ligand profile</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T028_kinase_similarity_compare_perspectives.html" class="md-nav__link">T028 · Kinase similarity: Compare different perspectives</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T033_molecular_representations.html" class="md-nav__link">T033 · Molecular representations</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T034_recurrent_neural_networks.html" class="md-nav__link">T034 · RNN-based molecular property prediction</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T035_graph_neural_networks.html" class="md-nav__link">T035 · GNN-based molecular property prediction</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T036_e3_equivariant_gnn.html" class="md-nav__link">T036 · An introduction to E(3)-invariant graph neural networks</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T037_uncertainty_estimation.html" class="md-nav__link">T037 · Uncertainty estimation</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="T038_protein_ligand_interaction_prediction.html" class="md-nav__link">T038 · Protein Ligand Interaction Prediction</a>
-      
-    
-    </li></ul>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-      <span class="md-nav__link caption"><span class="caption-text">Run locally</span></span>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../installing.html" class="md-nav__link">Installing</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-      <span class="md-nav__link caption"><span class="caption-text">Development</span></span>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../contribute.html" class="md-nav__link">For contributors</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../api.html" class="md-nav__link">API Documentation</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-      <span class="md-nav__link caption"><span class="caption-text">About TeachOpenCADD</span></span>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../contact.html" class="md-nav__link">Contact</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../acknowledgments.html" class="md-nav__link">Acknowledgments</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../citation.html" class="md-nav__link">Citation</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../license.html" class="md-nav__link">License</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../funding.html" class="md-nav__link">Funding</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-      <span class="md-nav__link caption"><span class="caption-text">External resources</span></span>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../external_dependencies.html" class="md-nav__link">Packages and webservers used in TeachOpenCADD</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../external_tutorials_collections.html" class="md-nav__link">External tutorials and collections</a>
-      
-    
-    </li>
-  </ul>
   
 
 </nav>
@@ -741,7 +336,7 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="T016-·-Protein-ligand-interactions">
-<h1 id="talktorials-t016-protein-ligand-interactions--page-root">T016 · Protein-ligand interactions<a class="headerlink" href="#talktorials-t016-protein-ligand-interactions--page-root" title="Permalink to this heading">¶</a></h1>
+<h1 id="talktorials-t016-protein-ligand-interactions--page-root">T016 · Protein-ligand interactions<a class="headerlink" href="#talktorials-t016-protein-ligand-interactions--page-root" title="Link to this heading">¶</a></h1>
 <p><strong>Note:</strong> This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.</p>
 <p>Authors:</p>
 <ul class="simple">
@@ -752,11 +347,11 @@
 <li><p>Andrea Volkamer, 2020, <a class="reference external" href="https://volkamerlab.org">Volkamer lab</a></p></li>
 </ul>
 <section id="Aim-of-this-talktorial">
-<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Permalink to this heading">¶</a></h2>
+<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Link to this heading">¶</a></h2>
 <p>In this talktorial, we focus on protein-ligand interactions. Understanding such interactions, which are driving molecular recognition, are fundamental in drug design.</p>
 <p>To this end, we use two Python tools: the first one, called the Protein–Ligand Interaction Profiler, or <a class="reference external" href="https://doi.org/10.1093/nar/gkv315">PLIP</a>, to get insight into protein-ligand interactions for any sample complex and the second, <a class="reference external" href="https://doi.org/10.1093/bioinformatics/btx789">NGLView</a>, to visualize the interactions in 3D.</p>
 <section id="Contents-in-Theory">
-<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Permalink to this heading">¶</a></h3>
+<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Protein-ligand interactions</p></li>
 <li><p>PLIP: Protein–Ligand Interaction Profiler</p>
@@ -769,7 +364,7 @@
 </ul>
 </section>
 <section id="Contents-in-Practical">
-<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Permalink to this heading">¶</a></h3>
+<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>PDB complex: example with EGFR</p></li>
 <li><p>Profiling protein-ligand interactions using PLIP</p></li>
@@ -782,7 +377,7 @@
 </ul>
 </section>
 <section id="References">
-<h3 id="References">References<a class="headerlink" href="#References" title="Permalink to this heading">¶</a></h3>
+<h3 id="References">References<a class="headerlink" href="#References" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Review on protein-ligand interactions (<a class="reference external" href="https://www.mdpi.com/1422-0067/17/2/144">Int. J. Mol. Sci. (2016), 17, 144</a>)</p></li>
 <li><p>A systematic analysis of non-covalent interactions in the PDB database (<a class="reference external" href="https://pubs.rsc.org/en/content/articlelanding/2017/md/c7md00381a#!divAbstract">M. Med. Chem. Commun. (2017), 8, 1970-1981</a>)</p></li>
@@ -794,12 +389,27 @@
 </ul>
 </li>
 </ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="k">if</span> <span class="s2">"google.colab"</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
+    <span class="o">%</span><span class="k">pip</span> install teachopencadd --no-deps -q
+    <span class="o">!</span>teachopencadd<span class="w"> </span>-d<span class="w"> </span><span class="m">16</span>
+    <span class="o">%</span><span class="k">pip</span> uninstall teachopencadd -y -q
+    <span class="o">%</span><span class="k">pip</span> install -qr requirements.txt
+    <span class="o">%</span><span class="k">conda</span> install openbabel plip -c conda-forge -y
+</pre></div>
+</div>
+</div>
 </section>
 </section>
 <section id="Theory">
-<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Permalink to this heading">¶</a></h2>
+<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Link to this heading">¶</a></h2>
 <section id="Protein-ligand-interactions">
-<h3 id="Protein-ligand-interactions">Protein-ligand interactions<a class="headerlink" href="#Protein-ligand-interactions" title="Permalink to this heading">¶</a></h3>
+<h3 id="Protein-ligand-interactions">Protein-ligand interactions<a class="headerlink" href="#Protein-ligand-interactions" title="Link to this heading">¶</a></h3>
 <p>Ligand binding is mainly governed by non-covalent interactions between the ligand and the surface of the protein pocket or the protein-protein interface. This process is a function of electrostatic and shape complementarities, induced fitting, desolvation processes and more.</p>
 <p>Some quotes from the literature:</p>
 <p>Adapted from <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1876162314000029">José L. Medina-Franco, Oscar Méndez-Lucio, Karina Martinez-Mayorga</a>:</p>
@@ -814,10 +424,10 @@ name a few.</p>
 <p>For example, the Kinase-Ligand Interaction Fingerprints and Structures database (<a class="reference external" href="https://klifs.net/">KLIFS</a>) is a kinase centric tool with a freely available web service. More details can be found in <strong>Talktorial T012</strong>: “Data acquisition from KLIFS”.</p>
 </section>
 <section id="PLIP:-Protein–Ligand-Interaction-Profiler">
-<h3 id="PLIP:-Protein–Ligand-Interaction-Profiler">PLIP: Protein–Ligand Interaction Profiler<a class="headerlink" href="#PLIP:-Protein–Ligand-Interaction-Profiler" title="Permalink to this heading">¶</a></h3>
+<h3 id="PLIP:-Protein–Ligand-Interaction-Profiler">PLIP: Protein–Ligand Interaction Profiler<a class="headerlink" href="#PLIP:-Protein–Ligand-Interaction-Profiler" title="Link to this heading">¶</a></h3>
 <p>For a more general set of proteins, <a class="reference external" href="https://plip.biotec.tu-dresden.de/plip-web/plip/index">PLIP</a> is also popular thanks to its publicly available webserver and free-to-use Python library.</p>
 <section id="PLIP:-web-service">
-<h4 id="PLIP:-web-service">PLIP: web service<a class="headerlink" href="#PLIP:-web-service" title="Permalink to this heading">¶</a></h4>
+<h4 id="PLIP:-web-service">PLIP: web service<a class="headerlink" href="#PLIP:-web-service" title="Link to this heading">¶</a></h4>
 <p>The PLIP web service is a freely available tool which allows to exhibit protein-ligand interactions from any PDB structure as shown in Figure 2 below.</p>
 <img alt="aromatic interaction" src="../_images/3POZ_PLIP.png"/>
 <p><em>Figure 2</em> : <strong>Visualization of protein-ligand interactions generated by the PLIP web service.</strong> The example displays an EGFR kinase complex, associated PDB ID <a class="reference external" href="https://www.rcsb.org/structure/3POZ">3POZ</a>. The figure, a snapshot from the <a class="reference external" href="https://projects.biotec.tu-dresden.de/plip-web/plip">web service</a> result, shows</p>
@@ -827,7 +437,7 @@ name a few.</p>
 </ul>
 </section>
 <section id="PLIP:-algorithm">
-<h4 id="PLIP:-algorithm">PLIP: algorithm<a class="headerlink" href="#PLIP:-algorithm" title="Permalink to this heading">¶</a></h4>
+<h4 id="PLIP:-algorithm">PLIP: algorithm<a class="headerlink" href="#PLIP:-algorithm" title="Link to this heading">¶</a></h4>
 <p>For each binding site, the PLIP algorithm considers the atoms from the protein and the ligand only if they lie within a certain distance cutoff. Once the protein and ligand atoms that potentially interact are identified, non-covalent interactions can be detected, such as:</p>
 <ul class="simple">
 <li><p>hydrophobic interactions</p></li>
@@ -840,75 +450,113 @@ name a few.</p>
 </ul>
 <p>They are defined using geometry rules, such as distance and angle thresholds.</p>
 <p>The <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4489249/bin/supp_gkv315_nar-00254-web-b-2015-File003.pdf">supporting information</a> accompanying the manuscript (<a class="reference external" href="https://academic.oup.com/nar/article/43/W1/W443/2467865">Nucl. Acids Res. (2015), 43, W1, W443-W447</a>) describes the binding site detection and protein-ligand interactions in detail, please see the PDF document below.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">teachopencadd.utils</span> <span class="kn">import</span> <span class="n">show_pdf</span>
-</pre></div>
-</div>
-</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pdf</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="s2">"https://www.ncbi.nlm.nih.gov/"</span>
-    <span class="s2">"pmc/articles/PMC4489249/bin/supp_gkv315_nar-00254-web-b-2015-File003.pdf"</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="n">pdf_url</span> <span class="o">=</span> <span class="s2">"https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4489249/bin/supp_gkv315_nar-00254-web-b-2015-File003.pdf"</span>
+
+<span class="c1"># Construct the URL for the Google Docs Viewer service</span>
+<span class="n">viewer_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"https://docs.google.com/viewer?url=</span><span class="si">{</span><span class="n">pdf_url</span><span class="si">}</span><span class="s2">&amp;embedded=true"</span>
+
+<span class="c1"># Display the PDF using the HTML &lt;iframe&gt; tag</span>
+<span class="n">display</span><span class="p">(</span>
+    <span class="n">HTML</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s1">'&lt;iframe src="</span><span class="si">{</span><span class="n">viewer_url</span><span class="si">}</span><span class="s1">" width="900" height="600" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'</span>
+    <span class="p">)</span>
 <span class="p">)</span>
-<span class="n">show_pdf</span><span class="p">(</span><span class="n">pdf</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/opt/miniconda3/envs/T016_3100/lib/python3.10/site-packages/IPython/core/display.py:475: UserWarning: Consider using IPython.display.IFrame instead
+  warnings.warn("Consider using IPython.display.IFrame instead")
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area rendered_html docutils container">
-<iframe allowfullscreen="" frameborder="0" height="600" mozallowfullscreen="" src="https://docs.google.com/viewer?url=https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4489249/bin/supp_gkv315_nar-00254-web-b-2015-File003.pdf&amp;embedded=true" webkitallowfullscreen="" width="900">
-</iframe></div>
+<iframe allowfullscreen="" frameborder="0" height="600" src="https://docs.google.com/viewer?url=https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4489249/bin/supp_gkv315_nar-00254-web-b-2015-File003.pdf&amp;embedded=true" width="900"></iframe></div>
 </div>
 </section>
 </section>
 <section id="Visualization:-complex-and-interactions">
-<h3 id="Visualization:-complex-and-interactions">Visualization: complex and interactions<a class="headerlink" href="#Visualization:-complex-and-interactions" title="Permalink to this heading">¶</a></h3>
+<h3 id="Visualization:-complex-and-interactions">Visualization: complex and interactions<a class="headerlink" href="#Visualization:-complex-and-interactions" title="Link to this heading">¶</a></h3>
 <p>We will use <code class="docutils literal notranslate"><span class="pre">nglview</span></code> for visualization. It’s a <a class="reference external" href="https://doi.org/10.1093/bioinformatics/btx789">web-based molecular viewer</a> that can be run on Jupyter notebooks. We will first use it in a basic way to visualize a complex of interest. Then, we will make use of <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code> layouts to visualize protein-ligand interactions.</p>
 <p>More details can be found in <strong>Talktorial T017</strong> on advanced NGLview &amp; widget usage.</p>
 </section>
 </section>
 <section id="Practical">
-<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this heading">¶</a></h2>
+<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Link to this heading">¶</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import libraries</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
 
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">nglview</span> <span class="k">as</span> <span class="nn">nv</span>
-<span class="kn">import</span> <span class="nn">openbabel</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">colors</span>
-<span class="kn">from</span> <span class="nn">plip.structure.preparation</span> <span class="kn">import</span> <span class="n">PDBComplex</span>
-<span class="kn">from</span> <span class="nn">plip.exchange.report</span> <span class="kn">import</span> <span class="n">BindingSiteReport</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">nglview</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nv</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pypdb.clients.pdb.pdb_client</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_pdb_file</span>
 
-<span class="kn">from</span> <span class="nn">opencadd.structure.core</span> <span class="kn">import</span> <span class="n">Structure</span>
+<span class="c1"># import openbabel</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">colors</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">plip.structure.preparation</span><span class="w"> </span><span class="kn">import</span> <span class="n">PDBComplex</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">plip.exchange.report</span><span class="w"> </span><span class="kn">import</span> <span class="n">BindingSiteReport</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">opencadd.structure.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">Structure</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "97053150098844f5a767107204616eff", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e408981e6a594056a7151562a0f84c96", "version_major": 2, "version_minor": 0}</script></div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+2025-12-22 13:54:22,369 [WARNING] [TRJ.py:151] MDAnalysis.coordinates.AMBER: netCDF4 is not available. Writing AMBER ncdf files will be slow.
+</pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_structure</span><span class="p">(</span><span class="n">pdb_id</span><span class="p">):</span>
+    <span class="c1"># download the PDB file content.</span>
+    <span class="n">pdb_file_content</span> <span class="o">=</span> <span class="n">get_pdb_file</span><span class="p">(</span><span class="n">pdb_id</span><span class="p">)</span>
+    <span class="c1"># create an nglview structure object from the content</span>
+    <span class="n">structure</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">TextStructure</span><span class="p">(</span><span class="n">pdb_file_content</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s2">"pdb"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">structure</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_pdb_nglviewer</span><span class="p">(</span><span class="n">pdb_id</span><span class="p">,</span> <span class="n">default_representation</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">gui</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">structure</span> <span class="o">=</span> <span class="n">get_structure</span><span class="p">(</span><span class="n">pdb_id</span><span class="p">)</span>
+    <span class="c1"># set structure viewer</span>
+    <span class="n">nglviewer</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_file</span><span class="p">(</span><span class="n">structure</span><span class="p">,</span> <span class="n">default_representation</span><span class="o">=</span><span class="n">default_representation</span><span class="p">,</span> <span class="n">gui</span><span class="o">=</span><span class="n">gui</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">nglviewer</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Absolute path</span>
@@ -918,11 +566,11 @@ name a few.</p>
 </div>
 </div>
 <section id="PDB-complex:-example-with-EGFR">
-<h3 id="PDB-complex:-example-with-EGFR">PDB complex: example with EGFR<a class="headerlink" href="#PDB-complex:-example-with-EGFR" title="Permalink to this heading">¶</a></h3>
+<h3 id="PDB-complex:-example-with-EGFR">PDB complex: example with EGFR<a class="headerlink" href="#PDB-complex:-example-with-EGFR" title="Link to this heading">¶</a></h3>
 <p>As a test case for this notebook, we choose the EGFR kinase. The considered PDB structure is given by the ID <a class="reference external" href="http://dx.doi.org/10.2210/pdb3poz/pdb">3POZ</a>. Let’s use <code class="docutils literal notranslate"><span class="pre">nglview</span></code> to visualize the structure in a notebook cell.</p>
 <p><em>Note</em>: the complex can easily be changed by adapting the PDB ID in the cell below.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pdb_id</span> <span class="o">=</span> <span class="s2">"3poz"</span>
@@ -931,7 +579,7 @@ name a few.</p>
 </div>
 <p>We now fetch the PDB structure file from the PDB using <code class="docutils literal notranslate"><span class="pre">opencadd.structure.superposition</span></code>. More details can be found in <strong>Talktorial T008</strong> for protein data acquisition.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pdb_file</span> <span class="o">=</span> <span class="n">Structure</span><span class="o">.</span><span class="n">from_pdbid</span><span class="p">(</span><span class="n">pdb_id</span><span class="p">)</span>
@@ -942,10 +590,10 @@ name a few.</p>
 </div>
 <p>Show the complex based on PDB ID</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ngl_viewer</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_pdbid</span><span class="p">(</span><span class="n">pdb_id</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ngl_viewer</span> <span class="o">=</span> <span class="n">get_pdb_nglviewer</span><span class="p">(</span><span class="n">pdb_id</span><span class="p">)</span>
 <span class="c1"># add the ligands</span>
 <span class="n">ngl_viewer</span><span class="o">.</span><span class="n">add_representation</span><span class="p">(</span><span class="n">repr_type</span><span class="o">=</span><span class="s2">"ball+stick"</span><span class="p">,</span> <span class="n">selection</span><span class="o">=</span><span class="s2">"hetero and not water"</span><span class="p">)</span>
 <span class="c1"># center view on binding site</span>
@@ -954,14 +602,22 @@ name a few.</p>
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sending GET request to https://files.rcsb.org/download/3poz.pdb to fetch 3poz's pdb file as a string.
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3c23f378fe904f738acce88079ac2e99", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3747960107a94bc0a04577d110f8e067", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># render a static image</span>
@@ -970,7 +626,7 @@ name a few.</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ngl_viewer</span><span class="o">.</span><span class="n">_display_image</span><span class="p">()</span>
@@ -978,16 +634,16 @@ name a few.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T016_protein_ligand_interactions_30_0.png" src="../_images/talktorials_T016_protein_ligand_interactions_30_0.png"/>
+<img alt="../_images/talktorials_T016_protein_ligand_interactions_31_0.png" src="../_images/talktorials_T016_protein_ligand_interactions_31_0.png"/>
 </div>
 </div>
 </section>
 <section id="Profiling-protein-ligand-interactions-using-PLIP">
-<h3 id="Profiling-protein-ligand-interactions-using-PLIP">Profiling protein-ligand interactions using PLIP<a class="headerlink" href="#Profiling-protein-ligand-interactions-using-PLIP" title="Permalink to this heading">¶</a></h3>
+<h3 id="Profiling-protein-ligand-interactions-using-PLIP">Profiling protein-ligand interactions using PLIP<a class="headerlink" href="#Profiling-protein-ligand-interactions-using-PLIP" title="Link to this heading">¶</a></h3>
 <p>PLIP offers a <a class="reference external" href="https://projects.biotec.tu-dresden.de/plip-web/plip">webserver</a> for automated analysis, but unfortunately there is no API. We could try to use the HTML forms as if we were using the standard web UI, but since the library itself is Python-3 ready and very easy to install with <code class="docutils literal notranslate"><span class="pre">pip</span></code>, we can just use it locally for simplicity.</p>
 <p>PLIP takes PDB files as input, so we can pass the PDB file to PLIP and let it do its magic. The <code class="docutils literal notranslate"><span class="pre">BindingSiteReport</span></code> class processes each detected binding site in <code class="docutils literal notranslate"><span class="pre">PDBComplex</span></code> and creates an object with the (eight) fields we are interested in, namely</p>
 <ul class="simple">
@@ -1011,10 +667,10 @@ name a few.</p>
 </li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">retrieve_plip_interactions</span><span class="p">(</span><span class="n">pdb_file</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">retrieve_plip_interactions</span><span class="p">(</span><span class="n">pdb_file</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Retrieves the interactions from PLIP.</span>
 
@@ -1065,7 +721,7 @@ name a few.</p>
 </div>
 <p>We create the dictionary for the complex of interest:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interactions_by_site</span> <span class="o">=</span> <span class="n">retrieve_plip_interactions</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">DATA</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">pdb_id</span><span class="si">}</span><span class="s2">.pdb"</span><span class="p">)</span>
@@ -1074,7 +730,7 @@ name a few.</p>
 </div>
 <p>Let’s see how many binding sites are detected:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span>
@@ -1092,12 +748,12 @@ name a few.</p>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Number of binding sites detected in 3poz : 4
-with dict_keys(['03P:X:1023', 'SO4:X:1', 'SO4:X:2', 'SO4:X:3'])
+with dict_keys(['03P:A:1023', 'SO4:A:1', 'SO4:A:2', 'SO4:A:3'])
 </pre></div></div>
 </div>
 <p>In this case, the first binding site containing ligand <strong>03P</strong> will be further investigated.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index_of_selected_site</span> <span class="o">=</span> <span class="mi">0</span>
@@ -1111,18 +767,18 @@ with dict_keys(['03P:X:1023', 'SO4:X:1', 'SO4:X:2', 'SO4:X:3'])
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-03P:X:1023
+03P:A:1023
 </pre></div></div>
 </div>
 </section>
 <section id="Table-of-interaction-types">
-<h3 id="Table-of-interaction-types">Table of interaction types<a class="headerlink" href="#Table-of-interaction-types" title="Permalink to this heading">¶</a></h3>
+<h3 id="Table-of-interaction-types">Table of interaction types<a class="headerlink" href="#Table-of-interaction-types" title="Link to this heading">¶</a></h3>
 <p>We can construct a <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code> for a binding site and particular interaction type.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_df_from_binding_site</span><span class="p">(</span><span class="n">selected_site_interactions</span><span class="p">,</span> <span class="n">interaction_type</span><span class="o">=</span><span class="s2">"hbond"</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">create_df_from_binding_site</span><span class="p">(</span><span class="n">selected_site_interactions</span><span class="p">,</span> <span class="n">interaction_type</span><span class="o">=</span><span class="s2">"hbond"</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Creates a data frame from a binding site and interaction type.</span>
 
@@ -1168,7 +824,7 @@ with dict_keys(['03P:X:1023', 'SO4:X:1', 'SO4:X:2', 'SO4:X:3'])
 <p><strong>Hydrophobic interactions</strong></p>
 <p>In the next cell, we show the hydrophobic interactions from the selected binding site.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">create_df_from_binding_site</span><span class="p">(</span><span class="n">interactions_by_site</span><span class="p">[</span><span class="n">selected_site</span><span class="p">],</span> <span class="n">interaction_type</span><span class="o">=</span><span class="s2">"hydrophobic"</span><span class="p">)</span>
@@ -1176,7 +832,7 @@ with dict_keys(['03P:X:1023', 'SO4:X:1', 'SO4:X:2', 'SO4:X:3'])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1216,10 +872,10 @@ with dict_keys(['03P:X:1023', 'SO4:X:1', 'SO4:X:2', 'SO4:X:3'])
 <th>0</th>
 <td>745</td>
 <td>LYS</td>
-<td>X</td>
+<td>A</td>
 <td>1023</td>
 <td>03P</td>
-<td>X</td>
+<td>A</td>
 <td>3.91</td>
 <td>2398</td>
 <td>320</td>
@@ -1230,24 +886,10 @@ with dict_keys(['03P:X:1023', 'SO4:X:1', 'SO4:X:2', 'SO4:X:3'])
 <th>1</th>
 <td>788</td>
 <td>LEU</td>
-<td>X</td>
+<td>A</td>
 <td>1023</td>
 <td>03P</td>
-<td>X</td>
-<td>3.89</td>
-<td>2396</td>
-<td>593</td>
-<td>(15.676, 34.766, 8.319)</td>
-<td>(16.314, 35.031, 4.495)</td>
-</tr>
-<tr>
-<th>2</th>
-<td>788</td>
-<td>LEU</td>
-<td>X</td>
-<td>1023</td>
-<td>03P</td>
-<td>X</td>
+<td>A</td>
 <td>3.66</td>
 <td>2383</td>
 <td>595</td>
@@ -1255,13 +897,27 @@ with dict_keys(['03P:X:1023', 'SO4:X:1', 'SO4:X:2', 'SO4:X:3'])
 <td>(18.317, 33.573, 4.169)</td>
 </tr>
 <tr>
+<th>2</th>
+<td>790</td>
+<td>THR</td>
+<td>A</td>
+<td>1023</td>
+<td>03P</td>
+<td>A</td>
+<td>3.80</td>
+<td>2397</td>
+<td>611</td>
+<td>(16.476, 34.203, 10.862)</td>
+<td>(12.875, 33.449, 9.914)</td>
+</tr>
+<tr>
 <th>3</th>
 <td>854</td>
 <td>THR</td>
-<td>X</td>
+<td>A</td>
 <td>1023</td>
 <td>03P</td>
-<td>X</td>
+<td>A</td>
 <td>3.82</td>
 <td>2382</td>
 <td>1138</td>
@@ -1272,43 +928,15 @@ with dict_keys(['03P:X:1023', 'SO4:X:1', 'SO4:X:2', 'SO4:X:3'])
 <th>4</th>
 <td>858</td>
 <td>LEU</td>
-<td>X</td>
+<td>A</td>
 <td>1023</td>
 <td>03P</td>
-<td>X</td>
+<td>A</td>
 <td>3.93</td>
 <td>2383</td>
 <td>1167</td>
 <td>(18.404, 30.743, 6.486)</td>
 <td>(22.084, 30.736, 5.093)</td>
-</tr>
-<tr>
-<th>5</th>
-<td>745</td>
-<td>LYS</td>
-<td>X</td>
-<td>1023</td>
-<td>03P</td>
-<td>X</td>
-<td>3.53</td>
-<td>2396</td>
-<td>318</td>
-<td>(15.676, 34.766, 8.319)</td>
-<td>(18.634, 36.648, 7.936)</td>
-</tr>
-<tr>
-<th>6</th>
-<td>790</td>
-<td>THR</td>
-<td>X</td>
-<td>1023</td>
-<td>03P</td>
-<td>X</td>
-<td>3.48</td>
-<td>2396</td>
-<td>611</td>
-<td>(15.676, 34.766, 8.319)</td>
-<td>(12.875, 33.449, 9.914)</td>
 </tr>
 </tbody>
 </table>
@@ -1318,7 +946,7 @@ with dict_keys(['03P:X:1023', 'SO4:X:1', 'SO4:X:2', 'SO4:X:3'])
 <p><strong>Hydrogen interactions</strong></p>
 <p>If hydrogen interactions are of interest, the table can be generated as follow:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">create_df_from_binding_site</span><span class="p">(</span><span class="n">interactions_by_site</span><span class="p">[</span><span class="n">selected_site</span><span class="p">],</span> <span class="n">interaction_type</span><span class="o">=</span><span class="s2">"hbond"</span><span class="p">)</span>
@@ -1326,7 +954,7 @@ with dict_keys(['03P:X:1023', 'SO4:X:1', 'SO4:X:2', 'SO4:X:3'])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1372,10 +1000,10 @@ with dict_keys(['03P:X:1023', 'SO4:X:1', 'SO4:X:2', 'SO4:X:3'])
 <th>0</th>
 <td>793</td>
 <td>MET</td>
-<td>X</td>
+<td>A</td>
 <td>1023</td>
 <td>03P</td>
-<td>X</td>
+<td>A</td>
 <td>False</td>
 <td>2.01</td>
 <td>2.96</td>
@@ -1384,7 +1012,7 @@ with dict_keys(['03P:X:1023', 'SO4:X:1', 'SO4:X:2', 'SO4:X:3'])
 <td>629</td>
 <td>Nam</td>
 <td>2404</td>
-<td>N2</td>
+<td>Nar</td>
 <td>(13.371, 34.064, 15.005)</td>
 <td>(10.667, 33.654, 16.145)</td>
 </tr>
@@ -1395,7 +1023,7 @@ with dict_keys(['03P:X:1023', 'SO4:X:1', 'SO4:X:2', 'SO4:X:3'])
 <p><strong>Halogen interactions</strong></p>
 <p>Let’s also have a look at halogen interactions:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">create_df_from_binding_site</span><span class="p">(</span><span class="n">interactions_by_site</span><span class="p">[</span><span class="n">selected_site</span><span class="p">],</span> <span class="n">interaction_type</span><span class="o">=</span><span class="s2">"halogen"</span><span class="p">)</span>
@@ -1403,7 +1031,7 @@ with dict_keys(['03P:X:1023', 'SO4:X:1', 'SO4:X:2', 'SO4:X:3'])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1448,10 +1076,10 @@ with dict_keys(['03P:X:1023', 'SO4:X:1', 'SO4:X:2', 'SO4:X:3'])
 <th>0</th>
 <td>766</td>
 <td>MET</td>
-<td>X</td>
+<td>A</td>
 <td>1023</td>
 <td>03P</td>
-<td>X</td>
+<td>A</td>
 <td>False</td>
 <td>3.60</td>
 <td>167.05</td>
@@ -1460,17 +1088,36 @@ with dict_keys(['03P:X:1023', 'SO4:X:1', 'SO4:X:2', 'SO4:X:3'])
 <td>F</td>
 <td>431</td>
 <td>O2</td>
-<td>(12.164, 26.835, 3.777)</td>
 <td>(14.283, 28.118, 6.395)</td>
+<td>(12.164, 26.835, 3.777)</td>
 </tr>
 <tr>
 <th>1</th>
-<td>790</td>
-<td>THR</td>
-<td>X</td>
+<td>788</td>
+<td>LEU</td>
+<td>A</td>
 <td>1023</td>
 <td>03P</td>
-<td>X</td>
+<td>A</td>
+<td>False</td>
+<td>3.23</td>
+<td>159.67</td>
+<td>108.02</td>
+<td>2396</td>
+<td>Cl</td>
+<td>592</td>
+<td>O2</td>
+<td>(15.676, 34.766, 8.319)</td>
+<td>(14.792, 37.053, 6.216)</td>
+</tr>
+<tr>
+<th>2</th>
+<td>790</td>
+<td>THR</td>
+<td>A</td>
+<td>1023</td>
+<td>03P</td>
+<td>A</td>
 <td>True</td>
 <td>3.47</td>
 <td>171.27</td>
@@ -1479,8 +1126,8 @@ with dict_keys(['03P:X:1023', 'SO4:X:1', 'SO4:X:2', 'SO4:X:3'])
 <td>F</td>
 <td>610</td>
 <td>O3</td>
-<td>(11.467, 31.629, 9.124)</td>
 <td>(13.867, 29.356, 8.056)</td>
+<td>(11.467, 31.629, 9.124)</td>
 </tr>
 </tbody>
 </table>
@@ -1488,10 +1135,10 @@ with dict_keys(['03P:X:1023', 'SO4:X:1', 'SO4:X:2', 'SO4:X:3'])
 </div>
 </section>
 <section id="Visualization-with-NGLView">
-<h3 id="Visualization-with-NGLView">Visualization with NGLView<a class="headerlink" href="#Visualization-with-NGLView" title="Permalink to this heading">¶</a></h3>
+<h3 id="Visualization-with-NGLView">Visualization with NGLView<a class="headerlink" href="#Visualization-with-NGLView" title="Link to this heading">¶</a></h3>
 <p>Now, let’s try to represent those interactions in the NGL viewer. We can draw cylinders between the interaction points (<code class="docutils literal notranslate"><span class="pre">LIGCOO</span></code> and <code class="docutils literal notranslate"><span class="pre">PROTCOO</span></code> in the <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>) and color-code them as shown in <code class="docutils literal notranslate"><span class="pre">color_map</span></code>, which uses RGB tuples.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">color_map</span> <span class="o">=</span> <span class="p">{</span>
@@ -1509,7 +1156,7 @@ with dict_keys(['03P:X:1023', 'SO4:X:1', 'SO4:X:2', 'SO4:X:3'])
 </div>
 <p>Let’s see what these RGB colors correspond to:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
@@ -1528,15 +1175,15 @@ with dict_keys(['03P:X:1023', 'SO4:X:1', 'SO4:X:2', 'SO4:X:3'])
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T016_protein_ligand_interactions_58_0.png" src="../_images/talktorials_T016_protein_ligand_interactions_58_0.png"/>
+<img alt="../_images/talktorials_T016_protein_ligand_interactions_59_0.png" src="../_images/talktorials_T016_protein_ligand_interactions_59_0.png"/>
 </div>
 </div>
 <p>Define a helper function to show the interactions.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">show_interactions_3d</span><span class="p">(</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">show_interactions_3d</span><span class="p">(</span>
     <span class="n">pdb_id</span><span class="p">,</span> <span class="n">selected_site_interactions</span><span class="p">,</span> <span class="n">highlight_interaction_colors</span><span class="o">=</span><span class="n">color_map</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
@@ -1594,7 +1241,7 @@ with dict_keys(['03P:X:1023', 'SO4:X:1', 'SO4:X:2', 'SO4:X:3'])
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">viewer_3d</span> <span class="o">=</span> <span class="n">show_interactions_3d</span><span class="p">(</span><span class="n">pdb_id</span><span class="p">,</span> <span class="n">interactions_by_site</span><span class="p">[</span><span class="n">selected_site</span><span class="p">])</span>
@@ -1602,20 +1249,14 @@ with dict_keys(['03P:X:1023', 'SO4:X:1', 'SO4:X:2', 'SO4:X:3'])
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b35d5fbe2dd445d68f50cc326b68cc32", "version_major": 2, "version_minor": 0}</script></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8f898270f3204b139be9fbe727c29f63", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "af70917919ea47d3b1191c7d1e5c0526", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">viewer_3d</span><span class="o">.</span><span class="n">render_image</span><span class="p">(</span><span class="n">trim</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
@@ -1623,7 +1264,7 @@ with dict_keys(['03P:X:1023', 'SO4:X:1', 'SO4:X:2', 'SO4:X:3'])
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">viewer_3d</span><span class="o">.</span><span class="n">_display_image</span><span class="p">()</span>
@@ -1631,15 +1272,15 @@ with dict_keys(['03P:X:1023', 'SO4:X:1', 'SO4:X:2', 'SO4:X:3'])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T016_protein_ligand_interactions_63_0.png" src="../_images/talktorials_T016_protein_ligand_interactions_63_0.png"/>
+<img alt="../_images/talktorials_T016_protein_ligand_interactions_64_0.png" src="../_images/talktorials_T016_protein_ligand_interactions_64_0.png"/>
 </div>
 </div>
 <section id="Analysis-of-interactions">
-<h4 id="Analysis-of-interactions">Analysis of interactions<a class="headerlink" href="#Analysis-of-interactions" title="Permalink to this heading">¶</a></h4>
+<h4 id="Analysis-of-interactions">Analysis of interactions<a class="headerlink" href="#Analysis-of-interactions" title="Link to this heading">¶</a></h4>
 <p>As we can see in the NGL viewer, PLIP manages to identify different interactions between the protein and the ligand in the binding site, for our kinase example (3poz):</p>
 <ul class="simple">
 <li><p>The typical hinge hydrogen binding with methionine residue MET793.</p></li>
@@ -1666,11 +1307,11 @@ with dict_keys(['03P:X:1023', 'SO4:X:1', 'SO4:X:2', 'SO4:X:3'])
 </section>
 </section>
 <section id="Discussion">
-<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this heading">¶</a></h2>
+<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Link to this heading">¶</a></h2>
 <p>In this talktorial we have learned about protein-ligand interactions, more specifically in the context of the Protein–Ligand Interaction Profiler, or PLIP for short. We created a DataFrame to depict the interactions in a table. Furthermore, we made use of the NGL viewer to visualize these interactions in 3D, which require a good amount of web technologies, mainly based around the NGL viewer itself and <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code> layouts.</p>
 </section>
 <section id="Quiz">
-<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Permalink to this heading">¶</a></h2>
+<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Do some interactions seem more important than others?</p></li>
 <li><p>What’s the main difference between hydrophobic interactions and hydrogen bonds? How are they similar?</p></li>
@@ -1724,11 +1365,11 @@ with dict_keys(['03P:X:1023', 'SO4:X:1', 'SO4:X:2', 'SO4:X:3'])
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2018-2023, Volkamer Lab. Project structure based on the Computational Molecular Science Python Cookiecutter version 1.1.
+              &#169; Copyright 2018-2026, Volkamer Lab. Project structure based on the Computational Molecular Science Python Cookiecutter version 1.1.
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 9.0.4.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

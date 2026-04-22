@@ -40,9 +40,9 @@ Table of contents
 
 .. toctree::
    :maxdepth: 1
-   :caption: Run locally
+   :caption: User guide
 
-   installing
+   user_guide
 
 .. toctree::
    :maxdepth: 1
