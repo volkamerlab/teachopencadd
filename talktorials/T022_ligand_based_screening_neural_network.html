@@ -6,15 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta property="og:title" content="T022 · Ligand-based screening: neural networks" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="talktorials/T022_ligand_based_screening_neural_network.html" />
+<meta property="og:url" content="https://projects.volkamerlab.org/teachopencadd/talktorials/T022_ligand_based_screening_neural_network.html" />
 <meta property="og:site_name" content="TeachOpenCADD" />
-<meta property="og:description" content="Developed in the CADD seminar 2020, Volkamer Lab, Charité/FU Berlin Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline te..." />
-<meta property="og:image:width" content="1146" />
-<meta property="og:image:height" content="600" />
-<meta property="og:image" content="_images/social_previews/summary_talktorials_T022_ligand_based_screening_neural_network_fbce8620.png" />
-<meta property="og:image:alt" content="Developed in the CADD seminar 2020, Volkamer Lab, Charité/FU Berlin Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline te..." />
-<meta name="description" content="Developed in the CADD seminar 2020, Volkamer Lab, Charité/FU Berlin Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline te..." />
-<meta name="twitter:card" content="summary_large_image" />
+<meta property="og:description" content="Developed in the CADD seminar 2020, Volkamer Lab, Charité/FU Berlin Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Ahmed Atta, CADD Seminar 2020, Charité/FU..." />
+<meta property="og:image" content="https://raw.githubusercontent.com/volkamerlab/teachopencadd/master/docs/_static/images/TeachOpenCADD_topics.png" />
+<meta property="og:image:alt" content="TeachOpenCADD" />
+<meta name="description" content="Developed in the CADD seminar 2020, Volkamer Lab, Charité/FU Berlin Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Ahmed Atta, CADD Seminar 2020, Charité/FU..." />
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -82,15 +79,17 @@
         gtag('config', 'G-Q6ZE82CNZB');
     </script>
   
+    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
-    <title>T022 · Ligand-based screening: neural networks &#8212; TeachOpenCADD 2023.5.2.post442 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=75810a84" />
+  
+    <title>T022 · Ligand-based screening: neural networks &#8212; TeachOpenCADD 2026.4.0.post1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
     <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=897d968c" />
-    <script src="../_static/documentation_options.js?v=f78c6808"></script>
+    <script src="../_static/documentation_options.js?v=ca88eb32"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -103,6 +102,8 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="T023 · What is a kinase?" href="T023_what_is_a_kinase.html" />
     <link rel="prev" title="T021 · One-Hot Encoding" href="T021_one_hot_encoding.html" />
+  
+    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
    
 
@@ -126,7 +127,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../index.html" title="TeachOpenCADD 2023.5.2.post442 documentation"
+        <a href="../index.html" title="TeachOpenCADD 2026.4.0.post1 documentation"
            class="md-header-nav__button md-logo">
           
             <i class="md-icon">school</i>
@@ -138,7 +139,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">TeachOpenCADD 2023.5.2.post442 documentation</span>
+          <span class="md-header-nav__topic">TeachOpenCADD</span>
           <span class="md-header-nav__topic"> T022 · Ligand-based screening: neural networks </span>
         </div>
       </div>
@@ -190,16 +191,6 @@
         </div>
       
       
-  
-  <script src="../_static/javascripts/version_dropdown.js"></script>
-  <script>
-    var json_loc = "../"versions.json"",
-        target_loc = "../../",
-        text = "Versions";
-    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
-  </script>
-  
-
     </div>
   </nav>
 </header>
@@ -212,7 +203,6 @@
   <nav class="md-tabs" data-md-component="tabs">
     <div class="md-tabs__inner md-grid">
       <ul class="md-tabs__list">
-          <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">TeachOpenCADD 2023.5.2.post442 documentation</a></li>
             
             <li class="md-tabs__item"><a href="../talktorials.html" class="md-tabs__link">Our talktorials</a></li>
             
@@ -235,13 +225,13 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../index.html" title="TeachOpenCADD 2023.5.2.post442 documentation" class="md-nav__button md-logo">
+    <a href="../index.html" title="TeachOpenCADD 2026.4.0.post1 documentation" class="md-nav__button md-logo">
       
         <i class="md-icon">school</i>
       
     </a>
     <a href="../index.html"
-       title="TeachOpenCADD 2023.5.2.post442 documentation">TeachOpenCADD 2023.5.2.post442 documentation</a>
+       title="TeachOpenCADD 2026.4.0.post1 documentation">TeachOpenCADD</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
@@ -258,6 +248,162 @@
 </a>
     </div>
   
+  
+
+  
+  <ul class="md-nav__list">
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Our talktorials</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#edition-2019-jcim" class="md-nav__link">Edition 2019 - JCIM</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#edition-2021" class="md-nav__link">Edition 2021</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#ligand-based-cheminformatics" class="md-nav__link">Ligand-based cheminformatics</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#structural-biology" class="md-nav__link">Structural biology</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#online-apis-servers" class="md-nav__link">Online APIs/servers</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#kinase-similarity" class="md-nav__link">Kinase similarity</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#deep-learning" class="md-nav__link">Deep learning</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">User guide</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../user_guide.html" class="md-nav__link">User guide</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Development</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../contribute.html" class="md-nav__link">For contributors</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">About TeachOpenCADD</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../contact.html" class="md-nav__link">Contact</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../acknowledgments.html" class="md-nav__link">Acknowledgments</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../citation.html" class="md-nav__link">Citation</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../license.html" class="md-nav__link">License</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../funding.html" class="md-nav__link">Funding</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">External resources</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../external_dependencies.html" class="md-nav__link">Packages and webservers used in TeachOpenCADD</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../external_tutorials_collections.html" class="md-nav__link">External tutorials and collections</a>
+      
+    
+    </li>
+  </ul>
   
 
 </nav>
