@@ -82,14 +82,14 @@
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
   
-    <title>T019 · Molecular dynamics simulation &#8212; TeachOpenCADD 2026.4.0.post1 documentation</title>
+    <title>T019 · Molecular dynamics simulation &#8212; TeachOpenCADD 2026.4.0.post24 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=fd6457a4" />
     <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=897d968c" />
-    <script src="../_static/documentation_options.js?v=ca88eb32"></script>
+    <script src="../_static/documentation_options.js?v=e202fb5d"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -127,7 +127,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../index.html" title="TeachOpenCADD 2026.4.0.post1 documentation"
+        <a href="../index.html" title="TeachOpenCADD 2026.4.0.post24 documentation"
            class="md-header-nav__button md-logo">
           
             <i class="md-icon">school</i>
@@ -225,13 +225,13 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../index.html" title="TeachOpenCADD 2026.4.0.post1 documentation" class="md-nav__button md-logo">
+    <a href="../index.html" title="TeachOpenCADD 2026.4.0.post24 documentation" class="md-nav__button md-logo">
       
         <i class="md-icon">school</i>
       
     </a>
     <a href="../index.html"
-       title="TeachOpenCADD 2026.4.0.post1 documentation">TeachOpenCADD</a>
+       title="TeachOpenCADD 2026.4.0.post24 documentation">TeachOpenCADD</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
@@ -638,7 +638,7 @@ perform an MD simulation (<a class="reference external" href="https://www.rcsb.o
 <section id="Import-dependencies">
 <h3 id="Import-dependencies">Import dependencies<a class="headerlink" href="#Import-dependencies" title="Link to this heading">¶</a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">copy</span>
@@ -661,7 +661,7 @@ perform an MD simulation (<a class="reference external" href="https://www.rcsb.o
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create data directory if not exists</span>
@@ -676,7 +676,7 @@ perform an MD simulation (<a class="reference external" href="https://www.rcsb.o
 <h3 id="Download-PDB-file">Download PDB file<a class="headerlink" href="#Download-PDB-file" title="Link to this heading">¶</a></h3>
 <p>The Protein Data Bank (<a class="reference external" href="https://www.rcsb.org/">PDB</a>) allows for easy downloading of files via url.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pdbid</span> <span class="o">=</span> <span class="s2">"3POZ"</span>
@@ -687,7 +687,7 @@ perform an MD simulation (<a class="reference external" href="https://www.rcsb.o
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pdb_url</span><span class="p">)</span>
@@ -704,7 +704,7 @@ perform an MD simulation (<a class="reference external" href="https://www.rcsb.o
 <h4 id="Protein-preparation">Protein preparation<a class="headerlink" href="#Protein-preparation" title="Link to this heading">¶</a></h4>
 <p>A crucial part for successful simulation is a correct and complete system. Crystallographic structures retrieved from the Protein Data Bank often miss atoms, mainly hydrogens, and may contain non-standard residues. In this talktorial, we will use the Python package <a class="reference external" href="https://github.com/openmm/pdbfixer">PDBFixer</a> to prepare the protein structure. However, co-crystallized ligands are not handled well by <a class="reference external" href="https://github.com/openmm/pdbfixer">PDBFixer</a> and will thus be prepared separately.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">prepare_protein</span><span class="p">(</span>
@@ -758,7 +758,7 @@ perform an MD simulation (<a class="reference external" href="https://www.rcsb.o
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># prepare protein and build only missing non-terminal residues</span>
@@ -772,7 +772,7 @@ perform an MD simulation (<a class="reference external" href="https://www.rcsb.o
 <p>After preparing the protein, we turn our attention to the ligand. Again, we need to add hydrogens, but also need to make sure the bond orders are correctly assigned, since some PDB entries may contain errors. We use the Python package <a class="reference external" href="https://github.com/rdkit/rdkit">RDKit</a>, an open source cheminformatics library. We will provide the correct protonation state and bond orders to <a class="reference external" href="https://github.com/rdkit/rdkit">RDKit</a> via a SMILES string. Uncharged isomeric SMILES strings for each
 co-crystallized ligand can be found in their respective <a class="reference external" href="https://www.rcsb.org">PDB</a> entry. The ligand of PDB entry <a class="reference external" href="https://www.rcsb.org/structure/3poz">3POZ</a> has the name <a class="reference external" href="https://www.rcsb.org/ligand/03P">03P</a>. If a ligand is likely to bind in its charged form or as a specific tautomer, such characteristics need to be incorporated into the SMILES string.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">prepare_ligand</span><span class="p">(</span><span class="n">pdb_file</span><span class="p">,</span> <span class="n">resname</span><span class="p">,</span> <span class="n">smiles</span><span class="p">,</span> <span class="n">depict</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
@@ -833,7 +833,7 @@ co-crystallized ligand can be found in their respective <a class="reference exte
 </div>
 <p>Calling this function with the isomeric SMILES string taken from the PDB entry for <a class="reference external" href="https://www.rcsb.org/ligand/03P">03P</a> returns a correctly prepared ligand. Printed is a 2D-representation of the original and the prepared ligand for inspection.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smiles</span> <span class="o">=</span> <span class="s2">"CC(C)(O)CC(=O)NCCn1ccc2ncnc(Nc3ccc(Oc4cccc(c4)C(F)(F)F)c(Cl)c3)c12"</span>
@@ -846,7 +846,7 @@ co-crystallized ligand can be found in their respective <a class="reference exte
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[10:36:24] WARNING: More than one matching pattern found - picking one
+[10:10:57] WARNING: More than one matching pattern found - picking one
 
 </pre></div></div>
 </div>
@@ -863,7 +863,7 @@ co-crystallized ligand can be found in their respective <a class="reference exte
 <p>In the next step, we want to merge the prepared protein and ligand structures using the Python package <a class="reference external" href="https://github.com/mdtraj/mdtraj">MDTraj</a>. <a class="reference external" href="https://github.com/mdtraj/mdtraj">MDTraj</a> can handle the prepared protein, which is currently a <a class="reference external" href="https://github.com/openmm/pdbfixer">PDBFixer</a> molecule, a format that has a topology and atom positions similar to and usually interchangeable with <a class="reference external" href="http://docs.openmm.org/latest/userguide/application.html#model-building-and-editing">OpenMM
 Modeller</a> topologies and positions. For the ligand however, we need to do several conversions, since it is currently an <a class="reference external" href="https://github.com/rdkit/rdkit">RDKit</a> molecule.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">rdkit_to_openmm</span><span class="p">(</span><span class="n">rdkit_mol</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"LIG"</span><span class="p">):</span>
@@ -916,7 +916,7 @@ Modeller</a> topologies and positions. For the ligand however, we need to do sev
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">omm_ligand</span> <span class="o">=</span> <span class="n">rdkit_to_openmm</span><span class="p">(</span><span class="n">rdkit_ligand</span><span class="p">,</span> <span class="n">ligand_name</span><span class="p">)</span>
@@ -925,7 +925,7 @@ Modeller</a> topologies and positions. For the ligand however, we need to do sev
 </div>
 <p>Now protein and ligand are both in <a class="reference external" href="https://github.com/openmm/openmm">OpenMM</a> like formats and can be merged with <a class="reference external" href="https://github.com/mdtraj/mdtraj">MDTraj</a>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">merge_protein_and_ligand</span><span class="p">(</span><span class="n">protein</span><span class="p">,</span> <span class="n">ligand</span><span class="p">):</span>
@@ -966,7 +966,7 @@ Modeller</a> topologies and positions. For the ligand however, we need to do sev
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">complex_topology</span><span class="p">,</span> <span class="n">complex_positions</span> <span class="o">=</span> <span class="n">merge_protein_and_ligand</span><span class="p">(</span><span class="n">prepared_protein</span><span class="p">,</span> <span class="n">omm_ligand</span><span class="p">)</span>
@@ -978,12 +978,12 @@ Modeller</a> topologies and positions. For the ligand however, we need to do sev
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/opt/miniconda3/envs/T019_3120/lib/python3.12/site-packages/openmm/unit/quantity.py:750: UnitStrippedWarning: The unit of the quantity is stripped when downcasting to ndarray.
+/home/michael/.teachopencadd_envs/teachopencadd_T019_py312/lib/python3.12/site-packages/openmm/unit/quantity.py:750: UnitStrippedWarning: The unit of the quantity is stripped when downcasting to ndarray.
   self._value[key] = value / self.unit
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Complex topology has"</span><span class="p">,</span> <span class="n">complex_topology</span><span class="o">.</span><span class="n">getNumAtoms</span><span class="p">(),</span> <span class="s2">"atoms."</span><span class="p">)</span>
@@ -1009,7 +1009,7 @@ Complex topology has 5561 atoms.
 <p>Common force fields like AMBER have parameters for amino acids, nucleic acids, water and ions and usually offer several options to choose from depending on your aim. We use the <code class="docutils literal notranslate"><span class="pre">amber14-all.xml</span></code> force field file, which is shipped with OpenMM and includes parameters for proteins, DNA, RNA and lipids. For solvation we use the standard three-site <a class="reference external" href="https://en.wikipedia.org/wiki/Water_model">water model</a> <a class="reference external" href="https://aip.scitation.org/doi/10.1063/1.445869">TIP3P</a>.</p>
 <p>Parameters for ligands however are not included. To generate these parameters, we can use the <strong>G</strong>eneral <strong>A</strong>MBER <strong>F</strong>orce<strong>F</strong>ield (<a class="reference external" href="http://ambermd.org/antechamber/gaff.html">GAFF</a>), which is implemented in the Python package <a class="reference external" href="https://github.com/openmm/openmmforcefields">OpenMM Forcefields</a>. The following function generates a force field object holding standard AMBER parameters and additionally includes parameters for a small molecule if required.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_forcefield</span><span class="p">(</span>
@@ -1036,7 +1036,8 @@ Complex topology has 5561 atoms.
 
     <span class="k">if</span> <span class="n">rdkit_mol</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">gaff</span> <span class="o">=</span> <span class="n">GAFFTemplateGenerator</span><span class="p">(</span>
-            <span class="n">molecules</span><span class="o">=</span><span class="n">Molecule</span><span class="o">.</span><span class="n">from_rdkit</span><span class="p">(</span><span class="n">rdkit_mol</span><span class="p">,</span> <span class="n">allow_undefined_stereo</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">forcefield</span><span class="o">=</span><span class="s2">"gaff-2.2.20"</span><span class="p">,</span>
+            <span class="n">molecules</span><span class="o">=</span><span class="n">Molecule</span><span class="o">.</span><span class="n">from_rdkit</span><span class="p">(</span><span class="n">rdkit_mol</span><span class="p">,</span> <span class="n">allow_undefined_stereo</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
         <span class="p">)</span>
         <span class="n">forcefield</span><span class="o">.</span><span class="n">registerTemplateGenerator</span><span class="p">(</span><span class="n">gaff</span><span class="o">.</span><span class="n">generator</span><span class="p">)</span>
 
@@ -1045,7 +1046,7 @@ Complex topology has 5561 atoms.
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">forcefield</span> <span class="o">=</span> <span class="n">generate_forcefield</span><span class="p">(</span><span class="n">rdkit_ligand</span><span class="p">)</span>
@@ -1061,7 +1062,7 @@ complex.</p>
 <div><p>Note this step can take a long time, in the order of minutes, depending on your hardware.</p>
 </div></blockquote>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">modeller</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">Modeller</span><span class="p">(</span><span class="n">complex_topology</span><span class="p">,</span> <span class="n">complex_positions</span><span class="p">)</span>
@@ -1072,7 +1073,7 @@ complex.</p>
 <p>With our solvated system and force field, we can finally create an <a class="reference external" href="http://docs.openmm.org/development/api-python/generated/openmm.openmm.System.html#openmm.openmm.System">OpenMM System</a> and set up the simulation. Additionally to the system the simulation needs an integrator. An <a class="reference external" href="http://docs.openmm.org/development/api-python/library.html#integrators">OpenMM Integrator</a> defines a method for simulating a system by integrating the equations of motion. The chosen <strong>Langevin Integrator</strong> uses
 Langevin equations. A list of all different kinds of integrators can be found in the <a class="reference external" href="http://docs.openmm.org/development/api-python/library.html#integrators">OpenMM Docs</a>. For further insight into the <strong>Langevin Integrator</strong>, we recommend reading about Langevin equations, e.g. on <a class="reference external" href="https://en.wikipedia.org/wiki/Langevin_equation">Wikipedia</a>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">system</span> <span class="o">=</span> <span class="n">forcefield</span><span class="o">.</span><span class="n">createSystem</span><span class="p">(</span><span class="n">modeller</span><span class="o">.</span><span class="n">topology</span><span class="p">,</span> <span class="n">nonbondedMethod</span><span class="o">=</span><span class="n">app</span><span class="o">.</span><span class="n">PME</span><span class="p">)</span>
@@ -1090,7 +1091,7 @@ Langevin equations. A list of all different kinds of integrators can be found in
 <h3 id="Perform-the-MD-simulation">Perform the MD simulation<a class="headerlink" href="#Perform-the-MD-simulation" title="Link to this heading">¶</a></h3>
 <p>Now that everything is set up, we can perform the simulation. We need to set starting positions and minimize the energy of the system to get a low energy starting configuration, which is important to decrease the chance of simulation failures due to severe atom clashes. The energy minimized system is saved.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simulation</span><span class="o">.</span><span class="n">minimizeEnergy</span><span class="p">()</span>
@@ -1108,7 +1109,7 @@ Langevin equations. A list of all different kinds of integrators can be found in
 point. Together with the PDB file of the energy minimized system written before, it gives us all the information needed for later analysis.</p>
 <p><strong>Note</strong>: This talktorial will only generate a 20 fs trajectory, if not on Google Colab. However, if you have a good GPU available, you can also increase the simulation time.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># output settings</span>
@@ -1143,7 +1144,7 @@ point. Together with the PDB file of the energy minimized system written before,
 <p>The velocities for all particles in the system are randomly chosen from a distribution at the given temperature. We chose 300 Kelvin, which is some degrees above room temperature. A random seed is generated, but could be explicitly given to reproduce results.</p>
 <p>Then the simulation is performed by taking the steps defined before.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simulation</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">setVelocitiesToTemperature</span><span class="p">(</span><span class="mi">300</span> <span class="o">*</span> <span class="n">unit</span><span class="o">.</span><span class="n">kelvin</span><span class="p">)</span>
@@ -1157,20 +1158,20 @@ point. Together with the PDB file of the energy minimized system written before,
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 #"Progress (%)" "Step"  "Potential Energy (kJ/mole)"    "Temperature (K)"       "Speed (ns/day)"        "Time Remaining"
-10.0%   1       -960770.8790467526      299.1752577096492       0       --
-20.0%   2       -947618.8243592526      267.26775463185805      2.53    0:00
-30.0%   3       -931314.6153748776      239.09967744235587      2.73    0:00
-40.0%   4       -915048.5675233151      197.7903674288539       2.9     0:00
-50.0%   5       -909204.9132264401      176.05514177413463      2.83    0:00
-60.0%   6       -901140.4386170651      163.00428808376293      2.98    0:00
-70.0%   7       -898269.6622498776      147.9420120662931       3.13    0:00
-80.0%   8       -901424.4620545651      152.05211814434304      3.23    0:00
-90.0%   9       -903106.5587342526      157.61325113621587      3.33    0:00
-100.0%  10      -908084.8087342526      164.81643535903282      3.38    0:00
+10.0%   1       -911672.8833984158      300.58994432283663      0       --
+20.0%   2       -898806.4210639504      267.2506776332451       1.78    0:00
+30.0%   3       -883111.4814176012      238.60290950665717      1.73    0:00
+40.0%   4       -867596.4630740668      196.76725273444427      1.68    0:00
+50.0%   5       -862553.2471993582      175.87229216182052      1.6     0:00
+60.0%   6       -854763.8296435549      163.39398429953755      1.54    0:00
+70.0%   7       -852074.9736099411      147.9384677561452       1.5     0:00
+80.0%   8       -855085.7518770137      152.24611569256365      1.5     0:00
+90.0%   9       -856760.1494785415      157.91401106119835      1.49    0:00
+100.0%  10      -861616.5007841537      165.39716192526913      1.49    0:00
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the trajectory exists and is not empty</span>
@@ -1180,7 +1181,7 @@ point. Together with the PDB file of the energy minimized system written before,
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1193,7 +1194,7 @@ True
 <h3 id="Download-results">Download results<a class="headerlink" href="#Download-results" title="Link to this heading">¶</a></h3>
 <p>You can execute the following cell if you are working on Google Colab to download the MD simulation results.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">on_colab</span><span class="p">:</span>

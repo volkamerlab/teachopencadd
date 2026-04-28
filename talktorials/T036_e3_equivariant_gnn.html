@@ -82,14 +82,14 @@
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
   
-    <title>T036 · An introduction to E(3)-invariant graph neural networks &#8212; TeachOpenCADD 2026.4.0.post1 documentation</title>
+    <title>T036 · An introduction to E(3)-invariant graph neural networks &#8212; TeachOpenCADD 2026.4.0.post24 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=fd6457a4" />
     <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=897d968c" />
-    <script src="../_static/documentation_options.js?v=ca88eb32"></script>
+    <script src="../_static/documentation_options.js?v=e202fb5d"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -127,7 +127,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../index.html" title="TeachOpenCADD 2026.4.0.post1 documentation"
+        <a href="../index.html" title="TeachOpenCADD 2026.4.0.post24 documentation"
            class="md-header-nav__button md-logo">
           
             <i class="md-icon">school</i>
@@ -225,13 +225,13 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../index.html" title="TeachOpenCADD 2026.4.0.post1 documentation" class="md-nav__button md-logo">
+    <a href="../index.html" title="TeachOpenCADD 2026.4.0.post24 documentation" class="md-nav__button md-logo">
       
         <i class="md-icon">school</i>
       
     </a>
     <a href="../index.html"
-       title="TeachOpenCADD 2026.4.0.post1 documentation">TeachOpenCADD</a>
+       title="TeachOpenCADD 2026.4.0.post24 documentation">TeachOpenCADD</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
@@ -591,7 +591,7 @@ demonstrate the shortcomings of plain graph neural networks (GNNs) when working 
     <span class="o">%</span><span class="k">pip</span> install teachopencadd --no-deps -q
     <span class="o">!</span>teachopencadd<span class="w"> </span>-d<span class="w"> </span><span class="m">36</span>
     <span class="o">%</span><span class="k">pip</span> uninstall teachopencadd -y -q
-    <span class="o">%</span><span class="k">pip</span> install -qr requirements.txt
+    <span class="o">%</span><span class="k">pip</span> install torch torch_geometric torch-scatter numpy matplotlib tqdm pandas notebook nbformat jupyterlab-widgets
 </pre></div>
 </div>
 </div>
@@ -1224,7 +1224,11 @@ tensor([[-0.0100,  1.0900,  0.0100],
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/var/folders/gh/w26fk3_d4rg66fs_7fz84c3c0000gn/T/ipykernel_10664/725946626.py:47: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
+&lt;&gt;:15: SyntaxWarning: invalid escape sequence '\l'
+&lt;&gt;:15: SyntaxWarning: invalid escape sequence '\l'
+/tmp/ipykernel_266792/2426728866.py:15: SyntaxWarning: invalid escape sequence '\l'
+  ax1.set_ylabel("Electronic spatial extent $\langle R^2 \\rangle$")
+/tmp/ipykernel_266792/725946626.py:47: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
   dataset.data.y = dataset.data.y[:, self.target_idx].view(-1, 1)
 </pre></div></div>
 </div>
@@ -1398,7 +1402,7 @@ Text(0.5, 0.98, 'Random data split - target distribution')
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/var/folders/gh/w26fk3_d4rg66fs_7fz84c3c0000gn/T/ipykernel_10664/2912899843.py:32: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all Axes decorations.
+/tmp/ipykernel_266792/2912899843.py:32: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all Axes decorations.
   fig.tight_layout()
 </pre></div></div>
 </div>
@@ -1872,33 +1876,33 @@ Text(0.5, 0.92, 'Model output for $(X, g(Z))$')
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/var/folders/gh/w26fk3_d4rg66fs_7fz84c3c0000gn/T/ipykernel_10664/725946626.py:47: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
+/tmp/ipykernel_266792/725946626.py:47: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
   dataset.data.y = dataset.data.y[:, self.target_idx].view(-1, 1)
-Epoch   1 / 25 | train_loss: 77374.85 | val_loss:  9492.04 | train_mae:   171.68 | val_mae:    75.09: 100%|██████████| 614/614 [00:25&lt;00:00, 23.86it/s]
-Epoch   2 / 25 | train_loss:  5218.16 | val_loss:  2144.80 | train_mae:    49.66 | val_mae:    30.47: 100%|██████████| 614/614 [00:20&lt;00:00, 29.26it/s]
-Epoch   3 / 25 | train_loss:  1395.79 | val_loss:  1344.47 | train_mae:    24.91 | val_mae:    29.85: 100%|██████████| 614/614 [00:24&lt;00:00, 24.64it/s]
-Epoch   4 / 25 | train_loss:   773.89 | val_loss:   684.60 | train_mae:    19.03 | val_mae:    18.94: 100%|██████████| 614/614 [00:25&lt;00:00, 23.93it/s]
-Epoch   5 / 25 | train_loss:   603.94 | val_loss:   391.45 | train_mae:    17.09 | val_mae:    13.13: 100%|██████████| 614/614 [00:28&lt;00:00, 21.79it/s]
-Epoch   6 / 25 | train_loss:   417.09 | val_loss:   293.85 | train_mae:    13.87 | val_mae:    10.91: 100%|██████████| 614/614 [00:24&lt;00:00, 25.27it/s]
-Epoch   7 / 25 | train_loss:   383.69 | val_loss:   253.44 | train_mae:    13.82 | val_mae:    10.50: 100%|██████████| 614/614 [00:21&lt;00:00, 28.24it/s]
-Epoch   8 / 25 | train_loss:   290.20 | val_loss:   199.07 | train_mae:    11.80 | val_mae:     8.89: 100%|██████████| 614/614 [00:21&lt;00:00, 28.77it/s]
-Epoch   9 / 25 | train_loss:   277.28 | val_loss:   326.93 | train_mae:    11.80 | val_mae:    14.70: 100%|██████████| 614/614 [00:21&lt;00:00, 28.08it/s]
-Epoch  10 / 25 | train_loss:   244.11 | val_loss:   140.61 | train_mae:    11.06 | val_mae:     7.27: 100%|██████████| 614/614 [00:22&lt;00:00, 27.12it/s]
-Epoch  11 / 25 | train_loss:   213.06 | val_loss:   234.73 | train_mae:    10.35 | val_mae:    12.40: 100%|██████████| 614/614 [00:22&lt;00:00, 26.78it/s]
-Epoch  12 / 25 | train_loss:   176.14 | val_loss:   105.42 | train_mae:     9.44 | val_mae:     6.60: 100%|██████████| 614/614 [00:25&lt;00:00, 24.04it/s]
-Epoch  13 / 25 | train_loss:   163.96 | val_loss:    90.74 | train_mae:     9.18 | val_mae:     6.08: 100%|██████████| 614/614 [00:22&lt;00:00, 27.67it/s]
-Epoch  14 / 25 | train_loss:   142.98 | val_loss:    89.28 | train_mae:     8.63 | val_mae:     6.36: 100%|██████████| 614/614 [00:22&lt;00:00, 27.36it/s]
-Epoch  15 / 25 | train_loss:   124.25 | val_loss:   490.84 | train_mae:     7.99 | val_mae:    20.22: 100%|██████████| 614/614 [00:25&lt;00:00, 23.94it/s]
-Epoch  16 / 25 | train_loss:   116.46 | val_loss:    62.70 | train_mae:     7.59 | val_mae:     4.89: 100%|██████████| 614/614 [00:22&lt;00:00, 27.09it/s]
-Epoch  17 / 25 | train_loss:   103.90 | val_loss:    77.13 | train_mae:     7.39 | val_mae:     6.17: 100%|██████████| 614/614 [00:21&lt;00:00, 28.56it/s]
-Epoch  18 / 25 | train_loss:    97.12 | val_loss:    57.99 | train_mae:     7.11 | val_mae:     5.33: 100%|██████████| 614/614 [00:23&lt;00:00, 26.18it/s]
-Epoch  19 / 25 | train_loss:    99.23 | val_loss:    47.37 | train_mae:     7.18 | val_mae:     4.54: 100%|██████████| 614/614 [00:21&lt;00:00, 28.06it/s]
-Epoch  20 / 25 | train_loss:    81.53 | val_loss:    51.31 | train_mae:     6.53 | val_mae:     5.06: 100%|██████████| 614/614 [00:24&lt;00:00, 24.62it/s]
-Epoch  21 / 25 | train_loss:    83.73 | val_loss:    66.56 | train_mae:     6.63 | val_mae:     5.96: 100%|██████████| 614/614 [00:23&lt;00:00, 26.33it/s]
-Epoch  22 / 25 | train_loss:    86.96 | val_loss:    37.25 | train_mae:     6.83 | val_mae:     4.04: 100%|██████████| 614/614 [00:22&lt;00:00, 27.28it/s]
-Epoch  23 / 25 | train_loss:    55.84 | val_loss:   100.22 | train_mae:     5.39 | val_mae:     8.23: 100%|██████████| 614/614 [00:21&lt;00:00, 27.94it/s]
-Epoch  24 / 25 | train_loss:    83.10 | val_loss:    31.11 | train_mae:     6.44 | val_mae:     3.72: 100%|██████████| 614/614 [00:25&lt;00:00, 24.35it/s]
-Epoch  25 / 25 | train_loss:    54.57 | val_loss:    29.22 | train_mae:     5.39 | val_mae:     3.50: 100%|██████████| 614/614 [00:26&lt;00:00, 23.42it/s]
+Epoch   1 / 25 | train_loss: 66117.19 | val_loss:  6971.78 | train_mae:   151.21 | val_mae:    63.00: 100%|█| 614/614 [00:19&lt;00:00, 32.09it/s
+Epoch   2 / 25 | train_loss:  3634.91 | val_loss:  1427.47 | train_mae:    41.55 | val_mae:    25.55: 100%|█| 614/614 [00:15&lt;00:00, 38.53it/s
+Epoch   3 / 25 | train_loss:   971.71 | val_loss:   739.19 | train_mae:    21.45 | val_mae:    20.76: 100%|█| 614/614 [00:17&lt;00:00, 35.45it/s
+Epoch   4 / 25 | train_loss:   643.31 | val_loss:   833.51 | train_mae:    17.91 | val_mae:    24.32: 100%|█| 614/614 [00:17&lt;00:00, 36.00it/s
+Epoch   5 / 25 | train_loss:   435.38 | val_loss:   972.27 | train_mae:    14.68 | val_mae:    27.91: 100%|█| 614/614 [00:16&lt;00:00, 37.39it/s
+Epoch   6 / 25 | train_loss:   342.28 | val_loss:   177.11 | train_mae:    13.23 | val_mae:     8.57: 100%|█| 614/614 [00:19&lt;00:00, 30.85it/s
+Epoch   7 / 25 | train_loss:   269.96 | val_loss:   155.81 | train_mae:    11.87 | val_mae:     8.54: 100%|█| 614/614 [00:17&lt;00:00, 35.32it/s
+Epoch   8 / 25 | train_loss:   285.35 | val_loss:   405.71 | train_mae:    11.32 | val_mae:    16.68: 100%|█| 614/614 [00:16&lt;00:00, 36.96it/s
+Epoch   9 / 25 | train_loss:   159.24 | val_loss:   195.82 | train_mae:     8.90 | val_mae:    11.12: 100%|█| 614/614 [00:16&lt;00:00, 37.32it/s
+Epoch  10 / 25 | train_loss:   152.02 | val_loss:   276.30 | train_mae:     8.84 | val_mae:    13.42: 100%|█| 614/614 [00:16&lt;00:00, 37.03it/s
+Epoch  11 / 25 | train_loss:   140.00 | val_loss:   227.73 | train_mae:     8.60 | val_mae:    12.72: 100%|█| 614/614 [00:16&lt;00:00, 36.82it/s
+Epoch  12 / 25 | train_loss:   116.59 | val_loss:   180.34 | train_mae:     7.77 | val_mae:    11.21: 100%|█| 614/614 [00:16&lt;00:00, 38.35it/s
+Epoch  13 / 25 | train_loss:   134.26 | val_loss:    79.05 | train_mae:     8.61 | val_mae:     6.78: 100%|█| 614/614 [00:15&lt;00:00, 39.34it/s
+Epoch  14 / 25 | train_loss:   126.46 | val_loss:    94.05 | train_mae:     8.09 | val_mae:     7.79: 100%|█| 614/614 [00:16&lt;00:00, 38.08it/s
+Epoch  15 / 25 | train_loss:    92.67 | val_loss:    98.36 | train_mae:     7.05 | val_mae:     8.14: 100%|█| 614/614 [00:18&lt;00:00, 33.09it/s
+Epoch  16 / 25 | train_loss:   115.40 | val_loss:    54.94 | train_mae:     8.05 | val_mae:     5.51: 100%|█| 614/614 [00:16&lt;00:00, 37.96it/s
+Epoch  17 / 25 | train_loss:    73.27 | val_loss:    40.33 | train_mae:     6.27 | val_mae:     4.33: 100%|█| 614/614 [00:17&lt;00:00, 35.99it/s
+Epoch  18 / 25 | train_loss:    92.75 | val_loss:   141.86 | train_mae:     6.92 | val_mae:    10.77: 100%|█| 614/614 [00:17&lt;00:00, 35.18it/s
+Epoch  19 / 25 | train_loss:    75.18 | val_loss:    40.66 | train_mae:     6.48 | val_mae:     4.57: 100%|█| 614/614 [00:23&lt;00:00, 26.36it/s
+Epoch  20 / 25 | train_loss:    81.59 | val_loss:    50.77 | train_mae:     6.73 | val_mae:     5.51: 100%|█| 614/614 [00:17&lt;00:00, 34.29it/s
+Epoch  21 / 25 | train_loss:    56.46 | val_loss:    37.03 | train_mae:     5.62 | val_mae:     4.67: 100%|█| 614/614 [00:17&lt;00:00, 34.76it/s
+Epoch  22 / 25 | train_loss:    69.27 | val_loss:   149.26 | train_mae:     6.08 | val_mae:    10.65: 100%|█| 614/614 [00:21&lt;00:00, 28.49it/s
+Epoch  23 / 25 | train_loss:    66.75 | val_loss:    32.96 | train_mae:     6.12 | val_mae:     4.24: 100%|█| 614/614 [00:20&lt;00:00, 30.10it/s
+Epoch  24 / 25 | train_loss:    64.72 | val_loss:    67.83 | train_mae:     5.80 | val_mae:     7.05: 100%|█| 614/614 [00:20&lt;00:00, 30.13it/s
+Epoch  25 / 25 | train_loss:    46.54 | val_loss:    75.05 | train_mae:     5.02 | val_mae:     7.78: 100%|█| 614/614 [00:19&lt;00:00, 31.38it/s
 </pre></div></div>
 </div>
 </section>
@@ -1926,108 +1930,108 @@ Epoch  25 / 25 | train_loss:    54.57 | val_loss:    29.22 | train_mae:     5.39
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/var/folders/gh/w26fk3_d4rg66fs_7fz84c3c0000gn/T/ipykernel_10664/725946626.py:47: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
+/tmp/ipykernel_266792/725946626.py:47: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
   dataset.data.y = dataset.data.y[:, self.target_idx].view(-1, 1)
-Epoch   1 / 100 | train_loss: 128050.88 | val_loss: 54276.80 | train_mae:   257.72 | val_mae:   168.99: 100%|██████████| 614/614 [00:11&lt;00:00, 51.33it/s]
-Epoch   2 / 100 | train_loss: 47293.53 | val_loss: 40632.28 | train_mae:   162.75 | val_mae:   151.21: 100%|██████████| 614/614 [00:10&lt;00:00, 60.65it/s]
-Epoch   3 / 100 | train_loss: 34453.29 | val_loss: 23960.37 | train_mae:   140.95 | val_mae:   118.63: 100%|██████████| 614/614 [00:07&lt;00:00, 87.09it/s]
-Epoch   4 / 100 | train_loss: 19288.18 | val_loss: 13180.88 | train_mae:   103.98 | val_mae:    85.99: 100%|██████████| 614/614 [00:06&lt;00:00, 90.47it/s]
-Epoch   5 / 100 | train_loss: 12036.94 | val_loss: 12762.80 | train_mae:    81.34 | val_mae:    88.44: 100%|██████████| 614/614 [00:07&lt;00:00, 86.60it/s]
-Epoch   6 / 100 | train_loss:  9250.69 | val_loss:  8527.33 | train_mae:    70.74 | val_mae:    65.24: 100%|██████████| 614/614 [00:06&lt;00:00, 93.78it/s]
-Epoch   7 / 100 | train_loss:  7623.89 | val_loss:  7040.44 | train_mae:    64.10 | val_mae:    61.59: 100%|██████████| 614/614 [00:06&lt;00:00, 97.60it/s]
-Epoch   8 / 100 | train_loss:  6948.21 | val_loss:  8448.29 | train_mae:    61.35 | val_mae:    70.48: 100%|██████████| 614/614 [00:06&lt;00:00, 98.06it/s]
-Epoch   9 / 100 | train_loss:  6398.77 | val_loss:  6635.33 | train_mae:    59.15 | val_mae:    58.92: 100%|██████████| 614/614 [00:07&lt;00:00, 86.84it/s]
-Epoch  10 / 100 | train_loss:  5527.49 | val_loss:  5670.26 | train_mae:    54.75 | val_mae:    53.01: 100%|██████████| 614/614 [00:07&lt;00:00, 81.91it/s]
-Epoch  11 / 100 | train_loss:  5300.14 | val_loss:  8903.34 | train_mae:    53.54 | val_mae:    75.65: 100%|██████████| 614/614 [00:08&lt;00:00, 70.53it/s]
-Epoch  12 / 100 | train_loss:  5036.99 | val_loss:  4940.91 | train_mae:    52.00 | val_mae:    49.50: 100%|██████████| 614/614 [00:07&lt;00:00, 79.30it/s]
-Epoch  13 / 100 | train_loss:  5276.09 | val_loss:  5837.19 | train_mae:    53.60 | val_mae:    53.96: 100%|██████████| 614/614 [00:07&lt;00:00, 78.90it/s]
-Epoch  14 / 100 | train_loss:  4486.70 | val_loss:  5605.03 | train_mae:    48.86 | val_mae:    51.62: 100%|██████████| 614/614 [00:07&lt;00:00, 86.16it/s]
-Epoch  15 / 100 | train_loss:  4557.87 | val_loss:  7730.75 | train_mae:    49.27 | val_mae:    65.80: 100%|██████████| 614/614 [00:07&lt;00:00, 77.72it/s]
-Epoch  16 / 100 | train_loss:  4547.04 | val_loss:  5202.38 | train_mae:    49.17 | val_mae:    50.51: 100%|██████████| 614/614 [00:07&lt;00:00, 79.23it/s]
-Epoch  17 / 100 | train_loss:  4062.75 | val_loss:  4621.15 | train_mae:    46.37 | val_mae:    45.53: 100%|██████████| 614/614 [00:07&lt;00:00, 82.92it/s]
-Epoch  18 / 100 | train_loss:  4040.10 | val_loss:  6667.57 | train_mae:    46.33 | val_mae:    58.23: 100%|██████████| 614/614 [00:09&lt;00:00, 64.83it/s]
-Epoch  19 / 100 | train_loss:  4165.04 | val_loss:  4643.77 | train_mae:    46.90 | val_mae:    46.20: 100%|██████████| 614/614 [00:07&lt;00:00, 79.26it/s]
-Epoch  20 / 100 | train_loss:  3850.31 | val_loss:  4319.65 | train_mae:    45.14 | val_mae:    44.66: 100%|██████████| 614/614 [00:07&lt;00:00, 83.77it/s]
-Epoch  21 / 100 | train_loss:  3627.55 | val_loss:  4138.81 | train_mae:    43.59 | val_mae:    41.83: 100%|██████████| 614/614 [00:07&lt;00:00, 80.03it/s]
-Epoch  22 / 100 | train_loss:  3658.99 | val_loss:  6382.00 | train_mae:    43.60 | val_mae:    53.96: 100%|██████████| 614/614 [00:07&lt;00:00, 83.77it/s]
-Epoch  23 / 100 | train_loss:  3792.87 | val_loss:  4311.36 | train_mae:    44.19 | val_mae:    42.56: 100%|██████████| 614/614 [00:07&lt;00:00, 85.48it/s]
-Epoch  24 / 100 | train_loss:  3610.70 | val_loss:  4145.04 | train_mae:    43.68 | val_mae:    44.52: 100%|██████████| 614/614 [00:07&lt;00:00, 84.95it/s]
-Epoch  25 / 100 | train_loss:  3478.77 | val_loss:  4439.86 | train_mae:    42.67 | val_mae:    44.64: 100%|██████████| 614/614 [00:08&lt;00:00, 75.67it/s]
-Epoch  26 / 100 | train_loss:  3306.14 | val_loss:  3909.29 | train_mae:    41.70 | val_mae:    40.12: 100%|██████████| 614/614 [00:07&lt;00:00, 77.73it/s]
-Epoch  27 / 100 | train_loss:  3232.12 | val_loss:  4144.36 | train_mae:    41.29 | val_mae:    42.48: 100%|██████████| 614/614 [00:07&lt;00:00, 82.47it/s]
-Epoch  28 / 100 | train_loss:  3314.62 | val_loss:  3868.49 | train_mae:    41.64 | val_mae:    41.45: 100%|██████████| 614/614 [00:06&lt;00:00, 87.96it/s]
-Epoch  29 / 100 | train_loss:  3169.42 | val_loss:  4014.70 | train_mae:    40.51 | val_mae:    41.15: 100%|██████████| 614/614 [00:06&lt;00:00, 95.84it/s]
-Epoch  30 / 100 | train_loss:  2973.75 | val_loss:  5174.63 | train_mae:    39.20 | val_mae:    51.54: 100%|██████████| 614/614 [00:06&lt;00:00, 90.66it/s]
-Epoch  31 / 100 | train_loss:  3025.65 | val_loss:  4057.74 | train_mae:    39.94 | val_mae:    41.98: 100%|██████████| 614/614 [00:07&lt;00:00, 83.64it/s]
-Epoch  32 / 100 | train_loss:  3002.32 | val_loss:  4014.36 | train_mae:    39.79 | val_mae:    41.01: 100%|██████████| 614/614 [00:07&lt;00:00, 87.09it/s]
-Epoch  33 / 100 | train_loss:  3127.44 | val_loss:  4115.47 | train_mae:    40.60 | val_mae:    42.29: 100%|██████████| 614/614 [00:06&lt;00:00, 88.47it/s]
-Epoch  34 / 100 | train_loss:  2810.74 | val_loss:  4058.93 | train_mae:    38.66 | val_mae:    41.51: 100%|██████████| 614/614 [00:07&lt;00:00, 80.98it/s]
-Epoch  35 / 100 | train_loss:  2909.60 | val_loss:  4341.75 | train_mae:    39.32 | val_mae:    44.45: 100%|██████████| 614/614 [00:07&lt;00:00, 79.55it/s]
-Epoch  36 / 100 | train_loss:  2739.64 | val_loss:  4245.94 | train_mae:    37.86 | val_mae:    42.11: 100%|██████████| 614/614 [00:07&lt;00:00, 80.48it/s]
-Epoch  37 / 100 | train_loss:  2915.65 | val_loss:  3883.43 | train_mae:    39.17 | val_mae:    39.05: 100%|██████████| 614/614 [00:09&lt;00:00, 61.91it/s]
-Epoch  38 / 100 | train_loss:  2688.61 | val_loss:  3747.91 | train_mae:    37.57 | val_mae:    38.15: 100%|██████████| 614/614 [00:13&lt;00:00, 44.52it/s]
-Epoch  39 / 100 | train_loss:  2541.16 | val_loss:  3680.58 | train_mae:    36.46 | val_mae:    39.62: 100%|██████████| 614/614 [00:08&lt;00:00, 70.29it/s]
-Epoch  40 / 100 | train_loss:  2587.75 | val_loss:  4128.67 | train_mae:    36.60 | val_mae:    42.28: 100%|██████████| 614/614 [00:08&lt;00:00, 76.20it/s]
-Epoch  41 / 100 | train_loss:  2672.59 | val_loss:  3645.95 | train_mae:    37.42 | val_mae:    38.55: 100%|██████████| 614/614 [00:08&lt;00:00, 73.50it/s]
-Epoch  42 / 100 | train_loss:  2705.98 | val_loss:  5525.68 | train_mae:    37.67 | val_mae:    53.90: 100%|██████████| 614/614 [00:07&lt;00:00, 82.52it/s]
-Epoch  43 / 100 | train_loss:  2542.68 | val_loss:  4278.14 | train_mae:    36.45 | val_mae:    41.19: 100%|██████████| 614/614 [00:07&lt;00:00, 84.63it/s]
-Epoch  44 / 100 | train_loss:  2568.83 | val_loss:  4824.63 | train_mae:    36.95 | val_mae:    49.44: 100%|██████████| 614/614 [00:07&lt;00:00, 81.46it/s]
-Epoch  45 / 100 | train_loss:  2492.25 | val_loss:  3345.57 | train_mae:    36.18 | val_mae:    36.77: 100%|██████████| 614/614 [00:07&lt;00:00, 80.71it/s]
-Epoch  46 / 100 | train_loss:  2493.14 | val_loss:  3626.10 | train_mae:    36.11 | val_mae:    38.53: 100%|██████████| 614/614 [00:07&lt;00:00, 84.28it/s]
-Epoch  47 / 100 | train_loss:  2358.98 | val_loss:  3673.56 | train_mae:    35.25 | val_mae:    39.89: 100%|██████████| 614/614 [00:07&lt;00:00, 80.57it/s]
-Epoch  48 / 100 | train_loss:  2302.00 | val_loss:  3543.33 | train_mae:    34.58 | val_mae:    38.19: 100%|██████████| 614/614 [00:07&lt;00:00, 79.83it/s]
-Epoch  49 / 100 | train_loss:  2441.76 | val_loss:  3718.46 | train_mae:    35.93 | val_mae:    40.62: 100%|██████████| 614/614 [00:07&lt;00:00, 80.55it/s]
-Epoch  50 / 100 | train_loss:  2373.11 | val_loss:  3571.96 | train_mae:    35.04 | val_mae:    38.76: 100%|██████████| 614/614 [00:07&lt;00:00, 80.58it/s]
-Epoch  51 / 100 | train_loss:  2216.58 | val_loss:  3961.18 | train_mae:    33.90 | val_mae:    42.69: 100%|██████████| 614/614 [00:07&lt;00:00, 82.41it/s]
-Epoch  52 / 100 | train_loss:  2456.04 | val_loss:  3653.57 | train_mae:    36.10 | val_mae:    39.01: 100%|██████████| 614/614 [00:07&lt;00:00, 84.14it/s]
-Epoch  53 / 100 | train_loss:  2239.61 | val_loss:  3665.80 | train_mae:    34.30 | val_mae:    38.27: 100%|██████████| 614/614 [00:07&lt;00:00, 82.78it/s]
-Epoch  54 / 100 | train_loss:  2103.20 | val_loss:  3388.98 | train_mae:    33.33 | val_mae:    36.39: 100%|██████████| 614/614 [00:07&lt;00:00, 76.86it/s]
-Epoch  55 / 100 | train_loss:  2177.81 | val_loss:  4302.95 | train_mae:    33.89 | val_mae:    42.83: 100%|██████████| 614/614 [00:08&lt;00:00, 76.50it/s]
-Epoch  56 / 100 | train_loss:  2126.66 | val_loss:  5008.17 | train_mae:    33.54 | val_mae:    52.18: 100%|██████████| 614/614 [00:07&lt;00:00, 80.53it/s]
-Epoch  57 / 100 | train_loss:  2091.51 | val_loss:  3620.24 | train_mae:    33.25 | val_mae:    40.11: 100%|██████████| 614/614 [00:07&lt;00:00, 84.02it/s]
-Epoch  58 / 100 | train_loss:  2215.77 | val_loss:  3824.08 | train_mae:    34.37 | val_mae:    38.75: 100%|██████████| 614/614 [00:07&lt;00:00, 81.00it/s]
-Epoch  59 / 100 | train_loss:  2070.37 | val_loss:  3824.05 | train_mae:    33.13 | val_mae:    41.85: 100%|██████████| 614/614 [00:08&lt;00:00, 72.50it/s]
-Epoch  60 / 100 | train_loss:  2337.22 | val_loss:  3323.60 | train_mae:    35.44 | val_mae:    37.99: 100%|██████████| 614/614 [00:08&lt;00:00, 75.23it/s]
-Epoch  61 / 100 | train_loss:  1959.37 | val_loss:  4584.71 | train_mae:    32.22 | val_mae:    47.91: 100%|██████████| 614/614 [00:07&lt;00:00, 86.59it/s]
-Epoch  62 / 100 | train_loss:  1908.39 | val_loss:  3379.52 | train_mae:    31.70 | val_mae:    37.13: 100%|██████████| 614/614 [00:07&lt;00:00, 85.94it/s]
-Epoch  63 / 100 | train_loss:  1953.99 | val_loss:  4527.28 | train_mae:    32.05 | val_mae:    49.88: 100%|██████████| 614/614 [00:07&lt;00:00, 86.51it/s]
-Epoch  64 / 100 | train_loss:  2112.18 | val_loss:  3078.40 | train_mae:    33.65 | val_mae:    35.10: 100%|██████████| 614/614 [00:07&lt;00:00, 83.20it/s]
-Epoch  65 / 100 | train_loss:  1917.02 | val_loss:  3047.92 | train_mae:    31.82 | val_mae:    34.33: 100%|██████████| 614/614 [00:08&lt;00:00, 73.86it/s]
-Epoch  66 / 100 | train_loss:  1873.01 | val_loss:  3826.33 | train_mae:    31.44 | val_mae:    44.07: 100%|██████████| 614/614 [00:08&lt;00:00, 72.56it/s]
-Epoch  67 / 100 | train_loss:  2163.44 | val_loss:  3082.24 | train_mae:    34.15 | val_mae:    35.40: 100%|██████████| 614/614 [00:06&lt;00:00, 89.92it/s]
-Epoch  68 / 100 | train_loss:  1853.55 | val_loss:  3646.66 | train_mae:    31.33 | val_mae:    39.37: 100%|██████████| 614/614 [00:06&lt;00:00, 91.05it/s]
-Epoch  69 / 100 | train_loss:  1866.36 | val_loss:  3550.07 | train_mae:    31.61 | val_mae:    40.09: 100%|██████████| 614/614 [00:06&lt;00:00, 90.76it/s]
-Epoch  70 / 100 | train_loss:  1793.42 | val_loss:  3805.11 | train_mae:    30.78 | val_mae:    41.03: 100%|██████████| 614/614 [00:06&lt;00:00, 90.33it/s]
-Epoch  71 / 100 | train_loss:  1856.90 | val_loss:  3423.25 | train_mae:    31.46 | val_mae:    38.86: 100%|██████████| 614/614 [00:06&lt;00:00, 89.70it/s]
-Epoch  72 / 100 | train_loss:  1754.78 | val_loss:  3632.23 | train_mae:    30.53 | val_mae:    39.83: 100%|██████████| 614/614 [00:06&lt;00:00, 93.23it/s]
-Epoch  73 / 100 | train_loss:  1861.63 | val_loss:  2916.69 | train_mae:    31.38 | val_mae:    34.99: 100%|██████████| 614/614 [00:06&lt;00:00, 90.70it/s]
-Epoch  74 / 100 | train_loss:  1716.79 | val_loss:  3098.53 | train_mae:    30.34 | val_mae:    33.85: 100%|██████████| 614/614 [00:06&lt;00:00, 92.68it/s]
-Epoch  75 / 100 | train_loss:  1704.34 | val_loss:  3164.92 | train_mae:    30.02 | val_mae:    34.31: 100%|██████████| 614/614 [00:06&lt;00:00, 97.83it/s]
-Epoch  76 / 100 | train_loss:  1760.99 | val_loss:  3420.27 | train_mae:    30.56 | val_mae:    38.30: 100%|██████████| 614/614 [00:06&lt;00:00, 96.74it/s]
-Epoch  77 / 100 | train_loss:  1680.72 | val_loss:  2911.41 | train_mae:    29.95 | val_mae:    33.94: 100%|██████████| 614/614 [00:06&lt;00:00, 94.15it/s]
-Epoch  78 / 100 | train_loss:  1680.87 | val_loss:  4857.27 | train_mae:    30.05 | val_mae:    47.21: 100%|██████████| 614/614 [00:07&lt;00:00, 86.69it/s]
-Epoch  79 / 100 | train_loss:  1818.94 | val_loss:  2956.13 | train_mae:    31.09 | val_mae:    34.63: 100%|██████████| 614/614 [00:07&lt;00:00, 87.38it/s]
-Epoch  80 / 100 | train_loss:  1585.26 | val_loss:  3012.08 | train_mae:    29.00 | val_mae:    33.64: 100%|██████████| 614/614 [00:10&lt;00:00, 58.20it/s]
-Epoch  81 / 100 | train_loss:  1583.55 | val_loss:  3020.91 | train_mae:    29.02 | val_mae:    33.26: 100%|██████████| 614/614 [00:07&lt;00:00, 82.67it/s]
-Epoch  82 / 100 | train_loss:  1650.78 | val_loss:  3507.48 | train_mae:    29.74 | val_mae:    35.79: 100%|██████████| 614/614 [00:06&lt;00:00, 87.76it/s]
-Epoch  83 / 100 | train_loss:  1625.58 | val_loss:  2985.48 | train_mae:    29.45 | val_mae:    33.34: 100%|██████████| 614/614 [00:07&lt;00:00, 81.39it/s]
-Epoch  84 / 100 | train_loss:  1529.92 | val_loss:  3343.22 | train_mae:    28.64 | val_mae:    35.37: 100%|██████████| 614/614 [00:07&lt;00:00, 86.38it/s]
-Epoch  85 / 100 | train_loss:  1723.86 | val_loss:  2939.70 | train_mae:    29.94 | val_mae:    33.29: 100%|██████████| 614/614 [00:06&lt;00:00, 89.68it/s]
-Epoch  86 / 100 | train_loss:  1489.03 | val_loss:  3280.27 | train_mae:    28.09 | val_mae:    33.41: 100%|██████████| 614/614 [00:06&lt;00:00, 89.07it/s]
-Epoch  87 / 100 | train_loss:  1570.65 | val_loss:  3277.51 | train_mae:    29.08 | val_mae:    35.33: 100%|██████████| 614/614 [00:06&lt;00:00, 91.14it/s]
-Epoch  88 / 100 | train_loss:  1700.64 | val_loss:  3140.14 | train_mae:    30.14 | val_mae:    32.97: 100%|██████████| 614/614 [00:07&lt;00:00, 85.65it/s]
-Epoch  89 / 100 | train_loss:  1546.66 | val_loss:  3118.60 | train_mae:    28.80 | val_mae:    37.58: 100%|██████████| 614/614 [00:11&lt;00:00, 55.08it/s]
-Epoch  90 / 100 | train_loss:  1553.78 | val_loss:  3120.54 | train_mae:    28.90 | val_mae:    33.95: 100%|██████████| 614/614 [00:09&lt;00:00, 64.14it/s]
-Epoch  91 / 100 | train_loss:  1474.74 | val_loss:  2948.36 | train_mae:    28.16 | val_mae:    32.50: 100%|██████████| 614/614 [00:07&lt;00:00, 77.24it/s]
-Epoch  92 / 100 | train_loss:  1518.94 | val_loss:  2946.66 | train_mae:    28.63 | val_mae:    32.06: 100%|██████████| 614/614 [00:07&lt;00:00, 79.52it/s]
-Epoch  93 / 100 | train_loss:  1560.82 | val_loss:  3078.09 | train_mae:    29.02 | val_mae:    33.92: 100%|██████████| 614/614 [00:08&lt;00:00, 74.90it/s]
-Epoch  94 / 100 | train_loss:  1493.76 | val_loss:  2864.59 | train_mae:    28.30 | val_mae:    32.10: 100%|██████████| 614/614 [00:07&lt;00:00, 78.78it/s]
-Epoch  95 / 100 | train_loss:  1421.53 | val_loss:  2642.63 | train_mae:    27.63 | val_mae:    31.03: 100%|██████████| 614/614 [00:08&lt;00:00, 76.45it/s]
-Epoch  96 / 100 | train_loss:  1424.62 | val_loss:  3150.11 | train_mae:    27.63 | val_mae:    33.94: 100%|██████████| 614/614 [00:08&lt;00:00, 72.54it/s]
-Epoch  97 / 100 | train_loss:  1412.35 | val_loss:  2950.71 | train_mae:    27.54 | val_mae:    31.85: 100%|██████████| 614/614 [00:08&lt;00:00, 72.58it/s]
-Epoch  98 / 100 | train_loss:  1360.90 | val_loss:  3260.99 | train_mae:    26.94 | val_mae:    35.82: 100%|██████████| 614/614 [00:09&lt;00:00, 67.43it/s]
-Epoch  99 / 100 | train_loss:  1371.50 | val_loss:  3154.51 | train_mae:    27.21 | val_mae:    34.59: 100%|██████████| 614/614 [00:07&lt;00:00, 83.91it/s]
-Epoch 100 / 100 | train_loss:  1497.65 | val_loss:  3020.85 | train_mae:    28.67 | val_mae:    33.23: 100%|██████████| 614/614 [00:06&lt;00:00, 90.29it/s]
+Epoch   1 / 100 | train_loss: 138428.00 | val_loss: 51434.91 | train_mae:   265.84 | val_mae:   174.82: 100%|█| 614/614 [00:12&lt;00:00, 48.79it
+Epoch   2 / 100 | train_loss: 45491.57 | val_loss: 38601.97 | train_mae:   159.92 | val_mae:   152.12: 100%|█| 614/614 [00:08&lt;00:00, 75.56it/
+Epoch   3 / 100 | train_loss: 32663.50 | val_loss: 26977.25 | train_mae:   137.04 | val_mae:   123.96: 100%|█| 614/614 [00:07&lt;00:00, 80.88it/
+Epoch   4 / 100 | train_loss: 21058.25 | val_loss: 19948.90 | train_mae:   108.99 | val_mae:   109.06: 100%|█| 614/614 [00:06&lt;00:00, 91.75it/
+Epoch   5 / 100 | train_loss: 14425.80 | val_loss: 11117.14 | train_mae:    89.09 | val_mae:    77.76: 100%|█| 614/614 [00:07&lt;00:00, 81.62it/
+Epoch   6 / 100 | train_loss: 10055.06 | val_loss: 13629.70 | train_mae:    73.85 | val_mae:    89.90: 100%|█| 614/614 [00:07&lt;00:00, 81.03it/
+Epoch   7 / 100 | train_loss:  8229.63 | val_loss:  7422.24 | train_mae:    66.81 | val_mae:    61.37: 100%|█| 614/614 [00:07&lt;00:00, 79.12it/
+Epoch   8 / 100 | train_loss:  6902.42 | val_loss:  6424.46 | train_mae:    61.24 | val_mae:    56.87: 100%|█| 614/614 [00:07&lt;00:00, 82.77it/
+Epoch   9 / 100 | train_loss:  6179.14 | val_loss:  6623.75 | train_mae:    57.61 | val_mae:    58.58: 100%|█| 614/614 [00:09&lt;00:00, 67.56it/
+Epoch  10 / 100 | train_loss:  5453.79 | val_loss: 12236.40 | train_mae:    54.01 | val_mae:    84.64: 100%|█| 614/614 [00:08&lt;00:00, 76.47it/
+Epoch  11 / 100 | train_loss:  5668.06 | val_loss:  5012.31 | train_mae:    55.01 | val_mae:    49.31: 100%|█| 614/614 [00:08&lt;00:00, 74.48it/
+Epoch  12 / 100 | train_loss:  5311.66 | val_loss:  5185.35 | train_mae:    52.90 | val_mae:    51.00: 100%|█| 614/614 [00:07&lt;00:00, 86.64it/
+Epoch  13 / 100 | train_loss:  4924.23 | val_loss:  5321.03 | train_mae:    51.05 | val_mae:    51.25: 100%|█| 614/614 [00:06&lt;00:00, 88.22it/
+Epoch  14 / 100 | train_loss:  4550.85 | val_loss:  5673.16 | train_mae:    49.04 | val_mae:    53.83: 100%|█| 614/614 [00:06&lt;00:00, 89.98it/
+Epoch  15 / 100 | train_loss:  4669.94 | val_loss:  4868.59 | train_mae:    49.75 | val_mae:    49.65: 100%|█| 614/614 [00:07&lt;00:00, 87.48it/
+Epoch  16 / 100 | train_loss:  4389.07 | val_loss:  5144.82 | train_mae:    48.35 | val_mae:    52.28: 100%|█| 614/614 [00:06&lt;00:00, 91.81it/
+Epoch  17 / 100 | train_loss:  4322.82 | val_loss:  5059.60 | train_mae:    47.63 | val_mae:    50.52: 100%|█| 614/614 [00:06&lt;00:00, 89.02it/
+Epoch  18 / 100 | train_loss:  4173.94 | val_loss:  4343.57 | train_mae:    46.95 | val_mae:    45.22: 100%|█| 614/614 [00:07&lt;00:00, 84.85it/
+Epoch  19 / 100 | train_loss:  4106.99 | val_loss:  6066.48 | train_mae:    46.70 | val_mae:    57.55: 100%|█| 614/614 [00:06&lt;00:00, 88.38it/
+Epoch  20 / 100 | train_loss:  4126.98 | val_loss:  4036.04 | train_mae:    46.10 | val_mae:    42.94: 100%|█| 614/614 [00:07&lt;00:00, 84.11it/
+Epoch  21 / 100 | train_loss:  3639.71 | val_loss:  4827.14 | train_mae:    43.64 | val_mae:    46.86: 100%|█| 614/614 [00:06&lt;00:00, 89.95it/
+Epoch  22 / 100 | train_loss:  3773.26 | val_loss:  4242.22 | train_mae:    44.46 | val_mae:    43.75: 100%|█| 614/614 [00:06&lt;00:00, 91.24it/
+Epoch  23 / 100 | train_loss:  3597.99 | val_loss:  4592.35 | train_mae:    43.43 | val_mae:    46.89: 100%|█| 614/614 [00:06&lt;00:00, 89.42it/
+Epoch  24 / 100 | train_loss:  3806.05 | val_loss:  7357.94 | train_mae:    45.06 | val_mae:    63.55: 100%|█| 614/614 [00:06&lt;00:00, 89.41it/
+Epoch  25 / 100 | train_loss:  3880.20 | val_loss:  4028.01 | train_mae:    45.66 | val_mae:    43.00: 100%|█| 614/614 [00:07&lt;00:00, 79.21it/
+Epoch  26 / 100 | train_loss:  3459.60 | val_loss:  4888.76 | train_mae:    42.41 | val_mae:    50.22: 100%|█| 614/614 [00:07&lt;00:00, 79.77it/
+Epoch  27 / 100 | train_loss:  3451.75 | val_loss:  4098.92 | train_mae:    42.37 | val_mae:    44.24: 100%|█| 614/614 [00:07&lt;00:00, 87.08it/
+Epoch  28 / 100 | train_loss:  3431.63 | val_loss:  5881.57 | train_mae:    42.48 | val_mae:    55.93: 100%|█| 614/614 [00:06&lt;00:00, 88.15it/
+Epoch  29 / 100 | train_loss:  3324.00 | val_loss:  4281.48 | train_mae:    41.77 | val_mae:    43.54: 100%|█| 614/614 [00:06&lt;00:00, 99.43it/
+Epoch  30 / 100 | train_loss:  3048.03 | val_loss:  4210.18 | train_mae:    39.72 | val_mae:    45.45: 100%|█| 614/614 [00:06&lt;00:00, 101.42it
+Epoch  31 / 100 | train_loss:  3100.04 | val_loss:  3945.57 | train_mae:    40.23 | val_mae:    42.70: 100%|█| 614/614 [00:06&lt;00:00, 92.92it/
+Epoch  32 / 100 | train_loss:  3032.20 | val_loss:  4045.67 | train_mae:    39.78 | val_mae:    43.02: 100%|█| 614/614 [00:06&lt;00:00, 94.68it/
+Epoch  33 / 100 | train_loss:  2858.04 | val_loss:  4048.15 | train_mae:    38.42 | val_mae:    40.29: 100%|█| 614/614 [00:06&lt;00:00, 89.93it/
+Epoch  34 / 100 | train_loss:  3079.48 | val_loss:  3850.15 | train_mae:    40.07 | val_mae:    41.43: 100%|█| 614/614 [00:06&lt;00:00, 94.63it/
+Epoch  35 / 100 | train_loss:  3001.95 | val_loss:  4036.27 | train_mae:    39.77 | val_mae:    41.76: 100%|█| 614/614 [00:06&lt;00:00, 93.48it/
+Epoch  36 / 100 | train_loss:  2843.03 | val_loss:  4333.80 | train_mae:    38.39 | val_mae:    43.24: 100%|█| 614/614 [00:06&lt;00:00, 88.48it/
+Epoch  37 / 100 | train_loss:  2754.17 | val_loss:  3550.40 | train_mae:    37.84 | val_mae:    38.28: 100%|█| 614/614 [00:06&lt;00:00, 89.45it/
+Epoch  38 / 100 | train_loss:  2787.80 | val_loss:  3573.66 | train_mae:    38.30 | val_mae:    39.53: 100%|█| 614/614 [00:06&lt;00:00, 91.76it/
+Epoch  39 / 100 | train_loss:  2728.16 | val_loss:  4363.83 | train_mae:    37.74 | val_mae:    42.76: 100%|█| 614/614 [00:06&lt;00:00, 97.40it/
+Epoch  40 / 100 | train_loss:  2853.23 | val_loss:  4104.48 | train_mae:    38.47 | val_mae:    44.58: 100%|█| 614/614 [00:07&lt;00:00, 87.29it/
+Epoch  41 / 100 | train_loss:  2562.41 | val_loss:  3648.69 | train_mae:    36.65 | val_mae:    41.34: 100%|█| 614/614 [00:06&lt;00:00, 88.64it/
+Epoch  42 / 100 | train_loss:  2716.89 | val_loss:  3855.26 | train_mae:    38.11 | val_mae:    40.84: 100%|█| 614/614 [00:06&lt;00:00, 89.12it/
+Epoch  43 / 100 | train_loss:  2696.06 | val_loss:  3781.96 | train_mae:    37.57 | val_mae:    42.09: 100%|█| 614/614 [00:06&lt;00:00, 90.18it/
+Epoch  44 / 100 | train_loss:  2448.92 | val_loss:  3840.73 | train_mae:    35.96 | val_mae:    39.47: 100%|█| 614/614 [00:07&lt;00:00, 86.77it/
+Epoch  45 / 100 | train_loss:  2501.35 | val_loss:  3616.25 | train_mae:    36.19 | val_mae:    39.69: 100%|█| 614/614 [00:06&lt;00:00, 93.45it/
+Epoch  46 / 100 | train_loss:  2371.15 | val_loss:  3765.96 | train_mae:    35.27 | val_mae:    40.86: 100%|█| 614/614 [00:06&lt;00:00, 89.32it/
+Epoch  47 / 100 | train_loss:  2585.89 | val_loss:  5280.95 | train_mae:    37.11 | val_mae:    51.39: 100%|█| 614/614 [00:07&lt;00:00, 87.15it/
+Epoch  48 / 100 | train_loss:  2426.30 | val_loss:  3431.36 | train_mae:    35.80 | val_mae:    37.20: 100%|█| 614/614 [00:06&lt;00:00, 90.13it/
+Epoch  49 / 100 | train_loss:  2319.34 | val_loss:  3949.29 | train_mae:    34.75 | val_mae:    42.83: 100%|█| 614/614 [00:07&lt;00:00, 86.16it/
+Epoch  50 / 100 | train_loss:  2384.04 | val_loss:  3955.69 | train_mae:    35.51 | val_mae:    43.40: 100%|█| 614/614 [00:07&lt;00:00, 87.16it/
+Epoch  51 / 100 | train_loss:  2382.00 | val_loss:  3827.22 | train_mae:    35.48 | val_mae:    42.16: 100%|█| 614/614 [00:07&lt;00:00, 87.36it/
+Epoch  52 / 100 | train_loss:  2272.24 | val_loss:  3576.74 | train_mae:    34.50 | val_mae:    39.61: 100%|█| 614/614 [00:06&lt;00:00, 90.60it/
+Epoch  53 / 100 | train_loss:  2365.31 | val_loss:  3524.98 | train_mae:    35.28 | val_mae:    38.00: 100%|█| 614/614 [00:06&lt;00:00, 89.39it/
+Epoch  54 / 100 | train_loss:  2225.20 | val_loss:  3274.19 | train_mae:    34.11 | val_mae:    36.17: 100%|█| 614/614 [00:06&lt;00:00, 89.20it/
+Epoch  55 / 100 | train_loss:  2208.05 | val_loss:  3707.02 | train_mae:    33.91 | val_mae:    37.85: 100%|█| 614/614 [00:07&lt;00:00, 86.36it/
+Epoch  56 / 100 | train_loss:  2432.48 | val_loss:  3554.89 | train_mae:    36.11 | val_mae:    36.73: 100%|█| 614/614 [00:07&lt;00:00, 85.81it/
+Epoch  57 / 100 | train_loss:  2118.48 | val_loss:  3276.67 | train_mae:    33.55 | val_mae:    35.17: 100%|█| 614/614 [00:06&lt;00:00, 88.34it/
+Epoch  58 / 100 | train_loss:  2239.47 | val_loss:  3635.07 | train_mae:    34.54 | val_mae:    36.98: 100%|█| 614/614 [00:07&lt;00:00, 85.82it/
+Epoch  59 / 100 | train_loss:  2160.33 | val_loss:  3575.36 | train_mae:    33.70 | val_mae:    38.25: 100%|█| 614/614 [00:06&lt;00:00, 98.01it/
+Epoch  60 / 100 | train_loss:  2185.91 | val_loss:  3745.45 | train_mae:    34.02 | val_mae:    39.25: 100%|█| 614/614 [00:06&lt;00:00, 94.82it/
+Epoch  61 / 100 | train_loss:  2031.85 | val_loss:  3294.09 | train_mae:    32.66 | val_mae:    35.78: 100%|█| 614/614 [00:06&lt;00:00, 94.08it/
+Epoch  62 / 100 | train_loss:  2068.71 | val_loss:  3264.70 | train_mae:    32.79 | val_mae:    36.57: 100%|█| 614/614 [00:06&lt;00:00, 91.62it/
+Epoch  63 / 100 | train_loss:  2107.03 | val_loss:  3363.92 | train_mae:    33.19 | val_mae:    36.63: 100%|█| 614/614 [00:06&lt;00:00, 91.91it/
+Epoch  64 / 100 | train_loss:  2056.81 | val_loss:  4335.63 | train_mae:    32.88 | val_mae:    42.70: 100%|█| 614/614 [00:06&lt;00:00, 90.89it/
+Epoch  65 / 100 | train_loss:  2176.35 | val_loss:  3378.45 | train_mae:    34.02 | val_mae:    35.97: 100%|█| 614/614 [00:06&lt;00:00, 88.89it/
+Epoch  66 / 100 | train_loss:  1910.26 | val_loss:  4439.82 | train_mae:    31.70 | val_mae:    44.33: 100%|█| 614/614 [00:07&lt;00:00, 80.17it/
+Epoch  67 / 100 | train_loss:  2032.89 | val_loss:  3187.86 | train_mae:    32.88 | val_mae:    36.09: 100%|█| 614/614 [00:06&lt;00:00, 93.84it/
+Epoch  68 / 100 | train_loss:  1873.30 | val_loss:  3268.85 | train_mae:    31.31 | val_mae:    36.48: 100%|█| 614/614 [00:07&lt;00:00, 86.54it/
+Epoch  69 / 100 | train_loss:  2060.11 | val_loss:  4305.95 | train_mae:    32.75 | val_mae:    41.76: 100%|█| 614/614 [00:06&lt;00:00, 92.09it/
+Epoch  70 / 100 | train_loss:  2060.91 | val_loss:  3138.68 | train_mae:    33.04 | val_mae:    35.57: 100%|█| 614/614 [00:06&lt;00:00, 94.72it/
+Epoch  71 / 100 | train_loss:  1832.22 | val_loss:  3233.32 | train_mae:    31.07 | val_mae:    35.47: 100%|█| 614/614 [00:06&lt;00:00, 94.34it/
+Epoch  72 / 100 | train_loss:  1913.31 | val_loss:  3345.99 | train_mae:    31.91 | val_mae:    33.92: 100%|█| 614/614 [00:06&lt;00:00, 88.33it/
+Epoch  73 / 100 | train_loss:  1922.30 | val_loss:  3219.53 | train_mae:    31.93 | val_mae:    35.13: 100%|█| 614/614 [00:06&lt;00:00, 93.09it/
+Epoch  74 / 100 | train_loss:  1785.15 | val_loss:  3267.10 | train_mae:    30.70 | val_mae:    36.30: 100%|█| 614/614 [00:07&lt;00:00, 85.12it/
+Epoch  75 / 100 | train_loss:  1781.82 | val_loss:  3169.38 | train_mae:    30.77 | val_mae:    33.73: 100%|█| 614/614 [00:06&lt;00:00, 92.54it/
+Epoch  76 / 100 | train_loss:  1889.98 | val_loss:  3502.62 | train_mae:    31.81 | val_mae:    36.70: 100%|█| 614/614 [00:07&lt;00:00, 87.52it/
+Epoch  77 / 100 | train_loss:  1692.07 | val_loss:  3112.67 | train_mae:    29.93 | val_mae:    33.90: 100%|█| 614/614 [00:07&lt;00:00, 83.92it/
+Epoch  78 / 100 | train_loss:  1809.70 | val_loss:  3470.53 | train_mae:    31.04 | val_mae:    38.07: 100%|█| 614/614 [00:07&lt;00:00, 85.95it/
+Epoch  79 / 100 | train_loss:  1844.54 | val_loss:  3681.33 | train_mae:    31.39 | val_mae:    37.46: 100%|█| 614/614 [00:07&lt;00:00, 79.55it/
+Epoch  80 / 100 | train_loss:  1773.72 | val_loss:  3249.89 | train_mae:    30.74 | val_mae:    36.67: 100%|█| 614/614 [00:07&lt;00:00, 83.86it/
+Epoch  81 / 100 | train_loss:  1714.23 | val_loss:  3350.90 | train_mae:    30.15 | val_mae:    33.86: 100%|█| 614/614 [00:07&lt;00:00, 86.95it/
+Epoch  82 / 100 | train_loss:  1693.88 | val_loss:  3183.65 | train_mae:    30.01 | val_mae:    35.27: 100%|█| 614/614 [00:06&lt;00:00, 89.20it/
+Epoch  83 / 100 | train_loss:  1706.33 | val_loss:  3187.38 | train_mae:    30.16 | val_mae:    34.83: 100%|█| 614/614 [00:07&lt;00:00, 85.45it/
+Epoch  84 / 100 | train_loss:  1690.95 | val_loss:  3212.86 | train_mae:    30.23 | val_mae:    35.37: 100%|█| 614/614 [00:07&lt;00:00, 87.31it/
+Epoch  85 / 100 | train_loss:  1704.96 | val_loss:  3099.92 | train_mae:    30.11 | val_mae:    34.55: 100%|█| 614/614 [00:06&lt;00:00, 91.61it/
+Epoch  86 / 100 | train_loss:  1608.58 | val_loss:  3167.75 | train_mae:    29.46 | val_mae:    32.83: 100%|█| 614/614 [00:07&lt;00:00, 87.14it/
+Epoch  87 / 100 | train_loss:  1599.75 | val_loss:  3383.06 | train_mae:    29.29 | val_mae:    35.64: 100%|█| 614/614 [00:07&lt;00:00, 77.04it/
+Epoch  88 / 100 | train_loss:  1722.12 | val_loss:  3162.14 | train_mae:    30.39 | val_mae:    34.22: 100%|█| 614/614 [00:07&lt;00:00, 81.44it/
+Epoch  89 / 100 | train_loss:  1588.47 | val_loss:  3059.91 | train_mae:    29.07 | val_mae:    34.22: 100%|█| 614/614 [00:07&lt;00:00, 87.04it/
+Epoch  90 / 100 | train_loss:  1645.78 | val_loss:  3337.42 | train_mae:    29.82 | val_mae:    34.92: 100%|█| 614/614 [00:06&lt;00:00, 88.08it/
+Epoch  91 / 100 | train_loss:  1552.12 | val_loss:  3381.09 | train_mae:    28.87 | val_mae:    35.82: 100%|█| 614/614 [00:06&lt;00:00, 88.33it/
+Epoch  92 / 100 | train_loss:  1498.45 | val_loss:  3259.24 | train_mae:    28.37 | val_mae:    35.96: 100%|█| 614/614 [00:07&lt;00:00, 85.62it/
+Epoch  93 / 100 | train_loss:  1605.30 | val_loss:  2970.56 | train_mae:    29.27 | val_mae:    33.50: 100%|█| 614/614 [00:06&lt;00:00, 88.03it/
+Epoch  94 / 100 | train_loss:  1517.56 | val_loss:  3071.38 | train_mae:    28.56 | val_mae:    33.70: 100%|█| 614/614 [00:07&lt;00:00, 86.98it/
+Epoch  95 / 100 | train_loss:  1596.66 | val_loss:  3051.22 | train_mae:    29.29 | val_mae:    32.94: 100%|█| 614/614 [00:06&lt;00:00, 87.89it/
+Epoch  96 / 100 | train_loss:  1501.88 | val_loss:  3909.67 | train_mae:    28.39 | val_mae:    42.53: 100%|█| 614/614 [00:07&lt;00:00, 81.50it/
+Epoch  97 / 100 | train_loss:  1517.75 | val_loss:  3317.24 | train_mae:    28.60 | val_mae:    38.13: 100%|█| 614/614 [00:07&lt;00:00, 86.06it/
+Epoch  98 / 100 | train_loss:  1563.06 | val_loss:  3015.17 | train_mae:    29.08 | val_mae:    32.99: 100%|█| 614/614 [00:07&lt;00:00, 82.13it/
+Epoch  99 / 100 | train_loss:  1445.95 | val_loss:  2912.29 | train_mae:    27.87 | val_mae:    31.94: 100%|█| 614/614 [00:07&lt;00:00, 87.53it/
+Epoch 100 / 100 | train_loss:  1487.12 | val_loss:  3027.48 | train_mae:    28.50 | val_mae:    32.68: 100%|█| 614/614 [00:07&lt;00:00, 87.10it/
 </pre></div></div>
 </div>
 </section>
@@ -2115,7 +2119,7 @@ EGNN has 51969 parameters
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/var/folders/gh/w26fk3_d4rg66fs_7fz84c3c0000gn/T/ipykernel_10664/725946626.py:47: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
+/tmp/ipykernel_266792/725946626.py:47: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
   dataset.data.y = dataset.data.y[:, self.target_idx].view(-1, 1)
 </pre></div></div>
 </div>
@@ -2124,12 +2128,12 @@ EGNN has 51969 parameters
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-EGNN test MAE: 3.491812126789618
-GNN test MAE: 32.57889754969046
+EGNN test MAE: 4.340438702784547
+GNN test MAE: 32.60893801067947
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
@@ -2137,19 +2141,19 @@ GNN test MAE: 32.57889754969046
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">gcn_targets</span><span class="p">,</span> <span class="n">gcn_preds</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"GNN"</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">egnn_targets</span><span class="p">,</span> <span class="n">egnn_preds</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"EGNN"</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Model prediction"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Ground truth $\langle R^2 </span><span class="se">\\</span><span class="s2">rangle$"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"Ground truth $\langle R^2 \rangle$"</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Test performance"</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.legend.Legend at 0x1250f0b90&gt;
+&lt;matplotlib.legend.Legend at 0x7f4d56ee9400&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">

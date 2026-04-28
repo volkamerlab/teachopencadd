@@ -82,14 +82,14 @@
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
   
-    <title>T038 · Protein Ligand Interaction Prediction &#8212; TeachOpenCADD 2026.4.0.post1 documentation</title>
+    <title>T038 · Protein Ligand Interaction Prediction &#8212; TeachOpenCADD 2026.4.0.post24 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=fd6457a4" />
     <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=897d968c" />
-    <script src="../_static/documentation_options.js?v=ca88eb32"></script>
+    <script src="../_static/documentation_options.js?v=e202fb5d"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -127,7 +127,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../index.html" title="TeachOpenCADD 2026.4.0.post1 documentation"
+        <a href="../index.html" title="TeachOpenCADD 2026.4.0.post24 documentation"
            class="md-header-nav__button md-logo">
           
             <i class="md-icon">school</i>
@@ -225,13 +225,13 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../index.html" title="TeachOpenCADD 2026.4.0.post1 documentation" class="md-nav__button md-logo">
+    <a href="../index.html" title="TeachOpenCADD 2026.4.0.post24 documentation" class="md-nav__button md-logo">
       
         <i class="md-icon">school</i>
       
     </a>
     <a href="../index.html"
-       title="TeachOpenCADD 2026.4.0.post1 documentation">TeachOpenCADD</a>
+       title="TeachOpenCADD 2026.4.0.post24 documentation">TeachOpenCADD</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
@@ -673,7 +673,7 @@ understand in their functionality. The formula to compute an embedding of a node
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/opt/miniconda3/envs/T038_3120/lib/python3.12/site-packages/chembl_webresource_client/__init__.py:4: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+/home/michael/.teachopencadd_envs/teachopencadd_T038_py312/lib/python3.12/site-packages/chembl_webresource_client/__init__.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.
   __version__ = __import__('pkg_resources').get_distribution('chembl_webresource_client').version
 </pre></div></div>
 </div>
@@ -962,7 +962,7 @@ Preprocessing interactions finished
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">folder_name</span><span class="p">,</span> <span class="n">file_index</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">folder_name</span> <span class="o">=</span> <span class="n">folder_name</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="n">folder_name</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">slices</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">processed_paths</span><span class="p">[</span><span class="n">file_index</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">slices</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">processed_paths</span><span class="p">[</span><span class="n">file_index</span><span class="p">],</span> <span class="n">weights_only</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">processed_file_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1349,9 +1349,7 @@ epochs. On average, one epoch takes around 10 minutes to complete.</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">train</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="n">DATA</span> <span class="o">/</span> <span class="s2">"final_model.pth"</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>ls<span class="w"> </span>data/resources/processed
 </pre></div>
 </div>
 </div>
@@ -1360,17 +1358,16 @@ epochs. On average, one epoch takes around 10 minutes to complete.</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Epoch 1/1
-Validation step 64/64: Loss: 0.52801    Acc: 0.79688
-Testing: Loss: 0.56542  Acc: 0.74891
+pre_filter.pt  pre_transform.pt  test.pt  train.pt  val.pt
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-&lt;Figure size 800x400 with 0 Axes&gt;
+/home/michael/.local/share/uv/python/cpython-3.12.8-linux-x86_64-gnu/lib/python3.12/pty.py:95: DeprecationWarning: This process (pid=33633) is multi-threaded, use of forkpty() may lead to deadlocks in the child.
+  pid, fd = os.forkpty()
 </pre></div></div>
 </div>
 <img alt="TrainGraph" src="../_images/train_perf.png"/>

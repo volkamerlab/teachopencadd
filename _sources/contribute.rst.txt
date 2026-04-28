@@ -109,7 +109,7 @@ This is an overview about our TeachOpenCADD maintenance efforts.
 
 - Our `environment file <https://github.com/volkamerlab/teachopencadd/tree/master/devtools>`_ satisfies the dependencies for all TeachOpenCADD talktorials. This format might change in the future as discussed `here <https://github.com/volkamerlab/teachopencadd/discussions/277>`_.
 
-- Our `GitHub Actions CI setup file <https://github.com/volkamerlab/teachopencadd/blob/master/.github/workflows/ci.yml>`_ contains:
+- Our `GitHub Actions CI setup file <https://github.com/volkamerlab/teachopencadd/blob/master/.github/workflows/talktorial.yml>`_ contains:
 
   - Notebook tests (``pytest``), which check if the notebook runs without errors and if cells flagged with ``# NBVAL_CHECK_OUTPUT`` produce the same output in the CI run as saved within the ``talktorial.ipynb`` file. Check under ``jobs.test`` the tested operating systems and Python versions.
 
