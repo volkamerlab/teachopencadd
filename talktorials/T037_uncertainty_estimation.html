@@ -82,14 +82,14 @@
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
   
-    <title>T037 · Uncertainty estimation &#8212; TeachOpenCADD 2026.4.0.post24 documentation</title>
+    <title>T037 · Uncertainty estimation &#8212; TeachOpenCADD 2026.4.1.post10 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=fd6457a4" />
     <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=897d968c" />
-    <script src="../_static/documentation_options.js?v=e202fb5d"></script>
+    <script src="../_static/documentation_options.js?v=cfef3bb9"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -127,7 +127,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../index.html" title="TeachOpenCADD 2026.4.0.post24 documentation"
+        <a href="../index.html" title="TeachOpenCADD 2026.4.1.post10 documentation"
            class="md-header-nav__button md-logo">
           
             <i class="md-icon">school</i>
@@ -225,13 +225,13 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../index.html" title="TeachOpenCADD 2026.4.0.post24 documentation" class="md-nav__button md-logo">
+    <a href="../index.html" title="TeachOpenCADD 2026.4.1.post10 documentation" class="md-nav__button md-logo">
       
         <i class="md-icon">school</i>
       
     </a>
     <a href="../index.html"
-       title="TeachOpenCADD 2026.4.0.post24 documentation">TeachOpenCADD</a>
+       title="TeachOpenCADD 2026.4.1.post10 documentation">TeachOpenCADD</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
@@ -469,8 +469,12 @@
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Bagging-ensemble---Training-a-model-with-varying-data" class="md-nav__link">Bagging ensemble - Training a model with varying data</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#Bringing-more-variance-into-the-ensemble" class="md-nav__link">Bringing more variance into the ensemble</a><nav class="md-nav">
               <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Varying-training-data" class="md-nav__link">Varying training data</a>
+        </li>
+        <li class="md-nav__item"><a href="#Varying-model-parameters" class="md-nav__link">Varying model parameters</a>
+        </li>
         <li class="md-nav__item"><a href="#id2" class="md-nav__link">Ranking-based evaluation</a>
         </li></ul>
             </nav>
@@ -558,7 +562,7 @@
 <li><p><strong>Talktorial T022</strong></p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
@@ -632,7 +636,7 @@ predictive uncertainty for the query point.</p>
 <h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Link to this heading">¶</a></h2>
 <p>Add short summary of what will be done in this practical section.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
@@ -664,7 +668,7 @@ predictive uncertainty for the query point.</p>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HERE</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span>
@@ -677,7 +681,7 @@ predictive uncertainty for the query point.</p>
 <h3 id="Data">Data<a class="headerlink" href="#Data" title="Link to this heading">¶</a></h3>
 <p>We use the same data as in <strong>Talktorial T022</strong>. These are activities on the kinase EGFR of varying compounds found in the Chembl 25 database. The ligands are encoded using a 2048-bit Morgan 3 fingerprint.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the training and test data from pickled torch tensors.</span>
@@ -691,8 +695,8 @@ predictive uncertainty for the query point.</p>
 <span class="n">test_data</span> <span class="o">=</span> <span class="n">TensorDataset</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
 
 <span class="c1"># Create data loaders to iterate over training and test sets.</span>
-<span class="n">training_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
-<span class="n">test_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
+<span class="n">training_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+<span class="n">test_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -701,21 +705,22 @@ predictive uncertainty for the query point.</p>
 <h3 id="Model">Model<a class="headerlink" href="#Model" title="Link to this heading">¶</a></h3>
 <p>As a model, we use a standard feed-forward network. This is similar to the one described in <strong>Talktorial T022</strong>. Here, however, we use <em>pytorch</em> instead of <em>tensorflow</em>. More details specific to Pytorch can be found in the <a class="reference external" href="https://pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html">pytorch tutorial</a>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">NeuralNetwork</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""A simple linear forward neural network."""</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p_dropout</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">n_hidden</span><span class="o">=</span><span class="mi">512</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">NeuralNetwork</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">flatten</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Flatten</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">linear_relu_stack</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
-            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">2048</span><span class="p">,</span> <span class="mi">512</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">2048</span><span class="p">,</span> <span class="n">n_hidden</span><span class="p">),</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
-            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">n_hidden</span><span class="p">,</span> <span class="n">n_hidden</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">p_dropout</span><span class="p">),</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
-            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">n_hidden</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
         <span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
@@ -729,10 +734,10 @@ predictive uncertainty for the query point.</p>
 <h4 id="Training">Training<a class="headerlink" href="#Training" title="Link to this heading">¶</a></h4>
 <p>We now set up the pipeline of creating and training a model. With the model in place, we are ready to set up the training by defining a loss function and an optimization procedure. As a loss function, we take the mean squared error since we dealing with a regression task. For the stochastic gradient descent optimization method, we choose the <em>Adam</em> optimizer which is a standard choice.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">train_loop</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">train_loop</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Run one training epoch.</span>
 
@@ -748,15 +753,21 @@ predictive uncertainty for the query point.</p>
 <span class="sd">        The optimization procedure.</span>
 <span class="sd">    """</span>
     <span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataloader</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span>
+    <span class="n">num_batches</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataloader</span><span class="p">)</span>
+    <span class="n">total_loss</span> <span class="o">=</span> <span class="mi">0</span>
+
     <span class="k">for</span> <span class="n">batch</span><span class="p">,</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dataloader</span><span class="p">):</span>
         <span class="c1"># Compute prediction and loss</span>
         <span class="n">pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
         <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="n">total_loss</span> <span class="o">+=</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
 
         <span class="c1"># Backpropagation</span>
         <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
         <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
         <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">total_loss</span> <span class="o">/</span> <span class="n">num_batches</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">test_loop</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">):</span>
@@ -793,10 +804,10 @@ predictive uncertainty for the query point.</p>
 </div>
 <p>To make our life simpler, when creating models, we encapsulate the model creation and training in a single function.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">create_and_fit_model</span><span class="p">(</span><span class="n">training_loader</span><span class="p">,</span> <span class="n">test_loader</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">create_and_fit_model</span><span class="p">(</span><span class="n">training_loader</span><span class="p">,</span> <span class="n">model_args</span><span class="o">=</span><span class="nb">dict</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Create and fit a model.</span>
 
@@ -816,26 +827,25 @@ predictive uncertainty for the query point.</p>
 <span class="sd">    model: NeuralNetwork</span>
 <span class="sd">        A trained instance of `NeuralNetwork`.</span>
 <span class="sd">    """</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">NeuralNetwork</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">"cpu"</span><span class="p">)</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">NeuralNetwork</span><span class="p">(</span><span class="o">**</span><span class="n">model_args</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">"cpu"</span><span class="p">)</span>
     <span class="n">loss_fn</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">()</span>
-    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">"Epoch"</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
-        <span class="n">train_loop</span><span class="p">(</span><span class="n">training_loader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">)</span>
-        <span class="n">test_loss</span> <span class="o">=</span> <span class="n">test_loop</span><span class="p">(</span><span class="n">test_loader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">)</span>
+        <span class="n">train_loss</span> <span class="o">=</span> <span class="n">train_loop</span><span class="p">(</span><span class="n">training_loader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Test loss: </span><span class="si">{</span><span class="n">test_loss</span><span class="si">:</span><span class="s2">&gt;8f</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Training loss: </span><span class="si">{</span><span class="n">train_loss</span><span class="si">:</span><span class="s2">&gt;8f</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">model</span>
 </pre></div>
 </div>
 </div>
 <p>Using this function, we can now create and train a predictive model.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">single_model</span> <span class="o">=</span> <span class="n">create_and_fit_model</span><span class="p">(</span><span class="n">training_loader</span><span class="p">,</span> <span class="n">test_loader</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">single_model</span> <span class="o">=</span> <span class="n">create_and_fit_model</span><span class="p">(</span><span class="n">training_loader</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -845,28 +855,64 @@ predictive uncertainty for the query point.</p>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Epoch 0
-Test loss: 1.937864
+Training loss: 19.594438
 
 Epoch 1
-Test loss: 2.152295
+Training loss: 1.833061
 
 Epoch 2
-Test loss: 2.909530
+Training loss: 1.200345
 
 Epoch 3
-Test loss: 1.109023
+Training loss: 0.898802
 
 Epoch 4
-Test loss: 2.012231
+Training loss: 0.730146
 
 Epoch 5
-Test loss: 3.353476
+Training loss: 0.610016
 
 Epoch 6
-Test loss: 2.326099
+Training loss: 0.515054
 
 Epoch 7
-Test loss: 2.324570
+Training loss: 0.442029
+
+Epoch 8
+Training loss: 0.374235
+
+Epoch 9
+Training loss: 0.318533
+
+Epoch 10
+Training loss: 0.282265
+
+Epoch 11
+Training loss: 0.241378
+
+Epoch 12
+Training loss: 0.210448
+
+Epoch 13
+Training loss: 0.183123
+
+Epoch 14
+Training loss: 0.160263
+
+Epoch 15
+Training loss: 0.140182
+
+Epoch 16
+Training loss: 0.125900
+
+Epoch 17
+Training loss: 0.112110
+
+Epoch 18
+Training loss: 0.102701
+
+Epoch 19
+Training loss: 0.095786
 
 </pre></div></div>
 </div>
@@ -875,7 +921,7 @@ Test loss: 2.324570
 <h4 id="Evaluation">Evaluation<a class="headerlink" href="#Evaluation" title="Link to this heading">¶</a></h4>
 <p>For uncertainty estimation, we are not too concerned with prediction quality. Therefore, we just visually check the correlation between predictions and true values.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pred</span> <span class="o">=</span> <span class="n">single_model</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
@@ -909,7 +955,7 @@ Test loss: 2.324570
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<p>The mean absolute error is 1503.53 and the mean squared error is 2713.19.</p>
+<p>The mean absolute error is 758.59 and the mean squared error is 891.53.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -925,17 +971,16 @@ Test loss: 2.324570
 <section id="Ensembles---Training-a-model-multiple-times">
 <h3 id="Ensembles---Training-a-model-multiple-times">Ensembles - Training a model multiple times<a class="headerlink" href="#Ensembles---Training-a-model-multiple-times" title="Link to this heading">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ensemble_size</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="n">ensemble</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">ensemble_size</span><span class="p">)):</span>
     <span class="n">training_data</span> <span class="o">=</span> <span class="n">TensorDataset</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-    <span class="n">training_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">training_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">model</span> <span class="o">=</span> <span class="n">create_and_fit_model</span><span class="p">(</span>
         <span class="n">training_loader</span><span class="p">,</span>
-        <span class="n">test_loader</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">ensemble</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 </pre></div>
@@ -946,11 +991,11 @@ Test loss: 2.324570
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-100%|██████████| 20/20 [00:44&lt;00:00,  2.24s/it]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 20/20 [03:50&lt;00:00, 11.53s/it]
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preds</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">model</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span> <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">ensemble</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">ensemble_size</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_test</span><span class="p">))</span>
@@ -959,7 +1004,7 @@ Test loss: 2.324570
 </div>
 <p>We now have the predictions over all ensembles and test samples in the matrix <code class="docutils literal notranslate"><span class="pre">pred</span></code>. We can compute basic statistics for each point of test data, such as mean and variance. The variance or standard deviation is used as an uncertainty estimate of the prediction.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stds</span> <span class="o">=</span> <span class="n">preds</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -973,7 +1018,7 @@ Test loss: 2.324570
 </div>
 <p>Now, it is interesting to compare the ensemble mean as a predictor to the single model predictor above.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span>
@@ -1000,7 +1045,7 @@ Test loss: 2.324570
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<p>The mean absolute error decreased from 1503.53 to 728.28. The mean squared error decreased from 2713.19 to 848.61.</p>
+<p>The mean absolute error decreased from 758.59 to 727.53. The mean squared error decreased from 891.53 to 833.26.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1015,7 +1060,7 @@ Test loss: 2.324570
 <h4 id="Coverage-of-confidence-intervals">Coverage of confidence intervals<a class="headerlink" href="#Coverage-of-confidence-intervals" title="Link to this heading">¶</a></h4>
 <p>For each confidence level, we can compute confidence intervals based on the standard deviations, we get out of our model ensemble. According to the definition of the confidence interval for level <span class="math notranslate nohighlight">\(p\)</span>, the interval should cover the actual value with probability <span class="math notranslate nohighlight">\(p\)</span>. Therefore, if we plot all hit ratios over the test for all levels in <span class="math notranslate nohighlight">\([0,1]\)</span>, we ideally would end up with a perfect diagonal (the identity function).</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">confidences</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -1029,7 +1074,7 @@ Test loss: 2.324570
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">confidences</span><span class="p">,</span> <span class="n">hits</span><span class="p">)</span>
@@ -1051,7 +1096,7 @@ Test loss: 2.324570
 <h4 id="id1">Calibration<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h4>
 <p>First, we compute the confidence curve on a small, dedicated part of the test set. Based on the confidence curve, we compute an adjustment factor for the estimated standard deviation. This process can be refined by computing a more complex transformation. For example, one could compute such a factor for any number of <em>bins</em>, i.e. intervals confidences.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_calib</span> <span class="o">=</span> <span class="mi">100</span>
@@ -1077,7 +1122,7 @@ Test loss: 2.324570
 </div>
 <p>The constant calibration adjustment factor <code class="docutils literal notranslate"><span class="pre">calibration_adjustment</span></code> is used to compute confidence intervals. The resulting confidence curve is now much better calibrated. That means it is close to the identity function.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hits</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1112,7 +1157,7 @@ Test loss: 2.324570
 <p>For now, we have not really looked at how useful our ensemble is to estimate uncertainty. Ideally, poor estimations would indicate that our prediction has – at least potentially – a higher error. To assess our uncertainty prediction in this sense, we can look at <em>confidence curves</em>. In this ranking-based scheme, we order our estimates by decreasing uncertainty and looking at the decrease in the total absolute error for a certain number of samples. We can then compare the resulting curve with a
 random baseline and the ideal curve.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">idcs_mae</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">mae</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
@@ -1147,25 +1192,35 @@ random baseline and the ideal curve.</p>
 <p>Ideally, the blue curve, i.e. our uncertainty estimates would be somewhere in between the random baseline and the ideal one. We see some improvement over the baseline, but there is room for improvement. Often, more variety is necessary for the model ensemble. Below we create more variety by bootstrapping and aggregating the training data. Another way would be, to vary the model itself in some way within the ensemble.</p>
 </section>
 </section>
-<section id="Bagging-ensemble---Training-a-model-with-varying-data">
-<h3 id="Bagging-ensemble---Training-a-model-with-varying-data">Bagging ensemble - Training a model with varying data<a class="headerlink" href="#Bagging-ensemble---Training-a-model-with-varying-data" title="Link to this heading">¶</a></h3>
-<p>To capture the uncertainty better, we need to introduce more variety in the ensemble. Instead of just varying training runs, we additionally vary the training data. This is done by <em>bootstrapping and aggregating</em> (<em>bagging</em>) the data: For each run, we resample the training data with replacement to get a (likely) slightly different training set of each model.</p>
+<section id="Bringing-more-variance-into-the-ensemble">
+<h3 id="Bringing-more-variance-into-the-ensemble">Bringing more variance into the ensemble<a class="headerlink" href="#Bringing-more-variance-into-the-ensemble" title="Link to this heading">¶</a></h3>
+<p>Often times, there is too little variance in the ensemble by just varying the order of training examples the model is exposed to. To capture the uncertainty better, we need to introduce more variety in the ensemble. There two areas in which we can introduce more ensemble variance: the data and the model.</p>
+<section id="Varying-training-data">
+<h4 id="Varying-training-data">Varying training data<a class="headerlink" href="#Varying-training-data" title="Link to this heading">¶</a></h4>
+<p>Instead of just varying training runs, we additionally vary the training data. This is done by <em>bootstrapping and aggregating</em> (<em>bagging</em>) the data: For each run, we resample the training data with replacement to get a (likely) slightly different training set of each model. Furthermore, we use only a subset of that resampled data, likely hiding some data points for some ensemble members.</p>
+</section>
+<section id="Varying-model-parameters">
+<h4 id="Varying-model-parameters">Varying model parameters<a class="headerlink" href="#Varying-model-parameters" title="Link to this heading">¶</a></h4>
+<p>We can further vary model parameters across the ensemble. This variation should drive the models to learn the underlying data in different ways.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ensemble_size</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="n">ensemble_bagg</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">ensemble_size</span><span class="p">)):</span>
-    <span class="n">idcs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">x_train</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x_train</span><span class="p">),))</span>
+    <span class="n">idcs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="mf">0.75</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_train</span><span class="p">)),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x_train</span><span class="p">),))</span>
     <span class="n">x_train_resample</span> <span class="o">=</span> <span class="n">x_train</span><span class="p">[</span><span class="n">idcs</span><span class="p">]</span>
     <span class="n">y_train_resample</span> <span class="o">=</span> <span class="n">y_train</span><span class="p">[</span><span class="n">idcs</span><span class="p">]</span>
     <span class="n">training_data</span> <span class="o">=</span> <span class="n">TensorDataset</span><span class="p">(</span><span class="n">x_train_resample</span><span class="p">,</span> <span class="n">y_train_resample</span><span class="p">)</span>
-    <span class="n">training_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
+    <span class="n">training_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
 
     <span class="n">model</span> <span class="o">=</span> <span class="n">create_and_fit_model</span><span class="p">(</span>
         <span class="n">training_loader</span><span class="p">,</span>
-        <span class="n">test_loader</span><span class="p">,</span>
+        <span class="n">model_args</span><span class="o">=</span><span class="p">{</span>
+            <span class="s2">"n_hidden"</span><span class="p">:</span> <span class="mi">2</span> <span class="o">**</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+            <span class="s2">"p_dropout"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">,</span>
+        <span class="p">},</span>
     <span class="p">)</span>
     <span class="n">ensemble_bagg</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 </pre></div>
@@ -1176,12 +1231,12 @@ random baseline and the ideal curve.</p>
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-100%|██████████| 20/20 [00:46&lt;00:00,  2.33s/it]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 20/20 [01:47&lt;00:00,  5.38s/it]
 </pre></div></div>
 </div>
 <p>Now, that all ensembles are trained, we compute the test set predictions of all ensemble members.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preds_bagg</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">model</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span> <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">ensemble_bagg</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span>
@@ -1192,7 +1247,7 @@ random baseline and the ideal curve.</p>
 </div>
 <p>Again, we compute basic statistics on our ensemble predictions.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stds_bagg</span> <span class="o">=</span> <span class="n">preds_bagg</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -1203,23 +1258,25 @@ random baseline and the ideal curve.</p>
 </pre></div>
 </div>
 </div>
+</section>
 <section id="id2">
 <h4 id="id2">Ranking-based evaluation<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h4>
 <p>We now repeat the ranking-based evaluation from above. That is, we plot the confidence curve against the constantly decreasing baseline and the optimal solution (Oracle).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">idcs_mae</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">mae_bagg</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
-<span class="n">idcs_conf</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">stds_bagg</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">idcs_mae_bagg</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">mae_bagg</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="n">idcs_conf_bagg</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">stds_bagg</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
 <span class="n">total_error</span> <span class="o">=</span> <span class="n">mae_bagg</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
-    <span class="p">(</span><span class="n">total_error</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">mae_bagg</span><span class="p">[</span><span class="n">idcs_conf</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="o">/</span> <span class="n">total_error</span><span class="p">,</span>
-    <span class="n">label</span><span class="o">=</span><span class="s2">"ordered by est. uncertainty bagg"</span><span class="p">,</span>
+    <span class="p">(</span><span class="n">total_error</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">mae_bagg</span><span class="p">[</span><span class="n">idcs_conf_bagg</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+    <span class="o">/</span> <span class="n">total_error</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">"ensemble with more variance"</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
     <span class="p">(</span><span class="n">total_mae</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">mae</span><span class="p">[</span><span class="n">idcs_conf</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="o">/</span> <span class="n">total_mae</span><span class="p">,</span>
-    <span class="n">label</span><span class="o">=</span><span class="s2">"ordered by est. uncertainty"</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">"standard ensemble"</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_test</span><span class="p">)],</span>
@@ -1227,7 +1284,7 @@ random baseline and the ideal curve.</p>
     <span class="n">label</span><span class="o">=</span><span class="s2">"linear decrease"</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
-    <span class="p">(</span><span class="n">total_error</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">mae_bagg</span><span class="p">[</span><span class="n">idcs_mae</span><span class="p">],</span> <span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="o">/</span> <span class="n">total_error</span><span class="p">,</span>
+    <span class="p">(</span><span class="n">total_error</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">mae_bagg</span><span class="p">[</span><span class="n">idcs_mae_bagg</span><span class="p">],</span> <span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="o">/</span> <span class="n">total_error</span><span class="p">,</span>
     <span class="s2">"--"</span><span class="p">,</span>
     <span class="n">label</span><span class="o">=</span><span class="s2">"oracle"</span><span class="p">,</span>
 <span class="p">)</span>
@@ -1252,10 +1309,10 @@ random baseline and the ideal curve.</p>
 <p>Finally, we showcase test-time data augmentation. The benefit here is that it can be applied to pretty much any model. The basic idea is to sample <em>around</em> each test sample. This set of <em>similar</em> samples should provide information on the local variability. Large variability is assumed to imply higher uncertainty.</p>
 <p>In the context of fingerprints, we are dealing with bitstrings of fixed length. To sample around each test sample, we augment each test sample with <code class="docutils literal notranslate"><span class="pre">N_AUG</span></code> additional samples. In each sample and position, we introduce a mutation, i.e. a bit flip with a fixed probability (here <span class="math notranslate nohighlight">\(p=0.01\)</span>).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N_AUG</span> <span class="o">=</span> <span class="mi">100</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N_AUG</span> <span class="o">=</span> <span class="mi">200</span>
 
 <span class="n">x_test_aug</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">repeat_interleave</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">N_AUG</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
