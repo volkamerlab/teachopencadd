@@ -10,8 +10,36 @@ on:
     - cron: "0 3/336 * * 1"
 
 jobs:
+  setup-environment:
+    name: Warm-up Cache (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v6
+      
+      - name: Setup Micromamba
+        uses: mamba-org/setup-micromamba@v3
+        with:
+          environment-name: teachopencadd-env
+          create-args: python=3.11
+          cache-downloads: true
+          cache-environment: true
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
+
+      - name: Seed Cache
+        shell: bash -l {0}
+        run: uv pip install -e "."
+
   cli-scripts:
     name: ${{ matrix.talktorial }} on ${{ matrix.os }}
+    needs: [setup-environment]
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
     runs-on: ${{ matrix.os }}
     timeout-minutes: 20
@@ -82,8 +110,6 @@ jobs:
         uses: mamba-org/setup-micromamba@v3
         with:
           environment-name: teachopencadd-env
-          create-args: >-
-            python=3.11
           cache-downloads: true
           cache-environment: true
 
