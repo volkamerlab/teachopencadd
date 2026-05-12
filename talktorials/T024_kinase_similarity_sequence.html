@@ -82,14 +82,14 @@
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
   
-    <title>T024 · Kinase similarity: Sequence &#8212; TeachOpenCADD 2026.4.1.post10 documentation</title>
+    <title>T024 · Kinase similarity: Sequence &#8212; TeachOpenCADD 2026.4.1.post38 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=fd6457a4" />
     <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=897d968c" />
-    <script src="../_static/documentation_options.js?v=cfef3bb9"></script>
+    <script src="../_static/documentation_options.js?v=25e3a83e"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -127,7 +127,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../index.html" title="TeachOpenCADD 2026.4.1.post10 documentation"
+        <a href="../index.html" title="TeachOpenCADD 2026.4.1.post38 documentation"
            class="md-header-nav__button md-logo">
           
             <i class="md-icon">school</i>
@@ -225,13 +225,13 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../index.html" title="TeachOpenCADD 2026.4.1.post10 documentation" class="md-nav__button md-logo">
+    <a href="../index.html" title="TeachOpenCADD 2026.4.1.post38 documentation" class="md-nav__button md-logo">
       
         <i class="md-icon">school</i>
       
     </a>
     <a href="../index.html"
-       title="TeachOpenCADD 2026.4.1.post10 documentation">TeachOpenCADD</a>
+       title="TeachOpenCADD 2026.4.1.post38 documentation">TeachOpenCADD</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
@@ -779,7 +779,7 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">configs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">HERE</span> <span class="o">/</span> <span class="s2">"../T023_what_is_a_kinase/data/pipeline_configs.csv"</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">configs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"T023_data"</span> <span class="o">/</span> <span class="s2">"pipeline_configs.csv"</span><span class="p">)</span>
 <span class="n">configs</span> <span class="o">=</span> <span class="n">configs</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">"variable"</span><span class="p">)[</span><span class="s2">"default_value"</span><span class="p">]</span>
 <span class="n">DEMO</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">configs</span><span class="p">[</span><span class="s2">"DEMO"</span><span class="p">]))</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Run in demo mode: </span><span class="si">{</span><span class="n">DEMO</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -802,8 +802,7 @@ Run in demo mode: True
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kinase_selection_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">HERE</span> <span class="o">/</span> <span class="s2">"../T023_what_is_a_kinase/</span><span class="se">\</span>
-<span class="s2">data/kinase_selection.csv"</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kinase_selection_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"T023_data"</span> <span class="o">/</span> <span class="s2">"kinase_selection.csv"</span><span class="p">)</span>
 <span class="n">kinase_selection_df</span>
 <span class="c1"># NBVAL_CHECK_OUTPUT</span>
 </pre></div>
