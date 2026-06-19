@@ -8,7 +8,7 @@ A teaching platform for computer-aided drug design (CADD) using open source pack
 <!-- markdown-link-check-disable-next-line -->
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/volkamerlab/teachopencadd)
-[![Test talktorials](https://github.com/volkamerlab/teachopencadd/actions/workflows/talktorial.yml/badge.svg)](https://github.com/volkamerlab/teachopencadd/actions/workflows/talktorial.yml)
+[![Test talktorials](https://github.com/volkamerlab/teachopencadd/actions/workflows/talktorial.yml/badge.svg?branch=master)](https://github.com/volkamerlab/teachopencadd/actions/workflows/talktorial.yml?query=branch%3Amaster)
 
 ![GitHub closed pr](https://img.shields.io/github/issues-pr-closed-raw/volkamerlab/teachopencadd) ![GitHub open pr](https://img.shields.io/github/issues-pr-raw/volkamerlab/teachopencadd) ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/volkamerlab/teachopencadd) ![GitHub open issues](https://img.shields.io/github/issues/volkamerlab/teachopencadd)
 
