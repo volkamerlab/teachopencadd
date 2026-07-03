@@ -73,6 +73,8 @@ jobs:
             talktorial: T016 # OpenCADD win path
           - os: windows-latest
             talktorial: T019 # conda pkg issue on Windows.
+          - os: windows-latest
+            talktorial: T023 # see issue 479
 
     steps:
       - name: Checkout code
