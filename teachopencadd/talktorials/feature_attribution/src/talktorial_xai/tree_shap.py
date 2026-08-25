@@ -2,39 +2,39 @@
 
 TreeSHAP (Lundberg et al., 2020) attributes a tree ensemble's output to its
 *input features*. For a random forest over a Morgan fingerprint those
-features are hashed bits, not atoms, so the SHAP values have to be pushed
-back onto the molecular graph before they can be drawn.
+features are hashed bits, not atoms, so what comes out is a
+:class:`~talktorial_xai.attribution.FingerprintAttribution`: one value per
+bit, and complete::
 
-Each set bit stands for one or more circular atom environments, recorded by
-:class:`~talktorial_xai.util.fingerprints.InvertibleFingerprintGen` as a
-bit -> atom incidence matrix. This module splits every bit's SHAP value
-equally over the atoms of its environments, which conserves that bit's
-contribution but is an assumption: the model attributed the value to the
-substructure, not to any atom in it.
+    fp_attr.bit_attributions.sum() + fp_attr.baseline == model.predict(x)
 
-Completeness
-------------
-TreeSHAP is complete at the level of *bits*::
+Getting from there to a picture of the molecule means projecting the bits
+onto the graph, which
+:meth:`~talktorial_xai.attribution.FingerprintAttribution.to_mol_attribution`
+does by splitting each set bit's value evenly over the atoms of its
+environments. That conserves the bit's contribution but is an assumption:
+the model attributed the value to the substructure, not to any atom in it.
 
-    shap_values.sum() + explainer.expected_value == model.predict(x)
-
-That property does **not** survive the trip to atoms. A bit that is *off*
-still gets a SHAP value -- the absence of a substructure is evidence too --
-but it has no environment, hence no atoms to receive it. The atom
-attributions therefore sum to the on-bit mass only, and the missing part is
-a per-molecule constant, reported as :attr:`Attribution.baseline` (together
-with ``expected_value``) rather than silently dropped. Pass
-``absence="spread"`` to smear it uniformly over the atoms instead; that
-restores completeness at the cost of inventing a localisation the model
-never expressed.
+What the projection cannot carry
+--------------------------------
+A bit that is *off* still gets a SHAP value -- the absence of a
+substructure is evidence too -- but it has no environment, hence no atoms
+to receive it. The resulting
+:class:`~talktorial_xai.attribution.MolAttribution` therefore holds the
+on-bit mass only, and says so by having no baseline to sweep the remainder
+into. The remainder is not lost: it stays on the FingerprintAttribution,
+where ``absent_mass()`` measures it and ``plot()`` draws the substructures
+behind it, borrowing them from a
+:class:`~talktorial_xai.bit_dictionary.BitDictionary` built over the
+training set.
 
 Usage
 -----
     from talktorial_xai.tree_shap import tree_shap
 
-    for attr in tree_shap(["CCO", "c1ccccc1C(=O)O"], rf, fp_gen=fpGen):
-        print(attr.smiles, attr.prediction, attr.atom_attributions)
-        attr.plot()
+    for fp_attr in tree_shap(["CCO", "c1ccccc1C(=O)O"], rf, fp_gen=fpGen):
+        fp_attr.to_mol_attribution().plot()      # what is there
+        fp_attr.plot(bits)                       # what is missing
 
 Fingerprinting a large set is the slow part, so a pre-built dataset can be
 passed instead of SMILES -- the ``(X, inv_maps)`` pair that
@@ -48,99 +48,20 @@ passed instead of SMILES -- the ``(X, inv_maps)`` pair that
 from __future__ import annotations
 
 from collections.abc import Sequence
-from typing import Literal, Protocol
+from typing import Protocol
 
 import numpy as np
 
-from talktorial_xai.attribution import Attribution
+from talktorial_xai.attribution import FingerprintAttribution
 from talktorial_xai.util.fingerprints import InvertibleFingerprintGen
 
-__all__ = ["tree_shap", "spread_bits_over_atoms", "atom_attributions_from_bits"]
-
-Absence = Literal["baseline", "spread"]
+__all__ = ["tree_shap"]
 
 
 class _TreeModel(Protocol):
     """The bit of the scikit-learn API this module needs."""
 
     def predict(self, X: np.ndarray) -> np.ndarray: ...
-
-
-def spread_bits_over_atoms(
-    bit_attributions: np.ndarray,
-    inv_map: np.ndarray,
-) -> np.ndarray:
-    """Push per-bit attributions onto atoms, splitting each bit evenly.
-
-    Parameters
-    ----------
-    bit_attributions
-        Shape ``(fp_size,)``. One value per fingerprint bit.
-    inv_map
-        Shape ``(fp_size, n_atoms)``. ``inv_map[b, a]`` is truthy iff atom
-        ``a`` lies in an environment that set bit ``b``, as returned by
-        :meth:`InvertibleFingerprintGen.get`.
-
-    Returns
-    -------
-    np.ndarray
-        Shape ``(n_atoms,)``. Bits with no atoms contribute nothing, so the
-        result generally sums to less than ``bit_attributions.sum()``; see
-        the module docstring.
-    """
-    bit_attributions = np.asarray(bit_attributions, dtype=float)
-    if bit_attributions.ndim != 1:
-        raise ValueError(f"expected one attribution per bit, got shape {bit_attributions.shape}")
-    inv_map = np.asarray(inv_map, dtype=float)
-    if inv_map.ndim != 2 or inv_map.shape[0] != bit_attributions.shape[0]:
-        raise ValueError(
-            f"inv_map shape {inv_map.shape} does not match "
-            f"{bit_attributions.shape[0]} fingerprint bits"
-        )
-
-    atoms_per_bit = inv_map.sum(axis=1, keepdims=True)
-    # rows of empty bits stay all-zero instead of turning into NaN
-    share = np.divide(inv_map, atoms_per_bit, out=np.zeros_like(inv_map), where=atoms_per_bit > 0)
-    return bit_attributions @ share
-
-
-def atom_attributions_from_bits(
-    bit_attributions: np.ndarray,
-    inv_map: np.ndarray,
-    *,
-    absence: Absence = "baseline",
-) -> tuple[np.ndarray, float]:
-    """Per-atom attributions plus the attribution mass no atom could take.
-
-    Parameters
-    ----------
-    bit_attributions, inv_map
-        As in :func:`spread_bits_over_atoms`.
-    absence
-        What to do with the mass sitting on bits that have no atoms
-        (off-bits, mostly):
-
-        * ``"baseline"`` -- leave it out of the atoms and return it, to be
-          folded into the explanation's baseline.
-        * ``"spread"`` -- distribute it uniformly over all atoms, which
-          makes the atom values sum to ``bit_attributions.sum()``.
-
-    Returns
-    -------
-    (atom_attributions, unattributed)
-        ``unattributed`` is 0.0 when ``absence="spread"``.
-    """
-    if absence not in ("baseline", "spread"):
-        raise ValueError("absence must be 'baseline' or 'spread'")
-
-    atom_attributions = spread_bits_over_atoms(bit_attributions, inv_map)
-    unattributed = float(np.sum(bit_attributions) - atom_attributions.sum())
-
-    if absence == "spread" and atom_attributions.size:
-        atom_attributions = atom_attributions + unattributed / atom_attributions.size
-        unattributed = 0.0
-
-    return atom_attributions, unattributed
 
 
 def _resolve_fingerprints(
@@ -198,10 +119,9 @@ def tree_shap(
     smiles: Sequence[str] | None = None,
     fp_gen: InvertibleFingerprintGen | None = None,
     explainer=None,
-    absence: Absence = "baseline",
     check_additivity: bool = True,
-) -> list[Attribution]:
-    """Compute per-atom TreeSHAP attributions.
+) -> list[FingerprintAttribution]:
+    """Compute per-bit TreeSHAP attributions.
 
     Parameters
     ----------
@@ -219,7 +139,8 @@ def tree_shap(
         fingerprints from ``fp_gen``.
     smiles
         Only with a pre-built dataset: the SMILES the rows came from, used
-        to fill :attr:`Attribution.smiles`. Omit it and that field is None,
+        to fill :attr:`FingerprintAttribution.smiles`. Omit it and that
+        field is None,
         which is enough for the numbers but leaves nothing to draw them on
         (pass the molecule to the plotting call yourself).
     fp_gen
@@ -230,19 +151,18 @@ def tree_shap(
     explainer
         A pre-built :class:`shap.TreeExplainer`. Building one is cheap but
         not free, so pass it in when explaining several batches.
-    absence
-        See :func:`atom_attributions_from_bits`.
     check_additivity
         Forwarded to ``TreeExplainer.shap_values``; leave on to catch a
         mismatch between the explainer and the model.
 
     Returns
     -------
-    list[Attribution]
-        One entry per input molecule, in the input order.
-        ``atom_attributions.sum() + baseline == prediction`` holds exactly;
-        with ``absence="baseline"`` the baseline carries both the
-        explainer's expected value and the off-bit mass.
+    list[FingerprintAttribution]
+        One entry per input molecule, in the input order, with
+        ``bit_attributions.sum() + baseline == prediction``. Each carries
+        the molecule's ``inv_map``, so
+        :meth:`~talktorial_xai.attribution.FingerprintAttribution.to_mol_attribution`
+        projects it onto atoms without being handed anything else.
     """
     X, inv_maps, labels = _resolve_fingerprints(molecules, fp_gen, smiles)
     if X.shape[0] == 0:
@@ -262,17 +182,14 @@ def tree_shap(
     expected_value = float(np.ravel(explainer.expected_value)[0])
     predictions = np.ravel(model.predict(X))
 
-    results: list[Attribution] = []
-    for i, label in enumerate(labels):
-        atom_attributions, unattributed = atom_attributions_from_bits(
-            shap_values[i], inv_maps[i], absence=absence
+    return [
+        FingerprintAttribution(
+            smiles=label,
+            prediction=float(predictions[i]),
+            bit_attributions=shap_values[i],
+            fingerprint=X[i],
+            inv_map=inv_maps[i],
+            baseline=expected_value,
         )
-        results.append(
-            Attribution(
-                smiles=label,
-                prediction=float(predictions[i]),
-                atom_attributions=atom_attributions,
-                baseline=expected_value + unattributed,
-            )
-        )
-    return results
+        for i, label in enumerate(labels)
+    ]

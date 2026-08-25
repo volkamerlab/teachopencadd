@@ -7,22 +7,59 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib import colormaps
 from matplotlib.cm import ScalarMappable
-from matplotlib.colors import Colormap, Normalize
+from matplotlib.colors import Colormap, ListedColormap, Normalize
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 from PIL import Image
 from rdkit import Chem
 from rdkit.Chem import AllChem
 from rdkit.Chem.Draw import SimilarityMaps, rdMolDraw2D
 
-from talktorial_xai.attribution import Attribution
+from talktorial_xai.attribution import MolAttribution
 
 __all__ = [
+    "ATTRIBUTION_CMAP",
     "draw_atom_attributions",
     "draw_attribution_panel",
+    "draw_bit_attributions",
     "draw_molecule",
     "prepare_mol",
     "save",
+    "trim_colormap",
 ]
+
+
+def trim_colormap(
+    cmap: str | Colormap = "RdBu_r",
+    trim: float = 0.12,
+    n: int = 256,
+) -> Colormap:
+    """A diverging colormap with its darkest extremes cut off.
+
+    ColorBrewer's diverging maps run to near-black at both ends (RdBu's
+    ends sit at CIE L* 20), which is fine for a heatmap but not for filling
+    atom highlights: a strongly attributed nitrogen turns into a dark blob
+    with its element label swallowed. Dropping the outer ``trim`` of the
+    ramp keeps the hues and the white neutral point, and lifts the ends to
+    roughly L* 40 -- still clearly the extreme, still readable through.
+
+    The scale stays symmetric, so equal magnitudes keep equal weight.
+
+    Parameters
+    ----------
+    trim
+        Fraction cut from each end. 0.12 is the default; 0.2 is noticeably
+        pastel, above that the extremes stop reading as extreme.
+    """
+    if not 0.0 <= trim < 0.5:
+        raise ValueError(f"trim must be in [0, 0.5), got {trim}")
+    base = colormaps[cmap] if isinstance(cmap, str) else cmap
+    name = f"{getattr(base, 'name', 'cmap')}_trim{trim:g}"
+    return ListedColormap(base(np.linspace(trim, 1.0 - trim, n)), name=name)
+
+
+#: Default scale for every attribution figure in this talktorial: RdBu_r
+#: with the near-black ends trimmed away.
+ATTRIBUTION_CMAP = trim_colormap("RdBu_r", 0.12)
 
 
 # --------------------------------------------------------------------------
@@ -168,7 +205,12 @@ def _render_field(
         mol,
         [float(w) for w in weights],
         draw2d=drawer,
-        colorMap=cmap,
+        # RDKit only reads three anchors off a colormap, and its "is this a
+        # matplotlib colormap" test is an isinstance against
+        # LinearSegmentedColormap -- which a ListedColormap (e.g. anything
+        # from trim_colormap) fails, landing it in the subscript branch.
+        # Hand over the anchors directly and the type stops mattering.
+        colorMap=[tuple(cmap(x)) for x in (0.0, 0.5, 1.0)],
         scale=scale,
         contourLines=6,
         alpha=alpha,
@@ -192,7 +234,7 @@ def draw_atom_attributions(
     prediction_label: str = "prediction",
     title: str | None = None,
     subtitle: str | None = None,
-    cmap: str | Colormap = "RdBu_r",
+    cmap: str | Colormap = ATTRIBUTION_CMAP,
     vmax: float | None = None,
     size: tuple[int, int] = (520, 420),
     show_colorbar: bool = True,
@@ -299,7 +341,7 @@ def draw_atom_attributions(
         if bonds is not None:
             raise ValueError(
                 "mode='field' has no bond channel; fold the bond attributions into "
-                "atoms first (see Attribution.plot(bonds='fold'))"
+                "atoms first (see MolAttribution.plot(bonds='fold'))"
             )
         png = _render_field(
             mol,
@@ -378,27 +420,27 @@ def draw_atom_attributions(
     return fig
 
 
-def _panel_entry(entry) -> tuple[Chem.Mol, Attribution]:
+def _panel_entry(entry) -> tuple[Chem.Mol, MolAttribution]:
     """Normalise one panel value to ``(mol, attribution)``.
 
-    An Attribution already knows its own structure, so a bare one is the
+    A MolAttribution already knows its own structure, so a bare one is the
     normal case; the ``(mol, attribution)`` form is the escape hatch for
     attributions computed on a pre-featurized input (``smiles is None``)
     or for drawing one on a different depiction.
     """
-    if isinstance(entry, Attribution):
+    if isinstance(entry, MolAttribution):
         return entry.molecule(), entry
     mol, attribution = entry
     return attribution.molecule(mol), attribution
 
 
 def draw_attribution_panel(
-    panels: dict[str, Attribution | tuple[str | Chem.Mol, Attribution]],
+    panels: dict[str, MolAttribution | tuple[str | Chem.Mol, MolAttribution]],
     *,
     shared_scale: bool = True,
     bonds: str = "own",
     mode: str = "atoms",
-    cmap: str | Colormap = "RdBu_r",
+    cmap: str | Colormap = ATTRIBUTION_CMAP,
     alpha: float | None = None,
     size: tuple[int, int] = (460, 380),
     suptitle: str | None = None,
@@ -410,22 +452,22 @@ def draw_attribution_panel(
     Parameters
     ----------
     panels
-        ``{column title: attribution}``. Each Attribution carries the
+        ``{column title: attribution}``. Each MolAttribution carries the
         molecule it was computed on, so the structure does not have to be
         passed alongside it. A value may also be a
         ``(molecule, attribution)`` pair -- a SMILES string or RDKit Mol
-        plus the Attribution -- which is what to use when the attribution
+        plus the MolAttribution -- which is what to use when the attribution
         has ``smiles=None`` (a pre-featurized input), or when this panel
-        should draw a different depiction from the one the Attribution
+        should draw a different depiction from the one the MolAttribution
         names. The numbers, the prediction in the caption and the
-        atom/bond indexing always come from the Attribution.
+        atom/bond indexing always come from the MolAttribution.
     shared_scale
         Put every panel on one symmetric colour scale (and draw a single
         colour bar). Panels are only comparable by eye when this is True;
         with False each panel is self-normalised.
     bonds
         ``"own"`` / ``"fold"`` / ``"ignore"``, exactly as in
-        :meth:`Attribution.plot`. Applied to every panel, so the columns
+        :meth:`MolAttribution.plot`. Applied to every panel, so the columns
         stay comparable.
     alpha
         Overlay opacity, as in :func:`draw_atom_attributions`. One value
@@ -593,6 +635,176 @@ def draw_molecule(
     if title:
         ax.set_title(title, fontsize=10, weight="bold", pad=6)
     fig.tight_layout(pad=0.2)
+    return fig
+
+
+def _render_fragment_in_context(
+    mol: Chem.Mol,
+    atoms: Sequence[int],
+    bonds: Sequence[int],
+    color: tuple[float, float, float],
+    size: tuple[int, int],
+    background: str,
+    dim_context: bool,
+) -> bytes:
+    """One exemplar molecule with a circular environment filled in."""
+    drawer = rdMolDraw2D.MolDraw2DCairo(*size)
+    opts = drawer.drawOptions()
+    opts.clearBackground = True
+    opts.setBackgroundColour((1, 1, 1, 0 if background == "transparent" else 1))
+    opts.fillHighlights = True
+    opts.highlightRadius = 0.42
+    opts.highlightBondWidthMultiplier = 16
+    opts.bondLineWidth = 2
+    if dim_context:
+        # the exemplar is scaffolding: it says *where* the fragment sits,
+        # not what the model looked at. Drawing it monochrome leaves the
+        # only colour in the cell on the highlighted environment, which is
+        # the part the bit actually means.
+        opts.useBWAtomPalette()
+
+    rdMolDraw2D.PrepareAndDrawMolecule(
+        drawer,
+        mol,
+        highlightAtoms=[int(a) for a in atoms],
+        highlightAtomColors={int(a): color for a in atoms},
+        highlightBonds=[int(b) for b in bonds],
+        highlightBondColors={int(b): color for b in bonds},
+    )
+    drawer.FinishDrawing()
+    return drawer.GetDrawingText()
+
+
+def draw_bit_attributions(
+    bit_values: Sequence[tuple[int, float]] | dict[int, float],
+    bit_dictionary,
+    *,
+    ncols: int = 3,
+    cmap: str | Colormap = ATTRIBUTION_CMAP,
+    vmax: float | None = None,
+    size: tuple[int, int] = (300, 250),
+    background: str = "white",
+    suptitle: str | None = None,
+    show_colorbar: bool = True,
+    colorbar_label: str = "attribution to prediction",
+    dim_context: bool = True,
+    skip_unknown: bool = True,
+):
+    """Draw attributions that live on fingerprint *bits*, not on atoms.
+
+    :func:`draw_atom_attributions` can only colour substructures the
+    molecule has. The attribution a model puts on a bit that is *off*
+    has no atom to sit on, so it never survives the projection onto the graph
+    (see :meth:`~talktorial_xai.attribution.FingerprintAttribution.to_mol_attribution`).
+
+    This function draws those bits instead, one cell each, by borrowing a
+    training molecule that *does* contain the substructure from a
+    :class:`~talktorial_xai.bit_dictionary.BitDictionary` and highlighting
+    the environment in it. Read a cell as "this is what the model was
+    looking for", with the colour saying which way the verdict went -- not
+    as a claim about the molecule being explained, which contains none of
+    what is drawn.
+
+    Parameters
+    ----------
+    bit_values
+        ``[(bit, attribution), ...]`` or ``{bit: attribution}``, already
+        selected and ordered -- normally straight from
+        :meth:`~talktorial_xai.attribution.FingerprintAttribution.absent_bits`
+        or :meth:`BitDictionary.rank_bits`.
+    bit_dictionary
+        The :class:`~talktorial_xai.bit_dictionary.BitDictionary` built
+        over the model's training set. Its exemplars are what gets drawn.
+    vmax
+        Fix the colour-scale limit, e.g. to the ``vmax`` used for the atom
+        map of the same molecule. Pass it whenever the two figures are
+        shown side by side, or the absent bits will look stronger or
+        weaker than the present ones for no reason.
+    dim_context
+        Draw the exemplar molecule monochrome so only the environment
+        carries colour.
+    skip_unknown
+        Silently drop bits the dictionary has no exemplar for (they cannot
+        be drawn). With False, such a bit raises.
+
+    Returns
+    -------
+    matplotlib Figure
+    """
+    items = list(bit_values.items()) if isinstance(bit_values, dict) else list(bit_values)
+    cells = []
+    for bit, value in items:
+        record = bit_dictionary.get(int(bit))
+        if record is None or not record.fragments:
+            if skip_unknown:
+                continue
+            raise ValueError(f"bit {bit} has no exemplar in the dictionary; cannot draw it")
+        cells.append((int(bit), float(value), record))
+
+    if not cells:
+        raise ValueError("nothing to draw: no bit had an exemplar in the dictionary")
+
+    cmap = colormaps[cmap] if isinstance(cmap, str) else cmap
+    norm = _symmetric_norm(np.array([v for _, v, _ in cells], dtype=float), vmax)
+
+    ncols = max(1, min(ncols, len(cells)))
+    nrows = -(-len(cells) // ncols)
+    fig, axes = plt.subplots(
+        nrows,
+        ncols,
+        figsize=(size[0] / 100 * ncols + 1.2, (size[1] / 100 + 0.95) * nrows + 0.5),
+        squeeze=False,
+    )
+    fig.patch.set_alpha(0.0 if background == "transparent" else 1.0)
+    if background == "white":
+        fig.patch.set_facecolor("white")
+
+    flat = axes.ravel()
+    for ax, (bit, value, record) in zip(flat, cells, strict=False):
+        fragment = record.top_fragment
+        mol = prepare_mol(fragment.molecule())
+        atoms, bonds = fragment.atoms(mol)
+        png = _render_fragment_in_context(
+            mol,
+            atoms,
+            bonds,
+            tuple(cmap(norm(value))[:3]),
+            size,
+            background,
+            dim_context,
+        )
+        # uncropped, so every cell keeps the same aspect ratio and the
+        # grid's titles line up row by row
+        ax.imshow(_png_to_array(png, background=background, crop=False))
+        ax.set_xticks([])
+        ax.set_yticks([])
+        for spine in ax.spines.values():
+            spine.set_visible(False)
+        ax.set_title(f"bit {bit}   {value:+.3f}", fontsize=10, weight="bold", pad=5)
+        ax.set_xlabel(
+            f"{fragment.smiles}   (r={fragment.radius})\n"
+            f"in {bit_dictionary.frequency(bit):.0%} of training set"
+            f"   ·   purity {record.purity:.0%}",
+            fontsize=8,
+            labelpad=6,
+            linespacing=1.5,
+        )
+
+    for ax in flat[len(cells) :]:
+        ax.set_axis_off()
+
+    if suptitle:
+        fig.suptitle(suptitle, fontsize=12, weight="bold")
+    fig.tight_layout()
+
+    if show_colorbar:
+        sm = ScalarMappable(norm=norm, cmap=cmap)
+        cbar = fig.colorbar(sm, ax=list(flat), fraction=0.03, pad=0.02)
+        if colorbar_label:
+            cbar.set_label(colorbar_label, fontsize=8)
+        cbar.ax.tick_params(labelsize=7)
+        cbar.outline.set_linewidth(0.5)
+
     return fig
 
 

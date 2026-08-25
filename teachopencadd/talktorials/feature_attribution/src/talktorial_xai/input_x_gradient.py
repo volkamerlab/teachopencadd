@@ -40,7 +40,7 @@ from chemprop.models import MPNN
 from rdkit import Chem
 from tqdm import tqdm
 
-from talktorial_xai.attribution import Attribution
+from talktorial_xai.attribution import MolAttribution
 
 __all__ = ["input_x_gradient"]
 
@@ -48,7 +48,7 @@ __all__ = ["input_x_gradient"]
 def _align_to_smiles(mol: Chem.Mol) -> tuple[str, Chem.Mol, np.ndarray]:
     """A SMILES for ``mol`` plus the permutation onto its atom order.
 
-    :attr:`Attribution.smiles` is a promise that re-parsing the string lines
+    :attr:`MolAttribution.smiles` is a promise that re-parsing the string lines
     the numbers up with atoms, and canonical SMILES output order is *not*
     the input mol's atom order. RDKit records the order it wrote the atoms
     in, so the attributions can be permuted to match instead of quietly
@@ -72,7 +72,7 @@ def input_x_gradient(
     featurizer: featurizers.GraphFeaturizer | None = None,
     batch_size: int = 64,
     device: str | torch.device | None = None,
-) -> list[Attribution]:
+) -> list[MolAttribution]:
     """Compute Input x Gradient attributions for a list of SMILES.
 
     Parameters
@@ -98,7 +98,7 @@ def input_x_gradient(
 
     Returns
     -------
-    list[Attribution]
+    list[MolAttribution]
         One entry per input molecule, in the input order.
 
     Notes
@@ -140,7 +140,7 @@ def input_x_gradient(
 
     loader = data.build_dataloader(dset, batch_size=batch_size, shuffle=False, num_workers=0)
 
-    results: list[Attribution] = []
+    results: list[MolAttribution] = []
     mol_offset = 0
 
     for batch in tqdm(loader):
@@ -192,7 +192,7 @@ def input_x_gradient(
             atoms_out[perm] = atom_attr[start : start + n_atoms]
 
             results.append(
-                Attribution(
+                MolAttribution(
                     smiles=smi,
                     prediction=float(scores_np[j]),
                     atom_attributions=atoms_out,

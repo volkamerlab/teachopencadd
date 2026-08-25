@@ -85,37 +85,71 @@ class InvertibleFingerprintGen:
         return mol
 
     def from_mol(self, mol: Chem.Mol) -> tuple[np.ndarray, np.ndarray]:
+        fp, envs_per_bit = self._fp_and_envs(mol)
+
+        mapping = np.zeros((self.fp_size, mol.GetNumAtoms()), dtype=bool)
+        for bit, envs in envs_per_bit.items():
+            for center, rad in envs:
+                mapping[bit, self._env_atoms(mol, center, rad)] = True
+
+        return fp, mapping
+
+    def bit_envs(self, mol_or_smiles) -> dict[int, tuple[tuple[int, int], ...]]:
+        """Bit -> the ``(center atom, radius)`` environments that set it.
+
+        The incidence matrix from :meth:`get` collapses this down to "which
+        atoms did this bit touch", which is all the plotting code on a
+        *single* molecule needs. Keeping the centre and the radius is what
+        lets a substructure be re-drawn on some *other* molecule -- see
+        :mod:`talktorial_xai.bit_dictionary`.
+
+        Bits that are off do not appear in the mapping at all.
+        """
+        mol = self.parse(mol_or_smiles) if isinstance(mol_or_smiles, str) else mol_or_smiles
+        return self._fp_and_envs(mol)[1]
+
+    @staticmethod
+    def environment(mol: Chem.Mol, center: int, radius: int) -> tuple[list[int], list[int]]:
+        """The ``(atom indices, bond indices)`` of one circular environment.
+
+        Both lists are what ``Chem.MolFragmentToSmiles`` wants in order to
+        write the substructure out on its own.
+        """
+        if radius == 0:
+            return [center], []
+        bond_ids = list(Chem.FindAtomEnvironmentOfRadiusN(mol, radius, center))
+        if not bond_ids:
+            return [center], []
+        atoms = {center}
+        for bid in bond_ids:
+            bond = mol.GetBondWithIdx(bid)
+            atoms.add(bond.GetBeginAtomIdx())
+            atoms.add(bond.GetEndAtomIdx())
+        return sorted(atoms), bond_ids
+
+    # ------------------------------------------------------------------ #
+    # internals
+    # ------------------------------------------------------------------ #
+
+    def _fp_and_envs(
+        self, mol: Chem.Mol
+    ) -> tuple[np.ndarray, dict[int, tuple[tuple[int, int], ...]]]:
         ao = rdFingerprintGenerator.AdditionalOutput()
         ao.AllocateBitInfoMap()
 
         fp = self._gen.GetFingerprintAsNumPy(mol, additionalOutput=ao)
         fp = fp.astype(self.dtype, copy=False)
 
-        mapping = np.zeros((self.fp_size, mol.GetNumAtoms()), dtype=bool)
-        for bit, envs in ao.GetBitInfoMap().items():
-            for center, rad in envs:
-                mapping[bit, self._env_atoms(mol, center, rad)] = True
-
-        return fp, mapping
-
-    # ------------------------------------------------------------------ #
-    # internals
-    # ------------------------------------------------------------------ #
+        envs_per_bit = {
+            int(bit): tuple((int(center), int(rad)) for center, rad in envs)
+            for bit, envs in ao.GetBitInfoMap().items()
+        }
+        return fp, envs_per_bit
 
     @staticmethod
     def _env_atoms(mol: Chem.Mol, center: int, radius: int) -> Sequence[int]:
         """Atom indices of the circular environment of `radius` around `center`."""
-        if radius == 0:
-            return (center,)
-        bond_ids = Chem.FindAtomEnvironmentOfRadiusN(mol, radius, center)
-        if not bond_ids:  # e.g. isolated atom; env degenerates to the centre
-            return (center,)
-        atoms = {center}
-        for bid in bond_ids:
-            bond = mol.GetBondWithIdx(bid)
-            atoms.add(bond.GetBeginAtomIdx())
-            atoms.add(bond.GetEndAtomIdx())
-        return sorted(atoms)
+        return InvertibleFingerprintGen.environment(mol, center, radius)[0]
 
 
 if __name__ == "__main__":
