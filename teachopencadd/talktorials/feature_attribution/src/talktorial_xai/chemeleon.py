@@ -6,7 +6,7 @@ from chemprop import nn
 
 from .paths import DATA
 
-CHEMELEON_WEIGHTS = DATA / "models" / "chemelon_mp.pt"
+CHEMELEON_WEIGHTS = DATA / "models" / "chemeleon_mp.pt"
 CHEMELEON_URL = "https://zenodo.org/records/15460715/files/chemeleon_mp.pt"
 
 logger = logging.getLogger(__name__)

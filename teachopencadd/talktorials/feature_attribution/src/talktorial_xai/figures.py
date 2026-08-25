@@ -72,7 +72,7 @@ def _hinge_atoms_erlotinib(mol: Chem.Mol) -> tuple[list[int], dict[int, str]]:
         return False
 
     n3, n1 = (n_a, n_b) if next_to_anilino(n_a) else (n_b, n_a)
-    return core, {n1: "N1", n3: "N3"}
+    return core, {n1: "N1"}
 
 
 def hinge_motif_figure(path=None, dpi: int = 200):
@@ -113,9 +113,9 @@ def hinge_motif_figure(path=None, dpi: int = 200):
         ax.set_axis_off()
         ax.set_title(name, fontsize=11, weight="bold", pad=4)
     fig.supxlabel(
-        "The hinge-binding motif.  Blue: the nitrogen heterocycle that occupies the adenine "
+        "EGFR hinge binding motif.  Blue: the nitrogen heterocycle that occupies the adenine "
         "pocket.  Red: the nitrogens that\nhydrogen bond to the hinge backbone -- ATP N1 "
-        "(acceptor) and N6-H (donor); erlotinib N1 (acceptor) and N3 (water-bridged).",
+        "(acceptor) and N6-H (donor); erlotinib N1 (acceptor).",
         fontsize=9.5,
         linespacing=1.5,
     )
