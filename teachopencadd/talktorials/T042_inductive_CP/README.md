@@ -1,61 +1,166 @@
-# T042 ·  Inductive Conformal Prediction
-
-**Note:** This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
-
-Authors:
-
-- Lisa-Marie Rolli, 2026, Saarland University
+# Inductive Conformal Prediction
 
 
+Traditional machine learning models output a point value (regression) or class (classification) but do not provide rigorous guarantees about uncertainty.
 
-## Aim of this talktorial
+Inductive conformal prediction (CP) addresses this limitation by transforming model outputs into prediction intervals (regression) or sets (classification) with statistical coverage guarantees. For a chosen confidence level (e.g. 95%), CP guarantees that the true label will be contained in the prediction set at least 95% of the time, assuming data sets are exchangeable (*marginal coverage guarantee*). Exchangability is a weaker assumption than independent and identically distributed (i.i.d.) data, which is typically assumed in machine learning.
 
-Traditional machine learning models output a point value (regression) or class (classification) but do not provide rigorous guarantees about uncertainty. Inductive conformal prediction (CP) addresses this limitation by transforming model outputs into prediction intervals (regression) or sets (classification) with statistical coverage guarantees, given specific assumptions.
+The theoretical part of the notebook is based on [this publication](https://arxiv.org/abs/2107.07511). For more in-depth explanation, we refer the reder therefore to Angelopoulos and Bates.
 
-The aim of this talktorial is to introduce basic concepts of inductive CP and demonstrate how to apply it to toxicity prediction models.
+In this notebook we:
 
-
-### Contents in *Theory*
-
-* Prerequisites
-    * Property prediction models
-* Inductive Conformal Prediction Theory
-    * Data split
-    * Prediction probabilities
-    * (Non-)conformity scores
-    * Efficiency and coverage evaluation of CP 
+1. Generate molecular descriptors from SMILES structures.
+2. Train a Random Forest classifier.
+3. Calibrate the model using a separate calibration dataset.
+4. Compute non-conformity scores.
+5. Construct conformal prediction sets.
+6. Evaluate how uncertainty changes the interpretation of model predictions.
 
 
-
-### Contents in *Practical*
-
-
-* Model training
-    * Load and split raw data
-    * Data preparation
-    * Random forest: model training, calibration and testing
-* Conformal prediction
-    * Calibrating the model
-    * Calculating (Non-)conformity scores with the `morgoth` package
-    * Evaluate efficiency and coverage
+The dataset contains molecular structures represented as SMILES strings. These structures are converted into numerical molecular descriptors which serve as input features for machine learning.
 
 
-### References
+### Molecular Descriptor Generation
 
-### Setting of this talktorial
-* [Sydow et al., 2019, doi:10.1186/s13321-019-0351-x](https://doi.org/10.1186/s13321-019-0351-x), "TeachOpenCADD: a teaching platform for computer-aided drug design using open source packages and data"
+Most machine learning algorithms cannot directly process molecular structures.
+We therefore convert each molecule into a vector of physicochemical properties
+using RDKit.
+
+Examples include:
+
+- Molecular weight
+- Topological indices
+- Electrotopological descriptors
+- Ring counts
+- Functional group counts
+
+The resulting feature matrix contains over 200 descriptors per compound.
+
+
+### Dataset Splitting
+
+Inductive CP requires three distinct datasets:
+
+- Training set:
+  used to fit the machine learning model
+
+- Calibration set:
+  used to estimate uncertainty and compute thresholds
+
+- Test set:
+  used only for final evaluation
+
+Separating calibration from training is the key distinction between
+inductive conformal prediction and standard model evaluation.
+
+
+### Random Forest Classifier
+
+A Random Forest is an ensemble method that combines many decision trees.
+
+Advantages:
+
+- Handles high-dimensional descriptor spaces well.
+- Captures nonlinear relationships.
+- Robust to noisy descriptors.
+- Provides class probabilities that can be used by conformal prediction.
+
+The model is trained only on the training set.
+
+
+### Calibration
+
+After training, predictions are generated for the calibration dataset.
+
+For every calibration sample we compute a (non-)conformity score
+that measures how compatible the observed class is with the model prediction. In our case, we compute a non-conformity score, which is called true class ($TC$) score, and that measures the probability of being wrong for a particular sample.
+
+These non-conformity scores form an empirical reference distribution.
+
+The conformal threshold ($\hat{q}$) is derived from a quantile of this distribution
+and determines how prediction sets are constructed for unseen compounds.
+
+
+#### Intuition behind the CP Sets
+
+The RF produces a probability for each class. Rather than directly using these probabilities as confidence estimates, we define a *non-conformity score* as the probability that a prediction is wrong.
+
+For a given sample \(x_i\), the non-conformity score is based on the true class $c_i$ and its corresponding prediction probability \(P(c_i)\)
+
+$TC({x_i}) = 1 - P(c_i)$
+
+
+A low score corresponds to being correct with a high probabiliyt, while a high score means that the model was wrong with a high probability.
+
+During calibration, we determine a threshold ($\hat{q}$) corresponding to the maximum probability of being wrong that can be tolerated, while still achieving the desired coverage guarantee. This threshold is estimated from the calibration set and represents the largest non-conformity score that is acceptable for a prediction to be considered reliable.
+
+
+### Test predictions
+
+For a new compound, we construct the conformal prediction set by including every class whose non-conformity score is below this threshold:
+
+$\{ c : 1-P(c) \le \hat{q} \}$
+
+Intuitively, this means:
+
+- Classes with a sufficiently low probability of being wrong are retained.
+- Classes with a probability of being wrong that exceeds the calibrated threshold are excluded.
+- If only one class satisfies the criterion, a singleton prediction set is produced.
+- If multiple classes satisfy the criterion, the model expresses uncertainty by returning all plausible classes.
+- In rare cases no class may satisfy the criterion, resulting in an empty prediction set.
+
+The threshold is chosen such that, on average, the true class will be retained in the prediction set with at least the specified coverage level (e.g. 95%). Therefore, conformal prediction does not aim to identify the single most likely class. Instead, it identifies all classes whose probability of being wrong is sufficiently small to maintain the desired statistical guarantee.
+
+
+As we consider binary classification, prediction sets can have three outcomes:
+
+- Size 0 (only possible if $\hat{q} < 0.5$):
+  insufficient support
+
+- Size 1:
+  confident prediction
+
+- Size 2 only possible if $\hat{q} >= 0.5$):
+  ambiguous prediction; both classes remain plausible
+
+The more single-class sets are output, i.e., prediction sets containing exactly one class, the more certain is the model and the more _efficient_ is the CP score.
+
+#### Efficiency 
+In classification, efficiency is commonly quantified as the fraction of single-class prediction sets over all predictions.
+
+An efficient conformal predictor produces many single-class predictions, while still maintaining the desired ceratinty guarantee, i.e., _coverage_. Prediction sets containing multiple classes indicate uncertainty and are, therefore, less informative.
+
+
+#### Coverage
+
+Coverage measures the validity of the conformal predictor. A prediction is considered covered if the true class is contained within the conformal prediction set. For example, if the prediction set is [0, 1], both classes are considered plausible and the prediction is counted as covered regardless of the true outcome.
+
+The empirical coverage is calculated as the proportion of test compounds whose true label is included in the corresponding conformal prediction set. For a conformal predictor with a minimal certainty level of 95%, the empirical coverage should be close to or above 95%, demonstrating that the uncertainty estimates are well calibrated.
+
+High coverage indicates that the conformal prediction sets reliably contain the true class, while lower-than-expected coverage may suggest violations of the assumptions underlying conformal prediction or insufficient calibration data.
+
+
+### Conclusions
+
+The RF classifier provides probability estimates for binary classification.
+
+Inductive CP converts these probabilities into statistically
+valid prediction sets by calibrating uncertainty on an independent calibration set.
+
+Benefits:
+
+- Rigorous coverage guarantees.
+- Explicit uncertainty quantification.
+- Improved reliability compared with raw probabilities.
+
+Limitations:
+
+- Requires a dedicated calibration set.
+- Larger uncertainty leads to less specific predictions.
+- Not really suited for small datasets $\rightarrow$ transductive CP is needed
+
+Overall, CP provides a practical framework for deploying trustworthy
+machine learning models in cheminformatics applications.
 
 
 
-### Models
-
-* [Breiman, 2001, doi:10.1023/A:1010933404324](https://doi.org/10.1023/A:1010933404324), "Random forests"
-
-
-### Conformal prediction
-
-* [Jimenez-Luna et al., 2020, doi:10.1038/s42256-020-00236-4](https://doi.org/10.1038/s42256-020-00236-4), "Drug discovery with explainable artificial intelligence"
-* [Angelopoulos and Bates, 2022, doi:10.48550/arXiv.2107.07511](https://arxiv.org/abs/2107.07511), "A Gentle Introduction to Conformal Prediction and Distribution-Free Uncertainty Quantification"
-* [Vovk et al., 2022, doi:10.1007/978-3-031-06649-8_3](https://link.springer.com/chapter/10.1007/978-3-031-06649-8_3), "Conformal Prediction: Classification and General Case"
-* [Rolli et al., 2026, doi:10.1039/d5dd00284b](https://pubs.rsc.org/dd/article/5/4/1746/1229659/Increasing-trustworthiness-of-machine-learning), "Increasing trustworthiness of machine learning-based drug sensitivity prediction with a multivariate random forest approach"
-* [Morger et al., 2020, doi:10.1186/s13321-020-00422-x](https://link.springer.com/article/10.1186/s13321-020-00422-x), "KnowTox: pipeline and case study for confident prediction of potential toxic effects of compounds in early phases of development"
