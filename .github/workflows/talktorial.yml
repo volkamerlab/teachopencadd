@@ -54,6 +54,7 @@ jobs:
           - T036
           - T037
           - T038
+          - T039
 
         exclude:
           - talktorial: T001 # long runtime and url timeout.
@@ -63,6 +64,7 @@ jobs:
           - talktorial: T036 # memory overload due to DL packages.
           - talktorial: T037 # memory overload due to DL packages.
           - talktorial: T038 # memory overload due to DL packages.
+          - talktorial: T039 # memory overload due to DL packages and model training.
           - os: windows-latest
             talktorial: T008 # OpenCADD win path
           - os: windows-latest

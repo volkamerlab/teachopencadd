@@ -48,6 +48,7 @@ _talktorial_list: list[tuple[str, str]] = [
     ("T036", "An introduction to E(3)-invariant graph neural networks"),
     ("T037", "Uncertainty estimation"),
     ("T038", "Protein Ligand Interaction Prediction"),
+    ("T039", "Explaining molecular property prediction models with feature attribution"),
 ]
 
 
