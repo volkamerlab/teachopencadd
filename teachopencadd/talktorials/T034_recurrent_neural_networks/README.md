@@ -9,7 +9,7 @@ Authors:
 
 ## Aim of this talktorial
 
-Molecular representation by a SMILES string paved the way for applying natural language processing techniques to a broad range of molecule-related tasks. In this talktorial we will dive deeper into one of these techniques: recurrent neural networks (RNNs). First, we will describe different RNN architectures and then apply them to a regression task using the QM9 dataset.
+Representing molecules as SMILES strings has paved the way for applying natural language processing techniques to a broad range of molecule-related tasks. In this talktorial, you will learn how recurrent neural networks (RNNs) process sequential data and how they can be applied to molecular property prediction. We will introduce different RNN architectures, discuss their strengths and limitations, and demonstrate how to implement, train, and evaluate them on a regression task using the QM9 dataset.
 
 
 ### Contents in *Theory*
