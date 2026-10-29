@@ -37,7 +37,7 @@ Representing molecules as SMILES strings has paved the way for applying natural 
 * __Talktorial T021__: One-Hot Encoding
 * __Talktorial T022__: Ligand-based screening: neural networks
 * __Talktorial T033__: Molecular Representations
-* __Talktorial T034__: GNN based property prediction
+* __Talktorial T035__: GNN based property prediction
 
 
 #### Theoretical background
