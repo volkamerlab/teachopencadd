@@ -50,3 +50,8 @@ In this tutorial, we will first explain the basic concepts of graph neural netwo
     * Pytorch Documentation, *Saving and Loading Models*, [Documentation](https://docs.pytorch.org/tutorials/beginner/saving_loading_models.html)
     * *Pytorch Geometric Documentation*, [Colab Notebooks and Video Tutorials](https://pytorch-geometric.readthedocs.io/en/latest/notes/colabs.html)
     * *Pytorch Geometric Documentation*, [Introduction by Example](https://pytorch-geometric.readthedocs.io/en/latest/notes/introduction.html#learning-methods-on-graphs)
+
+
+### Device selection
+The code in this notebook can be run both with a CPU or a CUDA-enabled GPU.
+You can set the by setting the variable below
