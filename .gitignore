@@ -141,6 +141,7 @@ cython_debug/
 
 # IDEs
 .vscode/
+.idea/
 
 # MACOS
 .DS_Store/
@@ -160,5 +161,9 @@ teachopencadd/talktorials/T018_automated_cadd_pipeline/data/PipelineInputData_Pr
 # Taltorial TO037 QM9 too large temp. fix
 teachopencadd/talktorials/T037_e3_equivariant_gnn/data/raw
 teachopencadd/talktorials/T037_e3_equivariant_gnn/data/processed
+
+# Talktorial T038 output
+teachopencadd/talktorials/T038_protein_ligand_interaction_prediction/data/*.pth
+teachopencadd/talktorials/T038_protein_ligand_interaction_prediction/data/resources/*
 
 teachopencadd/_version.py

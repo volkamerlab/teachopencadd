@@ -113,40 +113,40 @@ uv run --with teachopencadd teachopencadd -h
 |    T037    | [Uncertainty estimation][37]|
 |    T038    | [Protein Ligand Interaction Prediction][38]|
 
-[1]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/dev/teachopencadd/talktorials/T001_query_chembl/talktorial.ipynb
-[2]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/dev/teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb
-[3]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/dev/teachopencadd/talktorials/T003_compound_unwanted_substructures/talktorial.ipynb
-[4]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/dev/teachopencadd/talktorials/T004_compound_similarity/talktorial.ipynb
-[5]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/dev/teachopencadd/talktorials/T005_compound_clustering/talktorial.ipynb
-[6]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/dev/teachopencadd/talktorials/T006_compound_maximum_common_substructures/talktorial.ipynb
-[7]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/dev/teachopencadd/talktorials/T007_compound_activity_machine_learning/talktorial.ipynb
-[8]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/dev/teachopencadd/talktorials/T008_query_pdb/talktorial.ipynb
-[9]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/dev/teachopencadd/talktorials/T009_compound_ensemble_pharmacophores/talktorial.ipynb
-[10]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/dev/teachopencadd/talktorials/T010_binding_site_comparison/talktorial.ipynb
-[11]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/dev/teachopencadd/talktorials/T011_query_online_api_webservices/talktorial.ipynb
-[12]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/dev/teachopencadd/talktorials/T012_query_klifs/talktorial.ipynb
-[13]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/dev/teachopencadd/talktorials/T013_query_pubchem/talktorial.ipynb
-[14]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/dev/teachopencadd/talktorials/T014_binding_site_detection/talktorial.ipynb
-[15]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/dev/teachopencadd/talktorials/T015_protein_ligand_docking/talktorial.ipynb
-[16]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/dev/teachopencadd/talktorials/T016_protein_ligand_interactions/talktorial.ipynb
-[17]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/dev/teachopencadd/talktorials/T017_advanced_nglview_usage/talktorial.ipynb
-[18]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/dev/teachopencadd/talktorials/T018_automated_cadd_pipeline/talktorial.ipynb
-[19]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/dev/teachopencadd/talktorials/T019_md_simulation/talktorial.ipynb
-[20]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/dev/teachopencadd/talktorials/T020_md_analysis/talktorial.ipynb
-[21]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/dev/teachopencadd/talktorials/T021_one_hot_encoding/talktorial.ipynb
-[22]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/dev/teachopencadd/talktorials/T022_ligand_based_screening_neural_network/talktorial.ipynb
-[23]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/dev/teachopencadd/talktorials/T023_what_is_a_kinase/talktorial.ipynb
-[24]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/dev/teachopencadd/talktorials/T024_kinase_similarity_sequence/talktorial.ipynb
-[25]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/dev/teachopencadd/talktorials/T025_kinase_similarity_kissim/talktorial.ipynb
-[26]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/dev/teachopencadd/talktorials/T026_kinase_similarity_ifp/talktorial.ipynb
-[27]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/dev/teachopencadd/talktorials/T027_kinase_similarity_ligand_profile/talktorial.ipynb
-[28]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/dev/teachopencadd/talktorials/T028_kinase_similarity_compare_perspectives/talktorial.ipynb
-[33]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/dev/teachopencadd/talktorials/T033_molecular_representations/talktorial.ipynb
-[34]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/dev/teachopencadd/talktorials/T034_recurrent_neural_networks/talktorial.ipynb
-[35]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/dev/teachopencadd/talktorials/T035_graph_neural_networks/talktorial.ipynb
-[36]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/dev/teachopencadd/talktorials/T036_e3_equivariant_gnn/talktorial.ipynb
-[37]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/dev/teachopencadd/talktorials/T037_uncertainty_estimation/talktorial.ipynb
-[38]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/dev/teachopencadd/talktorials/T038_protein_ligand_interaction_prediction/talktorial.ipynb
+[1]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T001_query_chembl/talktorial.ipynb
+[2]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb
+[3]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T003_compound_unwanted_substructures/talktorial.ipynb
+[4]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T004_compound_similarity/talktorial.ipynb
+[5]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T005_compound_clustering/talktorial.ipynb
+[6]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T006_compound_maximum_common_substructures/talktorial.ipynb
+[7]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T007_compound_activity_machine_learning/talktorial.ipynb
+[8]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T008_query_pdb/talktorial.ipynb
+[9]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T009_compound_ensemble_pharmacophores/talktorial.ipynb
+[10]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T010_binding_site_comparison/talktorial.ipynb
+[11]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T011_query_online_api_webservices/talktorial.ipynb
+[12]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T012_query_klifs/talktorial.ipynb
+[13]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T013_query_pubchem/talktorial.ipynb
+[14]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T014_binding_site_detection/talktorial.ipynb
+[15]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T015_protein_ligand_docking/talktorial.ipynb
+[16]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T016_protein_ligand_interactions/talktorial.ipynb
+[17]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T017_advanced_nglview_usage/talktorial.ipynb
+[18]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T018_automated_cadd_pipeline/talktorial.ipynb
+[19]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T019_md_simulation/talktorial.ipynb
+[20]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T020_md_analysis/talktorial.ipynb
+[21]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T021_one_hot_encoding/talktorial.ipynb
+[22]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T022_ligand_based_screening_neural_network/talktorial.ipynb
+[23]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T023_what_is_a_kinase/talktorial.ipynb
+[24]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T024_kinase_similarity_sequence/talktorial.ipynb
+[25]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T025_kinase_similarity_kissim/talktorial.ipynb
+[26]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T026_kinase_similarity_ifp/talktorial.ipynb
+[27]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T027_kinase_similarity_ligand_profile/talktorial.ipynb
+[28]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T028_kinase_similarity_compare_perspectives/talktorial.ipynb
+[33]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T033_molecular_representations/talktorial.ipynb
+[34]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T034_recurrent_neural_networks/talktorial.ipynb
+[35]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T035_graph_neural_networks/talktorial.ipynb
+[36]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T036_e3_equivariant_gnn/talktorial.ipynb
+[37]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T037_uncertainty_estimation/talktorial.ipynb
+[38]: https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T038_protein_ligand_interaction_prediction/talktorial.ipynb
 
 ## TeachOpenCADD KNIME workflows
 

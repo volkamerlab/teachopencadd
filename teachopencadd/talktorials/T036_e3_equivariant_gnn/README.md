@@ -31,11 +31,11 @@ This talktorial is supposed to serve as an introduction to machine learning on p
 * Model implementation
   * Plain "naive Euclidean" GNN
   * Demo: Plain GNNs are not E(3)-invariant
-  * EGNN model
-  * Demo: Our EGNN is E(3)-invariant
+  * E(3)-invariant GNN
+  * Demo: Our constructed GNN is E(3)-invariant
 * Training and evaluation
   * Setup
-  * Training the EGNN
+  * Training the E(3)-invariant GNN
   * Training the plain GNN
   * Comparative evaluation
 
@@ -52,3 +52,8 @@ This talktorial is supposed to serve as an introduction to machine learning on p
 
 #### Practical
 * [Pytorch Geometric QM9 version](https://pytorch-geometric.readthedocs.io/en/latest/modules/datasets.html#torch_geometric.datasets.QM9)
+
+
+### Device selection
+The code in this notebook can be run both with a CPU or a CUDA-enabled GPU.
+You can set the by setting the variable below
