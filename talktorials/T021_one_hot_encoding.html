@@ -82,14 +82,14 @@
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
   
-    <title>T021 · One-Hot Encoding &#8212; TeachOpenCADD 2026.4.1.post38 documentation</title>
+    <title>T021 · One-Hot Encoding &#8212; TeachOpenCADD 2026.4.1.post112 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=fd6457a4" />
     <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=897d968c" />
-    <script src="../_static/documentation_options.js?v=25e3a83e"></script>
+    <script src="../_static/documentation_options.js?v=3e037279"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -127,7 +127,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../index.html" title="TeachOpenCADD 2026.4.1.post38 documentation"
+        <a href="../index.html" title="TeachOpenCADD 2026.4.1.post112 documentation"
            class="md-header-nav__button md-logo">
           
             <i class="md-icon">school</i>
@@ -225,13 +225,13 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../index.html" title="TeachOpenCADD 2026.4.1.post38 documentation" class="md-nav__button md-logo">
+    <a href="../index.html" title="TeachOpenCADD 2026.4.1.post112 documentation" class="md-nav__button md-logo">
       
         <i class="md-icon">school</i>
       
     </a>
     <a href="../index.html"
-       title="TeachOpenCADD 2026.4.1.post38 documentation">TeachOpenCADD</a>
+       title="TeachOpenCADD 2026.4.1.post112 documentation">TeachOpenCADD</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
@@ -690,7 +690,7 @@
 <h4 id="What-is-the-problem-with-categorical-data?">What is the problem with categorical data?<a class="headerlink" href="#What-is-the-problem-with-categorical-data?" title="Link to this heading">¶</a></h4>
 <p>Machine learning consists of mathematical operations translated to a computer via low-level programming languages. Computers are brilliant when dealing with numbers. So we must somehow convert our input data to numbers. There are many machine learning algorithms which cannot operate on categorical data directly. Thus, categorical data must be converted to a numerical form, that all input and output variables are numeric (see
 <a class="reference external" href="https://www.analyticsvidhya.com/blog/2020/03/one-hot-encoding-vs-label-encoding-using-scikit-learn/">Blogpost</a>: Alakh Sethi, <em>One-Hot Encoding vs. Label Encoding using Scikit-Learn</em> , Analytics Vidya, accessed March 6th, 2020 for further information).</p>
-<img alt="Computer data" src="../_images/computer_data.jpeg"/>
+<p><img alt="Computer data" src="../_images/computer_data.jpeg"/></p>
 <p><em>Figure 1</em>: Displays the categorical encoding required for computers to understand the input. The figure comes from this <a class="reference external" href="https://www.analyticsvidhya.com/blog/2020/03/one-hot-encoding-vs-label-encoding-using-scikit-learn/">blogpost</a>.</p>
 </section>
 <section id="How-to-convert-categorical-data-to-numerical-data?">
@@ -703,7 +703,7 @@ data which the model expects and and can work with.</p>
 <h3 id="The-One-Hot-Encoding-(OHE)-concept">The <em>One-Hot Encoding</em> (OHE) concept<a class="headerlink" href="#The-One-Hot-Encoding-(OHE)-concept" title="Link to this heading">¶</a></h3>
 <p>The one-hot encoding is a vector representation where all the elements of the vector are set to <code class="docutils literal notranslate"><span class="pre">0</span></code> except one, which has <code class="docutils literal notranslate"><span class="pre">1</span></code> as its value. For example, <code class="docutils literal notranslate"><span class="pre">[0</span> <span class="pre">0</span> <span class="pre">0</span> <span class="pre">1</span> <span class="pre">0</span> <span class="pre">0]</span></code> is a one-hot vector. Simply put, one-hot encoding, also known as binary encoding, is a binary representation of categorical variables as binary vectors.</p>
 <p>The figure shown below helps us gain an overall idea of the one-hot encoding concept.</p>
-<img alt="One Hot encoding" src="../_images/OneHotEncoding.png"/>
+<p><img alt="One Hot encoding" src="../_images/OneHotEncoding.png"/></p>
 <p><em>Figure 2</em> : Displays the one-hot encoding of the toluene molecule. Figure taken from the article <a class="reference external" href="https://doi.org/10.1186/s12859-018-2523-5">BMC Bioinformatics. (2018), 19,526</a>, more information can be found there.</p>
 <p>Let us take a deeper look into the concept with the help of a simple example that will describe the basic concept of one-hot encoding, why it is useful and how one can approach it.</p>
 <section id="Why-using-one-hot-encoding?">
@@ -714,7 +714,7 @@ data which the model expects and and can work with.</p>
 <section id="Example-of-one-hot-encoding">
 <h4 id="Example-of-one-hot-encoding">Example of one-hot encoding<a class="headerlink" href="#Example-of-one-hot-encoding" title="Link to this heading">¶</a></h4>
 <p>Let us take a look at a very simple example to understand this concept. Assume we have the “color” variable which has three labels <code class="docutils literal notranslate"><span class="pre">red</span></code> , <code class="docutils literal notranslate"><span class="pre">blue</span></code> and <code class="docutils literal notranslate"><span class="pre">green</span></code>. All these labels must be converted into numeric form in order to work with our machine learning algorithm. This can be done by creating three new columns having all three labels and use <code class="docutils literal notranslate"><span class="pre">1</span></code> for the color of the respective label and <code class="docutils literal notranslate"><span class="pre">0</span></code> for the other colors as shown in Figure 4.</p>
-<img alt="One Hot Encoding" src="../_images/OneHotEncoding_eg.png"/>
+<p><img alt="One Hot Encoding" src="../_images/OneHotEncoding_eg.png"/></p>
 <p><em>Figure 3</em> : The visual demonstration of one-hot encoding done on the variable “color”. Figure taken from the article: “<em>Building a One Hot Encoding Layer with TensorFlow</em>”, George Novack, <a class="reference external" href="https://medium.com/data-science/building-a-one-hot-encoding-layer-with-tensorflow-f907d686bf39">medium</a>, more details can be found there.</p>
 </section>
 <section id="Advantages-and-disadvantages-of-one-hot-encoding">
@@ -738,7 +738,7 @@ data which the model expects and and can work with.</p>
 structured data sets in supervised learning.</p>
 <p><strong>Example of integer encoding</strong></p>
 <p>Let us use a similar example as above: We have a color variable and we can assign <code class="docutils literal notranslate"><span class="pre">red</span></code> as <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">green</span></code> as <code class="docutils literal notranslate"><span class="pre">1</span></code>, and <code class="docutils literal notranslate"><span class="pre">blue</span></code> as <code class="docutils literal notranslate"><span class="pre">2</span></code> as shown in Figure 5.</p>
-<img alt="OneHotEncoding Example" src="../_images/label_encoding_example.png"/>
+<p><img alt="OneHotEncoding Example" src="../_images/label_encoding_example.png"/></p>
 <p><em>Figure 5</em> : The visual demonstration of label encoding done on the variable “color”. Figure taken from the article: “<em>Know about Categorical Encoding, even New Ones!</em>”, Ahmed Othmen, towardsdatascience (now offline), more details can be found there.</p>
 <p><strong>Difference between label and one-hot encoding</strong></p>
 <p>There is not much difference between these two encoding techniques, it mainly depends on the type of data and model used. For example, if we have categorical features which are not ordinal (dog or cat) then we can use one-hot encoding. Label encoding works best with ordinal data like <code class="docutils literal notranslate"><span class="pre">good=0,</span> <span class="pre">better=1,</span> <span class="pre">best=2</span></code>. Also when there are many categorical variables then it might be good to choose label encoding just to avoid high memory consumption and sparsity.</p>
@@ -1695,8 +1695,8 @@ First 3 rows of the ohe matrix, representing the characters ['@', 'S', ']']
 <p>One-hot encoding has several applications in various fields such as:</p>
 <ul class="simple">
 <li><p><strong>Machine learning (neural networks)</strong>: In machine learning , one-hot encoding is a frequently used method to deal with categorical data because many machine learning models need their input variables to be numeric.</p></li>
-<li><p><strong>Natural language processing (NLP)</strong>: For NLP, most of the times data consists of corpus of words which is categorical in nature. Consider we have vocabulary of size <span class="math notranslate nohighlight">\(N\)</span>. In the one-hot encoding technique, we map the words to the vectors of length <span class="math notranslate nohighlight">\(n\)</span>, where the <span class="math notranslate nohighlight">\(n\)</span>th digit is an indicator of the presence of the particular word. The <span class="math notranslate nohighlight">\(n\)</span>th bit of each vector indicates the presence of the <span class="math notranslate nohighlight">\(n\)</span>th word in the vocabulary. For example if we are converting words
-to the one-hot encoding format, then we will see vectors such as <span class="math notranslate nohighlight">\([0000\dots 100], [0000\dots 010], [0000\dots 001]\)</span>, and so on. Using this technique normal sentences can be represented as vectors and numerical operations can be then performed on this vector form.</p></li>
+<li><p><strong>Natural language processing (NLP)</strong>: For NLP, most of the times data consists of corpus of words which is categorical in nature. Consider we have vocabulary of size <span class="math notranslate nohighlight">\(N\)</span>. In the one-hot encoding technique, we map the words to the vectors of length <span class="math notranslate nohighlight">\(n\)</span>, where the <span class="math notranslate nohighlight">\(n\)</span>th digit is an indicator of the presence of the particular word. The <span class="math notranslate nohighlight">\(n\)</span>th bit of each vector indicates the presence of the <span class="math notranslate nohighlight">\(n\)</span>th word in the vocabulary. For example if we are converting words to
+the one-hot encoding format, then we will see vectors such as <span class="math notranslate nohighlight">\([0000\dots 100], [0000\dots 010], [0000\dots 001]\)</span>, and so on. Using this technique normal sentences can be represented as vectors and numerical operations can be then performed on this vector form.</p></li>
 </ul>
 </section>
 <section id="Quiz">

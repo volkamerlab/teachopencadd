@@ -82,14 +82,14 @@
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
   
-    <title>T018 · Automated pipeline for lead optimization &#8212; TeachOpenCADD 2026.4.1.post38 documentation</title>
+    <title>T018 · Automated pipeline for lead optimization &#8212; TeachOpenCADD 2026.4.1.post112 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=fd6457a4" />
     <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=897d968c" />
-    <script src="../_static/documentation_options.js?v=25e3a83e"></script>
+    <script src="../_static/documentation_options.js?v=3e037279"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -127,7 +127,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../index.html" title="TeachOpenCADD 2026.4.1.post38 documentation"
+        <a href="../index.html" title="TeachOpenCADD 2026.4.1.post112 documentation"
            class="md-header-nav__button md-logo">
           
             <i class="md-icon">school</i>
@@ -225,13 +225,13 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../index.html" title="TeachOpenCADD 2026.4.1.post38 documentation" class="md-nav__button md-logo">
+    <a href="../index.html" title="TeachOpenCADD 2026.4.1.post112 documentation" class="md-nav__button md-logo">
       
         <i class="md-icon">school</i>
       
     </a>
     <a href="../index.html"
-       title="TeachOpenCADD 2026.4.1.post38 documentation">TeachOpenCADD</a>
+       title="TeachOpenCADD 2026.4.1.post112 documentation">TeachOpenCADD</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
@@ -571,7 +571,7 @@
 </ul>
 </li>
 </ul>
-<img alt="Pipeline overview" src="../_images/sb_vs_pipeline.png"/>
+<p><img alt="Pipeline overview" src="../_images/sb_vs_pipeline.png"/></p>
 <p><em>Figure 1</em>: General architecture of the automated structure-based virtual screening pipeline.</p>
 <section id="Contents-in-Theory">
 <h3 id="Contents-in-Theory">Contents in <a class="reference internal" href="#Theory"><span class="std std-ref">Theory</span></a><a class="headerlink" href="#Contents-in-Theory" title="Link to this heading">¶</a></h3>
@@ -717,14 +717,14 @@ compounds.</p>
 <details><summary><p>Click here for details about the computer-aided lead optimization pipeline.</p>
 </summary><p>Given a target protein structure and a hit or lead compound, instead of synthesizing a variety of analogs and testing their potency in laboratory screening experiments, in a computer-aided pipeline these analogs are obtained via a similarity-search algorithm. Their physiochemical properties are then calculated to select the most drug-like analogs in order to perform docking calculations on. The result of these calculations is an estimation of the affinity of each compound for the target protein.
 Subsequently, analogs with the highest calculated binding affinities will be selected and their predicted binding modes are analyzed to choose those compounds that exhibit optimal protein-ligand interactions. Moreover, by filtering for specific interactions, enhanced selectivities for the target protein can be achieved as well.</p>
-</details><img alt="Drug design pipeline" src="../_images/drug_design_pipeline.png"/>
+</details><p><img alt="Drug design pipeline" src="../_images/drug_design_pipeline.png"/></p>
 <p><em>Figure 2</em>: Schematic representation of the main phases in a modern drug discovery pipeline. Figure adapted from <a class="reference external" href="https://doi.org/10.1517/17460441.2010.515583">Expert Opin. Drug. Discov. 2010, 5, 1039-1045.</a></p>
 </section>
 <section id="Protein-binding-site">
 <h3 id="Protein-binding-site"><a class="reference internal" href="#Contents-in-Theory"><span class="std std-ref">Protein binding site</span></a><a class="headerlink" href="#Protein-binding-site" title="Link to this heading">¶</a></h3>
 <p>Binding sites, also known as binding pockets, are cavities in the 3-dimensional structure of a protein (Figure 3). These are mostly found on the surface of the protein, and are the main regions through which the protein interacts with other entities. For a favorable interaction, the two binding partners need to have complementary steric and electronic properties (cf. lock-and-key principle, induced-fit model). Therefore, attractive intermolecular interactions between the residues of the binding
 pocket and, for example, a small-molecule ligand is one of the key factors for molecular recognition, and thus, a ligand’s potency.</p>
-<img alt="Binding site detection" src="../_images/binding_site.png"/>
+<p><img alt="Binding site detection" src="../_images/binding_site.png"/></p>
 <p><em>Figure 3</em>: Crystal structure of a protein (EGFR; PDB-code: 3W32) with a co-crystallized ligand in its main (orthosteric) binding site. The protein’s surface is shown in gray. The binding site is colored blue. The ligand’s carbon atoms are colored green. Figure created using <em>PyMol</em>.</p>
 <section id="Binding-site-detection-with-DoGSiteScorer">
 <h4 id="Binding-site-detection-with-DoGSiteScorer">Binding site detection with <em>DoGSiteScorer</em><a class="headerlink" href="#Binding-site-detection-with-DoGSiteScorer" title="Link to this heading">¶</a></h4>
@@ -737,7 +737,7 @@ edge-detection algorithm from image processing, called <strong>Difference of Gau
 <li><p><strong>Drug score</strong>; calculated by incorporating a subset of meaningful descriptors into a support vector machine (SVM) model, which is trained and tested on the freely available (non-redundant) druggability dataset consisting of 1069 targets.</p></li>
 </ol>
 <p>Using these calculated descriptors and druggability estimates, we can then choose the most suitable pocket depending on the specifics of the project in hand.</p>
-</details><img alt="Binding site detection with DoGSiteScorer" src="../_images/dogsitescorer.png"/>
+</details><p><img alt="Binding site detection with DoGSiteScorer" src="../_images/dogsitescorer.png"/></p>
 <p><em>Figure 4</em>: Visualization of some of the sub-pockets (colored meshed volumes) for the EGFR protein (PDB-code: 3W32) as detected by the <em>DoGSiteScorer</em> web-service. The co-crystallized ligand is mostly contained in the purple sub-pocket. Figure taken from <a class="reference external" href="http://proteinsplus.zbh.uni-hamburg.de/#dogsite">ProteinsPlus website</a>.</p>
 <p>For more details see <a class="reference external" href="https://projects.volkamerlab.org/teachopencadd/talktorials/T014_binding_site_detection.html">Talktorial T014</a> on binding site detection and the <em>DoGSiteScorer</em>.</p>
 </section>
@@ -753,7 +753,7 @@ common example are <a class="reference external" href="https://doi.org/10.1016/j
 generating a numerical representation for each feature, and using these representations to produce either a bit-vector, where each component is a bit defining the presence/absence of a particular feature (e.g. <em>Morgan</em> fingerprints), or a count-vector where each value corresponds to the number of times a specific feature is present in the structure (e.g. MACCS keys).</p>
 <p>Moreover, several scoring functions are available to calculate the similarity between two molecules based on their 2D-descriptors. These include <strong>Euclidean</strong> <strong>distance</strong> and <strong>Manhattan</strong> <strong>distance</strong>, where both presence and absence of attributes are considered, or <strong>Tanimoto</strong> and <strong>Dice</strong> <strong>coefficients</strong>, which only consider the presence of attributes. It should be noted that there is no single correct approach to calculate molecular similarity, and depending on the purpose of the project
 different descriptors and metrics may be used, which can generally result in vastly different similarity scores.</p>
-</details><img alt="Chemical similarity" src="../_images/chemical_descriptors.png"/>
+</details><p><img alt="Chemical similarity" src="../_images/chemical_descriptors.png"/></p>
 <p><em>Figure 5</em>: A simplified depiction of the process of calculating the similarity between two compounds. First, the structure of each compound is encoded into a molecular fingerprint bit-vector, where each bit corresponds to the presence or absence of a particular fragment in the structure, for example. These fingerprints can then be compared using different similarity metrics in order to calculate a similarity score.</p>
 <p>See <a class="reference external" href="https://projects.volkamerlab.org/teachopencadd/talktorials/T004_compound_similarity.html">Talktorial T004</a> to become more familiar with encoding and comparison of molecular similarity measures.</p>
 <section id="PubChem-database">
@@ -779,7 +779,7 @@ accessed through both a web-based interface, and several different web-service A
 </ul>
 <p>However, most of these calculations have some limitations; for example, they can be computationally expensive, e.g. in the case of calculating the ligand’s lowest-energy conformer, or require information that is ambiguous or not available beforehand, such as protonation states of the protein and ligand after docking. These limitations, along with others inherent in all force-field based methods, do affect the accuracy of the estimates from docking results. For example, in many cases the docking
 pose with the highest estimated binding affinity does not correspond to the experimentally determined binding mode of the ligand (Figure 6).</p>
-</details><img alt="Example docking poses" src="../_images/docking_poses.png"/>
+</details><p><img alt="Example docking poses" src="../_images/docking_poses.png"/></p>
 <p><em>Figure 6</em>: An example of two generated docking poses (red) in a re-docking experiment performed using the <em>Smina</em> program, superimposed over the corresponding protein structure (EGFR; PDB-code: 3W32) and the co-crystallized ligand in its native binding mode (green). While the generated docking pose shown on the left is calculated to have a higher binding affinity, it also displays a higher distance-RMSD to the native docking pose. Figure created using <em>PyMol</em>.</p>
 <p>In this talktorial, we will use the <a class="reference external" href="https://doi.org/10.1021/ci300604z">Smina</a> docking <a class="reference external" href="https://sourceforge.net/projects/smina/">program</a>, which is an open-source fork of the docking program <a class="reference external" href="http://vina.scripps.edu/">Autodock Vina</a>, with a focus on improved scoring functions and energy minimization. It uses a custom empirical scoring function as default but also supports user-parameterized scoring functions.</p>
 <p>Furthermore, in order to prepare the protein and ligand structures for the docking experiment (as described above), we will also use the <a class="reference external" href="https://openbabel.org/docs/UseTheLibrary/Python_Pybel.html">Pybel</a> module of the <a class="reference external" href="https://github.com/openbabel/openbabel/tree/master/scripts/python">OpenBabel</a> package - a Python package for the <a class="reference external" href="http://openbabel.org">Open Babel</a> program.</p>
@@ -792,7 +792,7 @@ pose with the highest estimated binding affinity does not correspond to the expe
 <p>In this talktorial, we will use the <a class="reference external" href="https://github.com/pharmai/plip">PLIP</a> package - a Python package for the <a class="reference external" href="https://doi.org/10.1093/nar/gkv315">Protein—Ligand Interaction Profiler (PLIP)</a>, an open-source program with an available <a class="reference external" href="https://plip-tool.biotec.tu-dresden.de/plip-web/plip/index">webserver</a>. <em>PLIP</em> can analyze protein-ligand interactions in any given protein-ligand complex structure, by selecting pairs of atoms - one from the protein and one from the ligand - that lie
 within a pre-defined distance cut-off value. It then identifies the potential interactions between selected pairs based on electronic and geometric considerations.</p>
 <p>Thus, a set of information is outputted for each detected interaction, including the interaction type, the involved atoms in both ligand and protein, along with other properties specific to each interaction type. The results can then be used to visualize the protein-ligand interactions (Figure 7) or to analyze them algorithmically.</p>
-<img alt="Protein-ligand interactions in 3D" src="../_images/interaction_pattern.png"/>
+<p><img alt="Protein-ligand interactions in 3D" src="../_images/interaction_pattern.png"/></p>
 <p><em>Figure 7</em>: Visualization of the protein-ligand interactions in a protein-ligand complex structure (EGFR; PDB-code: 3W32) detected by the <em>PLIP</em> web-service. From the protein, only the interacting residues are shown. The protein and ligand carbon atoms are colored blue and brown, respectively. Hydrophobic interactions are shown as gray dashed lines. Hydrogen bonds are depicted as blue lines. <span class="math notranslate nohighlight">\(\pi\)</span>-stacking interactions are shown as green dashed lines. Halogen bonds are displayed using cyan
 lines. Figure taken from <a class="reference external" href="https://plip-tool.biotec.tu-dresden.de/plip-web/plip/index">PLIP website</a>.</p>
 <p>For more details on protein-ligand interactions, see <a class="reference external" href="https://projects.volkamerlab.org/teachopencadd/talktorials/T016_protein_ligand_interactions.html">Talktorial T016</a>.</p>
@@ -885,7 +885,7 @@ can also implement methods, e.g. to visualize the structure of the ligand, prepa
 <p>As you can see, an object is a versatile representation; it can be passed between points in the program for further use or processing, depending on what type of object it is or which class created it. Classes and objects are the essence of all <strong>Object-Oriented Programming (OOP)</strong> languages, such as Python.</p>
 </details><p>As a first step, we will define a class <code class="docutils literal notranslate"><span class="pre">LeadOptimizationPipeline</span></code> as a container for our project, and instantiate it with only a single attribute called <code class="docutils literal notranslate"><span class="pre">name</span></code>. For the rest of the talktorial, we will use the <strong>eight main classes</strong> of the pipeline shown below (Figure 8), instantiate them with the necessary input data, and assign those instances to our created project, so that we will have all the generated data for our project inside a single object.</p>
 <p>While it is not necessary that the main classes are defined in a specific order, you will see as we go that we can often reuse the functionality from one created object in another. Thus, a natural order forms (<code class="docutils literal notranslate"><span class="pre">Specs</span></code> followed by <code class="docutils literal notranslate"><span class="pre">Protein</span></code> followed by <code class="docutils literal notranslate"><span class="pre">Ligand</span></code> etc.).</p>
-<img alt="Main classes" src="../_images/lead_optimization_pipeline_classes.png"/>
+<p><img alt="Main classes" src="../_images/lead_optimization_pipeline_classes.png"/></p>
 <p><em>Figure 8</em>: Main classes used in the pipeline of this talktorial.</p>
 <p>As the code behind each class contains dozens of lines, we will not present all of it in this notebook directly. These classes are stored in a separate folder (<code class="docutils literal notranslate"><span class="pre">utils</span></code>) and will be imported and used as necessary. Feel free to peruse those files if you would like to know more about the exact operations that are being done when the code is executed. It bears pointing out that one is not limited to the methods implemented for this talktorial; one of the key advantages of writing a pipeline in
 this manner is that <strong>you can easily add more functionality yourself</strong>.</p>
@@ -5506,7 +5506,7 @@ drug-likeness scores.</p></li>
 </details><p>We first demonstrated the pipeline in a step-by-step fashion, using <a class="reference external" href="https://www.uniprot.org/uniprot/P00533">EGFR</a> (PDB code: <a class="reference external" href="https://www.rcsb.org/structure/3W32">3W32</a>) as the target protein, and a promising inhibitor with the ChEMBL compound-ID <a class="reference external" href="https://www.ebi.ac.uk/chembl/compound_report_card/CHEMBL328216/">CHEMBL328216</a> (Figure 9). After performing all the necessary processes according to the input specifications, the pipeline was able to suggest an analog of the provided ligand
 with optimized features in terms of estimated binding affinity (-10.2 vs. -8.8 kcal/mol), number of protein—ligand interactions (11 vs. 8) and calculated drug-likeness (77 vs 70%).</p>
 <p>Subsequently, we also showcased the pipeline’s ability to run fully automatically. For this purpose, we tried to re-optimize the suggested analog, by keeping the same project specifications and only replacing the input ligand with the optimized analog found in the first run. This second run yielded yet another analog with an improved estimated binding affinity (-10.8 vs -10.2 kcal/mol).</p>
-<img alt="Pipeline input and output" src="../_images/pipeline_io.png"/>
+<p><img alt="Pipeline input and output" src="../_images/pipeline_io.png"/></p>
 <p><em>Figure 9.</em> Results of the pipeline’s performance in the demonstrated examples. Starting with a ligand with an estimated binding affinity of -8.8 kcal/mol, the pipeline was able to suggest an analog with an improved estimated affinity of -10.2 kcal/mol. Subjecting this optimized ligand to the same process resulted in another analog with an estimated binding affinity of -10.8 kcal/mol.</p>
 <p>However, the results of the pipeline are not fully deterministic by default. This is due to the interaction of the pipeline with online databases that are being constantly updated (i.e the <a class="reference external" href="https://doi.org/10.1021/ci010132r">PubChem</a> database used for ligand similarity search) and calculations that have unavoidable randomized components (i.e. generating initial conformations for docking experiments using the <a class="reference external" href="https://github.com/openbabel/openbabel/tree/master/scripts/python">OpenBabel</a>
 package). Thus, to maintain the stability of this talktorial’s results, we have circumvented this issue by freezing the outputs of the mentioned processes. Of course, this can be easily undone by modifying a single variable, so that you can easily use the pipeline for your own project.</p>

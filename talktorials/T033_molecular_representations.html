@@ -82,14 +82,14 @@
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
   
-    <title>T033 · Molecular representations &#8212; TeachOpenCADD 2026.4.1.post38 documentation</title>
+    <title>T033 · Molecular representations &#8212; TeachOpenCADD 2026.4.1.post112 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=fd6457a4" />
     <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=897d968c" />
-    <script src="../_static/documentation_options.js?v=25e3a83e"></script>
+    <script src="../_static/documentation_options.js?v=3e037279"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -127,7 +127,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../index.html" title="TeachOpenCADD 2026.4.1.post38 documentation"
+        <a href="../index.html" title="TeachOpenCADD 2026.4.1.post112 documentation"
            class="md-header-nav__button md-logo">
           
             <i class="md-icon">school</i>
@@ -225,13 +225,13 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../index.html" title="TeachOpenCADD 2026.4.1.post38 documentation" class="md-nav__button md-logo">
+    <a href="../index.html" title="TeachOpenCADD 2026.4.1.post112 documentation" class="md-nav__button md-logo">
       
         <i class="md-icon">school</i>
       
     </a>
     <a href="../index.html"
-       title="TeachOpenCADD 2026.4.1.post38 documentation">TeachOpenCADD</a>
+       title="TeachOpenCADD 2026.4.1.post112 documentation">TeachOpenCADD</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
@@ -532,7 +532,7 @@
 <li><p><a class="reference external" href="https://chem.libretexts.org/Bookshelves/Organic_Chemistry/Map%3A_Organic_Chemistry_(Vollhardt_and_Schore)/05._Stereoisomers/5.1%3A_Chiral__Molecules">Tutorial on chirality</a></p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
@@ -542,6 +542,9 @@
     <span class="o">!</span>teachopencadd<span class="w"> </span>-d<span class="w"> </span><span class="m">33</span>
     <span class="o">%</span><span class="k">pip</span> uninstall teachopencadd -y -q
     <span class="o">%</span><span class="k">pip</span> install -qr requirements.txt
+    <span class="kn">from</span><span class="w"> </span><span class="nn">google.colab</span><span class="w"> </span><span class="kn">import</span> <span class="n">output</span>
+
+    <span class="n">output</span><span class="o">.</span><span class="n">enable_custom_widget_manager</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -557,7 +560,7 @@
 <p>In addition to the subdivision into small molecules and macromolecules, the distinction between organic and inorganic molecules is important. Organic molecules are the ones containing carbon-hydrogen or carbon-carbon bonds. This talktorial focuses on <strong>small</strong> and <strong>organic</strong> molecules.</p>
 <!---
 ![caffeine](https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Caffeine_molecule_ball_from_xtal_%281%29.png/671px-Caffeine_molecule_ball_from_xtal_%281%29.png)
----><img alt="Caffeine Molecule" src="../_images/caffeine_molecule.png"/>
+---><p><img alt="Caffeine Molecule" src="../_images/caffeine_molecule.png"/></p>
 <p><em>Figure 1</em>: The image is a ball-and-stick representation of a caffeine molecule. Atoms are shown in gray (carbon), white (hydrogen), red (oxygen), and blue (nitrogen). An edge between two atoms indicates a covalent chemical bond with one (single line) or two (double line) shared atoms (triple bonds are also possible, but not present in caffeine). The dashed 5-membered ring represents an aromatic ring system. Two electrons can move freely around in this ring and are not associated with a specific
 chemical bond within this ring.</p>
 </section>
@@ -583,11 +586,11 @@ those that contain rings with multiple substructures.</p>
 <p>Naturally, this does not uniquely identify a molecule.</p>
 <p><strong>Example:</strong> Molecules with the same molecular formula but with different arrangements in space are called <a class="reference external" href="https://chem.libretexts.org/Courses/University_of_Kentucky/UK%3A_CHE_103_-_Chemistry_for_Allied_Health_(Soult)/Chapters/Chapter_5%3A_Properties_of_Compounds/5.1%3A_Isomers">isomers</a>. One examples are <a class="reference external" href="https://www.wolframalpha.com/input?i=butane">n-butane</a> and <a class="reference external" href="https://www.wolframalpha.com/input?i=isobutane">isobutane</a>. Both have the molecular formula C4H10. The atoms in butane are
 arranged in a straight chain, while the atoms in isobutane are arranged in a branch structure. To be more precise, here, we are dealing with a <em>structural</em> or <em>constitutional</em> isomer because the chemical bonds are different. Molecules that have the same chemical bonds (or refer to the same molecular graph) but still differ in their spatial arrangement are called spatial (or stereo-)isomers.</p>
-<img alt="N-butaneAndIsobutane" src="../_images/butane_and_isobutane.png"/>
+<p><img alt="N-butaneAndIsobutane" src="../_images/butane_and_isobutane.png"/></p>
 <p><em>Figure 2</em>: N-butane and isobutane.</p>
 <p><strong>Visualizations of small molecules:</strong></p>
 <p>Visualizations are the easiest way to get a first impression of a molecule. In the first example, we have already seen a visualization of the caffeine molecule. These types of visualizations are referred to as <strong>Ball and Stick</strong> models. The color scheme follows the <a class="reference external" href="https://en.wikipedia.org/wiki/CPK_coloring">CPK coloring</a>. They are easy to understand but difficult to draw.</p>
-<img alt="CPK coloring" src="../_images/cpk.png"/>
+<p><img alt="CPK coloring" src="../_images/cpk.png"/></p>
 <p><em>Figure 3</em>: CPK coloring from Wikipedia.</p>
 <p>2D visualizations are easy to draw and come in many different flavors. For instance, the <strong>Lewis structure</strong> contains no 3D information (excess electrons that form lone pairs are sometimes shown as dots, we skip this part here).</p>
 <p>Similarly, the <strong>Skeletal formula</strong> (or line-angle formula) removes hydrogen atoms that are next to carbon atoms and draws carbon atoms only implicitly as bends and ends.</p>
@@ -596,10 +599,10 @@ arranged in a straight chain, while the atoms in isobutane are arranged in a bra
 ![SimpleMoleculeBallStick](https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Ethanol-CRC-MW-trans-3D-balls.png/120px-Ethanol-CRC-MW-trans-3D-balls.png)
 ![SimpleMoleculeLewis](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Ethanol-structure.svg/150px-Ethanol-structure.svg.png)
 ![SimpleMoleculeLineAngle](https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Ethanol-2D-skeletal.svg/120px-Ethanol-2D-skeletal.svg.png)
----><img alt="Ethanol visualization" src="../_images/ethanol.png"/>
+---><p><img alt="Ethanol visualization" src="../_images/ethanol.png"/></p>
 <p><em>Figure 4</em>: Different visualizations of ethanol.</p>
 <p>A special feature of this is the <strong>Natta Projection</strong> which provides basic (but not in every case complete) information about the relative positions of the atoms in 3D. For instance, consider the kinase inhibitor from the <a class="reference external" href="https://www.rdkit.org/docs/Cookbook.html">RDKit Cookbook</a>:</p>
-<img alt="Kinase Inhibitor" src="../_images/kinase_inhibitor.png"/>
+<p><img alt="Kinase Inhibitor" src="../_images/kinase_inhibitor.png"/></p>
 <p><em>Figure 5</em>: Natta projection of a kinase inhibitor.</p>
 <p>Here,</p>
 <ul class="simple">
@@ -625,7 +628,7 @@ EE
 <p>We focus here on small molecules but still want to point out that large molecules are typically visualized differently, most commonly by a <a class="reference external" href="https://en.wikipedia.org/wiki/Ribbon_diagram">Ribbon diagram</a>. The idea is to group common motifs and represent them, for instance, with curls (alpha-Helices) and arrows (beta-strands) connected by loops.</p>
 <!---
 ![TubbyProtein](https://upload.wikimedia.org/wikipedia/commons/f/ff/Tubby-1c8z-pymol.png)
----><img alt="TubbyProtein" src="../_images/ribbon_diagram_tubby.png"/>
+---><p><img alt="TubbyProtein" src="../_images/ribbon_diagram_tubby.png"/></p>
 <p><em>Figure 6</em>: Ribbon diagram of the <a class="reference external" href="https://en.wikipedia.org/wiki/Tubby_protein">tubby protein</a>.</p>
 <p><strong>Talktorial T008</strong> explains how to find proteins in the Protein Data Bank and process them.</p>
 </section>
@@ -650,13 +653,13 @@ EE
 <p>One possibility to specify a graph is with an adjacency matrix <span class="math notranslate nohighlight">\(A\)</span>. For undirected graphs (which is the case for molecules), the adjacency matrix is symmetric. An entry <span class="math notranslate nohighlight">\(a_{ij}\)</span> indicates the presence (<span class="math notranslate nohighlight">\(a_{ij} = 1\)</span>) or absence (<span class="math notranslate nohighlight">\(a_{ij} = 0\)</span>) of an edge.</p>
 <p>One key property of graphs is that they rely on <strong>node ordering</strong>. The following two matrices identify identical graphs, except for the node ordering. We call these graphs <strong>isomorphic</strong>.</p>
 <p>The fact that we need to pick a node ordering to represent a molecule as a graph means that many graphs represent the same molecule. This problem can be circumvented by restricting ourselves to so-called <strong>permutation invariant functions</strong>, as we will learn in the next section.</p>
-<img alt="TwoIsomorphicGraphs" src="../_images/graph1_graph2.png"/>
+<p><img alt="TwoIsomorphicGraphs" src="../_images/graph1_graph2.png"/></p>
 <p><em>Figure 7</em>: Two isomorphic graphs with different node ordering.</p>
 <p><strong>Permutation invariance:</strong> Assume you build a machine learning model that takes as input molecular graphs and outputs some prediction. It would be desirable that your model guarantees that isomorphic graphs (like <em>Graph 1</em> and <em>Graph 2</em>) generate the same output. We call neural networks (or functions in general) that have these guarantees (node-)permutation invariant (or equivariant for node-level outputs). However, there is a trade-off. Functions that are permutation invariant are typically
 not universal. That is, they are not able to tell all graphs that are non-isomorphic apart. If both were given, permutation invariance and the ability to produce a different output for all non-isomorphic graphs, our neural network would solve the graph isomorphism problem (which is computationally extremely difficult). This is also discussed in the <strong>Talktorial T035</strong> about graph neural networks.</p>
 <p><strong>Representational power:</strong> Another problem is that graphs do not contain 3D information. Specifically, different <a class="reference external" href="https://en.wikipedia.org/wiki/Isomer">isomers</a> can correspond to the same molecular graph but differ in the relative 3D positions of the atoms. These are called spatial isomers. One can circumvent this (to some degree) by adding 3D information to the node features. This is somewhat ad-hoc and not well-principled. It is also unclear in which cases this is necessary to improve the
 performance of a predictive model. In the practical part, we will visualize <a class="reference external" href="https://en.wikipedia.org/wiki/2-Butanol">2-butanol</a> that admits two mirror images (called <em>enantiomer</em>) with the same graph but with different geometry.</p>
-<img alt="Butanol_Enantiomer" src="../_images/butanol_2enantiomer.png"/>
+<p><img alt="Butanol_Enantiomer" src="../_images/butanol_2enantiomer.png"/></p>
 <p><em>Figure 8</em>: The two enantiomers of 2-butanol (source: <a class="reference external" href="https://en.wikipedia.org/wiki/2-Butanol">WP</a>).</p>
 <hr class="docutils"/>
 <p><strong>Point clouds:</strong></p>
@@ -676,10 +679,10 @@ techniques</a>, like X-ray crystallography, are available.</div>
 </div>
 <p><strong>Conformers:</strong> However, another problem of the point cloud perspective on molecules is that there is not a single, fixed configuration for a molecule. Instead, molecules are dynamic objects. <strong>Molecular conformers</strong> are different configurations that a molecule can take due to rotations around single bonds (double and triple bonds are non-rotatable). These conformations are a result of the rotational energy barriers that exist between different groups of atoms within a molecule. Conformations
 can change quickly and easily, e.g., in response to changes in temperature. Note that conformers are a special type of isomers. Not all isomers can be reached by rotating single bonds.</p>
-<img alt="Conformer" src="../_images/conformer.png"/>
+<p><img alt="Conformer" src="../_images/conformer.png"/></p>
 <p><em>Figure 9</em>: Some conformers of a simple molecule (<a class="reference external" href="https://pubs.acs.org/doi/10.1021/acs.jcim.5b00654">Source paper</a> via <a class="reference external" href="https://docs.datamol.io/stable/tutorials/Conformers.html">Datamol tutorial</a> on top of each other.</p>
 <p>Each specific conformer is associated with a conformation energy. The likelihood of a specific configuration depends on this energy (low-energy configurations are more likely than high-energy configurations). Specifically, we typically observe local minima. When representing a conformer, one might also store the torsion angles at rotatable bonds instead of the 3D position of each atom (as done <a class="reference external" href="https://arxiv.org/pdf/2210.01776.pdf">here</a>).</p>
-<img alt="Energy landscape" src="../_images/energy_landscape.jpeg"/>
+<p><img alt="Energy landscape" src="../_images/energy_landscape.jpeg"/></p>
 <p><em>Figure 10</em>: Energy landscape of the molecule 3-Methoxyphenol (<a class="reference external" href="https://chemistry-europe.onlinelibrary.wiley.com/doi/abs/10.1002/cphc.201800148">Source</a>). The four local minima correspond to four stable conformations.</p>
 <p>Note that SE(3)-invariant machine learning models are not invariant to bond rotations. Specifically, they can confuse different conformations of the same molecule. For a detailed discussion on this issue, we refer to the paper <a class="reference external" href="https://openreview.net/pdf?id=hm2tNDdgaFK">Learning 3D Representations of Molecular Chirality with Invariance to Bond Rotations</a>.</p>
 <hr class="docutils"/>
@@ -700,8 +703,8 @@ can change quickly and easily, e.g., in response to changes in temperature. Note
 <section id="Practical">
 <h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Link to this heading">¶</a></h2>
 <p>In this section, we study how RDKit handles different molecular representations and visualizations. We start with the caffeine molecule from <em>Figure 1</em>. We define the molecule based on a SMILES string and find the visualization in a line-angle formula. But first, we import all libraries:</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
@@ -721,8 +724,14 @@ can change quickly and easily, e.g., in response to changes in temperature. Note
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "1386b65d262641f18032cd93dd7287e0", "version_major": 2, "version_minor": 0}</script></div>
+</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here we define a caffeine molecule using Smiles.</span>
@@ -732,7 +741,7 @@ can change quickly and easily, e.g., in response to changes in temperature. Note
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -884,7 +893,7 @@ L 201.7 35.1
 </div>
 <p>Let us now take consider chirality. For instance, consider <a class="reference external" href="https://en.wikipedia.org/wiki/2-Butanol">2-Butanol</a>. The molecule has two configurations that are mirror images of each other (also called <strong>enantiomer</strong>). For more information and a 3D visualization, we refer to <a class="reference external" href="https://chem.libretexts.org/Bookshelves/Organic_Chemistry/Map%3A_Organic_Chemistry_(Vollhardt_and_Schore)/05._Stereoisomers/5.1%3A_Chiral__Molecules">this tutorial</a>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol1</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s2">"CC[CH](C)O"</span><span class="p">)</span>  <span class="c1"># without chiral information</span>
@@ -896,7 +905,7 @@ L 201.7 35.1
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -905,7 +914,7 @@ L 201.7 35.1
 </div>
 <p>NGLViewer allows us to see a ball-and-stick visualization (example taken from <a class="reference external" href="http://nglviewer.org/nglview/release/v0.6.1/api.html">this</a> tutorial, we also refer the reader to <strong>Talktorial T009</strong>).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">AddHs</span><span class="p">(</span>
@@ -921,14 +930,14 @@ L 201.7 35.1
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a8c820ae57f34e7fabe3426b5f0bd524", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "2a52ec30986042308d779a7e1de0f82a", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <section id="Conformers">
 <h3 id="Conformers">Conformers<a class="headerlink" href="#Conformers" title="Link to this heading">¶</a></h3>
 <p>We can generate a set of n conformers using rdkit’s improved conformer generator <a class="reference external" href="https://pubs.acs.org/doi/10.1021/acs.jcim.0c00025">ETKDGv3</a>.</p>
 <p>We use aspirin as example molecule.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># generate molecule from Smiles</span>
@@ -938,7 +947,7 @@ L 201.7 35.1
 </div>
 <p>Generate 200 conformers</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add hydrogens</span>
@@ -953,7 +962,7 @@ L 201.7 35.1
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -962,7 +971,7 @@ L 201.7 35.1
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># remove hydrogens again</span>
@@ -971,7 +980,7 @@ L 201.7 35.1
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print the x,y,z coordinates of the 4 atoms of the first conformer.</span>
@@ -980,28 +989,28 @@ L 201.7 35.1
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([[ 3.15987641e+00,  1.17566666e+00,  5.56089570e-01],
-       [ 1.96983490e+00,  4.51907070e-01,  2.90463360e-03],
-       [ 1.90241828e+00,  1.05413955e-01, -1.20424633e+00],
-       [ 9.22339350e-01,  1.72063798e-01,  8.90885106e-01],
-       [-1.76149064e-01, -4.99241011e-01,  3.67780467e-01],
-       [-1.63191875e-01, -1.87917661e+00,  4.03548104e-01],
-       [-1.25154159e+00, -2.54770083e+00, -1.14652121e-01],
-       [-2.33914499e+00, -1.87201267e+00, -6.61153961e-01],
-       [-2.29972394e+00, -4.98815617e-01, -6.71155758e-01],
-       [-1.23281320e+00,  2.13872885e-01, -1.64384406e-01],
-       [-1.23221614e+00,  1.67320227e+00, -1.95212054e-01],
-       [-2.23673766e+00,  2.27885436e+00, -6.99583031e-01],
-       [-1.42211808e-01,  2.36024728e+00,  3.23420532e-01]])
+array([[ 3.15989686e+00,  1.17573550e+00,  5.56011321e-01],
+       [ 1.96987503e+00,  4.51989705e-01,  2.91555406e-03],
+       [ 1.90246673e+00,  1.05470914e-01, -1.20428740e+00],
+       [ 9.22360489e-01,  1.72148942e-01,  8.90928077e-01],
+       [-1.76187640e-01, -4.99213098e-01,  3.67795686e-01],
+       [-1.63254093e-01, -1.87917102e+00,  4.03573280e-01],
+       [-1.25153365e+00, -2.54771275e+00, -1.14590938e-01],
+       [-2.33910312e+00, -1.87200085e+00, -6.61095374e-01],
+       [-2.29975697e+00, -4.98806744e-01, -6.71153741e-01],
+       [-1.23284915e+00,  2.13904720e-01, -1.64388500e-01],
+       [-1.23234389e+00,  1.67323801e+00, -1.95282463e-01],
+       [-2.23690383e+00,  2.27890012e+00, -6.99698976e-01],
+       [-1.42393322e-01,  2.36038364e+00,  3.23328753e-01]])
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">show_conformers</span><span class="p">(</span><span class="n">molecule</span><span class="p">,</span> <span class="n">ids</span><span class="p">):</span>
@@ -1029,7 +1038,7 @@ array([[ 3.15987641e+00,  1.17566666e+00,  5.56089570e-01],
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print the x,y,z coordinates of the 4 atoms of the first conformer.</span>
@@ -1038,28 +1047,28 @@ array([[ 3.15987641e+00,  1.17566666e+00,  5.56089570e-01],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([[ 3.15987641e+00,  1.17566666e+00,  5.56089570e-01],
-       [ 1.96983490e+00,  4.51907070e-01,  2.90463360e-03],
-       [ 1.90241828e+00,  1.05413955e-01, -1.20424633e+00],
-       [ 9.22339350e-01,  1.72063798e-01,  8.90885106e-01],
-       [-1.76149064e-01, -4.99241011e-01,  3.67780467e-01],
-       [-1.63191875e-01, -1.87917661e+00,  4.03548104e-01],
-       [-1.25154159e+00, -2.54770083e+00, -1.14652121e-01],
-       [-2.33914499e+00, -1.87201267e+00, -6.61153961e-01],
-       [-2.29972394e+00, -4.98815617e-01, -6.71155758e-01],
-       [-1.23281320e+00,  2.13872885e-01, -1.64384406e-01],
-       [-1.23221614e+00,  1.67320227e+00, -1.95212054e-01],
-       [-2.23673766e+00,  2.27885436e+00, -6.99583031e-01],
-       [-1.42211808e-01,  2.36024728e+00,  3.23420532e-01]])
+array([[ 3.15989686e+00,  1.17573550e+00,  5.56011321e-01],
+       [ 1.96987503e+00,  4.51989705e-01,  2.91555406e-03],
+       [ 1.90246673e+00,  1.05470914e-01, -1.20428740e+00],
+       [ 9.22360489e-01,  1.72148942e-01,  8.90928077e-01],
+       [-1.76187640e-01, -4.99213098e-01,  3.67795686e-01],
+       [-1.63254093e-01, -1.87917102e+00,  4.03573280e-01],
+       [-1.25153365e+00, -2.54771275e+00, -1.14590938e-01],
+       [-2.33910312e+00, -1.87200085e+00, -6.61095374e-01],
+       [-2.29975697e+00, -4.98806744e-01, -6.71153741e-01],
+       [-1.23284915e+00,  2.13904720e-01, -1.64388500e-01],
+       [-1.23234389e+00,  1.67323801e+00, -1.95282463e-01],
+       [-2.23690383e+00,  2.27890012e+00, -6.99698976e-01],
+       [-1.42393322e-01,  2.36038364e+00,  3.23328753e-01]])
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">show_conformers</span><span class="p">(</span><span class="n">molecule</span><span class="p">,</span> <span class="n">ids</span><span class="p">):</span>
@@ -1087,7 +1096,7 @@ array([[ 3.15987641e+00,  1.17566666e+00,  5.56089570e-01],
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span> <span class="o">=</span> <span class="n">show_conformers</span><span class="p">(</span><span class="n">aspirin_3d</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
@@ -1107,14 +1116,14 @@ array([[ 3.15987641e+00,  1.17566666e+00,  5.56089570e-01],
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "506e08b22a284ad598481929b3e59c51", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "06e28819f21849a9aa96f7e98ad2a1a1", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 </section>
 <section id="Molecular-graphs">
 <h3 id="Molecular-graphs">Molecular graphs<a class="headerlink" href="#Molecular-graphs" title="Link to this heading">¶</a></h3>
 <p>A common tool to work with graphs is called <strong>networkX</strong>. We use it to create two isomorphic graphs.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create two adjacency matrices</span>
@@ -1148,7 +1157,7 @@ Matrix 2:
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># draw</span>
@@ -1195,7 +1204,7 @@ And the corresponding graphs:
 <h3 id="Fingerprints">Fingerprints<a class="headerlink" href="#Fingerprints" title="Link to this heading">¶</a></h3>
 <p>Generate circular fingerprint (<code class="docutils literal notranslate"><span class="pre">ecfp</span></code>) and print information.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fpg</span> <span class="o">=</span> <span class="n">rdFingerprintGenerator</span><span class="o">.</span><span class="n">GetMorganGenerator</span><span class="p">()</span>
@@ -1204,7 +1213,7 @@ And the corresponding graphs:
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1213,7 +1222,7 @@ And the corresponding graphs:
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fp</span> <span class="o">=</span> <span class="n">fpg</span><span class="o">.</span><span class="n">GetFingerprintAsNumPy</span><span class="p">(</span><span class="n">mol_caffeine</span><span class="p">)</span>
@@ -1221,7 +1230,7 @@ And the corresponding graphs:
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">visualize_fingerprint_info</span><span class="p">(</span><span class="n">fp</span><span class="p">):</span>
@@ -1237,26 +1246,33 @@ And the corresponding graphs:
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">visualize_fingerprint_info</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Number of elements:  2048
-Types of entries:  {0, 1}
+Types of entries:  {np.uint8(0), np.uint8(1)}
 Number of Ones:  34
 </pre></div></div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_T033_molecular_representations_59_1.png" src="../_images/talktorials_T033_molecular_representations_59_1.png"/>
+</div>
+</div>
 <p>Try another fingerprint: Rdkit fingerprint</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fpg2</span> <span class="o">=</span> <span class="n">rdFingerprintGenerator</span><span class="o">.</span><span class="n">GetRDKitFPGenerator</span><span class="p">()</span>
@@ -1265,7 +1281,7 @@ Number of Ones:  34
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The "rdkit" fingerprint is less sparse than ECFP</span>
@@ -1279,7 +1295,7 @@ Number of Ones:  34
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Number of elements:  2048
-Types of entries:  {0, 1}
+Types of entries:  {np.uint8(0), np.uint8(1)}
 Number of Ones:  759
 </pre></div></div>
 </div>

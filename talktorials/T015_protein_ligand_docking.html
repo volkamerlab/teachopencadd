@@ -82,14 +82,14 @@
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
   
-    <title>T015 · Protein ligand docking &#8212; TeachOpenCADD 2026.4.1.post38 documentation</title>
+    <title>T015 · Protein ligand docking &#8212; TeachOpenCADD 2026.4.1.post112 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=fd6457a4" />
     <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=897d968c" />
-    <script src="../_static/documentation_options.js?v=25e3a83e"></script>
+    <script src="../_static/documentation_options.js?v=3e037279"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -127,7 +127,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../index.html" title="TeachOpenCADD 2026.4.1.post38 documentation"
+        <a href="../index.html" title="TeachOpenCADD 2026.4.1.post112 documentation"
            class="md-header-nav__button md-logo">
           
             <i class="md-icon">school</i>
@@ -225,13 +225,13 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../index.html" title="TeachOpenCADD 2026.4.1.post38 documentation" class="md-nav__button md-logo">
+    <a href="../index.html" title="TeachOpenCADD 2026.4.1.post112 documentation" class="md-nav__button md-logo">
       
         <i class="md-icon">school</i>
       
     </a>
     <a href="../index.html"
-       title="TeachOpenCADD 2026.4.1.post38 documentation">TeachOpenCADD</a>
+       title="TeachOpenCADD 2026.4.1.post112 documentation">TeachOpenCADD</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
@@ -617,10 +617,10 @@ Cheminform (2021), 13, 43, 13-43</a>).</p>
 <section id="Limitations">
 <h3 id="Limitations">Limitations<a class="headerlink" href="#Limitations" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>Docking programs can consider some residue sidechains flexible during docking calculations to account for binding pocket flexibility. However, the dynamic, adaptive nature of the protein-ligand binding is insufficiently explored by protein-ligand docking. This can result in false positives: Even if the ligand finds a suitable pose in the binding pocket, this position is not guaranteed until the protein is allowed to explore near-minima conformations. Hence, short molecular dynamics
-simulations are nowadays recommended to evaluate the stability of the predicted pinding pose (<a class="reference external" href="https://doi.org/10.2174/157340911795677602">Curr Comput Aided Drug Des (2011), 7, 2, 146-157</a>).</p></li>
-<li><p>Scoring functions used by docking programs must be cheap to compute. While the accuracy is good enough to distinguish good poses from bad poses, it can have problems sorting the best poses. For example, while most popular docking programs are able to find the experimental pose in their calculations, this pose is rarely the best one of the proposed set. Furthermore, several retrospective studies have shown that docking scores often poorly correlate with binding affinity (<a class="reference external" href="https://doi.org/10.1021/jm050362n">J Med Chem (2006),
-49, 20, 5912-31</a>, <a class="reference external" href="https://doi.org/10.1039/c6cp01555g">Phys Chem Chem Phys (2016), 18, 18, 12964-75</a>).</p></li>
+<li><p>Docking programs can consider some residue sidechains flexible during docking calculations to account for binding pocket flexibility. However, the dynamic, adaptive nature of the protein-ligand binding is insufficiently explored by protein-ligand docking. This can result in false positives: Even if the ligand finds a suitable pose in the binding pocket, this position is not guaranteed until the protein is allowed to explore near-minima conformations. Hence, short molecular dynamics simulations
+are nowadays recommended to evaluate the stability of the predicted pinding pose (<a class="reference external" href="https://doi.org/10.2174/157340911795677602">Curr Comput Aided Drug Des (2011), 7, 2, 146-157</a>).</p></li>
+<li><p>Scoring functions used by docking programs must be cheap to compute. While the accuracy is good enough to distinguish good poses from bad poses, it can have problems sorting the best poses. For example, while most popular docking programs are able to find the experimental pose in their calculations, this pose is rarely the best one of the proposed set. Furthermore, several retrospective studies have shown that docking scores often poorly correlate with binding affinity (<a class="reference external" href="https://doi.org/10.1021/jm050362n">J Med Chem (2006), 49,
+20, 5912-31</a>, <a class="reference external" href="https://doi.org/10.1039/c6cp01555g">Phys Chem Chem Phys (2016), 18, 18, 12964-75</a>).</p></li>
 <li><p>To reduce the computational cost, docking procedures are only performed in a subset of the protein (normally around a known binding pocket). Choosing the correct binding site can become another challenge, if the binding pocket is not known a priori.</p></li>
 <li><p>To maximize the accuracy of the calculation, the ligand and protein structures must be prepared appropriately. Protonation states of amino acids and the ligands can be tricky to get right, especially in the case of (potential) tautomers. This introduces yet another cause to obtain unfavorable results.</p></li>
 </ul>

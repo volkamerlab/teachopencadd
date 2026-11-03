@@ -82,14 +82,14 @@
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
   
-    <title>T014 · Binding site detection &#8212; TeachOpenCADD 2026.4.1.post38 documentation</title>
+    <title>T014 · Binding site detection &#8212; TeachOpenCADD 2026.4.1.post112 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=fd6457a4" />
     <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=897d968c" />
-    <script src="../_static/documentation_options.js?v=25e3a83e"></script>
+    <script src="../_static/documentation_options.js?v=3e037279"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -127,7 +127,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../index.html" title="TeachOpenCADD 2026.4.1.post38 documentation"
+        <a href="../index.html" title="TeachOpenCADD 2026.4.1.post112 documentation"
            class="md-header-nav__button md-logo">
           
             <i class="md-icon">school</i>
@@ -225,13 +225,13 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../index.html" title="TeachOpenCADD 2026.4.1.post38 documentation" class="md-nav__button md-logo">
+    <a href="../index.html" title="TeachOpenCADD 2026.4.1.post112 documentation" class="md-nav__button md-logo">
       
         <i class="md-icon">school</i>
       
     </a>
     <a href="../index.html"
-       title="TeachOpenCADD 2026.4.1.post38 documentation">TeachOpenCADD</a>
+       title="TeachOpenCADD 2026.4.1.post112 documentation">TeachOpenCADD</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
@@ -570,7 +570,7 @@
 <p>Most biological processes are guided through (non-)reversible binding of molecules. Given a therapeutic target associated to a specific disease, knowing its binding site(s), i.e. the key to the proteins function, is of utmost importance for designing new drugs.</p>
 <p>Depending on the given data, e.g., no protein-ligand complex structure (x-ray) is available or one is interested in allosteric sites, binding site detection algorithms come into play. Binding sites, or in the case of enzymes rather called active sites, are cavities in 3-dimensional space, mostly on the surface of a protein structure, that serve as binding (docking) regions for ligands, peptides, or proteins. To interact with each other, the two binding partners need to be complementary
 concerning shape and physico-chemical properties (<em>key and look</em> principle).</p>
-<img alt="Binding site example" src="../_images/3w32_SP_0_0_scale025.png"/>
+<p><img alt="Binding site example" src="../_images/3w32_SP_0_0_scale025.png"/></p>
 <p><em>Figure 1:</em> Example of a detected binding site for EGFR kinase (PDB: <a class="reference external" href="https://www.rcsb.org/structure/3W32">3w32</a>) using DoGSiteScorer from <a class="reference external" href="https://proteins.plus">proteins.plus</a>. Protein shown as blue cartoon, ligand as sticks (carbons in gray) and binding site as violet cloud (largest subpocket SP_0_0 shown).</p>
 </section>
 <section id="Binding-site-detection">
@@ -579,7 +579,7 @@ concerning shape and physico-chemical properties (<em>key and look</em> principl
 <h4 id="Methods-overview">Methods overview<a class="headerlink" href="#Methods-overview" title="Link to this heading">¶</a></h4>
 <p>If ligand information is available, i.e., a protein-ligand complex, the protein residues surrounding the ligand can simply be defined as pocket (e.g. using all protein residues within a predefined radius of the ligand atoms such as 6 Å). If the ligand is absent, prediction tools can be used for <em>in silico</em> pocket detection. These methods can be grouped on the one hand in geometry- and energy-based methods as well as on the other hand in grid-based and grid-free approaches, as outlined in Figure
 2. Note that in recent years, more and more machine or deep learning based methods have been developed (see e.g. <a class="reference external" href="https://doi.org/10.1093/bioinformatics/btx350">DeepSite</a> by Jiménez <em>et al.</em>, Bioinformatics, 2017, 33(19), 3036–3042).</p>
-<img alt="Binding site detection methods" src="../_images/Figure2_DetectionMethods_scale05.png"/>
+<p><img alt="Binding site detection methods" src="../_images/Figure2_DetectionMethods_scale05.png"/></p>
 <p><em>Figure 2</em>: Binding site detection methods can be grouped into geometry-based and energy-based approaches as well as grid-based and grid-free approaches. Figure taken from Prediction, Analysis, and Comparison of Active Sites, <a class="reference external" href="https://doi.org/10.1002/9783527806539.ch6g">Volkamer et al., (2018)</a>, Applied Chemoinformatics: Achievements and Future Opportunities, Wiley.</p>
 <p><strong>Geometry-based approaches</strong> analyze the shape of a molecular surface to locate cavities and incorporate the 3D spatial arrangement of the atoms on the protein surface. <strong>Energy-based approaches</strong> record interactions of probes or molecular fragments with the protein, thus, favorable energetic responses are assigned to pockets. Both strategies can be performed on a Cartesian <strong>grid-based</strong> representation of the protein (i.e. checking the environment per grid point) or without (i.e.
 <strong>grid-free</strong>).</p>
@@ -608,7 +608,7 @@ data set (NR) DD. The DD consists of 1069 targets and each target was assigned t
 <p>For more detail on DoGSiteScorer’s druggability model, see <a class="reference external" href="https://pubs.acs.org/doi/10.1021/ci200454v">Volkamer et al., J. Chem. Inf. Model., 2012, 52, 2, 360–372</a>. For more info on the <em>druggability</em> concept itself refer to e.g. Hopkins and Groom, <a class="reference external" href="https://www.nature.com/articles/nrd892">The druggable genome</a>. Nat Rev Drug Discov 1, 727–730 (2002).</p>
 </li>
 </ul>
-<img alt="DoGSiteScorer methodology" src="../_images/3w32_DoGSite_Overview_scale05.png"/>
+<p><img alt="DoGSiteScorer methodology" src="../_images/3w32_DoGSite_Overview_scale05.png"/></p>
 <p><em>Figure 3</em>: Schematic representation of the individual steps within DoGSiteScorer: A. Pocket detection, B. descriptor calculation and C. druggability estimation. Figure newly composed based on <a class="reference external" href="https://pubs.acs.org/doi/10.1021/ci200454v">Volkamer et al., J. Chem. Inf. Model., 2012, 52(2), 360–372</a> and <a class="reference external" href="https://pubs.acs.org/doi/10.1021/ci100241y">Volkamer et al., J. Chem. Inf. Model., 2010, 50(11), 2041–2052</a>.</p>
 </section>
 </section>

@@ -82,14 +82,14 @@
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
   
-    <title>T037 · Uncertainty estimation &#8212; TeachOpenCADD 2026.4.1.post38 documentation</title>
+    <title>T037 · Uncertainty estimation &#8212; TeachOpenCADD 2026.4.1.post112 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=fd6457a4" />
     <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=897d968c" />
-    <script src="../_static/documentation_options.js?v=25e3a83e"></script>
+    <script src="../_static/documentation_options.js?v=3e037279"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -127,7 +127,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../index.html" title="TeachOpenCADD 2026.4.1.post38 documentation"
+        <a href="../index.html" title="TeachOpenCADD 2026.4.1.post112 documentation"
            class="md-header-nav__button md-logo">
           
             <i class="md-icon">school</i>
@@ -225,13 +225,13 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../index.html" title="TeachOpenCADD 2026.4.1.post38 documentation" class="md-nav__button md-logo">
+    <a href="../index.html" title="TeachOpenCADD 2026.4.1.post112 documentation" class="md-nav__button md-logo">
       
         <i class="md-icon">school</i>
       
     </a>
     <a href="../index.html"
-       title="TeachOpenCADD 2026.4.1.post38 documentation">TeachOpenCADD</a>
+       title="TeachOpenCADD 2026.4.1.post112 documentation">TeachOpenCADD</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
@@ -442,6 +442,8 @@
         <li class="md-nav__item"><a href="#Ensemble-methods" class="md-nav__link">Ensemble methods</a>
         </li>
         <li class="md-nav__item"><a href="#Test-time-data-augmentation" class="md-nav__link">Test-time data augmentation</a>
+        </li>
+        <li class="md-nav__item"><a href="#Data-splitting" class="md-nav__link">Data splitting</a>
         </li></ul>
             </nav>
         </li></ul>
@@ -617,7 +619,7 @@ al.</a>).</p>
 <section id="Ensemble-methods">
 <h4 id="Ensemble-methods">Ensemble methods<a class="headerlink" href="#Ensemble-methods" title="Link to this heading">¶</a></h4>
 <p>Ensemble methods build on the idea of creating a selection, i.e. an ensemble, of similar but different models. As a simple example of such an ensemble, consider a neural network model that is trained multiple times with varying random seeds. Due to the inherent randomness in the stochastic gradient descent, each trained version of the model will differ from the others.</p>
-<img alt="Model ensemble" src="../_images/nn.png"/>
+<p><img alt="Model ensemble" src="../_images/nn.png"/></p>
 <p><em>Figure 1:</em> An ensemble of similar models with different weights obtained by multiple varying training runs.</p>
 <p>This difference in the model parameters leads to a variety in the predicted values between all ensemble members. This variance can be used as an uncertainty estimate. As we will see in the practical section below, the variety in such an ensemble may often be insufficient. Often, the variety in such ensembles is too small and consequently, the uncertainty is underestimated.</p>
 <p>Additional variety can be introduced into the ensemble by varying the training data for each training run. A simple way showcased below is <em>bagging</em> which is a shorthand for <em>bootstrap and aggregation</em>. There, for each training run, the training data is resampled with replacement leading to add variety in the resulting ensemble.</p>
@@ -629,6 +631,13 @@ model.</p>
 <h4 id="Test-time-data-augmentation">Test-time data augmentation<a class="headerlink" href="#Test-time-data-augmentation" title="Link to this heading">¶</a></h4>
 <p>Another way to uncertainty estimates is the use of test-time data augmentation. For each query point, we create an augmented set of points using some stochastic noise. In the practical examples of this notebook, we are dealing with fingerprint data. A natural way to introduce noise in such binary data is to flip bits with a small probability. This way, we obtain a set of data points for each actual query point. This, in turn, yields us a set of predictions that hopefully represents the
 predictive uncertainty for the query point.</p>
+</section>
+<section id="Data-splitting">
+<h4 id="Data-splitting">Data splitting<a class="headerlink" href="#Data-splitting" title="Link to this heading">¶</a></h4>
+<p>Data splitting is an important step to ensure that our model is trained, validated, and tested on separate subsets of the data. This helps to evaluate the model’s performance more accurately and prevents overfitting.</p>
+<p>There are multiple ways to split the data, such as random splitting, stratified splitting, or splitting based on specific criteria like inter-sample similarity. In molecular property prediction, such criteria can include molecular similarity, which can be used to reduce structural similarity between the subsets (see <strong>Talktorial T005</strong> for an introduction to molecular similarity and clustering). For state-of-the-art discussions of data leakage in biological machine learning see <a class="reference external" href="https://doi.org/10.1038/s41592-024-02362-y">Bernett at al.,
+2024</a> and <a class="reference external" href="https://doi.org/10.1038/s41467-025-58606-8">Joeres et al., 2025</a>.</p>
+<p>In this talktorial, we will implement a random split for simplicity as data splitting or out-of-distribution generalization are not the focus of this talktorial. However, in practice, it is often beneficial to consider more sophisticated splitting strategies to avoid information leakage and obtain a more realistic evaluation of the model’s generalization performance.</p>
 </section>
 </section>
 </section>
@@ -663,6 +672,9 @@ predictive uncertainty for the query point.</p>
 <span class="c1"># reproducibility</span>
 <span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
+<span class="c1"># Use cuda if available</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">"cuda"</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">"cpu"</span><span class="p">)</span>
+
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
@@ -679,16 +691,16 @@ predictive uncertainty for the query point.</p>
 <p>We re-use the predictive setting of <strong>Talktorial T022</strong>. It deals with predicting compound activity in terms of their pIC50 value to EGFR. For the prediction, we use Morgan 3 fingerprints with 2024 bits as input.</p>
 <section id="Data">
 <h3 id="Data">Data<a class="headerlink" href="#Data" title="Link to this heading">¶</a></h3>
-<p>We use the same data as in <strong>Talktorial T022</strong>. These are activities on the kinase EGFR of varying compounds found in the Chembl 25 database. The ligands are encoded using a 2048-bit Morgan 3 fingerprint.</p>
+<p>We use the same data as in <strong>Talktorial T022</strong>. These are activities on the kinase EGFR of varying compounds found in the Chembl 27 database. The ligands are encoded using a 2048-bit Morgan 3 fingerprint.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the training and test data from pickled torch tensors.</span>
-<span class="n">x_train</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"x_train"</span><span class="p">)</span>
-<span class="n">y_train</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"y_train"</span><span class="p">)</span>
-<span class="n">x_test</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"x_test"</span><span class="p">)</span>
-<span class="n">y_test</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"y_test"</span><span class="p">)</span>
+<span class="n">x_train</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"x_train.pt"</span><span class="p">)</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"y_train.pt"</span><span class="p">)</span>
+<span class="n">x_test</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"x_test.pt"</span><span class="p">)</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"y_test.pt"</span><span class="p">)</span>
 
 <span class="c1"># Create the data sets for training and testing.</span>
 <span class="n">training_data</span> <span class="o">=</span> <span class="n">TensorDataset</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
@@ -757,6 +769,7 @@ predictive uncertainty for the query point.</p>
     <span class="n">total_loss</span> <span class="o">=</span> <span class="mi">0</span>
 
     <span class="k">for</span> <span class="n">batch</span><span class="p">,</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dataloader</span><span class="p">):</span>
+        <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">y</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>  <span class="c1"># &lt;-- Added transfer to device</span>
         <span class="c1"># Compute prediction and loss</span>
         <span class="n">pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
         <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
@@ -794,6 +807,7 @@ predictive uncertainty for the query point.</p>
 
     <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>  <span class="c1"># faster evaluation</span>
         <span class="k">for</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">dataloader</span><span class="p">:</span>
+            <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">y</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
             <span class="n">pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
             <span class="n">test_loss</span> <span class="o">+=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
 
@@ -827,7 +841,7 @@ predictive uncertainty for the query point.</p>
 <span class="sd">    model: NeuralNetwork</span>
 <span class="sd">        A trained instance of `NeuralNetwork`.</span>
 <span class="sd">    """</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">NeuralNetwork</span><span class="p">(</span><span class="o">**</span><span class="n">model_args</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">"cpu"</span><span class="p">)</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">NeuralNetwork</span><span class="p">(</span><span class="o">**</span><span class="n">model_args</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
     <span class="n">loss_fn</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">()</span>
     <span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
@@ -855,64 +869,64 @@ predictive uncertainty for the query point.</p>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Epoch 0
-Training loss: 19.594438
+Training loss: 40.019545
 
 Epoch 1
-Training loss: 1.833061
+Training loss: 10.523605
 
 Epoch 2
-Training loss: 1.200345
+Training loss: 2.598040
 
 Epoch 3
-Training loss: 0.898802
+Training loss: 1.836746
 
 Epoch 4
-Training loss: 0.730146
+Training loss: 1.458422
 
 Epoch 5
-Training loss: 0.610016
+Training loss: 1.190667
 
 Epoch 6
-Training loss: 0.515054
+Training loss: 0.997330
 
 Epoch 7
-Training loss: 0.442029
+Training loss: 0.839831
 
 Epoch 8
-Training loss: 0.374235
+Training loss: 0.722957
 
 Epoch 9
-Training loss: 0.318533
+Training loss: 0.632940
 
 Epoch 10
-Training loss: 0.282265
+Training loss: 0.555490
 
 Epoch 11
-Training loss: 0.241378
+Training loss: 0.488534
 
 Epoch 12
-Training loss: 0.210448
+Training loss: 0.435480
 
 Epoch 13
-Training loss: 0.183123
+Training loss: 0.382161
 
 Epoch 14
-Training loss: 0.160263
+Training loss: 0.345913
 
 Epoch 15
-Training loss: 0.140182
+Training loss: 0.310478
 
 Epoch 16
-Training loss: 0.125900
+Training loss: 0.275117
 
 Epoch 17
-Training loss: 0.112110
+Training loss: 0.254099
 
 Epoch 18
-Training loss: 0.102701
+Training loss: 0.216646
 
 Epoch 19
-Training loss: 0.095786
+Training loss: 0.208148
 
 </pre></div></div>
 </div>
@@ -924,12 +938,14 @@ Training loss: 0.095786
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pred</span> <span class="o">=</span> <span class="n">single_model</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+    <span class="n">pred</span> <span class="o">=</span> <span class="n">single_model</span><span class="p">(</span><span class="n">x_test</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">))</span>
+    <span class="n">pred</span> <span class="o">=</span> <span class="n">pred</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span>
     <span class="n">data</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
         <span class="p">{</span>
-            <span class="s2">"model"</span><span class="p">:</span> <span class="n">pred</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span>
-            <span class="s2">"true value"</span><span class="p">:</span> <span class="n">y_test</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span>
+            <span class="s2">"model"</span><span class="p">:</span> <span class="n">pred</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span>
+            <span class="s2">"true value"</span><span class="p">:</span> <span class="n">y_test</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span>
         <span class="p">}</span>
     <span class="p">),</span>
     <span class="n">x</span><span class="o">=</span><span class="s2">"model"</span><span class="p">,</span>
@@ -938,10 +954,10 @@ Training loss: 0.095786
 <span class="p">)</span>
 
 <span class="c1"># mean absolute error</span>
-<span class="n">mae_single_model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">pred</span> <span class="o">-</span> <span class="n">y_test</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+<span class="n">mae_single_model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">pred</span> <span class="o">-</span> <span class="n">y_test</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
 
 <span class="c1"># mean squared error</span>
-<span class="n">mse_single_model</span> <span class="o">=</span> <span class="p">((</span><span class="n">pred</span> <span class="o">-</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+<span class="n">mse_single_model</span> <span class="o">=</span> <span class="p">((</span><span class="n">pred</span> <span class="o">-</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
 
 <span class="n">display</span><span class="p">(</span>
     <span class="n">Markdown</span><span class="p">(</span>
@@ -955,7 +971,7 @@ Training loss: 0.095786
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<p>The mean absolute error is 758.59 and the mean squared error is 891.53.</p>
+<p>The mean absolute error is 0.78 and the mean squared error is 1.11.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -974,7 +990,7 @@ Training loss: 0.095786
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ensemble_size</span> <span class="o">=</span> <span class="mi">20</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ensemble_size</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">ensemble</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">ensemble_size</span><span class="p">)):</span>
     <span class="n">training_data</span> <span class="o">=</span> <span class="n">TensorDataset</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
@@ -991,14 +1007,16 @@ Training loss: 0.095786
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 20/20 [03:50&lt;00:00, 11.53s/it]
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:31&lt;00:00,  6.24s/it]
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preds</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">model</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span> <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">ensemble</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">ensemble_size</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_test</span><span class="p">))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+    <span class="n">preds</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">model</span><span class="p">(</span><span class="n">x_test</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">))</span> <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">ensemble</span><span class="p">])</span>
+    <span class="n">preds</span> <span class="o">=</span> <span class="n">preds</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">ensemble_size</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_test</span><span class="p">))</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1011,8 +1029,8 @@ Training loss: 0.095786
 <span class="n">var</span> <span class="o">=</span> <span class="n">preds</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">mean</span> <span class="o">=</span> <span class="n">preds</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">mae</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">mean</span> <span class="o">-</span> <span class="n">y_test</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
-<span class="n">total_mae</span> <span class="o">=</span> <span class="n">mae</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
-<span class="n">total_mse</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">mean</span> <span class="o">-</span> <span class="n">y_test</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+<span class="n">total_mae</span> <span class="o">=</span> <span class="n">mae</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+<span class="n">total_mse</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">mean</span> <span class="o">-</span> <span class="n">y_test</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1024,8 +1042,8 @@ Training loss: 0.095786
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span>
     <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
         <span class="p">{</span>
-            <span class="s2">"ensemble mean"</span><span class="p">:</span> <span class="n">mean</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span>
-            <span class="s2">"true value"</span><span class="p">:</span> <span class="n">y_test</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span>
+            <span class="s2">"ensemble mean"</span><span class="p">:</span> <span class="n">mean</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span>
+            <span class="s2">"true value"</span><span class="p">:</span> <span class="n">y_test</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span>
         <span class="p">}</span>
     <span class="p">),</span>
     <span class="n">x</span><span class="o">=</span><span class="s2">"ensemble mean"</span><span class="p">,</span>
@@ -1035,7 +1053,8 @@ Training loss: 0.095786
 
 <span class="n">display</span><span class="p">(</span>
     <span class="n">Markdown</span><span class="p">(</span>
-        <span class="sa">f</span><span class="s2">"The mean absolute error decreased from </span><span class="si">{</span><span class="n">mae_single_model</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">total_mae</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">. The mean squared error decreased from </span><span class="si">{</span><span class="n">mse_single_model</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">total_mse</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">."</span>
+        <span class="sa">f</span><span class="s2">"The mean absolute error decreased from </span><span class="si">{</span><span class="n">mae_single_model</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">total_mae</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">."</span>
+        <span class="sa">f</span><span class="s2">"The mean squared error decreased from </span><span class="si">{</span><span class="n">mse_single_model</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">total_mse</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">."</span>
     <span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
@@ -1045,7 +1064,7 @@ Training loss: 0.095786
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<p>The mean absolute error decreased from 758.59 to 727.53. The mean squared error decreased from 891.53 to 833.26.</p>
+<p>The mean absolute error decreased from 0.7761 to 0.7670.The mean squared error decreased from 1.1098 to 1.0851.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1055,7 +1074,7 @@ Training loss: 0.095786
 <img alt="../_images/talktorials_T037_uncertainty_estimation_32_1.png" src="../_images/talktorials_T037_uncertainty_estimation_32_1.png"/>
 </div>
 </div>
-<p>As we can see, the predictive quality on the test set increased. Originally model ensembles were introduced as a means of improving prediction quality (see <a class="reference external" href="https://wires.onlinelibrary.wiley.com/doi/abs/10.1002/widm.1249?casa_token=1RRjvfS1_k4AAAAA%3AdR5WbRw9n8cp8wuVWx4j1ygfElNKbIJ9wXSmIeBd3C61pD1TEqX0bqswzRhNl8vY1rLDEhl29dseag">Sagi and Rokach 2018</a>). Intuitively, this is achieved by mitigating the outliers of single models.</p>
+<p>As we can see, the predictive quality on the test set increased slightly. Originally model ensembles were introduced as a means of improving prediction quality (see <a class="reference external" href="https://wires.onlinelibrary.wiley.com/doi/abs/10.1002/widm.1249?casa_token=1RRjvfS1_k4AAAAA%3AdR5WbRw9n8cp8wuVWx4j1ygfElNKbIJ9wXSmIeBd3C61pD1TEqX0bqswzRhNl8vY1rLDEhl29dseag">Sagi and Rokach 2018</a>). Intuitively, this is achieved by mitigating the outliers of single models.</p>
 <section id="Coverage-of-confidence-intervals">
 <h4 id="Coverage-of-confidence-intervals">Coverage of confidence intervals<a class="headerlink" href="#Coverage-of-confidence-intervals" title="Link to this heading">¶</a></h4>
 <p>For each confidence level, we can compute confidence intervals based on the standard deviations, we get out of our model ensemble. According to the definition of the confidence interval for level <span class="math notranslate nohighlight">\(p\)</span>, the interval should cover the actual value with probability <span class="math notranslate nohighlight">\(p\)</span>. Therefore, if we plot all hit ratios over the test for all levels in <span class="math notranslate nohighlight">\([0,1]\)</span>, we ideally would end up with a perfect diagonal (the identity function).</p>
@@ -1100,9 +1119,9 @@ Training loss: 0.095786
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_calib</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">preds_calibration</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">model</span><span class="p">(</span><span class="n">x_test</span><span class="p">[:</span><span class="n">num_calib</span><span class="p">])</span> <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">ensemble</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span>
-    <span class="n">ensemble_size</span><span class="p">,</span> <span class="n">num_calib</span>
-<span class="p">)</span>
+<span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+    <span class="n">preds_calibration</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">model</span><span class="p">(</span><span class="n">x_test</span><span class="p">[:</span><span class="n">num_calib</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">))</span> <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">ensemble</span><span class="p">])</span>
+    <span class="n">preds_calibration</span> <span class="o">=</span> <span class="n">preds_calibration</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">ensemble_size</span><span class="p">,</span> <span class="n">num_calib</span><span class="p">)</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
 
 <span class="n">stds_calibration</span> <span class="o">=</span> <span class="n">preds_calibration</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">mean_calibration</span> <span class="o">=</span> <span class="n">preds_calibration</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -1163,7 +1182,7 @@ random baseline and the ideal curve.</p>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">idcs_mae</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">mae</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
 <span class="n">idcs_conf</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">stds</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
-    <span class="p">(</span><span class="n">total_mae</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">mae</span><span class="p">[</span><span class="n">idcs_conf</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="o">/</span> <span class="n">total_mae</span><span class="p">,</span>
+    <span class="p">(</span><span class="n">mae</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">mae</span><span class="p">[</span><span class="n">idcs_conf</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="o">/</span> <span class="n">mae</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
     <span class="n">label</span><span class="o">=</span><span class="s2">"ordered by est. uncertainty"</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
@@ -1172,7 +1191,7 @@ random baseline and the ideal curve.</p>
     <span class="n">label</span><span class="o">=</span><span class="s2">"linear decrease"</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
-    <span class="p">(</span><span class="n">total_mae</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">mae</span><span class="p">[</span><span class="n">idcs_mae</span><span class="p">],</span> <span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="o">/</span> <span class="n">total_mae</span><span class="p">,</span>
+    <span class="p">(</span><span class="n">mae</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">mae</span><span class="p">[</span><span class="n">idcs_mae</span><span class="p">],</span> <span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="o">/</span> <span class="n">mae</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
     <span class="s2">"--"</span><span class="p">,</span>
     <span class="n">label</span><span class="o">=</span><span class="s2">"oracle"</span><span class="p">,</span>
 <span class="p">)</span>
@@ -1206,7 +1225,7 @@ random baseline and the ideal curve.</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ensemble_size</span> <span class="o">=</span> <span class="mi">20</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ensemble_size</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">ensemble_bagg</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">ensemble_size</span><span class="p">)):</span>
     <span class="n">idcs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="mf">0.75</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_train</span><span class="p">)),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x_train</span><span class="p">),))</span>
@@ -1219,7 +1238,7 @@ random baseline and the ideal curve.</p>
         <span class="n">training_loader</span><span class="p">,</span>
         <span class="n">model_args</span><span class="o">=</span><span class="p">{</span>
             <span class="s2">"n_hidden"</span><span class="p">:</span> <span class="mi">2</span> <span class="o">**</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
-            <span class="s2">"p_dropout"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">,</span>
+            <span class="s2">"p_dropout"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span> <span class="o">*</span> <span class="mf">0.2</span><span class="p">,</span>
         <span class="p">},</span>
     <span class="p">)</span>
     <span class="n">ensemble_bagg</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
@@ -1231,7 +1250,7 @@ random baseline and the ideal curve.</p>
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 20/20 [01:47&lt;00:00,  5.38s/it]
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:13&lt;00:00,  2.76s/it]
 </pre></div></div>
 </div>
 <p>Now, that all ensembles are trained, we compute the test set predictions of all ensemble members.</p>
@@ -1239,9 +1258,9 @@ random baseline and the ideal curve.</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preds_bagg</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">model</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span> <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">ensemble_bagg</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span>
-    <span class="n">ensemble_size</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
-<span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+    <span class="n">preds_bagg</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">model</span><span class="p">(</span><span class="n">x_test</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">))</span> <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">ensemble_bagg</span><span class="p">])</span>
+    <span class="n">preds_bagg</span> <span class="o">=</span> <span class="n">preds_bagg</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">ensemble_size</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_test</span><span class="p">))</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1275,7 +1294,7 @@ random baseline and the ideal curve.</p>
     <span class="n">label</span><span class="o">=</span><span class="s2">"ensemble with more variance"</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
-    <span class="p">(</span><span class="n">total_mae</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">mae</span><span class="p">[</span><span class="n">idcs_conf</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="o">/</span> <span class="n">total_mae</span><span class="p">,</span>
+    <span class="p">(</span><span class="n">mae</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">mae</span><span class="p">[</span><span class="n">idcs_conf</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="o">/</span> <span class="n">mae</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
     <span class="n">label</span><span class="o">=</span><span class="s2">"standard ensemble"</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
@@ -1307,7 +1326,8 @@ random baseline and the ideal curve.</p>
 <section id="id3">
 <h3 id="id3">Test-time data augmentation<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
 <p>Finally, we showcase test-time data augmentation. The benefit here is that it can be applied to pretty much any model. The basic idea is to sample <em>around</em> each test sample. This set of <em>similar</em> samples should provide information on the local variability. Large variability is assumed to imply higher uncertainty.</p>
-<p>In the context of fingerprints, we are dealing with bitstrings of fixed length. To sample around each test sample, we augment each test sample with <code class="docutils literal notranslate"><span class="pre">N_AUG</span></code> additional samples. In each sample and position, we introduce a mutation, i.e. a bit flip with a fixed probability (here <span class="math notranslate nohighlight">\(p=0.01\)</span>).</p>
+<p>In the context of fingerprints, we are dealing with bitstrings of fixed length. To sample around each test sample, we augment each test sample with <code class="docutils literal notranslate"><span class="pre">N_AUG</span></code> additional samples. In each sample and position, we introduce a mutation, i.e. a bit flip with a fixed probability (here <span class="math notranslate nohighlight">\(p=0.01\)</span>). Naturally, this scheme will often not generate fingerprints which correspond to chemically valid molecules. For more advanced usage of this technique, one could instead generate very similar valid
+molecules, for example.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
@@ -1321,8 +1341,9 @@ random baseline and the ideal curve.</p>
 
 <span class="n">x_test_aug</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">x_test_aug</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 
-<span class="n">pred</span> <span class="o">=</span> <span class="n">single_model</span><span class="p">(</span><span class="n">x_test_aug</span><span class="p">)</span>
-<span class="n">pred</span> <span class="o">=</span> <span class="n">pred</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">N_AUG</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+    <span class="n">pred</span> <span class="o">=</span> <span class="n">single_model</span><span class="p">(</span><span class="n">x_test_aug</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">))</span>
+    <span class="n">pred</span> <span class="o">=</span> <span class="n">pred</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">N_AUG</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
 <span class="p">((</span><span class="n">pred</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 
 <span class="n">stds_aug</span> <span class="o">=</span> <span class="n">pred</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>

@@ -82,14 +82,14 @@
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
   
-    <title>T004 · Ligand-based screening: compound similarity &#8212; TeachOpenCADD 2026.4.1.post38 documentation</title>
+    <title>T004 · Ligand-based screening: compound similarity &#8212; TeachOpenCADD 2026.4.1.post112 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=fd6457a4" />
     <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=897d968c" />
-    <script src="../_static/documentation_options.js?v=25e3a83e"></script>
+    <script src="../_static/documentation_options.js?v=3e037279"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -127,7 +127,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../index.html" title="TeachOpenCADD 2026.4.1.post38 documentation"
+        <a href="../index.html" title="TeachOpenCADD 2026.4.1.post112 documentation"
            class="md-header-nav__button md-logo">
           
             <i class="md-icon">school</i>
@@ -225,13 +225,13 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../index.html" title="TeachOpenCADD 2026.4.1.post38 documentation" class="md-nav__button md-logo">
+    <a href="../index.html" title="TeachOpenCADD 2026.4.1.post112 documentation" class="md-nav__button md-logo">
       
         <i class="md-icon">school</i>
       
     </a>
     <a href="../index.html"
-       title="TeachOpenCADD 2026.4.1.post38 documentation">TeachOpenCADD</a>
+       title="TeachOpenCADD 2026.4.1.post112 documentation">TeachOpenCADD</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
@@ -663,14 +663,14 @@
 <section id="MACCS-fingerprints">
 <h4 id="MACCS-fingerprints">MACCS fingerprints<a class="headerlink" href="#MACCS-fingerprints" title="Link to this heading">¶</a></h4>
 <p>Molecular ACCess System (MACCS) fingerprints, also termed MACCS structural keys, consist of 166 predefined structural fragments. Each position queries the presence or absence of one particular structural fragment or key. The individual keys were empirically defined by medicinal chemists and are simple to use and interpret (<code class="docutils literal notranslate"><span class="pre">rdkit</span></code> documentation on <a class="reference external" href="http://rdkit.org/Python_Docs/rdkit.Chem.MACCSkeys-module.html">MACCS keys</a>).</p>
-<img alt="Figure 1" src="../_images/maccs_fp.png"/>
+<p><img alt="Figure 1" src="../_images/maccs_fp.png"/></p>
 <p><em>Figure 1</em>: Illustration of MACCS fingerprint (figure by Andrea Morger).</p>
 </section>
 <section id="Morgan-fingerprints-and-circular-fingerprints">
 <h4 id="Morgan-fingerprints-and-circular-fingerprints">Morgan fingerprints and circular fingerprints<a class="headerlink" href="#Morgan-fingerprints-and-circular-fingerprints" title="Link to this heading">¶</a></h4>
 <p>This family of fingerprints is based on the Morgan algorithm. The bits correspond to the circular environments of each atom in a molecule. The number of neighboring bonds and atoms to consider is set by the radius. Also the length of the bit string can be defined, a longer bit string will be modded to the desired length. Therefore, the Morgan fingerprint is not limited to a certain number of bits. More about the <a class="reference external" href="http://www.rdkit.org/docs/GettingStartedInPython.html#morgan-fingerprints-circular-fingerprints">Morgan
 fingerprint</a> can be found in the <code class="docutils literal notranslate"><span class="pre">rdkit</span></code> documentation. Extended connectivity fingerprints (ECFP) are also commonly used fingerprints that are derived using a variant of the Morgan algorithm, see <a class="reference external" href="https://pubs.acs.org/doi/abs/10.1021/ci100050t">J. Chem. Inf. Model. (2010), 50,742-754</a> for further information.</p>
-<img alt="Figure 2" src="../_images/morgan_fp.png"/>
+<p><img alt="Figure 2" src="../_images/morgan_fp.png"/></p>
 <p><em>Figure 2</em>: Illustration of the Morgan circular fingerprint (figure by Andrea Morger).</p>
 </section>
 </section>
@@ -722,7 +722,7 @@ fingerprint</a> can be found in the <code class="docutils literal notranslate"><
 <li><p>the ratio of top-ranked molecules (x-axis) from the whole dataset vs.</p></li>
 <li><p>the ratio of active molecules (y-axis) from the whole dataset.</p></li>
 </ul>
-<img alt="Figure 3" src="../_images/enrichment_plot.png"/>
+<p><img alt="Figure 3" src="../_images/enrichment_plot.png"/></p>
 <p><em>Figure 3</em>: Example of enrichment plot for virtual screening results.</p>
 </section>
 </section>

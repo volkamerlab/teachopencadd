@@ -82,14 +82,14 @@
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
   
-    <title>T034 · RNN-based molecular property prediction &#8212; TeachOpenCADD 2026.4.1.post38 documentation</title>
+    <title>T034 · RNN-based molecular property prediction &#8212; TeachOpenCADD 2026.4.1.post112 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=fd6457a4" />
     <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=897d968c" />
-    <script src="../_static/documentation_options.js?v=25e3a83e"></script>
+    <script src="../_static/documentation_options.js?v=3e037279"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -127,7 +127,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../index.html" title="TeachOpenCADD 2026.4.1.post38 documentation"
+        <a href="../index.html" title="TeachOpenCADD 2026.4.1.post112 documentation"
            class="md-header-nav__button md-logo">
           
             <i class="md-icon">school</i>
@@ -225,13 +225,13 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../index.html" title="TeachOpenCADD 2026.4.1.post38 documentation" class="md-nav__button md-logo">
+    <a href="../index.html" title="TeachOpenCADD 2026.4.1.post112 documentation" class="md-nav__button md-logo">
       
         <i class="md-icon">school</i>
       
     </a>
     <a href="../index.html"
-       title="TeachOpenCADD 2026.4.1.post38 documentation">TeachOpenCADD</a>
+       title="TeachOpenCADD 2026.4.1.post112 documentation">TeachOpenCADD</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
@@ -471,6 +471,8 @@
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#Dataset" class="md-nav__link">Dataset</a><nav class="md-nav">
               <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Data-splitting" class="md-nav__link">Data splitting</a>
+        </li>
         <li class="md-nav__item"><a href="#Preprocessing" class="md-nav__link">Preprocessing</a>
         </li></ul>
             </nav>
@@ -512,7 +514,8 @@
 </ul>
 <section id="Aim-of-this-talktorial">
 <h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Link to this heading">¶</a></h2>
-<p>Molecular representation by a SMILES string paved the way for applying natural language processing techniques to a broad range of molecule-related tasks. In this talktorial we will dive deeper into one of these techniques: recurrent neural networks (RNNs). First, we will describe different RNN architectures and then apply them to a regression task using the QM9 dataset.</p>
+<p>Representing molecules as SMILES strings has paved the way for applying natural language processing techniques to a broad range of molecule-related tasks. In this talktorial, you will learn how recurrent neural networks (RNNs) process sequential data and how they can be applied to molecular property prediction. We will introduce different RNN architectures, discuss their strengths and limitations, and demonstrate how to implement, train, and evaluate them on a regression task using the QM9
+dataset.</p>
 <section id="Contents-in-Theory">
 <h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Link to this heading">¶</a></h3>
 <ul class="simple">
@@ -548,7 +551,7 @@
 <li><p><strong>Talktorial T021</strong>: One-Hot Encoding</p></li>
 <li><p><strong>Talktorial T022</strong>: Ligand-based screening: neural networks</p></li>
 <li><p><strong>Talktorial T033</strong>: Molecular Representations</p></li>
-<li><p><strong>Talktorial T034</strong>: GNN based property prediction</p></li>
+<li><p><strong>Talktorial T035</strong>: GNN based property prediction</p></li>
 </ul>
 </section>
 <section id="Theoretical-background">
@@ -561,7 +564,7 @@
 <li><p>Andrej Karpathy, The Unreasonable Effectiveness of Recurrent Neural Networks, <a class="reference external" href="https://karpathy.github.io/2015/05/21/rnn-effectiveness/">Andrej Karpathy blog</a></p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
@@ -606,7 +609,7 @@ representation, <code class="docutils literal notranslate"><span class="pre">[0,
 elements in the sequence.</p>
 <p>The figure below illustrates the basic principle of an RNN. An RNN cell has a hidden state vector <span class="math notranslate nohighlight">\(h_t\)</span> which is updated at each time step <span class="math notranslate nohighlight">\(t\)</span> and is responsible for aggregating the information about the previous elements of the input sequence. The update is performed by combining the input <span class="math notranslate nohighlight">\(x_t\)</span> with the hidden state of the previous step <span class="math notranslate nohighlight">\(h_{t-1}\)</span>, passed to the RNN cell by the recurrent connection (Figure 1, on the left).</p>
 <p>To better visualize how RNN processes sequences of data it is helpful to unfold the network in time (Figure 1, on the right). The RNN is unfolded by duplicating each unit at each time step and sharing the weights and biases across all the units. The unfolded representation shows that RNNs can be viewed as feed-forward neural networks with shared parameters.</p>
-<img alt="RNN" src="../_images/rnn-unfolded-800.png"/>
+<p><img alt="RNN" src="../_images/rnn-unfolded-800.png"/></p>
 <p><em>Figure 1:</em> Two ways of representing a recurrent neural network: compressed (left) and unfolded in time (right).</p>
 <p>The mechanism behind the computation of the hidden state varies depending on the architecture. Examples of RNN architectures include Vanilla RNN, Long Short-Term Memory (LSTM), and Gated Recurrent Units (GRUs).</p>
 <section id="Vanilla-RNN">
@@ -614,7 +617,7 @@ elements in the sequence.</p>
 <p>In a Vanilla RNN the hidden state is updated according to the following recurrence relation,</p>
 <div class="math notranslate nohighlight">
 \[h_{t} = \tanh( W x_{t} + U h_{t-1} + b),~~~t=1,2,\dots,L.\]</div>
-<p>Here <span class="math notranslate nohighlight">\(W\)</span> and <span class="math notranslate nohighlight">\(U\)</span> are weight matrices, and <span class="math notranslate nohighlight">\(b\)</span> is a bias vector. The initial hidden state <span class="math notranslate nohighlight">\(h_0\)</span> is usually seeded as a vector of zeros. Model weights <span class="math notranslate nohighlight">\(W\)</span>, <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are shared between all the time steps.</p>
+<p>Here, <span class="math notranslate nohighlight">\(W\)</span> is the input-to-hidden weight matrix, which transforms the input vector <span class="math notranslate nohighlight">\(x_t\)</span>, while <span class="math notranslate nohighlight">\(U\)</span> is the hidden-to-hidden (recurrent) weight matrix, which transforms the hidden state from the previous time step <span class="math notranslate nohighlight">\(h_{t-1}\)</span>. The vector <span class="math notranslate nohighlight">\(b\)</span> represents the bias. The initial hidden state <span class="math notranslate nohighlight">\(h_0\)</span> is usually initialized with zeros. The same weights and biases are shared across all time steps.</p>
 </section>
 <section id="Training-an-RNN">
 <h4 id="Training-an-RNN">Training an RNN<a class="headerlink" href="#Training-an-RNN" title="Link to this heading">¶</a></h4>
@@ -622,8 +625,8 @@ elements in the sequence.</p>
 </section>
 <section id="Vanishing-gradients">
 <h4 id="Vanishing-gradients">Vanishing gradients<a class="headerlink" href="#Vanishing-gradients" title="Link to this heading">¶</a></h4>
-<p>Vanilla RNNs are susceptible to a problem called <em>vanishing gradients</em>. This problem occurs in deep neural networks when the gradients of the weights of the first layers of the network become very small as they are backpropagated through the network. This can lead to slow training and poor performance. In RNNs, the backpropagation is applied to the unfolded network which tends to be very deep. Furthermore, all copies of the RNN cells in the unfolded network share the same weights, which can
-cause gradients to diminish exponentially fast. For more details on the vanishing gradients problem, please refer to the blog post: <a class="reference external" href="https://dennybritz.com/posts/wildml/recurrent-neural-networks-tutorial-part-3/">Backpropagation Through Time and Vanishing Gradients</a>.</p>
+<p>Vanilla RNNs are susceptible to a problem called <em>vanishing gradients</em>. This problem occurs in deep neural networks when the gradients of the weights of the first layers of the network become very small as they are backpropagated through the network. This can lead to slow training and poor performance. In RNNs, the backpropagation is applied to the unfolded network which tends to be very deep. As they pass through the network, gradients are repeatedly multiplied, which can cause them to become
+exponentially smaller. As a result, the model may struggle to learn dependencies between distant elements of a sequence. For more details on the vanishing gradients problem, please refer to the blog post: <a class="reference external" href="https://dennybritz.com/posts/wildml/recurrent-neural-networks-tutorial-part-3/">Backpropagation Through Time and Vanishing Gradients</a>.</p>
 </section>
 <section id="Gated-Recurrent-Unit">
 <h4 id="Gated-Recurrent-Unit">Gated Recurrent Unit<a class="headerlink" href="#Gated-Recurrent-Unit" title="Link to this heading">¶</a></h4>
@@ -662,9 +665,9 @@ which information is not relevant and should be discarded. If, for example, an <
 </section>
 <section id="Practical">
 <h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Link to this heading">¶</a></h2>
-<p>In the practical section, we will apply recurrent neural networks to a regression task.</p>
+<p>In this section, we will use recurrent neural networks to predict molecular properties from SMILES strings.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
@@ -683,7 +686,7 @@ which information is not relevant and should be discarded. If, for example, an <
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use cuda if available</span>
@@ -695,7 +698,7 @@ which information is not relevant and should be discarded. If, for example, an <
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HERE</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">_dh</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
@@ -705,9 +708,15 @@ which information is not relevant and should be discarded. If, for example, an <
 </div>
 <section id="Dataset">
 <h3 id="Dataset">Dataset<a class="headerlink" href="#Dataset" title="Link to this heading">¶</a></h3>
-<p>In this talktorial we use <a class="reference external" href="https://pytorch-geometric.readthedocs.io/en/2.2.0/modules/datasets.html#torch_geometric.datasets.QM9">QM9</a> dataset from the <a class="reference external" href="https://arxiv.org/abs/1703.00564">MoleculeNet</a> paper. This dataset consists of about 130,000 molecules together with their quantum chemical properties.</p>
+<p>We will use the <a class="reference external" href="https://pytorch-geometric.readthedocs.io/en/2.2.0/modules/datasets.html#torch_geometric.datasets.QM9">QM9</a> dataset included in the <a class="reference external" href="https://arxiv.org/abs/1703.00564">MoleculeNet</a> paper. This dataset consists of about 130,000 molecules together with their quantum chemical properties.</p>
+<section id="Data-splitting">
+<h4 id="Data-splitting">Data splitting<a class="headerlink" href="#Data-splitting" title="Link to this heading">¶</a></h4>
+<p>Data splitting is an important step to ensure that our model is trained, validated, and tested on separate subsets of the data. This helps to evaluate the model’s performance more accurately and prevents overfitting.</p>
+<p>There are multiple ways to split the data, such as random splitting, stratified splitting, or splitting based on specific criteria like inter-sample similarity. In molecular property prediction, such criteria can include molecular similarity, which can be used to reduce structural similarity between the subsets (see <strong>Talktorial T005</strong> for an introduction to molecular similarity and clustering). For state-of-the-art discussions of data leakage in biological machine learning see <a class="reference external" href="https://doi.org/10.1038/s41592-024-02362-y">Bernett at al.,
+2024</a> and <a class="reference external" href="https://doi.org/10.1038/s41467-025-58606-8">Joeres et al., 2025</a>.</p>
+<p>In this talktorial, we will implement a random split for simplicity as data splitting or out-of-distribution generalization are not the focus of this talktorial. However, in practice, it is often beneficial to consider more sophisticated splitting strategies to avoid information leakage and obtain a more realistic evaluation of the model’s generalization performance.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load the dataset</span>
@@ -717,7 +726,7 @@ which information is not relevant and should be discarded. If, for example, an <
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -888,12 +897,13 @@ which information is not relevant and should be discarded. If, for example, an <
 <p>5 rows × 21 columns</p>
 </div></div>
 </div>
-<p>In this talktorial we will build a model predicting one of the properties – the dipole moment <code class="docutils literal notranslate"><span class="pre">mu</span></code> – based on the string representation of the molecule provided in the <code class="docutils literal notranslate"><span class="pre">smiles</span></code> column in the table above.</p>
+<p>Our goal is to build a model predicting one of the properties, the dipole moment <code class="docutils literal notranslate"><span class="pre">mu</span></code>, from the SMILES strings provided in the <code class="docutils literal notranslate"><span class="pre">smiles</span></code> column of the table above.</p>
+</section>
 <section id="Preprocessing">
 <h4 id="Preprocessing">Preprocessing<a class="headerlink" href="#Preprocessing" title="Link to this heading">¶</a></h4>
 <p>First, define the classes and helper functions we will be using for the data preprocessing</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">SmilesTokenizer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -929,7 +939,7 @@ which information is not relevant and should be discarded. If, for example, an <
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_vocab</span><span class="p">(</span><span class="n">smiles_list</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="n">max_vocab_size</span><span class="p">):</span>
@@ -984,7 +994,7 @@ which information is not relevant and should be discarded. If, for example, an <
 </div>
 <p>Let’s have a look at how these functions work with a simple example. Here, we will be using the same SMILES string as in the Theoretical section.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">SmilesTokenizer</span><span class="p">()</span>
@@ -994,7 +1004,7 @@ which information is not relevant and should be discarded. If, for example, an <
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Tokens:</span><span class="se">\n\t</span><span class="s2">"</span><span class="p">,</span> <span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">smiles</span><span class="p">)))</span>
 <span class="n">vocab</span> <span class="o">=</span> <span class="n">build_vocab</span><span class="p">([</span><span class="n">smiles</span><span class="p">],</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Vocab:</span><span class="se">\n\t</span><span class="s2">"</span><span class="p">,</span> <span class="n">vocab</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"OHE:</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">smiles_to_ohe</span><span class="p">(</span><span class="n">smiles</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="n">vocab</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"OHE:</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">smiles_to_ohe</span><span class="p">(</span><span class="n">smiles</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="n">vocab</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1015,9 +1025,9 @@ OHE:
  [0. 0. 0. 1.]]
 </pre></div></div>
 </div>
-<p>Now, we apply these preprocessing steps to our data. For the sake of reducing the runtime, we will be using only a random subset of the whole QM9 dataset. The dataset is split into training, validation and test sets. We build the vocabulary and define the transformation of the target based only on the training set.</p>
+<p>We now apply these preprocessing steps to the dataset. To reduce runtime, we use a random subset of QM9, which we further divide into training, validation, and test sets using a random split. We build the vocabulary and define the target transformation using only the training set to avoid data leakage.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_size</span> <span class="o">=</span> <span class="mi">50000</span>
@@ -1079,7 +1089,7 @@ OHE:
 <h3 id="Models">Models<a class="headerlink" href="#Models" title="Link to this heading">¶</a></h3>
 <p>In this talktorial we compare two recurrent networks. Both of them contain a single recurrent layer followed by a fully-connected layer transforming the hidden state from the last time step to a one-dimensional output. In the <code class="docutils literal notranslate"><span class="pre">RNNRegressionModel</span></code> we use a vanilla RNN architecture, while in <code class="docutils literal notranslate"><span class="pre">GRURegressionModel</span></code> a more advanced GRU architecture.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">RNNRegressionModel</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
@@ -1131,7 +1141,7 @@ OHE:
         <span class="nb">super</span><span class="p">(</span><span class="n">GRURegressionModel</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">hidden_size</span> <span class="o">=</span> <span class="n">hidden_size</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">num_layers</span> <span class="o">=</span> <span class="n">num_layers</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">gru</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GRU</span><span class="p">(</span><span class="n">input_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">,</span> <span class="n">num_layers</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">batch_first</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gru</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GRU</span><span class="p">(</span><span class="n">input_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">,</span> <span class="n">num_layers</span><span class="o">=</span><span class="n">num_layers</span><span class="p">,</span> <span class="n">batch_first</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fc</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 
@@ -1149,7 +1159,7 @@ OHE:
 <section id="Training">
 <h3 id="Training">Training<a class="headerlink" href="#Training" title="Link to this heading">¶</a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">ModelTrainer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -1209,8 +1219,8 @@ OHE:
                 <span class="n">y_pred</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">X_batch</span><span class="p">)</span>
                 <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">criterion</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y_batch</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
                 <span class="n">val_loss</span> <span class="o">+=</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
-                <span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y_pred</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
-                <span class="n">targets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y_batch</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+                <span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y_pred</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+                <span class="n">targets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y_batch</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
 
         <span class="n">predictions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">predictions</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
         <span class="n">targets</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">targets</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
@@ -1231,12 +1241,12 @@ OHE:
 <span class="sd">        """</span>
         <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_epochs</span><span class="p">):</span>
             <span class="n">train_loss</span><span class="p">,</span> <span class="n">train_loss_batches</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_train_epoch</span><span class="p">(</span><span class="n">train_loader</span><span class="p">)</span>
-            <span class="n">val_loss</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eval_epoch</span><span class="p">(</span><span class="n">test_loader</span><span class="p">)</span>
+            <span class="n">val_loss</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eval_epoch</span><span class="p">(</span><span class="n">val_loader</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">batch_loss</span> <span class="o">+=</span> <span class="n">train_loss_batches</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">train_loss</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">train_loss</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">val_loss</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val_loss</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">e</span> <span class="o">%</span> <span class="n">print_every</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Epoch </span><span class="si">{</span><span class="n">e</span><span class="o">+</span><span class="mi">0</span><span class="si">:</span><span class="s2">03</span><span class="si">}</span><span class="s2"> | train_loss: </span><span class="si">{</span><span class="n">train_loss</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2"> | val_loss: </span><span class="si">{</span><span class="n">val_loss</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">e</span> <span class="o">%</span> <span class="n">print_every</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">e</span> <span class="o">==</span> <span class="n">n_epochs</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Epoch </span><span class="si">{</span><span class="n">e</span><span class="si">:</span><span class="s2">03</span><span class="si">}</span><span class="s2"> | train_loss: </span><span class="si">{</span><span class="n">train_loss</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2"> | val_loss: </span><span class="si">{</span><span class="n">val_loss</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val_loader</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
@@ -1259,7 +1269,7 @@ OHE:
 </div>
 <p>Now we define the models and train them for 50 epochs. The hidden state has the same dimension for both models.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_rnn</span> <span class="o">=</span> <span class="n">ModelTrainer</span><span class="p">(</span>
@@ -1270,10 +1280,10 @@ OHE:
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_rnn</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">train_loader</span><span class="p">,</span> <span class="n">val_loader</span><span class="p">,</span> <span class="mi">51</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_rnn</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">train_loader</span><span class="p">,</span> <span class="n">val_loader</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1282,16 +1292,16 @@ OHE:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Epoch 000 | train_loss: 1.00060 | val_loss: 0.93796
-Epoch 010 | train_loss: 0.63185 | val_loss: 0.56341
-Epoch 020 | train_loss: 0.53801 | val_loss: 0.49376
-Epoch 030 | train_loss: 0.50546 | val_loss: 0.45505
-Epoch 040 | train_loss: 0.48365 | val_loss: 0.44333
-Epoch 050 | train_loss: 0.46981 | val_loss: 0.43694
+Epoch 000 | train_loss: 0.99944 | val_loss: 0.95913
+Epoch 010 | train_loss: 0.61774 | val_loss: 0.57837
+Epoch 020 | train_loss: 0.55579 | val_loss: 0.51782
+Epoch 030 | train_loss: 0.51739 | val_loss: 0.50218
+Epoch 040 | train_loss: 0.48915 | val_loss: 0.48103
+Epoch 049 | train_loss: 0.47334 | val_loss: 0.48469
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_gru</span> <span class="o">=</span> <span class="n">ModelTrainer</span><span class="p">(</span>
@@ -1302,10 +1312,10 @@ Epoch 050 | train_loss: 0.46981 | val_loss: 0.43694
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_gru</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">train_loader</span><span class="p">,</span> <span class="n">val_loader</span><span class="p">,</span> <span class="mi">51</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_gru</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">train_loader</span><span class="p">,</span> <span class="n">val_loader</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1314,20 +1324,20 @@ Epoch 050 | train_loss: 0.46981 | val_loss: 0.43694
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Epoch 000 | train_loss: 0.73387 | val_loss: 0.53829
-Epoch 010 | train_loss: 0.43030 | val_loss: 0.40386
-Epoch 020 | train_loss: 0.37359 | val_loss: 0.36704
-Epoch 030 | train_loss: 0.33639 | val_loss: 0.34342
-Epoch 040 | train_loss: 0.31038 | val_loss: 0.32925
-Epoch 050 | train_loss: 0.29032 | val_loss: 0.31914
+Epoch 000 | train_loss: 0.74164 | val_loss: 0.56089
+Epoch 010 | train_loss: 0.44117 | val_loss: 0.44618
+Epoch 020 | train_loss: 0.38290 | val_loss: 0.41924
+Epoch 030 | train_loss: 0.34908 | val_loss: 0.37716
+Epoch 040 | train_loss: 0.32176 | val_loss: 0.38094
+Epoch 049 | train_loss: 0.30159 | val_loss: 0.36670
 </pre></div></div>
 </div>
 </section>
 <section id="Evaluation">
 <h3 id="Evaluation">Evaluation<a class="headerlink" href="#Evaluation" title="Link to this heading">¶</a></h3>
-<p>First, we compare our models’ performance during training. We have plotted the losses on the training and validation sets on each epoch. As we can see, the GRU model trains faster and has better overall performance compared to the Vanilla RNN.</p>
+<p>First, we compare the training and validation losses of both models over the training epochs. As shown in the plots, the GRU model converges faster and achieves lower losses than the vanilla RNN.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">model_rnn</span><span class="o">.</span><span class="n">train_loss</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">"RNN train"</span><span class="p">)</span>
@@ -1344,12 +1354,12 @@ Epoch 050 | train_loss: 0.29032 | val_loss: 0.31914
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T034_recurrent_neural_networks_46_0.png" src="../_images/talktorials_T034_recurrent_neural_networks_46_0.png"/>
+<img alt="../_images/talktorials_T034_recurrent_neural_networks_45_0.png" src="../_images/talktorials_T034_recurrent_neural_networks_45_0.png"/>
 </div>
 </div>
-<p>To further evaluate the performance of the models, we calculate the loss on the testing set and visually compare the predictions to the ground truth values. As we can see from the plot, Vanilla RNN tends to produce more skewed predictions compared to the GRU model.</p>
+<p>Finally, we evaluate both models on the test set and compare their predictions with the true dipole moments.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">axarr</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1359,20 +1369,20 @@ Epoch 050 | train_loss: 0.29032 | val_loss: 0.31914
 <span class="n">loss</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">y_targ</span> <span class="o">=</span> <span class="n">model_rnn</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">test_loader</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"RNN test loss: </span><span class="si">{</span><span class="n">loss</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
-<span class="n">_</span> <span class="o">=</span> <span class="n">axarr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y_targ</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">axarr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_targ</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="n">_</span> <span class="o">=</span> <span class="n">axarr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_targ</span><span class="p">,</span> <span class="n">y_targ</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">"r"</span><span class="p">)</span>
 <span class="n">_</span> <span class="o">=</span> <span class="n">axarr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"RNN"</span><span class="p">)</span>
 
 <span class="n">loss</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">y_targ</span> <span class="o">=</span> <span class="n">model_gru</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">test_loader</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"GRU test loss: </span><span class="si">{</span><span class="n">loss</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
-<span class="n">_</span> <span class="o">=</span> <span class="n">axarr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y_targ</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">axarr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_targ</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="n">_</span> <span class="o">=</span> <span class="n">axarr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_targ</span><span class="p">,</span> <span class="n">y_targ</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">"r"</span><span class="p">)</span>
 <span class="n">_</span> <span class="o">=</span> <span class="n">axarr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"GRU"</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axarr</span><span class="p">:</span>
-    <span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"y_pred"</span><span class="p">)</span>
-    <span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"y_true"</span><span class="p">)</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Ground truth"</span><span class="p">)</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Model prediction"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1381,22 +1391,25 @@ Epoch 050 | train_loss: 0.29032 | val_loss: 0.31914
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-RNN test loss: 0.437
-GRU test loss: 0.319
+RNN test loss: 0.450
+GRU test loss: 0.329
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T034_recurrent_neural_networks_48_1.png" src="../_images/talktorials_T034_recurrent_neural_networks_48_1.png"/>
+<img alt="../_images/talktorials_T034_recurrent_neural_networks_47_1.png" src="../_images/talktorials_T034_recurrent_neural_networks_47_1.png"/>
 </div>
 </div>
+<p>The GRU predictions are generally closer to the diagonal, indicating better agreement with the true values. However, both models tend to underestimate larger dipole moments.</p>
 </section>
 </section>
 <section id="Discussion">
 <h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Link to this heading">¶</a></h2>
-<p>Natural language processing-based models proved to be a powerful tool for a wide range of molecular tasks. In this talktorial we introduced the basics of Recurrent Neural Network architectures and demonstrated their application to the regression task on the QM9 dataset. We have learned how to pre-process SMILES strings, build a model using PyTorch, and train the model to predict the dipole moment of the molecule.</p>
+<p>Natural language processing techniques have found applications in a wide range of cheminformatics tasks. In this talktorial, we introduced the fundamentals of recurrent neural networks (RNNs) and demonstrated their application to molecular property prediction using the QM9 dataset. We explored how to preprocess SMILES strings, implement and train RNN-based models in PyTorch, and evaluate their performance in predicting molecular dipole moments.</p>
+<p>To keep the examples simple and computationally inexpensive, we used simplified model architectures, fixed hyperparameters, and random data splitting. For real-world applications, model architectures and hyperparameters such as the hidden-state dimension, number of recurrent layers, learning rate, and batch size can be optimized for better performance. Readers can try different configurations by changing the model parameters and training settings above and comparing their performance on the
+validation set. For an overview of hyperparameter tuning strategies, see <a class="reference external" href="https://doi.org/10.1002/widm.1484">Bischl et al. (2023)</a>.</p>
 </section>
 <section id="Quiz">
 <h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Link to this heading">¶</a></h2>

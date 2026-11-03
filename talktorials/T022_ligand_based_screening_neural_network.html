@@ -82,14 +82,14 @@
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
   
-    <title>T022 · Ligand-based screening: neural networks &#8212; TeachOpenCADD 2026.4.1.post38 documentation</title>
+    <title>T022 · Ligand-based screening: neural networks &#8212; TeachOpenCADD 2026.4.1.post112 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=fd6457a4" />
     <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=897d968c" />
-    <script src="../_static/documentation_options.js?v=25e3a83e"></script>
+    <script src="../_static/documentation_options.js?v=3e037279"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -127,7 +127,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../index.html" title="TeachOpenCADD 2026.4.1.post38 documentation"
+        <a href="../index.html" title="TeachOpenCADD 2026.4.1.post112 documentation"
            class="md-header-nav__button md-logo">
           
             <i class="md-icon">school</i>
@@ -225,13 +225,13 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../index.html" title="TeachOpenCADD 2026.4.1.post38 documentation" class="md-nav__button md-logo">
+    <a href="../index.html" title="TeachOpenCADD 2026.4.1.post112 documentation" class="md-nav__button md-logo">
       
         <i class="md-icon">school</i>
       
     </a>
     <a href="../index.html"
-       title="TeachOpenCADD 2026.4.1.post38 documentation">TeachOpenCADD</a>
+       title="TeachOpenCADD 2026.4.1.post112 documentation">TeachOpenCADD</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
@@ -638,7 +638,7 @@ data set that are predicted to be the most active against that kinase.</p>
 <section id="What-is-a-neural-network?">
 <h4 id="What-is-a-neural-network?">What is a neural network?<a class="headerlink" href="#What-is-a-neural-network?" title="Link to this heading">¶</a></h4>
 <p>Neural networks, also known as artificial neural networks (ANNs), are a subset of machine learning algorithms. The structure and the name of the neural network is inspired by the human brain, mimicking the way that biological neurons transfer signals to one another.</p>
-<img alt="Basic structure" src="../_images/basic_structure.png"/>
+<p><img alt="Basic structure" src="../_images/basic_structure.png"/></p>
 <p><em>Figure 1:</em> The figure shows the basic structure of an artificial neural network. It is taken from the blogpost: “<em>Designing Your Neural Networks</em>”, Lavanya Shukla, <a class="reference external" href="https://towardsdatascience.com/designing-your-neural-networks-a5e4617027ed">towardsdatascience</a>.</p>
 <p>ANNs consist of three main layers as shown in the figure above: the <em>input layer</em>, some <em>hidden layers</em> and the <em>output layer</em>. Let’s take a deeper look at each of them.</p>
 <ol class="arabic simple">
@@ -667,7 +667,7 @@ data set that are predicted to be the most active against that kinase.</p>
 </li>
 </ol>
 <p><strong>Neurons</strong> are the core units of a neural network. Let’s look into the operations done by each neuron to understand the overall mechanism of a neural network.</p>
-<img alt="Neuron" src="../_images/neuron.png"/>
+<p><img alt="Neuron" src="../_images/neuron.png"/></p>
 <p><em>Figure 2:</em> Operations done by a neuron. The figure is taken from the blogpost: “<em>First neural network for beginners explained (with code)</em>”, Arthur Arnx, <a class="reference external" href="https://towardsdatascience.com/first-neural-network-for-beginners-explained-with-code-4cfd37e06eaf">towardsdatascience</a>.</p>
 <p>Each input neuron <span class="math notranslate nohighlight">\(x_i\)</span> is multiplied by a weight <span class="math notranslate nohighlight">\(w_i\)</span>. In Figure 2, we have <span class="math notranslate nohighlight">\((x1, x2, x3)\)</span> and <span class="math notranslate nohighlight">\((w1, w2, w3)\)</span>. The value of a weight determines the influence that the input neuron will have on the neuron of the next layer. The multiplied values are then summed. An additional value, called bias, is also added and allows to shift the activation function. This new value becomes the value of the hidden neuron. Mathematically, we have:</p>
 <div class="math notranslate nohighlight">
@@ -679,7 +679,7 @@ data set that are predicted to be the most active against that kinase.</p>
 <h4 id="Activation-function">Activation function<a class="headerlink" href="#Activation-function" title="Link to this heading">¶</a></h4>
 <p><strong>What is an activation function?</strong></p>
 <p>An <a class="reference external" href="https://en.wikipedia.org/wiki/Activation_function">activation function</a> regulates the amount of information passed through a neural network. This function is applied to each neuron and determines whether the neuron should be activated or not. It works as a “gate” between the input feeding the current neuron and its output going to the next layer as shown in the figure below.</p>
-<img alt="Activation" src="../_images/activation.png"/>
+<p><img alt="Activation" src="../_images/activation.png"/></p>
 <p><em>Figure 3:</em> The figure shows an activation function applied on a neuron. It is taken from the blogpost: <a class="reference external" href="https://medium.com/analytics-vidhya/why-activation-functions-8328f3f21120">Why Activation Functions?</a></p>
 <p><strong>Types of activation function</strong></p>
 <p>There are many types of activation functions, but we only discuss the two which we use in the practical section below. For more information, see the supplementary section and references. Most neural networks use non-linear activation functions in the hidden layers to learn complex features and adapt to a variety of data.</p>
@@ -693,7 +693,7 @@ data set that are predicted to be the most active against that kinase.</p>
 <li><p>It has become the default activation function for many types of neural networks because it makes the training of a model less expensive and the model often achieves better performance.</p></li>
 <li><p>A possible drawback of ReLU is the so-called <em>dying ReLU problem</em> where neurons get stuck as inactive for all inputs, it is a form of <a class="reference external" href="https://en.wikipedia.org/wiki/Vanishing_gradient_problem">vanishing gradient problem</a>.</p></li>
 </ul>
-<img alt="ReLU" src="../_images/relu.png"/>
+<p><img alt="ReLU" src="../_images/relu.png"/></p>
 <p><em>Figure 4:</em> Representation of the <em>ReLU</em> function. Figure by Sakshi Misra.</p>
 <ol class="arabic simple" start="2">
 <li><p>Linear activation function</p></li>
@@ -797,8 +797,12 @@ version of gradient descent and has shown to give good results in a wide range o
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-2025-11-19 09:03:30.888717: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793626661.897126  264294 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+I0000 00:00:1793626661.932825  264294 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793626662.989698  264294 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -845,18 +849,18 @@ To enable the following instructions: AVX2 FMA, in other operations, rebuild Ten
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Shape of dataframe :  (3906, 5)
-&lt;class 'pandas.core.frame.DataFrame'&gt;
+&lt;class 'pandas.DataFrame'&gt;
 RangeIndex: 3906 entries, 0 to 3905
 Data columns (total 5 columns):
  #   Column            Non-Null Count  Dtype
 ---  ------            --------------  -----
- 0   chembl_id         3906 non-null   object
+ 0   chembl_id         3906 non-null   str
  1   IC50              3906 non-null   float64
- 2   units             3906 non-null   object
- 3   canonical_smiles  3906 non-null   object
+ 2   units             3906 non-null   str
+ 3   canonical_smiles  3906 non-null   str
  4   pIC50             3906 non-null   float64
-dtypes: float64(2), object(3)
-memory usage: 152.7+ KB
+dtypes: float64(2), str(3)
+memory usage: 152.7 KB
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1012,10 +1016,78 @@ memory usage: 152.7+ KB
 </table>
 </div></div>
 </div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># De-duplicate measurements using the mean</span>
+<span class="n">chembl_df</span> <span class="o">=</span> <span class="n">chembl_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"canonical_smiles"</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="s2">"mean"</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">chembl_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>canonical_smiles</th>
+<th>pIC50</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>BrC1=CC(=CNN=C2SCC(=O)N2)C(=O)C=C1</td>
+<td>7.045757</td>
+</tr>
+<tr>
+<th>1</th>
+<td>BrC1=CC(=CNc2ccc(S(=O)(=O)N3CCCCC3)cc2)C(=O)C=C1</td>
+<td>5.013228</td>
+</tr>
+<tr>
+<th>2</th>
+<td>BrC1Cc2c([nH]c(/C=C/3\C(=O)Nc4c\3cccc4)c2)CC1</td>
+<td>4.876148</td>
+</tr>
+<tr>
+<th>3</th>
+<td>BrC=1C(=CNc2cc3NC(=O)Nc3cc2)C(=O)C(OC)=CC=1Br</td>
+<td>4.052223</td>
+</tr>
+<tr>
+<th>4</th>
+<td>BrC=1C(=CNc2cc3NC(=O)Nc3cc2)C(=O)C(OCC)=CC=1Br</td>
+<td>4.115205</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
 <p><strong>Molecular encoding</strong></p>
 <p>We convert the SMILES string to numerical data to apply a neural network. We use the already defined function <code class="docutils literal notranslate"><span class="pre">smiles_to_fp</span></code> from <strong>Talktorial T007</strong> which generates fingerprints from SMILES. The default encoding are MACCS keys with 166 bits (see <strong>Talktorial T007</strong> for more information on molecular encoding).</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">smiles_to_fp</span><span class="p">(</span><span class="n">smiles</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"maccs"</span><span class="p">,</span> <span class="n">n_bits</span><span class="o">=</span><span class="mi">2048</span><span class="p">):</span>
@@ -1058,7 +1130,7 @@ memory usage: 152.7+ KB
 </div>
 <p>Convert all SMILES strings to MACCS fingerprints.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chembl_df</span><span class="p">[</span><span class="s2">"fingerprints_df"</span><span class="p">]</span> <span class="o">=</span> <span class="n">chembl_df</span><span class="p">[</span><span class="s2">"canonical_smiles"</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">smiles_to_fp</span><span class="p">)</span>
@@ -1075,11 +1147,11 @@ memory usage: 152.7+ KB
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Shape of dataframe: (3906, 3)
+Shape of dataframe: (3884, 3)
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1109,20 +1181,20 @@ Shape of dataframe: (3906, 3)
 <tbody>
 <tr>
 <th>0</th>
-<td>Clc1c(OCc2cc(F)ccc2)ccc(Nc2c(C#Cc3ncccn3)cncn2)c1</td>
-<td>7.113509</td>
+<td>BrC1=CC(=CNN=C2SCC(=O)N2)C(=O)C=C1</td>
+<td>7.045757</td>
 <td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
 </tr>
 <tr>
 <th>1</th>
-<td>ClCC(=O)OCCN1C(=O)Oc2c1cc1c(Nc3cc(Cl)c(F)cc3)n...</td>
-<td>6.481486</td>
+<td>BrC1=CC(=CNc2ccc(S(=O)(=O)N3CCCCC3)cc2)C(=O)C=C1</td>
+<td>5.013228</td>
 <td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
 </tr>
 <tr>
 <th>2</th>
-<td>FC(F)(F)c1cc(Nc2n(C(C)C)c3nc(Nc4ccc(N5CC[NH+](...</td>
-<td>9.000000</td>
+<td>BrC1Cc2c([nH]c(/C=C/3\C(=O)Nc4c\3cccc4)c2)CC1</td>
+<td>4.876148</td>
 <td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
 </tr>
 </tbody>
@@ -1132,7 +1204,7 @@ Shape of dataframe: (3906, 3)
 <p>Next, we define <span class="math notranslate nohighlight">\(x\)</span>, the <strong>features</strong>, and <span class="math notranslate nohighlight">\(y\)</span>, the <strong>target data</strong> which will be used to train the model. In our case, features are the bit vectors and the target values are the pIC50 values of the molecules.</p>
 <p>We use <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code> from the <em>scikit-learn</em> library to split the data into 70% training and 30% test data.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Split the data into training and test set</span>
@@ -1152,8 +1224,8 @@ Shape of dataframe: (3906, 3)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Shape of training data: (2734,)
-Shape of test data: (1172,)
+Shape of training data: (2718,)
+Shape of test data: (1166,)
 </pre></div></div>
 </div>
 </section>
@@ -1161,7 +1233,7 @@ Shape of test data: (1172,)
 <h3 id="Define-neural-network">Define neural network<a class="headerlink" href="#Define-neural-network" title="Link to this heading">¶</a></h3>
 <p>A keras model is defined by specifying the number of neurons in the hidden layers and the activation function as arguments. For our purpose, we define a model with <em>two hidden layers</em>. We use ReLU in the hidden layers and a linear function on the output layer, since the aim is to predict pIC50 values. Finally, we compile the model using the <em>mean squared error</em> as a loss argument and <em>adam</em> as an optimizer.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">neural_network_model</span><span class="p">(</span><span class="n">hidden1</span><span class="p">,</span> <span class="n">hidden2</span><span class="p">):</span>
@@ -1203,7 +1275,7 @@ Shape of test data: (1172,)
 <h3 id="Train-the-model">Train the model<a class="headerlink" href="#Train-the-model" title="Link to this heading">¶</a></h3>
 <p>We try different mini-batch sizes and plot the respective losses.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Neural network parameters</span>
@@ -1215,7 +1287,7 @@ Shape of test data: (1172,)
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot</span>
@@ -1247,18 +1319,26 @@ Shape of test data: (1172,)
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+E0000 00:00:1793626667.319518  264294 cuda_platform.cc:52] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T022_ligand_based_screening_neural_network_45_0.png" src="../_images/talktorials_T022_ligand_based_screening_neural_network_45_0.png"/>
+<img alt="../_images/talktorials_T022_ligand_based_screening_neural_network_46_1.png" src="../_images/talktorials_T022_ligand_based_screening_neural_network_46_1.png"/>
 </div>
 </div>
 <p>From the loss plots above, a batch of size 16 seems to give the best performance.</p>
 <p>A <a class="reference external" href="https://keras.io/api/callbacks/">ModelCheckpoint callback</a> is used to save the best model/weights (in a checkpoint file) at some interval, so the model/weights can either be saved as it or be loaded later to continue the training from the state saved.</p>
 <p>Now, we train the model with a batch size of 16 (because as seen from the figure above, it has the lowest test loss) and we save the weights that give the best perfomance in the file <code class="docutils literal notranslate"><span class="pre">best_weights.hdf5</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save the trained model</span>
@@ -1286,12 +1366,12 @@ Shape of test data: (1172,)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;keras.src.callbacks.history.History at 0x1331921e0&gt;
+&lt;keras.src.callbacks.history.History at 0x7f6f597619a0&gt;
 </pre></div></div>
 </div>
 </section>
@@ -1299,7 +1379,7 @@ Shape of test data: (1172,)
 <h3 id="Evaluation-&amp;-prediction-on-test-set">Evaluation &amp; prediction on test set<a class="headerlink" href="#Evaluation-&amp;-prediction-on-test-set" title="Link to this heading">¶</a></h3>
 <p>The <a class="reference external" href="https://keras.io/api/models/model_training_apis/#evaluate-method">evaluate()</a> method is used to check the performance of our model. It reports the <strong>loss</strong> (which is the mse in our case) as well as evaluation metrics (which are the <strong>mse</strong> and <strong>mae</strong>).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Evalute the model</span>
@@ -1317,15 +1397,15 @@ Shape of test data: (1172,)
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Evaluate the model on the test data
- loss: 1.23
- mse (same as loss): 1.23
+ loss: 1.25
+ mse (same as loss): 1.25
  mae: 0.84
 </pre></div></div>
 </div>
 <p>The mean absolute error on the test set is as below <span class="math notranslate nohighlight">\(1.0\)</span> which given the range of pIC50 values is pretty low.</p>
 <p>We now predict the pIC50 values on the test data.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Predict pIC50 values on x_test data</span>
@@ -1341,19 +1421,19 @@ Evaluate the model on the test data
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-bold">37/37</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 3ms/step
-4.90
-7.97
-6.96
-8.04
-8.75
+<span class="ansi-bold">37/37</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 1ms/step
+5.81
+5.20
+3.20
+7.83
+2.90
 </pre></div></div>
 </div>
 <section id="Scatter-plot">
 <h4 id="Scatter-plot">Scatter plot<a class="headerlink" href="#Scatter-plot" title="Link to this heading">¶</a></h4>
 <p>To visualize the predictions, we plot the predicted vs. the true pIC50 values on the test set.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Scatter plot</span>
@@ -1376,7 +1456,7 @@ Evaluate the model on the test data
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T022_ligand_based_screening_neural_network_55_0.png" src="../_images/talktorials_T022_ligand_based_screening_neural_network_55_0.png"/>
+<img alt="../_images/talktorials_T022_ligand_based_screening_neural_network_56_0.png" src="../_images/talktorials_T022_ligand_based_screening_neural_network_56_0.png"/>
 </div>
 </div>
 <p>As we can see, there is a positive linear relation between the predicted and true values, but the fit is far from perfect.</p>
@@ -1386,7 +1466,7 @@ Evaluate the model on the test data
 <h3 id="Prediction-on-external/unlabeled-data">Prediction on external/unlabeled data<a class="headerlink" href="#Prediction-on-external/unlabeled-data" title="Link to this heading">¶</a></h3>
 <p>We use the trained neural network to predict the pIC50 values on the unlabeled compounds from the <code class="docutils literal notranslate"><span class="pre">test.csv</span></code>file.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load external/unlabeled data set</span>
@@ -1398,7 +1478,7 @@ Evaluate the model on the test data
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1450,7 +1530,7 @@ Evaluate the model on the test data
 </div>
 <p>We use the same <code class="docutils literal notranslate"><span class="pre">smiles_to_fp</span></code> function and convert the SMILES strings into MACCS fingerprints.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert SMILES strings to MACCS fingerprints</span>
@@ -1472,7 +1552,7 @@ Shape of dataframe :  (60, 2)
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1520,7 +1600,7 @@ Shape of dataframe :  (60, 2)
 </div>
 <p><strong>Note</strong>: For reproducibility of the results, we saved one model under <code class="docutils literal notranslate"><span class="pre">ANN_model.hdf5</span></code>, with the same architecture as above. Even though the model is the same, the weights that are saved from one simulation to another might differ due to the randomness in the <em>stochastic</em> gradient algorithm. We load the ANN model weights with the <a class="reference external" href="https://keras.io/api/models/model_saving_apis/#loadmodel-function">load_model()</a> function.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load model</span>
@@ -1529,7 +1609,7 @@ Shape of dataframe :  (60, 2)
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Prediction on external/unlabeled data</span>
@@ -1549,11 +1629,11 @@ Shape of dataframe :  (60, 2)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-bold">2/2</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 67ms/step
+<span class="ansi-bold">2/2</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 29ms/step
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1604,7 +1684,7 @@ Shape of dataframe :  (60, 2)
 </div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save the predicted values in a csv file in the data folder</span>
@@ -1616,7 +1696,7 @@ Shape of dataframe :  (60, 2)
 <h4 id="Select-the-top-3-compounds">Select the top 3 compounds<a class="headerlink" href="#Select-the-top-3-compounds" title="Link to this heading">¶</a></h4>
 <p>We select the 3 compounds with the highest predicted pIC50 values, which could be further investigated as potential EGRF inhibitors.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select top 3 drugs</span>
@@ -1627,7 +1707,7 @@ Shape of dataframe :  (60, 2)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1678,7 +1758,7 @@ Shape of dataframe :  (60, 2)
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Draw the drug molecules</span>
@@ -1693,11 +1773,11 @@ Shape of dataframe :  (60, 2)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T022_ligand_based_screening_neural_network_69_0.png" src="../_images/talktorials_T022_ligand_based_screening_neural_network_69_0.png"/>
+<img alt="../_images/talktorials_T022_ligand_based_screening_neural_network_70_0.png" src="../_images/talktorials_T022_ligand_based_screening_neural_network_70_0.png"/>
 </div>
 </div>
 </section>
@@ -1706,7 +1786,7 @@ Shape of dataframe :  (60, 2)
 <section id="Discussion">
 <h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Link to this heading">¶</a></h2>
 <p>From above we can see that there are some similarities between the three molecules. For example, they contain an aniline and pyrimidine group, as well as several aromatic carbon rings.</p>
-<img alt="Drug similarity" src="../_images/drugs_similarity.png"/>
+<p><img alt="Drug similarity" src="../_images/drugs_similarity.png"/></p>
 <p><em>Figure 5:</em> Representing similarities between selected top three drug molecules.</p>
 <p>Since the external/unlabeled data is also taken from ChEMBL, we can double check if our predictions make sense. For example, the first compound with SMILES <code class="docutils literal notranslate"><span class="pre">Brc1cc(Nc2ncnc3nc(NC)ccc23)ccc1</span></code> and predicted pIC50 value of 8.48, has a high tested affinity against EGFR: a pIC50 value of 7.28, see entry <a class="reference external" href="https://www.ebi.ac.uk/chembl/compound_report_card/CHEMBL298637/">CHEMBL298637</a>.</p>
 <p>Using the neural network for predictive modeling has some advantages: it is not as time consuming as laboratory experiments and it is much cheaper. It also hints at the kind of molecules that could be further investigated as potential EGFR inhibitors.</p>
@@ -1739,7 +1819,7 @@ Shape of dataframe :  (60, 2)
 </ul>
 </li>
 </ol>
-<img alt="sigmoid" src="../_images/sigmoid.png"/>
+<p><img alt="sigmoid" src="../_images/sigmoid.png"/></p>
 <p><em>Figure 6:</em> Representation of the sigmoid function. Figure by Sakshi Misra.</p>
 <ol class="arabic" start="2">
 <li><p><strong>Hyperbolic Tangent function or tanh</strong>: It takes the form:</p>
@@ -1751,7 +1831,7 @@ Shape of dataframe :  (60, 2)
 </ul>
 </li>
 </ol>
-<img alt="tanh" src="../_images/tanh.png"/>
+<p><img alt="tanh" src="../_images/tanh.png"/></p>
 <p><em>Figure 7:</em> Representation of the hyperbolic tangent <em>tanh</em> function. Figure by Sakshi Misra.</p>
 <ol class="arabic" start="3">
 <li><p><strong>Leaky Rectified Linear Unit</strong>: it takes the form:</p>
@@ -1764,7 +1844,7 @@ Shape of dataframe :  (60, 2)
 </ul>
 </li>
 </ol>
-<img alt="leaky" src="../_images/leaky.png"/>
+<p><img alt="leaky" src="../_images/leaky.png"/></p>
 <p><em>Figure 8:</em> Representation of the “Leaky ReLU” function. Figure by Sakshi Misra.</p>
 <p>Which activation function do we choose?</p>
 <p>It mainly depends on the type of problem you are trying to solve and the computation cost. There are many activation functions, but the general idea remains the same. Please refer to the article by H. N. Mhaskar, <a class="reference external" href="https://papers.nips.cc/paper/1993/file/51ef186e18dc00c2d31982567235c559-Paper.pdf">How to Choose an Activation Function</a> for more details.</p>
@@ -1999,23 +2079,7 @@ Shape of dataframe :  (60, 2)
 <span class="nb">print</span><span class="p">(</span><span class="n">activation2</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
 </pre></div>
 </div>
-</details><div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-</div>
-<script type="application/vnd.jupyter.widget-state+json">
+</details><script type="application/vnd.jupyter.widget-state+json">
 {"state": {}, "version_major": 2, "version_minor": 0}
 </script></section>
 </section>

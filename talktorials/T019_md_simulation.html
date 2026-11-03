@@ -82,14 +82,14 @@
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
   
-    <title>T019 · Molecular dynamics simulation &#8212; TeachOpenCADD 2026.4.1.post38 documentation</title>
+    <title>T019 · Molecular dynamics simulation &#8212; TeachOpenCADD 2026.4.1.post112 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=fd6457a4" />
     <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=897d968c" />
-    <script src="../_static/documentation_options.js?v=25e3a83e"></script>
+    <script src="../_static/documentation_options.js?v=3e037279"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -127,7 +127,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../index.html" title="TeachOpenCADD 2026.4.1.post38 documentation"
+        <a href="../index.html" title="TeachOpenCADD 2026.4.1.post112 documentation"
            class="md-header-nav__button md-logo">
           
             <i class="md-icon">school</i>
@@ -225,13 +225,13 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../index.html" title="TeachOpenCADD 2026.4.1.post38 documentation" class="md-nav__button md-logo">
+    <a href="../index.html" title="TeachOpenCADD 2026.4.1.post112 documentation" class="md-nav__button md-logo">
       
         <i class="md-icon">school</i>
       
     </a>
     <a href="../index.html"
-       title="TeachOpenCADD 2026.4.1.post38 documentation">TeachOpenCADD</a>
+       title="TeachOpenCADD 2026.4.1.post112 documentation">TeachOpenCADD</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
@@ -592,7 +592,7 @@ mind offers us, in the perfection which it has given to astronomy, a faint sketc
 <p>Let us just take this statement by Laplace as the ideological substrate underneath molecular dynamics simulations. In other terms, we can approximate the behavior of a physical system by knowing the characteristics of its components and applying Newton’s laws of motion. By solving the equations of motion, we can obtain a molecular trajectory of the system, which is a series of snapshots with the positions and velocities of all its particles, as well as its potential energy. To do so, we define
 functions, called force fields, which provide an approximate description of all the forces applied to each particle in the system. We then use numerical integrators to solve the initial value problem for the system and obtain the trajectory. As it sounds, the process requires quite a bit of processing power and it was only few years ago that MD started seeing a more widespread use, especially in the field of computational chemistry and biology, as well as in drug discovery (<a class="reference external" href="https://doi.org/10.1021/acs.jmedchem.5b01684">J Med Chem (2016),
 59(9), 4035‐4061</a>).</p>
-<img alt="MD_rotor_250K_1ns.gif" src="https://github.com/volkamerlab/teachopencadd/raw/d1ded86bb2c82ef088cc5145d0bcb997f6eab7dd/teachopencadd/talktorials/018_md_simulation/images/MD_rotor_250K_1ns.gif"/>
+<p><img alt="MD_rotor_250K_1ns.gif" src="https://github.com/volkamerlab/teachopencadd/raw/d1ded86bb2c82ef088cc5145d0bcb997f6eab7dd/teachopencadd/talktorials/018_md_simulation/images/MD_rotor_250K_1ns.gif"/></p>
 <p><strong>Figure 1</strong>: Molecular dynamics simulation of the rotation of a supramolecule composed of three molecules in a confined nanoscopic pore (Palma et al. via <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=34866205">Wikimedia</a>).</p>
 </section>
 <section id="Force-fields">
@@ -607,14 +607,14 @@ potential energy with respect to the coordinates of the atoms.</p>
 <p>The formula consists of a sum of different components. The first three components contain information about bond lengths, angles and torsions (intramolecular forces). The last component describes intermolecular, non-bonded forces like van-der-Waals forces and electrostatic interactions. The various parameters, denoted by a superscript 0, depend on the force field used and vary between all members of the AMBER force field family. Note that these force fields assume fixed-charge particles and do
 not allow polarization, nor do they consider how a local charge influences its surroundings.</p>
 <p>The following visual representation of force fields components shows the same concepts in a more intuitive way.</p>
-<img alt="MM_PEF.png" src="https://github.com/volkamerlab/teachopencadd/raw/d1ded86bb2c82ef088cc5145d0bcb997f6eab7dd/teachopencadd/talktorials/018_md_simulation/images/MM_PEF.png"/>
+<p><img alt="MM_PEF.png" src="https://github.com/volkamerlab/teachopencadd/raw/d1ded86bb2c82ef088cc5145d0bcb997f6eab7dd/teachopencadd/talktorials/018_md_simulation/images/MM_PEF.png"/></p>
 <p><strong>Figure 2</strong>: Components of a molecular mechanics force field (Edboas via <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=4194424">Wikimedia</a>).</p>
 </section>
 <section id="Boundary-conditions">
 <h3 id="Boundary-conditions">Boundary conditions<a class="headerlink" href="#Boundary-conditions" title="Link to this heading">¶</a></h3>
 <p>Often, molecular systems are simulated in a box filled with solvent such as water. These boxes are of finite size, which results in problems for molecules at or near the box boundaries. With which molecules should those interact? Periodic boundary conditions can avoid such boundary artifacts by simulating a theoretically infinite system. Molecules at one boundary of the box thereby interact with molecules at the boundary on the other side of the box. This mimics a situation, in which the
 simulation box is surrounded by replicas of itself. When visualizing such MD simulations, one can often observe that particles leave the box at one side (Fig. 3). However, they re-appear at the same time on the other side of the box with the same velocity. For simulations under periodic boundary conditions, it is recommended to use a simulation box large enough, so that the simulated macromolecule does not come into contact with neighboring images of itself.</p>
-<img alt="MD_water.gif" src="https://github.com/volkamerlab/teachopencadd/raw/d1ded86bb2c82ef088cc5145d0bcb997f6eab7dd/teachopencadd/talktorials/018_md_simulation/images/MD_water.gif"/>
+<p><img alt="MD_water.gif" src="https://github.com/volkamerlab/teachopencadd/raw/d1ded86bb2c82ef088cc5145d0bcb997f6eab7dd/teachopencadd/talktorials/018_md_simulation/images/MD_water.gif"/></p>
 <p><strong>Figure 3</strong>: Molecular dynamics simulation of water molecules with periodic boundary conditions (Kmckiern via <a class="reference external" href="https://commons.wikimedia.org/wiki/File:MD_water.gif">Wikimedia</a>).</p>
 </section>
 <section id="MD-simulations-and-drug-design">
@@ -628,7 +628,7 @@ simulations pose a valuable asset in computational drug design.</p>
 <p>The <strong>E</strong>pidermal <strong>G</strong>rowth <strong>F</strong>actor <strong>R</strong>eceptor (EGFR) is an important drug target with implications in cancer and inflammation (<a class="reference external" href="https://en.wikipedia.org/wiki/Epidermal_growth_factor_receptor">Wikipedia</a>). It is a transmembrane protein with an extracellular receptor domain and an intracellular kinase domain. The binding of the endogenous ligand epidermal growth factor results in activation of the kinase domain via dimerization and autophosphorylation. The activated kinase domain
 can then phosphorylate downstream signaling proteins triggering DNA synthesis and cell proliferation (<a class="reference external" href="https://dx.doi.org/10.3390%2Fcancers9050052">Cancers (Basel) (2017), 9(5), 52</a>). Inhibition of this kinase is the underlying mechanism of action of several already approved cancer drugs (<a class="reference external" href="https://go.drugbank.com/bio_entities/BE0000767">DrugBank</a>). In this talktorial, we use the PDB structure <strong>3POZ</strong> of this kinase, which is in complex with the small molecule inhibitor <strong>03P</strong>, to
 perform an MD simulation (<a class="reference external" href="https://www.rcsb.org/structure/3poz">PDB: 3POZ</a>).</p>
-<img alt="3poz_assembly-1.jpeg" src="https://github.com/volkamerlab/teachopencadd/raw/ed3b2b6b655589d71355295af4c89363a63558b9/teachopencadd/talktorials/018_md_simulation/images/3poz_assembly-1.jpeg"/>
+<p><img alt="3poz_assembly-1.jpeg" src="https://github.com/volkamerlab/teachopencadd/raw/ed3b2b6b655589d71355295af4c89363a63558b9/teachopencadd/talktorials/018_md_simulation/images/3poz_assembly-1.jpeg"/></p>
 <p><strong>Figure 4</strong>: Structure 3POZ of the EGFR kinase domain bound to inhibitor 03P (<a class="reference external" href="https://www.rcsb.org/structure/3poz">PDB: 3POZ</a>).</p>
 </section>
 </section>
