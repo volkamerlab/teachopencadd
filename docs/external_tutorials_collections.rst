@@ -13,6 +13,7 @@ If you wish to get started first with a Python programming introduction before d
 - `Core lessons <https://software-carpentry.org/lessons/>`_ by the `Software Carpentry <https://software-carpentry.org/>`_: Introduction to Python, Git, command line interfaces and more
 - `Best practices for Python, Git and Jupyter <https://zenodo.org/record/4630714>`_, a slide deck used in the introduction of our CADD Block course 2021, part of the Master's degree in Bioinformatics curriculum at the Freie Universität (FU) Berlin.
 - `5 Minutes of Fame <https://github.com/czodrowskilab/5minfame>`_ by the Czodrowski Lab are short sessions on Python-centric scientific and teachnological news
+- `Visualization Tool memory_graph <https://github.com/bterwijn/memory_graph?tab=readme-ov-file#installation>`_ visualizes Python data during execution to help debug and better understand the Python Data Model: references, mutability, shallow vs deep copy.
 
 .. _jupyter_tutorial:
 
