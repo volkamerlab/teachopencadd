@@ -57,8 +57,13 @@ The fastest way to explore is via **Google Colab**. No installation is required.
 ### Run Locally
 To set up the project on your machine you can use the TeachOpenCADD runner. This takes care of downloading the talktorial and necessary data and setting up a virtual environment for talktorials.
 
-#### Using `pip`
-You can install TeachOpenCADD easily via its pip package.
+#### Using a virtual environment
+Create and activate a virtual environment in a folder of your choice.
+```bash
+python -m venv .venv
+source .venv/bin/activate
+```
+Now you can install TeachOpenCADD via its pip package.
 ```bash
 pip install teachopencadd
 teachopencadd -h
